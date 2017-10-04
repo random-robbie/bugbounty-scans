@@ -1,0 +1,1343 @@
+<cq:includeClientLib categories="cq.jquery"/>
+<!doctype html>
+  <html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Getting started with cards — Twitter
+      Developers</title>
+<meta name="description"/>
+<link rel="canonical" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html">
+
+
+
+<meta property="og:url" content="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Getting started with cards"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <link rel="alternate" hreflang="en" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html"/>
+
+
+<meta name="twitter:widgets:new-embed-design" content="on"/>
+<meta name="twitter:widgets:csp" content="on"/>
+
+<link href="https://abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+
+
+<script type="application/json" id="analytics-settings">{&quot;google&quot;:{&quot;accounts&quot;:[],&quot;options&quot;:{&quot;displayAdvertisingFeatures&quot;:false}},&quot;scribe&quot;:{&quot;scribeSectionWithImpression&quot;:false},&quot;trackingPixel&quot;:{},&quot;bing&quot;:{}}</script>
+
+    
+<script type="text/javascript" src="/etc/clientlibs/dtm/developer-twitter/ac0b17d7a4556cd264c3df3fac5054e8fd5023f8/satelliteLib-bcb222e3dbd22c730c028ee768fd0b3bea0a8ea0.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/critical.css" media="all"/>
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/app.css" media="all"/>
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/universal.css" media="all"/>
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/structure.css" media="all"/>
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/content.css" media="all"/>
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/page.css" media="all"/>
+<link rel="stylesheet" href="/etc/designs/developer-twitter/public/css/docs.css" media="all"/>
+
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/common.js"></script>
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/critical.js"></script>
+<script type="text/javascript" src="/etc/designs/developer-twitter/onload.js"></script>
+
+  </head>
+  <body class="theme--purple page documentation-page " data-analytics-page="developer" data-analytics-section="docs" data-analytics-component="tweets/optimize-with-cards/guides/getting-started" data-analytics-element="page">
+      <div id="component-wrapper">
+        
+<div class="nav theme-bg-color--dark" data-hidden="true" data-current-level="0">
+     <div class="nav--wrapper">
+         <header class="nav__header">
+            
+            <div class="nav__headeritem-left">
+               <div class="nav__headeritem-title">
+                 <a href="https://developer.twitter.com/en.html" class="logo-title color--neutral-white">
+                    <span class="logo">
+                      
+                      <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72"><path d="M67.812 16.141a26.246 26.246 0 0 1-7.519 2.06 13.134 13.134 0 0 0 5.756-7.244 26.127 26.127 0 0 1-8.313 3.176A13.075 13.075 0 0 0 48.182 10c-7.229 0-13.092 5.861-13.092 13.093 0 1.026.118 2.021.338 2.981-10.885-.548-20.528-5.757-26.987-13.679a13.048 13.048 0 0 0-1.771 6.581c0 4.542 2.312 8.551 5.824 10.898a13.048 13.048 0 0 1-5.93-1.638c-.002.055-.002.11-.002.162 0 6.345 4.513 11.638 10.504 12.84a13.177 13.177 0 0 1-3.449.457c-.846 0-1.667-.078-2.465-.231 1.667 5.2 6.499 8.986 12.23 9.09a26.276 26.276 0 0 1-16.26 5.606A26.21 26.21 0 0 1 4 55.976a37.036 37.036 0 0 0 20.067 5.882c24.083 0 37.251-19.949 37.251-37.249 0-.566-.014-1.134-.039-1.694a26.597 26.597 0 0 0 6.533-6.774z"/></svg>
+
+                    </span>
+                    <span class="title color--neutral-white">Developer</span>
+                 </a>
+                 <a class="nav-icon" href="#">
+                   
+                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+                 </a>
+                 <a class="nav-back color--neutral-white" href="#" data-nav-back="true">
+                   <span class="title color--neutral-white">Back</span>
+                 </a>
+               </div>
+            </div>
+            <ul class="nav--menu nav--menu--root" data-level="1" data-currentPage="/content/developer-twitter/en/docs/tweets/optimize-with-cards/guides">
+              <li class="nav--mobile-item nav--menu__list-item color--neutral-white " data-show-sub-level="false">
+                <a href="https://developer.twitter.com/en.html" title="Developer" class="color--neutral-white">
+                  <span class="nav--menu__list-item-text color--neutral-white">Developer</span>
+                </a>
+              </li>
+              <li class="nav--menu__list-item " data-show-sub-level="false">
+                  <a href="#" class="color--neutral-white " data-navtitle="Use cases">
+                    <span class="nav--menu__list-item-text color--neutral-white">Use cases</span>
+                    <span class="nav--menu__list-item-arrow">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+                      </span>
+                  </a>
+                  <ul class="nav--menu" data-level="2">
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/use-cases/advertise" title="Advertise" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Advertise</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/use-cases/publish-and-curate" title="Publish and curate" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Publish and curate</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/use-cases/analyze" title="Analyze" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Analyze</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/use-cases/engage" title="Engage" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Engage</span>
+                     </a>
+                   </li>
+                 </ul>
+               </li><li class="nav--menu__list-item " data-show-sub-level="false">
+                  <a href="#" class="color--neutral-white " data-navtitle="Products">
+                    <span class="nav--menu__list-item-text color--neutral-white">Products</span>
+                    <span class="nav--menu__list-item-arrow">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+                      </span>
+                  </a>
+                  <ul class="nav--menu" data-level="2">
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/products/accounts-and-users" title="Accounts and users" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Accounts and users</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/products/tweets" title="Tweets" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Tweets</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/products/direct-messages" title="Direct Messages" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Direct Messages</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/products/metrics" title="Metrics" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Metrics</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/products/ad-campaigns" title="Ad campaigns" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Ad campaigns</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/products/publisher-tools" title="Publisher tools and SDKs" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Publisher tools and SDKs</span>
+                     </a>
+                   </li>
+                 </ul>
+               </li><li class="nav--menu__list-item " data-show-sub-level="false">
+                  <a href="#" class="color--neutral-white " data-navtitle="Docs">
+                    <span class="nav--menu__list-item-text color--neutral-white">Docs</span>
+                    <span class="nav--menu__list-item-arrow">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+                      </span>
+                  </a>
+                  <ul class="nav--menu" data-level="2">
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/docs/documentation" title="Documentation" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Documentation</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/docs/api-reference-index" title="API reference index" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">API reference index</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/docs/tutorials" title="Tutorials" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Tutorials</span>
+                     </a>
+                   </li>
+                 </ul>
+               </li><li class="nav--menu__list-item " data-show-sub-level="false">
+                  <a href="#" class="color--neutral-white " data-navtitle="More">
+                    <span class="nav--menu__list-item-text color--neutral-white">More</span>
+                    <span class="nav--menu__list-item-arrow">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+                      </span>
+                  </a>
+                  <ul class="nav--menu" data-level="2">
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/case-studies" title="Case studies" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Case studies</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/enterprise" title="Enterprise data" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Enterprise data</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/developer-terms" title="Developer terms" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Developer terms</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/pricing" title="Pricing" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Pricing</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/community" title="Community" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Community</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/forum" title="Forum" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Forum</span>
+                     </a>
+                   </li>
+                 
+                   <li class="nav--menu__list-item ">
+                     <a href="https://developer.twitter.com/en/blog" title="Blog" class="color--neutral-white">
+                       <span class="nav--menu__list-item-text color--neutral-black">Blog</span>
+                     </a>
+                   </li>
+                 </ul>
+               </li>
+            </ul>
+
+            <div class="nav__headeritem-right">
+              <!--<sly data-sly-resource="region-selector"/>-->
+              <div class="search">
+                <a href="#" class="search-icon js-nav-search">
+                  
+                  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="72" viewBox="0 0 56 72"><path d="M51.644 53.096l-7.409-7.409a4.606 4.606 0 0 0-3.915-1.295l-2.328-2.328a19.306 19.306 0 0 0 3.894-11.628 19.295 19.295 0 0 0-5.69-13.757 19.3 19.3 0 0 0-13.739-5.688 19.347 19.347 0 0 0-13.772 5.708c-7.58 7.583-7.581 19.917-.004 27.495a19.31 19.31 0 0 0 13.743 5.693 19.28 19.28 0 0 0 11.639-3.893l2.327 2.327c-.193 1.389.227 2.847 1.295 3.915l7.409 7.409A4.627 4.627 0 0 0 48.37 61c1.185 0 2.37-.452 3.274-1.357a4.627 4.627 0 0 0 0-6.547zM34.939 30.439c0 6.904-5.596 12.5-12.5 12.5s-12.5-5.596-12.5-12.5 5.596-12.5 12.5-12.5 12.5 5.596 12.5 12.5z"/><path d="M51.644 53.096l-7.409-7.409a4.606 4.606 0 0 0-3.915-1.295l-2.328-2.328a19.306 19.306 0 0 0 3.894-11.628 19.295 19.295 0 0 0-5.69-13.757 19.3 19.3 0 0 0-13.739-5.688 19.347 19.347 0 0 0-13.772 5.708c-7.58 7.583-7.581 19.917-.004 27.495a19.31 19.31 0 0 0 13.743 5.693 19.28 19.28 0 0 0 11.639-3.893l2.327 2.327c-.193 1.389.227 2.847 1.295 3.915l7.409 7.409A4.627 4.627 0 0 0 48.37 61c1.185 0 2.37-.452 3.274-1.357a4.627 4.627 0 0 0 0-6.547zM34.939 30.439c0 6.904-5.596 12.5-12.5 12.5s-12.5-5.596-12.5-12.5 5.596-12.5 12.5-12.5 12.5 5.596 12.5 12.5z"/></svg>
+
+                </a>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M24.242 20L39.121 5.121a2.998 2.998 0 0 0 0-4.242 2.998 2.998 0 0 0-4.242 0l-14.88 14.879L5.122.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242L15.758 20 .879 34.879A2.998 2.998 0 0 0 3.001 40a2.99 2.99 0 0 0 2.121-.879L20 24.242l14.879 14.879a2.987 2.987 0 0 0 2.12.879 2.998 2.998 0 0 0 2.121-5.121L24.242 20z"/></svg>
+
+            </div>
+       </header>
+   </div>
+</div>
+<div class="nav__search-modal theme-bg-color--dark">
+  <div class="search-bar search-bar--js theme-color--extra-light theme-fill-color--extra-light theme-border-color--extra-light" data-search-path="/en/search-results.html">
+  <input placeholder="Type your search here" type="search" autocomplete="off" class="search-bar__input" name="q"/><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M48.644 42.096l-7.409-7.409a4.606 4.606 0 0 0-3.915-1.295l-2.328-2.328a19.306 19.306 0 0 0 3.894-11.628 19.295 19.295 0 0 0-5.69-13.757A19.3 19.3 0 0 0 19.457-.009 19.347 19.347 0 0 0 5.685 5.699c-7.58 7.583-7.581 19.917-.004 27.495a19.31 19.31 0 0 0 13.743 5.693 19.28 19.28 0 0 0 11.639-3.893l2.327 2.327c-.193 1.389.227 2.847 1.295 3.915l7.409 7.409A4.627 4.627 0 0 0 45.37 50c1.185 0 2.37-.452 3.274-1.357a4.627 4.627 0 0 0 0-6.547zM31.939 19.439c0 6.904-5.596 12.5-12.5 12.5s-12.5-5.596-12.5-12.5 5.596-12.5 12.5-12.5 12.5 5.596 12.5 12.5z"/><path d="M48.644 42.096l-7.409-7.409a4.606 4.606 0 0 0-3.915-1.295l-2.328-2.328a19.306 19.306 0 0 0 3.894-11.628 19.295 19.295 0 0 0-5.69-13.757A19.3 19.3 0 0 0 19.457-.009 19.347 19.347 0 0 0 5.685 5.699c-7.58 7.583-7.581 19.917-.004 27.495a19.31 19.31 0 0 0 13.743 5.693 19.28 19.28 0 0 0 11.639-3.893l2.327 2.327c-.193 1.389.227 2.847 1.295 3.915l7.409 7.409A4.627 4.627 0 0 0 45.37 50c1.185 0 2.37-.452 3.274-1.357a4.627 4.627 0 0 0 0-6.547zM31.939 19.439c0 6.904-5.596 12.5-12.5 12.5s-12.5-5.596-12.5-12.5 5.596-12.5 12.5-12.5 12.5 5.596 12.5 12.5z"/></svg>
+
+</div>
+
+</div>
+
+
+<div class="transparent-masthead"></div>
+
+
+        
+<div class="page-wrapper documentation-page">
+  <div class="page-content container left-rail-container">
+    <div class="sidebar-content side-nav column column-3">
+      
+
+
+<span class="side-nav__close fill-color--neutral-extra-light-gray"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="72" viewBox="0 0 46 72"><path d="M27.243 36l14.879-14.879a2.998 2.998 0 0 0 0-4.242 2.998 2.998 0 0 0-4.242 0L23 31.758 8.122 16.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242L18.758 36 3.879 50.879A2.998 2.998 0 0 0 6.001 56a2.99 2.99 0 0 0 2.121-.879L23 40.242l14.879 14.879A2.991 2.991 0 0 0 40 56a2.998 2.998 0 0 0 2.121-5.121L27.243 36z"/></svg>
+</span>
+
+<div class="search-bar search-bar--js search-bar--docs" data-search-path="/en/search-results.html">
+  <input placeholder="Search all documentation..." type="search" autocomplete="off" class="search-bar__input" name="q"/><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M48.644 42.096l-7.409-7.409a4.606 4.606 0 0 0-3.915-1.295l-2.328-2.328a19.306 19.306 0 0 0 3.894-11.628 19.295 19.295 0 0 0-5.69-13.757A19.3 19.3 0 0 0 19.457-.009 19.347 19.347 0 0 0 5.685 5.699c-7.58 7.583-7.581 19.917-.004 27.495a19.31 19.31 0 0 0 13.743 5.693 19.28 19.28 0 0 0 11.639-3.893l2.327 2.327c-.193 1.389.227 2.847 1.295 3.915l7.409 7.409A4.627 4.627 0 0 0 45.37 50c1.185 0 2.37-.452 3.274-1.357a4.627 4.627 0 0 0 0-6.547zM31.939 19.439c0 6.904-5.596 12.5-12.5 12.5s-12.5-5.596-12.5-12.5 5.596-12.5 12.5-12.5 12.5 5.596 12.5 12.5z"/><path d="M48.644 42.096l-7.409-7.409a4.606 4.606 0 0 0-3.915-1.295l-2.328-2.328a19.306 19.306 0 0 0 3.894-11.628 19.295 19.295 0 0 0-5.69-13.757A19.3 19.3 0 0 0 19.457-.009 19.347 19.347 0 0 0 5.685 5.699c-7.58 7.583-7.581 19.917-.004 27.495a19.31 19.31 0 0 0 13.743 5.693 19.28 19.28 0 0 0 11.639-3.893l2.327 2.327c-.193 1.389.227 2.847 1.295 3.915l7.409 7.409A4.627 4.627 0 0 0 45.37 50c1.185 0 2.37-.452 3.274-1.357a4.627 4.627 0 0 0 0-6.547zM31.939 19.439c0 6.904-5.596 12.5-12.5 12.5s-12.5-5.596-12.5-12.5 5.596-12.5 12.5-12.5 12.5 5.596 12.5 12.5z"/></svg>
+
+</div>
+
+
+
+  <ul class="side-nav__top-level">
+      
+        
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/basics" title="Basics">Basics</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/getting-started" title="Getting started"> Getting started</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/things-every-developer-should-know" title="Things every developer should know"> Things every developer should know</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/authentication" title="Authentication"> Authentication</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/rate-limits" title="Rate limits"> Rate limits</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/rate-limiting" title="Rate Limiting"> Rate Limiting</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/response-codes" title="Response Codes"> Response Codes</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/cursoring" title="Cursoring"> Cursoring</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/security-best-practices" title="Security"> Security</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/twitter-ids" title="Twitter IDs (snowflake)"> Twitter IDs (snowflake)</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/counting-characters" title="Counting characters"> Counting characters</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/tco" title="t.co links"> t.co links</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/basics/adding-international-support-to-apps" title="Adding international support to apps"> Adding international support to apps</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/accounts-and-users" title="Accounts and users">Accounts and users</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity" title="Subscribe to your account activity"> Subscribe to your account activity</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings" title="Manage account settings and profile"> Manage account settings and profile</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users" title="Mute, block and report users"> Mute, block and report users</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users" title="Follow, search, and get users"> Follow, search, and get users</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists" title="Create and manage lists"> Create and manage lists</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/accounts-and-users/user-profile-images-and-banners" title="User Profile Images and Banners"> User Profile Images and Banners</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li class="open">
+          <a data-href="/content/developer-twitter/en/docs/tweets" title="Tweets">Tweets</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage" title="Post, retrieve and engage with Tweets"> Post, retrieve and engage with Tweets</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/timelines" title="Get Tweet timelines"> Get Tweet timelines</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/curate-a-collection" title="Curate a collection of Tweets"> Curate a collection of Tweets</a></li>
+                     
+                    
+                     
+                        <li class="active">
+                          <a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards" title="Optimize Tweets with Cards"> Optimize Tweets with Cards</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/search" title="Search Tweets"> Search Tweets</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime" title="Filter realtime Tweets"> Filter realtime Tweets</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/sample-realtime" title="Sample realtime Tweets"> Sample realtime Tweets</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/batch-historical" title="Get batch historical Tweets"> Get batch historical Tweets</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/compliance" title="Tweet compliance"> Tweet compliance</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/data-dictionary" title="Tweet data dictionaries"> Tweet data dictionaries</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/rules-and-filtering" title="Rules and filtering"> Rules and filtering</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/enrichments" title="Premium enrichments"> Premium enrichments</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/tweets/tweet-updates" title="Tweet updates"> Tweet updates</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/direct-messages" title="Direct Messages">Direct Messages</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/beta-features" title="Direct Message beta features"> Direct Message beta features</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving" title="Sending and receiving events"> Sending and receiving events</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/welcome-messages" title="Welcome Messages"> Welcome Messages</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/message-attachments" title="Message Attachments"> Message Attachments</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/quick-replies" title="Quick Replies"> Quick Replies</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/buttons" title="Buttons"> Buttons</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/conversation-management" title="Conversation management"> Conversation management</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/custom-profiles" title="Custom profiles"> Custom profiles</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/direct-messages/customer-feedback" title="Customer feedback cards"> Customer feedback cards</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/media" title="Media">Media</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/media/upload-media" title="Upload media"> Upload media</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/trends" title="Trends">Trends</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/trends/trends-for-location" title="Get trends near a location"> Get trends near a location</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/trends/locations-with-trending-topics" title="Get locations with trending topics"> Get locations with trending topics</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/geo" title="Geo">Geo</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/geo/place-information" title="Get information about a place"> Get information about a place</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/geo/places-near-location" title="Get places near a location"> Get places near a location</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/ads" title="Ads">Ads</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/ads/general" title="General"> General</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/ads/analytics" title="Analytics"> Analytics</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/ads/audiences" title="Audiences"> Audiences</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/ads/campaign-management" title="Campaign Management"> Campaign Management</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/ads/creatives" title="Creatives"> Creatives</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/ads/measurement" title="Measurement"> Measurement</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/metrics" title="Metrics">Metrics</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/metrics/get-tweet-engagement" title="Get Tweet engagement"> Get Tweet engagement</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/twitter-for-websites" title="Twitter for Websites">Twitter for Websites</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/twitter-for-websites/twitter-for-websites" title="Twitter for Websites"> Twitter for Websites</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/twitter-kit" title="Twitter Kit">Twitter Kit</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/twitter-kit/twitter-kit" title="Twitter Kit"> Twitter Kit</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/developer-utilities" title="Developer utilities">Developer utilities</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status" title="Get app rate limit status"> Get app rate limit status</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/configuration" title="Get Twitter configuration details"> Get Twitter configuration details</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/supported-languages" title="Get Twitter supported languages"> Get Twitter supported languages</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/privacy-policy" title="Get Twitter&#39;s privacy policy"> Get Twitter&#39;s privacy policy</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/terms-of-service" title="Get Twitter&#39;s terms of service"> Get Twitter&#39;s terms of service</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/usage-api" title="Get API usage metrics"> Get API usage metrics</a></li>
+                     
+                    
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries" title="Twitter libraries"> Twitter libraries</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        <li>
+          <a data-href="/content/developer-twitter/en/docs/api-reference-index" title="API reference index">API reference index</a>
+            
+                   <ul class="side-nav__second-level">
+                     
+                        <li>
+                          <a href="https://developer.twitter.com/en/docs/api-reference-index/api-reference-index" title="API reference index"> API reference index</a></li>
+                     
+                    </ul>
+            
+        </li>
+      
+  
+      
+        
+      
+  </ul>
+
+
+    </div>
+    <div class="main-content column column-9">
+      
+
+<div>
+	<div class="main-content__header">
+		<span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="72" viewBox="0 0 28 72"><path d="M6.035 35l14.232-14.232a2.498 2.498 0 0 0 0-3.535 2.498 2.498 0 0 0-3.535 0l-16 16a2.498 2.498 0 0 0 0 3.535l16 16c.488.488 1.128.732 1.768.732s1.28-.244 1.768-.732a2.498 2.498 0 0 0 0-3.535L6.035 35z"/></svg>
+</span>
+		<h1>Optimize Tweets with Cards</h1>
+	</div>
+	<div class="tabs-nav ">
+		<ul class="tabs-nav__inner">
+		
+			<li>
+				<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview">Overview</a>
+			</li>
+		
+			<li>
+				<a class="active" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides">Guides</a>
+			</li>
+		
+		</ul>
+	</div>
+
+<div>
+	<div class="tabs-nav__toc">
+		<span class="tabs-nav__toc__title">
+			Guides contents
+			<span class="arrow-down fill-color--neutral-light-gray">
+				
+				<svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+			</span>
+		</span>
+		<div class="tabs-nav__toc__list">
+			<li class="active">
+				<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started">Getting started with cards</a>
+			</li>
+		
+			<li>
+				<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/cms-integration">CMS integration</a>
+			</li>
+		
+			<li>
+				<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/troubleshooting-cards">Troubleshooting cards</a>
+			</li>
+		
+			<li>
+				<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/player-card-approval">Player card approval</a>
+			</li>
+		</div>
+	</div>
+
+
+ </div>
+
+</div>
+
+
+
+
+      
+
+    
+    
+    
+    <div class="bl19-no-edit-wrap">
+  <div class="c15-column-container js-column-container">
+
+    <div class="container--mini container--mobile">
+      <div class="column column-3"></div>
+      <div class="column column-6">
+
+    
+    
+    
+    <div class="c01-rich-text-editor">
+<div class="col-xs-12 col-sm-9"><p class="visible-xs"><span
+    class="smaller-h1">Getting Started Guide</span></p>
+<div class="container-fluid"><div class="rst-content"><div class="document"><div><div class="section"><ol
+                  class="arabic simple">
+<li><a class="reference external" href="#started">Getting Started with Cards</a></li>
+<li><a class="reference external" href="#attribution">Card and Content Attribution</a></li>
+<li><a class="reference external" href="#crawling">URL Crawling &amp; Caching</a></li>
+<li><a class="reference external" href="#display">Card Display</a></li>
+<li><a class="reference external" href="#multiple">Multiple URLs in a Tweet</a></li>
+<li><a class="reference external" href="#opengraph">Twitter Cards and Open Graph</a></li>
+</ol>
+<div class="section"><span></span><h2>Getting Started with Cards<a class="headerlink" href="#getting-started-with-cards" title="Permalink to this headline">¶</a></h2>
+<p>To get started with implementing Cards markup, specify the type of card for your content by adding the following HTML markup to the HEAD section of the page:</p>
+<div class="code html highlight-default"><div class="highlight"><pre>
+<span></span><span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="n">name</span><span class="o">=</span><span
+                      class="s2">&quot;twitter:card&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;summary&quot;</span> <span
+                class="o">/&gt;</span>
+</pre>
+</div>
+</div>
+<p>Card properties are simple key-value pairs, each defined in an HTML meta tag as seen above. The combined collection of properties defines the overall card experience on Twitter, and each card type supports and requires a specific set of properties.</p>
+<p>All cards have one basic property in common - the card type value:</p>
+<table
+                border="1" class="docutils">
+<colgroup><col
+                    width="12%" /><col width="76%" /></colgroup><tbody
+                    valign="top"><tr
+                    class="row-odd"><td>Card Property</td>
+<td>Description</td>
+</tr><tr
+                        class="row-even"><td><code
+                          class="docutils literal"><span
+                  class="pre">twitter:card</span></code></td>
+<td>The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.</td>
+</tr></tbody></table>
+<p>Only one card type per-page is supported. If more than one <code
+                    class="docutils literal"><span
+              class="pre">twitter:card</span></code> value exists in the page, the “last” one in sequence will take priority.</p>
+</div>
+<div class="section"><span></span><h2>Card and Content Attribution<a class="headerlink" href="#card-and-content-attribution" title="Permalink to this headline">¶</a></h2>
+<p>Each card has built-in content attribution, which surfaces appropriate Twitter accounts for the content as specified by you. Users will be able to follow and view the profiles of attributed accounts directly from the card. There are two kinds of attribution:</p>
+<p><b>Website Attribution</b>: Indicates the Twitter account for the website or platform on which the content was published. Note that a service may set separate Twitter accounts for different pages/sections of their website, and the most appropriate Twitter account should be used to provide the best context for the user. For example, nytimes.com may set the the website attribution to “<a class="reference external" href="https://twitter.com/nytimes">@nytimes</a>” for front page articles, and “<a class="reference external" href="https://twitter.com/NYTArts">@NYTArts</a>” for articles in the Arts &amp; Entertainment section.</p>
+<p><b>Creator Attribution</b>: Indicates the individual user that created the content within the card. This applies to the Summary with Large Image card.</p>
+<p>Configure card attribution using the following properties:</p>
+<table
+                border="1" class="docutils">
+<colgroup><col
+                    width="12%" /><col width="76%" /><col
+                  width="12%" /> </colgroup><tbody valign="top"><tr
+                    class="row-odd"><td>Card Property</td>
+<td>Description</td>
+<td>Required</td>
+</tr><tr
+                        class="row-even"><td><code
+                          class="docutils literal"><span
+                    class="pre">twitter:site</span></code></td>
+<td>@username for the website used in the card footer.</td>
+<td>No</td>
+</tr><tr
+                        class="row-odd"><td><code
+                          class="docutils literal"><span
+              class="pre">twitter:creator</span></code></td>
+<td>@username for the content creator / author.</td>
+<td>No</td>
+</tr></tbody></table>
+</div>
+<div class="section"><span></span><h2>URL Crawling &amp; Caching<a class="headerlink" href="#url-crawling-caching" title="Permalink to this headline">¶</a></h2>
+<p>Twitter’s crawler respects Google’s <a class="reference external" href="https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt">robots.txt specification</a> when scanning URLs. If a page with card markup is blocked, no card will be shown. If an image URL is blocked, no thumbnail or photo will be shown.</p>
+<p>Twitter uses the User-Agent of <b>Twitterbot</b> (with version, such as Twitterbot/1.0), which can be used to create an exception in the <code
+                    class="docutils literal"><span
+                  class="pre">robots.txt</span></code> file.</p>
+<p>For example, here is a <code
+                    class="docutils literal"><span
+                class="pre">robots.txt</span></code> which disallows crawling for all robots, except Twitter’s fetcher:</p>
+<div class="code xml highlight-default"><div class="highlight"><pre>
+<span></span><span
+                      class="n">User</span><span class="o">-</span><span
+                      class="n">agent</span><span
+                      class="p">:</span> <span
+                      class="n">Twitterbot</span>
+<span
+                      class="n">Disallow</span><span
+                      class="p">:</span>
+
+<span
+                      class="n">User</span><span class="o">-</span><span
+                      class="n">agent</span><span
+                      class="p">:</span> <span class="o">*</span>
+<span
+                      class="n">Disallow</span><span
+                      class="p">:</span> <span
+                class="o">/</span>
+</pre>
+</div>
+</div>
+<p>Here is another example, which specifies which directories are allowed to be crawled by Twitterbot (in this case, disallowing all except the images and archives directories):</p>
+<div class="code xml highlight-default"><div class="highlight"><pre>
+<span></span><span
+                      class="n">User</span><span class="o">-</span><span
+                      class="n">agent</span><span
+                      class="p">:</span> <span
+                      class="n">Twitterbot</span>
+<span
+                      class="n">Disallow</span><span
+                      class="p">:</span> <span class="o">*</span>
+
+<span
+                      class="n">Allow</span><span
+                      class="p">:</span> <span class="o">/</span><span
+                      class="n">images</span>
+<span
+                      class="n">Allow</span><span
+                      class="p">:</span> <span class="o">/</span><span
+                  class="n">archives</span>
+</pre>
+</div>
+</div>
+<p>The server’s <code
+                    class="docutils literal"><span
+                class="pre">robots.txt</span></code> file <b>must</b> be saved as plain text with ASCII character encoding. To verify this, run the following command:</p>
+<div class="code xml highlight-default"><div class="highlight"><pre>
+<span></span>$ file -I robots.txt
+robots.txt: text/plain; charset=us-ascii
+</pre>
+</div>
+</div>
+<p>Content is cached by Twitter for 7 days after a link to a page with card markup has been published in a Tweet.</p>
+<p>If you encounter issues with cards in Tweets not appearing properly, see the <a class="reference external" href="/cards/troubleshooting">Cards Troubleshooting Guide</a>.</p>
+</div>
+<div class="section"><span></span><h2>Card Display<a class="headerlink" href="#card-display" title="Permalink to this headline">¶</a></h2>
+<p>Twitter Cards generated from meta tags only appear when a Tweet is either expanded in the timeline (on web) or viewed on the Tweet’s individual permalink page (by clicking on the date from the timeline, either on web or on mobile).</p>
+<p>In limited circumstances, Cards may appear in the timeline, such as in images posted to Twitter, Ad formats, and Twitter-run experiments.</p>
+<p>If you are looking to bring media (photos, videos and Cards) into the timeline, consider one of the following options:</p>
+<ul
+                    class="simple">
+<li>Accounts can <a class="reference external" href="http://blog.twitter.com/2014/your-new-web-profile-is-here">pin a Tweet to the top of their timeline</a>, which auto-expands the Tweet and displays the Card. (This is possible on web only.).</li>
+<li>For photos and animated GIFs, upload the media directly with the Tweet or consider using the Twitter API to <a class="reference external" href="/rest/public/uploading-media-multiple-photos">upload media</a>.</li>
+<li>For Ad formats with a call-to-action, visit <a class="reference external" href="http://ads.twitter.com">Twitter Ads</a> for Website Cards.</li>
+</ul>
+</div>
+<div class="section"><span></span><h2>Multiple URLs in a Tweet<a class="headerlink" href="#multiple-urls-in-a-tweet" title="Permalink to this headline">¶</a></h2>
+<p>In some circumstances, users may want to Tweet multiple URLs. Only one card may be shown in a Tweet. Here is the order of precedence when processing multiple URLs:</p>
+<ol
+              class="arabic simple">
+<li>Images or media attached to Tweets will have precedence over any card attached to a URL.</li>
+<li>URLs with cards are processed in order of appearance in the Tweet, first to last</li>
+</ol>
+</div>
+<div class="section"><span></span><h2>Twitter Cards and Open Graph<a class="headerlink" href="#twitter-cards-and-open-graph" title="Permalink to this headline">¶</a></h2>
+<p>Twitter card tags look similar to Open Graph tags, and are based on the same conventions as the Open Graph protocol. When using Open Graph protocol to describe data on a page, it is easy to generate a Twitter card without duplicating tags and data. When the Twitter card processor looks for tags on a page, it first checks for the Twitter-specific property, and if not present, falls back to the supported Open Graph property. This allows for both to be defined on the page independently, and minimizes the amount of duplicate markup required to describe content and experience.</p>
+<p>Note that while Open Graph recommends specifying the “og” RDFa Core 1.1 CURIE prefix mapping via <code
+                    class="docutils literal"><span
+                    class="pre">&lt;html</span> <span
+                    class="pre">prefix=&quot;og:</span> <span
+                  class="pre">http://ogp.me/ns#&quot;&gt;</span></code>, no such markup is required for Twitter cards and its use of the <code
+                    class="docutils literal"><span
+                  class="pre">twitter:</span></code> prefix in a HTML meta element’s name attribute. Open Graph protocol also specifies the use of <code
+                    class="docutils literal"><span
+                  class="pre">property</span></code> and <code
+                    class="docutils literal"><span
+                  class="pre">content</span></code> attributes for markup (<code
+                    class="docutils literal"><span
+                    class="pre">&lt;meta</span> <span
+                    class="pre">property=&quot;og:image&quot;</span> <span
+                  class="pre">content=&quot;http://example.com/ogp.jpg&quot;/&gt;</span></code>) while Twitter cards use <code
+                    class="docutils literal"><span
+                  class="pre">name</span></code> and <code
+                    class="docutils literal"><span
+                  class="pre">content</span></code>. Twitter’s parser will fall back to using <code
+                    class="docutils literal"><span
+                  class="pre">property</span></code> and <code
+                    class="docutils literal"><span
+                class="pre">content</span></code>, so there is no need to modify existing Open Graph protocol markup if it already exists.</p>
+<p>The example below uses a mix of Twitter and Open Graph tags to define a summary card:</p>
+<div class="code html highlight-default"><div class="highlight"><pre>
+<span></span><span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="n">name</span><span class="o">=</span><span
+                      class="s2">&quot;twitter:card&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;summary&quot;</span> <span
+                      class="o">/&gt;</span>
+<span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="n">name</span><span class="o">=</span><span
+                      class="s2">&quot;twitter:site&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;@nytimesbits&quot;</span> <span
+                      class="o">/&gt;</span>
+<span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="n">name</span><span class="o">=</span><span
+                      class="s2">&quot;twitter:creator&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;@nickbilton&quot;</span> <span
+                      class="o">/&gt;</span>
+<span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="nb">property</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;og:url&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;http://bits.blogs.nytimes.com/2011/12/08/a-twitter-for-my-sister/&quot;</span> <span
+                      class="o">/&gt;</span>
+<span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="nb">property</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;og:title&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;A Twitter for My Sister&quot;</span> <span
+                      class="o">/&gt;</span>
+<span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="nb">property</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;og:description&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;In the early days, Twitter grew so quickly that it was almost impossible to add new features because engineers spent their time trying to keep the rocket ship from stalling.&quot;</span> <span
+                      class="o">/&gt;</span>
+<span
+                      class="o">&lt;</span><span
+                      class="n">meta</span> <span
+                      class="nb">property</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;og:image&quot;</span> <span
+                      class="n">content</span><span
+                      class="o">=</span><span
+                      class="s2">&quot;http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg&quot;</span> <span class="o">/&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+      <div class="column column-3 last"></div>
+    </div>
+
+    
+
+    
+</div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+        <footer class="footer theme-bg-color--dark">
+  <div class="footer--banner theme-bg-color--extra-light">
+    <div class="footer__row container">
+      <div class="footer-col">
+        <a class="footer-col__footnote type--bold-14 theme-color--extra-dark theme-color--extra-dark--hover" href="https://developer.twitter.com/en/developer-terms" target="_blank" title="Developer policy and terms">
+          Developer policy and terms</a>
+      </div>
+      <div class="footer-col">
+        <a class="footer-col__footnote type--bold-14 theme-color--extra-dark theme-color--extra-dark--hover" href="http://twitter.com/twitterdev" target="_blank" title="Follow @twitterdev">
+          Follow @twitterdev</a>
+      </div>
+      <div class="footer-col"></div>
+      <div class="footer-col"></div>
+      <div class="footer-col">
+        <a class="c04-link-button c04-link-button--button theme-bg-color--extra-extra-light theme-bg-color--extra-extra-light--hover" href="https://developer.twitter.com/en/twitterdev-news-subscription" target="_self">
+          Subscribe to developer news
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__row container footer__row--main">
+    <div class="footer-col">
+      <a href="https://about.twitter.com" title="About" target="_blank" class="footer-col__parent type--bold-14 theme-color--extra-light theme-color--extra-light--hover">
+          About
+
+          <span class="icon-container js-accordion theme-fill-color--extra-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+          </span>
+      </a>
+      <ul class="footer-col__list">
+        <li>
+          <a href="https://about.twitter.com/en_us/company.html" title="Company" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Company</a></li>
+      
+        <li>
+          <a href="https://about.twitter.com/en_us/values.html" title="Values" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Values</a></li>
+      
+        <li>
+          <a href="https://about.twitter.com/en_us/safety.html" title="Safety" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Safety</a></li>
+      
+        <li>
+          <a href="https://blog.twitter.com/official/en_us.html" title="Blog" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Blog</a></li>
+      
+        <li>
+          <a href="https://about.twitter.com/en_us/company/brand-resources.html" title="Brand Resources" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Brand Resources</a></li>
+      
+        <li>
+          <a href="https://careers.twitter.com/en.html" title="Careers" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Careers</a></li>
+      
+        <li>
+          <a href="https://investor.twitterinc.com/" title="Investors" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Investors</a></li>
+      </ul>
+    </div>
+  
+    <div class="footer-col">
+      <a href="https://business.twitter.com/" title="Business" target="_blank" class="footer-col__parent type--bold-14 theme-color--extra-light theme-color--extra-light--hover">
+          Business
+
+          <span class="icon-container js-accordion theme-fill-color--extra-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+          </span>
+      </a>
+      <ul class="footer-col__list">
+        <li>
+          <a href="https://business.twitter.com/en/advertising.html" title="About Twitter Ads" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">About Twitter Ads</a></li>
+      
+        <li>
+          <a href="https://business.twitter.com/en/targeting.html" title="Targeting" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Targeting</a></li>
+      
+        <li>
+          <a href="https://business.twitter.com/en/analytics.html" title="Analytics" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Analytics</a></li>
+      
+        <li>
+          <a href="https://business.twitter.com/en/help.html" title="Ads support" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Ads support</a></li>
+      
+        <li>
+          <a href="https://blog.twitter.com/small-business" title="Business blog" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Business blog</a></li>
+      
+        <li>
+          <a href="https://ads.twitter.com/login?ref=en-btc-gobal-footer" title="Advertise" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Advertise</a></li>
+      </ul>
+    </div>
+  
+    <div class="footer-col">
+      <a href="https://dev.twitter.com/" title="Developers" target="_blank" class="footer-col__parent type--bold-14 theme-color--extra-light theme-color--extra-light--hover">
+          Developers
+
+          <span class="icon-container js-accordion theme-fill-color--extra-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+          </span>
+      </a>
+      <ul class="footer-col__list">
+        <li>
+          <a href="https://dev.twitter.com/overview/documentation" title="Documentation" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Documentation</a></li>
+      
+        <li>
+          <a href="https://twittercommunity.com/" title="Forums" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Forums</a></li>
+      
+        <li>
+          <a href="https://dev.twitter.com/community" title="Communities" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Communities</a></li>
+      
+        <li>
+          <a href="https://blog.twitter.com/developer" title="Developer blog" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Developer blog</a></li>
+      </ul>
+    </div>
+  
+    <div class="footer-col">
+      <a href="https://support.twitter.com/" title="Help Center" target="_blank" class="footer-col__parent type--bold-14 theme-color--extra-light theme-color--extra-light--hover">
+          Help Center
+
+          <span class="icon-container js-accordion theme-fill-color--extra-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+          </span>
+      </a>
+      <ul class="footer-col__list">
+        <li>
+          <a href="https://support.twitter.com/articles/215585" title="Using Twitter" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Using Twitter</a></li>
+      
+        <li>
+          <a href="https://twitter.com/login" title="My account" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">My account</a></li>
+      
+        <li>
+          <a href="https://support.twitter.com/categories/283" title="Fixing a problem" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Fixing a problem</a></li>
+      
+        <li>
+          <a href="https://support.twitter.com/categories/284" title="Policies and reporting" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Policies and reporting</a></li>
+      
+        <li>
+          <a href="https://about.twitter.com/safety" title="Safety Center" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Safety Center</a></li>
+      </ul>
+    </div>
+  
+    <div class="footer-col">
+      <a href="https://marketing.twitter.com/" title="Marketing" target="_blank" class="footer-col__parent type--bold-14 theme-color--extra-light theme-color--extra-light--hover">
+          Marketing
+
+          <span class="icon-container js-accordion theme-fill-color--extra-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" viewBox="0 0 34 20"><path d="M17 12.758L5.121.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242l14 14a2.998 2.998 0 0 0 4.242 0l14-14C33.707 4.535 34 3.768 34 3s-.293-1.535-.879-2.121a2.998 2.998 0 0 0-4.242 0L17 12.758z"/></svg>
+
+          </span>
+      </a>
+      <ul class="footer-col__list">
+        <li>
+          <a href="https://marketing.twitter.com/na/en/insights.html" title="Insights" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Insights</a></li>
+      
+        <li>
+          <a href="https://marketing.twitter.com/na/en/success-stories.html" title="Success Stories" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Success Stories</a></li>
+      
+        <li>
+          <a href="https://marketing.twitter.com/na/en/solutions.html" title="Solutions" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Solutions</a></li>
+      
+        <li>
+          <a href="https://marketing.twitter.com/na/en/collections.html" title="Collections" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Collections</a></li>
+      
+        <li>
+          <a href="https://blog.twitter.com/advertising" title="Marketing Blog" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Marketing Blog</a></li>
+      
+        <li>
+          <a href="https://twitterflightschool.com" title="Flight School" target="_blank" class="footer-col__link type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Flight School</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__row container">
+    <div class="footer-col">
+      <p class="footer-col__footnote type--roman-14 theme-color--extra-light">&copy; 2017 Twitter, Inc.</p>
+    </div>
+    
+      <div class="footer-col">
+        <a href="https://support.twitter.com/articles/20170520" title="Cookies" target="_blank" class="footer-col__footnote type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Cookies</a>
+      </div>
+    
+      <div class="footer-col">
+        <a href="https://twitter.com/privacy" title="Privacy" target="_blank" class="footer-col__footnote type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Privacy</a>
+      </div>
+    
+      <div class="footer-col">
+        <a href="https://twitter.com/tos" title="Terms and Conditions" target="_blank" class="footer-col__footnote type--roman-14 theme-color--extra-light theme-color--extra-light--hover">Terms and Conditions</a>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+<!--<div class="modal_container">-->
+<div class="c20-modal__modal module-modal" data-modal="true">
+  <div class="c20-modal__scrollable" data-modal-scroll-container="true">
+    <div class="c20-modal__details" data-modal-content-container="true">
+      <!-- template is injected here -->
+    </div>
+    <ul class="c20-modal__navigation">
+      <li class="c20-modal__navigation-prev" data-modal-nav="prev-link" aria-label="Read previous biography">
+        <span class="c20-modal__navigation-label">Read Previous</span>
+          <span class="c20-modal__navigation-text" data-modal-nav="prev-text"></span>
+      </li>
+      <li class="c20-modal__navigation-next" data-modal-nav="next-link" aria-label="Read next biography">
+        <span class="c20-modal__navigation-label">Read Next</span>
+          <span class="c20-modal__navigation-text" data-modal-nav="next-text"></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="module-modal__close-container">
+  
+  <div class="c20-modal__modal-close module-modal__close" data-trigger="close-modal">
+    
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M24.242 20L39.121 5.121a2.998 2.998 0 0 0 0-4.242 2.998 2.998 0 0 0-4.242 0l-14.88 14.879L5.122.879a2.998 2.998 0 0 0-4.242 0 2.998 2.998 0 0 0 0 4.242L15.758 20 .879 34.879A2.998 2.998 0 0 0 3.001 40a2.99 2.99 0 0 0 2.121-.879L20 24.242l14.879 14.879a2.987 2.987 0 0 0 2.12.879 2.998 2.998 0 0 0 2.121-5.121L24.242 20z"/></svg>
+
+    
+  </div>
+</div>
+<!--</div>-->
+      </div>
+      
+
+
+    
+<script type="text/javascript" src="/etc/designs/common-twitter/dtm-footer.min.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/app.js"></script>
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/universal.js"></script>
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/structure.js"></script>
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/content.js"></script>
+<script type="text/javascript" src="/etc/designs/developer-twitter/public/js/docs.js"></script>
+
+<script async src="https://platform.twitter.com/widgets.js"></script>
+
+
+  </body>
+  </html>
+

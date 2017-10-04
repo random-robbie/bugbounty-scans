@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>     <html class="bouncer lt-ie10 lt-ie9 lt-ie8 lt-ie7"     lang="en"> <![endif]-->
+<!--[if IE 7]>        <html class="bouncer lt-ie10 lt-ie9 lt-ie8 gt-ie6 ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="bouncer lt-ie10 lt-ie9 gt-ie6 gt-ie7 ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>        <html class="bouncer lt-ie10 gt-ie6 gt-ie7 gt-ie8 ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="bouncer" lang="en"><!--<![endif]-->
+<head>
+	<title>Guesthouse - Yahoo Corporate Single Login</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+        <link rel="stylesheet" type="text/css" href="/css/bouncer.css?v=1.4.0">
+
+        <script src="/html5shiv.js"></script>
+        <script src="/respond.min.js"></script>
+        <script src="/jquery-1.7.1.min.js"></script>
+
+        <script src="https://yui-s.yahooapis.com/3.13.0/build/yui/yui-min.js"></script>
+<script>
+ var id_value = "";
+ var intercept_message = "";
+ var otheripscripturl= "https://bouncer.by.corp.yahoo.com/otherip.php";
+ </script>
+ 
+
+        <style>
+                /* 
+                Full-screen Campus images are CSS-based background-images
+                Rotate them server-side here, e.g. background-image:url(images/dublin-campus.jpg)
+                */
+                html.bouncer {
+
+                        background-image:url(/images/Oath_Day_One.jpg)
+
+
+                }
+        </style>
+
+<script type="text/javascript">
+
+function loadImage(){
+    // display by_image if the user has javascript
+    // enabled and has a valid YBC cookie
+    // and image actually exists
+    document.getElementById("by_photo_img").style.display="block";
+ }
+
+function before_submit(){
+   var sbmt = document.getElementById('sbmt');
+   sbmt.disabled = true;
+   sbmt.value = 'Please wait...';
+ }
+
+function load_dialog(){
+   alert(intercept_message);
+ }
+
+function resetValues()
+{
+  	//if user id is filled and password field is focused, dont do anything else focus on password
+	//case : pre populated
+	if(document.s.remember_me.checked){
+   		document.s.id.value = id_value;
+   		document.s.pass_word.focus();
+	}
+
+	//case : prepopulated or typed the user id
+  	if(document.s.id.value){
+  	
+  		//if focus on password
+		if(document.activeElement.id == "pass_word"){
+    		document.s.pass_word.focus();
+    	}
+    	//clean the password and focus on userid
+    	else{
+		  	document.s.pass_word.value = "";
+		  	document.s.id.focus();
+    	}
+    //user id is empty ...focus on user id	
+  	}else{
+    	document.s.id.focus();
+  	}
+}
+   
+  function getAnchor()
+  {
+    anchor = self.document.location.hash;
+    //alert(anchor);
+    if(!anchor) 
+    {
+      return;
+    }
+    YUI().use('escape',function(Y) {
+      _newUrl = document.forms.s.url.value + anchor;
+      newUrl = Y.Escape.html(unescape(_newUrl));
+      
+      // add to url field
+      document.forms.s.url.value = newUrl;
+      
+      //add to link
+      a = document.getElementById('destinationLink');
+      a.innerHTML = (newUrl).substr(0, 45) + '...';
+      //alert(a.innerHTML);
+    });
+
+  }   
+
+
+  function loadOtherIP(url)
+  {
+    var otheripscript = document.createElement('script');
+    otheripscript.type='text/javascript';
+    otheripscript.src=url;
+    document.getElementsByTagName('head')[0].appendChild(otheripscript);
+   }
+
+
+   function initialize() {
+   	 resetValues();
+     getAnchor();
+     
+     	      
+   }
+
+</script>
+
+</head>
+
+<body onload="initialize();">
+
+
+	<script>
+		// placed here to avoid FOUC
+		document.getElementsByTagName("body")[0].className += " yes-js"; 
+	</script>
+	<header role="banner">
+		<ul class="header-links">
+				</ul>
+		<div class="photo-details">
+			<p>
+				<span class="photo-label">Background Photo Details:</span>
+				<span class="photo-value"><strong>Oath</strong></span>
+			</p>
+		</div>
+	</header>
+	<main role="main">
+		<h1 class="bouncer-page-title"><a href="//gh.bouncer.login.yahoo.com"><img src="/images/gh.png" alt="Yahoo! Bouncer"></a></h1>
+		<!-- <p class="alert alert-high">Something really bad happened, you might want to fix it asap</p> -->
+		<!-- <p class="alert alert-med">Sorry, the login information you provided is invalid. Please try again.</p> -->
+		<!-- <p class="alert alert-low">Generally positive result in case you need it</p> -->
+
+
+        
+
+
+<!-- Temporarily disable notification on new UI
+-->
+
+
+   
+		<form method="post" action="/login/" name="s" onsubmit="before_submit()" autocomplete=off>
+			<fieldset>
+				<dl class="form-list">
+					<dt><label for="id">User ID</label></dt>
+					<dd>
+						<span class="user-id with-input">
+							<span class="name"><input class="input-large"  placeholder="User ID (or Email)"  name="id" id="id" maxlength=60 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></span>
+							<span class="thumb">
+								<div id="by_photo_img" style="display:none;">
+																</div>
+							</span>
+						</span>
+					</dd>
+				</dl>
+				<dl class="form-list">
+					<dt><label for="pass_word">Passphrase</label></dt>
+					<dd><input class="input-large" name="pass_word" type="password" id="pass_word" maxlength="64"   autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ></dd>
+				</dl>
+				<div class="form-submit">
+					<p> <button class="c01 c01v2" type="submit" id='sbmt'>Sign on</button> </p>
+					<!-- <p><button class="btn-reset" type="reset">Reset form</button></p> -->
+				</div>
+				<div class="login-alts">
+					<p class="alt">
+						<input class="login-remember-input" id="remember_me" name="remember_me" style="margin-left: 1px;" type="checkbox" value="1"  > 
+						<label class="login-remember-label" for="remember_me">Remember User ID</label>
+					</p>
+					<p class="alt">
+						<a href="/login/forgotpwd.html">Forgot your passphrase?</a>
+					</p>
+				</div>
+			</fieldset>
+
+		<input type="hidden" name=".crumb"  value="">
+        <input type="hidden" name="action" value="login">
+        <input type="hidden" name="url" value="">
+        <input type="hidden" name="src" value="gh">
+        <input type="hidden" name="challenge" value="">
+        <input type="hidden" name="intl" value="">
+        <input type="hidden" name="done" value="">
+        <input type="hidden" name="fail" value="">
+        <input type="hidden" name="fail_sig" value="">
+        <input type="hidden" name="msg" value="">
+        <input type="hidden" name="user_id" value="">
+        <input type="hidden" name="email" value="">
+        <input type="hidden" name="redirect" value="">
+        <input type="hidden" name="app" value="">
+        <input type="hidden" name="role" value="">
+        <input type="hidden" name="otherip" value="">
+        <input type="hidden" name="pwcrumb" value="">
+        <input type="hidden" name="new_pwcrumb_key" value="">
+        <input type="hidden" name="use_bouncer_pwd" value="">
+
+
+        		</form>
+
+           
+		<h4>Passphrase Help</h4>
+		<p>Use your account User ID and Passphrase for signing in to any Secure application. If you have forgotten your passphrase or have any other login issues, please contact your respective Yahoo employee contact. </p>
+		<h4>Other Pages</h4>
+		<ul class="list-spread" id="faqs">
+			<li>
+				<p><a class="related-toggle" href="#faq_picture-display">Sign in Help</a></p>
+				<aside class="related" id="faq_picture-display">
+					<a href="#faqs" class="related_close">Close</a>
+
+<font face="arial, verdana, sans-serif" size="3">
+<center><h2>Bouncer - Proxy Settings</h2></center>
+<hr noshade="">
+<h3>Issue:</h3>
+Your Bouncer login page keeps refreshing even after a successful login 
+with no error messages. 
+
+<h3>Description:</h3>
+This issue happens only to Internal users (Employees and Contractors) in certain offices that are behind the Private IP space.  All users in Sunnyvale HQ except certain customer care folks SHOULD NOT have to go through this setup since most of the desktop IPs in the HQ are in Public IP space.
+
+
+<h3>Solution:</h3>
+You need to setup your Browser to go through a Proxy server.  Given below are the instructions on how to do this setup in IE and Firefox browsers.
+
+<hr noshade="">
+
+<h4>Internet Explorer 5.0 and above:</h4>
+
+<ul>
+<li>Open browser window</li>
+<li>Click on "Tools" menu on the top</li>
+<li>Scroll down and click on "Internet Options"</li>
+<li>Click on the tab called "Connections"</li>
+<li>Click on "LAN Settings"</li>
+<li>Under the heading of of "Proxy Server", check the box "Use a proxy server"
+<br>NOTE: DO NOT CHECK the "Bypass proxy server for local addresses" option</li>
+<li>Select the tab to the right "Advanced""
+<br>NOTE: DO NOT fill anything in the "address" and "port" text box</li>
+<li>Under "Servers", in the box titled "Socks:", type in "socks.yahoo.com" and "1080" for the Port
+<br>NOTE: DO NOT CHECK the "use the same proxy for all protocols" option</li>
+<li>Then, "OK" your way out</li>
+</ul>
+
+<hr noshade="">
+
+<h4>Firefox 3.0.0 and above:</h4>
+
+<ul>
+<li>Open browser window</li>
+<li>Click on "Tools"</li>
+<li>Choose "Options"</li>
+<li>Choose "Advanced" icon</li>
+<li>Choose "Network" tab</li>
+<li>Click on "Settings" button</li>
+<li>Choose "Manual proxy configuration" radio button</li>
+<li>Under "Servers", in the box titled "SOCKS Host:", type in "socks.yahoo.com" and "1080" for the Port</li>
+<li>Then, "OK" your way out</li>
+</ul>
+</font>
+
+
+				</aside>
+			</li>
+		</ul>
+		<h4>Account Info</h4>
+		<ul class="list-spread">
+			<li><a href="/admin/changepwd.html">Change your passphrase</a></li>
+		</ul>
+	</main>
+
+<script>
+YUI().use('node', 'event', function(Y) {
+    Y.on('domready', function() {
+        Y.all('.related-toggle').on('click', function(e) {
+             var t = e.currentTarget;
+		Y.all('.related, .related-toggle').removeClass('is-toggled');
+		if(!t.hasClass('is-toggled'))
+		{
+			t.addClass('is-toggled');
+			t.ancestor('li').one('.related').addClass('is-toggled');
+			
+		}
+        });
+
+
+	Y.all('.related_close').on('click', function(e){
+		Y.all('.related, .related-toggle').removeClass('is-toggled');
+	});
+    });
+
+
+});
+
+</script>
+
+
+</body>
+</html>
+<!-- bouncer12-os.gh.bf2.yahoo.com Tue Oct  3 07:14:50 UTC 2017 -->
