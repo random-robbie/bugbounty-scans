@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aspen &mdash; Aspen 1.0rc3-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Aspen 1.0rc3-dev documentation" href="#"/>
+        <link rel="next" title="Filesystem Dispatch Rules" href="dispatch.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://core.aspen.io/en/latest/" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'index' 		
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Aspen
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="dispatch.html">Filesystem Dispatch Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simplates.html">How to Write a Simplate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">How to Write a Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrappers.html">How to Write a Framework Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Aspen</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Aspen</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/AspenWeb/aspen.py//blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aspen">
+<h1>Aspen<a class="headerlink" href="#aspen" title="Permalink to this headline">¶</a></h1>
+<p>Aspen is a filesystem dispatch library for Python web frameworks. Instead of
+using regular expressions, decorators, or object traversal, Aspen dispatches
+HTTP requests based on the natural symmetry of URL paths and filesystem paths.
+In the <a class="reference external" href="https://twitter.com/progrium/status/773694289033383937">immortal words</a> of Jeff Lindsay, &#8220;so like. a web server.&#8221; Yes! ;-)</p>
+<p>This is the documentation for the development version of the core Aspen
+library, describing its filesystem dispatch behavior regardless of the web
+framework you&#8217;re using it with. For instructions on configuring Aspen with a
+specific web framework, see the docs for <a class="reference external" href="http://django.aspen.io/">django-aspen</a>, <a class="reference external" href="http://flask.aspen.io/">Flask-Aspen</a>, or
+<a class="reference external" href="http://pando.aspen.io/">Pando</a>. See the <a class="reference external" href="http://aspen.io/">project homepage</a> for an overview.</p>
+<p>This version of Aspen has been tested with Python 2.7, 3.4, and 3.5, on both
+Ubuntu and Windows.</p>
+<p>Aspen&#8217;s source code is on <a class="reference external" href="https://github.com/AspenWeb/aspen.py">GitHub</a>, and is <a class="reference external" href="https://github.com/AspenWeb/aspen.py/blob/master/COPYRIGHT">MIT-licensed</a>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Aspen is available on <a class="reference external" href="https://pypi.python.org/pypi/aspen">PyPI</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install aspen
+</pre></div>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dispatch.html">Filesystem Dispatch Rules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dispatch.html#dynamic-resources">Dynamic Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dispatch.html#path-variables">Path Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dispatch.html#ready-for-simplates">Ready for Simplates?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simplates.html">How to Write a Simplate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simplates.html#sections-of-a-simplate">Sections of a Simplate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplates.html#context">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplates.html#standard-renderers">Standard Renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplates.html#specline-defaults">Specline Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplates.html#content-negotiation">Content Negotiation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">How to Write a Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrappers.html">How to Write a Framework Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/request_processor.html"><code class="docutils literal"><span class="pre">aspen.request_processor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/testing.html"><code class="docutils literal"><span class="pre">aspen.testing</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/exceptions.html"><code class="docutils literal"><span class="pre">aspen.exceptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://keystone.readthedocs.org/">Keystone</a> web framework was inspired by Aspen.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dispatch.html" class="btn btn-neutral float-right" title="Filesystem Dispatch Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Chad Whitacre, et al.
+      
+        <span class="commit">
+          Revision <code>1978dc9f</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//readthedocs.org/projects/aspen/downloads/pdf/latest/">pdf</a></dd>
+        
+          <dd><a href="//readthedocs.org/projects/aspen/downloads/htmlzip/latest/">htmlzip</a></dd>
+        
+          <dd><a href="//readthedocs.org/projects/aspen/downloads/epub/latest/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/aspen/?fromdocs=aspen">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/aspen/?fromdocs=aspen">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0rc3-dev',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
