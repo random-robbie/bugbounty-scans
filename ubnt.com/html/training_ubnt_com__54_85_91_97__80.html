@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class=" html_stretched responsive av-preloader-disabled av-default-lightbox  html_header_top html_logo_left html_main_nav_header html_menu_right html_custom html_header_sticky html_header_shrinking html_mobile_menu_phone html_disabled html_header_searchicon html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_entry_id_191 ">
+<head>
+<meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+
+<!-- page title, displayed in your browser bar -->
+<title>Moodle Hosting Partner</title>
+
+<link rel="icon" href="https://www.moonami.com/wp-content/uploads/2016/10/favicon1.png" type="image/png">
+
+<!-- mobile setting -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Scripts/CSS and wp_head hook -->
+<style type='text/css'>Default CSS Comment</style>        <script data-cfasync="false">
+            var eppathtoscripts = "https://www.moonami.com/wp-content/plugins/youtube-embed-plus/scripts/";
+            var epresponsiveselector = ["iframe.__youtube_prefs_widget__"];
+            var epdovol = true; //false;
+        </script>
+        
+<!-- This site is optimized with the Yoast SEO plugin v2.3.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Moodle Totara Hosting &amp; Support for Education, Healthcare, Government, and Business. Hands down, the easiest way to deploy leading open source learning management"/>
+<link rel="canonical" href="https://www.moonami.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Moodle Hosting Partner" />
+<meta property="og:description" content="Moodle Totara Hosting &amp; Support for Education, Healthcare, Government, and Business. Hands down, the easiest way to deploy leading open source learning management" />
+<meta property="og:url" content="https://www.moonami.com/" />
+<meta property="og:site_name" content="Moonami" />
+<meta property="og:image" content="https://www.moonami.com/wp-content/uploads/2017/07/moodle-logo2.png" />
+<meta property="og:image" content="https://www.moonami.com/wp-content/uploads/2012/09/totara-solutions-partner-300x272.png" />
+<meta property="og:image" content="https://www.moonami.com/wp-content/uploads/2015/04/Amazon-300x122.jpg" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/www.moonami.com\/","name":"Moonami","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.moonami.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/www.moonami.com\/","sameAs":["https:\/\/www.facebook.com\/moonamihq\/","https:\/\/www.linkedin.com\/company\/3194599\/"],"name":"Moonami","logo":"https:\/\/www.moonami.com\/wp-content\/uploads\/2015\/03\/Moonami_Logo-dark-e1426045058267.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Moonami &raquo; Feed" href="https://www.moonami.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Moonami &raquo; Comments Feed" href="https://www.moonami.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Moonami &raquo; Home Comments Feed" href="https://www.moonami.com/home-new/feed/" />
+
+<!-- google webfont font replacement -->
+<link rel='stylesheet' id='avia-google-webfont' href='//fonts.googleapis.com/css?family=Open+Sans:400,600%7CLato:300,400,700' type='text/css' media='all'/> 
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/www.moonami.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='avia-woocommerce-css-css'  href='https://www.moonami.com/wp-content/themes/enfold/config-woocommerce/woocommerce-mod.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='srp-layout-stylesheet-css'  href='https://www.moonami.com/wp-content/plugins/special-recent-posts/css/layout.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='post_grid_style-css'  href='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/css/style-new.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='owl.carousel-css'  href='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/css/owl.carousel.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/css/font-awesome.min.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='style-woocommerce-css'  href='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/css/style-woocommerce.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='style.skins-css'  href='https://www.moonami.com/wp-content/plugins/post-grid/assets/global/css/style.skins.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='style.layout-css'  href='https://www.moonami.com/wp-content/plugins/post-grid/assets/global/css/style.layout.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='spokal_front_css-css'  href='https://www.moonami.com/wp-content/plugins/spokal/css/front/spokal.min.css?ver=2.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='default-icon-styles-css'  href='https://www.moonami.com/wp-content/plugins/svg-vector-icon-plugin/public/../admin/css/wordpress-svg-icon-plugin-style.min.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-grid-css'  href='https://www.moonami.com/wp-content/themes/enfold/css/grid.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-base-css'  href='https://www.moonami.com/wp-content/themes/enfold/css/base.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-layout-css'  href='https://www.moonami.com/wp-content/themes/enfold/css/layout.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-scs-css'  href='https://www.moonami.com/wp-content/themes/enfold/css/shortcodes.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-popup-css-css'  href='https://www.moonami.com/wp-content/themes/enfold/js/aviapopup/magnific-popup.css?ver=1' type='text/css' media='screen' />
+<link rel='stylesheet' id='avia-media-css'  href='https://www.moonami.com/wp-content/themes/enfold/js/mediaelement/skin-1/mediaelementplayer.css?ver=1' type='text/css' media='screen' />
+<link rel='stylesheet' id='avia-print-css'  href='https://www.moonami.com/wp-content/themes/enfold/css/print.css?ver=1' type='text/css' media='print' />
+<link rel='stylesheet' id='avia-dynamic-css'  href='https://www.moonami.com/wp-content/uploads/dynamic_avia/enfold_child.css?ver=59b0a6239c461' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-custom-css'  href='https://www.moonami.com/wp-content/themes/enfold/css/custom.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-style-css'  href='https://www.moonami.com/wp-content/themes/enfold-child/style.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-gravity-css'  href='https://www.moonami.com/wp-content/themes/enfold/config-gravityforms/gravity-mod.css?ver=1' type='text/css' media='screen' />
+<link rel='stylesheet' id='socicon-css'  href='https://www.moonami.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/socicon.css?ver=20170209' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://www.moonami.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/genericons.css?ver=20170209' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-css'  href='https://www.moonami.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/font-awesome.min.css?ver=20170209' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://www.moonami.com/wp-includes/css/dashicons.min.css?ver=4.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='dry_awp_theme_style-css'  href='https://www.moonami.com/wp-content/plugins/advanced-wp-columns/assets/css/awp-columns.css?ver=4.2.4' type='text/css' media='all' />
+<style id='dry_awp_theme_style-inline-css' type='text/css'>
+@media screen and (max-width: 1024px) {	.csColumn {		clear: both !important;		float: none !important;		text-align: center !important;		margin-left:  10% !important;		margin-right: 10% !important;		width: 80% !important;	}	.csColumnGap {		display: none !important;	}}
+</style>
+<link rel='stylesheet' id='A2A_SHARE_SAVE-css'  href='https://www.moonami.com/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.14' type='text/css' media='all' />
+<link rel='stylesheet' id='__EPYT__style-css'  href='https://www.moonami.com/wp-content/plugins/youtube-embed-plus/styles/ytprefs.min.css?ver=4.2.4' type='text/css' media='all' />
+<style id='__EPYT__style-inline-css' type='text/css'>
+
+                .epyt-gallery-thumb {
+                        width: 33.333333333333%;
+                }
+</style>
+        <script data-cfasync="false">
+            var eppathtoscripts = "https://www.moonami.com/wp-content/plugins/youtube-embed-plus/scripts/";
+            var epresponsiveselector = ["iframe.__youtube_prefs_widget__"];
+            var epdovol = true; //false;
+        </script>
+              <script>
+      if (document.location.protocol != "https:") {
+          document.location = document.URL.replace(/^http:/i, "https:");
+      }
+      </script>
+      <script type='text/javascript' src='https://www.moonami.com/wp-includes/js/jquery/jquery.js?ver=1.11.2'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var post_grid_ajax = {"post_grid_ajaxurl":"https:\/\/www.moonami.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/js/scripts.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/js/masonry.pkgd.min.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/js/owl.carousel.min.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/post-grid/assets/frontend/js/imagesloaded.pkgd.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/spokal/js/front/spokal.min.js?ver=2.5.1'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/themes/enfold/js/avia-compat.js?ver=2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _EPYT_ = {"ajaxurl":"https:\/\/www.moonami.com\/wp-admin\/admin-ajax.php","security":"b75d86e487","gallery_scrolloffset":"20"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/youtube-embed-plus/scripts/ytprefs.min.js?ver=4.2.4'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.moonami.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.moonami.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.2.4" />
+<meta name="generator" content="WooCommerce 2.4.6" />
+<link rel='shortlink' href='https://www.moonami.com/' />
+
+<script type="text/javascript">
+var a2a_config=a2a_config||{};a2a_config.callbacks=a2a_config.callbacks||[];a2a_config.templates=a2a_config.templates||{};
+a2a_config.onclick=1;
+</script>
+<script type="text/javascript" src="https://static.addtoany.com/menu/page.js" async="async"></script>
+<script type="text/javascript">var sp_ajaxurl = "/wp-admin/admin-ajax.php";</script><meta property="og:title" content="Home" /><meta property="og:url" content="https://www.moonami.com/" /><meta property="og:site_name" content="Moonami" /><meta property="article:published_time" content="2015-03-10 13:52:58" /><meta name="twitter:url" content="https://www.moonami.com/" /><meta name="twitter:title" content="Home" /><style type="text/css">.optin-form-border{border: 3px solid #ccc;padding: 15px 15px;border-radius: 10px;-moz-border-radius: 10px;}</style><style type="text/css">dd ul.bulleted {  float:none;clear:both; }</style><link rel="apple-touch-icon" sizes="120x120" href="/wp-content/uploads/fbrfg/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/uploads/fbrfg/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/uploads/fbrfg/favicon-16x16.png">
+<link rel="manifest" href="/wp-content/uploads/fbrfg/manifest.json">
+<link rel="mask-icon" href="/wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/wp-content/uploads/fbrfg/favicon.ico">
+<meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
+<meta name="theme-color" content="#ffffff"><link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="Moonami RSS2 Feed" href="https://www.moonami.com/feed/" />
+<link rel="pingback" href="https://www.moonami.com/xmlrpc.php" />
+
+<style type='text/css' media='screen'>
+ #top #header_main > .container, #top #header_main > .container .main_menu ul:first-child > li > a, #top #header_main #menu-item-shop .cart_dropdown_link{ height:95px; line-height: 95px; }
+ .html_header_top.html_header_sticky #top #wrap_all #main{ padding-top:95px; } 
+</style>
+<!--[if lt IE 9]><script src="https://www.moonami.com/wp-content/themes/enfold/js/html5shiv.js"></script><![endif]-->	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<script type="text/javascript" src="https://www.moonami.com/wp-content/plugins/woo-tumblog/functions/swfobject.js"></script><link rel="stylesheet" type="text/css" media="all" href="https://www.moonami.com/wp-content/plugins/woo-tumblog/functions/css/tumblog_frontend_styles.css" />
+<!-- BEGIN Typekit Fonts for WordPress -->
+
+<!-- END Typekit Fonts for WordPress -->
+
+
+
+<!--
+Debugging Info for Theme support: 
+
+Theme: Enfold
+Version: 3.2.1
+Installed: enfold
+AviaFramework Version: 2.2
+AviaBuilder Version: 0.8
+- - - - - - - - - - -
+ChildTheme: Enfold Child
+ChildTheme Version: 1.0
+ChildTheme Installed: enfold
+
+ML:1024-PU:74-PLA:37
+WP:4.2.4
+Updates: enabled
+-->
+
+<style type='text/css'>
+@font-face {font-family: 'entypo-fontello'; font-weight: normal; font-style: normal;
+src: url('https://www.moonami.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3');
+src: url('https://www.moonami.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3#iefix') format('embedded-opentype'), 
+url('https://www.moonami.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff?v=3') format('woff'), 
+url('https://www.moonami.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.ttf?v=3') format('truetype'), 
+url('https://www.moonami.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.svg?v=3#entypo-fontello') format('svg');
+} #top .avia-font-entypo-fontello, body .avia-font-entypo-fontello, html body [data-av_iconfont='entypo-fontello']:before{ font-family: 'entypo-fontello'; }
+</style>
+</head>
+
+
+
+
+<body data-rsssl=1 id="top" class="home page page-id-191 page-template-default stretched open_sans " itemscope="itemscope" itemtype="https://schema.org/WebPage" >
+
+	
+	<div id='wrap_all'>
+
+	
+<header id='header' class=' header_color light_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_custom av_header_sticky av_header_shrinking av_header_stretch_disabled av_mobile_menu_phone av_header_searchicon av_header_unstick_top_disabled av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
+
+<a id="advanced_menu_toggle" href="#" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a><a id="advanced_menu_hide" href="#" 	aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a>
+
+
+		<div  id='header_main' class='container_wrap container_wrap_logo'>
+	
+        <ul  class = 'cart_dropdown ' data-success='was added to the cart'><li class='cart_dropdown_first'><a class='cart_dropdown_link' href='https://www.moonami.com/cart/'><span aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></span><span class='av-cart-counter'>0</span><span class='avia_hidden_link_text'>Shopping Cart</span></a><!--<span class='cart_subtotal'><span class="amount">&#36;0.00</span></span>--><div class='dropdown_widget dropdown_widget_cart'><div class='avia-arrow'></div><div class="widget_shopping_cart_content"></div></div></li></ul>	
+				 <div class='container'>
+				 
+					<div class='inner-container'>
+						<strong class='logo'><a href='https://www.moonami.com/'><img height='100' width='300' src='https://www.moonami.com/wp-content/uploads/2015/03/Moonami_Logo-dark-300x71.png' alt='Moonami' /></a></strong><nav class='main_menu' data-selectname='Select a page'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" ><div class="avia-menu av-main-nav-wrap"><ul id="avia-menu" class="menu av-main-nav"><li id="menu-item-3979" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a href="https://www.moonami.com/about-us/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">About Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-3989" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/about-us/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">About Us</span></a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://www.moonami.com/lms-support-services/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Services</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-3968" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/enterprise-lms-hosting/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">AWS Cloud Hosting</span></a></li>
+		<li id="menu-item-4022" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/services/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Services</span></a></li>
+		<li id="menu-item-4020" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/support/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Support</span></a></li>
+		<li id="menu-item-4021" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/training/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Training</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-3988" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/pricing/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Pricing</span></a></li>
+</ul>
+</li>
+<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-2"><a itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">LMS Solutions</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/totara/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Corporate LMS</span></a></li>
+	<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/moodle/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Moodle Higher-Ed</span></a></li>
+	<li id="menu-item-4034" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.moonami.com/moodle-k12/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Moodle K-12</span></a></li>
+</ul>
+</li>
+<li id="menu-item-118" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-3"><a href="http://help.moonami.com" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Help &#038; Community</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-4"><a href="https://www.moonami.com/blog/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Blog</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3584" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-5"><a href="https://www.moonami.com/my-account/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">My Account</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-4011" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-6"><a href="https://www.moonami.com/contact-2/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Contact</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown">
+							<a href="?s=" rel="nofollow" data-avia-search-tooltip="
+
+&lt;form action=&quot;https://www.moonami.com/&quot; id=&quot;searchform&quot; method=&quot;get&quot; class=&quot;&quot;&gt;
+	&lt;div&gt;
+		&lt;input type=&quot;submit&quot; value=&quot;&quot; id=&quot;searchsubmit&quot; class=&quot;button avia-font-entypo-fontello&quot; /&gt;
+		&lt;input type=&quot;text&quot; id=&quot;s&quot; name=&quot;s&quot; value=&quot;&quot; placeholder='Search' /&gt;
+			&lt;/div&gt;
+&lt;/form&gt;" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Search</span></a>
+	        		   </li></ul></div></nav>				
+					 <!-- end inner-container-->
+			        </div>
+						
+		        <!-- end container-->
+		        </div>
+
+		<!-- end container_wrap-->
+		</div>
+		
+		<div class='header_bg'></div>
+
+<!-- end header -->
+</header>
+		
+	<div id='main' data-scroll-offset='95'>
+
+	<div id='homebox' class='avia-section main_color avia-section-large avia-no-border-styling av-parallax-section avia-bg-style-parallax  avia-builder-el-0  el_before_av_section  avia-builder-el-first  container_wrap fullsize' style = 'background-color: #d8d8d8; ' data-section-bg-repeat='no-repeat' ><div class='av-parallax  avia-full-stretch' data-avia-parallax-ratio='0.3' style = 'background-repeat: no-repeat; background-image: url(https://www.moonami.com/wp-content/uploads/2015/01/bg.jpg); background-attachment: scroll; background-position: center center; ' ></div><div class='container' ><main  role="main" itemprop="mainContentOfPage"  class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-191'><div class='entry-content-wrapper clearfix'>
+<div class="flex_column av_one_full  flex_column_div first  avia-builder-el-1  el_before_av_one_half  avia-builder-el-first  " ><section class="av_textblock_section"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock  av_inherit_color'  style='font-size:18px; color:#ffffff; '  itemprop="text" ><h1 class="hero" style="text-align: center;">Certified US Moodle &#038; Totara LMS Solutions for</h1>
+<h1 class="hero" style="text-align: center;">Education, Healthcare, Government, and Business</h1>
+<h3 class="hero" style="text-align: center;">Hands down, the easiest way to deploy leading open source learning management software by Moodle and Totara</h3>
+<h3 class="hero" style="text-align: center;">Free 30-day Moodle / Totara Amazon AWS hosting trial, 24/7 support, no credit card required, no vendor lock-in</h3>
+<h3 class="hero" style="text-align: center;"><a href="https://www.moonami.com/sign-up/">Launch</a> a Moodle site today completely free</h3>
+</div></section></div><div class="flex_column av_one_half  flex_column_div av-zero-column-padding first  avia-builder-el-3  el_after_av_one_full  el_before_av_one_half  column-top-margin" style='border-radius:0px; '><article class="iconbox iconbox_top main_color   avia-builder-el-4  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_content"><header class="entry-content-header"><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><h3 class='iconbox_content_title'  itemprop="headline"  >Moodle Cloud</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>As a certified Moodle Partner, we provide a full range of Moodle services including AWS cloud hosting, training, SIS integration, theming, module development and 24/7 support.</p>
+<div class='avia-button-wrap avia-button-center  avia-builder-el-5  avia-builder-el-no-sibling '><a href='https://www.moonami.com/moodle/' class='avia-button  avia-icon_select-yes-left-icon avia-color-theme-color avia-size-small avia-position-center '   ><span class='avia_button_icon avia_button_icon_left ' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></span><span class='avia_iconbox_title' >Learn more</span></a></div>
+<p><a  href="https://www.moonami.com/wp-content/uploads/2017/07/moodle-logo2.png"><img class="aligncenter wp-image-3896 size-full" src="https://www.moonami.com/wp-content/uploads/2017/07/moodle-logo2.png" alt="Moodle Certified Partner" width="462" height="83" /></a></p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_half  flex_column_div av-zero-column-padding   avia-builder-el-6  el_after_av_one_half  el_before_av_one_full  column-top-margin" style='border-radius:0px; '><article class="iconbox iconbox_top main_color   avia-builder-el-7  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_content"><header class="entry-content-header"><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><h3 class='iconbox_content_title'  itemprop="headline"  >Totara Cloud</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>With over 8.5 million users across the globe, Totara which is is an open source distribution of Moodle is perfectly suited for corporate internal/external e-learning initiatives.</p>
+<div class='avia-button-wrap avia-button-center  avia-builder-el-8  avia-builder-el-no-sibling '><a href='https://www.moonami.com/totara/' class='avia-button  avia-icon_select-no avia-color-theme-color avia-size-small avia-position-center '   ><span class='avia_iconbox_title' >Learn more</span></a></div>
+<p><a href="https://www.moonami.com/wp-content/uploads/2012/09/totara-solutions-partner.png"><img class="  wp-image-3937 aligncenter" src="https://www.moonami.com/wp-content/uploads/2012/09/totara-solutions-partner-300x272.png" alt="" width="170" height="154" /></a></p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_full  flex_column_div av-zero-column-padding first  avia-builder-el-9  el_after_av_one_half  el_before_av_button  column-top-margin" style='border-radius:0px; '></div><div class='avia-button-wrap avia-button-center  avia-builder-el-10  el_after_av_one_full  avia-builder-el-last '><a href='sign-up/' class='avia-button  avia-icon_select-yes-left-icon avia-color-custom avia-size-x-large avia-position-center '  style='background-color:#2d5c88; border-color:#2d5c88; color:#ffffff; ' ><span class='avia_button_icon avia_button_icon_left ' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></span><span class='avia_iconbox_title' >Create a Moodle site for free</span></a></div>
+</div></div></main><!-- close content main element --></div></div><div id='av_section_2' class='avia-section main_color avia-section-small avia-no-border-styling avia-bg-style-scroll  avia-builder-el-11  el_after_av_section  el_before_av_section  container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-191'><div class='entry-content-wrapper clearfix'>
+<div style='height:30px' class='hr hr-invisible  avia-builder-el-12  el_before_av_one_third  avia-builder-el-first '><span class='hr-inner ' ><span class='hr-inner-style'></span></span></div>
+<div class="flex_column av_one_third  flex_column_div av-zero-column-padding first  avia-builder-el-13  el_after_av_hr  el_before_av_one_third  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-14  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >No Contracts, No Lock-in</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Moonami is <span style="text-decoration: underline;"><strong>truly</strong></span> open source, backed with an open business model.  Cancel your Moodle Hosting account at anytime from your account dashboard. You&#8217;re free to download your entire Moodle™ site and take it with you.</p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_third  flex_column_div av-zero-column-padding   avia-builder-el-15  el_after_av_one_third  el_before_av_one_third  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-16  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Secure Amazon AWS Cloud Hosting</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p style="text-align: left;">Your Moonami instance will be protected by multiple levels of security guarded by the same tools trusted by Fortune 100 companies.</p>
+<p style="text-align: left;">Client Moodle sites are provisioned on Amazon&#8217;s AWS US East FedRamp Compliant, high-performance, multi-tier fault tolerant, auto-scaling cloud hosting architecture.   Each site is deployed with its own partitioned data directory and privately credentialed database.   All sites completely managed and monitored by Moonami’s Cloud Support Engineers 24x7x365 with full system snapshots every hour, 24/7/365</p>
+<p style="text-align: left;">
+<p style="text-align: left;"><a href="https://www.moonami.com/wp-content/uploads/2015/04/Amazon.jpg"><img class="  wp-image-3965 alignleft" src="https://www.moonami.com/wp-content/uploads/2015/04/Amazon-300x122.jpg" alt="Amazon" width="167" height="68" /></a></p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_third  flex_column_div av-zero-column-padding   avia-builder-el-17  el_after_av_one_third  avia-builder-el-last  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-18  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >24/7 Support</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Our operations staff works around the clock to ensure your Moodle™ and Totara site is running smoothly. Account holders can send tickets, call, and engage in live chat directly to our support engineers for speedy resolution.</p>
+</div></div><footer class="entry-footer"></footer></article></div>
+</p>
+</div></div></div><!-- close content main div --></div></div><div id='av_section_3' class='avia-section main_color avia-section-small avia-no-border-styling avia-bg-style-scroll  avia-builder-el-19  el_after_av_section  el_before_av_section  container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-191'><div class='entry-content-wrapper clearfix'>
+<div class="flex_column av_one_third  flex_column_div av-zero-column-padding first  avia-builder-el-20  el_before_av_one_third  avia-builder-el-first  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-21  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Scalability</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Your site can be instantly upgraded to support growing numbers of students, parents and faculty. Whether you have 100 students or 10,000, we have the computing power to meet your needs.</p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_third  flex_column_div av-zero-column-padding   avia-builder-el-22  el_after_av_one_third  el_before_av_one_third  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-23  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Moodle Migration</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Moonami provides complimentary Moodle site migrations and can transition your existing Moodle install over with ZERO interruption or downtime. We upgrade you to the <a tabindex="-1" href="https://www.youtube.com/user/moodlehq/playlists">latest release of Moodle</a> with <strong>your</strong> choice of plugins/integrations.  It is an exact replica of your existing Moodle instance including integration with your SIS, authentication, Moodle plugins, and choice of <a tabindex="-1" href="https://moodle.org/plugins/?q=moodle-version:3.2%20sort-by:downloads">themes</a>.</p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_third  flex_column_div av-zero-column-padding   avia-builder-el-24  el_after_av_one_third  avia-builder-el-last  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-25  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Mobile Device Ready</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Your Moodle™ site will be pre-configured with a mobile ready theme ensuring that iOS and Android users can use the system from day one.</p>
+</div></div><footer class="entry-footer"></footer></article></div>
+
+</div></div></div><!-- close content main div --></div></div><div id='av_section_4' class='avia-section main_color avia-section-small avia-no-border-styling avia-bg-style-scroll  avia-builder-el-26  el_after_av_section  avia-builder-el-last  container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-191'><div class='entry-content-wrapper clearfix'>
+<div class="flex_column av_one_third  flex_column_div av-zero-column-padding first  avia-builder-el-27  el_before_av_one_third  avia-builder-el-first  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-28  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Expert Services</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Our Services team is available to help you maximize your institution&#8217;s adoption of Moodle™ or Totara.  Clients are assigned a dedicated project manager throughout the lifetime of the Moonami relationship to help with SIS/CRM/ERP integration, authentication, eCommerce, migration, and of course, fanatical support.</p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_third  flex_column_div av-zero-column-padding   avia-builder-el-29  el_after_av_one_third  el_before_av_one_third  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-30  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Moodle Totara Site Theming</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Our Services team can easily customize the look of Moodle™ or Totara site to match your institution&#8217;s website or other branding needs.</p>
+</div></div><footer class="entry-footer"></footer></article></div><div class="flex_column av_one_third  flex_column_div av-zero-column-padding   avia-builder-el-31  el_after_av_one_third  avia-builder-el-last  " style='border-radius:0px; '><article class="iconbox iconbox_left_content   avia-builder-el-32  avia-builder-el-no-sibling "  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class="iconbox_icon heading-color" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  ></div><div class="iconbox_content"><header class="entry-content-header"><h3 class='iconbox_content_title'  itemprop="headline"  >Moodle Totara Learning Analytics</h3></header><div class='iconbox_content_container '  itemprop="text"  ><p>Moodle / Totara come with equipped with powerful visual learning analytics and reporting to offer insights into learner progress and ensure that learner objectives are being met.  Analytics can ensure students/learners are engaged or are at-risk with instant notifications on any activity that takes place in the LMS.</p>
+</div></div><footer class="entry-footer"></footer></article></div>
+
+</div></div></div><!-- close content main div --> <!-- section close by builder template -->		</div><!--end builder template--></div><!-- close default .container_wrap element -->		<div class='container_wrap footer_color' id='footer'>
+
+			<div class='container'>
+
+				<div class='flex_column av_one_fourth  first el_before_av_one_fourth'><section id="execphp-5" class="widget clearfix widget_execphp"><h3 class="widgettitle">Quick Links</h3>			<div class="execphpwidget"><a href="https://www.moonami.com/">Home</a><br />
+<a href="https://www.moonami.com/">Contact Moonami</a><br />
+<a href="https://www.moonami.com/">My Account</a><br />
+<a href="https://www.moonami.com/">LMS Hosting Services</a><br />
+<a href="https://www.moonami.com/">Totara LMS</a></div>
+		<span class="seperator extralight-border"></span></section><section id="execphp-8" class="widget clearfix widget_execphp">			<div class="execphpwidget"><img class="alignleft size-full wp-image-3688" src="https://www.moonami.com/wp-content/uploads/2015/01/moodlepartner.png" alt="moodlepartner" width="261" height="115"></div>
+		<span class="seperator extralight-border"></span></section></div><div class='flex_column av_one_fourth  el_after_av_one_fourth  el_before_av_one_fourth '><section id="execphp-6" class="widget clearfix widget_execphp"><h3 class="widgettitle">Moonami</h3>			<div class="execphpwidget">Moonami is a simple and easy way for schools, organizations and businesses to deploy Moodle™. Launch in seconds, not weeks. Yeah, it's really that easy.
+<br /><br />
+<div align="left"><img src="https://www.moonami.com/wp-content/uploads/2015/03/Moonami_Logo-light.png"  width="200"></div></div>
+		<span class="seperator extralight-border"></span></section></div><div class='flex_column av_one_fourth  el_after_av_one_fourth  el_before_av_one_fourth '><section id="execphp-7" class="widget clearfix widget_execphp"><h3 class="widgettitle">Totara LMS</h3>			<div class="execphpwidget"><p>Totara LMS enables you to deliver learning effectively through individual learning plans which reflect your employees’ roles, training needs and objectives.</p>
+<div align="left"><img src="https://www.moonami.com/wp-content/uploads/2015/03/totara_solutions_partner_footer.png" width="150"></div>
+</div>
+		<span class="seperator extralight-border"></span></section></div><div class='flex_column av_one_fourth  el_after_av_one_fourth  el_before_av_one_fourth '><section id="execphp-3" class="widget clearfix widget_execphp"><h3 class="widgettitle">Get In Touch</h3>			<div class="execphpwidget">12175 Visionary Way<br />
+Suite 360<br />
+Fishers, Indiana 46038, USA<br />
+Phone: (317) 973-4105<br />
+<a href="mailto:info@moonami.com">info@moonami.com</a></div>
+		<span class="seperator extralight-border"></span></section><section id="text-5" class="widget clearfix widget_text"><h3 class="widgettitle">Subscribe &amp; Connect</h3>			<div class="textwidget"></div>
+		<span class="seperator extralight-border"></span></section></div>
+
+			</div>
+
+
+		<!-- ####### END FOOTER CONTAINER ####### -->
+		</div>
+
+
+
+
+	
+
+	
+		<footer class='container_wrap socket_color' id='socket'  role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter" >
+            <div class='container'>
+
+                <span class='copyright'>© Copyright 2013 Moonami, LLC. All rights reserved. - <a  href='http://www.kriesi.at'>Enfold Child Theme by Kriesi</a></span>
+
+                <nav class='sub_menu_socket'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" ></nav>
+            </div>
+
+        <!-- ####### END SOCKET CONTAINER ####### -->
+		</footer>
+
+
+	<!-- end main -->
+</div>
+
+<!-- end wrap_all --></div>
+
+            <script type="text/javascript">jQuery(document).ready(function(){var PostId = "191";var SubmittedURL = "https://www.moonami.com/";jQuery("input[name=SpokalPostId]").each(function(){this.value = PostId;});jQuery("input[name=SpokalSubmittedUrl]").each(function(){if(!this.value){this.value = SubmittedURL;}});jQuery("input[name=SpokalRedirectUrl]").each(function(){if(!this.value){this.value = SubmittedURL;}});});</script>
+                    <script type="text/javascript">jQuery(".gform_body").append('<input id="SpokalPiwikId" name="SpokalPiwikId" type="hidden">');</script>
+                <script type="text/javascript">var globalPiwikId;function spokalSavePiwikId(piwikID){globalPiwikId = piwikID;jQuery(".spokalPiwikID").val(piwikID);jQuery("input[name=SpokalPiwikId]").val(piwikID);}</script>
+            <script type="text/javascript">
+            function sp_set_cv(){
+                            
+                        
+                            _paq.push(['setCustomVariable',3,'SP_POST_ID','191','page']);
+                        }
+        </script>
+<script>if ( typeof window.twttr == 'undefined' ) {window.twttr = (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0],t = window.twttr || {};if (d.getElementById(id)) return t;js = d.createElement(s);js.id = id;js.src = 'https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));}</script><!--Embed from Zopim Live Chat Wordpress Plugin v1.3.9-->
+  <!--Start of Zopim Live Chat Script-->
+  <script type="text/javascript">
+  window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+  d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+  _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+  $.src='//v2.zopim.com/?1KbmBSyQLlatPdwe2glA4mkbe08ywDaN';z.t=+new Date;$.
+  type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+  </script><script>$zopim( function() {
+})</script><!--End of Zopim Live Chat Script-->
+ <script type='text/javascript'>
+ /* <![CDATA[ */  
+var avia_framework_globals = avia_framework_globals || {};
+    avia_framework_globals.frameworkUrl = 'https://www.moonami.com/wp-content/themes/enfold/framework/';
+    avia_framework_globals.installedAt = 'https://www.moonami.com/wp-content/themes/enfold/';
+    avia_framework_globals.ajaxurl = 'https://www.moonami.com/wp-admin/admin-ajax.php';
+/* ]]> */ 
+</script>
+ 
+ <script type='text/javascript' src='https://www.moonami.com/wp-content/themes/enfold/config-woocommerce/woocommerce-mod.js?ver=1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View Cart","cart_url":"https:\/\/www.moonami.com\/cart\/","is_cart":"","cart_redirect_after_add":"yes"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.moonami.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=2.4.6'></script>
+<script type='text/javascript' src='//www.moonami.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.moonami.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=2.4.6'></script>
+<script type='text/javascript' src='//www.moonami.com/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.moonami.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=2.4.6'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/youtube-embed-plus/scripts/fitvids.min.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/themes/enfold/js/avia.js?ver=3'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/themes/enfold/js/shortcodes.js?ver=3'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/themes/enfold/js/aviapopup/jquery.magnific-popup.min.js?ver=2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.moonami.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=2.16.2'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-includes/js/mediaelement/wp-mediaelement.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-includes/js/comment-reply.min.js?ver=4.2.4'></script>
+<script type='text/javascript' src='https://www.moonami.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/js/social-icons-widget-frontend.js?ver=20170209'></script>
+<a href='#top' title='Scroll to top' id='scroll-top-link' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Scroll to top</span></a>
+
+<div id="fb-root"></div>
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"789f8a0b4d","applicationID":"6758031","transactionName":"b1UBZEMAWBZQVRFeVlYfNkJYTl8LVVMdGUlQQA==","queueTime":0,"applicationTime":2630,"atts":"QxICEgsaSxg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+ Served from: www.moonami.com @ 2017-10-04 11:29:07 by W3 Total Cache -->

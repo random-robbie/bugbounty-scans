@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#000">
+
+    <title>Grafana</title>
+
+		<link href='/public/css/fonts.min.css' rel='stylesheet' type='text/css'>
+
+		
+		  <link rel="stylesheet" href="/public/css/grafana.dark.min.4ef341a4.css">
+		
+
+    <link rel="icon" type="image/png" href="/public/img/fav32.png">
+		<base href="/" />
+
+	</head>
+
+	<body ng-cloak>
+		<grafana-app class="grafana-app">
+
+			<aside class="sidemenu-wrapper">
+				<sidemenu ng-if="contextSrv.sidemenu"></sidemenu>
+			</aside>
+
+			<div class="page-alert-list">
+				<div ng-repeat='alert in dashAlerts.list' class="alert-{{alert.severity}} alert">
+					<button type="button" class="alert-close" ng-click="dashAlerts.clear(alert)">
+						<i class="fa fa-times-circle"></i>
+					</button>
+					<div class="alert-title">{{alert.title}}</div>
+					<div ng-bind='alert.text'></div>
+				</div>
+			</div>
+
+			<div ng-view class="main-view"></div>
+			<footer class="footer">
+				<div class="row text-center">
+					<ul>
+						<li>
+							<a href="http://docs.grafana.org" target="_blank">
+								<i class="fa fa-file-code-o"></i>
+								Docs
+							</a>
+						</li>
+						<li>
+							<a href="https://grafana.com/services/support" target="_blank">
+								<i class="fa fa-support"></i>
+								Support Plans
+							</a>
+						</li>
+						<li>
+							<a href="https://community.grafana.com/" target="_blank">
+								<i class="fa fa-comments-o"></i>
+								Community
+							</a>
+						</li>
+						<li>
+							<a href="https://grafana.com" target="_blank">Grafana</a>
+							<span>v4.4.1 (commit: 6a9f8ca)</span>
+						</li>
+						
+							<li>
+								<a href="https://grafana.com/get" target="_blank" bs-tooltip="'4.5.2'">
+									New version available!
+								</a>
+							</li>
+						
+					</ul>
+				</div>
+			</footer>
+		</grafana-app>
+
+	<script>
+		window.grafanaBootData = {
+			user:{"isSignedIn":false,"id":0,"login":"","email":"","name":"","lightTheme":false,"orgId":0,"orgName":"","orgRole":"","isGrafanaAdmin":false,"gravatarUrl":"","timezone":"browser","locale":"en-US","helpFlags1":0},
+			settings: {"alertingEnabled":true,"allowOrgCreate":false,"appSubUrl":"","authProxyEnabled":false,"buildInfo":{"buildstamp":1499238904,"commit":"6a9f8ca","env":"production","hasUpdate":true,"latestVersion":"4.5.2","version":"4.4.1"},"datasources":{"-- Grafana --":{"meta":{"type":"datasource","name":"-- Grafana --","id":"grafana","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaVersion":"*","plugins":[]},"includes":null,"module":"app/plugins/datasource/grafana/module","baseUrl":"public/app/plugins/datasource/grafana","hideFromList":false,"state":"","annotations":true,"metrics":true,"alerting":false,"builtIn":true,"mixed":false,"app":""},"name":"-- Grafana --","type":"datasource"},"-- Mixed --":{"meta":{"type":"datasource","name":"-- Mixed --","id":"mixed","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaVersion":"*","plugins":[]},"includes":null,"module":"app/plugins/datasource/mixed/module","baseUrl":"public/app/plugins/datasource/mixed","hideFromList":false,"state":"","annotations":false,"metrics":true,"alerting":false,"builtIn":true,"mixed":true,"app":""},"name":"-- Mixed --","type":"datasource"}},"defaultDatasource":"-- Grafana --","disableLoginForm":false,"disableSignoutMenu":false,"disableUserSignUp":true,"googleAnalyticsId":"","ldapEnabled":false,"loginHint":"email or username","oauth":{"google":{"name":"google"}},"panels":{"alertlist":{"baseUrl":"public/app/plugins/panel/alertlist","hideFromList":false,"id":"alertlist","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg","large":"public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/alertlist/module","name":"Alert List","sort":6},"dashlist":{"baseUrl":"public/app/plugins/panel/dashlist","hideFromList":false,"id":"dashlist","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/dashlist/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/dashlist/img/icn-dashlist-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/dashlist/module","name":"Dashboard list","sort":7},"gettingstarted":{"baseUrl":"public/app/plugins/panel/gettingstarted","hideFromList":true,"id":"gettingstarted","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/gettingstarted/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/gettingstarted/img/icn-dashlist-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/gettingstarted/module","name":"Getting Started","sort":100},"grafana-piechart-panel":{"baseUrl":"public/plugins/grafana-piechart-panel","hideFromList":false,"id":"grafana-piechart-panel","info":{"author":{"name":"Grafana Labs","url":"http://grafana.com"},"description":"Pie chart panel for grafana","links":[{"name":"Project site","url":"https://github.com/grafana/piechart-panel"},{"name":"Blog Post","url":"https://blog.raintank.io/friends-dont-let-friends-abuse-pie-charts/"},{"name":"MIT License","url":"https://github.com/grafana/piechart-panel/blob/master/LICENSE"}],"logos":{"small":"public/plugins/grafana-piechart-panel/src/img/piechart_logo_small.png","large":"public/plugins/grafana-piechart-panel/src/img/piechart_logo_large.png"},"screenshots":[{"path":"public/plugins/grafana-piechart-panel/src/img/piechart-donut.png","name":"Donut!"},{"path":"public/plugins/grafana-piechart-panel/src/img/piechart-legend-on-graph.png","name":"Legend on the graph"},{"path":"public/plugins/grafana-piechart-panel/src/img/piechart-legend-rhs.png","name":"Legend to the right"},{"path":"public/plugins/grafana-piechart-panel/src/img/piechart-legend-under.png","name":"Legend underneath"},{"path":"public/plugins/grafana-piechart-panel/src/img/piechart-options.png","name":"Piechart options"}],"version":"1.1.5","updated":"2017-06-05"},"module":"plugins/grafana-piechart-panel/module","name":"Pie Chart","sort":100},"grafana-worldmap-panel":{"baseUrl":"public/plugins/grafana-worldmap-panel","hideFromList":false,"id":"grafana-worldmap-panel","info":{"author":{"name":"Raintank Inc.","url":"http://raintank.io"},"description":"World Map panel for grafana. Displays time series data or geohash data from Elasticsearch overlaid on a world map.","links":[{"name":"Project site","url":"https://github.com/grafana/worldmap-panel"},{"name":"MIT License","url":"https://github.com/grafana/worldmap-panel/blob/master/LICENSE"}],"logos":{"small":"public/plugins/grafana-worldmap-panel/src/images/worldmap_logo.svg","large":"public/plugins/grafana-worldmap-panel/src/images/worldmap_logo.svg"},"screenshots":[{"path":"public/plugins/grafana-worldmap-panel/src/images/worldmap-world.png","name":"World"},{"path":"public/plugins/grafana-worldmap-panel/src/images/worldmap-usa.png","name":"USA"},{"path":"public/plugins/grafana-worldmap-panel/src/images/worldmap-light-theme.png","name":"Light Theme"}],"version":"0.0.17","updated":"2016-10-20"},"module":"plugins/grafana-worldmap-panel/module","name":"Worldmap Panel","sort":100},"graph":{"baseUrl":"public/app/plugins/panel/graph","hideFromList":false,"id":"graph","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/graph/img/icn-graph-panel.svg","large":"public/app/plugins/panel/graph/img/icn-graph-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/graph/module","name":"Graph","sort":1},"heatmap":{"baseUrl":"public/app/plugins/panel/heatmap","hideFromList":false,"id":"heatmap","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/heatmap/img/icn-heatmap-panel.svg","large":"public/app/plugins/panel/heatmap/img/icn-heatmap-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/heatmap/module","name":"Heatmap","sort":5},"pluginlist":{"baseUrl":"public/app/plugins/panel/pluginlist","hideFromList":false,"id":"pluginlist","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/pluginlist/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/pluginlist/img/icn-dashlist-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/pluginlist/module","name":"Plugin list","sort":100},"singlestat":{"baseUrl":"public/app/plugins/panel/singlestat","hideFromList":false,"id":"singlestat","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/singlestat/img/icn-singlestat-panel.svg","large":"public/app/plugins/panel/singlestat/img/icn-singlestat-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/singlestat/module","name":"Singlestat","sort":2},"table":{"baseUrl":"public/app/plugins/panel/table","hideFromList":false,"id":"table","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/table/img/icn-table-panel.svg","large":"public/app/plugins/panel/table/img/icn-table-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/table/module","name":"Table","sort":3},"text":{"baseUrl":"public/app/plugins/panel/text","hideFromList":false,"id":"text","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/text/img/icn-text-panel.svg","large":"public/app/plugins/panel/text/img/icn-text-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/text/module","name":"Text","sort":4}}},
+			mainNavLinks: [{"text":"Dashboards","icon":"icon-gf icon-gf-dashboard","url":"/","children":[{"text":"Home","url":"/"},{"text":"Playlists","url":"/playlists"},{"text":"Snapshots","url":"/dashboard/snapshots"}]}]
+		};
+	</script>
+
+	<script src="/public/app/boot.74ebeed4.js"></script>
+
+	
+
+	</body>
+</html>

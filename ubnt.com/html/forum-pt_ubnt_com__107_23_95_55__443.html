@@ -1,0 +1,1482 @@
+
+<!DOCTYPE html>
+<html lang="en" class="sticky-footer-html">
+  <head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comunidade UBNT em Português</title>
+<link rel="alternate" type="application/rss+xml" title="Comunidade UBNT em Português" href="https://107.23.95.55/discussions/feed.rss" />
+<link rel="stylesheet" type="text/css" href="/themes/bootstrap-ubnt/design/style.css?v=2.1.11" media="all" />
+<link rel="stylesheet" type="text/css" href="/plugins/Tagging/design/tag.css?v=1.6.2" media="all" />
+<link rel="stylesheet" type="text/css" href="/plugins/Signatures/design/signature.css?v=1.5.6" media="all" />
+<link rel="stylesheet" type="text/css" href="/plugins/Emotify/design/emotify.css?v=2.0.5" media="all" />
+<link rel="stylesheet" type="text/css" href="/themes/bootstrap-ubnt/design/custom.css?v=2.1.11" media="all" />
+<link rel="stylesheet" type="text/css" href="/themes/bootstrap-ubnt/design/custom_ubnt.css?v=2.1.11" media="all" />
+<link rel="stylesheet" type="text/css" href="/plugins/OnlineNow/design/onlinenow.css?v=3.4" media="all" />
+<link rel="stylesheet" type="text/css" href="/plugins/jsconnect/design/jsconnect.css?v=1.4.1" media="all" />
+<link rel="stylesheet" type="text/css" href="/plugins/jsconnectAutoSignIn/design/jsconnectAuto.css?v=0.1.8b" media="all" />
+<link rel="canonical" href="https://107.23.95.55/discussions" />
+<meta property="og:site_name" content="Comunidade UBNT em Português" />
+<meta property="og:title" itemprop="name" content="Comunidade UBNT em Português" />
+<meta property="og:url" content="https://107.23.95.55/discussions" />
+<script src="/js/library/jquery.js?v=2.1.11" type="text/javascript"></script>
+<script src="/js/library/jquery-ui-1.8.17.custom.min.js?v=2.1.11" type="text/javascript"></script>
+<script src="/js/library/jquery.livequery.js?v=2.1.11" type="text/javascript"></script>
+<script src="/js/library/jquery.form.js?v=2.1.11" type="text/javascript"></script>
+<script src="/js/library/jquery.popup.js?v=2.1.11" type="text/javascript"></script>
+<script src="/js/library/jquery.gardenhandleajaxform.js?v=2.1.11" type="text/javascript"></script>
+<script src="/js/global.js?v=2.1.11" type="text/javascript"></script>
+<script src="/applications/vanilla/js/discussions.js?v=2.1.11" type="text/javascript"></script>
+<script src="/plugins/jsconnect/js/jsconnect.js?v=1.4.1" type="text/javascript"></script>
+<script src="/plugins/jsconnectAutoSignIn/js/jsconnectAuto.js?v=0.1.8b" type="text/javascript"></script>
+<script src="/themes/bootstrap-ubnt/js/custom.js?v=2.1.11" type="text/javascript"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2432820-19', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2432820-19']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//comm-pulse.ubnt.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 2]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//comm-pulse.ubnt.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+    <!-- <link href="/themes/bootstrap-ubnt/design/src/ubnt.woff" rel="stylesheet"> -->
+    <link href="/themes/bootstrap-ubnt/design/ubnt-fonts.css" rel="stylesheet" type="text/css">
+    <link href="//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/style.css" rel="stylesheet" type="text/css">
+
+    <script src="/themes/bootstrap-ubnt/js/special.js" type="text/javascript"></script>
+
+    <link href="//ubcdn.co/static/favicon.ico" rel="shortcut icon"/><link href="//ubcdn.co/static/favicon.ico" rel="icon"/>
+    <link href="//ubcdn.co/static/favicon-152.png" rel="apple-touch-icon-precomposed"/><link href="//ubcdn.co/static/favicon-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/><link href="//ubcdn.co/static/favicon-144.png" rel="apple-touch-icon-precomposed" sizes="144x144"/><link href="//ubcdn.co/static/favicon-120.png" rel="apple-touch-icon-precomposed" sizes="120x120"/><link href="//ubcdn.co/static/favicon-114.png" rel="apple-touch-icon-precomposed" sizes="114x114"/><link href="//ubcdn.co/static/favicon-72.png" rel="apple-touch-icon-precomposed" sizes="72x72"/><link href="//ubcdn.co/static/favicon-57.png" rel="apple-touch-icon-precomposed"/>
+
+
+  </head>
+  <body id="vanilla_discussions_index" class="Vanilla Discussions index  Section-DiscussionList sticky-footer-body">
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div>
+      <!-- this expands full width<div class="container"> -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="/">Comunidade UBNT em Português</a> -->
+          <a class="navbar-brand" href="/"><span class="icon ubnt-icon--u"></span></a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/categories" class="">Categorias</a></li>
+            <li><a href="/discussions" class="">Tópicos</a></li>
+            <li><a href="/activity" class="">Atividade</a></li>
+            <li><a href="/categories/Historias" class="">Histórias</a></li>
+            <!--  -->
+          </ul>
+                      <ul class="nav navbar-nav navbar-right">
+              <li class="langSelector"><span class="ToggleFlyout MeMenu--Language"><a href="/languages" class="MeButton FlyoutButton" title="Languages"><span class="lang-icon lang-pt"></span><em>Português</em><span class="ubnt-icon--pointer-down icon"></span></a>
+              <div class="LangMenu MeMenu--Settings Flyout MenuItems">
+                <ul>
+                  <li><a href="https://community.ubnt.com" class="LangLink LangLink-English"><span class="lang-icon lang-en"></span>Inglês</a></li>
+                  <li><a href="https://forum-pt.ubnt.com" class="LangLink LangLink-Portuguese"><span class="lang-icon lang-pt"></span>Português</a></li>
+                  <li><a href="https://forum-es.ubnt.com" class="LangLink LangLink-Spanish"><span class="lang-icon lang-es"></span>Espanhol</a></li>
+                </ul></div></span></li>
+              <div style="display: none"><li><a href="/entry/signin" rel="nofollow" class="SignInPopup">Entrar</a></li></div>
+              <li>
+                <a href="https://account-global.ubnt.com/login?lang=pt&redirect=https://forum-pt.ubnt.com" class="navbar-signIn">Entrar</a>
+              </li>
+              <li>
+                <a href="https://account-global.ubnt.com/login?lang=pt&redirect=https://forum-pt.ubnt.com" class="navbar-register" onClick="_gaq.push(['_trackEvent', 'Navigation', 'Account', 'Clicked Register']);">Inscrever-se</a>
+              </li>
+            </ul>
+                  </div>
+      </div>
+    </nav>
+
+
+      <div class="page-banner well">
+
+        <section class="container">
+          <div class="row">
+
+            <main class="page-content" role="main">
+
+              <div class="showOnHomepage">
+                <h3 class="welcome">Bem-vindo à Comunidade UBNT</h3>
+              </div>
+
+
+              <div class="hideOnHomepage">
+                  <span class="Breadcrumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span class="CrumbLabel HomeCrumb"><a href="https://107.23.95.55/" itemprop="url"><span itemprop="title">Início</span></a></span> </span>
+                  <!-- <div class="well search-form"><form method="get" action="/search">
+<div>
+<input type="text" id="Form_Search" name="Search" value="" placeholder="Procurar" class="InputBox" /><input type="submit" id="Form_Go" value="Ir" class="Button" />
+</div>
+</form></div> -->
+              </div>
+
+            </main>
+
+            <div class="page-sidebar" role="complementary">
+                <div class="search-form">
+                  <span class="search-form-icon icon ubnt-icon--search-2"></span><form method="get" action="/search">
+<div>
+<input type="text" id="Form_Search" name="Search" value="" placeholder="Procurar" class="InputBox" /><input type="submit" id="Form_Go" value="Ir" class="Button" />
+</div>
+</form>
+                </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+    <section class="container">
+      <div class="row">
+        <main class="page-content" role="main">
+
+                      <!-- Selecione Produto ou Plataforma -->
+
+            <table class="tabNav showOnHomepage hidden-xs">
+              <tr>
+                <th colspan="3" class="tabNav-broadband">Broadband</th>
+                <th colspan="4" class="tabNav-enterprise">Enterprise</th>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/categories/airfiber" class="tN-container"><div class="tN-1 tN-item" title="airFiber"></div><div class="icon ubnt-icon--airfiber"></div></a>
+                </td>
+                <td>
+                  <a href="/categories/airmax" class="tN-container"><div class="tN-2 tN-item" title="airMAX"></div><div class="icon ubnt-icon--airmax"></div></a>
+                </td>
+                <td>
+                  <a href="/categories/edgemax" class="tN-container"><div class="tN-3 tN-item" title="edgeMAX"></div><div class="icon ubnt-icon--edgemax"></div></a>
+                </td>
+                <td>
+                  <a href="/categories/unifi-wireless" class="tN-container"><div class="tN-4 tN-item" title="UniFi"></div><div class="icon ubnt-icon--unifi"></div></a>
+                </td>
+                <td>
+                  <a href="/categories/unifi-video" class="tN-container"><div class="tN-5 tN-item" title="UniFi Video"></div><div class="icon ubnt-icon--unifi-video"></div></a>
+                </td>
+                <td>
+                  <a href="/categories/unifi-voip" class="tN-container"><div class="tN-6 tN-item" title="UniFi VoIP"></div><div class="icon ubnt-icon--UniFi-VoIP"></div></a>
+                </td>
+                <td>
+                  <a href="/categories/mfi" class="tN-container"><div class="tN-7 tN-item" title="mFi"></div><div class="icon ubnt-icon--mfi2"></div></a>
+                </td>
+              </tr>
+            </table>
+          
+          <h1 class="H HomepageTitle">Comunidade UBNT em Português</h1><div class="PageControls Top"><div  id="PagerBefore" class="Pager NumberedPager"><span class="Previous">Anterior</span><a href="/discussions/p1" class="Highlight">1</a><a href="/discussions/p2" rel="next">2</a><a href="/discussions/p3">3</a><a href="/discussions/p4">4</a><a href="/discussions/p5">5</a><a href="/discussions/p6">6</a><a href="/discussions/p7">7</a><span class="Ellipsis">&#8230;</span><a href="/discussions/p158">158</a><a href="/discussions/p2" class="Next" rel="next">Próximo</a></div></div><div class="DataTableWrap">
+<table class="DataTable DiscussionsTable">
+	<thead>
+		   <tr>
+            <td class="DiscussionName"><div class="Wrap">Tópico</div></td>
+      <!-- <td class="BlockColumn BlockColumn-User FirstUser"><div class="Wrap">Autor</div></td> -->
+      <td class="Platform isHomepage"><div class="Wrap">Categoria</div></td>
+      <td class="Counter CountComments isHomepage"><div class="Wrap">Respostas</div></td>
+      <td class="Counter CountViews"><div class="Wrap">Visualizações</div></td>
+      <td class="LastUser"><div class="Wrap">Recente</div></td>
+      <td class="RecentActivity"><div class="Wrap">Atividade</div></td>
+   </tr>
+
+
+   	</thead>
+	<tbody>
+   <tr id="Discussion_1264543" class="Item Announcement Announcement-Everywhere Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1264543/apresentando-a-nova-linha-de-pontos-de-acesso-de-unifi-para-802-11ac" class="Title">Apresentando a nova linha de Pontos de Acesso de UniFi para 802.11ac</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-Anuncios"><a href="https://107.23.95.55/categories/Anuncios">Anúncios</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="UBNT-Jamie" href="/profile/100016/UBNT-Jamie" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/912/nYELYBR10OF7L.png" alt="UBNT-Jamie" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/100016/UBNT-Jamie" class="UserLink BlockTitle">UBNT-Jamie</a><div class="Meta"><a href="https://107.23.95.55/discussion/1264543/apresentando-a-nova-linha-de-pontos-de-acesso-de-unifi-para-802-11ac" class="CommentDate MItem"><time title="setembro  4, 2015  7:24" datetime="2015-09-04T07:24:21+00:00">setembro 2015</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="52 comentários" class="Number">52</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="4,121 visualizações" class="Number">4.1K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310472/UBNT-Diego" class="UserLink BlockTitle">UBNT-Diego</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1264543/apresentando-a-nova-linha-de-pontos-de-acesso-de-unifi-para-802-11ac#latest" class="CommentDate MItem"><time title="outubro  3, 2017  4:59" datetime="2017-10-03T16:59:07+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1264934" class="Item Alt Announcement Announcement-Everywhere Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1264934/problemas-com-as-abracadeiras-no-litebeam" class="Title">Problemas com as abraçadeiras no LiteBeam?</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="UBNT-AlexCaldas" href="/profile/294194/UBNT-AlexCaldas" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/828/n51D4HISA3DPQ.jpg" alt="UBNT-AlexCaldas" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/294194/UBNT-AlexCaldas" class="UserLink BlockTitle">UBNT-AlexCaldas</a><div class="Meta"><a href="https://107.23.95.55/discussion/1264934/problemas-com-as-abracadeiras-no-litebeam" class="CommentDate MItem"><time title="fevereiro  5, 2016  5:20" datetime="2016-02-05T17:20:06+00:00">fevereiro 2016</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="22 comentários" class="Number">22</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="1,466 visualizações" class="Number">1.5K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/309853/bugdiscloseguy" class="UserLink BlockTitle">bugdiscloseguy</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1264934/problemas-com-as-abracadeiras-no-litebeam#latest" class="CommentDate MItem"><time title="setembro 14, 2017 10:14" datetime="2017-09-14T22:14:12+00:00">setembro 14</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1264714" class="Item Announcement Announcement-Everywhere Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1264714/informacoes-importantes-sobre-os-radios-802-11ac-leia-se-teve-problemas-com-a-linha-ac" class="Title">Informações importantes sobre os rádios 802.11ac(Leia se teve problemas com a linha AC)</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="R4V3R" href="/profile/176853/R4V3R" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/830/nDXFVCYC0CM6D.jpg" alt="R4V3R" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/176853/R4V3R" class="UserLink BlockTitle">R4V3R</a><div class="Meta"><a href="https://107.23.95.55/discussion/1264714/informacoes-importantes-sobre-os-radios-802-11ac-leia-se-teve-problemas-com-a-linha-ac" class="CommentDate MItem"><time title="novembro  6, 2015  4:18" datetime="2015-11-06T04:18:29+00:00">novembro 2015</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="22 comentários" class="Number">22</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="4,662 visualizações" class="Number">4.7K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/307208/Flavio-" class="UserLink BlockTitle">Flavio-</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1264714/informacoes-importantes-sobre-os-radios-802-11ac-leia-se-teve-problemas-com-a-linha-ac#latest" class="CommentDate MItem"><time title="agosto 23, 2017 12:41" datetime="2017-08-23T12:41:45+00:00">agosto 23</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1264779" class="Item Alt Announcement Announcement-Everywhere Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1264779/airmagic-nova-ferramenta-para-a-otimizacao-de-canais-em-redes-ptmp-airmax-ac" class="Title">airMAGIC - Nova Ferramenta para a Otimização de Canais em Redes PtMP airMAX-ac</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="UBNT-Jamie" href="/profile/100016/UBNT-Jamie" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/912/nYELYBR10OF7L.png" alt="UBNT-Jamie" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/100016/UBNT-Jamie" class="UserLink BlockTitle">UBNT-Jamie</a><div class="Meta"><a href="https://107.23.95.55/discussion/1264779/airmagic-nova-ferramenta-para-a-otimizacao-de-canais-em-redes-ptmp-airmax-ac" class="CommentDate MItem"><time title="dezembro  9, 2015  5:06" datetime="2015-12-09T17:06:17+00:00">dezembro 2015</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="42 comentários" class="Number">42</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="6,397 visualizações" class="Number">6.4K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/305994/Aloysio" class="UserLink BlockTitle">Aloysio</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1264779/airmagic-nova-ferramenta-para-a-otimizacao-de-canais-em-redes-ptmp-airmax-ac#latest" class="CommentDate MItem"><time title="julho 28, 2017  5:40" datetime="2017-07-28T17:40:01+00:00">julho 28</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1265016" class="Item Announcement Announcement-Everywhere Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1265016/competicao-af-5x-enlace-mais-longo" class="Title">Competição AF-5X! Enlace mais  longo!!</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airfiber"><a href="https://107.23.95.55/categories/airfiber">airFiber</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="UBNT-Chadi" href="/profile/161783/UBNT-Chadi" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/265/nDRLTNZRIXRSK.png" alt="UBNT-Chadi" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/161783/UBNT-Chadi" class="UserLink BlockTitle">UBNT-Chadi</a><div class="Meta"><a href="https://107.23.95.55/discussion/1265016/competicao-af-5x-enlace-mais-longo" class="CommentDate MItem"><time title="março  3, 2016  3:23" datetime="2016-03-03T15:23:02+00:00">março 2016</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="35 comentários" class="Number">35</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="10,077 visualizações" class="Number">10.1K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/301704/tellervitor" class="UserLink BlockTitle">tellervitor</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1265016/competicao-af-5x-enlace-mais-longo#latest" class="CommentDate MItem"><time title="março  4, 2017 11:42" datetime="2017-03-04T23:42:22+00:00">março 4</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286612" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286612/gerenciar-wireless-de-todas-as-filiais-atraves-de-uma-controladora" class="Title">Gerenciar Wireless de todas as filiais através de uma controladora.</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="roberto_carrara" href="/profile/310581/roberto_carrara" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/5c440d719c496af63e3ca3406c03e6d9?s=80&d=mm&r=g" alt="roberto_carrara" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310581/roberto_carrara" class="UserLink BlockTitle">roberto_carrara</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286612/gerenciar-wireless-de-todas-as-filiais-atraves-de-uma-controladora" class="CommentDate MItem"><time title="outubro  3, 2017  5:54" datetime="2017-10-03T17:54:44+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="2 comentários" class="Number">2</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="14 visualizações" class="Number">14</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310596/3ol73" class="UserLink BlockTitle">3ol73</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286612/gerenciar-wireless-de-todas-as-filiais-atraves-de-uma-controladora#latest" class="CommentDate MItem"><time title="outubro  4, 2017  3:55" datetime="2017-10-04T03:55:07+00:00">3:55</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286614" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286614/voucher" class="Title">VOUCHER</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="ericklobo" href="/profile/293967/ericklobo" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/177/n4U7ZFDZ6621T.jpg" alt="ericklobo" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/293967/ericklobo" class="UserLink BlockTitle">ericklobo</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286614/voucher" class="CommentDate MItem"><time title="outubro  4, 2017  2:15" datetime="2017-10-04T02:15:40+00:00">2:15</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="6 visualizações" class="Number">6</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/293967/ericklobo" class="UserLink BlockTitle">ericklobo</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286614/voucher#latest" class="CommentDate MItem"><time title="outubro  4, 2017  2:15" datetime="2017-10-04T02:15:40+00:00">2:15</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286613" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286613/alguns-radios-varias-pessoas-c-celurares-e-muitos-problemas" class="Title">Alguns Rádios, Várias Pessoas c/ celurares e muitos problemas</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="VagnerAser" href="/profile/310591/VagnerAser" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/ff36ae8668ed0ce014ae43b1222a7e71?s=80&d=mm&r=g" alt="VagnerAser" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310591/VagnerAser" class="UserLink BlockTitle">VagnerAser</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286613/alguns-radios-varias-pessoas-c-celurares-e-muitos-problemas" class="CommentDate MItem"><time title="outubro  3, 2017 11:45" datetime="2017-10-03T23:45:58+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="7 visualizações" class="Number">7</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310596/3ol73" class="UserLink BlockTitle">3ol73</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286613/alguns-radios-varias-pessoas-c-celurares-e-muitos-problemas#latest" class="CommentDate MItem"><time title="outubro  4, 2017  1:51" datetime="2017-10-04T01:51:22+00:00">1:51</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285049" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285049/problema-para-configurar-acesso-a-vlans" class="Title">Problema para configurar acesso a VLANS</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="Danilo_moraes" href="/profile/304243/Danilo_moraes" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/cbca85b77031bd386b47fe419f2198ce?s=80&d=mm&r=g" alt="Danilo_moraes" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/304243/Danilo_moraes" class="UserLink BlockTitle">Danilo_moraes</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285049/problema-para-configurar-acesso-a-vlans" class="CommentDate MItem"><time title="setembro 28, 2017  7:25" datetime="2017-09-28T19:25:51+00:00">setembro 28</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="28 visualizações" class="Number">28</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/188837/Thiemann" class="UserLink BlockTitle">Thiemann</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285049/problema-para-configurar-acesso-a-vlans#latest" class="CommentDate MItem"><time title="outubro  3, 2017  8:25" datetime="2017-10-03T20:25:23+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1277523" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1277523/usuarios-com-lentidao-de-internet-e-outros-nao-conecta" class="Title">Usuários com lentidão de internet, e outros não conecta!</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="Denimendes" href="/profile/308852/Denimendes" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/3fe809fd6dc6c34a8415e4cabe312646?s=80&d=mm&r=g" alt="Denimendes" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/308852/Denimendes" class="UserLink BlockTitle">Denimendes</a><div class="Meta"><a href="https://107.23.95.55/discussion/1277523/usuarios-com-lentidao-de-internet-e-outros-nao-conecta" class="CommentDate MItem"><time title="agosto 25, 2017  1:10" datetime="2017-08-25T13:10:29+00:00">agosto 25</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="13 comentários" class="Number">13</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="204 visualizações" class="Number">204</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/176853/R4V3R" class="UserLink BlockTitle">R4V3R</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1277523/usuarios-com-lentidao-de-internet-e-outros-nao-conecta#latest" class="CommentDate MItem"><time title="outubro  3, 2017  8:04" datetime="2017-10-03T20:04:18+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286611" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286611/habilitar-zero-handoff-unifi-ap-ac-pro" class="Title">Habilitar Zero-Handoff UniFi AP-AC-Pro.</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="andiamorim" href="/profile/310568/andiamorim" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/e8f95170bba70241026468a5587745e2?s=80&d=mm&r=g" alt="andiamorim" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310568/andiamorim" class="UserLink BlockTitle">andiamorim</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286611/habilitar-zero-handoff-unifi-ap-ac-pro" class="CommentDate MItem"><time title="outubro  3, 2017  1:05" datetime="2017-10-03T13:05:55+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="6 visualizações" class="Number">6</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310568/andiamorim" class="UserLink BlockTitle">andiamorim</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286611/habilitar-zero-handoff-unifi-ap-ac-pro#latest" class="CommentDate MItem"><time title="outubro  3, 2017  1:05" datetime="2017-10-03T13:05:55+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1282379" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1282379/como-configurar-o-unifi-controller-em-cloud-ex-servidor-locaweb" class="Title">Como configurar o UniFi Controller em cloud (ex. Servidor Locaweb)</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="SUPER-BETO" href="/profile/310259/SUPER-BETO" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/632/nX3CHDCOKFQCH.jpg" alt="SUPER-BETO" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310259/SUPER-BETO" class="UserLink BlockTitle">SUPER-BETO</a><div class="Meta"><a href="https://107.23.95.55/discussion/1282379/como-configurar-o-unifi-controller-em-cloud-ex-servidor-locaweb" class="CommentDate MItem"><time title="setembro 25, 2017  8:53" datetime="2017-09-25T20:53:22+00:00">setembro 25</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="2 comentários" class="Number">2</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="26 visualizações" class="Number">26</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310259/SUPER-BETO" class="UserLink BlockTitle">SUPER-BETO</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1282379/como-configurar-o-unifi-controller-em-cloud-ex-servidor-locaweb#latest" class="CommentDate MItem"><time title="outubro  3, 2017 12:32" datetime="2017-10-03T12:32:25+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286092" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286092/interligar-2-redes" class="Title">Interligar 2 redes</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="fritz_galdino" href="/profile/310557/fritz_galdino" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/de89b7586706842833ce0509f0b95268?s=80&d=mm&r=g" alt="fritz_galdino" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310557/fritz_galdino" class="UserLink BlockTitle">fritz_galdino</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286092/interligar-2-redes" class="CommentDate MItem"><time title="outubro  3, 2017  2:04" datetime="2017-10-03T02:04:53+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="9 visualizações" class="Number">9</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310463/AdrianoSimao" class="UserLink BlockTitle">AdrianoSimao</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286092/interligar-2-redes#latest" class="CommentDate MItem"><time title="outubro  3, 2017 11:54" datetime="2017-10-03T11:54:04+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286119" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286119/velocidade-da-internet-muito-degradada-na-unifi" class="Title">Velocidade da internet muito degradada na UNIFI</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="marcelosetupnet" href="/profile/310509/marcelosetupnet" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/815/nGW1C1ZJQAHFH.png" alt="marcelosetupnet" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310509/marcelosetupnet" class="UserLink BlockTitle">marcelosetupnet</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286119/velocidade-da-internet-muito-degradada-na-unifi" class="CommentDate MItem"><time title="outubro  3, 2017  3:33" datetime="2017-10-03T03:33:38+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="16 visualizações" class="Number">16</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/292383/dava" class="UserLink BlockTitle">dava</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286119/velocidade-da-internet-muito-degradada-na-unifi#latest" class="CommentDate MItem"><time title="outubro  3, 2017  8:06" datetime="2017-10-03T08:06:34+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286090" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286090/nao-consigo-sinal" class="Title">Não consigo sinal.</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="Rhenan" href="/profile/310556/Rhenan" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/2dd6fa63e2ed3dbf4a80379b87ca3d79?s=80&d=mm&r=g" alt="Rhenan" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310556/Rhenan" class="UserLink BlockTitle">Rhenan</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286090/nao-consigo-sinal" class="CommentDate MItem"><time title="outubro  3, 2017  1:54" datetime="2017-10-03T01:54:39+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="3 comentários" class="Number">3</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="9 visualizações" class="Number">9</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310556/Rhenan" class="UserLink BlockTitle">Rhenan</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286090/nao-consigo-sinal#latest" class="CommentDate MItem"><time title="outubro  3, 2017  2:03" datetime="2017-10-03T02:03:24+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286091" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286091/interligar-2-redes-com-nanostation-loco-m5" class="Title">Interligar 2 redes com nanostation loco M5</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-legacy-products"><a href="https://107.23.95.55/categories/legacy-products">Outros Produtos</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="fritz_galdino" href="/profile/310557/fritz_galdino" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/de89b7586706842833ce0509f0b95268?s=80&d=mm&r=g" alt="fritz_galdino" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310557/fritz_galdino" class="UserLink BlockTitle">fritz_galdino</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286091/interligar-2-redes-com-nanostation-loco-m5" class="CommentDate MItem"><time title="outubro  3, 2017  1:48" datetime="2017-10-03T01:48:18+00:00">outubro 3</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="10 visualizações" class="Number">10</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310557/fritz_galdino" class="UserLink BlockTitle">fritz_galdino</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286091/interligar-2-redes-com-nanostation-loco-m5#latest" class="CommentDate MItem"><time title="outubro  3, 2017  1:55" datetime="2017-10-03T01:55:29+00:00">outubro 3</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285737" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285737/problema-ao-usar-o-unifi-controller-em-maquinas-diferentes" class="Title">Problema ao usar o Unifi Controller em máquinas diferentes!!!</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="marcelosetupnet" href="/profile/310509/marcelosetupnet" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/815/nGW1C1ZJQAHFH.png" alt="marcelosetupnet" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310509/marcelosetupnet" class="UserLink BlockTitle">marcelosetupnet</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285737/problema-ao-usar-o-unifi-controller-em-maquinas-diferentes" class="CommentDate MItem"><time title="outubro  1, 2017  6:24" datetime="2017-10-01T18:24:59+00:00">outubro 1</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="5 comentários" class="Number">5</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="40 visualizações" class="Number">40</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/11273/ptt" class="UserLink BlockTitle">ptt</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285737/problema-ao-usar-o-unifi-controller-em-maquinas-diferentes#latest" class="CommentDate MItem"><time title="outubro  2, 2017 10:01" datetime="2017-10-02T22:01:10+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1282816" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1282816/firmware-6-0-4" class="Title">firmware 6.0.4</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-Historias"><a href="https://107.23.95.55/categories/Historias">Experiências Exitosas</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="seba17" href="/profile/305930/seba17" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/e28abde17ca5e3454d6003a7aac82253?s=80&d=mm&r=g" alt="seba17" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/305930/seba17" class="UserLink BlockTitle">seba17</a><div class="Meta"><a href="https://107.23.95.55/discussion/1282816/firmware-6-0-4" class="CommentDate MItem"><time title="setembro 26, 2017  9:25" datetime="2017-09-26T21:25:59+00:00">setembro 26</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="2 comentários" class="Number">2</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="37 visualizações" class="Number">37</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310544/morais_antw" class="UserLink BlockTitle">morais_antw</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1282816/firmware-6-0-4#latest" class="CommentDate MItem"><time title="outubro  2, 2017  8:39" datetime="2017-10-02T20:39:40+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286089" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286089/unms-nao-aceita-conexao-com-os-dispositivos" class="Title">UNMS nao aceita conexao com os dispositivos</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-legacy-products"><a href="https://107.23.95.55/categories/legacy-products">Outros Produtos</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="roneypladr" href="/profile/309567/roneypladr" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/14860f48293ec9f1835742259d3185d5?s=80&d=mm&r=g" alt="roneypladr" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/309567/roneypladr" class="UserLink BlockTitle">roneypladr</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286089/unms-nao-aceita-conexao-com-os-dispositivos" class="CommentDate MItem"><time title="outubro  2, 2017  8:33" datetime="2017-10-02T20:33:29+00:00">outubro 2</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="10 visualizações" class="Number">10</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/309567/roneypladr" class="UserLink BlockTitle">roneypladr</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286089/unms-nao-aceita-conexao-com-os-dispositivos#latest" class="CommentDate MItem"><time title="outubro  2, 2017  8:33" datetime="2017-10-02T20:33:29+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1281461" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1281461/problemas-airgrid-firmware" class="Title">PROBLEMAS AIRGRID FIRMWARE</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="braest1234" href="/profile/309822/braest1234" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/cf346f426477b00dd4346cf2943851ac?s=80&d=mm&r=g" alt="braest1234" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/309822/braest1234" class="UserLink BlockTitle">braest1234</a><div class="Meta"><a href="https://107.23.95.55/discussion/1281461/problemas-airgrid-firmware" class="CommentDate MItem"><time title="setembro 14, 2017 12:37" datetime="2017-09-14T12:37:25+00:00">setembro 14</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="12 comentários" class="Number">12</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="117 visualizações" class="Number">117</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310544/morais_antw" class="UserLink BlockTitle">morais_antw</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1281461/problemas-airgrid-firmware#latest" class="CommentDate MItem"><time title="outubro  2, 2017  8:10" datetime="2017-10-02T20:10:16+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286088" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286088/como-configurar-acessos-externos" class="Title">Como configurar acessos externos</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="paulomoreira28" href="/profile/309884/paulomoreira28" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/889/n214ZERX4I2JQ.jpg" alt="paulomoreira28" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/309884/paulomoreira28" class="UserLink BlockTitle">paulomoreira28</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286088/como-configurar-acessos-externos" class="CommentDate MItem"><time title="outubro  2, 2017  8:09" datetime="2017-10-02T20:09:42+00:00">outubro 2</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="9 visualizações" class="Number">9</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/309884/paulomoreira28" class="UserLink BlockTitle">paulomoreira28</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286088/como-configurar-acessos-externos#latest" class="CommentDate MItem"><time title="outubro  2, 2017  8:09" datetime="2017-10-02T20:09:42+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286087" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286087/como-configurar-e-publicar-unifi-dominio-com" class="Title">Como configurar e publicar Unifi.dominio.com</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="paulomoreira28" href="/profile/309884/paulomoreira28" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/889/n214ZERX4I2JQ.jpg" alt="paulomoreira28" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/309884/paulomoreira28" class="UserLink BlockTitle">paulomoreira28</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286087/como-configurar-e-publicar-unifi-dominio-com" class="CommentDate MItem"><time title="outubro  2, 2017  6:27" datetime="2017-10-02T18:27:37+00:00">outubro 2</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="9 visualizações" class="Number">9</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/309884/paulomoreira28" class="UserLink BlockTitle">paulomoreira28</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286087/como-configurar-e-publicar-unifi-dominio-com#latest" class="CommentDate MItem"><time title="outubro  2, 2017  6:27" datetime="2017-10-02T18:27:37+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1286057" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1286057/litebeam-5ac-16-120" class="Title">LiteBeam 5AC 16-120</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="Flavio-" href="/profile/307208/Flavio-" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/527/n2RW0YDH3Z8H8.jpg" alt="Flavio-" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/307208/Flavio-" class="UserLink BlockTitle">Flavio-</a><div class="Meta"><a href="https://107.23.95.55/discussion/1286057/litebeam-5ac-16-120" class="CommentDate MItem"><time title="outubro  2, 2017  1:00" datetime="2017-10-02T13:00:42+00:00">outubro 2</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="11 visualizações" class="Number">11</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/307208/Flavio-" class="UserLink BlockTitle">Flavio-</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1286057/litebeam-5ac-16-120#latest" class="CommentDate MItem"><time title="outubro  2, 2017  1:00" datetime="2017-10-02T13:00:42+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285563" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285563/controladora-de-wifi" class="Title">Controladora de WIFI</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="vagnerrodrigues" href="/profile/306206/vagnerrodrigues" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/918447e8d4db9ec3b640153a4584fb10?s=80&d=mm&r=g" alt="vagnerrodrigues" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/306206/vagnerrodrigues" class="UserLink BlockTitle">vagnerrodrigues</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285563/controladora-de-wifi" class="CommentDate MItem"><time title="setembro 29, 2017  6:52" datetime="2017-09-29T18:52:43+00:00">setembro 29</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="23 visualizações" class="Number">23</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/292383/dava" class="UserLink BlockTitle">dava</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285563/controladora-de-wifi#latest" class="CommentDate MItem"><time title="outubro  2, 2017  9:15" datetime="2017-10-02T09:15:14+00:00">outubro 2</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_927038" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/927038/ap-funciona-e-o-unifi-controller-n%C2%9Do-reconhece" class="Title">AP funciona e o Unifi Controller no reconhece</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="p3xtr3m3" href="/profile/241834/p3xtr3m3" class="PhotoWrap PhotoWrapSmall"><img src="https://secure.gravatar.com/avatar.php?gravatar_id=13128d7811b4af83ac79879a5ef072d9&amp;size=50&default=https%3A%2F%2Fvanillicon.com%2F13128d7811b4af83ac79879a5ef072d9.png" alt="p3xtr3m3" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/241834/p3xtr3m3" class="UserLink BlockTitle">p3xtr3m3</a><div class="Meta"><a href="https://107.23.95.55/discussion/927038/ap-funciona-e-o-unifi-controller-n%C2%9Do-reconhece" class="CommentDate MItem"><time title="julho 20, 2014  8:11" datetime="2014-07-20T20:11:46+00:00">julho 2014</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="8 comentários" class="Number">8</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="2,082 visualizações" class="Number">2.1K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310509/marcelosetupnet" class="UserLink BlockTitle">marcelosetupnet</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/927038/ap-funciona-e-o-unifi-controller-n%C2%9Do-reconhece#latest" class="CommentDate MItem"><time title="outubro  1, 2017  6:14" datetime="2017-10-01T18:14:50+00:00">outubro 1</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1281345" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1281345/conectado-mas-sem-ping-e-sem-acesso" class="Title">Conectado mas sem ping e sem acesso</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="DanielPalotina" href="/profile/308890/DanielPalotina" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/5a87c724c8800b05fee9d4a13d0de920?s=80&d=mm&r=g" alt="DanielPalotina" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/308890/DanielPalotina" class="UserLink BlockTitle">DanielPalotina</a><div class="Meta"><a href="https://107.23.95.55/discussion/1281345/conectado-mas-sem-ping-e-sem-acesso" class="CommentDate MItem"><time title="setembro 13, 2017  5:21" datetime="2017-09-13T17:21:58+00:00">setembro 13</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="5 comentários" class="Number">5</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="46 visualizações" class="Number">46</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310500/conectaff" class="UserLink BlockTitle">conectaff</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1281345/conectado-mas-sem-ping-e-sem-acesso#latest" class="CommentDate MItem"><time title="setembro 30, 2017 10:04" datetime="2017-09-30T22:04:24+00:00">setembro 30</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1264480" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1264480/af5x-13km-nao-conectam" class="Title">AF5X 13KM não conectam</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airfiber"><a href="https://107.23.95.55/categories/airfiber">airFiber</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="camilocoa88" href="/profile/291700/camilocoa88" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/93e8454d140296fa0f301fa8aff91ad0?s=80&d=mm&r=g" alt="camilocoa88" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/291700/camilocoa88" class="UserLink BlockTitle">camilocoa88</a><div class="Meta"><a href="https://107.23.95.55/discussion/1264480/af5x-13km-nao-conectam" class="CommentDate MItem"><time title="agosto 20, 2015  3:50" datetime="2015-08-20T03:50:11+00:00">agosto 2015</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="12 comentários" class="Number">12</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="1,436 visualizações" class="Number">1.4K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310421/megatomsistema" class="UserLink BlockTitle">megatomsistema</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1264480/af5x-13km-nao-conectam#latest" class="CommentDate MItem"><time title="setembro 30, 2017  9:33" datetime="2017-09-30T21:33:13+00:00">setembro 30</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285735" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285735/autenticacao-facebook" class="Title">Autenticação Facebook</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="felipecfc" href="/profile/310498/felipecfc" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/9e2a41a872c1b0a67d5e8c61fef5e415?s=80&d=mm&r=g" alt="felipecfc" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310498/felipecfc" class="UserLink BlockTitle">felipecfc</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285735/autenticacao-facebook" class="CommentDate MItem"><time title="setembro 30, 2017  7:25" datetime="2017-09-30T19:25:23+00:00">setembro 30</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="15 visualizações" class="Number">15</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310498/felipecfc" class="UserLink BlockTitle">felipecfc</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285735/autenticacao-facebook#latest" class="CommentDate MItem"><time title="setembro 30, 2017  7:25" datetime="2017-09-30T19:25:23+00:00">setembro 30</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285733" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285733/ccq-100-modulacao-muito-baixa" class="Title">CCQ 100% Modulação muito baixa</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="brunosoad" href="/profile/310492/brunosoad" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/b5de25e549d7e79c5f82d996f8a7f672?s=80&d=mm&r=g" alt="brunosoad" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/310492/brunosoad" class="UserLink BlockTitle">brunosoad</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285733/ccq-100-modulacao-muito-baixa" class="CommentDate MItem"><time title="setembro 30, 2017 12:24" datetime="2017-09-30T12:24:51+00:00">setembro 30</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="11 visualizações" class="Number">11</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310492/brunosoad" class="UserLink BlockTitle">brunosoad</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285733/ccq-100-modulacao-muito-baixa#latest" class="CommentDate MItem"><time title="setembro 30, 2017 12:24" datetime="2017-09-30T12:24:51+00:00">setembro 30</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285486" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285486/ajuda-ptp-loco-m2" class="Title">AJUDA PTP LOCO M2</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-airmax"><a href="https://107.23.95.55/categories/airmax">airMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="dougsky" href="/profile/270296/dougsky" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/1fc45c7032b5c14b4dc3801b8ad9d927?s=80&d=mm&r=g" alt="dougsky" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/270296/dougsky" class="UserLink BlockTitle">dougsky</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285486/ajuda-ptp-loco-m2" class="CommentDate MItem"><time title="setembro 29, 2017  1:04" datetime="2017-09-29T13:04:33+00:00">setembro 29</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="22 visualizações" class="Number">22</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/307208/Flavio-" class="UserLink BlockTitle">Flavio-</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285486/ajuda-ptp-loco-m2#latest" class="CommentDate MItem"><time title="setembro 30, 2017 11:39" datetime="2017-09-30T11:39:04+00:00">setembro 30</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1264310" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1264310/power-beam-pbe-m5-400-25dbi-9km" class="Title">Power Beam PBE-M5-400 25Dbi 9km</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-Historias"><a href="https://107.23.95.55/categories/Historias">Experiências Exitosas</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="guilhermehs" href="/profile/292009/guilhermehs" class="PhotoWrap PhotoWrapSmall"><img src="https://107.23.95.55/uploads/userpics/491/nVKSBK5O0YFTP.jpg" alt="guilhermehs" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/292009/guilhermehs" class="UserLink BlockTitle">guilhermehs</a><div class="Meta"><a href="https://107.23.95.55/discussion/1264310/power-beam-pbe-m5-400-25dbi-9km" class="CommentDate MItem"><time title="julho  3, 2015  1:15" datetime="2015-07-03T13:15:23+00:00">julho 2015</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="12 comentários" class="Number">12</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="2,079 visualizações" class="Number">2.1K</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/11273/ptt" class="UserLink BlockTitle">ptt</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1264310/power-beam-pbe-m5-400-25dbi-9km#latest" class="CommentDate MItem"><time title="setembro 29, 2017  9:07" datetime="2017-09-29T21:07:24+00:00">setembro 29</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1277510" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1277510/configurar-controladora-unifi-para-login-via-check-in-no-facebook" class="Title">Configurar controladora Unifi para login via check in no Facebook</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless">UniFi Wireless</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="seze" href="/profile/308860/seze" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/b4b74b190b5fdefba8caa061e5752416?s=80&d=mm&r=g" alt="seze" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/308860/seze" class="UserLink BlockTitle">seze</a><div class="Meta"><a href="https://107.23.95.55/discussion/1277510/configurar-controladora-unifi-para-login-via-check-in-no-facebook" class="CommentDate MItem"><time title="agosto 24, 2017  8:13" datetime="2017-08-24T20:13:59+00:00">agosto 24</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="12 comentários" class="Number">12</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="217 visualizações" class="Number">217</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/310462/AndreFranco" class="UserLink BlockTitle">AndreFranco</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1277510/configurar-controladora-unifi-para-login-via-check-in-no-facebook#latest" class="CommentDate MItem"><time title="setembro 29, 2017  8:24" datetime="2017-09-29T20:24:06+00:00">setembro 29</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1284160" class="Item Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1284160/erpro-8-atualizacao-de-firmware-1-3-0-1-9-7" class="Title">ERPro-8: atualização de firmware 1.3.0 &gt; 1.9.7 !?</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-edgemax"><a href="https://107.23.95.55/categories/edgemax">EdgeMAX</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="ddf" href="/profile/306679/ddf" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/b2c084231d275f9ba5ccd889f0de8db8?s=80&d=mm&r=g" alt="ddf" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/306679/ddf" class="UserLink BlockTitle">ddf</a><div class="Meta"><a href="https://107.23.95.55/discussion/1284160/erpro-8-atualizacao-de-firmware-1-3-0-1-9-7" class="CommentDate MItem"><time title="setembro 27, 2017  8:31" datetime="2017-09-27T20:31:39+00:00">setembro 27</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="1 comentário" class="Number">1</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="9 visualizações" class="Number">9</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/306679/ddf" class="UserLink BlockTitle">ddf</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1284160/erpro-8-atualizacao-de-firmware-1-3-0-1-9-7#latest" class="CommentDate MItem"><time title="setembro 29, 2017  7:50" datetime="2017-09-29T19:50:44+00:00">setembro 29</time></a>      </div>
+   </td>
+</tr>
+<tr id="Discussion_1285564" class="Item Alt Unread ItemDiscussion">
+   	<td class="DiscussionName">
+		<div class="Wrap">
+         <span class="Options">
+                     </span>
+			<a href="https://107.23.95.55/discussion/1285564/saudacoes" class="Title">Saudações</a> 		</div>
+	</td>
+   <td class="Platform isHomepage">
+      <div class="Block Wrap">
+         <span class="MItem Category Category-Historias"><a href="https://107.23.95.55/categories/Historias">Experiências Exitosas</a></span>      </div>
+   </td>
+   <!-- 
+	<td class="BlockColumn BlockColumn-User FirstUser">
+		<div class="Block Wrap">
+			<a title="ByClujNet" href="/profile/301824/ByClujNet" class="PhotoWrap PhotoWrapSmall"><img src="https://i1.wp.com/vanillicon.com/20bdf9a7fc16d4d2c579fc0dc46045e6?s=80&d=mm&r=g" alt="ByClujNet" class="ProfilePhoto ProfilePhotoSmall" /></a><a href="/profile/301824/ByClujNet" class="UserLink BlockTitle">ByClujNet</a><div class="Meta"><a href="https://107.23.95.55/discussion/1285564/saudacoes" class="CommentDate MItem"><time title="setembro 29, 2017  7:38" datetime="2017-09-29T19:38:17+00:00">setembro 29</time></a></div>		</div>
+   </td> -->
+	<td class="Counter CountComments isHomepage">
+      <div class="Wrap">
+         <span title="0 comentários" class="Number">0</span>      </div>
+	</td>
+	<td class="Counter CountViews">
+      <div class="Wrap">
+         <span title="7 visualizações" class="Number">7</span>      </div>
+	</td>
+	<td class="LastUser">
+		<div class="Block Wrap">
+			<a href="/profile/301824/ByClujNet" class="UserLink BlockTitle">ByClujNet</a>		</div>
+	</td>
+
+   <td class="RecentActivity">
+      <div class="Block Wrap">
+         <a href="https://107.23.95.55/discussion/1285564/saudacoes#latest" class="CommentDate MItem"><time title="setembro 29, 2017  7:38" datetime="2017-09-29T19:38:17+00:00">setembro 29</time></a>      </div>
+   </td>
+</tr>
+	</tbody>
+</table>
+</div>
+<div class="PageControls Bottom"><div  id="PagerAfter" class="Pager NumberedPager NumberedPager"><span class="Previous">Anterior</span><a href="/discussions/p1" class="Highlight">1</a><a href="/discussions/p2" rel="next">2</a><a href="/discussions/p3">3</a><a href="/discussions/p4">4</a><a href="/discussions/p5">5</a><a href="/discussions/p6">6</a><a href="/discussions/p7">7</a><span class="Ellipsis">&#8230;</span><a href="/discussions/p158">158</a><a href="/discussions/p2" class="Next" rel="next">Próximo</a></div></div>
+        </main>
+
+
+                  <aside class="page-sidebar" role="complementary">
+            <div class="Box GuestBox">
+   <h4>Como vai, Forasteiro?!</h4>
+   <p>Parece que você é novo por este pedaço. Se você quer se envolver, clique em algum destes botões!</p>
+   
+<div style="display: none" class="JsConnect-Container ConnectButton Small UserInfo" rel="/sso/jsconnectsso.php?client_id=122254137&amp;Target=%2F&amp;callback=?"><div class="JsConnect-Guest"><a href="https://account.ubnt.com/login?redirect=https://forum-pt.ubnt.com" class="Button Primary SignInLink">Entre com Ubnt SSO</a> <a href="https://account.ubnt.com/register?redirect=https://forum-pt.ubnt.com" class="Button RegisterLink">Inscrever-se</a></div><div class="JsConnect-Connect"><a class="ConnectLink"><img src="https://forum-pt-cdn.ubnt.com/uploads/PKG8T0PXS46O.jpg" class="ProfilePhotoSmall UserPhoto" /><span class="Username"></span><div class="ConnectLabel TextColor">Entre com Ubnt SSO</div></a></div></div>   
+   <div class="P"><a href="/entry/signin?Target=discussions" class="Button Primary SignInPopup" rel="nofollow">Entrar</a> <a href="/entry/register?Target=discussions" class="Button ApplyButton" rel="nofollow">Inscrever-se</a></div>   </div><div class="BoxFilter BoxDiscussionFilter">
+   <ul class="FilterMenu">
+      <li class="AllCategories"><a href="/categories"><span class="Sprite SpAllCategories"></span> Categorias</a></li>       <li class="Discussions Active"><a href="/discussions" class=""><span class="Sprite SpDiscussions"></span> Tópicos recentes</a></li>
+      <li class="Activities"><a href="/activity" class=""><span class="Sprite SpActivity"></span> Atividade</a></li>      <li class="Best"><a href="/best"><span class="Sprite SpBestOf"></span> Mais popular</a></li>   </ul>
+</div><div class="Box BoxCategories">
+   <h4>Outras Categorias</h4>
+   <ul class="PanelInfo PanelCategories">
+   <li><a href="/categories" class="ItemLink">Todas as Categorias <span class="Aside"><span class="Count"><span title="4,739 tópicos" class="Number">4.7K</span></span></span></a></li><li class="ClearFix Heading Category-Comunidade">Comunidade <span class="Aside"><span class="Count Hidden"><span title="1,181 tópicos" class="Number">1.2K</span></span></span></li>
+<li class="ClearFix Depth2 Category-Historias"><a href="https://107.23.95.55/categories/Historias" class="ItemLink">Experiências Exitosas <span class="Aside"><span class="Count"><span title="571 tópicos" class="Number">571</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-bem-vindos"><a href="https://107.23.95.55/categories/bem-vindos" class="ItemLink">Saudações e Bem-Vindos <span class="Aside"><span class="Count"><span title="192 tópicos" class="Number">192</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-Anuncios"><a href="https://107.23.95.55/categories/Anuncios" class="ItemLink">Anúncios <span class="Aside"><span class="Count"><span title="45 tópicos" class="Number">45</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-lounge"><a href="https://107.23.95.55/categories/lounge" class="ItemLink">O Lounge <span class="Aside"><span class="Count"><span title="203 tópicos" class="Number">203</span></span></span></a></li>
+<li class="ClearFix Heading Category-products">Produtos <span class="Aside"><span class="Count Hidden"><span title="3,727 tópicos" class="Number">3.7K</span></span></span></li>
+<li class="ClearFix Depth2 Category-airmax"><a href="https://107.23.95.55/categories/airmax" class="ItemLink">airMAX <span class="Aside"><span class="Count"><span title="1,281 tópicos" class="Number">1.3K</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-airfiber"><a href="https://107.23.95.55/categories/airfiber" class="ItemLink">airFiber <span class="Aside"><span class="Count"><span title="73 tópicos" class="Number">73</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-edgemax"><a href="https://107.23.95.55/categories/edgemax" class="ItemLink">EdgeMAX <span class="Aside"><span class="Count"><span title="183 tópicos" class="Number">183</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-aircrm"><a href="https://107.23.95.55/categories/aircrm" class="ItemLink">airCRM <span class="Aside"><span class="Count"><span title="16 tópicos" class="Number">16</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-unifi-wireless"><a href="https://107.23.95.55/categories/unifi-wireless" class="ItemLink">UniFi Wireless <span class="Aside"><span class="Count"><span title="1,696 tópicos" class="Number">1.7K</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-unifi-video"><a href="https://107.23.95.55/categories/unifi-video" class="ItemLink">UniFi Video <span class="Aside"><span class="Count"><span title="139 tópicos" class="Number">139</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-unifi-voip"><a href="https://107.23.95.55/categories/unifi-voip" class="ItemLink">UniFi VoIP <span class="Aside"><span class="Count"><span title="6 tópicos" class="Number">6</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-mfi"><a href="https://107.23.95.55/categories/mfi" class="ItemLink">mFi <span class="Aside"><span class="Count"><span title="20 tópicos" class="Number">20</span></span></span></a></li>
+<li class="ClearFix Depth2 Category-legacy-products"><a href="https://107.23.95.55/categories/legacy-products" class="ItemLink">Outros Produtos <span class="Aside"><span class="Count"><span title="313 tópicos" class="Number">313</span></span></span></a></li>
+   </ul>
+</div>
+         <div class="Box Tags">
+         <h4>Tags Populares</h4>
+         <ul class="TagCloud">
+                     <li><span><a href="/discussions/tagged?Tag=%23connectedlimited+%23conex%C3%A3olimitada" class="Tag_#connectedlimited_#conexãolimitada">#connectedlimited #conexãolimitada</a></span> <span class="Count">177</span></li>
+                     <li><span><a href="/discussions/tagged/unifi" class="Tag_unifi">unifi</a></span> <span class="Count">98</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=%23brasil" class="Tag_#brasil">#brasil</a></span> <span class="Count">59</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=unifi+ap" class="Tag_unifi_ap">unifi ap</a></span> <span class="Count">50</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=%23querominhacamisa" class="Tag_#querominhacamisa">#querominhacamisa</a></span> <span class="Count">37</span></li>
+                     <li><span><a href="/discussions/tagged/ubiquiti" class="Tag_ubiquiti">ubiquiti</a></span> <span class="Count">36</span></li>
+                     <li><span><a href="/discussions/tagged/airmax" class="Tag_airmax">airmax</a></span> <span class="Count">36</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=%23forum" class="Tag_#forum">#forum</a></span> <span class="Count">28</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=%23ubnt" class="Tag_#ubnt">#ubnt</a></span> <span class="Count">24</span></li>
+                     <li><span><a href="/discussions/tagged/firmware" class="Tag_firmware">firmware</a></span> <span class="Count">23</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=unifi+ap+lr" class="Tag_unifi_ap_lr">unifi ap lr</a></span> <span class="Count">22</span></li>
+                     <li><span><a href="/discussions/tagged/controller" class="Tag_controller">controller</a></span> <span class="Count">21</span></li>
+                     <li><span><a href="/discussions/tagged/wifi" class="Tag_wifi">wifi</a></span> <span class="Count">20</span></li>
+                     <li><span><a href="/discussions/tagged/af24" class="Tag_af24">af24</a></span> <span class="Count">20</span></li>
+                     <li><span><a href="/discussions/tagged/vlan" class="Tag_vlan">vlan</a></span> <span class="Count">20</span></li>
+                     <li><span><a href="/discussions/tagged/airfiber" class="Tag_airfiber">airfiber</a></span> <span class="Count">18</span></li>
+                     <li><span><a href="/discussions/tagged/airgrid" class="Tag_airgrid">airgrid</a></span> <span class="Count">17</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=airgrid+m5" class="Tag_airgrid_m5">airgrid m5</a></span> <span class="Count">15</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=administra%C3%A7%C3%A3o" class="Tag_administração">administração</a></span> <span class="Count">14</span></li>
+                     <li><span><a href="/discussions/tagged/rocketm5" class="Tag_rocketm5">rocketm5</a></span> <span class="Count">14</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=0+means+that+width+not+changed" class="Tag_0_means_that_width_not_changed">0 means that width not changed</a></span> <span class="Count">14</span></li>
+                     <li><span><a href="/discussions/tagged/wireless" class="Tag_wireless">wireless</a></span> <span class="Count">13</span></li>
+                     <li><span><a href="/discussions/tagged/hotspot" class="Tag_hotspot">hotspot</a></span> <span class="Count">13</span></li>
+                     <li><span><a href="/discussions/tagged/usg" class="Tag_usg">usg</a></span> <span class="Count">13</span></li>
+                     <li><span><a href="/discussions/tagged?Tag=nano+loco+m5" class="Tag_nano_loco_m5">nano loco m5</a></span> <span class="Count">12</span></li>
+                  </ul>
+      </div>
+      
+          </aside>
+        
+      </div>
+    </section>
+
+    <footer class="page-footer sticky-footer">
+      <div class="container">
+        <div class="clearfix">
+          <p class="pull-left">Copyright &copy; 2017
+          <!-- <a href="/">Comunidade UBNT em Português</a> -->
+          <a class="footer-link" href="https://account.ubnt.com/terms-of-service">Termos de Serviço</a>
+          <a class="footer-link" href="https://account.ubnt.com/privacy-policy">Política De Privacidade</a>
+          </p>
+          </p>
+        </div>
+        <!-- Various definitions for Javascript //-->
+<script>
+var definitions = {
+'AnalyticsTask' : "tick",
+'Connecting' : "Connecting...",
+'ConnectingUser' : "Hi % just connecting you to forum...",
+'JsConnectProviders' : "[{\"HashType\":\"md5\",\"TestMode\":false,\"Trusted\":false,\"AuthenticationKey\":\"122254137\",\"AuthenticationSchemeAlias\":\"jsconnect\",\"Name\":\"Ubnt SSO\",\"URL\":null,\"AssociationSecret\":\"620fefe57d70d792306efeedffdde370\",\"AssociationHashMethod\":\"md5\",\"AuthenticateUrl\":\"\\\/sso\\\/jsconnectsso.php\",\"RegisterUrl\":\"https:\\\/\\\/account.ubnt.com\\\/register?redirect=https:\\\/\\\/forum-pt.ubnt.com\",\"SignInUrl\":\"https:\\\/\\\/account.ubnt.com\\\/login?redirect=https:\\\/\\\/forum-pt.ubnt.com\",\"SignOutUrl\":\"https:\\\/\\\/account.ubnt.com\\\/logout?redirect=https:\\\/\\\/forum-pt.ubnt.com\",\"PasswordUrl\":null,\"ProfileUrl\":null,\"Attributes\":\"a:3:{s:8:\\\"HashType\\\";s:3:\\\"md5\\\";s:8:\\\"TestMode\\\";b:0;s:7:\\\"Trusted\\\";b:0;}\",\"IsDefault\":\"0\",\"Target\":\"https%3A%2F%2F107.23.95.55%2Fentry%2Fjsconnect%3Fclient_id%3D122254137%26Target%3D%252F\"}]",
+'TransportError' : "Um erro fatal ocorreu durante o processamento do que foi requisitado.<br \/>O servidor respondeu da seguinte forma: %s",
+'TransientKey' : null,
+'WebRoot' : "https:\/\/107.23.95.55\/",
+'UrlFormat' : "\/{Path}",
+'Path' : "",
+'Args' : "",
+'ResolvedPath' : "vanilla\/discussions\/index",
+'ResolvedArgs' : "{\"Page\":false}",
+'SignedIn' : 0,
+'ConfirmHeading' : "Confirmar",
+'ConfirmText' : "Voc\u00ea tem certeza que deseja fazer isso?",
+'Okay' : "Ok",
+'Cancel' : "Cancelar",
+'Search' : "Procurar"}
+</script>
+      </div>
+    </footer>
+
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"01badd70ac","applicationID":"6562610","transactionName":"blMGZxZRCEAAVkZZClcZMUENHw9dBVBKHhVRRg==","queueTime":0,"applicationTime":249,"atts":"QhQFEV5LG04=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
