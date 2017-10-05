@@ -1,0 +1,1137 @@
+﻿<!DOCTYPE html>
+<!-- HTML5 -->
+<html lang="en-US">
+<!-- Content language is American English. -->
+<head>
+    <title>FDIC: Federal Deposit Insurance Corporation</title>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <!-- Unicode character encoding -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Turns off IE Compatiblity Mode -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Makes it so phones don't auto zoom out. -->
+    <meta name="robots" content="NOODP">
+    <meta name="googlebot" content="NOODP">
+    <meta name="Description" content="The Federal Deposit Insurance Corporation (FDIC) is an independent agency created by the U.S. Congress to maintain stability and public confidence in the nation's financial system by insuring deposits, examining and supervising financial institutions for safety and soundness and consumer protection, and managing receiverships.">
+    <meta name="keywords" content="savings insurance,money insurance,bank account insurance, insuring my money,insuring my savings,bank protection, government bank regulation,bank regulation,government deposit insurance,insurance,deposit,government guarantee,funds insurance, deposit protection,government protected funds,money protection">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/responsive/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/responsive/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/responsive/css/find_more_info.css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="/responsive/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript">
+        function handleFILs() {
+            var filItems = "";
+            var myXML = null;
+
+            var today = new Date();
+            var year = today.getFullYear();
+
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    if (request.status == 200 || request.status == 0) {
+                        myXML = request.responseXML;
+                    }
+                }
+            }
+            request.open("GET", "/news/news/financial/" + year + "/filreleases.xml", false);
+            request.send();
+
+            if (myXML == null || myXML.length <= 0) {
+                year = year - 1;
+                request.open("GET", "/news/news/financial/" + year + "/filreleases.xml", false);
+                request.send();
+                myXML = request.responseXML;
+            }
+
+            //          <li><!--<h4><%=PRID%></h4>--><a href="<%=URLloc%>"><%=title%></a><br><span class="date"><%=itemDate%></span></li>
+            var htmlToInsert = "<li>Error</li>";
+            if (myXML == null || myXML.length <= 0) {
+                filItems = htmlToInsert;
+            }
+            else {
+                var itemsArray = myXML.getElementsByTagName("item");
+                if (itemsArray.length < 6) {
+                    filItems = displayItems("fil", myXML, itemsArray.length, year);
+                }
+                else {
+                    filItems = displayItems("fil", myXML, 6, year);
+                }
+            }
+            return filItems;
+        }
+
+        function handlePRs() {
+            var prItems = "";
+            var myXML = null;
+
+            var today = new Date();
+            var year = today.getFullYear();
+
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    if (request.status == 200 || request.status == 0) {
+                        myXML = request.responseXML;
+                    }
+                }
+            }
+            request.open("GET", "/news/news/press/" + year + "/pressreleases.xml", false);
+            request.send();
+
+            if (myXML == null || myXML.length <= 0) {
+                year = year - 1;
+                request.open("GET", "/news/news/press/" + year + "/pressreleases.xml", false);
+                request.send();
+                myXML = request.responseXML;
+            }
+
+            //          <li><!--<h4><%=PRID%></h4>--><a href="<%=URLloc%>"><%=title%></a><br><span class="date"><%=itemDate%></span></li>
+            var htmlToInsert = "<li>Error</li>";
+            if (myXML == null || myXML.length <= 0) {
+                prItems = htmlToInsert;
+            }
+            else {
+                var itemsArray = myXML.getElementsByTagName("item");
+                if (itemsArray.length < 6) {
+                    prItems = displayItems("pr", myXML, itemsArray.length, year);
+                }
+                else {
+                    prItems = displayItems("pr", myXML, 6, year);
+                }
+            }
+            return prItems;
+        }
+
+        function PRLocation(type, fullYear, num) {
+            var yearString = fullYear.toString();
+            var s = "";
+            if (type == "pr") s = "press/";
+            if (type == "fil") s = "financial/";
+            var baseURL = "/news/news/" + s + fullYear + "/" + type + yearString.substring(yearString.length - 2);
+            var URLloc = "";
+            if (num.length == 3)
+                URLloc = baseURL + num + ".html";
+            else if (num.length == 2)
+                URLloc = baseURL + "0" + num + ".html";
+            else if (num.length == 1)
+                URLloc = baseURL + "00" + num + ".html";
+            else
+                URLloc = "Error";
+            return URLloc;
+        }
+
+        function displayItems(type, xmlDoc, num, fullYear) {
+            var lineItems = "";
+            var textItems = xmlDoc.getElementsByTagName("title");
+            var date_textItems = xmlDoc.getElementsByTagName("date");
+            for (i = 0; i < num; i++) {
+                //var text = textItems[i].childNodes[0].nodeValue;
+                var text = "";
+                for (j = 0; j < textItems[i].childNodes.length; j++) {
+                    text += textItems[i].childNodes[j].textContent;
+                }
+                var date_text = date_textItems[i].childNodes[0].nodeValue;
+                var PRID = text.substring(0, text.indexOf(" "));
+                var title = text.substring(text.indexOf(" ") + 1);
+                if (title.length > 100) title = title.substring(0, 90) + "...";
+
+                var URLloc = PRLocation(type, fullYear, PRID.split("-")[1]);
+                lineItems += "<li><!--<h4>" + PRID + "</h4>--><a href=\"" + URLloc + "\">" + title + "</a><br/><span class=\"date\">" + date_text + "</span></li>";
+            }
+            return lineItems;
+        }
+
+        //var prItems = handlePRs();
+        //var filItems = handleFILs();
+    </script>
+</head>
+
+<body>
+        <link rel="stylesheet" href="/responsive/header/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/responsive/header/css/header_new.css">
+
+	<script src="/responsive/header/js/jquery.min.js"></script>
+    <script src="/responsive/header/js/respond.js"></script>
+  	<script src="/responsive/header/js/bootstrap.min.js"></script>    
+
+                 <script id="_fed_an_ua_tag" language="javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=FDIC&pua=ua-33523145-2"></script>
+    <!--BEGIN QUALTRICS SITE INTERCEPT-->
+<script type='text/javascript'>
+(function(){var g=function(e,h,f,g){
+this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g+ "&t=" + (new Date()).getTime();document.body&&document.body.appendChild(a)}};
+this.start=function(){var a=this;window.addEventListener?window.addEventListener("load",function(){a.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){a.go()})}};
+try{(new g(100,"r","QSI_S_ZN_5gyPOugD7Dbxn0h","//zn5gypougd7dbxn0h-fdicsurveys.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_ZID=ZN_5gyPOugD7Dbxn0h&Q_LOC="+encodeURIComponent(window.location.href))).start()}catch(i){}})();
+</script><div id='ZN_5gyPOugD7Dbxn0h'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+<!--END SITE INTERCEPT-->
+    <script type="text/javascript">
+function findValue(li) {
+	if( li == null ) return alert("No match!");
+
+	// if coming from an AJAX call, let's use the Id as the value
+	if( !!li.extra ) var sValue = li.extra[0];
+
+	// otherwise, let's just display the value in the text box
+	else var sValue = li.selectValue;
+
+	$('#googlesearch').submit();
+	
+}
+function findValue2(li) {
+	if( li == null ) return alert("No match!");
+
+	// if coming from an AJAX call, let's use the Id as the value
+	if( !!li.extra ) var sValue = li.extra[0];
+
+	// otherwise, let's just display the value in the text box
+	else var sValue = li.selectValue;
+	
+	$('#googlesearch2').submit();
+}
+function selectItem(li) {
+	findValue(li);
+}
+function selectItem2(li) {
+	findValue2(li);
+}
+
+$().ready(function() {
+	
+	$("#responsive_fdic_index_container").before('<a id="after_header"></a>');
+	$("#breadcrumbs").after('<a id="after_header" alt="Begining of Content"></a>');
+
+	$(".responsive_header-skip_header").click(function(event){
+    
+            // strip the leading hash and declare
+            // the content we're skipping to
+            var skipTo="#"+this.href.split('#')[1];
+    
+            // Setting 'tabindex' to -1 takes an element out of normal 
+            // tab flow but allows it to be focused via javascript
+            $(skipTo).attr('tabindex', -1).on('blur focusout', function () {
+    
+                // when focus leaves this element, 
+                // remove the tabindex attribute
+                $(this).removeAttr('tabindex');
+    
+            }).focus(); // focus on the content container
+    });
+
+	function log(event, data, formatted) {
+		$("<li>").html( !data ? "No match!" : "Selected: " + formatted).appendTo("#result");
+	}
+	
+	function formatItem(row) {
+		return row[0] + " (<strong>id: " + row[1] + "</strong>)";
+	}
+	function formatResult(row) {
+		return row[0].replace(/(<.+?>)/gi, '');
+	}
+	
+	/*$("#newSearch").autocomplete("/searchjs.asp", {
+		width: 179,
+		autoFill: false,
+		//delay:10,
+		minChars:2,
+		cacheLength: 10,
+		onFindValue:findValue,
+		onItemSelect: selectItem,
+		selectFirst: false
+
+	});
+	
+	$("#search2").autocomplete("/searchjs.asp", {
+		width: 160,
+		autoFill: false,
+		//delay:10,
+		minChars:2,
+		cacheLength: 10,
+		onFindValue:findValue2,
+		onItemSelect: selectItem2,
+		selectFirst: false
+
+	});*/
+	
+});
+
+</script>
+<!-- END CODE NEEDED TO MAKE THE SEARCH BOX WORK -->
+
+<a href="#after_header" class="responsive_header-skip_header">Skip Header</a>
+<header>
+<div id="responsive_header">
+	<div id="leftheader">
+    <a id="responsive_header-fdic_logo" alt="FDIC logo" href="/" title="FDIC Homepage">FDIC Homepage</a>
+		<h1>Federal Deposit<br>
+			Insurance Corporation</h1>
+		<h2>Each depositor insured to at least $250,000 per insured bank</h2>
+    </div>
+    
+	<div id="responsive_header-right_side">
+		<!--Start Social Media Button--> 
+        <div id="socialmediabox">
+        	<ul id="responsive_header-links">
+                <li id="responsive_header-subscribe" title="Subscribe to FDIC alerts" alt="Subscribe to FDIC alerts"><a href="http://service.govdelivery.com/service/multi_subscribe.html?code=USFDIC">Subscribe to FDIC alerts</a></li>
+                <li id="responsive_header-rss" title="FDIC RSS Feed" alt="FDIC RSS Feed"><a href="/rss.html">FDIC RSS Feed</a></li>
+                <li id="responsive_header-fdicchannel" title="Visit FDIC on YouTube" alt="Visit FDIC on YouTube"><a href="/social.html?site=http://www.youtube.com/user/FDICchannel">Visit FDIC on YouTube</a></li>
+                <li id="responsive_header-facebook" title="Visit FDIC on Facebook" alt="Visit FDIC on Facebook"><a href="/social.html?site=http://www.facebook.com/FDICgov">Visit FDIC on Facebook</a></li>
+                <li id="responsive_header-twitter" title="Visit FDIC on Twitter" alt="Visit FDIC on Twitter"><a href="/social.html?site=http://twitter.com/FDICgov">Visit FDIC on Twitter</a></li>
+			 </ul>
+        </div> 
+        <!--End Social Media Button--> 
+        <!--Start Search-->  
+		<div id="responsive_header-search"> <a href="https://search.fdic.gov/search?sort=date:D:L:d1&output=xml_no_dtd&ie=UTF-8&oe=UTF-8&client=wwwGOV&proxystylesheet=wwwGOV&site=default&ulang=en&ip=172.27.73.190&access=p&entqr=0&entqrm=0&wc=200&wc_mc=1&ud=1&proxycustom=%3CADVANCED/%3E" class="search" title="Advanced Search">Advanced Search</a>
+				<form id="googlesearch" action="https://search.fdic.gov/search" method="get" name="Search box for FDIC.gov">
+					<fieldset>
+						<div class="form">
+							<label for="newSearch">Search FDIC.gov</label>
+							<input id="newSearch" name="q" class="field" type="text" style="outline: 0 none;" value="Search FDIC..." onblur="if(this.value == '') {this.value = 'Search FDIC...';}" onfocus="if(this.value == 'Search FDIC...') {this.value = '';}">
+							<label for="searchsubmit">Submit Search Request</label>
+							<input id="searchsubmit" class="submit" title="Search Icon" type="submit" value="">
+							<input value="date:D:L:d1" name="sort" type="hidden">
+							<input value="xml_no_dtd" name="output" type="hidden">
+							<input value="UTF-8" name="ie" type="hidden">
+							<input value="UTF-8" name="oe" type="hidden">
+							<input value="wwwGOV" name="client" type="hidden">
+							<input value="wwwGOV" name="proxystylesheet" type="hidden">
+							<input value="default" name="site" type="hidden">
+						</div>
+					</fieldset>
+				</form>
+			</div>
+            <!--End Search-->  
+		</div>
+		<!-- close right side --> 
+		
+		<div class="clear"></div>
+        <div class="nav_container">
+         <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <div class="navbar-brand">Navigation</div>
+              </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active first dropdown"><a href="/">Home</a>
+        	 <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+  </button> 
+  			<ul class="dropdown-menu">
+				<li><a href="/about/policies">Website Policies</a></li>
+                <li><a href="/about/contact/ask/">Contact Us</a></li>
+                <li><a href="/quicklinks/spanish.html">En Espa&ntilde;ol</a></li>
+                <li><a href="/regulations/laws/forms/">Forms</a></li>
+                <li><a href="/about/diversity/fdicaccessibilitystatement.html">Accessibility Statement</a></li>
+               	<li class="last_item"><a href="/help/">Help for First Time Users</a></li>                           
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="/deposit/">Deposit Insurance</a>
+          <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+  </button> 
+          <ul class="dropdown-menu">
+				<li><a href="/edie/">EDIE Online Calculator </a><b class="caret-right"></b>
+                	<div class="dropdown_flyout">
+                   	 				<span class="flyout_header">EDIE Online Calculator</span>
+                                    <p>Online tool that helps how the insurance rules and limits apply to a depositor's specific group of deposit accounts&mdash;what's insured and what portion (if any) exceeds coverage limits at that bank.
+</p>
+                                </div>
+                </li>
+                <li><a href="http://research.fdic.gov/bankfind">BankFind </a><b class="caret-right"></b>
+                    <div class="dropdown_flyout">
+                    					<span class="flyout_header">BankFind</span>
+                                        <p>Learn if your bank is insured, view locations, track history, and more.</p>
+                                    </div>
+                </li>
+                <li><a href="/deposit/deposits/">Understanding Deposit Insurance </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/deposit/deposits/video.html">Deposit Insurance Videos</a></li>
+						<li><a href="/deposit/deposits/faq.html">Deposit Insurance FAQs</a></li>
+						<li><a href="/deposit/deposits/brochures.html">Deposit Insurance Brochures</a></li>
+						<li><a href="/deposit/insurance/history.html">Deposit Insurance History</a></li>
+                   	</ul>
+
+                </li>
+                <li><a href="/deposit/covered/">What's Covered? </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/deposit/covered/categories.html">How are My Deposit Accounts Insured by the FDIC?</a></li>
+                        <li><a href="/deposit/covered/trust.html">Revocable and Irrevocable Trust Accounts</a></li>
+                        <li><a href="/deposit/covered/insured.html">Accounts Covered by the FDIC</a></li>
+                        <li><a href="/deposit/covered/notinsured.html">What's Not Insured</a></li>
+                    </ul>
+                </li>
+               	<li><a href="/bank/individual/failed/">Bank Failures </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/bank/individual/failed/banklist.html">Failed Bank List</a></li>
+                        <li><a href="/bank/historical/bank/">Bank Failures in Brief</a></li>
+                        <li><a href="http://www2.fdic.gov/hsob/SelectRpt.asp?EntryTyp=30">Historical Statistics on Banking - Failures and Assistance Transactions</a></li>
+                        <li><a href="https://closedbanks.fdic.gov/drrip/AFI/Search">Is My Account Fully Insured?</a></li>
+                    </ul>
+                </li>                			
+                <li class="last_item" lang="es"><a href="/deposit/spanishlinks.html">Recursos del seguro de dep&oacute;sito en espa&ntilde;ol</a></li>
+           
+          </ul>
+        </li>
+        <li class="dropdown">
+        	<a href="/consumers/">Consumer Protection</a>
+            <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+  </button> 
+        	<ul class="dropdown-menu">
+            	<li><a href="/consumers/assistance/">Consumer Assistance & Information </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/consumers/assistance/protection/index.html">Consumer Protection Topics</a></li>
+                        <li><a href="/consumers/assistance/resources.html">Resources</a></li>
+                        <li><a href="/consumers/assistance/filecomplaint.html">Submit a Complaint</a></li>
+                        <li lang="es"><a href="/consumers/assistancesp/index.html">Temas sobre la protecci&oacute;n al consumidor</a></li>
+                    </ul>
+                </li>                             	
+                <li><a href="/consumers/community/">Community Affairs </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/consumers/community/program.html">Community Affairs Program</a></li>
+                        <li><a href="/consumers/community/aei/">Alliance for Economic Inclusion</a></li>
+                        <li><a href="/householdsurvey/">FDIC National Survey of Unbanked and Underbanked Households</a></li>
+                    </ul>
+                </li>
+                <li class="last_item"><a href="/consumers/education/">Financial Education & Literacy </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/consumers/consumer/moneysmart/">Money Smart - A Financial Education Program</a></li>
+                        <li><a href="/education/torc/index.html">Teacher Online Resource Center</a></li>
+                        <li><a href="http://www.consumerfinance.gov/parents/">Parents and Caregiver Resource Webpage</a></li>
+                        <li><a href="/about/learn/learning/aboutfdic.html">FDIC Learning Bank</a></li>
+                        <li><a href="/consumers/consumer/news/index.html">FDIC Consumer News</a></li>
+                        <li><a href="/consumers/assistance/protection/depaccounts/youthsavings/index.html">Youth Banking Resource Center</a></li>
+                        <li lang="es"><a href="/consumers/education/index_esp.html">Alfabetizaci&oacute;n de Educaci&oacute;n Financiera</a></li>
+                    </ul>
+                </li>
+         	</ul>
+        </li>
+        <li class="dropdown">
+        	<a href="/bank/">Industry Analysis</a>
+            <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+  </button>
+            <ul class="dropdown-menu"> 
+                <li><a href="/bank/statistical/">Bank Data & Statistics </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="https://www5.fdic.gov/idasp/advSearchLanding.asp">Institution Directory</a></li>
+                        <li><a href="https://cdr.ffiec.gov/public/">Central Data Repository (CDR)</a></li>
+                        <li><a href="http://www.ffiec.gov/UBPR.htm">Uniform Bank Performance Reports (UBPR)</a></li>
+                        <li><a href="https://www5.fdic.gov/sod/sodInstBranch.asp?barItem=1">Summary of Deposits</a></li>
+                        <li><a href="https://www5.fdic.gov/sod/sodMarketBank.asp?barItem=2">Deposit Market Share Report</a></li>
+                        <li><a href="/bank/analytical/stateprofile/">FDIC State Profiles</a></li>
+                        <li><a href="/bank/statistical/stats/">Statistics at a Glance</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="/bank/analytical/">Research & Analysis </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/bank/analytical/qbp/">FDIC Quarterly Banking Profile</a></li>
+						<li><a href="/bank/analytical/cfr/">Center for Financial Research</a></li>
+						<li><a href="/regulations/resources/cbi/study.html">Community Banking Study</a></li>
+                    </ul>
+                </li>
+                <li><a href="/bank/individual/failed/">Failed Banks </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/bank/individual/failed/banklist.html">Failed Bank List</a></li>
+                        <li><a href="/bank/historical/bank/">Bank Failures in Brief</a></li>
+                        <li><a href="https://www5.fdic.gov/hsob/SelectRpt.asp?EntryTyp=30">Historical Statistics on Banking - Failures and Assistance Transactions</a></li>
+                        <li><a href="https://closedbanks.fdic.gov/drrip/AFI/Search">Is My Account Fully Insured?</a></li>
+                    </ul>
+                </li>
+                <li><a href="/deposit/insurance/">The Deposit Insurance Fund </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="/deposit/insurance/calculator.html">Current Assessment Calculators</a></li>
+                    </ul>
+                </li>
+                <li><a href="/deposit/deposits/international/">International Deposit Insurance </a><b class="caret-right"></b>
+                	<ul>
+                    	<li><a href="http://www.asbasupervision.com/en/">Association of Supervisors of Banks of the Americas</a></li>
+                        <li><a href="http://www.bis.org/bcbs/">Basel Committee On Banking Supervision (www.bis.org)</a></li>
+                        <li><a href="http://www.iadi.org/">International Association of Deposit Insurers (www.iadi.org)</a></li>
+                    </ul>
+                </li>
+                <li class="last_item"><a href="/bank/analytical/cfr/">Center for Financial Research </a><b class="caret-right"></b>
+                	<ul>
+                    	<li class="last_item"><a href="/bank/analytical/cfr/workingpapers.html">Working Papers</a></li>
+                        <li class="last_item"><a href="/bank/analytical/cfr/conf-sym.html">Conferences & Symposia</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+        	<a href="/regulations/">Regulations & Examinations</a>
+            <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+  </button> 
+                        <ul class="dropdown-menu">
+                            <li><a href="/regulations/examinations/">Bank Examinations </a><b class="caret-right"></b>
+                            	<ul>
+                                	<li><a href="/regulations/examinations/supervisory/insights/">Supervisory Insights</a></li>
+                                    <li><a href="/bank/individual/enforcement/">FDIC Enforcement Decisions & Orders</a></li>
+                                    <li><a href="/regulations/safety/manual/">Risk Management Manual of Examination Policies</a></li>
+                                    <li><a href="http://www.ffiec.gov/bsa_aml_infobase/default.htm">Bank Secrecy Act/Anti-Money Laundering Manual</a></li>
+                                    <li><a href="/regulations/trust/">Trust Examination Overview</a></li>
+                                    <li><a href="/regulations/information/information/ffiec.html">FFIEC Information Technology Examination Handbook</a></li>
+                                    <li><a href="/regulations/community/community/">CRA Statute & Tools</a></li>
+                                    <li><a href="/regulations/compliance/manual/index.html">Compliance Examination Manual</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/regulations/laws/">Laws & Regulations </a><b class="caret-right"></b>
+                            	<ul>
+                                	<li><a href="/regulations/laws/rules/">FDIC Law, Regulations & Related Acts</a></li>
+                                    <li><a href="/news/news/financial/current.html">Financial Institution Letters</a></li>
+                                    <li><a href="/regulations/laws/federal/">FDIC Federal Register Citations</a></li>
+                                    <li><a href="/regulations/reform/">FDIC and Financial Regulatory Reform</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/regulations/resources/">Resources for Bank Officers & Directors </a><b class="caret-right"></b>
+                            	<ul>
+                                	<li><a href="/regulations/resources/director/">Directors' Resource Center</a></li>
+                                    <li><a href="/regulations/resources/cbi/index.html">Community Banking Initiative</a></li>
+                                    <li><a href="/regulations/resources/rates/">Weekly National Rates and Rate Caps</a></li>
+                                    <li><a href="/regulations/resources/signage/">Ordering & Using FDIC Signs & Logos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/regulations/cra/">Community Reinvestment Act (CRA) </a><b class="caret-right"></b>
+                            	<ul>
+                                    <li><a href="/regulations/community/exam/index.html">Upcoming CRA Examination Schedule</a></li>
+                                    <li><a href="/regulations/community/monthly/index.html">Monthly List of Banks Examined for CRA</a></li>
+                                    <li><a href="http://www2.fdic.gov/crapes/">CRA Ratings & Performance Evaluations</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="https://www.fdicconnect.gov/">FDICconnect </a><b class="caret-right"></b>
+                            	<div class="dropdown_flyout">
+                                	<span class="flyout_header">FDICconnect</span>
+                                    <p>The secure Internet channel for FDIC-insured institutions to conduct business and exchange information with the FDIC.</p>
+                                </div>
+                            </li>
+                            <li><a href="/regulations/required/">Bank Financial Reports</a>
+                            	
+                            </li>
+                            <li class="last_item"><a href="/regulations/examiner/">Examiner Training Programs </a><b class="caret-right"></b>
+                            	<ul>
+                                	<li class="last_item"><a href="/regulations/examiner/">Risk Management Training Program</a></li>
+                                    <li class="last_item"><a href="/regulations/examiner/">Compliance Training Program</a></li>
+                                    <li class="last_item"><a href="/regulations/examiner/">Continuing IT Training Program</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/regulations/applications/">Bank Applications</a>
+                            	
+                            </li>
+                        </ul>
+            </li>
+            <li class="dropdown institution">
+            	<a href="/buying/">Institution & Asset Sales</a>
+                <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only"></span>
+  </button> 
+                        <ul class="dropdown-menu">
+                            <li><a href="/buying/franchisemarketing/index.html">Failing Bank Acquisitions</a></li>
+                            <li><a href="/buying/owned/index.html">Real Estate and Property Marketplace </a><b class="caret-right"></b>
+                            	<ul>
+                                	
+                                	<li><a href="/trusted.html?site=http://www.fdicrealestatelistings.com">Search for Real Estate</a></li>
+                                    <!--<li><a href="/buying/owned/real/real_est_sales_faq.html">Real Estate Sales Frequently Asked Questions</a></li>-->
+                                    <li><a href="/buying/owned/#bargain">Bargain Properties</a></li>
+                                    <li><a href="/buying/calendar/event-calendar.html">Asset Sales Event Calendar</a></li>
+                                    
+                             	</ul>
+                            </li>
+                            <li><a href="/buying/loan/index.html">Loan Sales </a><b class="caret-right"></b>
+                            	<ul>
+                                	<li><a href="/buying/loan/announcements.html">Loan Sales Announcements</a></li>
+									<li><a href="/buying/loan/loansales_faq.html">Loan Sales FAQs</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/buying/financial/index.html">Financial Asset Sales </a><b class="caret-right"></b>
+                            	<ul><!--
+                                	<li><a href="/buying/financial/investormatchprogram.html">Investor Match Program</a></li>-->
+                                    <li><a href="/buying/financial/qualification_process.html">Qualification Process</a></li>
+                                    <li><a href="/buying/financial/smallerpools.html">Smaller Dollar Structured Transactions</a></li>
+                                    <li><a href="/buying/financial/factsheet.html">FDIC Structured Transaction Fact Sheet for Investors</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/buying/servicing/index.html">Servicing Sales Announcements</a></li>
+                            <li><a href="/buying/otherasset/failedbank/index.html">Other Assets from Failed Banks</a><b class="caret-right"></b>
+                            	<div class="dropdown_flyout">
+                                	<span class="flyout_header">Other Assets from Failed Banks</span>
+                                    <p>The inventory of other assets for sale -- including office furniture, fixtures, and equipment.</p>
+                                </div>
+                            </li>
+                            <li class="last_item"><a href="/buying/historical/index.html">Historical Sales </a><b class="caret-right"></b>
+                            	<ul>
+                            		<li><a href="https://sales.fdic.gov/closedsales/">Closed Loan Sales</a></li>
+                                	<li><a href="https://sales.fdic.gov/closedrealestate/">Closed Real Estate Sales</a></li>
+                                	<li><a href="/buying/historical/loans/index.html">Sales Summary</a></li>
+                                    <li><a href="/buying/historical/structured/index.html">Structured Transaction Sales</a></li>
+                                    <li><a href="/buying/historical/mortgage_servicing_assets.html">Mortgage Servicing Asset Sales</a></li>
+                                    <li><a href="/buying/historical/structured/oil_gas_sales/index.html">Sales of Oil and Gas Related Assets</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+            </li>
+            <li class="dropdown">
+            	<a href="/news/">News & Events</a>
+                <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only"></span>
+  </button> 
+                        <ul class="dropdown-menu move-left">
+                            <li><a href="/news/news/press/current.html">Press Releases</a></li>
+                            <li><a href="/news/news/financial/current.html">Financial Institution Letters </a></li>
+                            <li><a href="/news/conferences/">Conferences & Events</a></li>
+                            <li><a href="/news/news/speeches/">Speeches & Testimony</a></li>
+                            <li><a href="/news/letters/">Letters to the Editor/Opinion Editorials</a></li>
+                        </ul>
+            </li> 
+            <li class="dropdown">
+            	<a href="/about/">About FDIC</a>
+                <button type="button" class="toggle-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only"></span>
+  				</button> 	
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="/about/strategic/strategic/mission.html">FDIC Mission, Vision, and Values</a></li>
+                            <li><a href="/about/history/">History of the FDIC</a></li>
+                            <li><a href="/about/jobs/">Careers at FDIC</a></li>
+                            <li><a href="/about/contact/directory/">Organization Directory and Office Contacts</a></li>
+                            <li><a href="/regulations/resources/ombudsman/">Office of the Ombudsman</a></li>
+                            <li><a href="/buying/goods/">Doing Business with the FDIC</a></li>
+                            <li class="last_item"><a href="/about/index.html#5">Plans & Reports</a></li>
+                            <li><a href="/about/diversity/">Diversity & Inclusion</a></li>
+                        </ul>
+            </li>
+      </ul>
+    </div>
+</nav>
+</div>
+</div>
+</header>
+
+
+
+
+
+
+    <div id="responsive_fdic_index_container">
+
+        <!--::include virtual="/watch-live.html"-->
+        <!--::include virtual="/fdic-bulletin.html"-->
+        <!--::include virtual="/cbi.html"-->
+        <!-- start left panel -->
+        <div id="responsive_fdic_index_left_panel">
+            <!-- <a id="after_header"></a> -->
+            <!--start image rotator -->
+<script src="/rotatingimages/_ui/js/jquery.min.js"></script>
+<!--<script>window.jQuery||document.write('<script src="/rac/_ui/js/jquery-1.5.min.js">\x3C/script>');</script>-->
+
+<link rel="stylesheet" type="text/css" href="/rotatingimages/_ui/css/contentslider.css">
+<script type="text/javascript" src="/rotatingimages/_ui/js/contentslider.js"></script>
+
+<div class="container">
+  <!--Start Slide Box-->	
+  <div id="slider1" class="sliderwrapper"> 
+  
+    	<!--Start Slides-->
+
+<!--Slide 1-->
+    <div class="contentdiv" id="slide1" style="background:url(rotatingimages/images/seal.png) no-repeat center;">
+      <div class ="slidecontent">
+        <div class="box">
+          <!--Title-->
+          <h1 id="nolink"><a href="https://www5.fdic.gov/sod">Summary of Deposits</a></h1>
+          <p>The FDIC released the results of its annual survey of branch office deposits for all FDIC-insured institutions. The latest data are as of June 30, 2017. <a href="https://www5.fdic.gov/sod">Learn more</a></p>
+        </div>
+      </div>
+    </div> 
+    
+<!--Slide 2-->
+    <div class="contentdiv" id="slide1" style="background:url(rotatingimages/images/seal.png) no-repeat center;">
+      <div class ="slidecontent">
+        <div class="box">
+          <!--Title-->
+          <h1 id="nolink"><a href="/regulations/capital/capital/index.html">Capital Simplification Rule</a></h1>
+          <p>On September 27, 2017, the FDIC Board of Directors approved a proposed rule intended to reduce regulatory burden by simplifying several requirements in the agencies' regulatory capital rule. <a href="/regulations/capital/capital/index.html">Learn more</a></p>
+        </div>
+      </div>
+    </div> 
+    
+<!--Slide 3-->
+   <div class="contentdiv" id="slide1" style="background:url(rotatingimages/images/boardroom.png) no-repeat center;">
+      <div class ="slidecontent">
+        <div class="box">
+          <!--Title-->
+          <h1 id="nolink"><a href="/news/board/2017/2017-09-27-notice.html">FDIC Board Meeting</a></h1>
+          <p>The FDIC Board of Directors met in open session on Wednesday, September 27, 2017. Documents are available. <a href="/news/board/2017/2017-09-27-notice.html">Learn more</a></p>
+        </div>
+      </div>
+    </div> 
+    
+<!--Slide 4-->
+    <div class="contentdiv" id="slide1" style="background: #D8D5D5">
+      <div class ="slidecontent">
+        <div class="box">
+          <!--Title-->
+          <h1 id="nolink"><a href="/news/disaster/">Natural Disaster Impact on Banking Operations</a></h1>
+          <p><img src="/rotatingimages/images/hurricane.png" alt="hurricane" style="float:right;padding-left:10px; padding-bottom: 5px; width: auto">The impacts of Hurricanes Maria, Irma, and Harvey are still being felt.  Find out how the FDIC works with local and federal banking agencies, as well as other organizations, to determine the status of the financial institutions located in areas affected by natural disasters. <a href="/news/disaster/">Learn More</a></p>
+        </div>
+      </div>
+    </div>
+    
+<!--Slide 5-->
+    <div class="contentdiv" id="slide1" style="background: #124c8f">
+      <div class ="slidecontent">
+        <div class="box">
+          <!--Title-->
+          <h1 id="nolink"><a href="/regulations/applications/index.html">Final Handbook for De Novo Organizers Applying for Deposit Insurance</a></h1>
+          <p><img src="/rotatingimages/images/denovo-handbook.jpg" alt="Economic Inclusion Summit" style="float:right;padding-left:10px; padding-bottom: 5px; width: auto">As part of the FDIC's ongoing commitment to work with organizers, the handbook was designed to provide a plain language overview of the requirements and considerations significant to the application process, and to provide organizers a clear and transparent explanation of the path to obtaining deposit insurance.<a href="/regulations/applications/index.html">Learn More</a></p>           
+        </div>
+      </div>
+    </div>
+       
+
+    
+     <!--End Slides-->
+          
+    
+    
+  </div>
+  <!--End Slide Box-->	
+  <!--Controls-->
+  <div id="paginate-slider1" class="pagination"></div>
+  </div>
+  <script type="text/javascript">
+                        
+                        featuredcontentslider.init({
+                            id: "slider1",  //id of main slider DIV
+                            contentsource: ["inline", ""],  //Valid values: ["inline", ""] or ["ajax", "path_to_file"]
+                            toc: "#increment",  //Valid values: "#increment", "markup", ["label1", "label2", etc]
+                            nextprev: ["Previous", "Next"],  //labels for "prev" and "next" links. Set to "" to hide.
+                            revealtype: "click", //Behavior of pagination links to reveal the slides: "click" or "mouseover"
+                            enablefade: [true, 0.2],  //[true/false, fadedegree]
+                            autorotate: [true, 5000],  //[true/false, pausetime]
+                            onChange: function(previndex, curindex, contentdivs){  //event handler fired whenever script changes slide
+                                //previndex holds index of last slide viewed b4 current (0=1st slide, 1=2nd etc)
+                                //curindex holds index of currently shown slide (0=1st slide, 1=2nd etc)
+                            }
+                        })
+                        
+  </script> 
+
+            <div class="clear"></div>
+
+            <!--start deposit insurance box-->
+            <div id="deposit_insurance_box" class="homepage_box">
+                <h2 class="box_title">Deposit Insurance</h2>
+                <p>
+                    <strong>Find out about your account coverage; if your bank is insured; and what's not insured.</strong><br>
+                    <a href="/deposit/">Learn More</a>
+                </p>
+                <p>
+                    <strong>Want to determine your deposit insurance?</strong><br>
+                    Visit our <a href="/edie/index.html">Electronic Deposit Insurance Estimator</a> (EDIE)
+                </p>
+
+                <p>
+                    <strong>
+                        Deposit Insurance Training
+                    </strong><br>
+                    <a href="/deposit/seminars.html">View materials and video presentations</a>
+                </p>
+
+                <p>
+                    <strong>Recursos del seguro de dep&#243;sito en espa&#241;ol</strong><br>
+                    Esta p&#225;gina hace disponible toda la informaci&#243;n del seguro de dep&#243;sito de la FDIC producida en espa&#241;ol.
+                    <br><a href="/deposit/spanishlinks.html">M&#225;s informaci&#243;n</a>
+                </p>
+                <img src="/images/fdic_teller_sign.jpg" alt="FDIC Teller Sign" style="max-width:200px">
+            </div>
+
+            <!--Start Consumer Resources -->
+            <div id="responsive_fdic_index_consumer_res" class="homepage_box">
+                <h2 class="box_title">Consumer Resources</h2>
+                <ul>
+                    <li>
+                        <h4>FDIC Call Center</h4>
+                        <strong>1-877-275-3342 (1-877-ASKFDIC)</strong><br>
+                        8:00 am - 8:00 pm ET; Monday-Friday<br>
+                        9:00 am - 5:00 pm ET; Saturday-Sunday<br>
+                        <strong>For the Hearing Impaired</strong><br>
+                        Toll Free 1-800-925-4618 / Local (VA) 703-562-2289
+                    </li>
+
+                    <li>
+                        <h4>Have a question or complaint about a bank?</h4>
+                        Go to our <a href="https://www2.fdic.gov/starsmail/index.asp">Customer Assistance Online Form</a>
+                    </li>
+                    <li>
+                        <h4>Have a question or complaint about the FDIC?</h4>
+                        Go to the <a href="/regulations/resources/ombudsman/index.html">Office of the Ombudsman </a>
+                    </li>
+                    <li>
+                        <h4>Recursos, consejos y temas para bancos y clientes de productos financieros. </h4>
+                        <a href="/consumers/assistancesp/">M&#225;s informaci&#243;n</a>
+                    </li>
+                </ul>
+                <p>For other questions/options visit <a href="/about/contact/ask/">Contact Us</a></p>
+            </div>
+            <!--End Consumer Resources -->
+
+            <div class="clear"></div>
+
+            <!-- start Quick Links-->
+            <div id="main_tabbox" class="responsive_fdic_index_tabbox homepage_box">
+                <ul role="tablist" class="tabs gold_tabs">
+                    <li role="tab" onclick="responsive_tabSwitch(this)" class="active">Quick Links</li>
+                    <li role="tab" onclick="responsive_tabSwitch(this)">Top Search</li>
+                    <li role="tab" onclick="responsive_tabSwitch(this)">About FDIC</li>
+                    <li role="tab" id="online_prod_cat" onclick="responsive_tabSwitch(this)">Online Product Catalog</li>
+                </ul>
+                <ul class="tab_contents">
+                    <li role="tabpanel" class="tab_content active">
+                        <!-- Quick Links -->
+                        <h2 class="screen_reader_title">Quick Links</h2>
+                        <ul class="tabbox_quicklinks">
+                            <li>
+                                <a href="/help/index.html">Help for First Time Users</a><br>
+                                Find information, resources and data.
+                            </li>
+                            <li>
+                                <a href="/quicklinks/bankers.html">Bankers</a><br>
+                                Resources for banking professionals.
+                            </li>
+                            <li>
+                                <a href="/quicklinks/investors.html">Investors</a><br>
+                                Current assets for sale by the FDIC.
+                            </li>
+                            <li>
+                                <a href="/buying/goods/index.html">Contractors/Vendors/Outside Counsel</a><br>
+                                Doing business with the FDIC.
+                            </li>
+                            <li>
+                                <a href="/quicklinks/analysts.html">Researchers & Analysts</a><br>
+                                Databases, research and analysis.
+                            </li>
+                        </ul>
+                        <ul class="tabbox_quicklinks">
+                            <li>
+                                <a href="https://service.govdelivery.com/service/multi_subscribe.html?code=USFDIC">E-mail Subscriptions</a><br>
+                                Receive the latest e-mail updates on public FDIC information.
+                            </li>
+                            <li>
+                                <a href="/quicklinks/consumers.html">Consumers &amp; Communities</a><br>
+                                Information, alerts, and advice.
+                            </li>
+                            <li>
+                                <a href="/regulations/cra/">Community Reinvestment Act (CRA)</a><br>
+                                Helping to meet the credit needs of the local communities.
+                            </li>
+                            <li>
+                                <a href="/quicklinks/press.html">Press</a><br>
+                                FDIC news and announcements
+                            </li>
+                        </ul>
+                    </li>
+                    <li role="tabpanel" class="tab_content">
+                        <!-- Top Search -->
+                        <h2 class="screen_reader_title">Top Search</h2>
+                        <ul class="tabbox_topsearch">
+                            <li><a href="http://www2.fdic.gov/Call_TFR_Rpts/">Call Report</a></li>
+                            <li><a href="/deposit/deposits/index.html">Are My Deposits Insured?</a></li>
+                            <li><a href="/consumers/consumer/moneysmart/">Money Smart</a></li>
+                            <li><a href="http://research.fdic.gov/bankfind/">Bank Find</a></li>
+                            <li><a href="/regulations/laws/rules/index.html">FDIC Law, Regulations &amp; Related Acts</a></li>
+                        </ul>
+                        <ul class="tabbox_topsearch">
+                            <li><a href="http://www2.fdic.gov/sod/">Summary of Deposits</a></li>
+                            <li>
+                                <a href="/bank/individual/enforcement/index.html">FDIC Enforcement Decisions &amp; Orders</a><br>
+                            </li>
+                            <li><a href="/about/jobs/index.html">Careers at FDIC</a></li>
+                            <li><a href="/regulations/cra/index.html">Community Reinvestment Act (CRA)</a></li>
+                            <li><a href="/news/news/financial/current.html">Financial Institution Letters</a></li>
+                        </ul>
+                    </li>
+                    <li role="tabpanel" class="tab_content">
+                        <!-- About FDIC -->
+                        <h2 class="screen_reader_title">About FDIC</h2>
+                        <ul class="tabbox_aboutfdic">
+                            <li><a href="/help/index.html">First Time on FDIC.gov?</a></li>
+                            <li><a href="/help/faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="/about/learn/symbol/index.html">Who is the FDIC?</a></li>
+                            <li><a href="/about/strategic/strategic/mission.html">FDIC Mission, Vision, and Values</a></li>
+                            <li><a href="/about/strategic/report/index.html">Annual Reports</a></li>
+                        </ul>
+                        <ul class="tabbox_aboutfdic">
+                            <li><a href="/edie/index.html">Electronic Deposit Insurance Estimator (EDIE)</a></li>
+                            <li><a href="/about/learn/learning/index.html">Learning Bank</a></li>
+                            <li><a href="/regulations/resources/ombudsman/index.html">FDIC Ombudsman</a></li>
+                            <li><a href="https://catalog.fdic.gov">FDIC Online Catalog</a></li>
+                            <li><a href="/about/jobs/index.html">Careers at FDIC</a></li>
+                        </ul>
+                    </li>
+                    <li role="tabpanel" class="tab_content">
+                        <!-- Online Product Catalog -->
+                        <h2 class="screen_reader_title">Online Product Catalog</h2>
+                        <p><strong><a href="https://catalog.fdic.gov">FDIC Online Product Catalog</a></strong></p>
+                        <p>Materials regarding FDIC regulations, deposit insurance, consumer protection and the FDIC's award-winning financial literacy product, Money Smart are available through an online catalog.</p>
+                    </li>
+                </ul>
+            </div>
+            <!--End Quick Links-->
+
+            <div class="clear"></div>
+
+            <!--include virtual="/news/section_page-tabs-responsive-asp.html"-->
+            <div class="clear"></div>
+
+            <!--Start Tabs FILs Youtube-->
+            <div id="main_tabbox" class="responsive_fdic_index_tabbox homepage_box">
+                <ul role="tablist" class="tabs gold_tabs">
+                    <li role="tab" onclick="responsive_tabSwitch(this)" class="active" id="prTab"><span class="prText">Press Releases</span></li>
+                    <li role="tab" onclick="responsive_tabSwitch(this)" id="filTab"><span class="filText">Financial Institution Letters</span></li>
+                    <li role="tab" onclick="responsive_tabSwitch(this)" id="tavTab"><span class="tavText">FDIC Videos</span></li>
+                </ul>
+
+                <!--Start PRs-->
+                <ul class="tab_contents">
+                    <li role="tabpanel" class="tab_content active">
+                        <h2 class="screen_reader_title">PRs</h2>
+
+                        <!--Start PRs Content-->
+                        <ul id="fil_Releases1">
+                            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                            <script type="text/javascript">
+                                $("#fil_Releases1").append(handlePRs());
+                            </script>
+                        </ul>
+                        <!--End PRs Content-->
+                        <!--View All PRs Content-->
+                        <a href="/news/news/press/current.html" title="View All Press Releases" class="view_all">view all</a>
+                    <li role="tabpanel" class="tab_content">
+                        <!--End PRs-->
+                        <!--Start FILs-->
+                        <h2 class="screen_reader_title">FILs</h2>
+                        <!--FILs Content-->
+                        <ul id="fil_Releases2">
+                            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                            <script type="text/javascript">
+                                $("#fil_Releases2").append(handleFILs());
+                            </script>
+                        </ul>
+                        <a href="/news/news/financial/current.html" class="view_all" title="View All Financial Institution Letters">view all</a>
+                    </li>
+                    <li role="tabpanel" class="tab_content">
+                        <!--End FILs-->
+                        <!--YouTube Content-->
+                        <h2 class="screen_reader_title">FDIC Videos</h2>
+<p>The FDIC presents several types of videos to assist different users:</p>
+                      <ul>
+                      <li><a href="/deposit/deposits/video.html">Deposit Insurance Videos</a>: Information about deposit insurance coverage for bank customers.</li>
+                      <li><a href="/regulations/resources/director/video.html">FDIC Technical Assistance Videos</a>:  A series of educational videos designed to provide useful information to bank directors, officers, and employees on areas of supervisory focus and regulatory changes.</li>
+                      <li><a href="/deposit/insurance/">Deposit Insurance Fund</a>: A background video discussing the purpose and funding of the fund that is used to protect deposits.</li>
+                        </ul>
+
+                        <!--End Video Content-->
+
+                      
+
+                        <noscript>
+                            <p>
+                                If you are seeing this message you have JavaScript disabled on your web browser. Some of the interactive content of this page cannot be viewed without JavaScript. Please enable JavaScript in your browser options, or view the FIL, SA, and YouTube content at the following links:<br>
+                                <br>
+                                <a href="/news/news/press/index.html" title="View All">Press Releases</a><br>
+                                <a href="/news/news/financial/index.html" title="View All">Financial Institution Letters</a><br>
+                                <a href="/regulations/resources/director/video.html" title="View All">YouTube</a>
+                            </p>
+                        </noscript>
+            </div>
+            <!--End Tabs FILs Youtube-->
+
+            <div class="clear"></div>
+        </div>
+        <!-- end left panel -->
+        <!-- start right panel -->
+        <div id="responsive_fdic_index_right_panel">
+            <div id="responsive_fdic_index_board_home" class="homepage_box">
+                <h2 class="box_title">FDIC Board of Directors</h2>
+                <ul>
+                    <li>Chairman - <a href="/about/learn/board/gruenberg/index.html">Martin J. Gruenberg</a></li>
+                    <li>Vice-Chairman - <a href="/about/learn/board/hoenig/index.html">Thomas M. Hoenig</a></li>
+                    <li>Acting Director (OCC) - <a href="https://occ.treas.gov/about/who-we-are/comptroller-of-the-currency/keith-noreika.html">Keith A. Noreika</a></li>
+                    <li>Director (CFPB) - <a href="http://www.consumerfinance.gov/the-bureau/about-rich-cordray/">Richard Cordray</a></li>
+                </ul>
+            </div>
+            <!--Find More Information-->
+            <script type="text/Javascript" src="/responsive/js/find-more-info.js"></script>	
+<div id="find_more_info">
+	<h2>Find More Information</h2>
+	<noscript>
+	This section requires javascript, if this does not work for you, simply go to the sub-navigation pages linked in the header.
+	</noscript>
+	<form>
+	<div>
+		<label for="fmi_usertype">select a user role</label>
+		<select id="fmi_usertype" onchange="fmi_update_useraction(this);">
+			<option value="">I Am A...</option>
+			<option value="customer">Bank Customer</option>
+			<option value="banker">Banker</option>
+			<option value="consumer">Consumer</option>
+			<option value="business">Small Business Owner</option>
+			<option value="analyst">Analyst/Researcher/Student</option>
+			<option value="legal">Legal Professional</option>
+			<option value="regulator">Bank Regulator</option>
+			<option value="press">Press/Media</option>
+			<option value="vendor">Vendor/Contractor</option>
+			<option value="legislative">Legislative Staff Member</option>
+			<option value="jobseeker">Jobseeker</option>
+			<option value="courtclerk">Court Clerk</option>
+			<option value="prosprobofficer">Prosecutor/Probation Officer</option>
+			<option value="investigator">Investigator</option>
+		</select>
+	</div>
+	<div>
+		<label for="fmi_useraction">select an action</label>
+		<select id="fmi_useraction" onfocus="fmi_useraction_open();" onchange="fmi_useraction_chosen(this)">
+			<option class="default" value="">I Want To...</option>
+		</select>
+	</div>
+	<input type="button" value="Go" onclick="findmoreinfo_click();">
+	</form>
+</div>
+
+            <!--Start Bank Find -->
+            <div id="responsive_fdic_index_bank_find">
+                <a href="http://research.fdic.gov/bankfind">BankFind</a>
+                <p>Learn if your bank is insured, view locations, track history, and more.</p>
+            </div>
+            <div class="clear"></div>
+
+            <!--Start FDIC Cybersecurity  -->
+            <div id="responsive_fdic_index_cyber_security">
+                <a href="/about/governance/cybersecurity.html">FDIC Cybersecurity</a>
+                <br><br>
+                <p style="text-align:center"><a href="/about/governance/cybersecurity.html"><img src="/images/cybersecurityvertical262x132.jpg" alt="FDIC Cybersecurity logo. Indentify, Protect, Detect, Respond, Recover"></a></p>
+            </div>
+
+
+            <!--Start Community Banking Initiative -->
+            <div id="responsive_fdic_index_CBI">
+                <p><a href="/regulations/resources/cbi/">Community Banking Initiative</a></p>
+                <p><strong>Updated September 7, 2017</strong></p>
+                <p style="text-align:center"><img src="/images/cbi-small.jpg" alt="Community Banking Initiative"></p>
+            </div>
+            <div class="clear"></div>
+
+            <!-- Start Bank Closing Box -->
+            <div id="responsive_fdic_bank_closing_box" class="homepage_box">
+                <h2 class="box_title">Bank Closing Information</h2>
+
+                <p id="bcinfo_date"></p>
+                <p>These links contain useful information for the customers and vendors.</p>
+                <!--::include virtual="/data/bcbox.html"-->
+                <ul class="links">
+                    <li><a href="https://www5.fdic.gov/drrip/afi/index.asp">Is My Account Fully Insured?</a></li>
+                    <li><a href="/bank/individual/failed/banklist.html">Complete Failed Bank List</a></li>
+                    <li><a href="http://www2.fdic.gov/drrip/cs/index.asp">Failed Financial Institution Contact Search</a></li>
+                    <li><a href="/bank/historical/bank/index.html">Bank Failures in Brief</a></li>
+                    <li><a href="/bank/individual/failed/courtclerks.html">Resources for Court Clerks and Law Enforcement Agencies</a></li>
+                </ul>
+                <p class="endnote"></p>
+
+                <!--View All-->
+                <p><a href="/bank/individual/failed/banklist.html" title="View All" class="view_all_button">view all</a></p>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+
+            <!--Start Featured Programs -->
+            
+            <div class="clear"></div>
+        </div>
+        <!-- end right panel -->
+        <div class="clear"></div>
+    </div>
+
+    <!-- START of Footer -->
+<a href="#after_header" class="responsive_header-skip_header">Skip Footer back to content</a>
+<footer>
+<link rel="stylesheet" type="text/css" href="/responsive/footer/css/footer.css">
+<div id="responsive_footer">
+	<div id="responsive_footer-full">
+		<ul>
+			<li><a href="/" title="Home">Home</a></li>
+			<li><a href="/about/contact/ask/" title="Contact Us">Contact Us</a></li>
+			<li><a href="/search/" title="Search">Search</a></li>
+			<li><a href="/help/" title="Help">Help</a></li>
+			<li><a href="/sitemap/" title="SiteMap">SiteMap</a></li>
+			<li><a href="/regulations/laws/forms/" title="Forms">Forms</a></li>
+			<li lang="es"><a href="/quicklinks/spanish.html" title="En Espa&ntilde;ol">En Espa&ntilde;ol</a></li>
+		</ul>
+		<hr>
+		<ul>
+			<li><a href="/about/policies/" title="Website Policies">Website Policies</a></li>
+			<li><a href="/about/privacy/policy/" title="Privacy Policy">Privacy Policy</a></li>
+            <li><a href="/about/diversity/fdicaccessibilitystatement.html" title="Accessibility Statement">Accessibility Statement</a></li>
+			<li><a href="/plainlanguage/" title="Privacy Policy">Plain Writing Act of 2010 </a></li>
+			<li><a href="http://www.usa.gov/" title="USA.gov">USA.gov</a></li>
+			<li><a href="http://www.fdicoig.gov/" title="FDIC Office of Inspector General">FDIC Office of Inspector General</a></li>
+		</ul>
+		<hr>
+		<ul>
+			<li><a href="/about/freedom/" title="Freedom of Information Act (FOIA) Service Center">Freedom of Information Act (FOIA) Service Center</a></li>
+			<li><a href="/open/" title="FDIC Open Government Webpage">FDIC Open Government Webpage</a></li>
+			<li><a href="/about/diversity/nofear/" title="No FEAR Act Data">No  FEAR Act Data</a></li>
+		</ul>
+	</div>
+	<div id="responsive_footer-small">
+		<ul>
+			<li><a href="/" title="Home">Home</a></li> 
+			<li><a href="/about/contact/ask/" title="Contact Us">Contact Us</a></li>
+			<li><a href="/about/policies/" title="Website Policies">Website Policies</a></li>
+			<li><a href="/search/" title="Search">Search</a></li>
+		</ul>
+    </div>
+</div>
+</footer>
+<!-- START Omniture SiteCatalyst Code -->
+<script type="text/javascript" src="/js/appmeasurement.js"></script>
+<script type="text/javascript">
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<script type="text/javascript">
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+</script>
+<noscript>
+<a href="http://www.omniture.com/" title="Web Analytics">
+<img src="http://fdic.122.2o7.net/b/ss/fdicgovprod/1/H.21--NS/0?[AQB]%26cl=Session%26AQE" style="height:1px;width:1px;border:none;" alt="adobe marketing cloud tracking image"></a>
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- END Omniture SiteCatalyst Code -->
+<!-- END of Footer -->
+
+    <script type="text/Javascript" src="/responsive/js/tab_functions.js"></script>
+    <script type="text/Javascript" src="/responsive/js/simple_accordion_home.js"></script>
+</body>
+</html>

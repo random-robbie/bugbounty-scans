@@ -1,0 +1,1965 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>Project Open Data Dashboard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="https://dashboard-labs.data.gov/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://dashboard-labs.data.gov/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" href="https://dashboard-labs.data.gov/css/main.css">
+        <link rel="shortcut icon" href="https://dashboard-labs.data.gov/favicon.ico" />
+
+        <script src="https://dashboard-labs.data.gov/js/vendor/modernizr.min.js"></script>
+        <link href="https://dashboard-labs.data.gov/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="https://dashboard-labs.data.gov/js/vendor/jquery-1.10.1.min.js"></script>
+        <script src="https://dashboard-labs.data.gov/js/vendor/bootstrap.min.js"></script>
+        <script src="https://dashboard-labs.data.gov/js/main.js"></script>
+
+</head>
+<body>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container ">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://dashboard-labs.data.gov/">Project Open Data Dashboard</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+
+        <li><a href="https://dashboard-labs.data.gov/offices">Agencies</a></li>
+        <li><a href="https://dashboard-labs.data.gov/validate">Validator</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Converters <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://dashboard-labs.data.gov/export">Export API</a></li>
+            <li><a href="https://dashboard-labs.data.gov/datagov/csv_to_json">CSV Converter</a></li>
+            <li><a href="https://dashboard-labs.data.gov/upgrade-schema">Schema Converter</a></li>
+            <li><a href="https://dashboard-labs.data.gov/merge">Data.json Merger</a></li>
+          </ul>
+        </li>
+
+        <li><a href="https://dashboard-labs.data.gov/docs/rubric">Rubric</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://dashboard-labs.data.gov/docs">Documentation</a></li>
+            <li><a href="https://github.com/GSA/project-open-data-dashboard/issues">Feedback</a></li>
+          </ul>
+        </li>
+
+        <li><a href="https://dashboard-labs.data.gov/docs/about">About</a></li>
+
+
+      </ul>
+
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div id="main-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container ">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div>
+          
+          <p class="intro-blurb">This is a public dashboard showing how Federal agencies are performing on the Open Data Policy. <a href="https://dashboard-labs.data.gov/docs">Learn more</a></p>
+
+           
+
+             
+
+                           <p class="form-flash text-warning bg-warning"><strong>Under Review:</strong> The milestone selected is the most recently completed one, but OMB is still reviewing some agencies</p>
+                 
+
+                  
+
+            <ul class="milestone-selector nav nav-pills">
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Selected: Milestone 16 - August 31st 2017 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2013-11-30">Milestone 1 - November 30th 2013</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2014-02-28">Milestone 2 - February 28th 2014</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2014-05-31">Milestone 3 - May 31st 2014</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2014-08-31">Milestone 4 - August 31st 2014</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2014-11-30">Milestone 5 - November 30th 2014</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2015-02-28">Milestone 6 - February 28th 2015</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2015-05-31">Milestone 7 - May 31st 2015</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2015-08-31">Milestone 8 - August 31st 2015</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2015-11-30">Milestone 9 - November 30th 2015</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2016-02-29">Milestone 10 - February 29th 2016</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2016-05-31">Milestone 11 - May 31st 2016</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2016-08-31">Milestone 12 - August 31st 2016</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2016-11-30">Milestone 13 - November 30th 2016</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2017-02-28">Milestone 14 - February 28th 2017</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2017-05-31">Milestone 15 - May 31st 2017</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2017-08-31">Milestone 16 - August 31st 2017</a></li>
+                                                    <li><a href="https://dashboard-labs.data.gov/offices/2017-11-30">Milestone 17 - November 30th 2017</a></li>
+                                            </ul>
+                </li>
+            </ul>
+
+				<div class="panel panel-default">
+	<table class="dashboard table table-striped table-hover table-bordered">
+		<tr class="dashboard-meta-heading">
+			<td>CFO Act Agencies</td>
+
+						<td colspan="6">
+				Leading Indicators Strategy 
+                <a href="https://dashboard-labs.data.gov/docs#leading_indicators_strategy">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </a>			
+			</td>
+			
+		</tr>
+		<tr class="dashboard-heading">
+			<th class="col-sm-3">		<div class="sr-only">Agency			</div></th>
+
+											<th class="tilt"><div>Enterprise Data Inventory</div></th>
+											<th class="tilt"><div>Public Data Listing</div></th>
+											<th class="tilt"><div>Public Engagement</div></th>
+											<th class="tilt"><div>Privacy &amp; Security</div></th>
+											<th class="tilt"><div>Human Capital</div></th>
+											<th class="tilt"><div>Use &amp; Impact</div></th>
+			
+		</tr>
+
+		
+
+
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31">Department of Agriculture</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49015/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31">Department of Commerce</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52668/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31">Department of Defense</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49229/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31">Department of Education</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49018/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31">Department of Energy</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49019/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31">Department of Health and Human Services</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49021/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31">Department of Homeland Security</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49022/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31">Department of Housing and Urban Development</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49023/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31">Department of Justice</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52686/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31">Department of Labor</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49028/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31">Department of State</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49030/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31">Department of the Interior</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49033/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31">Department of the Treasury</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49034/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31">Department of Transportation</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49035/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31">Department of Veterans Affairs</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48027/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31">Environmental Protection Agency</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49039/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31">General Services Administration</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49048/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31">National Aeronautics and Space Administration</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49476/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31">National Science Foundation</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52640/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31">Nuclear Regulatory Commission</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52645/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31">Office of Personnel Management</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48112/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31">Small Business Administration</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/48139/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31">Social Security Administration</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/49057/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+		
+		
+		<tr class="metrics-row">
+			<th><a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31">U.S. Agency for International Development</a></th>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31?highlight=edi#edi_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31#pdl_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31?highlight=pe#pe_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31?highlight=ps#ps_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31?highlight=hc#hc_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+				
+				<td class="boolean-metric  ">
+					<a href="https://dashboard-labs.data.gov/offices/detail/52583/2017-08-31?highlight=ui#ui_tab">
+						<span>
+							&nbsp;
+						</span>
+					</a>
+				</td>
+
+			
+		</tr>
+			</table>
+	</div>
+
+        <h4>Totals for CFO-Act Agencies</h4>
+        <table class="table">          
+            <tr>
+              <th>Field</th>
+              <th>Total</th>
+              <th>Average</th>
+              <th>Agencies</th>
+              <th>Errors</th>
+            </tr>
+
+                          <tr>
+                <td>Number of Datasets</td>
+                <td>684</td>
+                <td>684</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of Collections</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of datasets not contained in a collection</td>
+                <td>662</td>
+                <td>662</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of Public Datasets with File Downloads</td>
+                <td>681</td>
+                <td>681</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of APIs</td>
+                <td>95</td>
+                <td>95</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of public APIs</td>
+                <td>95</td>
+                <td>95</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of restricted public APIs</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of non-public APIs</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Total number of access and download links</td>
+                <td>1279</td>
+                <td>1279</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Accessible links</td>
+                <td>723</td>
+                <td>723</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Redirected links</td>
+                <td>117</td>
+                <td>117</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Error links</td>
+                <td>3</td>
+                <td>3</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Broken links</td>
+                <td>346</td>
+                <td>346</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Percentage of download links in correct format as specified in metadata</td>
+                <td></td>
+                <td>77%</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Percentage of download links in HTML</td>
+                <td></td>
+                <td>27%</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Quality Check: Percentage of download links in PDF</td>
+                <td></td>
+                <td>8%</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Valid Metadata</td>
+                <td></td>
+                <td>100%</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of public datasets</td>
+                <td>681</td>
+                <td>681</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of restricted public datasets</td>
+                <td>3</td>
+                <td>3</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                          <tr>
+                <td>Number of non-public datasets</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+                    </table>
+      
+
+        </div>
+      </div>
+
+</div> <!-- /#main-container -->
+
+<hr>
+      <footer class="footer">
+        <div class="container ">
+        <div class="pull-left"><a href="https://github.com/GSA/project-open-data-dashboard/issues">Fork me on Github</a></div>
+
+
+
+
+                  <div class="pull-right">
+            <a class="btn btn-default btn-auth" href="https://dashboard-labs.data.gov/user/login">Sign in with <b>MAX</b></a>
+          </div>
+        
+
+
+      </div>
+      </footer>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"2e87881546","applicationID":"69575183","transactionName":"M1ABNkAAD0ACUxFfWgoaIgFGCA5dTH8DUFwHUBBNWw8FVhs=","queueTime":0,"applicationTime":116,"atts":"HxcCQAgaHE4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

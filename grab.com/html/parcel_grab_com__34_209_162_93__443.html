@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GrabExpress</title>
+    <meta name="description" content="GrabExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="https://34.209.162.93/assets/xfe/favicon.ico">
+
+
+    <link rel="stylesheet" href="https://34.209.162.93/vendors/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://34.209.162.93/vendors/select2/select2.css">
+
+    <!-- CSS From mmenu -->
+    <link type="text/css" rel="stylesheet" href="https://34.209.162.93/assets/bower_components/angular-ui-select/dist/select.min.css" />
+    <link rel="stylesheet" href="https://34.209.162.93/vendors/bootstrap/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="https://34.209.162.93/assets/xfe/css/mobile-nav.css" />
+    <link type="text/css" rel="stylesheet" href="https://34.209.162.93/assets/xfe/css/jquery.mmenu.all.css" />
+    <link type="text/css" rel="stylesheet" href="https://34.209.162.93/assets/bower_components/angular-toastr/dist/angular-toastr.min.css" />
+
+
+    <!-- /CSS From mmenu -->
+    <link rel="stylesheet" href="https://34.209.162.93/assets/xfe/css/main.min.css?v=1.0.18">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://34.209.162.93/assets/xfe/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <script src="https://34.209.162.93/assets/xfe/js/modernizr.min.js"></script>
+
+    <link rel="stylesheet" href="https://34.209.162.93/assets/xfe/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="https://34.209.162.93/assets/xfe/css/magnific-popup.css">
+
+    <script>
+        var baseUrl = 'https://34.209.162.93';
+        var siteLocate = 'en';
+        var pricingAPIKey = 'hjkh432hg4h3j2g4jh32gjh4g32jh4gj32hg4j23hg4j32g4j32h4g';
+    </script>
+    <link href="https://34.209.162.93/assets/bower_components/angular-google-places-autocomplete/dist/autocomplete.min.css" rel="stylesheet" />
+
+    <style>
+
+        .circle{
+            border-radius: 50%;
+            margin: 0.15em;
+            font-size: 21px;
+        }
+
+        .fa-twitter{
+            background: white;
+            color: #00B140;
+            padding: 5px 6px;
+        }
+
+        .fa-facebook{
+            background: white;
+            color: #00B140;
+            padding: 5px 10px;
+        }
+
+        .fa-instagram{
+            background: white;
+            color: #00B140;
+            padding: 4px 6px;
+        }
+
+        .img-responsive-playstore{
+            padding-bottom: 10px;
+            width: 60%;
+        }
+
+        .stay-cont{
+            color: #CCEFD9;
+            font-size: 20px;
+        }
+
+        .has-icon{
+            font-size: 18px;
+            padding-right: 8px;
+        }
+
+    </style>
+
+    <script>
+      (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          i[r] = i[r] || function() {
+              (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-64202347-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+<body class=""   ng-app="frontModule" ng-controller="HomeController">
+    <header id="header" class="header desktop_show clearfix">
+        <div class="heder_top_text clearfix hidden-xs">
+            <div class="container hidden-xs hidden-sm">
+                <div class="row">
+
+                    <div class="col-xs-10 col-md-10">
+                        <div class="pull-right">
+                            <div class="tel text-top-spacer">+6221 8064 8777 </div>
+                            <div class="text-top-spacer "><i class="fa fa-envelope has-icon" aria-hidden="true"></i><a href="mailto:grabparcel.id.support@grab.com">grabparcel.id.support@grab.com</a></div>                    <div class="work_time text-top-spacer">Operating hours: Mon-Sat, 8a.m.-6p.m. Sun &amp; Public holidays, closed</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="language">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle disable_link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span>English</span></a>
+                                <ul class="dropdown-menu language_dropdown">
+                                    <li class="disable_link"><a href="https://34.209.162.93/lang/id">Bahasa</a></li>
+                                    <li class="disable_link"><a href="https://34.209.162.93/lang/en">English</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- language-wrapper -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- heder_top_text -->
+    </header>
+    <!-- /header -->
+    <div class="navbar desktop_show navbar-default spacer-top">
+        <div class="container">
+            <a href="https://34.209.162.93" class="navbar-brand"><img src="https://34.209.162.93/assets/xfe/images/logo-new.png" alt="logo"></a>
+            <nav class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="express dropdown">
+                        <a href="#" title="" class="ex dropdown-toggle disable_link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services</a>
+                        <div class="g_all_service dropdown-menu booking_dropdown">
+                            <ul>
+                                <li class="dropdown-toggle disable_link taxi"><span></span><a href="https://www.grab.com/id/taxi">Taxi</a></li>
+                                <li class="dropdown-toggle disable_link car"><sparn></sparn><a href="https://www.grab.com/id/car">Car</a></li>
+                                <li class="dropdown-toggle disable_link bike"><span></span><a href="https://www.grab.com/id/bike">Bike</a></li>
+                                <li class="dropdown-toggle disable_link gexpress"><span></span><a href="https://www.grab.com/id/express">Express</a></li>
+                                <li class="dropdown-toggle disable_link food"><span></span><a href="https://www.grab.com/id/express">Food</a></li>
+                                <li class="dropdown-toggle disable_link hitch"><span></span><a href="https://www.grab.com/id/express">Hitch</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle disable_link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Booking</a>
+                      <ul class="dropdown-menu booking_dropdown">
+                        <li><a style="padding: 10px 20px;" href="https://34.209.162.93/booking">Single Booking</a></li>
+                        <li><a style="padding: 10px 20px;" href="https://34.209.162.93/bulkbooking">Multiple Booking</a></li>
+                      </ul>
+                    </li>
+                    <li><a class="faqs_menu" href="https://34.209.162.93/faqs">FAQs</a></li>
+                    <li><a href="https://34.209.162.93/tracking">Tracking</a></li>
+                </ul>
+
+                <!-- Member login -->
+                                <div class="member_login">
+                  <ul>
+
+                                              <li class="dropdown">
+                            <a style="font-size: 16px;" href="#" class="dropdown-toggle disable_link" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">Login</a>
+                            <div class="dropdown-menu login-dropdown">
+                                <form name="loginfrm" id="loginfrm" class="form-horizontal" role="form" method="POST" action="https://34.209.162.93/login">
+                      <input type="hidden" name="_token" value="XQDgmLif3x7LN23R6jBdgu5PwFWOBPgDX4lZq4kO">
+
+                                    <input id="dropdown_login" type="hidden" class="form-control" name="dropdown_login" value="1" placeholder="E-mail">
+                                    <input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">
+                                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                    <input type="hidden" name="lang" value="en" />
+                                    <input type="submit" class="btn btn-sm btn-primary" value="Login">
+                                    <a style="font-size: 14px" href="https://34.209.162.93/password/reset">Forgot Password</a>
+
+                                </form>
+                            </div>
+                        </li>
+                      <li class=""><a href="https://34.209.162.93/register">Register</a></li>
+                  </ul>
+
+                </div>
+                                <!-- member_login -->
+                <div class="btn_start"><a href="https://34.209.162.93/booking">Booking</a></div>
+            </nav>
+        <!-- /.navbar-collapse -->
+        </div>
+    </div>
+
+    <div id="page" class="mobile_show">
+        <div class="header">
+            <div class="heder_top_text clearfix visible-xs visible-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-10">
+                            <div>
+                                <div class="text-top-spacer"><i class="fa fa-phone has-icon" aria-hidden="true"></i>+6221 8064 8777 </div>
+                                <div class="text-top-spacer mail-text"><i class="fa fa-envelope has-icon" aria-hidden="true"></i><a href="mailto:grabparcel.id.support@grab.com">grabparcel.id.support@grab.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <a class="mobile-menu-button" href="#menu">Menu</a>
+            <figure class="logo clearfix"><a href="https://34.209.162.93" class="navbar-brand"><img src="https://34.209.162.93/assets/xfe/images/logo-new.png" alt="logo"></a></figure>
+                        <div class="member_login">
+              <ul>
+                <form name="loginfrm" id="loginfrm" class="form-horizontal" role="form" method="POST" action="https://34.209.162.93/login">
+                  <input type="hidden" name="_token" value="XQDgmLif3x7LN23R6jBdgu5PwFWOBPgDX4lZq4kO">
+                  <li class="login">
+                    <a style="font-size: 16px;" href="#" class="user_action_mobile">Register</a>
+                    <ul class="sublogin clearfix">
+                      <li class="loginmessage"></li>
+                      <li>
+                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">
+                      </li>
+                      <li>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                      </li>
+                      <li>
+                        <input type="hidden" name="lang" value="en" />
+                        <input type="submit" value="Login">
+                        <a href="https://34.209.162.93/password/reset">Forgot Password</a>
+                      </li>
+                      <li>
+                        <div class="or_use_that">
+                          <span class="or_use_text"><span>or</span></span>
+                        </div>
+                        <p><a href="https://34.209.162.93/register" class="btn regis">Register</a></p>
+                      </li>
+                    </ul>
+                  </li>
+                </form>
+              </ul>
+            </div>
+                        <!-- member_login -->
+        </div>
+    </div>
+
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#" class="disable_link">Grab Services</a>
+                <ul>
+                    <li class="taxi"><img src="https://34.209.162.93/assets/xfe/images/g-m-taxi.png" alt="" class="img_ser_m"><a href="https://www.grab.com/id/taxi">Taxi</a></li>
+                    <li class="car"><img src="https://34.209.162.93/assets/xfe/images/g-m-car.png" alt="" class="img_ser_m"><a href="https://www.grab.com/id/car">Car</a></li>
+                    <li class="bike"><img src="https://34.209.162.93/assets/xfe/images/g-m-bike.png" alt="" class="img_ser_m"><a href="https://www.grab.com/id/bike">Bike</a></li>
+                    <li class="gexpress"><img src="https://34.209.162.93/assets/xfe/images/g-m-exp.png" alt="" class="img_ser_m"><a href="/">Express</a></li>
+                </ul>
+            </li>
+
+            <li><a href="https://34.209.162.93/booking">Booking</a></li>
+            <li><a href="https://34.209.162.93/faqs">FAQs</a></li>
+            <li><a href="https://34.209.162.93/tracking">Tracking</a></li>
+            <li><a href="#" class="disable_link">English</a>
+                <ul>
+                    <li><a href="https://34.209.162.93/lang/id">Bahasa</a></li>
+                    <li><a href="https://34.209.162.93/lang/en">English</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    	<div class="banner_full home" style="background: url('https://34.209.162.93/media/ourservice/main_image.jpg')no-repeat center center;">
+		<div class="container">
+			<div class="text_area_banner">
+				<div class="row">
+					<div class="col-md-6 col-sm-10">
+						<h1>GRAB PARCEL</h1>
+						<p>Courier service with a selectable delivery time to suit your needs at a more economical price</p>
+					</div>
+				</div>
+				<div class="row book-button-row">
+					<div class="col-xs-12">
+						<a class="btn btn-primary btn-lg" href="https://34.209.162.93/booking">Book Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="book-now-containers">
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- banner_full -->
+
+	<!-- alert -->
+		<!-- end of alert -->
+
+
+	<section class="container-fulid clearfix">
+
+
+
+		<div class="how_to clearfix">
+			<style>
+
+				.step-number {
+					background-color: #e7eeeb;
+					width: 100px;
+					height: 100px;
+					top: 5px;
+					left: 5px;
+					border-radius: 50%;
+				}
+
+
+				.img-screen{
+					width: 76%;
+					margin-top: 16.5%;
+					margin-left: 7px;
+				}
+
+				.img-hand{
+					width: 384px;
+					height: 540px;
+				}
+
+
+				.ticker-headline {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					padding: 15px 0;
+					margin: 0;
+					font-size: 18px;
+				}
+
+				.bg-info {
+					background-color: #ffffff;
+				}
+
+
+
+				.on-screen{
+
+					margin-top: 9.5%;
+					margin-left: 47%;
+				}
+
+				a{
+					color: black;
+				}
+
+				a:hover{
+					text-underline: none;
+					color: inherit;
+				}
+
+
+				.text-align-center{
+					text-align: center;
+				}
+
+				.steps-container {
+				}
+				.steps-container ol {
+					padding-left: 0px;
+					margin-top: 10%;
+				}
+				.steps-container ol li{
+					position: relative;
+					padding: 0 0 10px 45px;
+					list-style-type: none;
+					height: 130px;
+					font-size: 1.143em;
+				}
+				.steps-container ol li h3 {
+					color: black;
+					margin: 0px;
+					font-size: 20px;
+					margin-bottom: 10px;
+					padding-top: 5px;
+					font-weight: 600;
+				}
+
+				.steps-container ol li h3:hover, active {
+					color: #00BA51;
+
+				}
+
+
+				.steps-container ol li p {
+
+					font-size: 18px;
+				}
+
+				.steps-container ol li:before{
+					content: '';
+					display: block;
+					position: absolute;
+					width: 13px;
+					height: 92px;
+					background: url('assets/xfe/images/arrowdown.png') no-repeat center/cover;
+					bottom: 5px;
+					left: 8px;
+				}
+				.steps-container ol li:last-child:before{
+					display: none;
+				}
+
+
+
+				.steps-container ol li:after{
+					content: attr(data-step);
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					border: 2px solid #00BA51;
+					font-weight: 500;
+					font-size: 1em;
+					color: #00BA51;
+					text-align: center;
+					line-height: 29px;
+				}
+				.steps-container ol li:hover:after{
+					content: attr(data-step);
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-color: #00BA51;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					border: 2px solid #00BA51;
+					font-weight: 500;
+					font-size: 1em;
+					color: white;
+					text-align: center;
+					line-height: 29px;
+				}
+
+
+
+
+				.steps-container-hor {
+				}
+				.steps-container-hor ol {
+					margin :3% 0% 0% 26%;
+				}
+				.steps-container-hor ol li{
+					position: relative;
+					padding: 0% 10% 0% 10%;
+					list-style-type: none
+				}
+				.steps-container-hor ol li h3 {
+					color: #00ba51;
+					margin: 0px;
+					margin-bottom: 10px;
+					padding-top: 5px;
+				}
+				.steps-container-hor ol li:before{
+					content: '';
+					display: block;
+					position: absolute;
+					width: 18px;
+					height: 92px;
+					bottom: 5px;
+					left: 8px;
+					background-image: url("assets/xfe/images/arrow-right-c.png");
+					background-size: contain ;
+					margin-left: 50%;
+					margin-top: 2%;
+					background-repeat: no-repeat;
+
+				}
+				.steps-container-hor ol li:last-child:before{
+					display: none;
+				}
+
+				.steps-container-hor li:before {
+					font-family: FontAwesome;
+					content: "\f061";
+					top: 5px;
+					right: 30%;
+					color: #333;
+				}
+
+
+				.steps-container-hor ol li:after{
+					content: attr(data-step);
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					border: 2px solid #00BA51;
+					font-weight: 500;
+					font-size: 1em;
+					color: #00BA51;
+					text-align: center;
+					line-height: 29px;
+				}
+				.steps-container-hor ol li:hover:after{
+					content: attr(data-step);
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-color: #00BA51;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					border: 2px solid #00BA51;
+					font-weight: 500;
+					font-size: 1em;
+					color: white;
+					text-align: center;
+					line-height: 29px;
+				}
+
+
+				.carousel-inner {
+					position: relative;
+					width: 100%;
+					overflow: hidden;
+					margin-top: 20%;
+				}
+
+
+				.carousel-indicators {
+
+					position: inherit;
+					bottom: inherit;
+					left: inherit;
+					height: 0px;
+					margin-top: 20%
+					z-index: 0px;
+					width: inherit;
+					padding-left: inherit;
+					margin-left: inherit;
+					text-align: inherit;
+					list-style: inherit;
+
+				}
+
+				.carousel-indicators .active {
+					width: auto;
+					height: 130px;
+				}
+
+				.carousel-indicators li {
+					display: block;
+					width: inherit;
+					height: inherit;
+					text-indent: 2px;
+					background-color:inherit;
+					background-color: inherit;
+					border: inherit;
+					border-radius: inherit;
+				}
+
+
+				.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+					display: block;
+					max-width: 100%;
+					height: 100%;
+				}
+
+				.carousel-bg {
+					background: url('assets/xfe/images/empty.png') no-repeat center/cover;
+					position: absolute;
+					right :-14px;
+					top: -20px;
+					margin-left: -400px;
+					width: 400px;
+					height: 580px;
+				}
+
+				@media  only screen and (max-width: 799px) {
+
+
+					ol {
+						list-style-type: none;
+						margin: 0;
+						padding: 0px;
+					}
+
+					li {
+						float: left;
+
+					}
+
+
+					.carousel-inner {
+						position: relative;
+						width: 100%;
+						margin-left: 0%;
+
+					}
+
+					.carousel-indicators .active {
+						width: auto;
+						height: 50px;
+					}
+
+
+					.carousel-bg {
+						z-index: 9;
+						right :-14px;
+/*						background-image: url('https://files.slack.com/files-pri/T1R8YT07N-F53GL62U8/empty.png') no-repeat center/cover;*/
+					}
+
+					.mobile-slider .item img {
+						margin: auto;
+					}
+
+					.img-front{
+
+						width: 58%;
+						height: 80%;
+						margin-top: -1px;
+					}
+
+					.img-back{
+						width: 55%;
+						height: 80%;
+					}
+
+
+					.spacer-row{
+						margin-bottom: 21.5vh;
+					}
+
+					.dark-fonts{
+						color: black;
+					}
+
+
+					.small-mob-screen{
+
+						margin-top: -79%;
+						position: absolute;
+					}
+
+
+					.carousel-inner {
+						margin-left: -2%;
+						margin-top: 5%;
+					}
+
+					.spacer-row {
+						margin-bottom: -4px;
+					}
+
+				}
+
+
+				.carousel .item {
+					-webkit-transition: opacity 5s;
+					-moz-transition: opacity 5s;
+					-ms-transition: opacity 5s;
+					-o-transition: opacity 5s;
+					transition: opacity 5s;
+				}
+				.carousel .active.left {
+					left:0;opacity:0;
+				}
+				.carousel .next {
+					left:0;opacity:1;
+				}
+
+				rousel-inner .prev.right {
+					opacity: 1;
+				}
+
+				.carousel-fade .carousel-control {
+
+				}
+
+			</style>
+
+
+			<div class="white_section clearfix">
+				<h2 class="top_sec_title text-center">How It Works</h2>
+				<div class="bg-info">
+					<div class="container">
+						<div class="row spacer-row">
+							<div class="col-md-6 col-sm-6 hidden-xs">
+								<div class="scrolling-screen pull-right">
+									<div id="myCarousel" class="carousel slide" data-ride="carousel">
+										<!-- Wrapper for slides -->
+										<div class="carousel-inner" role="listbox">
+											<div class="item active">
+												<img class="mySlides img-responsive img-screen" src="https://34.209.162.93/media/ourservice/1st_step-7.jpg">
+											</div>
+
+											<div class="item">
+												<img class="mySlides img-responsive img-screen" src="https://34.209.162.93/media/ourservice/2nd_step-5.jpg">
+											</div>
+
+											<div class="item">
+												<img class="mySlides img-responsive img-screen" src="https://34.209.162.93/media/ourservice/3rd_step-4.jpg">
+											</div>
+
+											<div class="item">
+												<img class="mySlides img-responsive img-screen" src="https://34.209.162.93/media/ourservice/4th_step-4.jpg" alt="Flower" width="460" height="345">
+											</div>
+										</div>
+										<!-- Left and right controls -->
+
+										<div class="carousel-bg"></div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-md-6 col-sm-6 hidden-xs">
+
+								<div class="row">
+
+									<div id="myCarousel" class="carousel slide" data-ride="carousel">
+										<div class="steps-container">
+											<ol class="carousel-indicators">
+												<li data-step="1" data-target="#myCarousel" data-slide-to="0" class="active">
+													<div>
+														<h3>Book</h3>
+														<p>Request pickup for now or schedule it based on yoursuitable time</p>
+													</div>
+												</li>
+												<li data-step="2" data-target="#myCarousel" data-slide-to="1">
+													<div>
+														<h3>Print</h3>
+														<p>Print shipment label and attach it to your package</p>
+													</div>
+												</li>
+												<li data-step="3" data-target="#myCarousel" data-slide-to="2">
+													<div>
+														<h3>Book in Just 2 Taps</h3>
+														<p>Our driver will arrive within the requested pickup time</p>
+													</div>
+												</li>
+												<li data-step="4" data-target="#myCarousel" data-slide-to="3">
+													<div>
+														<h3>Track (optional)</h3>
+														<p>Track your shipment through website, get email notification</p>
+													</div>
+												</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+							<!--For Small devices-->
+
+							<div class="col-md-12 visible-xs">
+
+								<div id="myCarousel-1" class="carousel slide" data-ride="carousel">
+									<!-- Indicators -->
+
+									<div class="steps-container-hor">
+										<ol class="carousel-indicators">
+											<li data-step="1" data-target="#myCarousel-1" data-slide-to="0" class="active">
+
+											</li>
+											<li data-step="2" data-target="#myCarousel-1" data-slide-to="1">
+
+											</li>
+											<li data-step="3" data-target="#myCarousel-1" data-slide-to="2">
+
+											</li>
+											<li data-step="4" data-target="#myCarousel-1" data-slide-to="3">
+
+											</li>
+										</ol>
+									</div>
+
+
+
+
+									<!-- Wrapper for slides -->
+									<div class="carousel-inner text-align-center" role="listbox">
+										<div class="item active">
+											<h3>Book</h3>
+											<p>Request pickup for now or schedule it based on yoursuitable time</p>
+										</div>
+
+										<div class="item">
+											<h3>Print</h3>
+											<p>Print shipment label and attach it to your package</p>
+										</div>
+
+										<div class="item">
+											<h3>Book in Just 2 Taps</h3>
+											<p>Our driver will arrive within the requested pickup time</p>
+										</div>
+
+										<div class="item">
+											<h3>Track (optional)</h3>
+											<p>Track your shipment through website, get email notification</p>
+										</div>
+									</div>
+								</div>
+
+
+
+
+								<div class="col-md-12 col-sm-12 visible-xs">
+									<div class="scrolling-screen pull-rights mobile-slider">
+										<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+											<!-- Wrapper for slides -->
+											<div class="carousel-inner" role="listbox">
+
+												<div class="item active">
+													<img class="img-back" src="https://34.209.162.93/media/ourservice/1-for-mob.png">
+												</div>
+
+												<div class="item">
+													<img  class="img-back" src="https://34.209.162.93/media/ourservice/2-for-mob.png">
+												</div>
+
+												<div class="item">
+													<img class="img-back" src="https://34.209.162.93/media/ourservice/3-for-mob.png">
+												</div>
+
+												<div class="item">
+													<img class="img-back" src="https://34.209.162.93/media/ourservice/4-for-image.png">
+												</div>
+
+											</div>
+
+											<div class="small-mob-screen" align="center">
+												<img class="img-front" src="https://34.209.162.93/media/ourservice/empty-edited.png">
+											</div>
+											<!-- Left and right controls -->
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- how_to -->
+				</div>
+			</div>
+			<!-- container -->
+
+
+			<div class="section_gray clearfix">
+                <br>
+				<div class="container">
+                    <br>
+					<h2 class="top_sec_title text-center">Service Offering</h2>
+										<div class="row mt-40">
+						<div class="col-xs-12 col-sm-8 col-xs-offset-0 col-sm-offset-2">
+
+
+                            <table class="table table-condensed" id="pricingTable">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Same Day Service</th>
+                                    <th>Next Day Service</th>
+                                    <th>Regular Service</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Order Time</td>
+                                        <td>08.00 - 13.00</td>
+                                        <td>08.00 - 13.00</td>
+                                        <td>08.00 - 13.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pickup SLA</td>
+                                        <td colspan="3">3 hours after order time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delivery SLA</td>
+                                        <td>6 hours after order time</td>
+                                        <td>1 day</td>
+                                        <td>1 day</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Weight</td>
+                                        <td>7 Kg</td>
+                                        <td>15 Kg</td>
+                                        <td>15 Kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rate</td>
+                                        <td>IDR 20.000 per kg</td>
+                                        <td>IDR 10.000 per kg</td>
+                                        <td>IDR 10.000 per kg</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div>
+                                <ul>
+                                    <li>All services are available from Monday to Sunday, including national holiday</li>
+                                    <li>Shipment received after order time will be processed on the next day</li>
+                                    <li>Maximum delivery time:
+                                        <ul style="list-style-type: disc">
+                                            <li>18.00 for office address</li>
+                                            <li>20.00 for residential address</li>
+                                        </ul>
+                                    </li>
+                                    <li>Pre-scheduled pickup is available for regular customers</li>
+                                </ul>
+                            </div>
+<!--
+							<div class="icon-pkg text-center">
+								<img src="https://34.209.162.93/media/ourservice/section2_image.png" alt="Pricing">
+							</div>
+							<div class="table-responsive ">
+								<table class="table text-center">
+									<thead>
+									<th class="text-center"></th>
+									<th class="text-center"><p>Service Type*</p></th>
+									<th class="text-center"><p>Price</p></th>
+									</thead>
+									<tbody>
+									<tr>
+										<td><img src="https://34.209.162.93/media/ourservice/section2_table_row1_image.png" alt="Same Day"></td>
+										<td class="dark-fonts"><p>Same Day</p></td>
+										<td class="dark-fonts"><p>20.000 IDR</p></td>
+									</tr>
+									<tr>
+										<td><img src="https://34.209.162.93/media/ourservice/section2_table_row2_image.png" alt="Next Day"></td>
+										<td><p>Next Day</p></td>
+										<td><p>10.000 IDR</p></td>
+									</tr>
+									</tbody>
+								</table>
+
+								<ul>
+									<li><p>Maximum 7 kg for same day delivery.</p></li>
+									<li><p>Maximum 20 kg per piece and Maximum 100 kg per shipment for next day and regular delivery.</p></li>
+									<li><p>Maximum dimension for all services: 50 cm * 50 cm * 50 cm.</p></li>
+								</ul>
+								<br>
+								<br>
+							</div>
+
+                            -->
+						</div>
+					</div>
+				</div>
+
+                <div>
+                    <div class="text-center mb-40 mt-20">
+                        <a href="https://34.209.162.93/booking" class="btn btn-primary btn-book-service ">Book Now</a>
+                    </div>
+                </div>
+			</div>
+			<!-- section_gray -->
+
+			<div class="white_section clearfix">
+                <br>
+				<div class="container">
+                    <br>
+					<h2 class="top_sec_title text-center">Why GrabParcel</h2>
+					<div class="guarantee">
+						<ul class="col-xs-12 col-sm-8 col-xs-offset-0 col-sm-offset-2">
+							<li class="clearfix">
+								<div class="col-xs-12 col-md-2 text-center">
+									<div class="images_icon"><img src="https://34.209.162.93/media/ourservice/icon-shorter_time.png"></div>
+								</div>
+								<div class="col-xs-12 col-md-10">
+
+									<h3>Pickup service 7 days a week</h3>
+									<p>No need to go to the agency to deliver the goods. Our messenger will come to your place! We operate every day, including holidays.</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-xs-12 col-md-2 text-center">
+									<div class="images_icon"><img src="https://34.209.162.93/media/ourservice/section3_content2_image.png" alt="Tracking Number for every parcel"></div>
+								</div>
+								<div class="col-xs-12 col-md-10">
+									<h3>Real-time online tracking</h3>
+									<p>The status of your item will be updated in real time, you can <a href="http://bit.ly/GrabParcelTracking">track here</a>, complete with the name of the recipient, signature and photo of the item upon receipt. You can also enter your email address to get your goods status notification.</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-xs-12 col-md-2 text-center">
+									<div class="images_icon"><img src="https://34.209.162.93/media/ourservice/section3_content3_image.png" alt="Delivery areas are limited to Jakarta and Perimeter"></div>
+								</div>
+								<div class="col-xs-12 col-md-10">
+									<h3>Money back guarantee</h3>
+									<p>We guarantee your shipment will arrive on time. If it&#039;s too late, we&#039;ll refund your shipping costs.</p>
+								</div>
+							</li>
+
+							<li class="clearfix">
+								<div class="col-xs-12 col-md-2 text-center">
+									<div class="images_icon"><img src="https://34.209.162.93/media/ourservice/icon-payments.png"></div>
+								</div>
+								<div class="col-xs-12 col-md-10">
+									<h3>Free insurance up to 10 million *</h3>
+									<p>All items shipped will be insured up to 10 million rupiah</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-xs-12 col-md-2 text-center">
+									<div class="images_icon"><img src="https://34.209.162.93/media/ourservice/icon-regulated.png" alt="Delivery areas are limited to Jakarta and Perimeter"></div>
+								</div>
+								<div class="col-xs-12 col-md-10">
+									<h3>Delivery reports</h3>
+									<p>Through the login area, you can download all your shipping data along with updated status report</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+                <div>
+                    <div class="text-center mb-40">
+                        <a href="https://34.209.162.93/booking" class="btn btn-primary btn-book-service ">Book Now</a>
+                    </div>
+                </div>
+
+			</div>
+			<div class="section_gray clearfix" id="fare-calculator">
+				<div class="container">
+					<h2 class="top_sec_title text-center">Get Quote<br /><br /></h2>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>From</label>
+								<input class="form-control" placeholder="Type in your pickup location" type="text" g-places-autocomplete ng-model="shipping.pickUpLocation" />
+							</div>
+
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>To</label>
+								<input class="form-control" placeholder="Type in your drop location" type="text" g-places-autocomplete ng-model="shipping.dropOffLocation" />
+							</div>
+
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Weight <small>(in Kgs)</small></label>
+								<input type="number" class="form-control" placeholder="Parcel Weight in Kgs" ng-model="shipping.weight" />
+							</div>
+
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label class="full-width">&nbsp;</label>
+								<button  ng-click="getQuote()" class="btn btn-block btn-primary">Get Quote</button>
+							</div>
+
+						</div>
+					</div>
+
+					<div ng-show="message.show" class="alert alert-{{message.type}}" role="alert">
+						<span ng-bind="message.body"></span>
+					</div>
+
+					<div class="price-loading ng-hide" ng-show="loadingPrices">
+						<img src="https://34.209.162.93/assets/xfe/images/ellipsis.gif" />
+					</div>
+					<div class="pricing-result" ng-show="pricing.services.length>0">
+						<div class="row">
+							<div class="col-md-4" ng-repeat="service in pricing.services">
+								<div class="pricing-item">
+									<div class="pricing-header">
+										<span ng-bind="service.service_name"></span>
+									</div>
+									<div class="pricing-value">
+										<span>Price: </span>
+										<span ng-bind="service.price"></span>
+									</div>
+									<div class="pricing-distance">
+										<span>Distance: </span>
+										<span ng-bind="service.distance"></span>
+										<span> Kms</span>
+									</div>
+									<div class="pricing-delivery">
+										<span>Delivery: </span>
+										<span>Within </span>
+										<span ng-bind="service.etd"></span>
+										<span ng-bind="service.time_quantifier"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- section_gray -->
+
+    <!-- End of Content -->
+
+    <div class="footer_nav clearfix">
+      <div class="container content clearfix">
+        <div class="col-xs-12 col-sm-6 col-md-offset-0 col-sm-offset-3 col-xs-offset-0 col-md-4">
+          <div class="footer-about-grab clearfix">
+            <div class="textwidget"><div class="grab-logo">
+              <img src="https://34.209.162.93/media/footer/logo.png">
+            </div>
+            <div class="grab-infor">
+              <p>Lippo Kuningan 9th floor,
+              <br>Jl HR Rasuna Said Kav B12 Jakarta 12920, Indonesia</p>
+            </div>
+            <div class="grab-contact">
+              <p>+6221 8064 8777</p>
+              <p><a href="mailto:grabparcel.id.support@grab.com">grabparcel.id.support@grab.com</a></p>
+            </div></div>
+            <div class="footer_mobile_show">
+              <ul>
+                <li><a href="https://www.facebook.com/grabth" target="_blank"><img src="https://34.209.162.93/assets/xfe/images/footer-facebook.png" alt=""></a></li>
+                <li><a href="https://www.instagram.com/grabth" target="_blank"><img src="https://34.209.162.93/assets/xfe/images/footer-ig.png" alt=""></a></li>
+                <li><a href="https://www.twitter.com/grabth" target="_blank"><img src="https://34.209.162.93/assets/xfe/images/footer-tw.png" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+          <div class="row sitemap-container">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <h4>COMPANY</h4>
+              <ul>
+                <li><a href="https://www.grab.com/id/en/about/">About</a></li>
+                <li><a href="https://www.grab.com/id/en/press/">Press</a></li>
+                <li><a href="https://www.grab.com/id/en/blog/">Blog</a></li>
+                <li><a href="https://grab.careers/" target="_blank">Careers</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <h4>SERVICES</h4>
+              <ul>
+                <li><a href="https://www.grab.com/id/taxi/">Taxi</a></li>
+                <li><a href="https://www.grab.com/id/car/">Car</a></li>
+                <li><a href="https://www.grab.com/id/bike/www.grab.com/id/bike">Bike</a></li>
+                <li><a href="https://www.grab.com/id/express/">Express</a></li>
+                  <li><a href="https://www.grab.com/id/grabfood/">Food</a></li>
+                  <li><a href="https://www.grab.com/id/hitch/">Hitch</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <h4>CORPORATE</h4>
+              <ul>
+                <li><a href="https://www.grab.com/id/work/">Grab for Work</a></li>
+                <li><a href="https://www.grab.com/id/en/partnerships/">Partnerships</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <h4>RIDE</h4>
+              <ul>
+                <li><a href="https://www.grab.com/id/en/safety/">Safety</a></li>
+                <li><a href="/grab-express/faqs">Help</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="hidden-xs hidden-sm">
+        <hr>
+        </div>
+          <div class="col-md-12 text-center visible-lg visible-md">
+              <p><span class="stay-cont">STAY IN TOUCH</span></p>
+          </div>
+
+
+
+          <div class="visible-lg visible-md">
+
+              <div class="col-sm-4"></div>
+
+
+              <div class="col-sm-4 text-center">
+                <div class="pull-left">
+                <a href="https://www.facebook.com/grabid" target="_blank" target="_blank"><i class="fa fa-facebook circle"></i>
+                </div>
+
+                <a href="https://www.instagram.com/grabid" target="_blank" class="ig"><i class="fa fa-instagram circle" aria-hidden="true"></i></a></li>
+                <div class="pull-right">
+                <a href="https://www.twitter.com/grabid" target="_blank" class="tw"><i class="fa fa-twitter circle"></i></a></li>
+                </div>
+              </div>
+
+
+              <div class="col-sm-4"></div>
+          </div>
+
+      </div>
+    </div>
+
+    <style>
+    </style>
+
+    <footer>
+
+        <div class="col-md-12 hidden-lg hidden-md text-center">
+
+            <ul class="policy-list">
+                <li><a href="https://34.209.162.93/terms">Terms of Services</a></li>
+                <li><a href="https://34.209.162.93/privacy-policies">Privacy Policy</a></li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 visible-lg visible-md">
+            <div>
+            <ul class="policy-list">
+                <li><a href="https://34.209.162.93/terms">Terms of Services</a></li>
+                <li><a href="https://34.209.162.93/privacy-policies">Privacy Policy</a></li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="col-md-4 text-center"><p>© GrabExpress 2017 </p></div>
+        <div class="col-md-4 visible-lg visible-md">
+            <div class="col-md-6 text-right">
+                  <a onclick="ga('send', { hitType: 'event', eventCategory: 'Website', eventAction: 'Download',  eventLabel: 'Web'});" target="_blank" href="https://itunes.apple.com/SG/app/id647268330?mt=8"><img src="https://34.209.162.93/assets/xfe/images/app-store.png" class="img-responsive-playstore vcenter"></a>
+            </div>
+                <div class="col-md-6">
+                <a onclick="ga('send', { hitType: 'event', eventCategory: 'Website', eventAction: 'Download',  eventLabel: 'Web'});" target="_blank" href="https://play.google.com/store/apps/details?id=com.grabtaxi.passenger"><img src="https://34.209.162.93/assets/xfe/images/google-play.png" class="img-responsive-playstore vcenter"></a>
+            </div>
+            </div>
+
+    </footer>
+
+
+    <!--Style for footer icons-->
+
+
+    <!--    <div class="footer-text text-center">
+             <span>- GrabExpress, next day delivery service from</span>
+    <br/><center>
+        <img src="assets/images/logo-s.png" alt=""> </center>
+        </div>
+      </div> end #panel -->
+
+
+    <!-- Subscribe -->
+    <div id="subscribe-popup" class="white-popup mfp-hide">
+        <img src="https://34.209.162.93/assets/xfe/images/1472649126_S__132218951.jpg" alt="">
+        <form name="registerfrm" id="registerfrm" method="post" action="index.php" data-bv-message="This value is not valid"
+            data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+            data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+            data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+            <div class="form-group panel">
+                <!-- <input class="form-control" type="email" required="required" name="txtemail" id="txtemail" placeholder="Subscribe to our newsletter" required data-bv-emailaddress="true" data-bv-notempty-message="This information is required." > -->
+                <input class="form-control" type="text" name="txtemail" id="txtemail" style="background:#fff;">
+                <input type="hidden" name="lang" value="en">
+                <input type="hidden" name="validated" value="true">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script src="https://34.209.162.93/assets/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="https://34.209.162.93/assets/xfe/js/scripts.min.js"></script>
+    <script src="https://34.209.162.93/assets/xfe/js/bootstrap.min.js"></script>
+    <script src="https://34.209.162.93/assets/xfe/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="https://34.209.162.93/assets/xfe/js/bootstrapValidator.js"></script>
+    <script src="https://34.209.162.93/assets/xfe/js/en_US.js"></script>
+    <script type="text/javascript" src="https://34.209.162.93/assets/xfe/js/jquery.mmenu.min.all.js"></script>
+    <script src="https://34.209.162.93/vendors/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#subscribe-popup').css('display','none');
+
+            jQuery('nav#menu').mmenu();
+                $('#loginform').bootstrapValidator({
+                    excluded: ':disabled',
+                }
+            );
+
+
+            /* for faqs */
+            jQuery(function() {
+                jQuery('.faqs_all_content li:first-child').addClass('selected').children('.faq_answer').css('display','block');
+                jQuery('.faqs_all_content li').on('click', function() {
+                    if(jQuery(this).hasClass('selected') ){
+                       jQuery(this).children('.faq_answer').slideUp(300);
+                       jQuery(this).removeClass('selected');
+                    }
+                    else{
+                     jQuery(this).addClass('selected');
+                     jQuery(this).children('.faq_answer').slideDown(300);
+                    }
+                });
+            });
+
+
+            jQuery(function() {
+                jQuery('.language').on('click', function() {
+                    if(jQuery(this).hasClass('open') ){
+                       jQuery(this).children('.open').slideUp(300);
+                       jQuery(this).removeClass('open');
+                    }
+                    else{
+                     jQuery(this).addClass('open');
+                    }
+                });
+            });
+
+            // jQuery(function() {
+            //   jQuery('.member_login .login').on('click', function() {
+            //         if(jQuery(this).hasClass('open') ){
+            //            jQuery(this).children('.open').slideUp(300);
+            //            jQuery(this).removeClass('open');
+            //         }
+            //         else{
+            //          jQuery(this).addClass('open');
+            //         }
+            //   });
+            // });
+
+
+            jQuery(function() {
+                $('.top-error').on('click',function () {
+                    $('.top-error').hide();
+                })
+                setTimeout(function () {
+                    $('.top-error').hide();
+                },3000);
+                /*jQuery('.nav.navbar-nav .express').on('click', function() {
+                    if(jQuery(this).hasClass('open') ){
+                       jQuery(this).children('.open').slideUp(300);
+                       jQuery(this).removeClass('open');
+                    }
+                    else{
+                     jQuery(this).addClass('open');
+                    }
+                });*/
+            });
+            $('.dropdown-toggle').dropdown()
+        });
+
+    </script>
+    <script src="https://34.209.162.93/assets/bower_components/angular/angular.min.js"></script>
+    <script src="https://34.209.162.93/assets/bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="https://34.209.162.93/assets/bower_components/angular-slick/dist/slick.js"></script>
+
+    <script src="https://34.209.162.93/assets/bower_components/angular-ui-select/dist/select.min.js"></script>
+    <script src="https://34.209.162.93/assets/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="https://34.209.162.93/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://34.209.162.93/vendors/lodash/dist/lodash.min.js"></script>
+    <script src="https://34.209.162.93/assets/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
+    <script src="https://34.209.162.93/assets/js/services/services.js"></script>
+    
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAEBVoMoMsMLOYOKcPzghzPBUPsgnV0a24"></script>
+	<script src="https://34.209.162.93/assets/bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
+	<script src="https://34.209.162.93/assets/js/script.js"></script>
+
+
+    <!-- Modal -->
+        <script type="text/ng-template" type="text/ng-template" id="addAddress.html">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="form-title">Add New Address</h2>
+            </div>
+            <div class="modal-body">
+                <div ng-show="message.show" class="alert alert-danger">
+                    <span ng-bind="message.body"></span>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                        <div class="form-group">
+                            <label for="provinsi">Name</label>
+                            <input  placeholder="Name" class="full-width form-control" type="text" ng-model="model.name" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                        <div class="form-group">
+                            <label for="provinsi">Mobile Number</label>
+                            <input  placeholder="Mobile Number"  class="full-width  form-control"  type="text" ng-model="model.phone" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                        <div class="form-group">
+                            <label for="provinsi">Province</label>
+
+                            <ui-select on-select="onProvinceSelect()" ng-model="model.province" class="full-width" theme="select2"  title="Select a Province" append-to-body="true">
+                                <ui-select-match placeholder="Select a Province"><span ng-bind="$select.selected.provinsi"></span></ui-select-match>
+                                <ui-select-choices repeat="province in provinces ">
+                                    <div ng-bind="province.provinsi"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="district">District</label>
+                            <ui-select on-select="onDistrictSelect()" ng-model="model.district" class="full-width" theme="select2" ng-disabled="!model.province.id" title="Select a District" append-to-body="true">
+                                <ui-select-match placeholder="Select a District"><span ng-bind="$select.selected.kabupaten"></span></ui-select-match>
+                                <ui-select-choices repeat="district in districts">
+                                    <div ng-bind="district.kabupaten"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="sub_district">Sub District</label>
+
+                            <ui-select on-select="onSubDistrictSelect()" ng-model="model.subDistrict" class="full-width" theme="select2" ng-disabled="!model.district.id" title="Choose a person" append-to-body="true">
+                                <ui-select-match placeholder="Select a Sub District"><span ng-bind="$select.selected.kecamatan"></span></ui-select-match>
+                                <ui-select-choices repeat="subDistrict in subDistricts">
+                                    <div ng-bind="subDistrict.kecamatan"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="zone_id">Village</label>
+                            <ui-select on-select="onVillageSelect()" ng-model="model.village" class="full-width" theme="select2" ng-disabled="!model.subDistrict.id"  title="Choose a person" append-to-body="true">
+                                <ui-select-match placeholder="Select a Village"><span ng-bind="$select.selected.kelurahan"></span></ui-select-match>
+                                <ui-select-choices repeat="village in villages">
+                                    <div ng-bind="village.kelurahan"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="kode_pos">Postal Code</label>
+
+                            <input id="kode_pos" type="text" ng-model="model.postalCode" class="form-control zipcode" name="kode_pos" value="" placeholder="Postal Code" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Email" class="full-width form-control" ng-model="model.email" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+
+                            <textarea name="address" rows="3" ng-model="model.address" class="form-control" placeholder="Address" required data-bv-regexp-message="Please fill in correct address"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="address">Landmark</label>
+                            <input type="text" ng-model="model.landmark" class="full-width form-control" placeholder="Landmark" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="submit()">Save changes</button>
+            </div>
+        </script>
+        <script type="text/ng-template" type="text/ng-template" id="deleteAddress.html">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="form-title">Are you sure</h2>
+            </div>
+            <div class="modal-body">
+                <div ng-show="message.show" class="alert alert-danger">
+                    <span ng-bind="message.body"></span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row address-list-container">
+                    <div class="col-md-6 col-md-offset-3 ">
+                        <div class="address-item">
+                            <p><strong>Name: </strong><span ng-bind="tempAddress.name"></span></p>
+                            <p><strong>Address: </strong><span ng-bind="tempAddress.address"></span></p>
+                            <hr />
+                            <p><strong>Province: </strong><span ng-bind="tempAddress.shipping_zone.provinsi"></span></p>
+                            <p><strong>District: </strong><span ng-bind="tempAddress.shipping_zone.kabupaten"></span></p>
+                            <p><strong>Sub District: </strong><span ng-bind="tempAddress.shipping_zone.kecamatan"></span></p>
+                            <p><strong>Village: </strong><span ng-bind="tempAddress.shipping_zone.kelurahan"></span></p>
+                            <p><strong>Postal Code: </strong><span ng-bind="tempAddress.postal_code"></span></p>
+                            <hr />
+                            <p><strong>Mobile: </strong><span ng-bind="tempAddress.phone"></span></p>
+                            <p><strong>Email: </strong><span ng-bind="tempAddress.email"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Cancel</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteAddress()">Yes Delete</button>
+            </div>
+        </script>
+
+</body>
+</html>

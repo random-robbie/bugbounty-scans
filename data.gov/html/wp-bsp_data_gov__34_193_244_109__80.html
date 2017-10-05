@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+  <title>Data.gov</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+<!-- This site is optimized with the Yoast SEO plugin v4.9 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://wp-bsp.data.gov/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Data.gov" />
+<meta property="og:description" content="The home of the U.S. Government&#8217;s open data Here you will find data, tools, and resources to conduct research, develop web and mobile applications, design data visualizations, and more." />
+<meta property="og:url" content="https://wp-bsp.data.gov/" />
+<meta property="og:site_name" content="Data.gov" />
+<meta property="og:image" content="https://www.data.gov/media/2014/05/data_gov_logo_D_new.png" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/wp-bsp.data.gov\/","name":"Data.gov","potentialAction":{"@type":"SearchAction","target":"https:\/\/wp-bsp.data.gov\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//wp-bsp.data.gov' />
+<link rel='dns-prefetch' href='//cdn.datatables.net' />
+<link rel='dns-prefetch' href='//dap.digitalgov.gov' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/wp-bsp.data.gov\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/plugins/simple-tooltips/zebra_tooltips.css?ver=4.8.2">
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/plugins/contact-form-7/includes/css/styles.css?ver=4.9">
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/plugins/m-wp-popup/css/colorbox/colorbox.css?ver=0.1">
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/plugins/wp-open311/public/assets/css/chosen.min.css?ver=1.0.0">
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/plugins/wp-open311/public/assets/css/public.css?ver=1.0.0">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Abel%7CLato%3A100%2C300%2C400%2C700&amp;ver=4.8.2">
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/css/main.min.css?ver=d4d209028267e6bfd84bc8a7aeb90f98">
+<link rel="stylesheet" href="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/css/rei.css?ver=4.8.2">
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/custom-post-view-generator//libs/flowplayer/flowplayer-3.2.6.min.js' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/custom-post-view-generator/libs/smartpaginator/smartpaginator.min.js' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/custom-post-view-generator/libs/tablesorter/jquery-tablesorter-min.js' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/m-wp-popup/js/wpp-popup-frontend.js?ver=0.1' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/wp-open311/public/assets/js/chosen.jquery.min.js?ver=1.0.0' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/wp-open311/public/assets/js/public.js?ver=1.0.0' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/js/vendor/respond.min.js' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/js/vendor/modernizr-2.7.1.min.js' defer='defer'></script>
+<script type='text/javascript' src='https://cdn.datatables.net/fixedcolumns/3.1.0/js/dataTables.fixedColumns.min.js'></script>
+<script type='text/javascript' src='https://cdn.datatables.net/scroller/1.3.0/js/dataTables.scroller.min.js'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/js/ext-link-handler.js?ver=4.8.2' defer='defer'></script>
+<script type='text/javascript' id="_fed_an_ua_tag" src='https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/google-analyticator/external-tracking.min.js?ver=6.5.4' defer='defer'></script>
+<link rel='https://api.w.org/' href='https://wp-bsp.data.gov/wp-json/' />
+<link rel="alternate" type="application/json+oembed" href="https://wp-bsp.data.gov/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwp-bsp.data.gov%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://wp-bsp.data.gov/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwp-bsp.data.gov%2F&amp;format=xml" />
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://wp-bsp.data.gov"><link rel="https://theeventscalendar.com/" href="https://wp-bsp.data.gov/wp-json/tribe/events/v1/" /><script type="text/javascript" src="https://wp-bsp.data.gov/app/plugins/si-captcha-for-wordpress/captcha/si_captcha.js?ver=1507197024"></script>
+<!-- begin SI CAPTCHA Anti-Spam - login/register form style -->
+<style type="text/css">
+.si_captcha_small { width:175px; height:45px; padding-top:10px; padding-bottom:10px; }
+.si_captcha_large { width:250px; height:60px; padding-top:10px; padding-bottom:10px; }
+img#si_image_com { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_reg { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_log { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_side_login { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_checkout { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_jetpack { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_bbpress_topic { border-style:none; margin:0; padding-right:5px; float:left; }
+.si_captcha_refresh { border-style:none; margin:0; vertical-align:bottom; }
+div#si_captcha_input { display:block; padding-top:15px; padding-bottom:5px; }
+label#si_captcha_code_label { margin:0; }
+input#si_captcha_code_input { width:65px; }
+p#si_captcha_code_p { clear: left; padding-top:10px; }
+.si-captcha-jetpack-error { color:#DC3232; }
+</style>
+<!-- end SI CAPTCHA Anti-Spam - login/register form style -->
+<!-- Google Analytics Tracking by Google Analyticator 6.5.4: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+    var analyticsFileTypes = [''];
+    var analyticsSnippet = 'enabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+  
+	_gaq.push(['_setAccount', 'UA-17367410-17']);
+    _gaq.push(['_addDevId', 'i9k95']); // Google Analyticator App ID with Google
+    _gaq.push(['_gat._anonymizeIp']);
+	_gaq.push(['_trackPageview']);
+	<!-- tracking for UA-42145528-2  start -->
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42145528-2', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+<!-- tracking for UA-42145528-2  end -->
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.twitter-feed h2 {display:none;}		</style>
+	
+  <link rel="alternate" type="application/rss+xml" title="Data.gov Feed" href="https://wp-bsp.data.gov/feed/">
+  <link href="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/img/favicon.ico" rel="shortcut icon" />
+  <link rel="icon" type="image/png" href="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/img/favicon-120.png" sizes="120x120" />
+    <!--[if IE]>
+    <style type="text/css">
+        #cboxClose{
+            top:-8px !important;
+            right:-8px !important;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="home page tribe-no-js">
+<!--div class="banner disclaimer">
+<center>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov" class="local-link">Twitter</a>, <a href="http://quora.com" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/" class="local-link">Github</a>, or <a href="/contact-engage">contact us</a></center>
+</div-->
+
+<!--div class="banner disclaimer"><center>Updates to Data.gov will be temporarily suspended between December 13, 9 PM EST and approximately December 27. <a href="/migration-notification">Learn More</a>.</center></div-->
+<!--[if lt IE 8]>
+<div class="alert alert-warning">
+    You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">upgrade your
+    browser</a> to improve your experience.</div>
+<![endif]-->
+
+<header>
+<div class="banner navbar navbar-default navbar-static-top yamm" role="banner">
+  <div class="container">
+
+        <div class="searchbox-row skip-navigation">
+            <div class="sr-only skip-link">
+                <a href="#main">Jump to Content</a>
+            </div>
+
+
+            <div>
+                            </div>
+        </div>
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://wp-bsp.data.gov/" alt="Data.gov" class="local-link"><h1 class="navbar-brand">Data.gov</h1></a>
+        </div>
+
+        <nav class="collapse navbar-collapse" role="navigation">
+            <ul id="menu-primary-navigation" class="nav navbar-nav navbar-right"><li class="menu-data"><a href="http://catalog.data.gov/dataset" class="local-link">Data</a></li>
+<li class="dropdown yamm-fw menu-topics"><a class="dropdown-toggle local-link" data-toggle="dropdown" data-target="#" href="https://wp-bsp.data.gov/communities/">Topics <b class="caret"></b></a>
+<ul class="dropdown-menu topics">
+	<li class="menu-agriculture topic-food"><a href="https://wp-bsp.data.gov/food/" class="local-link"><i></i><span>Agriculture</span></a></li>
+	<li class="menu-climate topic-climate"><a href="https://wp-bsp.data.gov/climate/" class="local-link"><i></i><span>Climate</span></a></li>
+	<li class="menu-consumer topic-consumer"><a href="https://wp-bsp.data.gov/consumer/" class="local-link"><i></i><span>Consumer</span></a></li>
+	<li class="menu-ecosystems topic-ecosystems"><a href="https://wp-bsp.data.gov/ecosystems/" class="local-link"><i></i><span>Ecosystems</span></a></li>
+	<li class="menu-education topic-education"><a href="https://wp-bsp.data.gov/education/" class="local-link"><i></i><span>Education</span></a></li>
+	<li class="menu-energy topic-energy"><a href="https://wp-bsp.data.gov/energy/" class="local-link"><i></i><span>Energy</span></a></li>
+	<li class="menu-finance topic-finance"><a href="https://wp-bsp.data.gov/finance/" class="local-link"><i></i><span>Finance</span></a></li>
+	<li class="menu-health topic-health"><a href="https://wp-bsp.data.gov/health/" class="local-link"><i></i><span>Health</span></a></li>
+	<li class="menu-local-government topic-local"><a href="https://wp-bsp.data.gov/local/" class="local-link"><i></i><span>Local Government</span></a></li>
+	<li class="menu-manufacturing topic-manufacturing"><a href="https://wp-bsp.data.gov/manufacturing/" class="local-link"><i></i><span>Manufacturing</span></a></li>
+	<li class="menu-maritime topic-maritime"><a href="https://wp-bsp.data.gov/maritime/" class="local-link"><i></i><span>Maritime</span></a></li>
+	<li class="menu-ocean topic-ocean"><a href="https://wp-bsp.data.gov/ocean/" class="local-link"><i></i><span>Ocean</span></a></li>
+	<li class="menu-public-safety topic-safety"><a href="https://wp-bsp.data.gov/safety/" class="local-link"><i></i><span>Public Safety</span></a></li>
+	<li class="menu-science-research topic-research"><a href="https://wp-bsp.data.gov/research/" class="local-link"><i></i><span>Science &#038; Research</span></a></li>
+</ul>
+</li>
+<li class="menu-impact"><a href="https://wp-bsp.data.gov/impact/" class="local-link">Impact</a></li>
+<li class="menu-applications"><a href="https://wp-bsp.data.gov/applications" class="local-link">Applications</a></li>
+<li class="menu-developers"><a href="https://wp-bsp.data.gov/developers/" class="local-link">Developers</a></li>
+<li class="menu-contact"><a href="https://wp-bsp.data.gov/contact" class="local-link">Contact</a></li>
+</ul>        </nav>
+
+  </div>
+    <div id="external_disclaimer" class="tooltip" role="tooltip" aria-hidden="true">This link will direct you to an external website that may have different content and privacy policies from Data.gov.
+    </div>
+</div>
+
+<div class="container hidden print-logo">
+    <img src="/app/themes/roots-nextdatagov/assets/img/logo.svg" />
+</div>
+
+
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>The home of the U.S. Government&#8217;s open data</h1>
+<p>Here you will find data, tools, and resources to conduct research, develop web and mobile applications, design data visualizations, and <a href="/about" style="color:#fff; text-decoration:underline">more</a>.</p>
+
+<div style="display: block !important; margin:0 !important; padding: 0 !important" id="wpp_popup_post_end_element"></div>  </div><!--/.container-->
+</div><!--/.jumbotron-->
+
+
+
+<div class="header banner frontpage-search">
+    <div class="container">
+        <div class="text-center getstarted">
+            <h4><label for="search-header">Get Started<br>
+                    <small>Search over <a href="/metrics">197,096 datasets</a>
+                    </small>
+                    <br/><i class="fa fa-caret-down"></i></label></h4>
+        </div>
+        <form role="search" method="get" class="search-form form-inline no-padding col-md-12 col-lg-12"
+      action="//catalog.data.gov/dataset">
+    <div class="input-group">
+        
+        
+        <input type="search" id="search-header" title="Example searches: Monthly House Price Indexes, Health Care Provider Charge Data, Credit Card Complaints, Manufacturing &amp; Trade Inventories &amp; Sales, Federal Student Loan Program Data"
+               data-strings='{"targets":["Monthly House Price Indexes","Health Care Provider Charge Data","Credit Card Complaints","Manufacturing &amp; Trade Inventories &amp; Sales","Federal Student Loan Program Data"]}' value="" name="q" class="search-field form-control"
+               placeholder="Search Data.gov">
+        <input type="hidden" name="sort" value="score desc, name asc">
+      <span class="input-group-btn">
+      <button type="submit" class="search-submit btn btn-default">
+          <i class="fa fa-search"></i>
+          <span class="sr-only">Search</span>
+      </button>
+    </span>
+    </div>
+<input type="hidden" name="as_sfid" value="AAAAAAVDj8st9CfgU1kh3skfbF5DuBWpAbLu3RB4hpLJro4NwkDuIP9koM4Zw54Blj2ttythbt5mGLHQsklPKk-Fev510eR6Agf4YvkGRhlgWBF36vevrtvnuSfKeuiOG8HKQTU=" /><input type="hidden" name="as_fid" value="b5fe5c64f08647d5af6b8197162f3866c13902fb" /></form>
+    </div><!--/.container-->
+</div>
+
+
+    
+
+</header>
+
+
+
+<div role="document">
+    <div class="content">
+        <main class="main" role="main" id="main">
+            <div class="wrap container">
+<div class="page-header">
+  <h1>Browse Topics</h1>
+</div>
+
+<ul class="topics">
+
+
+	<li class="topic-food">
+		<a href="/food/"><i></i><span>Agriculture</span></a>
+	</li>
+	<li class="topic-climate">
+		<a href="/climate/"><i></i><span>Climate</span></a>
+	</li>
+    <li class="topic-consumer">
+        <a href="/consumer/"><i></i><span>Consumer</span></a>
+    </li>
+	<li class="topic-ecosystems">
+		<a href="/ecosystems/"><i></i><span>Ecosystems</span></a>
+	</li>
+	<li class="topic-education">
+		<a href="/education/"><i></i><span>Education</span></a>
+	</li>
+	<li class="topic-energy">
+		<a href="/energy/"><i></i><span>Energy</span></a>
+	</li>
+	<li class="topic-finance">
+		<a href="/finance/"><i></i><span>Finance</span></a>
+	</li>
+	<li class="topic-health">
+		<a href="/health/"><i></i><span>Health</span></a>
+	</li>
+	<li class="topic-local">
+		<a href="/local/"><i></i><span>Local Government</span></a>
+	</li>
+	<li class="topic-manufacturing">
+		<a href="/manufacturing/"><i></i><span>Manufacturing</span></a>
+	</li>
+	<li class="topic-maritime">
+		<a href="/maritime/"><i></i><span>Maritime</span></a>
+	</li>
+	<li class="topic-ocean">
+		<a href="/ocean/"><i></i><span>Ocean</span></a>
+	</li>
+	<li class="topic-safety">
+		<a href="/safety/"><i></i><span>Public Safety</span></a>
+	</li>
+	<li class="topic-research">
+		<a href="/research/"><i></i><span>Science &amp; Research</span></a>
+	</li>
+</ul>
+
+</div><!--/.container-->
+
+
+
+	<section id="highlights" class="wrap wrap-lightblue">
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Highlights</h1>
+			</div>
+
+			<div id="highlightsCarousel" class="carousel highlights slide">
+								<!-- Carousel items -->
+				<div id="highlightsCarouselInner" class="carousel-inner">
+											<div
+							class="highlight item active ">
+							<header>
+								
+								<h2 class="entry-title" style="float:left;">Roundtable on Open Data for Economic Growth</h2>
+															</header>
+							<br clear="all"/>
+							
+							<article
+								class="no-image">
+								<p style="text-align: center;"><img class="aligncenter wp-image-24679645 " src="https://www.data.gov/app/uploads/2017/07/omb-logo-e1500052684610.png" alt="" width="123" height="123" /></p>
+<hr />
+<p><b><i>On July 25, 2017, the Executive Office of the President Office of Management and Budget (OMB) will host a Roundtable on Open Data as a driver for economic growth. Here’s why we’re focusing on this opportunity—and how you can help us. </i></b></p>
+<hr />
+<p>Open data is free, publicly available data that anyone can access and use without restrictions. U.S. Federal Open Data is a strategic national resource. American businesses depend on this government data to optimize their operations, improve their marketing, and develop new products and services. Federal Open Data also helps guide business investment, foster innovation, improve employment opportunities, and spur economic growth.</p>
+<p>The value of Federal Open Data to the United States has been estimated at hundreds of billions of dollars. The U.S. Department of Commerce calculates that internet publishing, consulting and market research firms use this data to generate more than $200 billion in revenues each year. Other studies have found that U.S. weather, GPS, Census, and health data support billions more in revenue in other sectors.</p>
+<p><em><strong>How do companies use government data to build their business?</strong></em></p>
+<table class=" aligncenter">
+<tbody>
+<tr>
+<td><img class="wp-image-24675143 alignleft" src="https://www.data.gov/app/uploads/2017/07/Screen-Shot-2017-07-11-at-10.10.33-AM-e1499801122343.png" alt="" width="46" height="40" /></td>
+<td>&nbsp;</p>
+<p style="text-align: left; padding-left: 5px;"><b>Finance</b><span style="font-weight: 400;"> companies use a wide variety of data types to evaluate credit, guide investments, and quantify risks, including the risks of lending to individuals or businesses.</span></p>
+</td>
+</tr>
+<tr>
+<td><img class="wp-image-24675144 alignleft" src="https://www.data.gov/app/uploads/2017/07/Screen-Shot-2017-07-11-at-10.10.39-AM.png" alt="" width="46" height="40" /></td>
+<td>&nbsp;</p>
+<p><b>Healthcare</b><span style="font-weight: 400;"> companies tailor Precision Medicine treatments to individual needs, while others empower patients to find the best care at the best price by using data on hospitals, medical groups, medicines, and patient outcomes.</span></td>
+</tr>
+<tr>
+<td><img class="wp-image-24675145 alignleft" src="https://www.data.gov/app/uploads/2017/07/Screen-Shot-2017-07-11-at-10.10.45-AM.png" alt="" width="46" height="40" /></td>
+<td>&nbsp;</p>
+<p style="text-align: left; padding-left: 5px;"><b>Consumer retailers</b><span style="font-weight: 400;"> use GPS and weather data to improve shipping along supply chains. They also use Census data to target their marketing, choose new business locations, and identify consumer trends.</span></p>
+</td>
+</tr>
+<tr>
+<td><img class="wp-image-24675146 alignleft" src="https://www.data.gov/app/uploads/2017/07/Screen-Shot-2017-07-11-at-10.10.51-AM.png" alt="" width="46" height="40" /></td>
+<td>&nbsp;</p>
+<p style="text-align: left; padding-left: 5px;"><b>Transportation and trade</b><span style="font-weight: 400;"> companies use Federal data to make transportation more efficient, improve safety, and facilitate trade.</span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;"><img class="aligncenter wp-image-24686802 size-full" src="https://www.data.gov/app/uploads/2017/07/globe-e1500899326957.jpg" alt="" width="46" height="44" /></td>
+<td>&nbsp;</p>
+<p style="text-align: left; padding-left: 5px;"><b>Geospatial</b><span style="font-weight: 400;"> companies use open data to build mobile applications, GPS navigation tools, and real-time mapping platforms &#8211; all to find population growth trends, reduce road congestion, track flu outbreaks, and improve disaster response.</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p><b>The Roundtable on Open Data for Economic Growth will emphasize how companies create value from and leverage freely available government data.</b><span style="font-weight: 400;"> Leaders in government and industry will explore the economic and societal benefits of Open Data for American businesses and entrepreneurs.</span></p>
+<p><span style="font-weight: 400;">This Roundtable methodology may be applied to other topics, for example, how Federal Open Data improves:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Return on investment for taxpayer dollars, and Federal spending</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">U.S. government efficiencies</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Data-driven government and evidence-based policy</span></li>
+</ul>
+<p>We welcome your input. If you have suggestions for this Roundtable or future topics, please email <a href="mailto:datagov@gsa.gov?subject=2017 Roundtable on Open Data for Economic Growth">datagov@gsa.gov</a></p>
+<p>&nbsp;</p>
+<p><a href="https://www.data.gov/app/uploads/2017/07/0-OpenDataRT1-EconomicGrowth-Agenda-DRAFT.pdf" class="local-link">Update 7/26/2017: Roundtable on Open Data for Economic Growth Agenda</a></p>
+<p>&nbsp;</p>
+
+<div style="display: block !important; margin:0 !important; padding: 0 !important" id="wpp_popup_post_end_element"></div>							</article>
+						</div><!--/.highlight-->
+									</div>
+								<div class="pull-right">
+                    <a href="/highlights" class="more-link" style="color:#fff;">More Highlights</a>
+                </div>
+			</div>
+		</div>
+		<!--/.container-->
+	</section><!--/.wrap-lightblue-->
+
+
+<div class="wrap container">
+<section class="updates">
+
+
+	<div class="page-header">
+		<h1>Updates</h1>
+	</div>
+
+
+	
+	
+		<article class="post-24587094 post type-post status-publish format-standard hentry category-maritime tag-benthic-ecosystem tag-california tag-map tag-maritime tag-noaa tag-regional-sediment-management tag-seafloor-mapping tag-tsunami tag-usace tag-usgs">
+			<header>
+								<h5 class="category category-header topic-maritime"><a
+						href="/maritime"><i></i><span>Maritime</span></a>
+				</h5>
+
+				<h2 class="entry-title"><a id="post-title-24587094" href="https://wp-bsp.data.gov/maritime/p24587094/" class="local-link">The California Seafloor and Coastal Mapping Program benefits from shared data</a></h2>
+				<div class="entry-meta" xmlns="//www.w3.org/1999/html">
+    <time class="published" datetime="2017-08-15T14:00:36+00:00">August 15, 2017&nbsp;&nbsp;<i>By Marin Kress, PhD</i></time>
+</div>
+
+
+			</header>
+			<div class="entry-summary">
+				<p>The <a href="http://www.opc.ca.gov/category/programs-seafloor-and-coastal-mapping/" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">California Seafloor and Coastal Mapping Program</a> has brought together federal, state, and local stakeholders to develop and share an extensive variety of seafloor-mapping datasets. This collaborative effort that brought together bathymetric (seafloor), geologic, and biological data relevant to California’s State Waters was recently described in &hellip; <a aria-describedby="post-title-24587094" href="https://wp-bsp.data.gov/maritime/p24587094/" class="local-link">Continued</a></p>
+			</div>
+		</article>
+
+	
+		<article class="post-24637870 post type-post status-publish format-standard hentry category-meta announcements_and_news-announcement-10">
+			<header>
+								<h5 class="category category-header topic-meta"><a
+						href="/meta"><i></i><span>Meta - The Data.gov Blog</span></a>
+				</h5>
+
+				<h2 class="entry-title"><a id="post-title-24637870" href="https://wp-bsp.data.gov/meta/check-data-govs-new-metrics-page/" class="local-link">Check out Data.gov’s new Metrics Page</a></h2>
+				<div class="entry-meta" xmlns="//www.w3.org/1999/html">
+    <time class="published" datetime="2017-07-31T14:02:41+00:00">July 31, 2017&nbsp;&nbsp;<i>By Data.gov</i></time>
+</div>
+
+
+			</header>
+			<div class="entry-summary">
+				<p>Data.gov recently updated its <a href="https://www.data.gov/metrics" class="local-link">Metrics</a> page to provide greater detail and transparency to the progress of the Data.gov catalog. &nbsp; Data.gov is primarily a metadata catalog, providing information about, and links to, open datasets made available by federal agencies and participating &hellip; <a aria-describedby="post-title-24637870" href="https://wp-bsp.data.gov/meta/check-data-govs-new-metrics-page/" class="local-link">Continued</a></p>
+			</div>
+		</article>
+
+	
+		<article class="post-24557427 post type-post status-publish format-standard hentry category-maritime tag-ais tag-fishing-vessel tag-marine-cadastre tag-maritime tag-ocean-data tag-ocean-planning tag-renewable-energy tag-wind-energy">
+			<header>
+								<h5 class="category category-header topic-maritime"><a
+						href="/maritime"><i></i><span>Maritime</span></a>
+				</h5>
+
+				<h2 class="entry-title"><a id="post-title-24557427" href="https://wp-bsp.data.gov/maritime/p24557427/" class="local-link">Visualizing ocean traffic on Marine Cadastre</a></h2>
+				<div class="entry-meta" xmlns="//www.w3.org/1999/html">
+    <time class="published" datetime="2017-06-12T14:00:23+00:00">June 12, 2017&nbsp;&nbsp;<i>By Marin Kress</i></time>
+</div>
+
+
+			</header>
+			<div class="entry-summary">
+				<p>When viewed from the shore the ocean may seem like a boundless resource with plenty of space, but the reality is quite different.  Coastal areas are home to shipping lanes used by commercial vessels, attractive fish habitat that supports commercial and recreational fisheries,  &hellip; <a aria-describedby="post-title-24557427" href="https://wp-bsp.data.gov/maritime/p24557427/" class="local-link">Continued</a></p>
+			</div>
+		</article>
+
+	
+	
+	
+	
+		<article class="col-md-4 col-lg-4 post-24815970 post type-post status-publish format-status hentry category-developers tag-usdatagov post_format-post-format-status">
+            <header>
+                <div class="tweet-author">
+                <span class="author-image">
+                    <img src="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/img/twitter.png"  alt="twitter">
+                </span>
+                    <a class="author-link local-link" href="https://twitter.com/usdatagov">
+                        <div>
+                    <span class="author-name">
+                        usdatagov                    </span>
+                        <span class="author-handle">
+                            @usdatagov                        </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="tweet-date">
+                    September 25, 2017                </div>
+            </header>
+			<div class="body">
+				
+<p class='tweet_text'><a href="http://twitter.com/TajhaLanier" target="_blank" class="local-link">@TajhaLanier</a> datagov (at) <a href="https://t.co/1G3CxGazD7" target="_blank" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">https://t.co/1G3CxGazD7</a></p>
+
+<div style="display: block !important; margin:0 !important; padding: 0 !important" id="wpp_popup_post_end_element"></div>			</div>
+		</article>
+
+	
+		<article class="col-md-4 col-lg-4 post-24811951 post type-post status-publish format-status has-post-thumbnail hentry category-developers tag-usdatagov post_format-post-format-status">
+            <header>
+                <div class="tweet-author">
+                <span class="author-image">
+                    <img src="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/img/twitter.png"  alt="twitter">
+                </span>
+                    <a class="author-link local-link" href="https://twitter.com/usdatagov">
+                        <div>
+                    <span class="author-name">
+                        usdatagov                    </span>
+                        <span class="author-handle">
+                            @usdatagov                        </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="tweet-date">
+                    September 23, 2017                </div>
+            </header>
+			<div class="body">
+				
+<p class='tweet_text'>Thanks for joining us for the National Day of Civic Hacking <a href="http://twitter.com/search?q=%23OpenGov" target="_blank" class="local-link">#OpenGov</a> <a href="http://twitter.com/search?q=%23OpenData" target="_blank" class="local-link">#OpenData</a> <a href="http://twitter.com/search?q=%23OpenInnovation" target="_blank" class="local-link">#OpenInnovation</a> <a href="https://t.co/LGHw7LMkRY" target="_blank" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">https://t.co/LGHw7LMkRY</a></p>
+
+<div style="display: block !important; margin:0 !important; padding: 0 !important" id="wpp_popup_post_end_element"></div>			</div>
+		</article>
+
+	
+		<article class="col-md-4 col-lg-4 post-24810504 post type-post status-publish format-status hentry category-developers tag-usdatagov post_format-post-format-status">
+            <header>
+                <div class="tweet-author">
+                <span class="author-image">
+                    <img src="https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/img/twitter.png"  alt="twitter">
+                </span>
+                    <a class="author-link local-link" href="https://twitter.com/usdatagov">
+                        <div>
+                    <span class="author-name">
+                        usdatagov                    </span>
+                        <span class="author-handle">
+                            @usdatagov                        </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="tweet-date">
+                    September 22, 2017                </div>
+            </header>
+			<div class="body">
+				
+<p class='tweet_text'>Contribute to the 4th U.S. National Action Plan for Open Government. Submissions open until Oct 2nd. See <a href="https://t.co/XGDZqbwFal" target="_blank" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">https://t.co/XGDZqbwFal</a> <a href="http://twitter.com/search?q=%23opengov" target="_blank" class="local-link">#opengov</a></p>
+
+<div style="display: block !important; margin:0 !important; padding: 0 !important" id="wpp_popup_post_end_element"></div>			</div>
+		</article>
+
+	
+	</section>
+
+</div><!--/.container-->
+        </main>
+        <!-- /.main -->
+
+        
+
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.wrap -->
+
+<footer class="content-info" role="contentinfo">
+
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <!--
+    <div class="col-lg-4">
+            <p>&copy; 2017 Data.gov</p>
+    </div>
+    -->
+
+
+            <div class="col-md-6 col-lg-6">
+                <div class="footer-logo">
+                    <a class="logo-brand local-link" href="https://wp-bsp.data.gov/" alt="Data.gov">Data.gov</a>
+                </div>
+                <ul id="menu-footer2" class="nav"><li class="menu-privacy-and-website-policies"><a href="https://wp-bsp.data.gov/privacy-policy" class="local-link">Privacy and Website Policies</a></li>
+<li class="menu-usa-gov"><a href="https://www.usa.gov/" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">USA.GOV</a></li>
+<li class="menu-performance-gov"><a href="http://www.performance.gov/" class="external ext-link" rel="external" onclick="this.target=&#039;_blank&#039;;">PERFORMANCE.GOV</a></li>
+</ul>            </div>
+
+                            <nav class="col-md-3 col-lg-3" role="navigation">
+                    <ul id="menu-footer" class="nav"><li class="menu-about"><a href="https://wp-bsp.data.gov/about" class="local-link">About</a></li>
+<li class="menu-open-government"><a href="https://wp-bsp.data.gov/open-gov/" class="local-link">Open Government</a></li>
+<li class="menu-blog"><a href="https://wp-bsp.data.gov/meta/" class="local-link">Blog</a></li>
+<li class="menu-metrics"><a href="https://wp-bsp.data.gov/metrics" class="local-link">Metrics</a></li>
+<li class="menu-events"><a href="/events/">Events</a></li>
+<li class="menu-log-in"><a href="https://wp-bsp.data.gov/wp/wp-login.php" class="local-link">Log In</a></li>
+</ul>                </nav>
+
+            
+
+
+            <div class="col-md-3 col-lg-3 social-nav">
+
+                
+
+
+                                    <nav role="navigation">
+                        <ul id="menu-social_navigation" class="nav"><li><a href="https://twitter.com/usdatagov" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov." class="local-link"><i class="fa fa-twitter" ></i><span>Twitter</span></a></li>
+<li><a href="http://github.com/GSA/data.gov/" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov." class="local-link"><i class="fa fa-github" ></i><span>Github</span></a></li>
+</ul>                    </nav>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script type='text/javascript'> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done"}};/* ]]> */ </script><script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/simple-tooltips/zebra_tooltips.js?ver=4.8.2' defer='defer'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/wp-bsp.data.gov\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/contact-form-7/includes/js/scripts.js?ver=4.9' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/plugins/the-events-calendar/common/vendor/datatables/media/js/jquery.dataTables.min.js?ver=4.6.1' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/app/themes/roots-nextdatagov/assets/js/scripts.min.js?ver=9ab03eaa29bcfa40a4e8e34e7afda278' defer='defer'></script>
+<script type='text/javascript' src='https://wp-bsp.data.gov/wp/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+                			            
+                <script type="text/javascript">
+                    jQuery(function() {
+                                                
+                        jQuery(".tooltips img").closest(".tooltips").css("display", "inline-block");
+                    
+                        new jQuery.Zebra_Tooltips(jQuery('.tooltips').not('.custom_m_bubble'), {
+                            'background_color':     '#000000',
+                            'color':				'#ffffff',
+                            'max_width':  250,
+                            'opacity':    .95, 
+                            'position':    'center'
+                        });
+                        
+                                            
+                    });
+                </script>        
+		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"2e87881546","applicationID":"69574692","transactionName":"M1ABNkAAD0ACUxFfWgoaNhBbTghdB1UdGEUMRQ==","queueTime":0,"applicationTime":366,"atts":"HxcCQAgaHE4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

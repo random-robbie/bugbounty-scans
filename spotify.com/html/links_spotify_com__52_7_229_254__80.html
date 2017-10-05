@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Login</title><meta name="description" content=""><meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no"><link rel="stylesheet" href="//assets.iterable.com/91983d5/iterable-s3/vendor.gz.css"/><link rel="stylesheet" media="screen" href="//assets.iterable.com/91983d5/iterable-s3/iterable.gz.css"><link rel="shortcut icon" type="image/ico" href="//assets.iterable.com/assets/images/favicons/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.22.5/skin-lion/ui.fancytree.min.css"/><link rel="stylesheet" href="//assets.iterable.com/assets/lib/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css"/><link href='//fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'></head><body ng-controller="BaseCtrl" ng-cloak><toaster-container toaster-options="{'time-out':5000,'position-class': 'toast-top-full-width', 'close-button': true, 'body-output-type': 'trustedHtml'}" style="width:75%;left:12%"></toaster-container><div class="front-page-bg"><div id="top" class="navbar-bg"><div class="container"><div><a class="navbar-brand sprite" href="/"></a></div></div></div></div><div id="wrap"><div class="login-bg container"><h3>Welcome back!</h3><div id="login"><div></div><div class="centered"><a href="https://links.spotify.com/authenticate/google"><img src="/node_modules/images/providers/google.png" class="login-google"/></a></div><div class="clearfix"></div></div><p class="centered">Don't have an account?</p><div class="centered"><a href="https://iterable.com/demo/" class="btn btn-lg btn-default btn-demo">Request a demo</a></div><div class="centered"><ul class="inline-links"><li><a href="https://iterable.com/">Home</a></li><li><a href="https://iterable.com/product/">Product</a></li><li><a href="https://blog.iterable.com/">Blog</a></li><li><a href="https://iterable.com/resources/">Resources</a></li><li><a href="https://iterable.com/careers/">Careers</a></li></ul></div><div id="push"></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raven.js/3.11.0/raven.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/raven.js/3.11.0/plugins/angular.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/raven.js/3.11.0/plugins/console.js"></script><script>
+                Raven.config('https://97a6c3a59c0d4e7c82d415761d5180d1@sentry.io/147968', {
+                    // Ignore list based off: https://gist.github.com/1878283
+                    // Will cause a deprecation warning, but the demise of `ignoreErrors` is still under discussion.
+                    // See: https://github.com/getsentry/raven-js/issues/73
+                    ignoreErrors: [
+                        // Random plugins/extensions
+                        'top.GLOBALS',
+                        // See: http://blog.errorception.com/2012/03/tale-of-unfindable-js-error.html
+                        'originalCreateNotification',
+                        'canvas.contentDocument',
+                        'MyApp_RemoveAllHighlights',
+                        'http://tt.epicplay.com',
+                        'Can\'t find variable: ZiteReader',
+                        'jigsaw is not defined',
+                        'ComboSearch is not defined',
+                        'http://loading.retry.widdit.com/',
+                        'atomicFindClose',
+                        // Facebook borked
+                        'fb_xd_fragment',
+                        // ISP "optimizing" proxy - `Cache-Control: no-transform` seems to reduce this. (thanks @acdha)
+                        // See http://stackoverflow.com/questions/4113268/how-to-stop-javascript-injection-from-vodafone-proxy
+                        'bmi_SafeAddOnload',
+                        'EBCallBackMessageReceived',
+                        // See http://toolbar.conduit.com/Developer/HtmlAndGadget/Methods/JSInjection.aspx
+                        'conduitPage',
+                        // Generic error code from errors outside the security sandbox
+                        // You can delete this if using raven.js > 1.0, which ignores these automatically.
+                        'Script error.'
+                    ],
+                    ignoreUrls: [
+                        // Facebook flakiness
+                        /graph\.facebook\.com/i,
+                        // Facebook blocked
+                        /connect\.facebook\.net\/en_US\/all\.js/i,
+                        // Woopra flakiness
+                        /eatdifferent\.com\.woopra-ns\.com/i,
+                        /static\.woopra\.com\/js\/woopra\.js/i,
+                        // Chrome extensions
+                        /extensions\//i,
+                        /^chrome:\/\//i,
+                        // Other plugins
+                        /127\.0\.0\.1:4001\/isrunning/i,  // Cacaoweb
+                        /webappstoolbarba\.texthelp\.com\//i,
+                        /metrics\.itunes\.apple\.com\.edgesuite\.net\//i
+                    ]
+            }).addPlugin(
+              Raven.Plugins.Angular
+            ).install();
+            </script><script data-main="//assets.iterable.com/91983d5/iterable-s3/main.gz" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.21/require.min.js"></script><script src='/routes.js'></script><script src="https://js.stripe.com/v2/"></script><script type="text/javascript">
+                !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+                    analytics.load("mYn9NjlAzO06Jf1kHZA4T5mlkgFEfUDt");
+                    analytics.page();
+                }}();
+            </script><script>
+(function(d) {
+var config = {
+kitId: 'adq8zms',
+scriptTimeout: 3000
+},
+h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+})(document);
+</script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-41112402-1', 'iterable.com');
+ga('send', 'pageview');
+</script><script>
+        console.log('%c♥ code? -> iterableJobs()', 'background:#333;color:#fff;font-family:Menlo,Monaco,monospace;font-size:16px;border-radius:2px;padding:5px 10px;');
+        window.iterableJobs = function() { window.location.href = 'https://iterable.com/careers'; }
+    </script></body></html>

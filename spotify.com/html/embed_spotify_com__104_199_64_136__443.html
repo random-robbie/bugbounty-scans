@@ -1,0 +1,663 @@
+<!doctype html>
+
+<!--[if IEMobile 7 ]> <html lang="en-US"class="no-js iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html lang="en-US" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en-US" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-US" class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Spotify Play Button - Spotify Developer</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- media-queries.js (fallback) -->
+    <!--[if lt IE 9]>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+      <![endif]-->
+
+      <!-- html5.js -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+
+      <link rel="pingback" href="https://developer.spotify.com/xmlrpc.php">
+      <link rel="shortcut icon" href="https://developer.spotify.com/wp-content/themes/sp-wp-theme/images/favicon.png" type="image/png">
+
+      <!-- wordpress head functions -->
+      
+<!-- This site is optimized with the Yoast SEO plugin v4.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://developer.spotify.com/technologies/widgets/spotify-play-button/" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='roots_prism-css-css'  href='https://developer.spotify.com/wp-content/themes/sp-wp-theme/library/css/prism.min.css?73069f87e07c684e46f0af8ab5e443dd' type='text/css' media='all' />
+<link rel='stylesheet' id='tablepress-default-css'  href='https://developer.spotify.com/wp-content/tablepress-combined.min.css?ver=5' type='text/css' media='all' />
+<link rel='stylesheet' id='roots_css-css'  href='https://developer.spotify.com/wp-content/themes/sp-wp-theme/library/css/head.min.css?c9c40e204e73b70bee13d6090dc41194' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://developer.spotify.com/wp-json/' />
+<link rel='shortlink' href='https://developer.spotify.com/?p=145' />
+<link rel="alternate" type="application/json+oembed" href="https://developer.spotify.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdeveloper.spotify.com%2Ftechnologies%2Fwidgets%2Fspotify-play-button%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://developer.spotify.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdeveloper.spotify.com%2Ftechnologies%2Fwidgets%2Fspotify-play-button%2F&#038;format=xml" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@SpotifyPlatform" />
+<meta name="twitter:creator" content="@SpotifyPlatform" />
+<meta name="twitter:url" content="https://developer.spotify.com/technologies/widgets/spotify-play-button/" />
+<meta name="twitter:title" content="Spotify Play Button" />
+<meta name="twitter:description" content="Add a Spotify Play Button to your blog, website, or social page—all your fans have to do is hit &quot;Play&quot; to enjoy the music. Note: By using the Spotify Tools, you accept our Developer [...]" /><meta name="twitter:image" content="https://developer.spotify.com/wp-content/uploads/2013/11/spotify-play-button.png">
+
+		
+<!-- Google Universal Analytics for WordPress v2.4 -->
+
+<script>
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-5784146-16', 'auto');
+
+
+
+
+	ga('set', 'forceSSL', true);
+	ga('send', 'pageview');
+
+</script>
+<!-- Google Universal Analytics for WordPress v2.4.2 - https://wordpress.org/plugins/google-universal-analytics -->
+
+<link rel="icon" href="https://developer.spotify.com/wp-content/uploads/2016/10/cropped-Spotify_Icon_RGB_Black-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://developer.spotify.com/wp-content/uploads/2016/10/cropped-Spotify_Icon_RGB_Black-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://developer.spotify.com/wp-content/uploads/2016/10/cropped-Spotify_Icon_RGB_Black-180x180.png" />
+<meta name="msapplication-TileImage" content="https://developer.spotify.com/wp-content/uploads/2016/10/cropped-Spotify_Icon_RGB_Black-270x270.png" />
+      <!-- end of wordpress head -->
+
+      <!-- pingdom RUM -->
+      <script>
+      var _prum = [['id', '54232dc4abe53d671f6e0d30'],
+                   ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+          var s = document.getElementsByTagName('script')[0]
+            , p = document.createElement('script');
+          p.async = 'async';
+          p.src = '//rum-static.pingdom.net/prum.min.js';
+          s.parentNode.insertBefore(p, s);
+      })();
+      </script>
+
+      <!-- theme options from options panel -->
+      
+    </head>
+
+    <body class="page-template-default page page-id-145 page-child parent-pageid-65">
+      <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="/">
+             <span class="navbar-logo">Spotify</span>
+             <span class="navbar-title">Developer</span>
+           </a>
+          </div>
+          <div class="collapse navbar-collapse">
+
+            
+                        <ul id="menu-main" class="nav navbar-nav navbar-right nav-main"><li id="menu-item-4080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4080"><a title="Manage your applications" href="/my-applications">My Apps</a></li>
+<li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-has-children menu-item-1151"><a href="https://developer.spotify.com/technologies/">Tools</a></li>
+<li id="menu-item-1154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1154"><a href="https://developer.spotify.com/support/">Support</a></li>
+<li id="menu-item-2627" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2627"><a href="https://developer.spotify.com/news-stories/">News</a></li>
+ <li><form class="navbar-form" role="search" action="/search" method="GET"><div class="input-group"><input type="text" class="form-control search-box" placeholder="Search" name="q"></div></form></li></ul>            <ul id="device_nav" class="nav navbar-nav visible-xs "><li id="menu-item-1155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a href="https://developer.spotify.com/">Home</a></li><li id="menu-item-2621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/news-stories/" class="dropdown-toggle" data-toggle="dropdown">News<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-2541" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="https://developer.spotify.com/news-stories/category/api-announcements/">API Announcements</a></li>	<li id="menu-item-2542" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="https://developer.spotify.com/news-stories/category/events/">Events/Hackathons</a></li>	<li id="menu-item-2543" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="https://developer.spotify.com/news-stories/category/open-source/">Open Source</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-6352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/showcase/" class="dropdown-toggle" data-toggle="dropdown">Developer Showcase<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-6353" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/showcase/submit-your-app/">Submit Your App</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-3191" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://developer.spotify.com/my-applications">My Applications</a></li><li id="menu-item-1932" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/" class="dropdown-toggle" data-toggle="dropdown">Web API<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-1976" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/user-guide/">User Guide</a></li>	<li id="menu-item-2755" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/tutorial/">Beginner&#8217;s Tutorial</a></li>	<li id="menu-item-2989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown dropdown-submenu"><a href="https://developer.spotify.com/web-api/endpoint-reference/">API Endpoint Reference</a>
+	<ul class="dropdown-menu">
+		<li id="menu-item-4634" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/album-endpoints/">Albums</a>
+		<ul>
+			<li id="menu-item-1970" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-album/">Get an Album</a></li>			<li id="menu-item-2113" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-several-albums/">Get Several Albums</a></li>			<li id="menu-item-3189" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-albums-tracks/">Get an Album&#8217;s Tracks</a></li>
+		</ul>
+</li>		<li id="menu-item-4633" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/artist-endpoints/">Artists</a>
+		<ul>
+			<li id="menu-item-2112" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-artist/">Get an Artist</a></li>			<li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-several-artists/">Get Several Artists</a></li>			<li id="menu-item-2110" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-artists-albums/">Get an Artist&#8217;s Albums</a></li>			<li id="menu-item-3017" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-artists-top-tracks/">Get an Artist&#8217;s Top Tracks</a></li>			<li id="menu-item-4341" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-related-artists/">Get an Artist&#8217;s Related Artists</a></li>
+		</ul>
+</li>		<li id="menu-item-5683" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/browse-endpoints/">Browse</a>
+		<ul>
+			<li id="menu-item-5685" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">Get a List of Featured Playlists</a></li>			<li id="menu-item-5684" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-list-new-releases/">Get a List of New Releases</a></li>			<li id="menu-item-7065" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-list-categories/">Get a List of Categories</a></li>			<li id="menu-item-7063" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-category/">Get a Category</a></li>			<li id="menu-item-7064" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-categorys-playlists/">Get a Category&#8217;s Playlists</a></li>			<li id="menu-item-8753" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-recommendations/">Get Recommendations Based on Seeds</a></li>
+		</ul>
+</li>		<li id="menu-item-6534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/web-api-follow-endpoints/">Follow</a>
+		<ul>
+			<li id="menu-item-8094" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-followed-artists/">Get User&#8217;s Followed Artists</a></li>			<li id="menu-item-6524" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/follow-artists-users/">Follow Artists or Users</a></li>			<li id="menu-item-6525" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/unfollow-artists-users/">Unfollow Artists or Users</a></li>			<li id="menu-item-6523" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/check-current-user-follows/">Check if Current User Follows Artists or Users</a></li>			<li id="menu-item-6815" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/follow-playlist/">Follow a Playlist</a></li>			<li id="menu-item-6814" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/unfollow-playlist/">Unfollow a Playlist</a></li>			<li id="menu-item-7033" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/check-user-following-playlist/">Check if Users Follow a Playlist</a></li>
+		</ul>
+</li>		<li id="menu-item-4739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/library-endpoints/">Library</a>
+		<ul>
+			<li id="menu-item-4741" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/save-tracks-user/">Save Tracks for User</a></li>			<li id="menu-item-4743" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-users-saved-tracks/">Get User&#8217;s Saved Tracks</a></li>			<li id="menu-item-4740" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/remove-tracks-user/">Remove User&#8217;s Saved Tracks</a></li>			<li id="menu-item-4742" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/check-users-saved-tracks/">Check User&#8217;s Saved Tracks</a></li>			<li id="menu-item-8342" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/save-albums-user/">Save Albums for Current User</a></li>			<li id="menu-item-8343" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-users-saved-albums/">Get User&#8217;s Saved Albums</a></li>			<li id="menu-item-8341" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/remove-albums-user/">Remove Albums for Current User</a></li>			<li id="menu-item-8340" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/check-users-saved-albums/">Check User&#8217;s Saved Albums</a></li>
+		</ul>
+</li>		<li id="menu-item-8766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/web-api-personalization-endpoints/">Personalization</a>
+		<ul>
+			<li id="menu-item-8768" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-users-top-artists-and-tracks/">Get a User&#8217;s Top Artists and Tracks</a></li>			<li id="menu-item-10262" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/web-api-personalization-endpoints/get-recently-played/">Get Current User&#8217;s Recently Played Tracks</a></li>
+		</ul>
+</li>		<li id="menu-item-10261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/web-api-connect-endpoint-reference/">Player</a>
+		<ul>
+			<li id="menu-item-10263" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-a-users-available-devices/">Get a User&#8217;s Available Devices</a></li>			<li id="menu-item-10264" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-information-about-the-users-current-playback/">Get Information About The User&#8217;s Current Playback</a></li>			<li id="menu-item-10265" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-the-users-currently-playing-track/">Get the User&#8217;s Currently Playing Track</a></li>			<li id="menu-item-10266" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/transfer-a-users-playback/">Transfer a User&#8217;s Playback</a></li>			<li id="menu-item-10267" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/start-a-users-playback/">Start/Resume a User&#8217;s Playback</a></li>			<li id="menu-item-10268" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/pause-a-users-playback/">Pause a User&#8217;s Playback</a></li>			<li id="menu-item-10269" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/skip-users-playback-to-next-track/">Skip User’s Playback To Next Track</a></li>			<li id="menu-item-10270" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/skip-users-playback-to-previous-track/">Skip User’s Playback To Previous Track</a></li>			<li id="menu-item-10271" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/seek-to-position-in-currently-playing-track/">Seek To Position In Currently Playing Track</a></li>			<li id="menu-item-10272" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/set-repeat-mode-on-users-playback/">Set Repeat Mode On User’s Playback</a></li>			<li id="menu-item-10273" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/set-volume-for-users-playback/">Set Volume For User&#8217;s Playback</a></li>			<li id="menu-item-10274" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/toggle-shuffle-for-users-playback/">Toggle Shuffle For User’s Playback</a></li>
+		</ul>
+</li>		<li id="menu-item-4632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/playlist-endpoints/">Playlists</a>
+		<ul>
+			<li id="menu-item-2104" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-list-users-playlists/">Get a List of a User&#8217;s Playlists</a></li>			<li id="menu-item-8414" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-a-list-of-current-users-playlists/">Get a List of Current User&#8217;s Playlists</a></li>			<li id="menu-item-2105" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-playlist/">Get a Playlist</a></li>			<li id="menu-item-3820" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-playlists-tracks/">Get a Playlist&#8217;s Tracks</a></li>			<li id="menu-item-3394" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/create-playlist/">Create a Playlist</a></li>			<li id="menu-item-3393" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/add-tracks-to-playlist/">Add Tracks to a Playlist</a></li>			<li id="menu-item-4939" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/remove-tracks-playlist/">Remove Tracks from a Playlist</a></li>			<li id="menu-item-7268" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/reorder-playlists-tracks/">Reorder a Playlist&#8217;s Tracks</a></li>			<li id="menu-item-4915" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/replace-playlists-tracks/">Replace a Playlist&#8217;s Tracks</a></li>			<li id="menu-item-4779" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/change-playlist-details/">Change a Playlist&#8217;s Details</a></li>
+		</ul>
+</li>		<li id="menu-item-4630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/user-profile-endpoints/">Profiles</a>
+		<ul>
+			<li id="menu-item-2107" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-users-profile/">Get a User&#8217;s Profile</a></li>			<li id="menu-item-2106" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-current-users-profile/">Get Current User&#8217;s Profile</a></li>
+		</ul>
+</li>		<li id="menu-item-2103" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/search-item/">Search</a></li>		<li id="menu-item-4631" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/web-api/track-endpoints/">Tracks</a>
+		<ul>
+			<li id="menu-item-2109" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-track/">Get a Track</a></li>			<li id="menu-item-2108" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-several-tracks/">Get Several Tracks</a></li>			<li id="menu-item-9552" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-audio-analysis/">Get Audio Analysis for a Track</a></li>			<li id="menu-item-8760" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-audio-features/">Get Audio Features for a Track</a></li>			<li id="menu-item-8759" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/get-several-audio-features/">Get Audio Features for Several Tracks</a></li>
+		</ul>
+</li>
+	</ul>
+</li>	<li id="menu-item-5215" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://developer.spotify.com/web-api/console/">API Console</a></li>	<li id="menu-item-2177" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/object-model/">Object Model</a></li>	<li id="menu-item-2254" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/authorization-guide/">Authorization Guide</a></li>	<li id="menu-item-2736" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/using-scopes/">Using Scopes</a></li>	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/code-examples/">Code Examples &#038; Libraries</a></li>	<li id="menu-item-4995" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/working-with-playlists/">Playlist Guide</a></li>	<li id="menu-item-7100" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/track-relinking-guide/">Track Relinking Guide</a></li>	<li id="menu-item-2268" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/migration-guide/">Migration Guide</a></li>	<li id="menu-item-4155" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/web-api/change-log/">Change Log</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-1170" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children dropdown"><a href="https://developer.spotify.com/technologies/widgets/" class="dropdown-toggle" data-toggle="dropdown">HTML Widgets<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-1171" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/widgets/spotify-follow-button/">Follow Button</a></li>	<li id="menu-item-1172" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-145 current_page_item"><a href="https://developer.spotify.com/technologies/widgets/spotify-play-button/">Play Button</a></li>	<li id="menu-item-6431" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/widgets/adding-widgets-to-websites/">Adding Widgets to Websites</a></li>	<li id="menu-item-6410" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/widgets/creating-artists-page/">Creating an Artist&#8217;s Page</a></li>	<li id="menu-item-7395" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/widgets/examples/">Widget Examples</a></li>	<li id="menu-item-1173" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/widgets/terms-of-use/">Widgets Terms of Use</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-1668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/technologies/spotify-ios-sdk/" class="dropdown-toggle" data-toggle="dropdown">iOS SDK (Beta)<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-1716" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://github.com/spotify/ios-sdk">iOS SDK on GitHub</a></li>	<li id="menu-item-2473" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://github.com/spotify/ios-sdk/releases">Download the SDK</a></li>	<li id="menu-item-1669" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/spotify-ios-sdk/tutorial/">Beginner&#8217;s Tutorial</a></li>	<li id="menu-item-9406" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/spotify-ios-sdk/token-swap-refresh/">Token swap and refresh</a></li>	<li id="menu-item-9491" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://spotify.github.io/ios-sdk/">API Reference</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-4190" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/" class="dropdown-toggle" data-toggle="dropdown">Android SDK (Beta)<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-4191" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://github.com/spotify/android-sdk">Android SDK on GitHub</a></li>	<li id="menu-item-4192" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://github.com/spotify/android-sdk/releases">Download playback library</a></li>	<li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://github.com/spotify/android-auth/releases">Download auth library</a></li>	<li id="menu-item-4189" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/tutorial/">Beginner&#8217;s Tutorial</a></li>	<li id="menu-item-7167" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/android-sdk-authentication-guide/">Authentication Guide</a></li>	<li id="menu-item-7544" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/android-sdk-api-reference/">API References</a></li>	<li id="menu-item-4653" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/android-media-notifications/">Android Media Notifications</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-9203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/technologies/libspotify/" class="dropdown-toggle" data-toggle="dropdown">Libspotify SDK<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-9534" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/libspotify/application-keys/">Application Keys</a></li>	<li id="menu-item-1206" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/libspotify/api-documentation/">API Reference</a></li>	<li id="menu-item-1204" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/libspotify/faq/">FAQ</a></li>	<li id="menu-item-1162" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/technologies/libspotify/third-party-licenses/">Libspotify Third-Party Licenses</a></li><!--.dropdown-->
+</ul>
+</li><li id="menu-item-7640" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/applescript-api/">AppleScript API</a></li><li id="menu-item-1156" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/support/">Support</a></li><li id="menu-item-3913" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/design/">Design Resources</a></li><li id="menu-item-3748" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="https://developer.spotify.com/developer-terms-of-use/" class="dropdown-toggle" data-toggle="dropdown">Terms of Use<b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-5004" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/developer-terms-of-use/faq/">Frequently Asked Questions</a></li>	<li id="menu-item-4662" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://developer.spotify.com/report-non-complying-apps/">Report Non-Complying Apps</a></li><!--.dropdown-->
+</ul>
+</li></ul>             <!--
+           <ul class="nav navbar-nav navbar-right">
+             <li><a href="#">Home</a></li>
+             <li><a href="#about">About</a></li>
+             <li><a href="#contact">Contact</a></li>
+           </ul>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <div id="wrap">
+  <div class="container">
+
+      <div class="row">
+            <div id="sidebar1" class="fluid-sidebar hidden-xs sidebar col-xs-4 col-sm-4 col-md-4 col-lg-3" role="complementary">
+            <div id="nav_menu-2" class="widget widget_nav_menu"><div class="menu-sidebar-menu-container"><ul id="menu-sidebar-menu" class="menu"><li id="menu-item-1155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1155"><a href="https://developer.spotify.com/">Home</a></li>
+<li id="menu-item-2621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2621"><a href="https://developer.spotify.com/news-stories/">News</a>
+<ul class="sub-menu">
+	<li id="menu-item-2541" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2541"><a href="https://developer.spotify.com/news-stories/category/api-announcements/">API Announcements</a></li>
+	<li id="menu-item-2542" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2542"><a href="https://developer.spotify.com/news-stories/category/events/">Events/Hackathons</a></li>
+	<li id="menu-item-2543" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2543"><a href="https://developer.spotify.com/news-stories/category/open-source/">Open Source</a></li>
+</ul>
+</li>
+<li id="menu-item-6352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6352"><a href="https://developer.spotify.com/showcase/">Developer Showcase</a>
+<ul class="sub-menu">
+	<li id="menu-item-6353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6353"><a href="https://developer.spotify.com/showcase/submit-your-app/">Submit Your App</a></li>
+</ul>
+</li>
+<li id="menu-item-3191" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3191"><a href="https://developer.spotify.com/my-applications">My Applications</a></li>
+<li id="menu-item-1932" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1932"><a href="https://developer.spotify.com/web-api/">Web API</a>
+<ul class="sub-menu">
+	<li id="menu-item-1976" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1976"><a href="https://developer.spotify.com/web-api/user-guide/">User Guide</a></li>
+	<li id="menu-item-2755" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2755"><a href="https://developer.spotify.com/web-api/tutorial/">Beginner&#8217;s Tutorial</a></li>
+	<li id="menu-item-2989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2989"><a href="https://developer.spotify.com/web-api/endpoint-reference/">API Endpoint Reference</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4634" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4634"><a href="https://developer.spotify.com/web-api/album-endpoints/">Albums</a>
+		<ul class="sub-menu">
+			<li id="menu-item-1970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1970"><a href="https://developer.spotify.com/web-api/get-album/">Get an Album</a></li>
+			<li id="menu-item-2113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2113"><a href="https://developer.spotify.com/web-api/get-several-albums/">Get Several Albums</a></li>
+			<li id="menu-item-3189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3189"><a href="https://developer.spotify.com/web-api/get-albums-tracks/">Get an Album&#8217;s Tracks</a></li>
+		</ul>
+</li>
+		<li id="menu-item-4633" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4633"><a href="https://developer.spotify.com/web-api/artist-endpoints/">Artists</a>
+		<ul class="sub-menu">
+			<li id="menu-item-2112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2112"><a href="https://developer.spotify.com/web-api/get-artist/">Get an Artist</a></li>
+			<li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="https://developer.spotify.com/web-api/get-several-artists/">Get Several Artists</a></li>
+			<li id="menu-item-2110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2110"><a href="https://developer.spotify.com/web-api/get-artists-albums/">Get an Artist&#8217;s Albums</a></li>
+			<li id="menu-item-3017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3017"><a href="https://developer.spotify.com/web-api/get-artists-top-tracks/">Get an Artist&#8217;s Top Tracks</a></li>
+			<li id="menu-item-4341" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4341"><a href="https://developer.spotify.com/web-api/get-related-artists/">Get an Artist&#8217;s Related Artists</a></li>
+		</ul>
+</li>
+		<li id="menu-item-5683" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5683"><a href="https://developer.spotify.com/web-api/browse-endpoints/">Browse</a>
+		<ul class="sub-menu">
+			<li id="menu-item-5685" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5685"><a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">Get a List of Featured Playlists</a></li>
+			<li id="menu-item-5684" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5684"><a href="https://developer.spotify.com/web-api/get-list-new-releases/">Get a List of New Releases</a></li>
+			<li id="menu-item-7065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7065"><a href="https://developer.spotify.com/web-api/get-list-categories/">Get a List of Categories</a></li>
+			<li id="menu-item-7063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7063"><a href="https://developer.spotify.com/web-api/get-category/">Get a Category</a></li>
+			<li id="menu-item-7064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7064"><a href="https://developer.spotify.com/web-api/get-categorys-playlists/">Get a Category&#8217;s Playlists</a></li>
+			<li id="menu-item-8753" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8753"><a href="https://developer.spotify.com/web-api/get-recommendations/">Get Recommendations Based on Seeds</a></li>
+		</ul>
+</li>
+		<li id="menu-item-6534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6534"><a href="https://developer.spotify.com/web-api/web-api-follow-endpoints/">Follow</a>
+		<ul class="sub-menu">
+			<li id="menu-item-8094" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8094"><a href="https://developer.spotify.com/web-api/get-followed-artists/">Get User&#8217;s Followed Artists</a></li>
+			<li id="menu-item-6524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6524"><a href="https://developer.spotify.com/web-api/follow-artists-users/">Follow Artists or Users</a></li>
+			<li id="menu-item-6525" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6525"><a href="https://developer.spotify.com/web-api/unfollow-artists-users/">Unfollow Artists or Users</a></li>
+			<li id="menu-item-6523" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6523"><a href="https://developer.spotify.com/web-api/check-current-user-follows/">Check if Current User Follows Artists or Users</a></li>
+			<li id="menu-item-6815" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6815"><a href="https://developer.spotify.com/web-api/follow-playlist/">Follow a Playlist</a></li>
+			<li id="menu-item-6814" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6814"><a href="https://developer.spotify.com/web-api/unfollow-playlist/">Unfollow a Playlist</a></li>
+			<li id="menu-item-7033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7033"><a href="https://developer.spotify.com/web-api/check-user-following-playlist/">Check if Users Follow a Playlist</a></li>
+		</ul>
+</li>
+		<li id="menu-item-4739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4739"><a href="https://developer.spotify.com/web-api/library-endpoints/">Library</a>
+		<ul class="sub-menu">
+			<li id="menu-item-4741" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4741"><a href="https://developer.spotify.com/web-api/save-tracks-user/">Save Tracks for User</a></li>
+			<li id="menu-item-4743" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4743"><a href="https://developer.spotify.com/web-api/get-users-saved-tracks/">Get User&#8217;s Saved Tracks</a></li>
+			<li id="menu-item-4740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4740"><a href="https://developer.spotify.com/web-api/remove-tracks-user/">Remove User&#8217;s Saved Tracks</a></li>
+			<li id="menu-item-4742" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4742"><a href="https://developer.spotify.com/web-api/check-users-saved-tracks/">Check User&#8217;s Saved Tracks</a></li>
+			<li id="menu-item-8342" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8342"><a href="https://developer.spotify.com/web-api/save-albums-user/">Save Albums for Current User</a></li>
+			<li id="menu-item-8343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8343"><a href="https://developer.spotify.com/web-api/get-users-saved-albums/">Get User&#8217;s Saved Albums</a></li>
+			<li id="menu-item-8341" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8341"><a href="https://developer.spotify.com/web-api/remove-albums-user/">Remove Albums for Current User</a></li>
+			<li id="menu-item-8340" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8340"><a href="https://developer.spotify.com/web-api/check-users-saved-albums/">Check User&#8217;s Saved Albums</a></li>
+		</ul>
+</li>
+		<li id="menu-item-8766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8766"><a href="https://developer.spotify.com/web-api/web-api-personalization-endpoints/">Personalization</a>
+		<ul class="sub-menu">
+			<li id="menu-item-8768" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8768"><a href="https://developer.spotify.com/web-api/get-users-top-artists-and-tracks/">Get a User&#8217;s Top Artists and Tracks</a></li>
+			<li id="menu-item-10262" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10262"><a href="https://developer.spotify.com/web-api/web-api-personalization-endpoints/get-recently-played/">Get Current User&#8217;s Recently Played Tracks</a></li>
+		</ul>
+</li>
+		<li id="menu-item-10261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-10261"><a href="https://developer.spotify.com/web-api/web-api-connect-endpoint-reference/">Player</a>
+		<ul class="sub-menu">
+			<li id="menu-item-10263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10263"><a href="https://developer.spotify.com/web-api/get-a-users-available-devices/">Get a User&#8217;s Available Devices</a></li>
+			<li id="menu-item-10264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10264"><a href="https://developer.spotify.com/web-api/get-information-about-the-users-current-playback/">Get Information About The User&#8217;s Current Playback</a></li>
+			<li id="menu-item-10265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10265"><a href="https://developer.spotify.com/web-api/get-the-users-currently-playing-track/">Get the User&#8217;s Currently Playing Track</a></li>
+			<li id="menu-item-10266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10266"><a href="https://developer.spotify.com/web-api/transfer-a-users-playback/">Transfer a User&#8217;s Playback</a></li>
+			<li id="menu-item-10267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10267"><a href="https://developer.spotify.com/web-api/start-a-users-playback/">Start/Resume a User&#8217;s Playback</a></li>
+			<li id="menu-item-10268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10268"><a href="https://developer.spotify.com/web-api/pause-a-users-playback/">Pause a User&#8217;s Playback</a></li>
+			<li id="menu-item-10269" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10269"><a href="https://developer.spotify.com/web-api/skip-users-playback-to-next-track/">Skip User’s Playback To Next Track</a></li>
+			<li id="menu-item-10270" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10270"><a href="https://developer.spotify.com/web-api/skip-users-playback-to-previous-track/">Skip User’s Playback To Previous Track</a></li>
+			<li id="menu-item-10271" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10271"><a href="https://developer.spotify.com/web-api/seek-to-position-in-currently-playing-track/">Seek To Position In Currently Playing Track</a></li>
+			<li id="menu-item-10272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10272"><a href="https://developer.spotify.com/web-api/set-repeat-mode-on-users-playback/">Set Repeat Mode On User’s Playback</a></li>
+			<li id="menu-item-10273" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10273"><a href="https://developer.spotify.com/web-api/set-volume-for-users-playback/">Set Volume For User&#8217;s Playback</a></li>
+			<li id="menu-item-10274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10274"><a href="https://developer.spotify.com/web-api/toggle-shuffle-for-users-playback/">Toggle Shuffle For User’s Playback</a></li>
+		</ul>
+</li>
+		<li id="menu-item-4632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4632"><a href="https://developer.spotify.com/web-api/playlist-endpoints/">Playlists</a>
+		<ul class="sub-menu">
+			<li id="menu-item-2104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2104"><a href="https://developer.spotify.com/web-api/get-list-users-playlists/">Get a List of a User&#8217;s Playlists</a></li>
+			<li id="menu-item-8414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8414"><a href="https://developer.spotify.com/web-api/get-a-list-of-current-users-playlists/">Get a List of Current User&#8217;s Playlists</a></li>
+			<li id="menu-item-2105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2105"><a href="https://developer.spotify.com/web-api/get-playlist/">Get a Playlist</a></li>
+			<li id="menu-item-3820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3820"><a href="https://developer.spotify.com/web-api/get-playlists-tracks/">Get a Playlist&#8217;s Tracks</a></li>
+			<li id="menu-item-3394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3394"><a href="https://developer.spotify.com/web-api/create-playlist/">Create a Playlist</a></li>
+			<li id="menu-item-3393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3393"><a href="https://developer.spotify.com/web-api/add-tracks-to-playlist/">Add Tracks to a Playlist</a></li>
+			<li id="menu-item-4939" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4939"><a href="https://developer.spotify.com/web-api/remove-tracks-playlist/">Remove Tracks from a Playlist</a></li>
+			<li id="menu-item-7268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7268"><a href="https://developer.spotify.com/web-api/reorder-playlists-tracks/">Reorder a Playlist&#8217;s Tracks</a></li>
+			<li id="menu-item-4915" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4915"><a href="https://developer.spotify.com/web-api/replace-playlists-tracks/">Replace a Playlist&#8217;s Tracks</a></li>
+			<li id="menu-item-4779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4779"><a href="https://developer.spotify.com/web-api/change-playlist-details/">Change a Playlist&#8217;s Details</a></li>
+		</ul>
+</li>
+		<li id="menu-item-4630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4630"><a href="https://developer.spotify.com/web-api/user-profile-endpoints/">Profiles</a>
+		<ul class="sub-menu">
+			<li id="menu-item-2107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2107"><a href="https://developer.spotify.com/web-api/get-users-profile/">Get a User&#8217;s Profile</a></li>
+			<li id="menu-item-2106" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2106"><a href="https://developer.spotify.com/web-api/get-current-users-profile/">Get Current User&#8217;s Profile</a></li>
+		</ul>
+</li>
+		<li id="menu-item-2103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2103"><a href="https://developer.spotify.com/web-api/search-item/">Search</a></li>
+		<li id="menu-item-4631" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4631"><a href="https://developer.spotify.com/web-api/track-endpoints/">Tracks</a>
+		<ul class="sub-menu">
+			<li id="menu-item-2109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2109"><a href="https://developer.spotify.com/web-api/get-track/">Get a Track</a></li>
+			<li id="menu-item-2108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2108"><a href="https://developer.spotify.com/web-api/get-several-tracks/">Get Several Tracks</a></li>
+			<li id="menu-item-9552" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9552"><a href="https://developer.spotify.com/web-api/get-audio-analysis/">Get Audio Analysis for a Track</a></li>
+			<li id="menu-item-8760" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8760"><a href="https://developer.spotify.com/web-api/get-audio-features/">Get Audio Features for a Track</a></li>
+			<li id="menu-item-8759" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8759"><a href="https://developer.spotify.com/web-api/get-several-audio-features/">Get Audio Features for Several Tracks</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li id="menu-item-5215" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5215"><a href="https://developer.spotify.com/web-api/console/">API Console</a></li>
+	<li id="menu-item-2177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2177"><a href="https://developer.spotify.com/web-api/object-model/">Object Model</a></li>
+	<li id="menu-item-2254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2254"><a href="https://developer.spotify.com/web-api/authorization-guide/">Authorization Guide</a></li>
+	<li id="menu-item-2736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2736"><a href="https://developer.spotify.com/web-api/using-scopes/">Using Scopes</a></li>
+	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2343"><a href="https://developer.spotify.com/web-api/code-examples/">Code Examples &#038; Libraries</a></li>
+	<li id="menu-item-4995" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4995"><a href="https://developer.spotify.com/web-api/working-with-playlists/">Playlist Guide</a></li>
+	<li id="menu-item-7100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7100"><a href="https://developer.spotify.com/web-api/track-relinking-guide/">Track Relinking Guide</a></li>
+	<li id="menu-item-2268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2268"><a href="https://developer.spotify.com/web-api/migration-guide/">Migration Guide</a></li>
+	<li id="menu-item-4155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4155"><a href="https://developer.spotify.com/web-api/change-log/">Change Log</a></li>
+</ul>
+</li>
+<li id="menu-item-1170" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1170"><a href="https://developer.spotify.com/technologies/widgets/">HTML Widgets</a>
+<ul class="sub-menu">
+	<li id="menu-item-1171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1171"><a href="https://developer.spotify.com/technologies/widgets/spotify-follow-button/">Follow Button</a></li>
+	<li id="menu-item-1172" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-145 current_page_item menu-item-1172"><a href="https://developer.spotify.com/technologies/widgets/spotify-play-button/">Play Button</a></li>
+	<li id="menu-item-6431" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6431"><a href="https://developer.spotify.com/technologies/widgets/adding-widgets-to-websites/">Adding Widgets to Websites</a></li>
+	<li id="menu-item-6410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6410"><a href="https://developer.spotify.com/technologies/widgets/creating-artists-page/">Creating an Artist&#8217;s Page</a></li>
+	<li id="menu-item-7395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7395"><a href="https://developer.spotify.com/technologies/widgets/examples/">Widget Examples</a></li>
+	<li id="menu-item-1173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1173"><a href="https://developer.spotify.com/technologies/widgets/terms-of-use/">Widgets Terms of Use</a></li>
+</ul>
+</li>
+<li id="menu-item-1668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1668"><a href="https://developer.spotify.com/technologies/spotify-ios-sdk/">iOS SDK (Beta)</a>
+<ul class="sub-menu">
+	<li id="menu-item-1716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1716"><a href="https://github.com/spotify/ios-sdk">iOS SDK on GitHub</a></li>
+	<li id="menu-item-2473" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2473"><a href="https://github.com/spotify/ios-sdk/releases">Download the SDK</a></li>
+	<li id="menu-item-1669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1669"><a href="https://developer.spotify.com/technologies/spotify-ios-sdk/tutorial/">Beginner&#8217;s Tutorial</a></li>
+	<li id="menu-item-9406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9406"><a href="https://developer.spotify.com/technologies/spotify-ios-sdk/token-swap-refresh/">Token swap and refresh</a></li>
+	<li id="menu-item-9491" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9491"><a href="https://spotify.github.io/ios-sdk/">API Reference</a></li>
+</ul>
+</li>
+<li id="menu-item-4190" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4190"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/">Android SDK (Beta)</a>
+<ul class="sub-menu">
+	<li id="menu-item-4191" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4191"><a href="https://github.com/spotify/android-sdk">Android SDK on GitHub</a></li>
+	<li id="menu-item-4192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4192"><a href="https://github.com/spotify/android-sdk/releases">Download playback library</a></li>
+	<li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9614"><a href="https://github.com/spotify/android-auth/releases">Download auth library</a></li>
+	<li id="menu-item-4189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4189"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/tutorial/">Beginner&#8217;s Tutorial</a></li>
+	<li id="menu-item-7167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7167"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/android-sdk-authentication-guide/">Authentication Guide</a></li>
+	<li id="menu-item-7544" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7544"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/android-sdk-api-reference/">API References</a></li>
+	<li id="menu-item-4653" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4653"><a href="https://developer.spotify.com/technologies/spotify-android-sdk/android-media-notifications/">Android Media Notifications</a></li>
+</ul>
+</li>
+<li id="menu-item-9203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9203"><a href="https://developer.spotify.com/technologies/libspotify/">Libspotify SDK</a>
+<ul class="sub-menu">
+	<li id="menu-item-9534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9534"><a href="https://developer.spotify.com/technologies/libspotify/application-keys/">Application Keys</a></li>
+	<li id="menu-item-1206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1206"><a href="https://developer.spotify.com/technologies/libspotify/api-documentation/">API Reference</a></li>
+	<li id="menu-item-1204" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1204"><a href="https://developer.spotify.com/technologies/libspotify/faq/">FAQ</a></li>
+	<li id="menu-item-1162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1162"><a href="https://developer.spotify.com/technologies/libspotify/third-party-licenses/">Libspotify Third-Party Licenses</a></li>
+</ul>
+</li>
+<li id="menu-item-7640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7640"><a href="https://developer.spotify.com/applescript-api/">AppleScript API</a></li>
+<li id="menu-item-1156" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1156"><a href="https://developer.spotify.com/support/">Support</a></li>
+<li id="menu-item-3913" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3913"><a href="https://developer.spotify.com/design/">Design Resources</a></li>
+<li id="menu-item-3748" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3748"><a href="https://developer.spotify.com/developer-terms-of-use/">Terms of Use</a>
+<ul class="sub-menu">
+	<li id="menu-item-5004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5004"><a href="https://developer.spotify.com/developer-terms-of-use/faq/">Frequently Asked Questions</a></li>
+	<li id="menu-item-4662" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4662"><a href="https://developer.spotify.com/report-non-complying-apps/">Report Non-Complying Apps</a></li>
+</ul>
+</li>
+</ul></div></div>    </div>
+              <div class="col-lg-9 col-md-8 col-sm-8 clearfix">
+          <div class="row">
+            <div id="main" class="col-md-12 clearfix" role="main">
+              <article id="post-145" class="clearfix post-145 page type-page status-publish has-post-thumbnail hentry category-spotify-widgets" role="article">
+                <header>
+                  <div class="page-header"><h1>Spotify Play Button</h1></div>
+                </header> <!-- end article header -->
+                <section class="page_content">
+                  <p>Add a Spotify Play Button to your blog, website, or social page—all your fans have to do is hit &#8220;Play&#8221; to enjoy the music.<span id="more-145"></span></p>
+<div class="sp-callout sp-callout-info">Note: By using the Spotify Tools, you accept our <a href="/technologies/widgets/terms-of-use/">Developer Terms of Use</a>.</div>
+<p>Spotify Play Buttons can be added to any webpage that supports <code>&lt;iframe&gt;</code> tags. You can create Play Buttons for albums, tracks, artists, or playlists.</p>
+<p>When a logged-in Spotify user clicks the button, the music will start playing in the Spotify player. If the user is not logged into their Spotify account, the Spotify Play Button will play a 30-second audio preview of the music, and they will be prompted to login or sign up.</p>
+<p>Follow the steps below and you’ll have your site singing in seconds.</p>
+<p>You can choose different button themes and sizes, and you can link to any song or album in our music catalog, or to any playlist that you have created. (Note that we do have a few <a href="/technologies/widgets/terms-of-use/">Terms of Use</a> that we need you to comply with.)</p>
+<a class="mwm-aal-item" name="get-the-code"></a><h2 id="generator">Get the Code</h2>
+<div style="border: 1px solid #ebedf2; padding: 10px;">
+<ol>
+<li>Right-click any song, album or playlist in the Spotify player and select &#8220;Copy Track Link&#8221; or &#8220;Copy Spotify URI&#8221;:<br />
+<img class="alignnone size-full wp-image-6377" src="https://developer.spotify.com/wp-content/uploads/2013/11/select-track-link.jpg" alt="select-track-link" /></li>
+<li>Paste the link or URI in the field below:<br />
+<input id="spb-uri" class="form-control" style="max-width: 100%;" type="text" value="spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" />(For example, <code>spotify:track:2TpxZ7JUBn3uw46aR7qd6V</code> or <code>http://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V</code>.)</li>
+<li><span class="clipboardInstructions">Copy the code below and paste it on your website.</span><br />
+<textarea id="spb-embed" class="form-control" readonly="readonly"></textarea></li>
+</ol>
+<form id="spb-generator" class="generator spotify-widget">
+<h4><strong>Preview</strong></h4>
+<div id="spb-box" class="iframe"><iframe id="spb-preview" style="display: block; margin: 0 auto; width: 300px; height: 380px;" src="https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="320" height="240" frameborder="0"></iframe></div>
+<h4 id="expandable"><strong>Options</strong></h4>
+<div id="expandableBox">
+<div class="options">
+<h5>Size:</h5>
+<div>
+<div id="size-large" class="size radio">
+<p><label><input checked="checked" name="spb-size" type="radio" value="large" /> Large (default)</label></p>
+<div class="form-inline"><input id="spb-large-w" class="number width form-control" style="width: 100px;" type="text" value="300" /><span style="margin: 10px;">x</span><input id="spb-large-h" class="number height form-control" style="width: 100px;" type="text" value="380" />pixels</div>
+</div>
+<div id="size-compact" class="size radio">
+<p><label><input name="spb-size" type="radio" value="compact" /> Compact (default)</label></p>
+<div class="form-inline"><input id="spb-compact-w" class="number width form-control" style="width: 100px;" type="text" value="300" /><span style="margin: 10px;">x</span><input id="spb-compact-h" class="number height form-control" style="width: 100px;" readonly="readonly" type="text" value="80" />pixels</div>
+</div>
+</div>
+</div>
+<div class="options">
+<h5>Theme*:</h5>
+<div class="radio"><label><input checked="checked" name="spb-theme" type="radio" value="black" /> Dark (default)</label></div>
+<div class="radio"><label><input name="spb-theme" type="radio" value="white" /> Light</label></div>
+</div>
+<div class="options">
+<h5>View*:</h5>
+<div class="radio"><label><input checked="checked" name="spb-view" type="radio" value="list" /> List (default)</label></div>
+<div class="radio"><label><input name="spb-view" type="radio" value="coverart" /> Cover Art</label></div>
+</div>
+<div>* Custom themes and views are only available for Spotify URIs to albums, artists or playlists; and only in the Large widget size.</div>
+</div>
+</form>
+</div>
+<a class="mwm-aal-item" name="available-parameters"></a><h2>Available parameters</h2>
+
+<table id="tablepress-15" class="tablepress table tablepress-id-15">
+<thead>
+<tr class="row-1 odd">
+	<th class="column-1">Parameter</th><th class="column-2">Value</th><th class="column-3">Large</th><th class="column-4">Compact</th><th class="column-5">Defaults</th>
+</tr>
+</thead>
+<tbody class="row-hover">
+<tr class="row-2 even">
+	<td class="column-1">uri</td><td class="column-2">Valid Spotify URI or HTTP link</td><td class="column-3">✓</td><td class="column-4">✓</td><td class="column-5"></td>
+</tr>
+<tr class="row-3 odd">
+	<td class="column-1">theme</td><td class="column-2">black, white</td><td class="column-3">✓</td><td class="column-4">x</td><td class="column-5">black</td>
+</tr>
+<tr class="row-4 even">
+	<td class="column-1">view</td><td class="column-2">list, coverart</td><td class="column-3">✓</td><td class="column-4">x</td><td class="column-5">list</td>
+</tr>
+</tbody>
+</table>
+<!-- #tablepress-15 from cache -->
+<h4>Examples</h4>
+<pre><code class="language-markup">&lt;iframe src="https://open.spotify.com/embed?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai"
+        frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&amp;view=coverart"
+        frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&amp;theme=white"
+        frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&amp;theme=white&amp;view=coverart"
+        frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;</code></pre>
+<p><strong>Note:</strong> The iframe attributes <code>allowtransparency="true"</code> and <code>frameborder="0"</code> are required for the button to render correctly.</p>
+<a class="mwm-aal-item" name="player-min-max-sizes"></a><h2>Player min/max sizes</h2>
+<p>You specify the height and width of the player by setting the height and width properties of the iframe.<br />
+
+<table id="tablepress-16" class="tablepress table tablepress-id-16">
+<thead>
+<tr class="row-1 odd">
+	<th class="column-1">Player size</th><th class="column-2">Height</th><th class="column-3">Width</th>
+</tr>
+</thead>
+<tbody class="row-hover">
+<tr class="row-2 even">
+	<td class="column-1">Minimum size</td><td class="column-2">80px</td><td class="column-3">250px</td>
+</tr>
+<tr class="row-3 odd">
+	<td class="column-1">Maximum size</td><td class="column-2">720px</td><td class="column-3">640px</td>
+</tr>
+</tbody>
+</table>
+<!-- #tablepress-16 from cache --></p>
+<h4>What kind of player is rendered?</h4>
+<p>The larger player will be rendered if the given height is 80 pixels greater than the given width. Otherwise the compact player will be rendered.</p>
+<h4>Examples</h4>
+<pre><code class="language-markup">&lt;iframe src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ"
+        width="250" height="80" frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ"
+        width="300" height="380" frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;</code></pre>
+<a class="mwm-aal-item" name="frequently-asked-questions-about-spotify-play-button"></a><h2 id="faq">Frequently Asked Questions about Spotify Play Button</h2>
+<h3 id="using-it-on-other-sites">Adding Spotify Play Buttons on other sites</h3>
+<h4>Can I add a play button on my Facebook, Twitter, WordPress, Tumblr&#8230; page?</h4>
+<p>You can find instructions on how to add our widgets to popular sites on <a href="/technologies/widgets/adding-widgets-to-websites">Adding widgets to websites</a>.</p>
+<h3 id="controlling-through-js">Controlling through Javascript</h3>
+<h4>Is there a JS SDK for the player? Can I send play/pause commands using Javascript?</h4>
+<p>The Play button doesn&#8217;t have any observable events, nor does it listen for any. Playback can only be triggered by the user clicking the button.<br />
+We&#8217;re certainly looking at creating a JS SDK; it&#8217;s a bigger project and right now we&#8217;re focusing on quickly releasing APIs to open up the general Spotify ecosystem (catalogue, playlists, etc).<br />
+None of these requests are falling on deaf ears, and we&#8217;re working hard to bring out as much functionality as we can.</p>
+<h3 id="customizing-design">Customizing the design</h3>
+<h4>Is there any way of customizing the design of the Spotify Play Button? E.g. color, typography…</h4>
+<p>Currently there is no way no change the design of the Spotify Play Button.</p>
+<h3>Autoplay</h3>
+<h4>Is there an auto-play option on the widget?</h4>
+<p>No, there is not. The user has to start playback by clicking on the Play Button, which will open the web player or desktop client to start the playback.</p>
+<h3 id="embedding-native">Embedding it in a hybrid mobile app</h3>
+<h4>Is there a way to have this play button on the native iOS or Android app? maybe in a web view?</h4>
+<p>A Play Button is effectively only a &#8220;remote control&#8221; for the Spotify web client or the desktop client. If you want to embed audio playback in your mobile app, use the <a href="/technologies/spotify-ios-sdk/">iOS</a> or <a href="https://developer.spotify.com/technologies/spotify-android-sdk/">Android SDKs</a> instead.</p>
+<h3 id="playlists">Playlists</h3>
+<h4>The playlist rendered is not updated</h4>
+<p>Any changes you make to a playlist will be synced to your Spotify Play Button within minutes (max 10 mins).</p>
+<h4>The widget doesn&#8217;t render all the tracks within a playlist</h4>
+<p>We only show the first 200 tracks in any playlist.<br />
+A user&#8217;s playlist of starred tracks is currently not available.</p>
+<h4>I can&#8217;t find out how to sort the tracks within a playlist</h4>
+<p>The displayed order is the one in which they are arranged in the playlist for regular playlists, and the order in which they were added in the case of a user&#8217;s starred playlist. If you want to change the order in your regular playlists, open (for example) the Spotify Desktop Player and drag-and-drop your tracks into the order you require. Alternatively, you can programmatically reorder tracks through our <a href="/web-api/">Web API</a>. See the <a href="/web-api/reorder-playlists-tracks/">endpoint for reordering tracks in a playlist</a>.</p>
+<h4>Can I enable shuffle mode?</h4>
+<p>At the moment, there is no way to shuffle the playlist&#8217;s contents. Note that users can select &#8220;Shuffle&#8221; in their player after pressing the Play button.</p>
+<h4>I can&#8217;t see local tracks in the Play Button</h4>
+<p>Local files in playlists are not shown in the Play Button widget.</p>
+<h3>Other</h3>
+<h4>I can&#8217;t use the Play Button&#8217;s UI to change the position of the currently playing track</h4>
+<p>Seeking is not supported by the Play Button.</p>
+<a class="mwm-aal-item" name="terms-of-use"></a><h2 id="terms-of-use">Terms of Use</h2>
+<p>To protect users, content providers, the Spotify trademarks, our software and the Spotify service we require you to comply with our <a href="/technologies/widgets/terms-of-use/">Spotify Widget Terms of Use</a>.</p>
+                </section> <!-- end article section -->
+              </article> <!-- end article -->
+            </div>
+                                      </div>
+      <div class="row">
+  <div class="col-md-12 clearfix resources-section" style="
+    background-color: #eaf4fa;
+    margin-bottom: 20px;">
+  <h3>Additional Resources</h3>
+    <p><a href="http://stackoverflow.com/questions/tagged/spotify">Get programming help on Stack Overflow (tag: Spotify)</a></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 clearfix comment-section">
+    <h3>Comments</h3>
+    <p id="comments-amount">There are <a href="https://developer.spotify.com/technologies/widgets/spotify-play-button/#disqus_thread" class="disqus-comment-count" id="link-comment"></a>.
+    <button class="btn btn-primary btn-sm" id="btn-comment">Show comments</button>
+    <div id="comments-box" style="display:none">
+        <p>Do you have any suggestion to improve the contents of this page? Please, send us feedback using the form below.</p>
+        <div id="disqus_thread"></div>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'spotify-developer';
+        (function() {
+
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+
+            var showComments = function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                document.getElementById('btn-comment').style.display = 'none';
+                document.getElementById('comments-amount').style.display = 'none';
+                document.getElementById('comments-box').style.display = 'block';
+            };
+
+            document.getElementById('btn-comment').addEventListener('click', function(e) {
+                showComments();
+            });
+            document.getElementById('link-comment').addEventListener('click', showComments);
+
+        })();
+    </script>
+  </div>
+</div>
+    </div>
+  </div>
+  
+
+<div id="push"></div>
+
+      </div><!-- end #wrap -->
+      <footer class="footer footer-default" role="contentinfo">
+        <div class="container">
+          <nav class="row">
+            <div class="col-xs-12 col-md-2">
+              <div class="footer-logo">
+                <a href="#">Spotify</a>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <h3 class="nav-title">Company</h3>
+              <ul class="nav">
+                <li><a href="https://www.spotify.com/about-us/contact/">About</a></li>
+                <li><a href="https://www.spotify.com/us/jobs/">Jobs</a></li>
+                <li><a href="http://press.spotify.com">Press</a></li>
+                <li><a href="https://www.spotify.com/blog/">News</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-social">
+              <ul class="nav">
+                <li>
+                  <a href="https://twitter.com/SpotifyPlatform">
+                    <svg class="social-icon" id="twitter-icon" viewBox="0 0 448 448">
+                      <path d="m27 347.75q8.75 1 19.5 1 56.25 0 100.25-34.5-26.25-0.5-47-16.125t-28.5-39.875q8.25 1.25 15.25 1.25 10.75 0 21.25-2.75-28-5.75-46.375-27.875t-18.375-51.375v-1q17 9.5 36.5 10.25-16.5-11-26.25-28.75t-9.75-38.5q0-22 11-40.75 30.25 37.25 73.625 59.625t92.875 24.875q-2-9.5-2-18.5 0-33.5 23.625-57.125t57.125-23.625q35 0 59 25.5 27.25-5.25 51.25-19.5-9.25 28.75-35.5 44.5 23.25-2.5 46.5-12.5-16.75 24.5-40.5 41.75 0.25 3.5 0.25 10.5 0 32.5-9.5 64.875t-28.875 62.125-46.125 52.625-64.5 36.5-80.75 13.625q-67.75 0-124-36.25z"
+                      />
+                    </svg>
+                    <span class="social-text">Twitter</span></a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/spotifyplatform">
+                    <svg class="social-icon" id="facebook-icon" viewBox="0 0 448 448">
+                      <path d="m119.75 242.25v-74h63.75v-54.5q0-46.5 26-72.125t69.25-25.625q36.75 0 57 3v66h-39.25q-21.5 0-29 9t-7.5 27v47.25h73.25l-9.75 74h-63.5v189.75h-76.5v-189.75h-63.75z" />
+                    </svg>
+                    <span class="social-text">Facebook</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <nav class="row row-small">
+            <div class="col-xs-7 col-md-4 col-md-offset-2">
+              <ul class="nav nav-small">
+                <li>
+                  <a href="https://www.spotify.com/legal/">Legal</a>
+                </li>
+                <li>
+                  <a href="https://www.spotify.com/legal/privacy-policy/#cookies">Cookies</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-5 col-md-6 text-right">
+              <small class="copyright">&copy; 2016 Spotify AB</small>
+            </div>
+          </nav>
+        </div>
+      </footer>
+    <script type='text/javascript' src='https://developer.spotify.com/wp-content/themes/sp-wp-theme/library/js/widgets.min.js?40fd278b5614a3d77ae17c873084c91e'></script>
+<script type='text/javascript' src='https://developer.spotify.com/wp-content/themes/sp-wp-theme/library/js/prism.min.js?0f03dccaa28fc44e82e1e6b88ee258db' async='async'></script>
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>window.jQuery || document.write('<script src="https://developer.spotify.com/wp-content/themes/sp-wp-theme/library/js/libs/jquery-1.11.1.min.js"><\/script>')</script>
+<script type='text/javascript' src='https://developer.spotify.com/wp-content/themes/sp-wp-theme/library/js/main.min.js?64fd0878eca44ec16b9b8ec5ef83425d'></script>
+<script type='text/javascript' src='https://developer.spotify.com/wp-includes/js/wp-embed.min.js?ver=4.7.6'></script>
+  </body>
+
+</html>

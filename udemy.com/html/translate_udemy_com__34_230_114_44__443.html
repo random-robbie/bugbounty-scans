@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en"
+      prefix="og: http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Localization Management Platform: collaborative internationalization and easy to use translation system - Crowdin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crowdin is a localization project management platfom and translation tool for developers and website owners. We make it easy to work with content being translated using our collaboration platform." />
+    <meta name="keywords" content="Crowdin, localization, management, platform, collaborative, internationalization, translation tool" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Crowdin | Localization Management Platform" />
+    <meta property="og:description" content="Collaborative internationalization and easy to use translation system" />
+    <meta property="og:url" content="https://crowdin.com" />
+    <meta property="og:site_name" content="Crowdin" />
+    <meta property="og:image" content="https://d1ztvzf22lmr1j.cloudfront.net/images/content/crowdin-share.png" />
+    <meta property="og:image" content="/mstile-144x144.png" />
+    <meta property="og:image:type" content="image/png">
+
+    <meta property="fb:admins" content="1322494837" />
+    <meta property="fb:page_id" content="167608123282057" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Crowdin | Localization Management Platform" />
+    <meta name="twitter:image" content="https://d1ztvzf22lmr1j.cloudfront.net/images/content/crowdin-share.png" />
+    <meta name="twitter:url" content="https://crowdin.com" />
+    <meta name="twitter:description" content="Collaborative internationalization and easy to use translation system" />
+    <meta name="twitter:site" content="@crowdin" />
+
+    <link rel="alternate" type="application/rss+xml" title="Crowdin, recent news" href="http://feeds.feedburner.com/crowdin-blog"/>
+    <link rel="canonical" href="https://crowdin.com/" />
+    <link href="https://d1ztvzf22lmr1j.cloudfront.net/images/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+
+    <script type="text/javascript">var CDN = "https://d1ztvzf22lmr1j.cloudfront.net", CROWDIN_VERSION = "8", WEBSOCKETS_HOST = "ws-lb.crowdin.com", DESKTOP_VIEW = 1, TABLET_VIEW = 0, MOBILE_VIEW = 0;</script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/src/core.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/src/browser.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/src/logger.js?1507193400" crossorigin="anonymous"></script>
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<link href="https://crowdin.com/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="128x128" href="/apple-touch-icon-128x128-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="alternate" hreflang="en" href="https://crowdin.com/" />
+<link rel="alternate" hreflang="ar" href="https://ar.crowdin.com/" />
+<link rel="alternate" hreflang="pt-PT" href="https://pt.crowdin.com/" />
+<link rel="alternate" hreflang="pt-BR" href="https://br.crowdin.com/" />
+<link rel="alternate" hreflang="cs" href="https://cs.crowdin.com/" />
+<link rel="alternate" hreflang="de" href="https://de.crowdin.com/" />
+<link rel="alternate" hreflang="es" href="https://es.crowdin.com/" />
+<link rel="alternate" hreflang="fr" href="https://fr.crowdin.com/" />
+<link rel="alternate" hreflang="it" href="https://it.crowdin.com/" />
+<link rel="alternate" hreflang="pl" href="https://pl.crowdin.com/" />
+<link rel="alternate" hreflang="sk" href="https://sk.crowdin.com/" />
+<link rel="alternate" hreflang="ru" href="https://ru.crowdin.com/" />
+<link rel="alternate" hreflang="uk" href="https://uk.crowdin.com/" />
+<link rel="alternate" hreflang="ja" href="https://ja.crowdin.com/" />
+<link rel="alternate" hreflang="be" href="https://be.crowdin.com/" />
+<link rel="search" href="//crowdin.com/xml/osd.xml" title="Search projects on Crowdin" type="application/opensearchdescription+xml" />
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<script type="text/javascript">
+        window.onerror = function(msg, url, line, col, error_obj) {
+          ga('send', 'event', 'JS Error', msg, navigator.userAgent + ' -> ' + url + ' : ' + line);
+          var message = '[JS] ' + msg + '\nSource: ' + url + ' at line:' + line + ', col:' + col;
+          crowdin.log.error(message, error_obj);
+          return true;
+        };
+      </script>
+<script>
+      (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,"script","https://www.google-analytics.com/analytics.js","ga");
+
+      ga("create", "UA-8379793-1", {
+        "cookieDomain": "crowdin.com"
+      });
+
+      
+
+      ga("send", "pageview");
+
+    </script>
+
+        <script>
+          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+          n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+          document,"script","https://connect.facebook.net/en_US/fbevents.js");
+
+          fbq("init", "862655787218711");
+          fbq("track", "PageView");
+
+        </script>
+        <noscript>
+          <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=862655787218711&ev=PageView&noscript=1"/>
+        </noscript>
+      
+
+        <script>
+        !function(q,e,v,n,t,s){if(q.qp) return; n=q.qp=function()
+        {n.qp?n.qp.apply(n,arguments):n.queue.push(arguments);}
+        ; n.queue=[];t=document.createElement(e);t.async=!0;t.src=v; s=document.getElementsByTagName(e)[0];
+
+        if(t.readyState) {
+          t.onreadystatechange = function() {
+            if(t.readyState == "loaded" || t.readyState == "complete") {
+              t.onreadystatechange = null;
+              setNotEnumerable(Array.prototype, "includes");
+            }
+          }
+        } else {
+          t.onload = function() {setNotEnumerable(Array.prototype, "includes");}
+        }
+
+        s.parentNode.insertBefore(t,s);
+
+        function setNotEnumerable(obj, prop) {
+          if(Array.prototype.propertyIsEnumerable(prop)) {
+            Object.defineProperty(Array.prototype, prop, {value: Array.prototype[prop], enumerable: false});
+          }
+        }
+        }(window, 'script', 'https://a.quora.com/qevents.js');
+
+        qp('init', '2ae5c3c978484335b09039955beb0470');
+        qp('track', 'ViewContent');
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/2ae5c3c978484335b09039955beb0470/pixel?tag=ViewContent&noscript=1"/></noscript>
+      
+<script type="text/javascript" src="/i18n/cache?1507193404"></script>
+<script type="text/javascript">var USER_IS_LOGGED_IN = 0;</script>
+<script type="text/javascript">qp('track', 'Generic');</script>
+<link href="https://d1ztvzf22lmr1j.cloudfront.net/css/bootstrap-3.css?1507193400" media="screen" rel="stylesheet" type="text/css"/>
+<link href="https://d1ztvzf22lmr1j.cloudfront.net/css/crowdin-homepage.css?1507193400" media="screen" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/jquery-new.min.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/bootstrap-3.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/jquery.cookie.min.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/front/content-page.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/icu/Intl.complete.min.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/icu/messageformatLight.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/crowdin-localizer.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/src/common_functions.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/magic/content-code.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/magic/content-focus.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/mailcheck.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/src/class.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/src/ajax.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/crowdin-slider.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/front/primary-form.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/jquery-validation/jquery.validate.min.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/jquery-validation/jquery.validate.i18n.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/jquery-validation/jquery.validate.setup.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/lib/jquery-validation/additional-methods.min.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://d1ztvzf22lmr1j.cloudfront.net/js/front/main.js?1507193400" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/tracker/member_status"></script>
+<script type="text/javascript">CrowdinLocalizer.setLocale("en_US");</script>
+
+
+    <style type="text/css">
+      .main-page > iframe,
+      .main-page iframe[name="google_conversion_frame"] {
+        display: none;
+        visibility: hidden;
+        height: 0;
+      }
+    </style>
+  </head>
+
+  <body class="main-page">
+    <div itemscope itemtype="http://schema.org/Organization" class="hidden">
+      <span itemprop="name">Crowdin</span>
+      <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <span itemprop="streetAddress">Shashkevycha, 3</span>
+        <span itemprop="addressLocality">Ternopil, Ukraine</span>
+        <span itemprop="postalCode">46008</span>
+      </span>
+      <img itemprop="logo" width="223" height="66" src="https://d1ztvzf22lmr1j.cloudfront.net/images/logo.png" />
+      <span itemprop="url">https://crowdin.com</span>
+    </div>
+    
+<div id="header" class="navbar navbar-content navbar-fixed-top no-margin" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="toggle-header-menu visible-xs" >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </div>
+
+      <span itemscope itemtype="http://schema.org/Organization">
+        <span itemprop="name" class="hidden">Crowdin, Inc.</span>
+        <a itemprop="url" class="navbar-logo" href="https://crowdin.com" title="Crowdin &mdash; Localization Management Platform">
+          <svg class="visible-md visible-lg default-logo" width="223" height="66">
+            <image  class="visible-md visible-lg"  xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo.svg" itemprop="logo" src="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo.png" width="223" height="66" alt="Crowdin" />
+          </svg>
+          <svg class="white-logo visible-md visible-lg" width="223" height="66">
+            <image  class="visible-md visible-lg"  xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-white.svg" itemprop="logo" src="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-white.png" width="223" height="66" alt="Crowdin" />
+          </svg>
+          <svg class="hidden-md hidden-lg default-logo"  width="173" height="32">
+            <image class="hidden-md hidden-lg"   xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-small.svg" src="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-small.png" width="173" height="32" alt="Crowdin" />
+          </svg>
+          <svg class="hidden-md hidden-lg white-logo"  width="173" height="32">
+            <image class="hidden-md hidden-lg"   xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-small-white.svg" src="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-small-white.png" width="173" height="32" alt="Crowdin" />
+          </svg>
+        </a>
+      </span>
+    </div>
+    <div class="header-menu clearfix" id="header-menu">
+      <div class="holder">
+        <form class="navbar-form navbar-right" style="border-top: none; border-bottom: none;">
+                      <div class="form-group">
+                <a href="#" data-key="TG9nIGlu" data-type="href" class="btn  btn-default">Log in</a>
+                <a href="#" data-key="U3RhcnQgRnJlZSBUcmlhbCBOb3c=" data-type="href" class="btn s-margin-left btn-primary" >Sign up</a>
+            </div>
+                  </form>
+        <ul class="nav navbar-nav navbar-left main-menu">
+                    <li class="">
+            <a title="Tour" href="https://crowdin.com/page/tour"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Tour<span class="caret"></span></a>
+
+              <ul id="tour-dropdown" class="dropdown-menu" aria-labelledby="tour-dropdown">
+              <li><a class="crowdin-tour-tab" href="/page/tour#tab_managers">Management &amp; organization</a></li>
+              <li><a class="crowdin-tour-tab" href="/page/tour#tab_developers">Localization for developers</a></li>
+              <li><a class="crowdin-tour-tab" href="/page/tour#tab_translators">Translation &amp; proofreading</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a title="Demo" href="https://crowdin.com/page/in-action">Demo</a>
+          </li>
+          <li class="">
+              <a title="Pricing" href="https://crowdin.com/pricing#monthly">Pricing</a>
+          </li>
+          <li class="hidden-sm ">
+            <a title="Customers" href="https://crowdin.com/page/customer-testimonials">Customers</a>
+          </li>
+          <li class="">
+            <a title="Contact" href="https://crowdin.com/contacts">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <div id="crowdin-header" class="jumbotron crowdin-hero-unit">
+      <div class="main-bg"><div class="sprite-header"></div></div>
+      <div class="container clearfix">
+        <div class="row">
+          <div class="col-md-6 text-center-xs text-center-sm">
+            <h1 class="text-left text-center-xs text-center-sm main-header">
+              <span class="before">
+                The most powerful              </span>
+              Localization Management Platform              <span class="after">
+                for mobile, web & desktop apps, games & help desks              </span>
+            </h1>
+            <form class="holder  primary-form" id="main_top_form" method="POST" action="/join">
+                              <div class="form-group input-group s-margin-bottom">
+                  <input type="email" class="form-control email-validation" id="join_email" value="" name="email" placeholder="Your Email">
+                  <div class="input-group-btn">
+                    <button type="submit"  class="btn btn-lg btn-primary pull-right">Start a Free Trial</button>
+                  </div>
+                </div>
+                          </form>
+          </div>
+        </div>
+        <div class="mouse-container hidden-xs">
+          <div class="mouse-icon"></div>
+          <span class="s-margin-left">Scroll to see more</span>
+        </div>
+      </div>
+    </div>
+    <div class="section customers">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 margin-bottom text-center-xs">
+            <div class="clearfix">
+              <h2 class="text-uppercase margin-bottom">More than 57K<br>localization projects</h2>
+              <p>Top brands around the world rely on Crowdin to organize Continuous Project Localization,
+            which plays well with development as well as help save time and resources on translations.</p>
+              <p class="margin-bottom">They can also be handy with utilizing custom translation Workflows.</p>
+              <a href="/page/customer-testimonials" class="btn btn-default">See our customers</a>
+            </div>
+          </div>
+          <div class="col-md-7 col-md-offset-1">
+            <div class="logos-customers">
+              <div class="table-row">
+                <div class="main">
+                  <img src="https://d1ztvzf22lmr1j.cloudfront.net/images/main/customers.png" class="img-responsive" alt="" />
+                </div>
+                <div class="right hidden-sm hidden-md hidden-xs">
+                  <img src="https://d1ztvzf22lmr1j.cloudfront.net/images/main/customers-right.png" class="img-responsive" alt="" />
+                </div>
+              </div>
+              <div class="table-row visible-md visible-sm visible-xs">
+                <div class="bottom">
+                  <img src="https://d1ztvzf22lmr1j.cloudfront.net/images/main/customers-bottom.png" class="img-responsive" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section main-mission">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h2 class="text-center no-margin-top b-margin-bottom">Translate and manage the process better, faster, and smarter</h2>
+          </div>
+        </div>
+        <div class="row sm-flex">
+          <div class="flex-order-2 text-center-xs col-md-5 integrations">
+            <h3>Localize any type of content</h3>
+            <p>Simplify and Accelerate Translation of mobile & web apps, games & help desks.</p>
+            <h4 class="margin-top">Integrate with a favorite technology and system</h4>
+            <p class="margin-bottom">Speed up the development and project localization synchronizing source and translation files with your repository and Crowdin project</p>
+            <div class="clearfix">
+              <ul class="list-inline">
+                <li>
+                  <a class="github" href="https://support.crowdin.com/github-integration/" target="_blank"></a>
+                </li>
+                <li>
+                  <a class="gitlab" href="https://support.crowdin.com/gitlab-integration/" target="_blank"></a>
+                </li>
+                <li>
+                  <a class="bitbucket" href="https://support.crowdin.com/bitbucket-integration/" target="_blank"></a>
+                </li>
+                <li>
+                  <a class="desk" href="https://support.crowdin.com/desk-com-integration/" target="_blank"></a>
+                </li>
+                <li>
+                  <div class="freshdesk"></div>
+                </li>
+                <li>
+                  <div class="zendesk"></div>
+                </li>
+                <li>
+                  <a class="wordpress" href="https://support.crowdin.com/wordpress-integration/" target="_blank"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex-order-1 text-center-xs col-md-5 col-md-offset-1">
+            <div class="scheme hexagon">
+              <div class="item desktop">
+                <div class="content text-center">
+                  <div class="scheme-sprite sprite-desktop"></div>
+                  <span class="label label-default">Desktop software</span>
+                </div>
+              </div>
+              <div class="item websites rotate-1">
+                <div class="content text-center">
+                  <div class="scheme-sprite sprite-web"></div>
+                  <span class="label label-default">Web sites & apps</span>
+                </div>
+              </div>
+              <div class="item docs rotate-2">
+                <div class="content text-center">
+                  <div class="scheme-sprite sprite-docs"></div>
+                  <span class="label label-default">Documents & assets</span>
+                </div>
+              </div>
+              <div class="item games rotate-3">
+                <div class="content text-center">
+                  <div class="scheme-sprite sprite-games"></div>
+                  <span class="label label-default">Video games</span>
+                </div>
+              </div>
+              <div class="item medias rotate-4">
+                <div class="content text-center">
+                  <div class="scheme-sprite sprite-media"></div>
+                  <span class="label label-default">Video content & subtitles</span>
+                </div>
+              </div>
+              <div class="item mobile rotate-5">
+                <div class="content text-center">
+                  <div class="scheme-sprite sprite-mobile"></div>
+                  <span class="label label-default">Mobile apps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row sm-flex">
+          <div class="col-md-5 flex-order-2 localization-strategies-holder text-center">
+            <div class="scheme localization-strategies">
+              <div class="scheme-sprite sprite-localization-strategies"></div>
+              <span class="label label-default ot">In-house translators</span>
+              <span class="label label-default ta">Translation agencies</span>
+              <span class="label label-default ct">Crowdsource translators</span>
+            </div>
+          </div>
+          <div class="col-md-6 flex-order-1 col-md-offset-1 strategies text-center-xs">
+            <h3>Choose your own localization strategy</h3>
+            <p>Organize in-house translators, proofreaders and project managers in a team. Manage localization with no hassle.</p>
+            <p>Order Professional Translations in certified Crowdin vendors. No back and forth files sendings, easy payments and updates.</p>
+            <p>Ask your end users to help with localization while having fun and hanging with each other in the platform. Crowdin will do the rest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section testimonials" id="main-testimonials">
+      <div class="container">
+        <div class="testimonial">
+          <div class="row">
+            <div class="col-sm-2 text-left testimonial-arrow hidden-xs">
+            </div>
+            <div class="col-sm-8 ">
+              <div class="content">
+                <div class="testimonial-message text-center"  itemscope itemtype="http://data-vocabulary.org/Review" >
+                  <span class="hidden" itemprop="itemreviewed">crowdin.com</span>
+                  <div id="testimonial-author-logo">
+                    <img class="testimonial-logo" src="https://d1ztvzf22lmr1j.cloudfront.net/images/main/musixmatch.png" alt="Crowdin customers">
+                  </div>
+                  <div class="testimonial-body">
+                    <span class="hidden" itemprop="rating">5</span>
+                    <p  itemprop="description">
+                      I love Crowdin, it has driven out translations for our applications quickly thanks to 600 passionate translators. Thank you for helping us translating MusiXmatch in 42 languages, you are awesome!                    </p>
+                  </div>
+                </div>
+                <div class="photo-holder text-center clearfix">
+                  <div id="testimonial-author-photo">
+                    <img class="media-object" src="https://d1ztvzf22lmr1j.cloudfront.net/images/main/massimo.png" alt="Massimo Ciociola, MusiXmatch" class="media-object">
+                  </div>
+                  <div class="author">
+                    <div class="margin-top"><span class="testimonial-author-name text-uppercase" itemprop="reviewer">Massimo Ciociola</span></div>
+                    <div class="text-small testimonial-author-description">Founder & CEO of <a target="_blank" href="http://www.GetYourGuide.com">MusiXmatch</a></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2 text-right testimonial-arrow hidden-xs">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="testimonial-switcher"></div>
+    </div>
+    <div class="section automatization">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="no-margin-top b-margin-bottom">Make localization part of your development</h2>
+          <div class=" margin-top scheme b-margin-bottom">
+            <div class="row">
+              <div class="holder col-sm-1">
+                <div class="item develop">
+                  <div class="content text-center">
+                    <span class="scheme-icon scheme-develop"></span>
+                    <div class="label-holder">
+                      <span class="label label-default">Develop</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item release">
+                  <div class="content text-center">
+                    <span class="scheme-icon scheme-release"></span>
+                    <div class="label-holder">
+                      <span class="label label-default">Release App</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 "></div>
+              <div class="holder col-sm-1 ">
+                <div class="item  collect">
+                  <div class="content text-center">
+                    <span class="scheme-icon scheme-collect"></span>
+                    <div class="label-holder">
+                      <span class="label label-default">Collect translatable content</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item build">
+                  <div class="content text-center ">
+                    <span class="scheme-icon scheme-build"></span>
+                    <div class="label-holder">
+                      <span class="label label-default">Build</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3"></div>
+              <div class="holder col-sm-1 ">
+                <div class="item  translation">
+                  <div class="content text-center">
+                    <span class="scheme-icon scheme-crowdin"></span>
+                    <div class="label-holder">
+                      <span class="label label-default">Translation in Crowdin</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item  commit">
+                  <div class="content text-center">
+                    <span class="scheme-icon scheme-svn"></span>
+                    <div class="label-holder">
+                      <span class="label label-default">Commit to CVS (SVN, Git...)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="background-scheme"></div>
+          </div>
+          <div style="padding-bottom:30px;"></div>
+          <p class="text-center b-margin-bottom">
+            Crowdin provides powerful tools to manage localization for projects of Any type and Any size.<br>
+          With Localization Management Platform you get: Continuous Localization, Accountability and Reporting, Simple Workflow management.          </p>
+          <div class="video-container margin-bottom clearfix">
+                          <div class="video-col left">
+                <div>
+                  <a href="#video-modal" class="tour-sprite video-link play-button" data-toggle="modal"  title="Watch a Crowdin Features Video">Play Video</a>
+                </div>
+              </div>
+                        <div class="video-col right">
+              <h3>Automation is a beautiful thing!</h3>
+              <p >So you are agile. You use project management tool to manage tasks, GIT to manage source code.
+              If you work on multilingual project and do not use localization management tool, value of the mentioned tools is squandered.              <p class="margin-bottom">Here at Crowdin we observed tens of thousands of localization projects. We do our best to give you best practice and processes along with the technology.</p>
+              <div class="author-holder">
+                <img class="pull-left" src="https://d1ztvzf22lmr1j.cloudfront.net/images/main/dies.png">
+                <span class="text-uppercase">Sergey Dmytryshyn</span>
+                <span class="text-small">CEO of Crowdin</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 text-left text-center-xs margin-bottom">
+              <h5>Advanced Restful API</h5>
+              <p class="margin-bottom">Automate routine tasks. Let your developers to access Crowdin by using defined HTTPS requests and structured XML or JSON responses. Send new content for translation right after when it appears.</p>
+              <a rel="nofollow" href="https://support.crowdin.com/api/api-integration-setup/" class="btn btn-default">Learn more</a>
+            </div>
+            <div class="col-sm-6 text-left text-center-xs">
+              <h5>Command-Line Integration Tool</h5>
+              <p class="margin-bottom">Integrate easier Crowdin with your build or CI server. Connect Crowdin CLI directly to your version control system and never deal with localization files manually.</p>
+              <a rel="nofollow" href="https://support.crowdin.com/cli-tool/" class="btn btn-default">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+<div class="section bottom-form">
+    <div class="container">
+      <div class="form-holder text-center">
+        <form class="holder  primary-form" id="main_bottom_form" method="post" action="/join">
+                    <h3>Let's get started!</h3>
+          <p class="s-margin-bottom">Expand to new markets with your multilingual product</p>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-xlg-4 col-xlg-offset-4 col-md-6 col-md-offset-3">
+              <div class="form-group input-group s-margin-bottom">
+                <input type="email" class="form-control email-validation" value="" id="bottom_join_email" name="email" placeholder="Your Email">
+                <span class="text-danger text-small help-block" id="bottom_join_email_message"></span>
+                <div class="input-group-btn">
+                  <button type="submit"  class="btn btn-lg btn-primary pull-right">Start a Free Trial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+                  </form>
+      </div>
+    </div>
+  </div>    
+<div id="footer">
+  <div class="container">
+    <div id="footer-links" class="footer-links b-margin-bottom">
+      <div class="row">
+        <div class="col-md-2 col-xs-6 text-center text-left-xs text-left-sm">
+          <img class="s-margin-bottom footer-logo" src="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-footer.png">
+          <p class="crowdin-copyright small-text s-margin-bottom">
+            TM + &copy; 2017 <a href="/" title="Localization Management Platform - Crowdin">Crowdin, Inc.</a>
+          </p>
+            <ul class="list-inline footer-soc-icons">
+            <li>
+              <a title="Follow us on Twitter" href="http://twitter.com/crowdin" target="_blank" rel="nofollow">
+                <svg width="24" height="24">
+                  <image xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/soc/twtr_mono.svg" src="https://d1ztvzf22lmr1j.cloudfront.net/images/soc/twtr_mono.png" width="24" height="24"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a title="Become a fan on Facebook" href="http://facebook.com/crowdin" target="_blank" rel="nofollow">
+                <svg width="24" height="24">
+                  <image xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/soc/fcbk_mono.svg" src="https://d1ztvzf22lmr1j.cloudfront.net/images/soc/fcbk_mono.png" width="24" height="24"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a title="Follow us on Google Plus" href="https://plus.google.com/+CrowdinNet" target="_blank" rel="publisher">
+                <svg width="24" height="24">
+                  <image xlink:href="https://d1ztvzf22lmr1j.cloudfront.net/images/soc/ggl_mono.svg" src="https://d1ztvzf22lmr1j.cloudfront.net/images/soc/ggl_mono.png" width="24" height="24"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <strong>Product</strong>
+          <ul class="list-unstyled">
+            <li><a href="/projects">Explore</a></li>
+            <li><a rel="nofollow" href="https://support.crowdin.com/supported-formats">Supported Formats</a></li>
+            <li><a href="/page/in-context-localization">In-context Localization</a></li>
+            <li><a rel="nofollow" href="https://support.crowdin.com/api/api-integration-setup/">API</a></li>
+            <li><a rel="nofollow" href="https://support.crowdin.com/cli-tool/">Integration Tool</a></li>
+            <li><a href="/enterprise">Crowdin Enterprise</a></li>
+          </ul>
+        </div>
+        <div class="visible-xs visible-sm div-clear"></div>
+
+        <div class="col-md-2 col-xs-6">
+          <strong>Learn More</strong>
+          <ul class="list-unstyled">
+            <li><a class="tour-link" href="/page/tour#tab_managers">Benefits for Manager</a></li>
+            <li><a class="tour-link" href="/page/tour#tab_developers">Benefits for Developer</a></li>
+            <li><a class="tour-link" href="/page/tour#tab_translators">Benefits for Translator</a></li>
+            <li><a href="/page/in-action">View Demo</a></li>
+            <li><a title="News and improvements review" href="http://blog.crowdin.com/" target="_blank" rel="nofollow">Blog</a></li>
+            <li><a href="/page/media-kit">Media Kit</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2  col-xs-6">
+          <strong>Solutions</strong>
+            <ul class="list-unstyled">
+              <li><a title="Android Apps Localization Service" href="/page/android-localization">Android</a>,
+                <a title="iOS (iPhone/iPad) Apps Localization Service" href="/page/ios-localization">iOS</a>,
+                <a title=".NET .Resx Localization Service" href="/page/dot-net-resx-localization">.NET App Localization</a>
+              </li>
+              <li><a title="Localization With GNU Gettext" href="/page/gettext-localization-editor">Localization With GNU Gettext</a></li>
+              <li>
+                <a title="Games Localization" href="/page/games-localization-service">Games</a>,
+                <a title="Website Localization" href="/page/website-localization-service">Websites</a> and                <a title="Software Localization" href="/page/software-localization-service">Software Localization</a>
+              </li>
+              <li>Crowdin for <a title="Enterprise" href="/enterprise">Translation Agencies</a></li>
+            </ul>
+        </div>
+        <div class="visible-xs visible-sm div-clear"></div>
+        <div class="col-md-2 col-xs-6">
+          <strong>Company</strong>
+          <ul class="list-unstyled">
+            <li><a href="/page/about-crowdin">About Us</a></li>
+            <li><a href="/page/customer-testimonials/">Our Customers</a></li>
+            <li><a href="/page/customer-testimonials#case-studies">Customers Case Studies</a></li>
+                      </ul>
+        </div>
+
+        <div class="col-md-2  col-xs-6">
+          <strong>Support</strong>
+          <ul class="list-unstyled">
+            <li><a href="/contacts">Contact Us</a></li>
+            <li><a rel="nofollow" href="https://support.crowdin.com">Help Center</a></li>
+            <li><a rel="nofollow" target="_blank" href="http://crowdin.uservoice.com/forums/31787-collaborative-translation-tool/filters/hot">Feature Request</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p class="crowdin-copyright no-margin">
+          <a href="/" title="Localization Management Platform - Crowdin">Localization Management Platform. </a>&nbsp;All rights reserved.        </p>
+        <p class="no-margin">
+          <a href="/page/privacy-policy" target="_blank" title="Your privacy matters">Privacy Policy</a> &middot;
+          <a href="/page/security" target="_blank">Security</a> &middot;
+          <a href="/page/terms" target="_blank" title="Terms of Use">Terms and Conditions</a> &middot;
+          <a href="/sitemap" target="_blank" title="Crowdin Sitemap"><i class="static-icon static-icon-sitemap"></i></a>
+        </p>
+      </div>
+      <div class="visible-xs visible-sm div-clear"></div>
+
+    </div>
+  </div>
+</div>
+
+          <div id="video-modal" class="modal modal-video fade">
+        <div class="modal-dialog">
+          <div class="dialog-cover">
+            <img class="s-margin-bottom" src="https://d1ztvzf22lmr1j.cloudfront.net/images/crowdin-logo-footer.png">
+          </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button id="closebt-container" type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <svg width="30" height="30">
+                <image xlink:href="/images/content/customers/close.svg" src="close.png" width="30" height="30" />
+                </svg>
+              </button>
+            </div>
+            <div class="modal-body" id="modal-container">
+              <div id="crowdin-video"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script type="text/javascript">
+      if (DESKTOP_VIEW) {
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('crowdin-video', {
+            height: '390',
+            width: '640',
+            videoId: 'F69lAvAKxE4',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+          });
+        }
+
+        function onPlayerReady(event) {
+          event.target.stopVideo();
+        }
+
+        var done = false;
+
+        function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.PLAYING) {
+            $("#video-modal").find('.dialog-cover').fadeOut('slow');
+          }
+
+          if (event.data == YT.PlayerState.ENDED) {
+            done = true;
+            $("#video-modal").modal('hide');
+          }
+        }
+
+        function stopVideo() {
+          player.stopVideo();
+        }
+
+        function playVideo() {
+          player.playVideo();
+        }
+      }
+
+
+      $(function () {
+        if (!window.requestAnimationFrame) {
+          return;
+        }
+
+        var header = $("#crowdin-header .sprite-header"),
+                i = 0;
+        coverParallax(),
+                $(window).on({
+          scroll: function () {
+            coverParallax();
+          },
+          resize: function () {
+            coverParallax();
+          },
+          orientationchange: function () {
+            coverParallax();
+          }
+        });
+
+        function coverParallax() {
+          if (header.length >= 1) {
+            var a = $(window).scrollTop();
+            i = a > 0 ? Math.floor(.25 * a) : 0,
+                    header.css({
+                      "-webkit-transform": "translate3d(0, " + i + "px, 0)",
+                      transform: "translate3d(0, " + i + "px, 0)"
+                    }),
+                    $(window).scrollTop() < header.height() ? $('body').addClass("cover-active") : $('body').removeClass("cover-active");
+          }
+        }
+      });
+    </script>
+    <!-- Google remarketing -->
+        <script type="text/javascript">
+          /* <![CDATA[ */
+          var google_conversion_id = 875213845;
+          var google_custom_params = window.google_tag_params;
+          var google_remarketing_only = true;
+          /* ]]> */
+        </script>
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+        <noscript>
+          <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/875213845/?guid=ON&amp;script=0"/>
+          </div>
+        </noscript>
+        <!-- /Google remarketing -->    <noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/2ae5c3c978484335b09039955beb0470/pixel?tag=Generic"/></noscript>  </body>
+</html>

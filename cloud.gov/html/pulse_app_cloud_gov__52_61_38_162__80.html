@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<!-- Title and meta description
+================================================== -->
+<title>Pulse - How federal government domains are meeting best practices on the web.</title>
+<meta property="og:title" content="The pulse of the federal .gov space | Pulse - How federal government domains are meeting best practices on the web." />
+<meta name="twitter:title" content="Pulse - How federal government domains are meeting best practices on the web." />
+
+<meta name="description" content="How federal government domains are meeting best practices on the web.">
+<meta property="og:description" content="How federal government domains are meeting best practices on the web." />
+<meta name="twitter:description" content="How federal government domains are meeting best practices on the web." />
+
+<link rel="canonical" href="https://pulse.cio.gov/" />
+
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="xXEGpPeG9CfACp-aeM0kS8pSS9Vk7Z8OS0QB_EehREs" />
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!-- Twitter Specific Metas
+================================================== -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@USGSA" />
+<meta name="twitter:creator" content="@USGSA" />
+<meta name="twitter:image" content="https://pulse.cio.gov/static/images/logo-pulse.png" />
+<meta name="twitter:image:alt" content="Pulse" />
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/static/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/static/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/static/images/favicons/pulse-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/static/images/favicons/pulse-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/favicons/pulse-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/favicons/pulse-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/favicons/pulse-144.png">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="/static/css/normalize.min.css">
+<link rel="stylesheet" href="/static/css/google-fonts.css">
+
+<link rel="stylesheet" href="/static/css/main.css?201710278081141">
+
+<!-- Scripts
+================================================== -->
+<script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="/static/js/vendor/jquery.min.js"></script>
+
+<script src="/static/js/vendor/d3.min.js"></script>
+<script src="/static/js/vendor/querystring.js"></script>
+<script src="/static/js/utils.js?201710278081141"></script>
+
+
+<!-- sigh, datatables -->
+
+<link rel="stylesheet" type="text/css" href="/static/DataTables-1.10.12/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="/static/Responsive-2.1.0/css/responsive.dataTables.min.css"/>
+
+<script type="text/javascript" src="/static/DataTables-1.10.12/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/Responsive-2.1.0/js/dataTables.responsive.min.js"></script>
+
+<script src="/static/js/dataTables.lengthLinks.js"></script>
+<script src="/static/js/dataTables.downloads.js"></script>
+</head>
+
+<body id="home">
+<a id="skipnav" href="#skip-target" onclick="document.getElementById('skip-target').focus()">Skip to main content</a>
+<!--[if lte IE 9]>
+  <section>
+    <h2>Your browser is out of date.</h2>
+    <p style="color: #000;">
+      You are using an older version of Internet Explorer. For a better
+      experience, please update your browser to the latest version.
+    </p>
+    <p>
+      <a target="_blank"
+         href="http://browsehappy.com/">Learn how to update your browser.</a>
+    </p>
+  </section>
+<![endif]-->
+
+<header class="site-header" role="banner">
+  <div class="disclaimer">
+    <span class="us-official">
+    An official website of the United States Government.
+    <img
+    alt=""
+    src="/static/images/us_flag_small.png">
+    </span>
+    <span class="stage">This site is currently in <a href="https://18f.gsa.gov/dashboard/stages/#beta">beta</a>.</span>
+  </div>
+  <nav role="nav">
+    <div id="main-nav">
+        <h1 id="branding">
+            <a href="/">Pulse</a>
+        </h1>
+        <ul id="right-nav">
+            <li>
+                <a href="/https/domains/">HTTPS</a>
+            </li>
+            <li>
+                <a href="/analytics/domains/">Analytics</a>
+            </li>
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            <li>
+                <a href="https://github.com/18f/pulse/issues">Feedback</a>
+            </li>
+        </ul>
+        <a href="#" id="menu-btn">MENU</a>
+    </div>
+  </nav>
+
+  <nav id="menu-content" role="nav">
+    <ul>
+      <li>
+        <a tabindex="-1" href="/">Home</a>
+      </li>
+      <li>
+          <a tabindex="-1" href="/https/domains/">HTTPS</a>
+      </li>
+      <li>
+          <a tabindex="-1" href="/analytics/domains/">Analytics</a>
+      </li>
+      <li>
+          <a tabindex="-1" href="/about/">About</a>
+      </li>
+      <li>
+          <a tabindex="-1" href="https://github.com/18f/pulse/issues">Feedback</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="overlay"></div>
+</header>
+
+
+<section id="content" role="main">
+  <a name="skip-target" id="skip-target" tabindex='-1' href='#' class="sr-only">Start of Main Content</a>
+  
+<div class="wrapper">
+  <div class="hero">
+  	<h2>Pulse</h2>
+  	<h3>How federal government domains are meeting best practices on the web.</h3>
+  </div>
+
+  <div id="results">
+    <div class="https">
+    	<div class="https_chart"
+        data-width="287"
+      ></div>
+    	<script type="text/javascript">
+(function() {
+    var chart = d3.select(".https_chart");
+    var elem = chart[0][0];
+
+    var width = chart.attr("data-width");
+    if (width == null)
+        width = getComputedStyle(elem.parentElement).width;
+    width = parseInt(width);
+
+    var height = width * 1.2;
+
+    var radius = Math.min(width, height) / 2;
+
+    var color = d3.scale.ordinal()
+        .range(["#7ED321", "#FFFFFF"]);
+
+    var arc = d3.svg.arc()
+        .outerRadius(radius)
+        .innerRadius(radius - 40);
+
+    var pie = d3.layout.pie()
+        .value(function (d) {
+        return d.value;
+    })
+        .sort(null);
+
+    chart = chart
+        .append('svg')
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")")
+        .on("click", function(d,i) {
+            location.href = "/https/domains/";
+        });
+
+    d3.json("/data/reports/https.json", function (error, data) {
+
+        // calculate % client-side
+        var uses = Math.round((data.uses / data.eligible) * 100);
+
+        // just abort and leave it blank if something's wrong
+        // (instead of showing "NaN%" visually)
+        if (isNaN(uses))
+            return;
+
+        var pie_data = [
+            {status: 'active', value: uses},
+            {status: 'inactive', value: (100-uses)},
+        ]
+
+        var g = chart.selectAll(".arc")
+            .data(pie(pie_data))
+            .enter().append("g")
+            .attr("class", "arc");
+
+        g.append("path")
+            .style("fill", function(d) {
+            return color(d.data.status);
+        })
+            .transition().delay(function(d, i) {
+            return i *400;
+        }).duration(400)
+            .attrTween('d', function(d) {
+            var i = d3.interpolate(d.startAngle+ 0.1, d.endAngle);
+            return function(t) {
+                d.endAngle = i(t);
+                return arc(d);
+            }
+        });
+
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("class", "total-value")
+            .attr("dy", "0.2em")
+            .attr("fill", "white")
+            .text(function(d){
+                return "" + pie_data[0].value + "%";
+        });
+
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("class", "total-desc")
+            .attr("dy", "2.5em")
+            .attr("fill", "white")
+            .text(function(d) {
+                return "USE HTTPS";
+        });
+
+
+    });
+})();
+</script>
+      <a href="/https/domains/" class="button">View HTTPS Results</a>
+    </div>
+    <div class="dap">
+    	<div class="dap_chart"
+        data-width="287"
+      ></div>
+    	<script type="text/javascript" >
+(function() {
+    var chart = d3.select(".dap_chart");
+    var elem = chart[0][0];
+
+    var width = chart.attr("data-width");
+    if (width == null)
+        width = getComputedStyle(elem.parentElement).width;
+    width = parseInt(width);
+
+    var height = width * 1.2;
+
+    var radius = Math.min(width, height) / 2;
+
+    var color = d3.scale.ordinal()
+        .range(["#7ED321", "#FFFFFF"]);
+
+    var arc = d3.svg.arc()
+        .outerRadius(radius)
+        .innerRadius(radius - 40);
+
+    var pie = d3.layout.pie()
+        .value(function (d) {
+        return d.value;
+    })
+        .sort(null);
+
+    chart = chart
+        .append('svg')
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")")
+        .on("click", function(d,i) {
+            location.href = "/analytics/domains/";
+        });
+
+    d3.json("/data/reports/analytics.json", function (error, data) {
+
+        // calculate % client-side
+        var participating = Math.round((data.participating / data.eligible) * 100);
+
+        // just abort and leave it blank if something's wrong
+        // (instead of showing "NaN%" visually)
+        if (isNaN(participating))
+            return;
+
+        var pie_data = [
+            {status: 'active', value: participating},
+            {status: 'inactive', value: (100-participating)}
+        ]
+
+        var g = chart.selectAll(".arc")
+            .data(pie(pie_data))
+            .enter().append("g")
+            .attr("class", "arc");
+
+        g.append("path")
+            .style("fill", function (d) {
+            return color(d.data.status);
+        })
+            .transition().delay(function (d, i) {
+            return i * 400;
+        }).duration(400)
+            .attrTween('d', function (d) {
+            var i = d3.interpolate(d.startAngle + 0.1, d.endAngle);
+            return function (t) {
+                d.endAngle = i(t);
+                return arc(d);
+            }
+        });
+
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("class", "total-value")
+            .attr("fill", "white")
+            .text(function (d) {
+                return "" + pie_data[0].value + "%";
+        });
+
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("class", "total-desc")
+            .attr("fill", "white")
+            .attr("dy", "1.9em")
+            .text(function (d) {
+            return "PARTICIPATE IN THE";
+        });
+
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("class", "total-desc")
+            .attr("fill", "white")
+            .attr("dy", "3em")
+            .text(function (d) {
+            return "DIGITAL ANALYTICS";
+        });
+
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("class", "total-desc")
+            .attr("fill", "white")
+            .attr("dy", "4em")
+            .text(function (d) {
+            return "PROGRAM";
+        });
+    });
+})();
+</script>
+      <a href="/analytics/domains/" class="button">View Analytics Results</a>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<footer role="contentinfo">
+	<div class="wrapper">
+
+    Built <a href="https://github.com/18F/pulse">in the open</a> as a collaboration between <a href="https://18f.gsa.gov">18F</a> and the <a href="http://gsa.gov/governmentwidepolicy">Office of Government-wide Policy</a> at the <a href="http://gsa.gov">General Services Administration</a>.
+
+    <p>SSL Labs grades are used with permission, and powered by the <a href="https://www.ssllabs.com/">Qualys SSL Labs API</a>.
+    </p>
+	</div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script async id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=OGP"></script>
+
+<!-- Site's own GA account. -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48605964-23', 'auto');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces SSL even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+
+</script>
+
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>

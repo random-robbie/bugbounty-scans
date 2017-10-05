@@ -1,0 +1,150 @@
+﻿ <!DOCTYPE html>
+<!--version 3.4.7 -->
+<html lang="en" data-ng-app="wixPromoteApp">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Wix SEO Wizard and Monitoring tool</title>    <!--data-translate="Website_Title"-->
+        <link rel="shortcut icon" href="https://www.wix.com/favicon.ico" type="image/png">
+        <meta name="description" content="Improve your site SEO with Wix SEO wizard and monitoring tool, run a report and get recommendation to improve your SEO" />
+        <meta name="google-site-verification" content="L37h2oWdZIdgbGfGgVHWtiptoMoAjVijpBsmOtO10Wc" />
+        <meta name="keywords" content="Progress Play">
+        <meta name="description" content="Progress Play">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi" />
+        <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,target-densitydpi=device-dpi" media="(device-height: 568px)" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Progress Play">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="/Content/general.css" rel="stylesheet">
+        <link href="/Content/popups.css" rel="stylesheet">
+        <link href="/Content/homePage.css" rel="stylesheet">
+        <link href="/Content/reportPage.css" rel="stylesheet">
+        <!-- do not load font.css from CDN-->
+        <link href="/Content/font/font.css" rel="stylesheet">
+        <!-- angular-->
+        <script src="https://d1rpybei2sinwh.cloudfront.net/lib/angular/angular.js"></script>
+        <script src="https://d1rpybei2sinwh.cloudfront.net/lib/angular/angular-route.js"></script> 
+        <script src="https://d1rpybei2sinwh.cloudfront.net/lib/angular/angular-animate.min.js"></script>
+        <script src="https://d1rpybei2sinwh.cloudfront.net/lib/angular/angular-cookies.min.js"></script>
+        <script src="https://d1rpybei2sinwh.cloudfront.net/lib/angular/angular-translate.min.js"></script>
+        <script src="https://d1rpybei2sinwh.cloudfront.net/lib/angular/angular-sanitize.min.js"></script>
+    </head>
+    <body ng-controller="layoutController">         
+        <!-- Google Tag Manager -->
+        <noscript>
+            <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDD5C4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src ='//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-MDD5C4');    
+        </script>
+        <!-- End Google Tag Manager -->
+        <div id="container">
+            <img id="BI" width="0" height="0">
+            <div id="wrapper"> 
+                <div id="pageHeader" data-ng-hide="hideHeader" data-ng-class=" { 'headerBorder' : data.viewHeaderBorder }">
+                    <div id="logoImg"></div>
+                    <div id="upperMenuDiv">
+                        <ul id="upperMenuUl" class="ulClass">
+                            <li class="mainMenuItem hoverBlack"><a href="https://www.wix.com/" data-translate="{{data.firstMenuTxt}}"></a></li>
+                            <li class="mainMenuItem hoverBlack"><a href="https://www.wix.com/create/my-account" data-translate="header_link_2"></a></li>
+                            <li class="mainMenuItem hoverBlack" data-ng-show="data.currentUser != 'admin'"><a href="{{'ask_a_question_link' | translate}}" data-translate="header_link_3" target="_blank"></a></li>
+                            <li class="langsDropDownTd" data-ng-show="data.currentUser != 'admin'">
+                                <div class="langsDropDown_0">
+                                    <div class="langsDropDown_1">
+                                        <!--<ul id="langsDropDown" class="langsDropDown">
+                                <li data-ng-class="{ selectedLangClass: selectedLangTxt=='English', notSelectedLang: selectedLangTxt!='English' }">{{selectedLangTxt}}</li>
+                                <li data-ng-class="{ selectedLangClass: selectedLangTxt == 'Español', notSelectedLang: selectedLangTxt != 'Español' }">
+                                    <a title="Español" href="" data-ng-click="replaceLang('Es')">Español</a>
+                                </li>
+                                <li data-ng-class="{ selectedLangClass: selectedLangTxt == 'Português', notSelectedLang: selectedLangTxt != 'Português' }">
+                                    <a title="Português" href="" data-ng-click="replaceLang('Por')">Português</a>
+                                </li>
+                            </ul>-->
+                                        <ul id="langsDropDown" class="langsDropDown">
+                                            <li data-ng-repeat="lang in languageList"
+                                                data-ng-class="{ selectedLangClass: 0==$index, notSelectedLang: 0!=$index }"
+                                                data-ng-click="changeLanguage(lang)"><span ng-bind-html="fullLanNameList[$index]"></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div ng-view class="view-animate"></div>-->
+                <div ng-view ng-class="{'view-animate': data.animateNgView, 'animate-margin': data.ngViewMargin}"></div>
+            </div>
+        </div>
+
+        <footer id="pageFooter">
+            <div id="footerContent">© 2006-2015 Wix.com, Inc</div>
+        </footer>
+
+        <!--Popups-->
+
+        <div id="blackSpreePanel" class="spreePanel" ng-show="data.showBlackSpreePanel"></div> <!--showBlackSpreePanel-->
+        <div id="whiteSpreePanel" class="spreePanel" ng-show="data.showWhiteSpreePanel"></div>
+        <div id="loderWrapper" class="popupWrapper centerPopUp animate-show" ng-show="data.showLoader">
+            <div id="loader"></div>
+            <div id="loaderText" class="largeLabel" data-translate="loading_message"></div>
+        </div>
+
+        <!-- languages -->
+        <script src="/Scripts/languages/en/en_us.js"></script>
+        <script src="/Scripts/languages/ru/ru_ru.js"></script>
+        <script src="/Scripts/languages/es/es_sp.js"></script>
+        <script src="/Scripts/languages/pt/pt_br.js"></script>
+        <script src="/Scripts/languages/de/de_de.js"></script>
+        <script src="/Scripts/languages/fr/fr_fr.js"></script>
+        <script src="/Scripts/languages/ja/ja_ja.js"></script>
+
+        <script src="/Scripts/app.js"></script>
+        <script src="/Scripts/routing.js?v=1"></script>
+        <script src="/Scripts/filters.js"></script>
+        <script src="/Scripts/config.js"></script>
+        <script src="/Scripts/mockup.js"></script>
+        <!-- services -->
+        <script src="/Scripts/services/httpServices.js"></script>
+        <script src="/Scripts/services/apiServices.js"></script>
+        <script src="/Scripts/services/wixServices.js"></script>
+        <script src="/Scripts/services/BIServices.js"></script>
+        <script src="/Scripts/services/wixSessionServices.js"></script>
+        <script src="/Scripts/services/globalService.js"></script>
+        <script src="/Scripts/services/pageInitService.js"></script>
+        <script src="/Scripts/services/analyticsService.js"></script>
+
+        <!--controler -->
+        <script src="/Scripts/controllers/homeController.js"></script>
+        <script src="/Scripts/controllers/layoutController.js"></script>
+        <script src="/Scripts/controllers/reportController.js"></script>
+
+        <!--directive -->
+        <script src="/Scripts/directives/attributeDirectives.js"></script>
+        <script src="/Scripts/directives/elementDirectives.js"></script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2117194-33']);
+            _gaq.push(['_setDomainName', '.wix.com']);
+            _gaq.push(['_trackPageview']);
+
+            _gaq.push(['_setAccount', 'UA-2117194-60']);
+            _gaq.push(['_setDomainName', 'wix.com']);
+            _gaq.push(['_trackPageview']);
+
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                }
+                )();
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html >
+    <head>
+                    <style>
+            .theme__backdrop___WbaQn {
+                /*background: #eee !important;*/
+                /*opacity: 1 !important;*/
+            }
+            </style>
+                <meta charset="utf-8" />
+        <meta content="origin" name="referrer" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="preconnect" href="//a.zmtcdn.com" /><link rel="preconnect" href="//b.zmtcdn.com" /><link rel="preconnect" href="//c.zmtcdn.com" /><link rel="preconnect" href="//d.zmtcdn.com" />                    <link rel="preconnect" as="image" href="https://cupcake.zomato.com/images/cupcake_full.jpg" />
+        
+        <link rel="icon" sizes="192x192" type="image/png" href="https://cupcake.zomato.com/images/cupcake_192.png">
+
+        <link rel="apple-touch-icon-precomposed" href="https://cupcake.zomato.com/images/cupcake_192.png" />
+        <meta name="theme-color" content="#2d2d2d" />
+        <meta name="apple-mobile-web-app-title" content="Cupcake" />
+        <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="apple-touch-icon" href="https://cupcake.zomato.com/images/cupcake_192.png">
+        <link rel="apple-touch-icon" sizes="192x192" type="image/png" href="https://cupcake.zomato.com/images/cupcake_192.png">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link rel="apple-touch-startup-image" href="https://cupcake.zomato.com/images/cupcake_192.png">
+        <meta name="application-name" content="Cupcake">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://cupcake.zomato.com/build/css/main.min.css?hash=6dba8c05987102ff58a40d5b11342945">
+        <link rel="stylesheet" type="text/css" href="https://cupcake.zomato.com/build/css/react-toolbox.min.css?hash=e76f016d1ed9aa492652068d67c1b6f1">
+        <link rel="manifest" href="https://cupcake.zomato.com/manifest.json">
+    </head>
+    <body class="is-responsive" >
+        <div id="knife_container"> </div>
+        <noscript>Your Browser does not support javascript</noscript>
+        <script type="text/javascript">
+            function loadJSnew(path, func) {
+                var s = document.createElement("script");
+                s.src = path;
+                if (typeof func != 'undefined') {
+                    s.onload = func;
+                }
+                document.body.appendChild(s);
+            }
+
+
+            function loadJavascripts() {
+                loadJSnew("https://cupcake.zomato.com/build/js/vendor/require_2.2.0.min.js?hash=2444ded40a4aa435d44738b0e285c183", function(){
+                    require.config({
+                        waitSeconds : 30,
+                        paths: {
+                            react : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-with-addons.min',
+                            reactDom : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min',
+                        }
+                    });
+                    require(['react','reactDom'],function(React,ReactDOM){
+                        window.React = React;
+                        window.ReactDOM = ReactDOM;
+                        require(["https://cupcake.zomato.com/build/js/main.min.js?hash=9c9ac6a4f3e7a76bcdb9f952291c3dab"]);
+                    });
+                });
+            }
+
+            function notificationReceivedWithID(notificationID) {
+                var options = {};
+                var extras = {};
+                if (window.store && window.notificationReceivedAction) {
+
+                    window.store.dispatch(window.notificationReceivedAction(options, extras));
+                }
+            }
+
+            function notificationTappedWithID(notificationID) {
+                var options = {};
+                var extras = {};
+                if(window.store && window.notificationTappedAction) {
+                    window.store.dispatch(window.notificationTappedAction(options, extras));
+                }
+            }
+
+            HOST = "https://cupcake.zomato.com/";
+            API_HOST = "https://www.zomato.com/webapi/cupcake?method=";
+            APP_VERSION = "1.0";
+            APP_TYPE = "";
+            window.gplus = {
+                CLIENT_ID: '442739719837.apps.googleusercontent.com'
+            }
+            PAGE_URL = ""
+            COOKIE_DOMAIN = ".zomato.com";
+            
+            DEV_ENV = window.location.hostname.indexOf('zdev') != -1;
+            GA_TRACKING_ID = (DEV_ENV ? "UA-88764616-1" : "UA-62460771-7");
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', GA_TRACKING_ID, 'auto');
+            ga('set', 'appName', 'Cupcake');
+            ga('set', 'appVersion', APP_VERSION);
+
+            if (window.addEventListener) {
+                window.addEventListener("load", loadJavascripts, false);
+            } else if (window.attachEvent) {
+                window.attachEvent("onload", loadJavascripts);
+            } else {
+                window.onload = loadJavascripts;
+            }
+        </script>
+    </body>
+</html>

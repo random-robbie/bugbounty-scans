@@ -1,0 +1,75 @@
+<!doctype html>
+<!--  -->
+<!--
+  -->
+<html ng-app="wizardApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>wizard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="origin">
+    <link type="image/png" href="//www.wix.com/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
+    <!--  -->
+<link rel="stylesheet" href="//static.parastorage.com/services/wizard-statics/1.9.0/styles/main.css">
+<!--  -->
+    
+
+      <script>
+          var CONFIGURATION = {
+              apis: {
+                  apiRoot: '/_api/any2wix-server/',
+                  apiSearchPath: 'analyzeplatforms',
+                  apiUploadImagesPath: 'batchupload',
+                  apiCalcImagesDimensionsPath: 'calcimgdim',
+                  apiGetSession: 'getsession',
+                  apiSaveSession: 'savesession',
+                  apiDeleteSession: 'deletesession',
+                  apiGetUserEmailPath: 'getEmail',
+                  reactSource: '1.1433.28'
+              },
+              environment: 'production',
+              servername: 'wix.com',
+              staticsUrl: '//static.parastorage.com/services/wizard-statics/1.9.0/',
+              debug: false
+          };
+
+          document.domain = (CONFIGURATION.environment === 'staging') ? 'wixpress.com' : 'wix.com';
+      </script>
+
+  </head>
+  <body>
+    
+    <!-- Add your site or application content here -->
+    <ng-view></ng-view>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+    <script src="//static.parastorage.com/services/third-party/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//static.parastorage.com/services/third-party/angularjs/1.5.7/angular.min.js"></script>
+    <script src="//static.parastorage.com/services/third-party/angular-translate/1.1.1/angular-translate.min.js"></script>
+    <script src="//static.parastorage.com/services/third-party/angularjs/1.5.7/i18n/angular-locale_${locale}.js"></script>
+    <!--  -->
+<script src="//static.parastorage.com/services/wizard-statics/1.9.0/scripts/modules.js"></script>
+<!--  -->
+    <!--  -->
+<script src="//static.parastorage.com/services/wizard-statics/1.9.0/scripts/scripts.js"></script>
+<!--  -->
+    <!--  -->
+<script src="//static.parastorage.com/services/wizard-statics/1.9.0/scripts/locale/messages_${locale}.js"></script>
+<!--  -->
+
+    <!--  -->
+    <script>
+      angular.module('wizardApp').config(function (wixAngularTopologyProvider, experimentManagerProvider) {
+        wixAngularTopologyProvider.setStaticsUrl('//static.parastorage.com/services/wizard-statics/1.9.0/');
+        experimentManagerProvider.setExperiments(JSON.parse('{}'));
+      }).constant('CONFIGURATION', CONFIGURATION);
+    </script>
+    
+    
+    
+  </body>
+</html>

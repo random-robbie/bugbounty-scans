@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="ie7 ie"><![endif]-->
+<!--[if IE 8 ]><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="ie8 ie"><![endif]-->
+<!--[if IE 9 ]><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="ie9 ie"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+<title>Labs | Spotify&#039;s Engineering and Technology Blog</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://labs.spotify.com/xmlrpc.php">
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-16x16.png">
+
+		<script src='https://r-login.wordpress.com/remote-login.php?action=js&amp;host=labs.spotify.com&amp;id=45123433&amp;t=1507194495&amp;back=https%3A%2F%2Flabs.spotify.com%2F' type="text/javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//sp-bootstrap.global.ssl.fastly.net' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//spotifylabscom.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Labs &raquo; Feed" href="https://labs.spotify.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Labs &raquo; Comments Feed" href="https://labs.spotify.com/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1505864856h&ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='all-css-0-1' href='https://s2.wp.com/_static/??-eJx9j9EOgjAMRX/IuaBo5MH4LTCrFNatoV0If+/A6IMxe2nubc5Nb+3MxsWgENRSMuzTE4PYmV0kI4Qelh+3dyI7+z/mcQSxAyi3bjSbK+EYHhhQl68owS5OkPfEra4EwR1b8EAZK8WIz5/UKvtcrNjp/WvX8QQiJk/CREb7fGjL3eha1afmUFfN8TK8AOLQd08=' type='text/css' media='all' />
+<link rel='stylesheet' id='susa-bootstrap-css'  href='https://sp-bootstrap.global.ssl.fastly.net/7.4.1/sp-bootstrap.min.css?ver=7.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s0.wp.com/_static/??-eJx9kF0OgjAQhC9k3VRJ1AfjWZZSypr+hW0l3t4CIiEmvM1k5ptmC0MUKvikfYLUaacZXhSBY0jUvkVmBMU8R8eiDlAA8srmplTHqEHuqEzw0ZH/VZZNl0W02ZBnGKgxOjFwUIRWTMzGzDCBL29P4SL2Vo0OwgaFiYLfGNFapH4P7XVtgynSTIesdg9CNY7X2K/qr/79yK4CY0ONdiw83F1Wt8vpKuVZPj8NJYu5' type='text/css' media='all' />
+<script type='text/javascript' src='https://s1.wp.com/_static/??-eJyFztEKwjAMBdAfsquTiXsRv6XWOFKXtDbphn69HeiDMBQCgdzDJXZOBtmP5QJiQ517gfx4rybIxv4ChnDITqEh5A/2kRVYF0vxjCOYIpDdUG+16BpXXIqiBCIVraTfLyFPCPNfFkCT8zeTQfC5tJ7o2Hb9Yde3+24bXjRNW9I='></script>
+<script type='text/javascript' src='https://sp-bootstrap.global.ssl.fastly.net/7.4.1/sp-bootstrap.min.js?ver=7.4.1'></script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/themes/vip/spotify-usa/javascripts/modernizr.js,/wp-includes/js/spin.js,/wp-includes/js/jquery/jquery.spin.js?m=1435783611j'></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1377793621h' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://spotifylabscom.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel='shortlink' href='http://wp.me/33kFj' />
+<link rel='openid.server' href='https://spotifylabscom.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='https://spotifylabscom.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://labs.spotify.com/osd.xml" title="Labs" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Labs" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Spotify&#039;s Engineering and Technology Blog" /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://labs.spotify.com/feed/;icon-uri=https://secure.gravatar.com/blavatar/32b0dd23fccfaeac1245b71336a9fdc7?s=16" /><meta property="og:site_name" content="Labs" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="fb:app_id" content="322118224564145" />
+<meta property="og:title" content="Labs" />
+<meta property="og:description" content="Spotify&#039;s Engineering and Technology Blog" />
+<meta property="og:url" content="https://labs.spotify.com" />
+<meta property="og:image" content="https://spotifylabscom.files.wordpress.com/2017/09/forsetiblogpost.png" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+		<link rel="stylesheet" id="custom-css-css" type="text/css" href="https://s2.wp.com/?custom-css=1&#038;csblog=33kFj&#038;cscache=6&#038;csrev=32" />
+		</head>
+
+<body class="home blog mp6 customizer-styles-applied group-blog site-labs highlander-enabled highlander-light infinite-scroll">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+ <symbol id="spotify-logo" viewBox="0 0 827.79999 248.275">
+	<g transform="matrix(1.25 0 0 -1.25 0 248.28)">
+	 <g transform="scale(.1)">
+		<path d="m1580.6 1105.8c-320.13 190.11-848.16 207.59-1153.8 114.84-49.078-14.89-100.97 12.82-115.84 61.89-14.872 49.1 12.8 100.96 61.914 115.88 350.8 106.49 933.97 85.91 1302.5-132.85 44.14-26.2 58.62-83.21 32.45-127.28-26.18-44.14-83.24-58.69-127.27-32.48zm-10.5-281.56c-22.46-36.449-70.11-47.867-106.51-25.5-266.88 164.05-673.86 211.58-989.6 115.73-40.945-12.367-84.191 10.722-96.629 51.582-12.339 40.949 10.754 84.119 51.629 96.569 360.7 109.45 809.1 56.44 1115.6-131.94 36.4-22.41 47.86-70.078 25.48-106.44zm-121.5-270.43c-17.84-29.258-55.95-38.43-85.1-20.598-233.22 142.54-526.75 174.73-872.45 95.758-33.312-7.629-66.511 13.25-74.109 46.551-7.633 33.312 13.164 66.511 46.555 74.109 378.3 86.48 702.8 49.269 964.57-110.69 29.19-17.832 38.38-55.953 20.53-85.132zm-455.48 1432.4c-548.48 0-993.12-444.6-993.12-993.06 0-548.53 444.64-993.14 993.12-993.14 548.5 0 993.12 444.61 993.12 993.14 0 548.47-444.62 993.1-993.12 993.1"/>
+		<path d="m2701.9 1069.4c-171.46 40.89-202 69.59-202 129.88 0 56.99 53.64 95.31 133.41 95.31 77.32 0 153.98-29.11 234.37-89.05 2.44-1.81 5.48-2.54 8.48-2.06 3 0.45 5.66 2.09 7.41 4.57l83.73 118.03c3.44 4.86 2.5 11.56-2.13 15.27-95.67 76.77-203.4 114.09-329.32 114.09-185.15 0-314.46-111.1-314.46-270.08 0-170.48 111.55-230.83 304.33-277.43 164.08-37.789 191.78-69.449 191.78-126.07 0-62.719-56-101.71-146.11-101.71-100.09 0-181.73 33.719-273.06 112.8-2.27 1.953-5.37 2.851-8.24 2.679-3.02-0.25-5.78-1.648-7.71-3.957l-93.87-111.72c-3.94-4.641-3.44-11.559 1.11-15.578 106.26-94.86 236.94-144.97 377.97-144.97 199.51 0 328.42 109.02 328.42 277.74 0 142.59-85.19 221.45-294.11 272.26"/>
+		<path d="m3592.2 878.31c0-120.4-74.17-204.42-180.36-204.42-105 0-184.19 87.839-184.19 204.42 0 116.57 79.19 204.42 184.19 204.42 104.48 0 180.36-85.949 180.36-204.42zm-144.83 360.22c-86.47 0-157.4-34.06-215.9-103.85v78.56c0 6.19-5.03 11.25-11.22 11.25h-153.53c-6.2 0-11.22-5.06-11.22-11.25v-872.86c0-6.199 5.02-11.25 11.22-11.25h153.53c6.19 0 11.22 5.051 11.22 11.25v275.52c58.51-65.66 129.45-97.726 215.9-97.726 160.69 0 323.34 123.69 323.34 360.14 0 236.5-162.65 360.22-323.34 360.22"/>
+		<path d="m4187.7 672.63c-110.07 0-193.05 88.43-193.05 205.68 0 117.75 80.11 203.19 190.51 203.19 110.77 0 194.31-88.43 194.31-205.76 0-117.72-80.65-203.11-191.77-203.11zm0 565.9c-206.94 0-369.05-159.34-369.05-362.79 0-201.24 161-358.9 366.51-358.9 207.66 0 370.27 158.8 370.27 361.47 0 202-161.49 360.22-367.73 360.22"/>
+		<path d="m4997.3 1224.5h-168.95v172.74c0 6.2-5.01 11.25-11.21 11.25h-153.52c-6.21 0-11.26-5.05-11.26-11.25v-172.74h-73.83c-6.18 0-11.18-5.06-11.18-11.25v-131.95c0-6.2 5-11.25 11.18-11.25h73.83v-341.45c0-137.98 68.67-207.94 204.12-207.94 55.07 0 100.77 11.372 143.83 35.801 3.5 1.949 5.68 5.723 5.68 9.731v125.66c0 3.871-2.03 7.531-5.34 9.57-3.35 2.102-7.51 2.199-10.93 0.5-29.58-14.879-58.18-21.738-90.13-21.738-49.26 0-71.24 22.359-71.24 72.488v317.38h168.95c6.21 0 11.21 5.05 11.21 11.25v131.95c0 6.19-5 11.25-11.21 11.25"/>
+		<path d="m5586 1223.8v21.22c0 62.41 23.92 90.24 77.6 90.24 32.01 0 57.72-6.36 86.52-15.96 3.54-1.12 7.24-0.56 10.12 1.56 2.96 2.12 4.64 5.53 4.64 9.13v129.38c0 4.95-3.18 9.33-7.94 10.78-30.42 9.05-69.33 18.34-127.61 18.34-141.82 0-216.77-79.86-216.77-230.86v-32.49h-73.76c-6.19 0-11.27-5.05-11.27-11.25v-132.62c0-6.2 5.08-11.25 11.27-11.25h73.76v-526.66c0-6.199 5-11.25 11.19-11.25h153.54c6.2 0 11.25 5.051 11.25 11.25v526.66h143.35l219.59-526.52c-24.93-55.329-49.44-66.329-82.91-66.329-27.05 0-55.53 8.071-84.65 24.008-2.75 1.5-5.99 1.762-8.95 0.84-2.93-1.027-5.4-3.207-6.64-6.059l-52.04-114.17c-2.48-5.387-0.36-11.727 4.83-14.528 54.33-29.422 103.37-41.98 163.98-41.98 113.37 0 176.03 52.808 231.28 194.89l266.36 688.3c1.34 3.46 0.94 7.37-1.18 10.44-2.11 3.05-5.51 4.89-9.24 4.89h-159.83c-4.78 0-9.07-3.04-10.63-7.54l-164-467.82-179.3 468.02c-1.64 4.35-5.83 7.23-10.49 7.23h-262.28"/>
+		<path d="m5244.7 1224.5h-153.54c-6.2 0-11.25-5.06-11.25-11.25v-669.86c0-6.199 5.05-11.25 11.25-11.25h153.54c6.19 0 11.25 5.051 11.25 11.25v669.86c0 6.19-5.06 11.25-11.25 11.25"/>
+		<path d="m5168.7 1529.5c-60.82 0-110.19-49.24-110.19-110.06 0-60.87 49.37-110.16 110.19-110.16 60.8 0 110.11 49.29 110.11 110.16 0 60.82-49.31 110.06-110.11 110.06"/>
+		<path d="m6520.1 1157.9h-28.14v-35.88h28.14c14.04 0 22.42 6.87 22.42 17.95 0 11.67-8.38 17.93-22.42 17.93zm18.23-51.18 30.57-42.79h-25.77l-27.51 39.25h-23.66v-39.25h-21.57v113.42h50.58c26.34 0 43.68-13.48 43.68-36.18 0-18.59-10.74-29.95-26.32-34.45zm-23.95 108.37c-55.35 0-97.23-43.99-97.23-97.87 0-53.84 41.58-97.25 96.66-97.25 55.33 0 97.25 43.96 97.25 97.87 0 53.84-41.61 97.25-96.68 97.25zm-0.57-205.93c-60.76 0-108.05 48.8-108.05 108.06 0 59.27 47.9 108.62 108.62 108.62 60.76 0 108.04-48.79 108.04-108 0-59.27-47.86-108.68-108.61-108.68"/>
+	 </g>
+	</g>
+ </symbol>
+ <symbol id="facebook-icon" viewBox="0 0 448 448">
+	<path d="m119.75 242.25v-74h63.75v-54.5q0-46.5 26-72.125t69.25-25.625q36.75 0 57 3v66h-39.25q-21.5 0-29 9t-7.5 27v47.25h73.25l-9.75 74h-63.5v189.75h-76.5v-189.75h-63.75z"/>
+ </symbol>
+ <symbol id="twitter-icon" viewBox="0 0 448 448">
+	<path d="m27 347.75q8.75 1 19.5 1 56.25 0 100.25-34.5-26.25-0.5-47-16.125t-28.5-39.875q8.25 1.25 15.25 1.25 10.75 0 21.25-2.75-28-5.75-46.375-27.875t-18.375-51.375v-1q17 9.5 36.5 10.25-16.5-11-26.25-28.75t-9.75-38.5q0-22 11-40.75 30.25 37.25 73.625 59.625t92.875 24.875q-2-9.5-2-18.5 0-33.5 23.625-57.125t57.125-23.625q35 0 59 25.5 27.25-5.25 51.25-19.5-9.25 28.75-35.5 44.5 23.25-2.5 46.5-12.5-16.75 24.5-40.5 41.75 0.25 3.5 0.25 10.5 0 32.5-9.5 64.875t-28.875 62.125-46.125 52.625-64.5 36.5-80.75 13.625q-67.75 0-124-36.25z"/>
+ </symbol>
+ <symbol id="instagram-icon" viewBox="0 0 448 448">
+	<path d="m32 366.75v-285.5q0-20.25 14.5-34.75t34.75-14.5h285.5q20.25 0 34.75 14.5t14.5 34.75v285.5q0 20.25-14.5 34.75t-34.75 14.5h-285.5q-20.25 0-34.75-14.5t-14.5-34.75zm42.749-10.25q0 6.5 4.375 10.875t10.875 4.375h267.25q6.25 0 10.75-4.375t4.5-10.875v-162h-33.75q5 15.75 5 32.75 0 31.5-16 58.125t-43.5 42.125-60 15.5q-49.25 0-84.25-33.875t-35-81.875q0-17 5-32.75h-35.25v162zm72.501-133.25q0 31 22.625 52.875t54.375 21.875q32 0 54.625-21.875t22.625-52.875-22.625-52.875-54.625-21.875q-31.75 0-54.375 21.875t-22.625 52.875zm147.25-90q0 7.25 5 12.25t12.25 5h43.5q7.25 0 12.25-5t5-12.25v-41.25q0-7-5-12.125t-12.25-5.125h-43.5q-7.25 0-12.25 5.125t-5 12.125v41.25z"/>
+ </symbol>
+ <symbol id="user-icon" viewBox="0 0 1024 1024">
+	<path d="m730.06 679.64q-45.377 53.444-101.84 83.443t-120 29.999q-64.032 0-120.75-30.503t-102.6-84.451q-40.335 13.109-77.645 29.747t-53.948 26.722l-17.142 10.084q-29.747 19.159-51.175 57.729t-21.428 73.107 25.461 59.242 60.754 24.705h716.95q35.293 0 60.754-24.705t25.461-59.242-21.428-72.603-51.679-57.225q-6.554-4.033-18.907-10.84t-51.427-24.453-79.409-30.755zm-221.84 25.72q-34.285 0-67.561-14.873t-60.754-40.335-51.175-60.502-40.083-75.124-25.461-84.451-9.075-87.728q0-64.032 19.915-116.22t54.452-85.964 80.67-51.931 99.072-18.151 99.072 18.151 80.67 51.931 54.452 85.964 19.915 116.22q0 65.04-20.167 130.58t-53.948 116.72-81.426 83.443-98.568 32.268z"/>
+ </symbol>
+<symbol id="chevron-down" viewBox="0 0 1024 1024">
+	<path class="path1" d="M476.455 806.696l-381.164-381.164q-14.621-14.621-14.621-35.293t14.621-34.789 35.293-14.117 34.789 14.117l342.846 343.35 349.4-349.4q14.621-14.117 35.293-14.117t34.789 14.117 14.117 34.789-14.117 34.789l-381.164 381.164q-19.159 19.159-38.318 19.159t-31.764-12.605z"></path>
+</symbol>
+</svg>
+
+<div id="page" class="container hfeed site">
+	<header id="masthead" class="site-header blog-header" role="banner">
+		<a class="skip-link screen-reader-text sr-only sr-only-focusable" href="#content">Skip to content</a>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+			<div class="container container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="sidepanel" data-target="#navbar-nav">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="https://labs.spotify.com">
+						<span class="navbar-logo">Spotify</span>
+						<span class="navbar-title">Labs</span>
+					</a>
+				</div>
+					<div id="navbar-nav" class="collapse navbar-collapse"><ul id="primary-site-navigation" class="nav navbar-nav navbar-right"><li id="menu-item-983" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-983"><a href="https://labs.spotify.com/">Home</a></li>
+<li id="menu-item-984" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-984"><a href="https://labs.spotify.com/about/">About</a></li>
+<li id="menu-item-985" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-985"><a href="https://labs.spotify.com/puzzles/">Puzzles</a></li>
+</ul></div>			</div>
+		</nav>
+	</header><!-- #masthead -->
+
+
+	
+	<div id="content" class="site-content">
+
+	<section id="primary" class="content-area col-md-8">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-1731" class="blog-post post-1731 post type-post status-publish format-standard hentry category-labs tag-open-source-software tag-security">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/09/15/stepping-up-the-cloud-security-game/" rel="bookmark">Stepping Up the Cloud Security&nbsp;Game</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-09-15T11:00:51+00:00">September 15, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/gianlucaspotify/" title="Posts by Gianluca Brindisi" class="author url fn" rel="author">Gianluca Brindisi</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>TL;DR: securing our Cloud infrastructure is incredibly important. We are now taking another step forward by leveraging open source tools we developed in partnership with Google. Spotify engineering teams are fully embracing the devops culture: to increase development speed every dev team is responsible for their operational pipelines. From a security perspective we are continuously [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/09/15/stepping-up-the-cloud-security-game/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/09/15/stepping-up-the-cloud-security-game/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1725" class="blog-post post-1725 post type-post status-publish format-standard hentry category-labs">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/08/10/thinking-of-state-in-a-world-of-urls/" rel="bookmark">Thinking of State in a World of&nbsp;URLs</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-08-10T13:25:01+00:00">August 10, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/joshdevweb/" title="Posts by Josh Blaney" class="author url fn" rel="author">Josh Blaney</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>An intro to Redux-Location-State Like most of the web community, Spotify has found the combination of React and Redux to be a super powerful tool. It has allowed us to iterate quickly, build powerful components that can be shared across development teams, and onboard new developers much faster than previously. While we generally love what [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/08/10/thinking-of-state-in-a-world-of-urls/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/08/10/thinking-of-state-in-a-world-of-urls/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1716" class="blog-post post-1716 post type-post status-publish format-standard hentry category-labs tag-containers tag-docker tag-infrastructure tag-rollout">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/06/22/improving-critical-infrastructure-rollouts/" rel="bookmark">Improving Critical Infrastructure&nbsp;Rollouts</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-06-22T18:34:42+00:00">June 22, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/dxiaspotify/" title="Posts by David Xia" class="author url fn" rel="author">David Xia</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Spotify began using Docker with a few prototype services in 2014. We upgraded and configured it many times since and have almost every time come across issues that were often hard to detect and fix. When the number of backend services running on Docker was low, the impact of these issues was small. As Docker adoption grew so did the risk and impact of faulty Docker changes until they reached unacceptable levels. In October 2016, we deployed a bad configuration change that significantly affected the user experience.</p>
+<p>At this point we went back to the drawing board and realized we needed a new solution that deployed fleet-wide infrastructure changes gradually and with more control. This is a story of how operating Docker at Spotify inspired us to build a service that gave us more control over the rollout of infrastructure changes on thousands of servers.</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/06/22/improving-critical-infrastructure-rollouts/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/06/22/improving-critical-infrastructure-rollouts/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1700" class="blog-post post-1700 post type-post status-publish format-standard has-post-thumbnail hentry category-people tag-developers tag-people tag-spotify">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/people/" rel="category tag">People</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/06/07/meet-our-engineers-charlie-pastuszenski/" rel="bookmark">Meet our engineers &#8211; Charlie&nbsp;Pastuszenski</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-06-07T13:13:27+00:00">June 7, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/widlund90/" title="Posts by Sebastian Widlund" class="author url fn" rel="author">Sebastian Widlund</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+				<div class="entry-thumbnail">
+				<img width="730" height="506" src="https://spotifylabscom.files.wordpress.com/2017/06/screen-shot-2017-06-07-at-15-51-28.png" class="attachment-full size-full wp-post-image" alt="" />			</div>
+		
+	<div class="entry-content">
+		<p>What&#8217;s your name and where are you from? My name is Charlie and I come from the US and grew up in Massachusetts. Before moving to Stockholm, I lived and worked for Spotify in New York City. What do you do at Spotify? I am a machine learning engineer. I spend my time writing data [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/06/07/meet-our-engineers-charlie-pastuszenski/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/06/07/meet-our-engineers-charlie-pastuszenski/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1681" class="blog-post post-1681 post type-post status-publish format-standard has-post-thumbnail hentry category-labs">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/05/31/going-into-deep-space-creating-the-right-environment-for-your-open-space/" rel="bookmark">Going Into Deep Space – Creating the Right Environment for Your Open&nbsp;Space</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-05-31T14:28:58+00:00">May 31, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/morganahlstrom/" title="Posts by morganahlstrom" class="author url fn" rel="author">morganahlstrom</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+				<div class="entry-thumbnail">
+				<img width="730" height="390" src="https://spotifylabscom.files.wordpress.com/2017/05/open-space-wall.jpg" class="attachment-full size-full wp-post-image" alt="" />			</div>
+		
+	<div class="entry-content">
+		<p>A couple of weeks ago, I was fortunate enough to get the opportunity to facilitate Open Spaces for three different guild conferences. I’ve hosted Open Spaces several times before but this intense week added enough to my personal data that I feel it deserves a blog post that might help future unconference organizers make some [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/05/31/going-into-deep-space-creating-the-right-environment-for-your-open-space/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/05/31/going-into-deep-space-creating-the-right-environment-for-your-open-space/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1656" class="blog-post post-1656 post type-post status-publish format-standard hentry category-labs">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/04/28/spydra-ephemeral-hadoop-clusters-using-google-compute-platform/" rel="bookmark">Spydra &#8211; Ephemeral Hadoop Clusters Using Google Compute&nbsp;Platform</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-04-28T12:09:34+00:00">April 28, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/hannuvarjoranta/" title="Posts by Hannu Varjoranta" class="author url fn" rel="author">Hannu Varjoranta</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>We are happy to announce a new open sourced project from Spotify called Spydra. Spydra makes it easy to run data processing jobs in Google Cloud Platform (GCP) Dataproc, automating the cluster life-cycle management and making troubleshooting of failed jobs easier. Spydra supports usage of ephemeral clusters created only for the duration of a single [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/04/28/spydra-ephemeral-hadoop-clusters-using-google-compute-platform/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/04/28/spydra-ephemeral-hadoop-clusters-using-google-compute-platform/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1623" class="blog-post post-1623 post type-post status-publish format-standard has-post-thumbnail hentry category-labs">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/04/26/reliable-export-of-cloud-pubsub-streams-to-cloud-storage/" rel="bookmark">Reliable export of Cloud Pub/Sub streams to Cloud&nbsp;Storage</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-04-26T14:17:59+00:00">April 26, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/imaravic/" title="Posts by Igor Maravić" class="author url fn" rel="author">Igor Maravić</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+				<div class="entry-thumbnail">
+				<img width="730" height="344" src="https://spotifylabscom.files.wordpress.com/2017/04/image1-e1493218502363.png" class="attachment-full size-full wp-post-image" alt="" />			</div>
+		
+	<div class="entry-content">
+		<p>Every day, Spotify users are generating more than 100 billion events. Every event is being generated as a response to an user action; listening to a song, clicking on an ad or subscribing to a playlist. All in all, we currently have more than 300 different event types being generated from Spotify clients. Once delivered, [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/04/26/reliable-export-of-cloud-pubsub-streams-to-cloud-storage/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/04/26/reliable-export-of-cloud-pubsub-streams-to-cloud-storage/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1573" class="blog-post post-1573 post type-post status-publish format-standard hentry category-labs tag-dns tag-gcp tag-infrastructure">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/03/31/spotifys-lovehate-relationship-with-dns/" rel="bookmark">Spotify&#8217;s Love/Hate Relationship with&nbsp;DNS</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-03-31T15:24:52+00:00">March 31, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/roguelynn/" title="Posts by Lynn Root" class="author url fn" rel="author">Lynn Root</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Spotify has a history of loving “boring” technologies. It’s not that often people talk about DNS; when they do, it’s usually to complain. But it’s because DNS is boring that we love it so much: this post will walk through how we&#8217;ve designed &amp; manage our own DNS infrastructure, and pushing it to its limits.</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/03/31/spotifys-lovehate-relationship-with-dns/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/03/31/spotifys-lovehate-relationship-with-dns/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1569" class="blog-post post-1569 post type-post status-publish format-standard hentry category-labs tag-autonomy tag-culture tag-postive-intent tag-respect">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/03/29/dare-to-be-different-part-2/" rel="bookmark">Dare to be different (part&nbsp;2)</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-03-29T09:00:50+00:00">March 29, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/benjispotify/" title="Posts by benjispotify" class="author url fn" rel="author">benjispotify</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Culture at Spotify My co-workers at Spotify often quote the famous Peter Drucker saying: &nbsp; “Culture eats strategy for breakfast” &nbsp; And to be honest, when I first heard them say it I simply nodded, as it sounded smart and I didn’t disagree. However, having just hit month six at Spotify, I can now hopefully [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/03/29/dare-to-be-different-part-2/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/03/29/dare-to-be-different-part-2/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-1566" class="blog-post post-1566 post type-post status-publish format-standard hentry category-labs tag-open-source-software tag-security">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://labs.spotify.com/category/labs/" rel="category tag">Labs</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://labs.spotify.com/2017/02/22/google-cloud-security-toolbox/" rel="bookmark">Google Cloud Security&nbsp;Toolbox</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-02-22T15:27:34+00:00">February 22, 2017</time></span><span class="byline"> by <span class="author vcard"><a href="https://labs.spotify.com/author/gianlucaspotify/" title="Posts by Gianluca Brindisi" class="author url fn" rel="author">Gianluca Brindisi</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>At Spotify, we actively manage more than 800 Google Cloud Platform projects. As such, maintaining a proper security posture at scale has proven to be a challenging task. In an effort to seamlessly audit and strengthen the security stance of our massive cloud infrastructure, we are investing various resources into building our own tools and [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://labs.spotify.com/2017/02/22/google-cloud-security-toolbox/#comments"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="https://labs.spotify.com/2017/02/22/google-cloud-security-toolbox/"></fb:comments-count> Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+	<nav class="navigation paging-navigation" role="navigation">
+		<h1 class="screen-reader-text sr-only sr-only-focusable">Post navigation</h1>
+		<ul class="nav-links pager list-unstyled">
+
+							<li class="nav-previous previous"><a href="https://labs.spotify.com/page/2/" class="prev-post"><span class="meta-nav" aria-hidden="true">&larr;</span> Previous</a></li>
+			
+			
+		</ul><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+		</main><!-- #main -->
+	</section><!-- #primary -->
+
+	<div id="secondary" class="widget-area col-md-4" role="complementary">
+				<aside id="recent-posts-3" class="sidebar-module widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul class="list-group">
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/09/15/stepping-up-the-cloud-security-game/">Stepping Up the Cloud SecurityGame</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/08/10/thinking-of-state-in-a-world-of-urls/">Thinking of State in a World ofURLs</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/06/22/improving-critical-infrastructure-rollouts/">Improving Critical InfrastructureRollouts</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/06/07/meet-our-engineers-charlie-pastuszenski/">Meet our engineers &#8211; CharliePastuszenski</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/05/31/going-into-deep-space-creating-the-right-environment-for-your-open-space/">Going Into Deep Space – Creating the Right Environment for Your OpenSpace</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/04/28/spydra-ephemeral-hadoop-clusters-using-google-compute-platform/">Spydra &#8211; Ephemeral Hadoop Clusters Using Google ComputePlatform</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/04/26/reliable-export-of-cloud-pubsub-streams-to-cloud-storage/">Reliable export of Cloud Pub/Sub streams to CloudStorage</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/03/31/spotifys-lovehate-relationship-with-dns/">Spotify&#8217;s Love/Hate Relationship withDNS</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/03/29/dare-to-be-different-part-2/">Dare to be different (part2)</a>
+						</li>
+					<li class="list-group-item ">
+				<a href="https://labs.spotify.com/2017/02/22/google-cloud-security-toolbox/">Google Cloud SecurityToolbox</a>
+						</li>
+				</ul>
+		</aside>		<aside id="twitter_timeline-2" class="sidebar-module widget widget_twitter_timeline"><h2 class="widget-title">@SpotifyEng on Twitter</h2><a class="twitter-timeline" data-height="500" data-theme="light" data-link-color="#2EBD59" data-border-color="#e8e8e8" data-lang="EN" data-partner="jetpack" data-widget-id="651864481690218496">My Tweets</a></aside>	</div><!-- #secondary -->
+<script type='text/javascript'>
+								var _gaq = _gaq || [];
+								_gaq.push(['_setAccount', 'UA-5784146-15']);
+_gaq.push(['_trackPageview']);
+
+								(function() {
+									var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+									ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+									var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+								})();
+							</script>
+
+	</div><!-- #content -->
+</div><!-- #page -->
+<footer role="contentinfo" class="footer footer-default footer-main group site-footer blog-footer clearfix">
+	<div class="container">
+		<nav class="row">
+			<div class="col-xs-12 col-md-2">
+				<div class="footer-logo">
+					<a href="https://www.spotify.com">Spotify</a>
+				</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-2 "></div><div class="col-xs-6 col-sm-4 col-md-2 "></div><div class="col-xs-6 col-sm-4 col-md-2 "></div>
+			<div class="col-xs-12 col-md-4 col-social">
+				<ul class="nav">
+					<li>
+						<a href="http://instagram.com/spotify">
+							<svg class="social-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram-icon"></use>
+							</svg>
+							<span class="social-text">Instagram</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/Spotify">
+							<svg class="social-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook-icon"></use>
+							</svg>
+							<span class="social-text">Twitter</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/spotify">
+							<svg class="social-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter-icon"></use>
+							</svg>
+							<span class="social-text">Facebook</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<nav class="row row-small">
+			<div class="col-xs-7 col-md-4 col-md-offset-2">
+				<ul class="nav nav-small">
+					<li><a href="https://www.spotify.com/legal/">Legal</a></li>
+					<li><a href="https://www.spotify.com/legal/privacy-policy/#cookies">Cookies</a></li>
+					<li><a href="http://info.evidon.com/pub_info/1120?v=1"><img src="https://cdn.betrad.com/pub/icon1.png" id="_bapw-icon" class="img-adchoices"> AdChoices</a></li>
+				</ul>
+			</div>
+
+			<div class="col-xs-5 col-md-6 text-right">
+								<small class="copyright">&copy; 2017 Spotify AB					 | Powered by <a href="https://vip.wordpress.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit&#038;utm_term=labs.spotify.com" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a>				</small>
+			</div>
+		</nav>
+
+	</div>
+</footer>
+
+		<script type="text/javascript">
+		//<![CDATA[
+		var infiniteScroll = {"settings":{"id":"main","ajaxurl":"https:\/\/labs.spotify.com\/?infinity=scrolling","type":"click","wrapper":true,"wrapper_class":"infinite-wrap","footer":"page","click_handle":"1","text":"Older posts","totop":"Scroll back to top","currentday":"15.09.17","order":"DESC","scripts":[],"styles":[],"google_analytics":false,"offset":0,"history":{"host":"labs.spotify.com","path":"\/page\/%d\/","use_trailing_slashes":true,"parameters":""},"query_args":{"error":"","m":"","p":0,"post_parent":"","subpost":"","subpost_id":"","attachment":"","attachment_id":0,"name":"","pagename":"","page_id":0,"second":"","minute":"","hour":"","day":0,"monthnum":0,"year":0,"w":0,"category_name":"","tag":"","cat":"","tag_id":"","author":"","author_name":"","feed":"","tb":"","paged":0,"meta_key":"","meta_value":"","preview":"","s":"","sentence":"","title":"","fields":"","menu_order":"","embed":"","category__in":[],"category__not_in":[],"category__and":[],"post__in":[],"post__not_in":[],"post_name__in":[],"tag__in":[],"tag__not_in":[],"tag__and":[],"tag_slug__in":[],"tag_slug__and":[],"post_parent__in":[],"post_parent__not_in":[],"author__in":[],"author__not_in":[],"posts_per_page":10,"ignore_sticky_posts":false,"suppress_filters":false,"cache_results":false,"update_post_term_cache":true,"lazy_load_term_meta":true,"update_post_meta_cache":true,"post_type":"","nopaging":false,"comments_per_page":"50","no_found_rows":false,"order":"DESC"},"last_post_date":"2017-02-22 15:27:34","stats":"blog=45123433&v=wpcom&tz=0&user_id=0&subd=spotifylabscom&x_pagetype=infinite-click"}};
+		//]]>
+		</script>
+		<!-- wpcom_wp_footer -->
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201740y'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/spotifylabscom.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/spotifylabscom.wordpress.com\/wp-login.php?action=logout&_wpnonce=92261d563d","homeURL":"https:\/\/labs.spotify.com\/","postID":"1731","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"1","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1479964158j'></script>
+<link rel='stylesheet' id='all-css-0-3' href='https://s1.wp.com/wp-content/mu-plugins/tiled-gallery/tiled-gallery.css?m=1443731146h' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var susa_ajax = {"ajax_url":"https:\/\/labs.spotify.com\/?spotify-form-submit","ajax_nonce":"16ec68d5c6","ajax_action":"susa-contact-form-submit"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcomVipAnalytics = {"is_404":"0","is_home":"1","is_single":"0","is_front_page":"1","is_archive":"0","percentToTrack":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJydj8FuAjEMRH+oqWElaC9VP6WyggPOJt40dhb27wkcKuhhVfVma2be2HAuzk9iJAZR4UAzeyqX16gv8CDl5kpqRxaFxCMpfDdqdEI5JKorZpbAwrb8DL+9dqLccTMX0DIZh8U1RYg4o/rKxRQEZz6i8ST/COvIxSWW0YXJN3WB136LZAX9CF8sHuzMZlSdcaZOoD+2B0JrtQs3H3rrxTU/LSsHDO6Gi3eqQ8G0GHvtgc/8sd1thv379m3YxCtHAaTU'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FB_WP=FB_WP||{};FB_WP.queue={_methods:[],flushed:false,add:function(fn){FB_WP.queue.flushed?fn():FB_WP.queue._methods.push(fn)},flush:function(){for(var fn;fn=FB_WP.queue._methods.shift();){fn()}FB_WP.queue.flushed=true}};window.fbAsyncInit=function(){FB.init({"channelUrl":"https:\/\/spotifylabscom.wordpress.com\/wp-content\/themes\/vip\/plugins\/facebook\/channel.php","xfbml":true,"appId":"322118224564145"});if(FB_WP && FB_WP.queue && FB_WP.queue.flush){FB_WP.queue.flush()}}
+/* ]]> */
+</script>
+<div id="fb-root"></div><script type="text/javascript">(function(d){var id="facebook-jssdk";if(!d.getElementById(id)){var js=d.createElement("script"),ref=d.getElementsByTagName("script")[0];js.id=id,js.async=true,js.src="https:\/\/connect.facebook.net\/en_US\/all.js",ref.parentNode.insertBefore(js,ref)}})(document)</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var actionbardata = {"siteID":"45123433","siteName":"Labs","siteURL":"https:\/\/labs.spotify.com","icon":"<img alt='' src='https:\/\/secure.gravatar.com\/blavatar\/32b0dd23fccfaeac1245b71336a9fdc7?s=50&d=https%3A%2F%2Fs1.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"vip\/spotify-usa","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/spotifylabscom.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Flabs.spotify.com%2F2017%2F09%2F15%2Fstepping-up-the-cloud-security-game%2F","themeURL":"","xhrURL":"https:\/\/labs.spotify.com\/wp-admin\/admin-ajax.php","nonce":"76cfaf589c","isSingular":"","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"a0080bebe9\" \/>","referer":"https:\/\/labs.spotify.com\/","canFollow":"1","feedID":"7290356","statusMessage":"","customizeLink":"https:\/\/spotifylabscom.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fspotifylabscom.wordpress.com%2F","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Spotify USA","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 1,174 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/spotifylabscom.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Flabs.spotify.com%2F2017%2F09%2F15%2Fstepping-up-the-cloud-security-game%2F\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJx1zdEKgzAMBdAfWhcV9E38llqzkWLT0qT6+1bBDQZ7uwm5J7An4yIrskIoJq3lTSxgl0BsZpshWFHMNZm4Yc60oHx3Ty8P+CM4pcin8En3NbFby+l4Adlfcfbo9Je6na1+jGBFUK/CNaeMIrUxhbHtm67tmqEf/AEH6EvM'></script>
+<script type='text/javascript' src='https://platform.twitter.com/widgets.js?ver=20111117'></script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyVy8EOwiAMANAfslYTHXowfsuAhhRLJaxI/Hu97rTs+A4PR4XwViM1LB2q9MS6oA02owZe5vDy3CJUJlT6UCONrOmYlwPuuXX7sVCENItQ+671X8/yOF9u95Ob3NXlHw12Q+E='></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script type="text/javascript">
+			jQuery.extend( infiniteScroll.settings.scripts, ["jquery","jquery-core","jquery-migrate","mobile-useragent-info","postmessage","jquery_inview","jetpack_resize","susa-bootstrap","susa-modernizr","spin","jquery.spin","grofiles-cards","wpgroho","jquery.autoresize","highlander-comments","devicepx","jetpack_likes_queuehandler","the-neverending-homepage","susa-navigation","susa-skip-link-focus-fix","jetpack-twitter-timeline","spotify-contact-form-js","wpcom-vip-analytics","facebook-jssdk","wpcom-masterbar-js","wpcom-actionbar-bar","swfobject","videopress","twitter-widgets","twitter-widgets-infinity","twitter-widgets-pending","tiled-gallery"] );
+			jQuery.extend( infiniteScroll.settings.styles, ["wpcom-smileys","jetpack_likes","the-neverending-homepage","wpcom-core-compat-playlist-styles","mp6hacks","wpcom-bbpress2-staff-css","susa-theme","dashicons","jetpack-widget-social-icons-styles","noticons","geo-location-flair","reblogging","wpcom-actionbar-bar","h4-global","susa-bootstrap","highlander-comments","highlander-comments-ie7","tiled-gallery"] );
+		</script><script src="//stats.wp.com/w.js?56" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'45123433','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'45123433','v':'wpcom','tz':'0','user_id':'0','subd':'spotifylabscom'}]);
+function st_vt() {var x=document.createElement("img");x.src="https://pixel.wp.com/g.gif?blog=45123433&v=wpcomvt&tz=0&user_id=0&subd=spotifylabscom&rand="+Math.random();}
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1BNmNJfGhxNCVxUDExYmtib2E/SzdEJm0lUEtbdFU0fFk4cHZvcUFrZT90Tn4yQm1+R3NyNTcwRytHeGpmRC1saEIrak1fOV9PLE4uP05mdVMvZ04rZGN3SUNhT3Iyfi8mSzMlM1lEPXZQYjN3K0hrMTFsdnJRK1ExQSszRT11bUhBdmcxSHhNWjZLU01LRUQyaV9Kd3JaK2Z1dnl4ckRqVHg3fGt1NW03bmxyRUFhWVE/JS1IY0Z5dGlaVktUfmJxTitoZ2tiWjZtZU1DdFtPSTAmRkN6SXVVNHFDUmQ0VXh4UyU4eEZXS213ZCs/QW5KZTNdOTFMSGt2dS12OW9jTHJrZA=='}]);
+_stq.push([ 'clickTrackerInit', '45123433', '0' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+</html>
+<!--
+	generated in 0.183 seconds
+	58622 bytes batcached for 300 seconds
+-->

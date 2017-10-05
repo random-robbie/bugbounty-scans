@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="ie7 ie"><![endif]-->
+<!--[if IE 8 ]><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="ie8 ie"><![endif]-->
+<!--[if IE 9 ]><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="ie9 ie"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+<title>Insights | Exploring music and how people listen to it through data</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://insights.spotify.com/xmlrpc.php">
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-16x16.png">
+
+		<script src='https://r-login.wordpress.com/remote-login.php?action=js&amp;host=insights.spotify.com&amp;id=73241931&amp;t=1507194054&amp;back=https%3A%2F%2Finsights.spotify.com%2Fus%2F' type="text/javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//sp-bootstrap.global.ssl.fastly.net' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//spotifyinsights.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Insights &raquo; Feed" href="https://insights.spotify.com/us/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Insights &raquo; Comments Feed" href="https://insights.spotify.com/us/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1505864856h&ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='all-css-0-1' href='https://s2.wp.com/_static/??-eJx9j9EOgjAMRX/IuaBo5MH4LTCrFNatoV0If+/A6IMxe2nubc5Nb+3MxsWgENRSMuzTE4PYmV0kI4Qelh+3dyI7+z/mcQSxAyi3bjSbK+EYHhhQl68owS5OkPfEra4EwR1b8EAZK8WIz5/UKvtcrNjp/WvX8QQiJk/CREb7fGjL3eha1afmUFfN8TK8AOLQd08=' type='text/css' media='all' />
+<link rel='stylesheet' id='susa-bootstrap-css'  href='https://sp-bootstrap.global.ssl.fastly.net/7.4.1/sp-bootstrap.min.css?ver=7.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s0.wp.com/_static/??-eJx9kF0OgjAQhC9k3VRJ1AfjWZZSypr+hW0l3t4CIiEmvM1k5ptmC0MUKvikfYLUaacZXhSBY0jUvkVmBMU8R8eiDlAA8srmplTHqEHuqEzw0ZH/VZZNl0W02ZBnGKgxOjFwUIRWTMzGzDCBL29P4SL2Vo0OwgaFiYLfGNFapH4P7XVtgynSTIesdg9CNY7X2K/qr/79yK4CY0ONdiw83F1Wt8vpKuVZPj8NJYu5' type='text/css' media='all' />
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJyFj9sOwjAIhl/Irs7MuBvjs9TJJp09WOiW+fQyDxfGRRMSAnz8/OgxKvTNJZ+AtJW4ZkjTKxWWVvoXoBx2yTAUDv0bboJn8DyzLhzxAioTJNNJT4TasMDFQOyASKCF6acl9APC+BezwNE0vUpAePtS5TPIPT1g1BQDYzuJSaNbMJxlQzuTeuDHvxSfheyGHmelg9uXVb3b1OW2Wts7cIt4Kg=='></script>
+<script type='text/javascript' src='https://sp-bootstrap.global.ssl.fastly.net/7.4.1/sp-bootstrap.min.js?ver=7.4.1'></script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/themes/vip/spotify-usa/javascripts/modernizr.js,/wp-includes/js/spin.js,/wp-includes/js/jquery/jquery.spin.js?m=1435783611j'></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1377793621h' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://spotifyinsights.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel='shortlink' href='http://wp.me/4Xjzt' />
+<link rel='openid.server' href='https://spotifyinsights.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='https://spotifyinsights.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://insights.spotify.com/us/osd.xml" title="Insights" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Insights" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Exploring music and how people listen to it through data" /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://insights.spotify.com/us/feed/;icon-uri=https://secure.gravatar.com/blavatar/ac61518ee7504c5e453cf87f677aa16d?s=16" /><meta property="og:site_name" content="Insights" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Insights" />
+<meta property="og:description" content="Exploring music and how people listen to it through data" />
+<meta property="og:url" content="https://insights.spotify.com/us" />
+<meta property="og:image" content="https://spotifyinsights.files.wordpress.com/2017/10/hiphop1.png?w=730" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+		<link rel="stylesheet" id="custom-css-css" type="text/css" href="https:/us//us/insights.spotify.com/us/?custom-css=1&#038;csblog=4Xjzt&#038;cscache=6&#038;csrev=8" />
+		</head>
+
+<body class="home blog mp6 customizer-styles-applied group-blog m-us l-en site-insights highlander-enabled highlander-light infinite-scroll">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+ <symbol id="spotify-logo" viewBox="0 0 827.79999 248.275">
+	<g transform="matrix(1.25 0 0 -1.25 0 248.28)">
+	 <g transform="scale(.1)">
+		<path d="m1580.6 1105.8c-320.13 190.11-848.16 207.59-1153.8 114.84-49.078-14.89-100.97 12.82-115.84 61.89-14.872 49.1 12.8 100.96 61.914 115.88 350.8 106.49 933.97 85.91 1302.5-132.85 44.14-26.2 58.62-83.21 32.45-127.28-26.18-44.14-83.24-58.69-127.27-32.48zm-10.5-281.56c-22.46-36.449-70.11-47.867-106.51-25.5-266.88 164.05-673.86 211.58-989.6 115.73-40.945-12.367-84.191 10.722-96.629 51.582-12.339 40.949 10.754 84.119 51.629 96.569 360.7 109.45 809.1 56.44 1115.6-131.94 36.4-22.41 47.86-70.078 25.48-106.44zm-121.5-270.43c-17.84-29.258-55.95-38.43-85.1-20.598-233.22 142.54-526.75 174.73-872.45 95.758-33.312-7.629-66.511 13.25-74.109 46.551-7.633 33.312 13.164 66.511 46.555 74.109 378.3 86.48 702.8 49.269 964.57-110.69 29.19-17.832 38.38-55.953 20.53-85.132zm-455.48 1432.4c-548.48 0-993.12-444.6-993.12-993.06 0-548.53 444.64-993.14 993.12-993.14 548.5 0 993.12 444.61 993.12 993.14 0 548.47-444.62 993.1-993.12 993.1"/>
+		<path d="m2701.9 1069.4c-171.46 40.89-202 69.59-202 129.88 0 56.99 53.64 95.31 133.41 95.31 77.32 0 153.98-29.11 234.37-89.05 2.44-1.81 5.48-2.54 8.48-2.06 3 0.45 5.66 2.09 7.41 4.57l83.73 118.03c3.44 4.86 2.5 11.56-2.13 15.27-95.67 76.77-203.4 114.09-329.32 114.09-185.15 0-314.46-111.1-314.46-270.08 0-170.48 111.55-230.83 304.33-277.43 164.08-37.789 191.78-69.449 191.78-126.07 0-62.719-56-101.71-146.11-101.71-100.09 0-181.73 33.719-273.06 112.8-2.27 1.953-5.37 2.851-8.24 2.679-3.02-0.25-5.78-1.648-7.71-3.957l-93.87-111.72c-3.94-4.641-3.44-11.559 1.11-15.578 106.26-94.86 236.94-144.97 377.97-144.97 199.51 0 328.42 109.02 328.42 277.74 0 142.59-85.19 221.45-294.11 272.26"/>
+		<path d="m3592.2 878.31c0-120.4-74.17-204.42-180.36-204.42-105 0-184.19 87.839-184.19 204.42 0 116.57 79.19 204.42 184.19 204.42 104.48 0 180.36-85.949 180.36-204.42zm-144.83 360.22c-86.47 0-157.4-34.06-215.9-103.85v78.56c0 6.19-5.03 11.25-11.22 11.25h-153.53c-6.2 0-11.22-5.06-11.22-11.25v-872.86c0-6.199 5.02-11.25 11.22-11.25h153.53c6.19 0 11.22 5.051 11.22 11.25v275.52c58.51-65.66 129.45-97.726 215.9-97.726 160.69 0 323.34 123.69 323.34 360.14 0 236.5-162.65 360.22-323.34 360.22"/>
+		<path d="m4187.7 672.63c-110.07 0-193.05 88.43-193.05 205.68 0 117.75 80.11 203.19 190.51 203.19 110.77 0 194.31-88.43 194.31-205.76 0-117.72-80.65-203.11-191.77-203.11zm0 565.9c-206.94 0-369.05-159.34-369.05-362.79 0-201.24 161-358.9 366.51-358.9 207.66 0 370.27 158.8 370.27 361.47 0 202-161.49 360.22-367.73 360.22"/>
+		<path d="m4997.3 1224.5h-168.95v172.74c0 6.2-5.01 11.25-11.21 11.25h-153.52c-6.21 0-11.26-5.05-11.26-11.25v-172.74h-73.83c-6.18 0-11.18-5.06-11.18-11.25v-131.95c0-6.2 5-11.25 11.18-11.25h73.83v-341.45c0-137.98 68.67-207.94 204.12-207.94 55.07 0 100.77 11.372 143.83 35.801 3.5 1.949 5.68 5.723 5.68 9.731v125.66c0 3.871-2.03 7.531-5.34 9.57-3.35 2.102-7.51 2.199-10.93 0.5-29.58-14.879-58.18-21.738-90.13-21.738-49.26 0-71.24 22.359-71.24 72.488v317.38h168.95c6.21 0 11.21 5.05 11.21 11.25v131.95c0 6.19-5 11.25-11.21 11.25"/>
+		<path d="m5586 1223.8v21.22c0 62.41 23.92 90.24 77.6 90.24 32.01 0 57.72-6.36 86.52-15.96 3.54-1.12 7.24-0.56 10.12 1.56 2.96 2.12 4.64 5.53 4.64 9.13v129.38c0 4.95-3.18 9.33-7.94 10.78-30.42 9.05-69.33 18.34-127.61 18.34-141.82 0-216.77-79.86-216.77-230.86v-32.49h-73.76c-6.19 0-11.27-5.05-11.27-11.25v-132.62c0-6.2 5.08-11.25 11.27-11.25h73.76v-526.66c0-6.199 5-11.25 11.19-11.25h153.54c6.2 0 11.25 5.051 11.25 11.25v526.66h143.35l219.59-526.52c-24.93-55.329-49.44-66.329-82.91-66.329-27.05 0-55.53 8.071-84.65 24.008-2.75 1.5-5.99 1.762-8.95 0.84-2.93-1.027-5.4-3.207-6.64-6.059l-52.04-114.17c-2.48-5.387-0.36-11.727 4.83-14.528 54.33-29.422 103.37-41.98 163.98-41.98 113.37 0 176.03 52.808 231.28 194.89l266.36 688.3c1.34 3.46 0.94 7.37-1.18 10.44-2.11 3.05-5.51 4.89-9.24 4.89h-159.83c-4.78 0-9.07-3.04-10.63-7.54l-164-467.82-179.3 468.02c-1.64 4.35-5.83 7.23-10.49 7.23h-262.28"/>
+		<path d="m5244.7 1224.5h-153.54c-6.2 0-11.25-5.06-11.25-11.25v-669.86c0-6.199 5.05-11.25 11.25-11.25h153.54c6.19 0 11.25 5.051 11.25 11.25v669.86c0 6.19-5.06 11.25-11.25 11.25"/>
+		<path d="m5168.7 1529.5c-60.82 0-110.19-49.24-110.19-110.06 0-60.87 49.37-110.16 110.19-110.16 60.8 0 110.11 49.29 110.11 110.16 0 60.82-49.31 110.06-110.11 110.06"/>
+		<path d="m6520.1 1157.9h-28.14v-35.88h28.14c14.04 0 22.42 6.87 22.42 17.95 0 11.67-8.38 17.93-22.42 17.93zm18.23-51.18 30.57-42.79h-25.77l-27.51 39.25h-23.66v-39.25h-21.57v113.42h50.58c26.34 0 43.68-13.48 43.68-36.18 0-18.59-10.74-29.95-26.32-34.45zm-23.95 108.37c-55.35 0-97.23-43.99-97.23-97.87 0-53.84 41.58-97.25 96.66-97.25 55.33 0 97.25 43.96 97.25 97.87 0 53.84-41.61 97.25-96.68 97.25zm-0.57-205.93c-60.76 0-108.05 48.8-108.05 108.06 0 59.27 47.9 108.62 108.62 108.62 60.76 0 108.04-48.79 108.04-108 0-59.27-47.86-108.68-108.61-108.68"/>
+	 </g>
+	</g>
+ </symbol>
+ <symbol id="facebook-icon" viewBox="0 0 448 448">
+	<path d="m119.75 242.25v-74h63.75v-54.5q0-46.5 26-72.125t69.25-25.625q36.75 0 57 3v66h-39.25q-21.5 0-29 9t-7.5 27v47.25h73.25l-9.75 74h-63.5v189.75h-76.5v-189.75h-63.75z"/>
+ </symbol>
+ <symbol id="twitter-icon" viewBox="0 0 448 448">
+	<path d="m27 347.75q8.75 1 19.5 1 56.25 0 100.25-34.5-26.25-0.5-47-16.125t-28.5-39.875q8.25 1.25 15.25 1.25 10.75 0 21.25-2.75-28-5.75-46.375-27.875t-18.375-51.375v-1q17 9.5 36.5 10.25-16.5-11-26.25-28.75t-9.75-38.5q0-22 11-40.75 30.25 37.25 73.625 59.625t92.875 24.875q-2-9.5-2-18.5 0-33.5 23.625-57.125t57.125-23.625q35 0 59 25.5 27.25-5.25 51.25-19.5-9.25 28.75-35.5 44.5 23.25-2.5 46.5-12.5-16.75 24.5-40.5 41.75 0.25 3.5 0.25 10.5 0 32.5-9.5 64.875t-28.875 62.125-46.125 52.625-64.5 36.5-80.75 13.625q-67.75 0-124-36.25z"/>
+ </symbol>
+ <symbol id="instagram-icon" viewBox="0 0 448 448">
+	<path d="m32 366.75v-285.5q0-20.25 14.5-34.75t34.75-14.5h285.5q20.25 0 34.75 14.5t14.5 34.75v285.5q0 20.25-14.5 34.75t-34.75 14.5h-285.5q-20.25 0-34.75-14.5t-14.5-34.75zm42.749-10.25q0 6.5 4.375 10.875t10.875 4.375h267.25q6.25 0 10.75-4.375t4.5-10.875v-162h-33.75q5 15.75 5 32.75 0 31.5-16 58.125t-43.5 42.125-60 15.5q-49.25 0-84.25-33.875t-35-81.875q0-17 5-32.75h-35.25v162zm72.501-133.25q0 31 22.625 52.875t54.375 21.875q32 0 54.625-21.875t22.625-52.875-22.625-52.875-54.625-21.875q-31.75 0-54.375 21.875t-22.625 52.875zm147.25-90q0 7.25 5 12.25t12.25 5h43.5q7.25 0 12.25-5t5-12.25v-41.25q0-7-5-12.125t-12.25-5.125h-43.5q-7.25 0-12.25 5.125t-5 12.125v41.25z"/>
+ </symbol>
+ <symbol id="user-icon" viewBox="0 0 1024 1024">
+	<path d="m730.06 679.64q-45.377 53.444-101.84 83.443t-120 29.999q-64.032 0-120.75-30.503t-102.6-84.451q-40.335 13.109-77.645 29.747t-53.948 26.722l-17.142 10.084q-29.747 19.159-51.175 57.729t-21.428 73.107 25.461 59.242 60.754 24.705h716.95q35.293 0 60.754-24.705t25.461-59.242-21.428-72.603-51.679-57.225q-6.554-4.033-18.907-10.84t-51.427-24.453-79.409-30.755zm-221.84 25.72q-34.285 0-67.561-14.873t-60.754-40.335-51.175-60.502-40.083-75.124-25.461-84.451-9.075-87.728q0-64.032 19.915-116.22t54.452-85.964 80.67-51.931 99.072-18.151 99.072 18.151 80.67 51.931 54.452 85.964 19.915 116.22q0 65.04-20.167 130.58t-53.948 116.72-81.426 83.443-98.568 32.268z"/>
+ </symbol>
+<symbol id="chevron-down" viewBox="0 0 1024 1024">
+	<path class="path1" d="M476.455 806.696l-381.164-381.164q-14.621-14.621-14.621-35.293t14.621-34.789 35.293-14.117 34.789 14.117l342.846 343.35 349.4-349.4q14.621-14.117 35.293-14.117t34.789 14.117 14.117 34.789-14.117 34.789l-381.164 381.164q-19.159 19.159-38.318 19.159t-31.764-12.605z"></path>
+</symbol>
+</svg>
+
+<div id="page" class="container hfeed site">
+	<header id="masthead" class="site-header blog-header" role="banner">
+		<a class="skip-link screen-reader-text sr-only sr-only-focusable" href="#content">Skip to content</a>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+			<div class="container container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="sidepanel" data-target="#navbar-nav">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="https://insights.spotify.com/us">
+						<span class="navbar-logo">Spotify</span>
+						<span class="navbar-title">Insights</span>
+					</a>
+				</div>
+					<div id="navbar-nav" class="collapse navbar-collapse"><ul id="primary-site-navigation" class="nav navbar-nav navbar-right"><li id="menu-item-50" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50"><a href="https://insights.spotify.com/us/category/people/">People</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51"><a href="https://insights.spotify.com/us/category/places/">Places</a></li>
+<li id="menu-item-52" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52"><a href="https://insights.spotify.com/us/category/time/">Time</a></li>
+<li id="menu-item-2320" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2320"><a href="https://insights.spotify.com/us/category/events/">Events</a></li>
+<li id="menu-item-2321" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2321"><a href="https://insights.spotify.com/us/category/inside-music/">Inside Music</a></li>
+</ul></div>			</div>
+		</nav>
+	</header><!-- #masthead -->
+
+
+	
+	<div id="content" class="site-content">
+
+	<section id="primary" class="content-area col-md-8">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-10446" class="blog-post post-10446 post type-post status-publish format-standard hentry category-inside-music">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/" rel="category tag">Inside Music</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/10/03/genres-and-key-signatures/" rel="bookmark">Genres in the Key of Life: Different Music Uses Different&nbsp;Scales</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-10-03T12:48:32+00:00">October 3, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/kennydavideliot/">Kenny Ning, Eric Humphrey, Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Our first foray into key signatures found G and C major to be the most popular musical keys on Spotify, probably because the former is easiest to play on a guitar, the latter on piano. Now, let’s look at how key signatures vary between genre. Detecting key signature through audio analysis Trained musicians practice the [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/10/03/genres-and-key-signatures/#respond">Leave a comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-10110" class="blog-post post-10110 post type-post status-publish format-standard hentry category-inside-music">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/" rel="category tag">Inside Music</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/09/05/how-reggaeton-became-a-global-phenomenon-on-spotify/" rel="bookmark">How Reggaeton Became a Global Phenomenon on&nbsp;Spotify</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-09-05T09:15:07+00:00">September 5, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Latin music, in particular the reggaeton genre, with its addictive, start-stop beat (sample below), has expanded far beyond its places of origin to become a global genre that regularly tops the charts. Throughout the summer Luis Fonsi and Daddy Yankee’s “Despacito &#8211; Remix,” featuring none other than Justin Bieber singing in Spanish, followed by J [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/09/05/how-reggaeton-became-a-global-phenomenon-on-spotify/#respond">Leave a comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-10100" class="blog-post post-10100 post type-post status-publish format-standard hentry category-places">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/places/" rel="category tag">Places</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/08/24/data-viz-total-eclipse-of-the-heart-follows-the-eclipse/" rel="bookmark">Data Viz: &#8216;Total Eclipse of the Heart&#8217; Follows the&nbsp;Eclipse</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-08-24T14:38:35+00:00">August 24, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/spotifystaff/">Spotify Staff</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>During the recent eclipse, listening to Bonnie Tyler’s &#8220;Total Eclipse of the Heart,&#8221; exploded 3,521 percent on Spotify in the United States (1,017 percent globally) as the moon’s shadow began to cross the country. The song also spiked 75 percent on March 10, 2016, the day after another total eclipse. This time, we saw a [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/08/24/data-viz-total-eclipse-of-the-heart-follows-the-eclipse/#comments">6 Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-7926" class="blog-post post-7926 post type-post status-publish format-standard hentry category-people">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/people/" rel="category tag">People</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/05/24/how-students-listen-2017/" rel="bookmark">How Students Listen&nbsp;2017</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-05-24T12:53:36+00:00">May 24, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>College is about learning, learning how to learn, and expanding horizons before they narrow into careers and other trappings of post-student life. Universities are also places where people form musical identities, due not only to the relatively inadvanced age of the student listener (music taste solidifies with age). It&#8217;s also because they&#8217;re living with each other, all the time, for years, in [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/05/24/how-students-listen-2017/#comments">2 Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-7903" class="blog-post post-7903 post type-post status-publish format-standard hentry category-methodology">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/methodology/" rel="category tag">Methodology</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/05/04/an-adventure-through-chromes-wildly-varying-emoji-support/" rel="bookmark">An Adventure Through Chrome&#8217;s Wildly-Varying Emoji Support&nbsp;🤷🏻</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-05-04T10:09:50+00:00">May 4, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/alizaaufrichtig/">Aliza Aufrichtig</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>&#8230;and how I came to appreciate the challenges of working with emoji Back on March 9, while skimming Hacker News during my inter&#8211;job vacation, I read the piece “💩”.length === 2, and thought, huh, that is so interesting. Emoji are way more complicated than I thought. It seems challenging to work with them, but also, not [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/05/04/an-adventure-through-chromes-wildly-varying-emoji-support/#respond">Leave a comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-7724" class="blog-post post-7724 post type-post status-publish format-standard has-post-thumbnail hentry category-inside-music">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/" rel="category tag">Inside Music</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/05/02/spotify-emoji-music/" rel="bookmark">Iconic Playlists: What Emoji Say About&nbsp;Music</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-05-02T09:00:43+00:00">May 2, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/spotifystaff/">Spotify Staff</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+				<div class="entry-thumbnail">
+				<img width="730" height="456" src="https://spotifyinsights.files.wordpress.com/2017/05/emoji_featured-e1493827276866.png" class="attachment-full size-full wp-post-image" alt="" />			</div>
+		
+	<div class="entry-content">
+		<p>Did you know Spotify users have made over 35 million playlists with emoji in their titles? Which artists get the most emoji? Which ones do they get? And what could the dog emoji have to do with reggaeton? Emoji, those cute, simple images that convey thoughts on chats and social media, arguably represent the most [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/05/02/spotify-emoji-music/#comments">1 Comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-7715" class="blog-post post-7715 post type-post status-publish format-standard hentry category-events">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/events/" rel="category tag">Events</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/03/23/ncaa-march-madness-musical-version/" rel="bookmark">NCAA March Madness: The Musical&nbsp;Version</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-03-23T15:10:06+00:00">March 23, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Tonight, the sixteen college basketball teams who&#8217;ve made it into the Sweet Sixteen round of the 2017 NCAA Division 1 Men&#8217;s Basketball Championship will face off to see who makes it into the next round, with a chance to win the whole thing. What if, instead of games of basketball, the &#8220;March Madness&#8221; tournament were decided by which schools [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/03/23/ncaa-march-madness-musical-version/#respond">Leave a comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-7374" class="blog-post post-7374 post type-post status-publish format-standard hentry category-places category-time">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/places/" rel="category tag">Places</a></li>
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/time/" rel="category tag">Time</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/02/24/animated-heat-map-prince-listening-around-the-world/" rel="bookmark">Animated Heat Map: Prince Listening Around the&nbsp;World</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-02-24T14:04:25+00:00">February 24, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>In celebration of Prince’s return to streaming, here is a map of Prince listening over time. Which city listened to the most Prince? That would be his hometown of Minneapolis; see the top 20 Prince-listening cities by share of listening below the map.   These cities had the highest share of Prince listening: Minneapolis, Minnesota, [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/02/24/animated-heat-map-prince-listening-around-the-world/#comments">8 Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-6938" class="blog-post post-6938 post type-post status-publish format-standard hentry category-inside-music category-places">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/" rel="category tag">Inside Music</a></li>
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/places/" rel="category tag">Places</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2017/02/07/spotify-accuweather-music-and-weather/" rel="bookmark">Spotify, Accuweather Reveal How Weather Affects Music&nbsp;Listening</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2017-02-07T09:00:09+00:00">February 7, 2017</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>When it rains, we put on a raincoat or get under an umbrella, because we can’t control the weather. We can, however, control what we hear while it’s raining, especially with services that let you play whatever you want. We wondered: Do people make different music-listening decisions based on weather? This simple question led to [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2017/02/07/spotify-accuweather-music-and-weather/#comments">1 Comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-6681" class="blog-post post-6681 post type-post status-publish format-standard hentry category-places">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/places/" rel="category tag">Places</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2016/12/13/national-geographics-best-winter-trips-of-2017/" rel="bookmark">National Geographic&#8217;s Best Winter Trips of&nbsp;2017</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2016-12-13T22:20:40+00:00">December 13, 2016</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Looking for some winter travel options? National Geographic recently launched its Best Winter Trips 2017, with a range of options around the world, listed below. To help prospective travelers get a feel for the places on the list, Spotify curated a playlist for each destination, and then we put them on a map, so you can [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2016/12/13/national-geographics-best-winter-trips-of-2017/#comments">1 Comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-6653" class="blog-post post-6653 post type-post status-publish format-standard hentry category-places">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/places/" rel="category tag">Places</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2016/12/07/musical-map-of-the-world-2-0/" rel="bookmark">Musical Map of the World&nbsp;2.0</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2016-12-07T09:00:55+00:00">December 7, 2016</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Music is a universal language &#8212; and maybe one with more variants than any other. To understand these nuances, let’s step back and see and hear how people around the world (cities and countries) listen to music differently, what they share the most, and more. Click a country or city to hear its music (instructions [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2016/12/07/musical-map-of-the-world-2-0/#comments">50 Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-6141" class="blog-post post-6141 post type-post status-publish format-standard hentry category-events category-inside-music">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/events/" rel="category tag">Events</a></li>
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/" rel="category tag">Inside Music</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2016/10/28/they-did-the-monster-mash/" rel="bookmark">The &#8216;Monster Mash&#8217; Is The Most Seasonal Song on&nbsp;Spotify</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2016-10-28T09:00:14+00:00">October 28, 2016</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/eliotvb/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Spotify contains no fewer than 326 recordings of “The Monster Mash,” by everyone from The Beach Boys to the London Theatre Orchestra &amp; Cast. But the undisputed master of ‘The Mash’ is of course Bobby &#8220;Boris&#8221; Pickett, pictured to the right, who unleashed this ghoulish delight on the world in August of 1962. People snapped [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2016/10/28/they-did-the-monster-mash/#comments">1 Comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-5986" class="blog-post post-5986 post type-post status-publish format-standard hentry category-inside-music">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/inside-music/" rel="category tag">Inside Music</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2016/09/29/10-data-art-projects/" rel="bookmark">10 Data Art Projects by Spotify Analysts &amp;&nbsp;Designers</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2016-09-29T16:30:31+00:00">September 29, 2016</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/theechonest/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>We at Spotify love music. We love data, too. Because our data is about music and how over 100 million real people listen to it, it’s actually quite human. As our own Matt Ogle said of the popular Discover Weekly feature, &#8220;Man vs. machine is no longer a useful distinction in terms of how we [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2016/09/29/10-data-art-projects/#comments">1 Comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-5981" class="blog-post post-5981 post type-post status-publish format-standard hentry category-time">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/time/" rel="category tag">Time</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2016/09/21/music-and-seasons/" rel="bookmark">Spotify Reveals How Listening Habits Change with the&nbsp;Seasons</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2016-09-21T09:00:38+00:00">September 21, 2016</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/theechonest/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Today is the first day of fall, when we might notice the slightest chill to the air, leading eventually perhaps to autumn foliage, cozy clothes, and spiced everything. It also marks the changing musical tastes of Spotify listeners. To find out how music listening changes by season, Spotify analyzed the stream counts and genres of [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2016/09/21/music-and-seasons/#comments">2 Comments</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+
+<article id="post-5955" class="blog-post post-5955 post type-post status-publish format-standard hentry category-people">
+	<header class="entry-header">
+					<span class="cat-links">
+				<ul class="list-unstyled list-inline post-categories">
+	<li class="cat-item"><a class="label label-default" href="https://insights.spotify.com/us/category/people/" rel="category tag">People</a></li></ul>			</span>
+			
+		<h1 class="entry-title blog-post-title"><a href="https://insights.spotify.com/us/2016/09/02/the-tragically-hip-listening-surge/" rel="bookmark">The Tragically Hip Listening Surges Following Epic Farewell&nbsp;Show</a></h1>
+				<div class="entry-meta blog-post-meta">
+			<span class="posted-on">Posted on <time class="entry-date published" datetime="2016-09-02T11:18:08+00:00">September 2, 2016</time></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://insights.spotify.com/us/author/theechonest/">Eliot Van Buskirk</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>Fans of Canadian legends The Tragically Hip gave their the band an epic send-off in the form of a massively-attended farewell concert &#8212; the second-most-watched video event of any kind in Canadian history. One in three Canadians saw it, and possibly many more, as fans gathered around single screens for viewing parties. This legendary (and [&hellip;]</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta blog-post-meta">
+			
+							<div class="comments-link"><a href="https://insights.spotify.com/us/2016/09/02/the-tragically-hip-listening-surge/#comments">1 Comment</a></div>
+			
+					</div><!-- .entry-meta -->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+<hr>
+	<nav class="navigation paging-navigation" role="navigation">
+		<h1 class="screen-reader-text sr-only sr-only-focusable">Post navigation</h1>
+		<ul class="nav-links pager list-unstyled">
+
+							<li class="nav-previous previous"><a href="https://insights.spotify.com/us/page/2/" class="prev-post"><span class="meta-nav" aria-hidden="true">&larr;</span> Previous</a></li>
+			
+			
+		</ul><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+		</main><!-- #main -->
+	</section><!-- #primary -->
+
+	<div id="secondary" class="widget-area col-md-4" role="complementary">
+		<aside id="categories-4" class="sidebar-module widget widget_categories"><h2 class="widget-title">Sort by Focus</h2>		<ul class="list-group">
+	<li class="list-group-item cat-item cat-item-256"><a href="https://insights.spotify.com/us/category/about/">About</a>
+</li>
+	<li class="list-group-item cat-item cat-item-924"><a href="https://insights.spotify.com/us/category/events/">Events</a>
+</li>
+	<li class="list-group-item cat-item cat-item-31164621"><a href="https://insights.spotify.com/us/category/inside-music/">Inside Music</a>
+</li>
+	<li class="list-group-item cat-item cat-item-364219146"><a href="https://insights.spotify.com/us/category/inside-music/methodology/">Methodology</a>
+</li>
+	<li class="list-group-item cat-item cat-item-660"><a href="https://insights.spotify.com/us/category/people/">People</a>
+</li>
+	<li class="list-group-item cat-item cat-item-311"><a href="https://insights.spotify.com/us/category/places/">Places</a>
+</li>
+	<li class="list-group-item cat-item cat-item-5087"><a href="https://insights.spotify.com/us/category/time/">Time</a>
+</li>
+		</ul>
+</aside><aside id="rss_links-2" class="sidebar-module widget widget_rss_links"><ul><li><a href="https://insights.spotify.com/us/feed/" title="Subscribe to Posts">RSS - Posts</a></li></ul>
+</aside><aside id="media_image-2" class="sidebar-module widget widget_media_image"><h2 class="widget-title">Audiographic Map</h2><style>.widget.widget_media_image { overflow: hidden; }.widget.widget_media_image img { height: auto; max-width: 100%; }</style><figure style="max-width: 277px;" class="wp-caption alignnone"><a href="https://spotifymaps.github.io/musicalcities/" class="" rel="" target=""><img width="277" height="141" src="https://spotifyinsights.files.wordpress.com/2016/12/musicmap_shot.png?w=277" class="image wp-image-6665 alignnone attachment-277x148 size-277x148" alt="Audiographic: Musical Map of World Cities" style="max-width: 100%; height: auto;" title="Audiographic: Musical Map of World Cities" /></a><figcaption class="wp-caption-text text-muted text-center"><em>Listen to what people in many countries and over a thousand cities are uniquely into now.</em></figcaption></figure></aside>	</div><!-- #secondary -->
+<script type='text/javascript'>
+								var _gaq = _gaq || [];
+								_gaq.push(['_setAccount', 'UA-5784146-32']);
+_gaq.push(['_trackPageview']);
+
+								(function() {
+									var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+									ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+									var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+								})();
+							</script>
+
+	</div><!-- #content -->
+</div><!-- #page -->
+<footer role="contentinfo" class="footer footer-default footer-main group site-footer blog-footer clearfix">
+	<div class="container">
+		<nav class="row">
+			<div class="col-xs-12 col-md-2">
+				<div class="footer-logo">
+					<a href="https://www.spotify.com">Spotify</a>
+				</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-2 col-info"><h3 class="nav-title">Company</h3><ul class="nav"><li id="menu-item-5086" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5086"><a href="https://www.spotify.com/about-us/contact/">About</a></li>
+<li id="menu-item-5087" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5087"><a href="https://www.spotify.com/jobs/">Jobs</a></li>
+<li id="menu-item-5088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5088"><a href="https://press.spotify.com/">Press</a></li>
+<li id="menu-item-5089" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5089"><a href="https://news.spotify.com/">News</a></li>
+</ul></div><div class="col-xs-6 col-sm-4 col-md-2 col-info"><h3 class="nav-title">Communities</h3><ul class="nav"><li id="menu-item-5090" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5090"><a href="https://www.spotifyartists.com/">Artists</a></li>
+<li id="menu-item-5091" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5091"><a href="https://developer.spotify.com/">Developers</a></li>
+<li id="menu-item-5092" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5092"><a href="https://www.spotify.com/brands/">Brands</a></li>
+</ul></div><div class="col-xs-6 col-sm-4 col-md-2 col-info"><h3 class="nav-title">Useful Links</h3><ul class="nav"><li id="menu-item-5093" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5093"><a href="https://support.spotify.com/">Help</a></li>
+<li id="menu-item-5094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5094"><a href="https://www.spotify.com/purchase/ecards/">Gift</a></li>
+<li id="menu-item-5095" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5095"><a href="https://www.spotify.com/uk/redirect/webplayer/">Web Player</a></li>
+</ul></div>
+			<div class="col-xs-12 col-md-4 col-social">
+				<ul class="nav">
+					<li>
+						<a href="http://instagram.com/spotify">
+							<svg class="social-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram-icon"></use>
+							</svg>
+							<span class="social-text">Instagram</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/Spotify">
+							<svg class="social-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook-icon"></use>
+							</svg>
+							<span class="social-text">Twitter</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/spotify">
+							<svg class="social-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter-icon"></use>
+							</svg>
+							<span class="social-text">Facebook</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<nav class="row row-small">
+			<div class="col-xs-7 col-md-4 col-md-offset-2">
+				<ul class="nav nav-small">
+					<li><a href="https://www.spotify.com/legal/">Legal</a></li>
+					<li><a href="https://www.spotify.com/legal/privacy-policy/#cookies">Cookies</a></li>
+					<li><a href="http://info.evidon.com/pub_info/1120?v=1"><img src="https://cdn.betrad.com/pub/icon1.png" id="_bapw-icon" class="img-adchoices"> AdChoices</a></li>
+				</ul>
+			</div>
+
+			<div class="col-xs-5 col-md-6 text-right">
+								<a class="market" href="https://www.spotify.com/select-your-country/" title="Click to change">
+					<div class="media">
+						<div class="media-body media-middle">United States</div>
+						<div class="media-right media-middle">
+							<span class="media-object flag-icon flag-icon-us"></span>
+						</div>
+					</div>
+				</a>
+								<small class="copyright">&copy; 2017 Spotify AB					 | Powered by <a href="https://vip.wordpress.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit&#038;utm_term=insights.spotify.com" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a>				</small>
+			</div>
+		</nav>
+
+	</div>
+</footer>
+
+		<script type="text/javascript">
+		//<![CDATA[
+		var infiniteScroll = {"settings":{"id":"main","ajaxurl":"https:\/us\/\/us\/insights.spotify.com\/us\/?infinity=scrolling","type":"click","wrapper":true,"wrapper_class":"infinite-wrap","footer":"page","click_handle":"1","text":"Older posts","totop":"Scroll back to top","currentday":"02.09.16","order":"DESC","scripts":[],"styles":[],"google_analytics":false,"offset":0,"history":{"host":"insights.spotify.com\/us","path":"\/us\/page\/%d\/","use_trailing_slashes":true,"parameters":""},"query_args":{"market":"us","error":"","m":"","p":0,"post_parent":"","subpost":"","subpost_id":"","attachment":"","attachment_id":0,"name":"","pagename":"","page_id":0,"second":"","minute":"","hour":"","day":0,"monthnum":0,"year":0,"w":0,"category_name":"","tag":"","cat":"","tag_id":"","author":"","author_name":"","feed":"","tb":"","paged":0,"meta_key":"","meta_value":"","preview":"","s":"","sentence":"","title":"","fields":"","menu_order":"","embed":"","category__in":[],"category__not_in":[],"category__and":[],"post__in":[],"post__not_in":[7731],"post_name__in":[],"tag__in":[],"tag__not_in":[],"tag__and":[],"tag_slug__in":[],"tag_slug__and":[],"post_parent__in":[],"post_parent__not_in":[],"author__in":[],"author__not_in":[],"meta_query":[{"key":"include_group","value":[13,2,1],"compare":"IN"}],"posts_per_page":15,"ignore_sticky_posts":false,"suppress_filters":false,"cache_results":false,"update_post_term_cache":true,"lazy_load_term_meta":true,"update_post_meta_cache":true,"post_type":"","nopaging":false,"comments_per_page":"50","no_found_rows":false,"order":"DESC"},"last_post_date":"2016-09-02 11:18:08","stats":"blog=73241931&v=wpcom&tz=-4&user_id=0&subd=spotifyinsights&x_pagetype=infinite-click"}};
+		//]]>
+		</script>
+		<!-- wpcom_wp_footer -->
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201740y'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/spotifyinsights.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/spotifyinsights.wordpress.com\/wp-login.php?action=logout&_wpnonce=92261d563d","homeURL":"https:\/us\/\/us\/insights.spotify.com\/us\/","postID":"10446","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1479964158j'></script>
+<link rel='stylesheet' id='all-css-0-3' href='https://s1.wp.com/wp-content/mu-plugins/tiled-gallery/tiled-gallery.css?m=1443731146h' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var susa_ajax = {"ajax_url":"https:\/\/insights.spotify.com\/us\/?spotify-form-submit","ajax_nonce":"16ec68d5c6","ajax_action":"susa-contact-form-submit"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcomVipAnalytics = {"is_404":"0","is_home":"1","is_single":"0","is_front_page":"1","is_archive":"0","percentToTrack":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/_static/??-eJydj0sOwjAMRC9EMFTis0GcxUodcJq6oXYKvT2FBeIjWLCzNW+eNHDOzndiJAZRoaaBPeXLPOoMnqK2uJzKgUUhcUMKp0KFjih1ov4HzBJY2MbH8c7akdpJN3AGzZ1xGF1RhIgDqu85m4LgwAc07uSPsjacXWJpXOh8URf4Y9sXSyC00k/BjUNvk6BvX54fuyt308W71aFgGo29ToV9u1uuFtV6u9xUi3gF/u2PgA=='></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FB_WP=FB_WP||{};FB_WP.queue={_methods:[],flushed:false,add:function(fn){FB_WP.queue.flushed?fn():FB_WP.queue._methods.push(fn)},flush:function(){for(var fn;fn=FB_WP.queue._methods.shift();){fn()}FB_WP.queue.flushed=true}};window.fbAsyncInit=function(){FB.init({"channelUrl":"https:\/\/spotifyinsights.wordpress.com\/wp-content\/themes\/vip\/plugins\/facebook\/channel.php","xfbml":true});if(FB_WP && FB_WP.queue && FB_WP.queue.flush){FB_WP.queue.flush()}}
+/* ]]> */
+</script>
+<div id="fb-root"></div><script type="text/javascript">(function(d){var id="facebook-jssdk";if(!d.getElementById(id)){var js=d.createElement("script"),ref=d.getElementsByTagName("script")[0];js.id=id,js.async=true,js.src="https:\/\/connect.facebook.net\/en_US\/all.js",ref.parentNode.insertBefore(js,ref)}})(document)</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var actionbardata = {"siteID":"73241931","siteName":"Insights","siteURL":"https:\/\/insights.spotify.com","icon":"<img alt='' src='https:\/\/secure.gravatar.com\/blavatar\/ac61518ee7504c5e453cf87f677aa16d?s=50&d=https%3A%2F%2Fs1.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"vip\/spotify-usa","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/spotifyinsights.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Finsights.spotify.com%2Fus%2F2017%2F10%2F03%2Fgenres-and-key-signatures%2F","themeURL":"","xhrURL":"https:\/\/insights.spotify.com\/wp-admin\/admin-ajax.php","nonce":"76cfaf589c","isSingular":"","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"aea9b45284\" \/>","referer":"https:\/\/insights.spotify.com\/us\/","canFollow":"1","feedID":"24067699","statusMessage":"","customizeLink":"https:\/\/spotifyinsights.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fspotifyinsights.wordpress.com%2Fus%2F","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Spotify USA","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 399 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/spotifyinsights.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Finsights.spotify.com%2Fus%2F2017%2F10%2F03%2Fgenres-and-key-signatures%2F\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJx1zdEKgzAMBdAfWhcV9E38llqzkWLT0qT6+1bBDQZ7uwm5J7An4yIrskIoJq3lTSxgl0BsZpshWFHMNZm4Yc60oHx3Ty8P+CM4pcin8En3NbFby+l4Adlfcfbo9Je6na1+jGBFUK/CNaeMIrUxhbHtm67tmqEf/AEH6EvM'></script>
+<script type='text/javascript' src='https://platform.twitter.com/widgets.js?ver=20111117'></script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyVy8EOwiAMANAfslYTHXowfsuAhhRLJaxI/Hu97rTs+A4PR4XwViM1LB2q9MS6oA02owZe5vDy3CJUJlT6UCONrOmYlwPuuXX7sVCENItQ+671X8/yOF9u95Ob3NXlHw12Q+E='></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script type="text/javascript">
+			jQuery.extend( infiniteScroll.settings.scripts, ["jquery","jquery-core","jquery-migrate","mobile-useragent-info","postmessage","jquery_inview","jetpack_resize","spmarket_cookie","susa-bootstrap","susa-modernizr","spin","jquery.spin","grofiles-cards","wpgroho","jquery.autoresize","highlander-comments","devicepx","jetpack_likes_queuehandler","the-neverending-homepage","susa-navigation","susa-skip-link-focus-fix","spotify-contact-form-js","wpcom-vip-analytics","facebook-jssdk","wpcom-masterbar-js","wpcom-actionbar-bar","swfobject","videopress","twitter-widgets","twitter-widgets-infinity","twitter-widgets-pending","tiled-gallery"] );
+			jQuery.extend( infiniteScroll.settings.styles, ["wpcom-smileys","jetpack_likes","the-neverending-homepage","wpcom-core-compat-playlist-styles","mp6hacks","wpcom-bbpress2-staff-css","susa-theme","dashicons","jetpack-widget-social-icons-styles","noticons","geo-location-flair","reblogging","wpcom-actionbar-bar","h4-global","susa-bootstrap","highlander-comments","highlander-comments-ie7","tiled-gallery"] );
+		</script><script src="//stats.wp.com/w.js?56" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'73241931','blog_tz':'-4','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'73241931','v':'wpcom','tz':'-4','user_id':'0','subd':'spotifyinsights'}]);
+function st_vt() {var x=document.createElement("img");x.src="https://pixel.wp.com/g.gif?blog=73241931&v=wpcomvt&tz=-4&user_id=0&subd=spotifyinsights&rand="+Math.random();}
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1BNmNJfGhxNCVxUDExYmtib2E/SzdEJm0lUEtbdFU0fFk4cHZvcUFrZT90Tn4yQm1+R3NyNTcwRytHeGpmRC1saEIrak1fOV9PLE4uP05mdVMvZ04rZGN3SUNhT3Iyfi8mW1ZUUEtvQVNZZD0sOXVyeXFSOSUtTSt8fl1mZ2hhU3VMUW5OYyxvb3dYb1FiZy9mQno1MjJdc0xQRHpyaG11c345cUFnWURpLj9+YWtwNUJYZlMucGc/Yzlddmxpd0M/R11BdDMxNzArSm1VZ0EuTjZ6aiY/Q2NSPVhSMVgseU1va3BfbVBCdHdvfHBFSC1ScXMsWCxpTmFiL3Vb'}]);
+_stq.push([ 'clickTrackerInit', '73241931', '0' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+</html>

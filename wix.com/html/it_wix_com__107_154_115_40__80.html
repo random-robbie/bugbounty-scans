@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <script type="text/javascript">
+                (function () {
+                    var appName = 'wix-homepage-davinci';
+                    window.fedops = window.fedops || {};
+                    window.fedops.apps = window.fedops.apps || {};
+                    window.fedops.apps[appName] = { startLoadTime: window.performance && window.performance.now && window.performance.now() };
+                    window.fedops.sessionId = window.localStorage.getItem('fedops.logger.sessionId') || 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); });
+                    (new Image()).src = '//frog.wix.com/fed?appName=' + appName + '&src=72&evid=14&session_id=' + window.fedops.sessionId;
+                })();
+    </script>
+    <script type="text/javascript">
+    window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"//",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);
+    ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"c99d7f1ab0",applicationID:"32997699",sa:1}
+    </script>
+    <script>
+        window.loadTime = Date.now();
+        window.__LOCALE__ = "it";
+        window.scrollTo(0, 0);
+
+        function getLocationOrigin() {
+            var origin = window.location.origin;
+            if (!window.location.origin) {
+                origin = "https://" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
+            }
+            return origin;
+        };
+
+        function reportBI(extension, src, evid, report) {
+          var base = "https://frog.wix.com/";
+
+          report = report || [];
+          report.push("evid=" + evid);
+
+          if (typeof(src) !== "string") {
+            report.push("src=" + src);
+          }
+
+          if (extension === "hp") {
+            report.push("version=adi homepage");
+            report.push("origin=" + getLocationOrigin());
+          }
+
+          report.push("_=" + new Date().getTime());
+
+          var img = new Image();
+          img.src = base + extension + "?" + report.join("&");
+        }
+
+        reportBI('hp', '19', '315');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Creare un sito web gratis | Scopri come creare un sito | WIX.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Crea il tuo sito web gratis con Wix.com. Non serve alcuna nozione tecnica. Personalizzalo: scegli il design, modificalo e pubblica il tuo sito oggi stesso.  "/>
+    <link rel="canonical" href="https://it.wix.com"/>
+    
+    
+    <meta property="fb:pages" content="106270215428"/>
+    <meta name="og:site_name" content="Wix.com"/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:title" content="Creare un sito web gratis | Scopri come creare un sito | WIX.com"/>
+    <meta name="og:url" content="https://it.wix.com"/>
+    <meta name="og:description"
+          content="Crea il tuo sito web gratis con Wix.com. Non serve alcuna nozione tecnica. Personalizzalo: scegli il design, modificalo e pubblica il tuo sito oggi stesso.  "/>
+    <meta name="og:image"
+          content="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/social/it/hp3.jpg"/>
+    <meta name="og:image"
+          content="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/social/it/hp1.jpg"/>
+    <meta name="og:image"
+          content="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/social/it/hp2.jpg"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@wix"/>
+    <meta name="twitter:image:src" content="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/social/it/hp3.jpg"/>
+    <meta property=" twitter:account_id
+    " content="6608082"/>
+    <meta name="fb:app_id" content="236335823061286"/>
+    <meta http-equiv="content-language" content="it"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="google-site-verification" content="QXhlrY-V2PWOmnGUb8no0L-fKzG48uJ5ozW0ukU7Rpo"/>
+    <link href="https://plus.google.com/117167403531518744294" rel="publisher"/>
+    <meta name="msvalidate.01" content="7FA22ED318E041DA8C9738EE4FCC540A"/>
+    <meta name="alexaVerifyID" content="szBozh_UjIhQFAcb6jpiyVNKMQo"/>
+    <link rel="alternate" hreflang="en" href="https://www.wix.com"/>
+    <link rel="alternate" hreflang="pt" href="https://pt.wix.com"/>
+    <link rel="alternate" hreflang="fr" href="https://fr.wix.com"/>
+    <link rel="alternate" hreflang="de" href="https://de.wix.com"/>
+    <link rel="alternate" hreflang="it" href="https://it.wix.com"/>
+    <link rel="alternate" hreflang="nl" href="https://nl.wix.com"/>
+    <link rel="alternate" hreflang="pl" href="https://pl.wix.com"/>
+    <link rel="alternate" hreflang="es" href="https://es.wix.com"/>
+    <link rel="alternate" hreflang="ja" href="https://ja.wix.com"/>
+    <link rel="alternate" hreflang="ko" href="https://ko.wix.com"/>
+    <link rel="alternate" hreflang="tr" href="https://tr.wix.com"/>
+    <link rel="alternate" hreflang="ru" href="https://ru.wix.com"/>
+    <link rel="alternate" hreflang="sv" href="https://sv.wix.com"/>
+    <link rel="alternate" hreflang="no" href="https://no.wix.com"/>
+    <link rel="alternate" hreflang="da" href="https://da.wix.com"/>
+    <link rel="alternate" hreflang="hi" href="https://hi.wix.com"/>
+    <link rel="alternate" hreflang="cs" href="https://cs.wix.com"/>
+    <link rel="alternate" hreflang="x-default" href="https://www.wix.com"/>
+    <script type="application/ld+json">
+        { "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "'Wix.com",
+        "alternateName" : "Wix",
+        "url" : "https://www.wix.com"}
+    </script>
+
+    <link type="image/png" href="https://www.wix.com/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
+
+    <!-- #if( !${debug} ) -->
+<link rel="stylesheet" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/styles/style.css">
+<!-- #else -#if( false )#end->
+<link rel="stylesheet" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/_debug_styles/header.css">
+<link rel="stylesheet" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/_debug_styles/home-fold.css">
+<link rel="stylesheet" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/_debug_styles/main.css"><!-- #end -->
+</head>
+<body class="ready">
+<img src="https://frog.wix.com/hp?src=19&evid=342&delta=0&origin=https://it.wix.com&version=adi homepage" width="1px" height="1px" style="display: none; position: absolute; top: 0; left: 0"/>
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDD5C4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script type="text/javascript">
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MDD5C4');
+</script>
+<!-- End Google Tag Manager -->
+<header>
+    
+
+
+<!--[if lt IE 9]>
+  <script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/bower_components/html5shiv/dist/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/styles/header.css">
+
+<!--add class "transparent" for the  transparent version-->
+<nav id="wix-menu" class="wix-menu initializing" lang="it">
+  <a href="https://it.wix.com" id="wm-logo">Wix</a>
+  <ul class="web">
+    <li class="is-hidden davinci-hide" id="wm-verticals-link"><a id="wm-site-for" href="https://it.wix.com/new/vertical?referralAdditionalInfo=header">Ho bisogno di un sito per...</a></li>
+    <li class="is-hidden davinci-hide" id="wm-verticals-drop-down"></li>
+    <li class="is-hidden davinci-hide" id="wm-verticals-names">
+      {"OTHER":"Altro","BEAUTY_AND_WELLNESS":"Salute e Bellezza","MUSIC":"Musica","EVENTS":"Eventi","RESTAURANTS":"Ristoranti e Cucina","ONLINE_STORE":"Negozio Online","ACCOMMODATION":"Alloggio","PHOTOGRAPHY":"Fotografia","BUSINESS":"Business","PORTFOLIO_AND_CV":"Portfolio e Curriculum","BLOG":"Blog","DESIGNER":"Designer"}
+    </li>
+    <li><a id="wm-my-account-link" href="https://it.wix.com/my-account">I Miei Siti</a></li>
+    <li class="davinci-hide"><a class="wm-create-link" href="https://it.wix.com/website/templates">Templates</a></li>
+    <li class="davinci-hide">
+      <a class="wm-explore-link" href="https://it.wix.com/explore/websites">
+        Esplora
+        <span class="sub-menu-arrow"><svg width="10" height="5.7" viewBox="0 0 10 5.7"><polygon fill="none" points="5 5.7 0 0.7 0.7 0 5 4.4 9.3 0 10 0.7 "/></svg></span>
+      </a>
+      <ul class="wm-submenu">
+        <li>
+          <a id="wm-get-inspired-link" href="https://it.wix.com/explore/websites">
+            <span>Fatti Ispirare</span>
+          </a>
+        </li>
+        <li>
+          <a class="wm-features-link" href="https://it.wix.com/features/main">
+            <span>Funzionalità</span>
+          </a>
+        </li>
+        <li>
+          <a id="wm-app-market-link" href="https://it.wix.com/app-market/main">
+            <span>App Market</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="davinci-show"><a class="wm-features-link" href="https://it.wix.com/features/main"><span>Funzionalità</span></a></li>
+    <li class="davinci-show"><a class="wm-explore-link" href="https://it.wix.com/explore/websites">Esplora</a></li>
+    <li>
+      <a id="wm-subscriptions" href="https://it.wix.com/upgrade/website">
+        Abbonamenti
+        <span class="sub-menu-arrow"><svg width="10" height="5.7" viewBox="0 0 10 5.7"><polygon fill="none" points="5 5.7 0 0.7 0.7 0 5 4.4 9.3 0 10 0.7 "/></svg></span>
+      </a>
+      <ul class="wm-submenu">
+        <li>
+          <a id="wm-sub-upgrade-plans" href="https://it.wix.com/upgrade/website">
+            <span>Pacchetti Premium</span>
+          </a>
+        </li>
+        <li>
+          <a id="wm-sub-domains" href="https://it.wix.com/domain/names">
+            <span>Domini</span>
+          </a>
+        </li>
+        <li>
+          <a id="wm-sub-mail-box" href="https://it.wix.com/about/mailboxes">
+            <span>Caselle di posta</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="davinci-show"><a class="wm-create-link" href="https://it.wix.com/website/templates">Templates</a></li>
+    <li><a id="wm-support-link" href="https://support.wix.com/it/">Assistenza</a></li>
+  </ul>
+  <div id="wm-user-component">
+    <a target="_self" href="https://it.wix.com/signin?loginDialogContext=login&referralInfo=HEADER" class="wm-signin">Accedi</a>
+    <div class="wm-logged-in">
+      <div id="wm-user-greeting">
+        Ciao, {username}
+        <span class="sub-menu-arrow"><svg width="10" height="5.7" viewBox="0 0 10 5.7"><polygon fill="none" points="5 5.7 0 0.7 0.7 0 5 4.4 9.3 0 10 0.7 "/></svg></span>
+      </div>
+      <ul id="wm-settings-drop-down">
+        <li><a target="_self" href="https://it.wix.com/my-account/settings">Impostazioni Account</a></li>
+        <li><a target="_self" href="https://premium.wix.com/wix/api/PaymentConsole">Fatturazione e Pagamenti</a></li>
+        <li><a target="_self" href="https://premium.wix.com/wix/api/voucherConsole">Buoni</a></li>
+        <li id="wm-settings-language-dropdown"></li>
+        <li><a target="_self" href="https://it.wix.com/signout">Esci</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="wm-mobile-sidebar">
+    <ul class="wm-mobile-menu-links">
+      <li id="wm-mobile-get-started"><a href class="get-started" bi="origin=header">Inizia</a></li>
+      <li><a href="https://it.wix.com" id="wm-homepage-link" bi="wix">Home</a></li>
+      <li><a href="https://it.wix.com/features/main" id="wm-features-link" bi="features/main">Funzionalità</a></li>
+      <li><a href="https://it.wix.com/domain/names" id="wm-domains-link" bi="domain/names">Domini</a></li>
+      <li><a href="https://it.wix.com/about/mailboxes" id="wm-mailboxes-link" bi="about/mailboxes">Caselle di posta</a></li>
+      <li><a href="https://it.wix.com/ecommerce/website" id="wm-ecommerce-link" bi="ecommerce/website">Negozio Online</a></li>
+      <li><a href="https://it.wix.com/about/contact-us" id="wm-contact-us" bi="about/contact-us">Contattaci</a></li>
+      <li><a href="http://www.wix.com/jobs/home" id="wm-jobs" bi="jobs/home" avoidHttps="true">Offerte di Lavoro</a></li>
+
+
+      <li><a avoidHttps="true" href="https://www.wix.com/blog" id="wm-mobile-blog" bi="blog">Wix Blog</a></li>
+
+      <li><a avoidHttps="true" href="http://www.wix.com/stories/" id="wm-stories" bi="stories">Wix Stories</a></li>
+    </ul>
+  </div>
+
+</nav>
+
+<script type="text/javascript">
+
+var W = W || {};
+W.Site = W.Site || {};
+W.Site.Common = W.Site.Common || {};
+W.Site.Common.clientTopology = W.Site.Common.clientTopology || {};
+W.Site.Common.clientTopology.premiumBaseUrl =  'https://premium.wix.com';
+W.Site.Common.clientTopology.usersBaseUrl = 'https://users.wix.com';
+W.Site.Common.clientTopology.baseUrl = 'https://it.wix.com';
+W.Site.Common.clientTopology.headerAndFooterStaticsUrl = 'https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/';
+</script>
+
+<link rel="stylesheet" type="text/css" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/bower_components/marketing-header-and-footer/statics/app.min.css">
+<script type="text/javascript" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/bower_components/marketing-header-and-footer/statics/app.bundle.min.js"></script>
+<script type="text/javascript" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/scripts/scripts.js"></script>
+
+</header>
+<main>
+    <section class="home-wrapper">
+        <div class=" fold home" data-fold="1" id="home-fold">
+
+            <div class="video-wrapper" id="video-wrapper">
+                <video
+                   id="video-player"
+                   loop
+                    muted>
+                    <source src="https://video.wixstatic.com/video/ed0ad3_3b60553ecb2548338bb27b7b95213c39/1080p/mp4/file.mp4"  type="video/mp4"/>
+                    <track src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/caption/subtitles_it.vtt" kind="captions" srclang="it" label="it"/>
+                    <p>A man looks out towards the city skyline.</p>
+                </video>
+                <div id="video-player-placeholder" class="video-player-bg"></div>
+            </div>
+            <div class="forground">
+                <div class="inner">
+                    <h1 >Tutto inizia <span class='text-fix'>dal tuo incredibile sito web</span></h1>
+                    <p class="text" >Wix unisce alla tecnologia avanzata un design professionale. Creare il tuo sito web è facile e gratuito.</p>
+                    <a class="cta" fold-name="1" id="mainCta"><span>Inizia ora</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row fold" data-fold="2">
+            <div class="vw50 text-wrapper left">
+                <div class="feature">
+                    <hr class="divider"/>
+                    <h2 class="fix-space-ie" >Tutto ciò di cui hai <br>bisogno per creare il tuo<br> splendido sito web</h2>
+                    <p class="text">
+                        Abbiamo tutto ciò di cui hai bisogno. Creazione gratuita di <br>un sito, template creati da designer professionisti,<br> gallerie per le foto, ottimizzazione per mobile, domini,<br> hosting sicuro, SEO, assistenza e molto altro. Wix ti offre<br> tutto questo.
+                    </p>
+                    <button class="get-started" fold-name="2">Inizia ora
+                        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                        <svg class="sec-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                    </button>
+                </div>
+                <div class="feature fade-out">
+                    <hr class="divider"/>
+                    <h2 class="fix-space-ie" >Creazione fai da te di<br> siti web. È facile, veloce e gratis</h2>
+                    <p class="text" >Creare il tuo splendido sito web non è mai stato così facile.<br>
+ Non hai bisogno di alcuna competenza informatica.<br> Scegli un template, personalizzalo come vuoi tu, aggiungi le<br> tue foto, i tuoi video e testi e il tuo sito è pronto per andare online.</p>
+                    <button class="get-started" fold-name="3">Inizia ora
+                        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                        <svg class="sec-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="vw50 outdoor-wrapper">
+                <div class="container outdoor">
+                    <img alt="wix map feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/grid_website.jpg" class="grid"
+                         initial-X="-21%"
+                         initial-Y="-10%"/>
+                    <div class="website image-fix"
+                         initial-X="0%"
+                         initial-Y="10%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-travel.svg" />
+                        <img alt="wix map feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/travel-website.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fold" data-fold="3">
+            <div class="vw50 wix-features-container">
+                <div class="map image-fix" initial-X="0%"
+                     initial-Y="10%">
+                    <img alt="wix map feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/feature-map.jpg"/>
+                </div>
+                <div class="online image-fix"
+                     initial-X="-8%" initial-Y="-10%">
+                    <img alt="wix online store feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-onlinestore.svg" />
+                    <img alt="wix online store feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/feature-online.jpg"/>
+                </div>
+                <div class="booking image-fix" initial-X="-21%" initial-Y="5%">
+                    <img alt="wix booking feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-booking.svg" />
+                    <img alt="wix booking feature" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/feature-booking.jpg"
+                    />
+                </div>
+            </div>
+            <div class="vw50 text-wrapper features-left">
+                <div class="">
+                    <hr class="divider"/>
+                    <h2 class="fix-space-ie" >Le possibilità sono infinite con <br>oltre 200 app.</h2>
+                    <p class="text">
+                        <br> Con oltre 200 app gratis disponibili, puoi far crescere la tua attività in<br> modi che non avresti mai immaginato. Collegati ai social media,<br> invia fatture, imposta moduli di contatto e aggiungi persino il <br>conto alla rovescia per un evento futuro. 
+                    </p>
+                    <button class="get-started" fold-name="4">Inizia ora
+                        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                        <svg class="sec-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row gallery fold" data-fold="4">
+            <input type="radio" class="slide-1-nav" name="gallery-nav" checked/>
+            <input type="radio" class="slide-2-nav" name="gallery-nav"/>
+            <input type="radio" class="slide-3-nav" name="gallery-nav"/>
+            <div class="vw50 text-wrapper left">
+                <hr class="divider"/>
+                <div class="fix-space-ie">
+                    <div class="slide-1 show">
+                        <h2 >Più di 100 milioni di persone da</br>180 paesi hanno scelto Wix</h2>
+                        <p class="text">
+                            Professionisti di ogni genere hanno creato il proprio sito web <br>gratuito con Wix. Artisti, commercianti, designer, dentisti, novelli <br>sposi, blogger, organizzatori di eventi, fotografi, chef e molti altri<br> hanno scelto lo strumento più facile per creare il proprio sito web.
+                        </p>
+                    </div>
+                    <div class="slide-2">
+                        <h2 >Promuovi e<br> fai crescere<br> il tuo business</h2>
+                        <p class="text">
+                            Creare il tuo sito web è il primo passo.  Promuovi il tuo<br> business  e accresci il traffico al tuo sito con email<br> marketing, strumenti per il SEO. E molto molto altro.
+                        </p>
+                    </div>
+                    <div class="slide-3">
+                        <h2 > Scopri come creare un sito web </h2>
+                        <h3 class="subtitle" > Ecco come creare il tuo sito web in 5 passi</h3>
+                        <ol class="text list">
+                            <li>Accedi al tuo account o iscriviti gratis </li><li>Scegli un template che rispecchi le tue necessità o parti da zero</li><li>Personalizzalo: aggiungi testi, immagini, video e molto altro</li><li>Pubblica il tuo sito e fallo conoscere al mondo</li><li>Gestisci il tuo business grazie a domini personalizzati, email marketing e molto altro</li>
+                        </ol>
+                    </div>
+                </div>
+                <button class="get-started" fold-name="5">Inizia ora
+                    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                    <svg class="sec-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                </button>
+                
+                
+                    <button class="get-started show-with-slide-3" data-bi="309" data-url="https://it.wix.com/come-creare/un-sito-web">Scopri di più
+                        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                        <svg class="sec-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10.9 19"><path d="M1.4 19L0 17.6l8.1-8.1L0 1.4 1.4 0l9.5 9.5"/></svg>
+                    </button>
+                
+                <div class="pager">
+                    <div class="single-pager active" data-for="slide-1-nav"></div>
+                    <div class="single-pager" data-for="slide-2-nav"></div>
+                    <div class="single-pager" data-for="slide-3-nav"></div>
+                </div>
+            </div>
+            <div class="vw50 features-gallery" data-last="slide-1-img">
+                <div class="slide-1-img features-slide">
+                    <div class="small image-fix" initial-X="-38%" initial-Y="-30%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-gallery-A-small.svg" data-ie="" />
+                        <img src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/A-small.jpg" data-ie="" alt=""/>
+                    </div>
+                    <div class="big image-fix" initial-X="0%" initial-Y="-18%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-gallery-A-big.svg" data-ie="" />
+                        <img src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/A-big.jpg" alt=""
+                             data-ie="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/ie_website1.png"/>
+                    </div>
+                </div>
+                <div class="slide-2-img features-slide">
+
+                    <div class="small image-fix" initial-X="-38%" initial-Y="-30%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-gallery-B-small.svg" data-ie="" />
+                        <img src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/B-small.jpg" alt="" data-ie=""/>
+                    </div>
+                    <div class="big image-fix" initial-X="0%" initial-Y="-18%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-gallery-B-big.svg" data-ie="" />
+                        <img src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/B-big.jpg" alt=""
+                             data-ie="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/ie_website2.png"/>
+                    </div>
+                </div>
+                <div class="slide-3-img features-slide">
+                    <div class="small image-fix" initial-X="-38%" initial-Y="-30%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-gallery-C-small.svg" data-ie="" />
+                        <img src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/C-small.jpg" alt="" data-ie=""/>
+                    </div>
+                    <div class="big image-fix" initial-X="0%" initial-Y="-18%">
+                        <img alt="" src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/hp-gallery-C-big.svg" data-ie="" />
+                        <img src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/C-big.jpg" alt=""
+                             data-ie="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/images/features-gallery/en/ie_website3.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row closer-fold fold" data-fold="5">
+            <h2 >Crea il tuo fantastico sito web oggi stesso</h2>
+            <div class="get-started-container">
+                <button class="get-started" fold-name="6">Inizia ora</button>
+            </div>
+        </div>
+        
+
+
+<!--[if lt IE 9]>
+  <script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/bower_components/html5shiv/dist/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/wix-header-and-footer/dist/styles/footer.css">
+<footer id="wix-footer" lang="it">
+    <div class="wf-container">
+        <div class="wf-column-container">
+            <ul class="wf-column wf-links-column wf-product-column">
+                <li><div class="wf-title">PRODOTTO</div></li>
+                <li><a class="frog" frog-name="templates" frog-type="product" href="https://it.wix.com/website/templates">Templates</a></li>
+                <li><a class="frog" frog-name="explore" frog-type="product" href="https://it.wix.com/explore/websites">Esplora</a></li>
+                <li><a class="frog" frog-name="features" frog-type="product" href="https://it.wix.com/features/main">Funzionalità</a></li>
+                <li><a class="frog" frog-name="wixcode"  frog-type="product" href="https://it.wix.com/code/home">Wix Code</a></li>
+                <li><a class="frog" frog-name="my-sites" frog-type="product" href="https://it.wix.com/my-account">I Miei Siti</a></li>
+                <li><a class="frog" frog-name="premium-plans" frog-type="product" href="https://it.wix.com/upgrade/website">Pacchetti Premium</a></li>
+                <li><a class="frog" frog-name="wix-seo" frog-type="product" href="https://it.wix.com/about/seo">SEO Wix</a></li>
+
+                <li><a class="frog" frog-name="online-store" frog-type="product" href="https://it.wix.com/ecommerce/negozio-online">Negozio Online</a></li>
+
+                <li><a class="frog" frog-name="app-market" frog-type="product" href="https://it.wix.com/app-market/main">App Market</a></li>
+                <li><a class="frog" frog-name="domain" frog-type="product" href="https://it.wix.com/domain/names">Domini</a></li>
+                <li><a class="frog" frog-name="developers" frog-type="product" href="https://dev.wix.com">Programmatori</a></li>
+                <li><a class="frog" frog-name="'email-marketing" frog-type="product" href="https://it.wix.com/shoutout/email-marketing">Email Marketing</a></li>
+            </ul>
+            <ul class="wf-column wf-links-column wf-company-column">
+                <li><div class="wf-title">AZIENDA</div></li>
+                <li><a class="frog" frog-name="about-wix" frog-type="company" href="https://it.wix.com/about/us">A Proposito di Wix</a></li>
+                <li><a class="frog" frog-name="investor-relations" frog-type="company" href="https://investors.wix.com">Investor Relations</a></li>
+                <li><a avoidHttps="true" class="frog" frog-name="jobs" frog-type="company" href="https://www.wix.com/jobs/home">Offerte di Lavoro</a></li>
+                <li><a class="frog" frog-name="design-assets" frog-type="company" href="https://it.wix.com/about/design-assets">Attività di Progettazione</a></li>
+                <li><a class="frog" frog-name="terms-of-use" frog-type="company" href="https://it.wix.com/about/terms-of-use">Termini d'Uso</a></li>
+                <li><a class="frog" frog-name="app-market-terms" frog-type="company" href="https://it.wix.com/about/app-market-terms">Termini di App Market</a></li>
+                <li><a class="frog" frog-name="privacy-policy" frog-type="company" href="https://it.wix.com/about/privacy">Norme sulla privacy</a></li>
+                <li><a class="frog" frog-name="abuse" frog-type="company" href="https://it.wix.com/upgrade/abuse">Abuso</a></li>
+                <li><a class="frog" frog-name="affiliates" frog-type="company" href="https://it.wix.com/about/affiliates">Affiliati</a></li>
+             
+
+                <li><a class="frog" frog-name="contact-us" frog-type="company" href="https://it.wix.com/about/contact-us">Contattaci</a></li>
+            </ul>
+            <ul class="wf-column wf-links-column wf-community-column">
+                <li><div class="wf-title">COMMUNITY</div></li>
+
+                <li><a avoidHttps="true" class="frog" frog-name="wix-blog" frog-type="community" target="_blank" href="https://www.wix.com/blog">Wix Blog</a></li>
+
+                <li><a avoidHttps="true" class="frog" frog-name="wix-stories" frog-type="community" target="_blank" href="https://www.wix.com/stories/">Wix Stories</a></li>
+                <li><a avoidHttps="true" class="frog" frog-name="wix-arena" frog-type="community" target="_blank" href="https://wix.com/arena">Wix Arena</a></li>
+                <li><a class="frog" frog-name="wix-lounge" frog-type="community" target="_blank" href="https://www.wix.com/lounge/main">Wix Lounge</a></li>
+                <li><a class="frog" frog-name="wix-ontheroad" frog-type="community" target="_blank" href="https://www.wixontheroad.com/">Wix on the Road</a></li>
+                <li><a class="frog" frog-name="facebook" frog-type="community" target="_blank" href="https://www.facebook.com/wix" class="wf-facebook">Facebook</a></li>
+                <li><a class="frog" frog-name="twitter" frog-type="community" target="_blank" href="https://twitter.com/wix" class="wf-twitter">Twitter</a></li>
+                <li><a class="frog" frog-name="google-plus" frog-type="community" target="_blank" href="https://plus.google.com/+Wix/posts" class="wf-google-plus">Google+</a></li>
+                <li><a class="frog" frog-name="pinterest" frog-type="community" target="_blank" href="http://www.pinterest.com/wixcom/" class="wf-pinterest">Pinterest</a></li>
+                <li><a class="frog" frog-name="youtube" frog-type="community" target="_blank" href="https://www.youtube.com/channel/UCU9d62kabPCxAWQEqoL8jWA" class="wf-youtube">Youtube</a></li>
+                <li><a class="frog" frog-name="linkedin" frog-type="community" target="_blank" href="https://www.linkedin.com/company/wix-com?trk=biz-companies-cym" class="wf-youtube">Linkedin</a></li>
+            </ul>
+            <ul class="wf-column wf-links-column wf-support-column">
+                <li><div class="wf-title">SUPPORTO</div></li>
+                <li><a class="frog" frog-name="support-center" frog-type="support" target="_blank" href="https://support.wix.com/it/">Centro di Assistenza</a></li>
+            </ul>
+            <div class="wf-column wf-about-wix-column">
+                <div class="wf-logo">
+                    <a href="/">
+                        <svg aria-labelledby="footer-wix-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 84.2 20.6" enable-background="new 0 0 84.2 20.6" xml:space="preserve" aria-labelledby="Wix.com" role="img">
+                            <title id="footer-wix-logo">Wix.com</title>
+                            <g id="XMLID_2_">
+                                <g id="XMLID_121_">
+                                    <path id="XMLID_122_" d="M29.1,5c-0.7,0.4-1.3,0.7-1.6,0.9c-0.3,0.2-0.6,0.4-0.7,0.6c-0.1,0.2-0.2,0.3-0.2,0.3
+                                        l0,13.3c0.6,0,1,0,1.2-0.1c0.5,0,0.9-0.2,1.4-0.6c0.5-0.4,0.8-0.9,0.8-1.5V8.7c0-1.3,0-2.8,0-4.5C29.8,4.5,29.5,4.7,29.1,5z
+                                         M48.9,1.2h-1.6c-0.6,0-1.1,0.1-1.5,0.2c-0.7,0.2-1.2,0.6-1.7,1.1l-2.5,3.7c-0.5,0.7-0.8,1.2-0.8,1.2c-0.1,0.2-0.3,0.3-0.5,0.4
+                                        c-0.1,0-0.1,0-0.1,0.1c-0.1,0-0.1,0-0.2-0.1c-0.2-0.1-0.4-0.3-0.5-0.4c0-0.1-0.3-0.5-0.8-1.2l-2.5-3.7c-0.5-0.5-1-0.9-1.7-1.1
+                                        l-3.1-0.2l6.4,9.4l0,0h0l-6.4,9.4H33c0.6,0,1.1-0.1,1.5-0.2c0.6-0.2,1.2-0.6,1.7-1.1l2.5-3.7c0.5-0.7,0.8-1.1,0.8-1.2
+                                        c0.1-0.2,0.3-0.4,0.5-0.5c0.1,0,0.1,0,0.2-0.1c0,0,0.1,0,0.1,0.1c0.2,0.1,0.4,0.3,0.5,0.5c0,0,0.3,0.4,0.8,1.2l2.5,3.7
+                                        c0.1,0.2,0.3,0.3,0.4,0.4c0.4,0.3,0.8,0.5,1.3,0.7c0.4,0.1,0.9,0.2,1.5,0.2h1.6l-6.4-9.4v0L48.9,1.2z M28.4,1.5
+                                        c-0.4,0.2-0.7,0.4-1,0.7C27.2,2.4,27.1,2.7,27,3c-0.1,0.2-0.2,0.4-0.2,0.6c-0.1,0.6-0.2,1.3-0.1,1.9c0.5-0.3,0.9-0.6,1.3-0.8
+                                        c0.4-0.2,0.8-0.3,1.1-0.6c0.3-0.2,0.5-0.5,0.7-0.9c0.4-0.7,0.5-1.5,0.5-2.2C29.5,1.2,28.9,1.3,28.4,1.5z M22.7,1.9
+                                        c-0.3,0.3-0.6,0.8-0.7,1.3l-2.8,10.8l-2.2-8.3C16.7,5,16.5,4.4,16.4,4c-0.2-0.5-0.4-0.8-0.6-1c-0.5-0.5-1-0.8-1.7-0.9
+                                        c-0.1,0-0.2,0-0.4,0h-0.6c-0.1,0-0.3,0-0.4,0C12,2.1,11.4,2.4,11,3c-0.2,0.2-0.4,0.5-0.6,1C10.2,4.4,10,5,9.8,5.7l-2.2,8.3
+                                        L4.8,3.2L4.6,2.5C4.3,2.2,4.1,1.9,3.8,1.7C3.3,1.4,2.7,1.2,2,1.2c-0.8,0-1.2,0-1.3,0L5.7,20c0.5,0,0.9,0,1.4,0
+                                        c0.4,0,0.7-0.2,1.1-0.4c0.2-0.2,0.4-0.3,0.5-0.5C8.9,19,9,18.8,9.1,18.7c0.1-0.2,0.2-0.4,0.3-0.6c0.3-0.8,0.6-1.6,0.9-2.4l2.5-9.5
+                                        l0,0c0-0.1,0.1-0.2,0.2-0.3c0.1-0.1,0.2-0.1,0.2-0.1c0,0,0.1-0.1,0.1-0.1c0,0,0.1,0,0.1,0.1c0.1,0,0.1,0.1,0.2,0.1
+                                        c0.1,0.1,0.1,0.2,0.2,0.3l0,0l2.4,9.5c0.3,0.8,0.6,1.6,0.9,2.4c0.1,0.2,0.2,0.4,0.3,0.6c0.1,0.2,0.2,0.3,0.3,0.4
+                                        c0.2,0.2,0.4,0.3,0.5,0.5c0.3,0.2,0.7,0.4,1.1,0.4c0.5,0.1,0.9,0.1,1.4,0l5-18.8c-0.7,0-1.5,0-2.3,0.2C23.3,1.5,23,1.6,22.7,1.9z
+                                         M50.6,19.9H52v-1.7h-1.4V19.9z M59.1,17.8c-0.1,0.3-0.3,0.6-0.5,0.8c-0.2,0.2-0.5,0.4-0.8,0.5c-0.3,0.1-0.6,0.2-0.9,0.2
+                                        c-0.5,0-0.9-0.1-1.3-0.3c-0.4-0.2-0.7-0.5-0.9-0.8c-0.2-0.3-0.4-0.7-0.6-1.2c-0.1-0.4-0.2-0.9-0.2-1.3c0-0.4,0.1-0.9,0.2-1.3
+                                        c0.1-0.4,0.3-0.8,0.6-1.2c0.2-0.3,0.6-0.6,0.9-0.8c0.4-0.2,0.8-0.3,1.3-0.3c0.7,0,1.2,0.2,1.6,0.5c0.4,0.4,0.7,0.9,0.8,1.5h1
+                                        c-0.1-1-0.5-1.7-1.1-2.2c-0.6-0.5-1.4-0.7-2.3-0.7c-0.7,0-1.2,0.1-1.7,0.4c-0.5,0.2-0.9,0.6-1.3,1c-0.3,0.4-0.6,0.9-0.8,1.4
+                                        c-0.2,0.5-0.3,1.1-0.3,1.7c0,0.6,0.1,1.2,0.3,1.7c0.2,0.5,0.4,1,0.8,1.4c0.3,0.4,0.8,0.7,1.3,1c0.5,0.2,1.1,0.4,1.7,0.4
+                                        c1,0,1.8-0.3,2.4-0.9c0.6-0.6,1-1.4,1.2-2.4h-1C59.3,17.2,59.3,17.5,59.1,17.8z M68.9,12.5c-0.3-0.4-0.8-0.7-1.3-1
+                                        c-0.5-0.2-1.1-0.4-1.7-0.4c-0.7,0-1.2,0.1-1.7,0.4c-0.5,0.2-0.9,0.6-1.3,1c-0.3,0.4-0.6,0.9-0.8,1.4c-0.2,0.5-0.3,1.1-0.3,1.7
+                                        c0,0.6,0.1,1.2,0.3,1.7c0.2,0.5,0.4,1,0.8,1.4c0.3,0.4,0.8,0.7,1.3,1c0.5,0.2,1.1,0.4,1.7,0.4c0.7,0,1.2-0.1,1.7-0.4
+                                        c0.5-0.2,0.9-0.6,1.3-1c0.3-0.4,0.6-0.9,0.8-1.4c0.2-0.5,0.3-1.1,0.3-1.7c0-0.6-0.1-1.2-0.3-1.7C69.5,13.4,69.2,12.9,68.9,12.5z
+                                         M68.7,17c-0.1,0.4-0.3,0.8-0.6,1.2c-0.2,0.3-0.6,0.6-0.9,0.8c-0.4,0.2-0.8,0.3-1.3,0.3c-0.5,0-0.9-0.1-1.3-0.3
+                                        c-0.4-0.2-0.7-0.5-0.9-0.8c-0.2-0.3-0.4-0.7-0.6-1.2c-0.1-0.4-0.2-0.9-0.2-1.3c0-0.4,0.1-0.9,0.2-1.3c0.1-0.4,0.3-0.8,0.6-1.2
+                                        c0.2-0.3,0.6-0.6,0.9-0.8c0.4-0.2,0.8-0.3,1.3-0.3c0.5,0,0.9,0.1,1.3,0.3c0.4,0.2,0.7,0.5,0.9,0.8c0.2,0.3,0.4,0.7,0.6,1.2
+                                        c0.1,0.4,0.2,0.9,0.2,1.3C68.9,16.1,68.8,16.5,68.7,17z M80.8,11.1c-0.6,0-1.1,0.1-1.6,0.4c-0.5,0.3-0.9,0.7-1.1,1.2
+                                        c-0.2-0.6-0.5-1-0.9-1.2c-0.5-0.3-1-0.4-1.5-0.4c-0.7,0-1.3,0.2-1.7,0.5c-0.5,0.3-0.8,0.7-1.1,1.2h0v-1.4h-1v8.5h1v-4.7
+                                        c0-0.4,0-0.8,0.1-1.2c0.1-0.4,0.3-0.7,0.5-1c0.2-0.3,0.5-0.5,0.8-0.7c0.3-0.2,0.7-0.2,1.2-0.2c0.3,0,0.6,0.1,0.8,0.2
+                                        c0.2,0.1,0.4,0.3,0.6,0.5c0.1,0.2,0.2,0.4,0.3,0.7c0.1,0.3,0.1,0.5,0.1,0.8v5.8h1v-4.8c0-0.4,0-0.8,0.1-1.1c0.1-0.4,0.2-0.7,0.4-1
+                                        c0.2-0.3,0.4-0.5,0.7-0.7c0.3-0.2,0.7-0.3,1.1-0.3c0.8,0,1.3,0.2,1.6,0.6c0.3,0.4,0.4,0.9,0.4,1.6v5.7h1v-5.8
+                                        C83.7,12.1,82.7,11.1,80.8,11.1z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="wf-description">Wix.com è una piattaforma leader nello sviluppo cloud-based con milioni di utenti in tutto il mondo. Consentiamo a tutti di creare una presenza web interessante, professionale e d'impatto. </div>
+                <div class="wf-description">
+                    Promuovi la tua attività, esibisci le tue opere artistiche, configura un negozio online o prova semplicemente nuove idee. 
+                    Lo strumento di costruzione di siti web di Wix dispone di tutto il necessario per creare un sito web gratuito, completamente personalizzato e di alta qualità.
+                </div>
+                <div class="wf-description">© 2006-2017 Wix.com, Inc</div>
+                <ul class="wf-social">
+                    <li><a target="_blank" href="https://www.facebook.com/wix" class="wf-facebook frog" frog-name="facebook" frog-type="social" style="margin-left: -12px">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" aria-labelledby="Facebook" role="img">
+                            <title id="Facebook">Facebook</title>
+                            <path id="XMLID_469_" d="M14.1,6.1H17V2.5h-2.8c-2.4,0-4.3,2.1-4.3,4.8v1.8H7v3.6h2.8v8.8h3.6v-8.8H17V9.1h-3.6V7.2
+                                C13.4,6.6,13.8,6.1,14.1,6.1z"/>
+                        </svg>
+                    </a></li>
+                    <li><a target="_blank" href="https://twitter.com/wix" class="wf-twitter frog" frog-name="twitter" frog-type="social" style="margin-left: -4px">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" aria-labelledby="Twitter" role="img">
+                            <title id="Twitter">Twitter</title>
+                            <path id="XMLID_506_" d="M23,5.1c-0.8,0.4-1.7,0.6-2.6,0.7c0.9-0.6,1.6-1.5,2-2.5c-0.9,0.5-1.8,0.9-2.9,1.1
+                                c-0.8-0.9-2-1.4-3.3-1.4c-2.5,0-4.5,2-4.5,4.5c0,0.4,0,0.7,0.1,1c-3.8-0.2-7.1-2-9.3-4.7C2.1,4.5,1.9,5.3,1.9,6.1c0,1.6,0.8,3,2,3.8
+                                c-0.7,0-1.4-0.2-2-0.6c0,0,0,0,0,0.1c0,2.2,1.6,4,3.6,4.5C5.1,13.9,4.7,14,4.3,14c-0.3,0-0.6,0-0.8-0.1C4,15.7,5.7,17,7.7,17.1
+                                C6.1,18.3,4.2,19,2.1,19C1.7,19,1.4,19,1,19c2,1.3,4.4,2,6.9,2c8.3,0,12.8-6.9,12.8-12.9c0-0.2,0-0.4,0-0.6C21.6,6.8,22.4,6,23,5.1z
+                                "/>
+                        </svg>
+                    </a></li>
+                    <li><a target="_blank" href="https://plus.google.com/+Wix/posts" class="wf-google-plus frog" frog-name="google-plus" frog-type="social" style="margin-left: -5px">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="135.8px" height="86.2px" viewBox="0 0 135.8 86.2" style="enable-background:new 0 0 135.8 86.2;" xml:space="preserve"
+                            aria-labelledby="Google+">
+                            <title id="Google+">Google+</title>
+
+                        <style type="text/css">
+                            .st0{fill:#231F20;}
+                        </style>
+                        <path class="st0" d="M43.1,34.6v17.1c0,0,16.6,0,23.3,0C62.7,62.8,57,68.8,43.1,68.8c-14.1,0-25.2-11.5-25.2-25.6S29,17.6,43.1,17.6
+                            c7.5,0,12.3,2.6,16.7,6.3c3.5-3.5,3.2-4.1,12.3-12.6C64.5,4.3,54.3,0,43.1,0C19.3,0,0,19.3,0,43.1s19.3,43.1,43.1,43.1
+                            c35.6,0,44.3-31,41.4-51.7C76.2,34.6,43.1,34.6,43.1,34.6z M120.9,35.5v-15h-10.7v14.9H94.8v10.7h15.4v15.4h10.7V46.2h14.9V35.5
+                            H120.9z"/>
+                        </svg>
+                    </a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/channel/UCU9d62kabPCxAWQEqoL8jWA" class="wf-youtube frog" frog-name="youtube" frog-type="social" style="margin-left: -5px">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" aria-labelledby="Youtube" role="img">
+                            <title id="Youtube">Youtube</title>
+                                <path id="XMLID_844_" d="M22.8,7.3c0,0-0.2-1.5-0.8-2.2c-0.8-0.9-1.7-0.9-2.1-0.9c-3-0.2-8-0.2-8-0.2h0
+                                    c0,0-4.7,0-7.7,0.2C3.8,4.3,2.9,4.3,2.1,5.1C1.4,5.8,1.2,7.3,1.2,7.3S1,9.6,1,11.3V13c0,1.8,0.2,3.7,0.2,3.7s0.2,1.5,0.8,2.2
+                                    c0.8,0.9,1.9,0.8,2.3,0.9c1.7,0.2,7.5,0.2,7.5,0.2s5,0,8-0.2c0.4-0.1,1.3-0.1,2.1-0.9c0.6-0.7,0.8-2.2,0.8-2.2S23,14.7,23,13v-1.6
+                                    C23,9.6,22.8,7.3,22.8,7.3z M9.7,15l0-6.6l5.7,3.6L9.7,15z"/>
+                        </svg>
+                    </a></li>
+                    <li><a target="_blank" href="http://www.pinterest.com/wixcom/" class="wf-pinterest frog" frog-name="pinterest" frog-type="social" style="margin-left: -4px">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" aria-labelledby="Pinterest" role="img">
+                            <title id="Pinterest">Pinterest</title>
+                            <path id="XMLID_629_" d="M12.5,1.7c-5.6,0-8.4,4-8.4,7.4c0,2,0.8,3.8,2.4,4.5c0.3,0.1,0.5,0,0.6-0.3
+                                c0.1-0.2,0.2-0.7,0.2-0.9c0.1-0.3,0-0.4-0.2-0.7c-0.5-0.6-0.8-1.3-0.8-2.3c0-3,2.2-5.6,5.8-5.6c3.2,0,4.9,1.9,4.9,4.5
+                                c0,3.4-1.5,6.3-3.7,6.3c-1.2,0-2.1-1-1.9-2.3c0.4-1.5,1-3.1,1-4.2c0-1-0.5-1.8-1.6-1.8c-1.3,0-2.3,1.3-2.3,3c0,1.1,0.4,1.9,0.4,1.9
+                                s-1.3,5.5-1.5,6.4c-0.4,1.9-0.1,4.2,0,4.5c0,0.1,0.2,0.2,0.3,0.1c0.1-0.2,1.6-2,2.1-3.9c0.1-0.5,0.8-3.2,0.8-3.2
+                                c0.4,0.8,1.6,1.5,2.9,1.5c3.8,0,6.3-3.5,6.3-8.1C19.9,5,17,1.7,12.5,1.7z"/>
+                        </svg>
+                    </a></li>
+                    <li><a target="_blank" href="http://instagram.com/wix" class="wf-instagram frog" frog-name="instegram" frog-type="social" style="margin-left: -5px">
+                        <svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="503.8px" height="503.8px" viewBox="0 0 503.8 503.8" style="enable-background:new 0 0 503.8 503.8;" xml:space="preserve"
+                            aria-labelledby="Instagram">
+                            <title id="Instagram">Instagram</title>
+
+                        <path d="M502.3,148.1c-1.2-26.8-5.5-45.1-11.7-61.2c-6.4-16.6-15.1-30.6-29.1-44.6c-14-14-28.1-22.6-44.6-29.1
+                            c-16-6.2-34.3-10.5-61.2-11.7C328.9,0.3,320.3,0,251.9,0s-77,0.3-103.9,1.5C121.2,2.7,102.9,7,86.9,13.2
+                            c-16.6,6.4-30.6,15.1-44.6,29.1c-14,14-22.6,28.1-29.1,44.6c-6.2,16-10.5,34.3-11.7,61.2C0.3,174.9,0,183.5,0,251.9
+                            c0,68.4,0.3,77,1.5,103.9c1.2,26.8,5.5,45.1,11.7,61.2c6.4,16.6,15.1,30.6,29.1,44.6c14,14,28.1,22.6,44.6,29.1
+                            c16,6.2,34.3,10.5,61.2,11.7c26.9,1.2,35.4,1.5,103.9,1.5s77-0.3,103.9-1.5c26.8-1.2,45.1-5.5,61.2-11.7
+                            c16.6-6.4,30.6-15.1,44.6-29.1c14-14,22.6-28.1,29.1-44.6c6.2-16,10.5-34.3,11.7-61.2c1.2-26.9,1.5-35.4,1.5-103.9
+                            S503.6,174.9,502.3,148.1z M457,353.7c-1.1,24.6-5.2,37.9-8.7,46.8c-4.6,11.8-10,20.2-18.8,29c-8.8,8.8-17.2,14.3-29,18.8
+                            c-8.9,3.4-22.2,7.6-46.8,8.7c-26.6,1.2-34.5,1.5-101.8,1.5s-75.2-0.3-101.8-1.5c-24.6-1.1-37.9-5.2-46.8-8.7
+                            c-11.8-4.6-20.2-10-29-18.8c-8.8-8.8-14.3-17.2-18.8-29c-3.4-8.9-7.6-22.2-8.7-46.8c-1.2-26.6-1.5-34.5-1.5-101.8
+                            s0.3-75.2,1.5-101.8c1.1-24.6,5.2-37.9,8.7-46.8c4.6-11.8,10-20.2,18.8-29c8.8-8.8,17.2-14.3,29-18.8c8.9-3.4,22.2-7.6,46.8-8.7
+                            c26.6-1.2,34.5-1.5,101.8-1.5s75.2,0.3,101.8,1.5c24.6,1.1,37.9,5.2,46.8,8.7c11.8,4.6,20.2,10,29,18.8c8.8,8.8,14.3,17.2,18.8,29
+                            c3.4,8.9,7.6,22.2,8.7,46.8c1.2,26.6,1.5,34.5,1.5,101.8S458.2,327.2,457,353.7z M251.9,122.6c-71.4,0-129.4,57.9-129.4,129.4
+                            s57.9,129.4,129.4,129.4s129.4-57.9,129.4-129.4S323.4,122.6,251.9,122.6z M251.9,335.9c-46.4,0-84-37.6-84-84c0-46.4,37.6-84,84-84
+                            c46.4,0,84,37.6,84,84C335.9,298.3,298.3,335.9,251.9,335.9z M416.6,117.4c0,16.7-13.5,30.2-30.2,30.2c-16.7,0-30.2-13.5-30.2-30.2
+                            s13.5-30.2,30.2-30.2C403.1,87.2,416.6,100.7,416.6,117.4z"/>
+                        </svg>
+                    </a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/company/wix-com?trk=biz-companies-cym" class="wf-linkedin frog" frog-name="linkedin" frog-type="social" style="margin-left: -5px">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" aria-labelledby="Linkedin" role="img">
+                            <title id="Linkedin">Linkedin</title>
+                            <g id="XMLID_714_">
+                                <rect id="XMLID_722_" x="2" y="9" width="4" height="13"/>
+                                <path id="XMLID_729_" d="M4.2,2.2c-1.5,0-2.5,1-2.5,2.3c0,1.3,1,2.5,2.4,2.5h0c1.5,0,2.5-1.2,2.5-2.5
+                                    C6.6,3.2,5.7,2.2,4.2,2.2z"/>
+                                <path id="XMLID_847_" d="M16.9,8.3c-2.4,0-2.9,1.4-3.9,2.3V9H9.3c0.1,1,0,13,0,13H13v-7.4c0-0.4,0.2-0.8,0.3-1.1
+                                    c0.3-0.8,0.9-1.6,2.1-1.6c1.6,0,2.6,1.2,2.6,3V22h4v-7.6C22,10.3,19.8,8.3,16.9,8.3z"/>
+                            </g>
+                        </svg>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" >
+   function getLocationOrigin() {
+        var origin = window.location.origin;
+        if (!window.location.origin) {
+            origin = "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
+        }
+        return origin;
+    }
+
+    var pageOrigin = getLocationOrigin();
+
+    function frogEvent(e)
+    {
+        e.preventDefault();
+        var button = e.currentTarget;
+        var frogType = button.getAttribute("frog-type");
+        if (frogType)
+        {
+            var dest = button.getAttribute("href");
+            var name = button.getAttribute("frog-name");
+            var target = button.getAttribute("target");
+            new Image().src = "//frog.wix.com/hp?src=19&evid=312&type=" + frogType + "&url=" + dest + "&button_name=" + name;
+            window.open(dest, target);
+        }
+
+    }
+    var frogs = document.getElementsByClassName('frog');
+    for (var i = 0; i < frogs.length; i++)
+    {
+        frogs[i].addEventListener('click',frogEvent,true);
+    }
+
+</script>
+    </section>
+</main>
+
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/fedops-logger/fedops-logger.bundle.min.js"></script>
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/marketing-cookie-notification/statics/app.bundle.min.js"></script>
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/jquery/jquery.min.js"></script>
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/bower_components/load-experiments-sync/dist/scripts/scripts.js"></script>
+
+<!-- #if( !${debug} ) -->
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/scripts/scripts.js"></script>
+<!-- #else -#if( false )#end->
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/_debug_scripts/utils.js"></script>
+<script src="https://static.parastorage.com/services/wix-homepage-davinci/1.322.0/_debug_scripts/app.js"></script><!-- #end -->
+<script>
+    experiments && experiments.loadScope('homepage');
+
+    window.__CI_APP_VERSION__ = '1.322.0/';
+    window.W = window.W || {};
+    window.W.Site = W.Site || {};
+    window.W.Site.Common = W.Site.Common || {};
+    window.W.Site.Common.isHeaderAndFooterInit = false;
+    window.W.Site.Common.DefaultLayout.init({
+        mobileOptimized: true,
+        showTopBanner: false
+    });
+    window.W.Site.Common.MenuReady = false;
+
+    reportBI('hp', '19', '340', ['delta=' + Date.now() - loadTime]);
+</script>
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+var _analytics_scr = document.createElement('script');
+_analytics_scr.type = 'text/javascript'; _analytics_scr.async = true; _analytics_scr.src = '/_Incapsula_Resource?SWJIYLWA=2977d8d74f63d7f8fedbea018b7a1d05&ns=6&cb=534575652';
+var _analytics_elem = document.getElementsByTagName('script')[0]; _analytics_elem.parentNode.insertBefore(_analytics_scr, _analytics_elem);
+})();
+// ]]>
+</script></body>
+</html>

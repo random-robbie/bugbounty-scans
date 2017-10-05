@@ -1,0 +1,590 @@
+
+    
+
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQICUlBXCRACU1hQAAEAUQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Spotify for Artists</title>
+
+        <meta name="description" content="Insights, guides, and tools to help artists get the most out of Spotify.">
+    <meta property="og:title" content="Spotify for Artists">
+    <meta property="og:description" content="Insights, guides, and tools to help artists get the most out of Spotify.">
+    <meta property="og:image" content="https://spartists-1.global.ssl.fastly.net/i/socialcard.jpg?v=c9eb931&fm=png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@spotifyartists" />
+    <meta property="twitter:app:id:iphone" content="324684580">
+    <meta property="twitter:app:id:googleplay" content="com.spotify.music">
+    <meta property="twitter:image:src" content="https://spartists-1.global.ssl.fastly.net/i/socialcard.jpg?v=c9eb931&fm=png" />
+    <meta property="twitter:description" content="Insights, guides, and tools to help artists get the most out of Spotify.">
+    
+    <link rel="alternate" type="application/rss+xml" title="All Posts – Blog – Spotify for Artists" href="https://artists.spotify.com/blog.rss" />
+
+    <!-- Compiled and minified Bootstrap 3.3.6 CSS + Sp-bootstrap 7.4.1 theme CSS -->
+    <link href="https://spartists-1.global.ssl.fastly.net/css/main.css?v=c9eb931" rel="stylesheet">
+
+    <style>
+                .hero-artist-banner-0 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/5rPbirkEj6kCyK4mCsi2uC/019aac36232b4e26a21543c0aac3a082/SM-Joseph90-50-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/18yui7QLJe06UeSmy4KIoE/9fc6fd138908eb2236a0aac9d6a921d3/aqua-to-aubergine-1px.png?v=2');
+        }
+                .hero-artist-banner-1 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/NvJSmYgMqOU8mmmKakMEK/96665e962016b0147538fbfb8da3e7e7/SM-MajorLazer90-60.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/4mNIedIapy8MQUmYyw4u2U/0f22b4ef290b84d1fea546dcdc7b725f/pink-to-sunflower-1px.png?v=2');
+        }
+                .hero-artist-banner-2 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/6JjD83YiKkwe4yG2SmQuwg/088984af80ce3cb6410a1cd7ddec700d/SM-Rathorne90-60.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/BSeagoqe7A0QmUK886KOu/692ddca8b8869fbcae02f857d1c141db/powder-green-to-storm-1px.png?v=2');
+        }
+                .hero-artist-banner-3 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/3BxPyClfxCMaq6c2AaAyOq/75cfdf0a237c270d1f99e3ba590577dc/SM-MilkyChance90-60-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/18yui7QLJe06UeSmy4KIoE/9fc6fd138908eb2236a0aac9d6a921d3/aqua-to-aubergine-1px.png?v=2');
+        }
+                .hero-artist-banner-4 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/2kcHsUvafiaUCiMuKci8M0/fb3dac132e4fbef3a3a21cde29f68ff1/SM-NickyJam90-80-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/18yui7QLJe06UeSmy4KIoE/9fc6fd138908eb2236a0aac9d6a921d3/aqua-to-aubergine-1px.png?v=2');
+        }
+                .hero-artist-banner-5 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/5XChT301K8WuOyKaIoQi0u/c62472419c657ab8fa87fd1c037ddd4a/SM-MaggieRogers90-70-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/4mNIedIapy8MQUmYyw4u2U/0f22b4ef290b84d1fea546dcdc7b725f/pink-to-sunflower-1px.png?v=2');
+        }
+                .hero-artist-banner-6 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/6OMETOCRDa6AgGogYw0qke/9186dc20ebecbd22145875b657e897fe/SM-MNEK90-100-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/18yui7QLJe06UeSmy4KIoE/9fc6fd138908eb2236a0aac9d6a921d3/aqua-to-aubergine-1px.png?v=2');
+        }
+                .hero-artist-banner-7 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/1OU73au20UsgEEaKs4KOgu/4375d979012ba0fef1f8a57555f65966/SM-Sia90-60-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/6OsREWpv0sqQaGs8Kuws8k/9d27e86432ea69abab8578747581b113/fuchsia-to-midnight-1px.png?v=2');
+        }
+                .hero-artist-banner-8 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/1V3bOocvUQYI4cKOIo8C0a/ec75e72626ff801a5e545d60e05f288a/SM-Leon90-60-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/5pnk847UYwwYiA2SsYumSm/2906c1689eb582f8300e4a3724c16531/salmon-to-orange-1px.png?v=2');
+        }
+                .hero-artist-banner-9 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/3TkaOHnM6cSyMK2iqKcEyA/7cd8e92c72f433a066d06ef94250b253/SM-Trace90-70-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/5pnk847UYwwYiA2SsYumSm/2906c1689eb582f8300e4a3724c16531/salmon-to-orange-1px.png?v=2');
+        }
+                .hero-artist-banner-10 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/Z3JNqEUIeIai4IwEmygAM/30d2c510b334fe57478403d822b8f38e/SM-Panic_AtTheDisco90-75-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/4mNIedIapy8MQUmYyw4u2U/0f22b4ef290b84d1fea546dcdc7b725f/pink-to-sunflower-1px.png?v=2');
+        }
+                .hero-artist-banner-11 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/77QMMHadNYCikMOi8sqqwc/b7513a2a8203e53ffa42013f2a700d4a/SM-Maluma90-70-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/18yui7QLJe06UeSmy4KIoE/9fc6fd138908eb2236a0aac9d6a921d3/aqua-to-aubergine-1px.png?v=2');
+        }
+                .hero-artist-banner-12 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/44dpataOn66YqaUQ2mCSkW/7de0a0d7eef99e37ef71230c0d0d694e/SM-ToroYMoi90-60-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/18yui7QLJe06UeSmy4KIoE/9fc6fd138908eb2236a0aac9d6a921d3/aqua-to-aubergine-1px.png?v=2');
+        }
+                .hero-artist-banner-13 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/2vMAW1ovAQK8MAi2qqqsQ0/b5804eab9db5bac9e5ca881fef78650f/SM-Hozier90-60-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/BSeagoqe7A0QmUK886KOu/692ddca8b8869fbcae02f857d1c141db/powder-green-to-storm-1px.png?v=2');
+        }
+                .hero-artist-banner-14 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/51PhndwlVK0OGOOKCKI2sQ/b79b5be99b78e1dcf633656f821c5f9e/SM-Fletcher90-80-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/6OsREWpv0sqQaGs8Kuws8k/9d27e86432ea69abab8578747581b113/fuchsia-to-midnight-1px.png?v=2');
+        }
+                .hero-artist-banner-15 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/1fmVOiLiSw6aU4Sy6aOkW0/19312535ab0d058d8bbf290946439cda/SM-JackGarratt90-70-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/5y9nPSojbqoC6WwKqqyqYS/c1468c25eefff7d1ecbbecda90689f62/pink-to-tan-1px.png?v=2');
+        }
+                .hero-artist-banner-16 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/4nviAdqsNiY66y8w4AeYMS/6acf2e13c04135a782c61647f0e9455a/SM-Banners90-80-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/5y9nPSojbqoC6WwKqqyqYS/c1468c25eefff7d1ecbbecda90689f62/pink-to-tan-1px.png?v=2');
+        }
+                .hero-artist-banner-17 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/6PVUMOiutyGwewqYo6MkSQ/300d1be8d2ae04288890eca723b94a92/SM-HunterHayes90-80-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/4mNIedIapy8MQUmYyw4u2U/0f22b4ef290b84d1fea546dcdc7b725f/pink-to-sunflower-1px.png?v=2');
+        }
+                .hero-artist-banner-18 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/3wkfkudZqwMuqiKaUEs0gM/ab8f30e0022e21b49484bb44a695efd0/SM-ParsonJames90-75-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/5y9nPSojbqoC6WwKqqyqYS/c1468c25eefff7d1ecbbecda90689f62/pink-to-tan-1px.png?v=2');
+        }
+                .hero-artist-banner-19 {
+            background-image: url('https://spartists-1.global.ssl.fastly.net/cf/5ZpeFSSa8EIAOq6i2kMeEM/2bfec09e220d9c52b409ed7c52761487/SM-LittleSimz90-80-Padding.jpg?v=2'), url('https://spartists-1.global.ssl.fastly.net/cf/BSeagoqe7A0QmUK886KOu/692ddca8b8869fbcae02f857d1c141db/powder-green-to-storm-1px.png?v=2');
+        }
+            </style>
+
+    
+    <script>
+        window.config = {
+        artistBanners: [
+                        {name: "Joseph", artistId: "5Wfvw7rDz7HA6gE2z6QhqO", listeners: "722.2k"},
+                        {name: "Major Lazer", artistId: "738wLrAtLtCtFOLvQBXOXp", listeners: "27.1M"},
+                        {name: "Rathborne", artistId: "4c3w1GSJiUv27dsZXBoqox", listeners: "0"},
+                        {name: "Milky Chance", artistId: "1hzfo8twXdOegF3xireCYs", listeners: "4.6M"},
+                        {name: "Nicky Jam", artistId: "1SupJlEpv7RS2tPNRaHViT", listeners: "13.9M"},
+                        {name: "Maggie Rogers", artistId: "4NZvixzsSefsNiIqXn0NDe", listeners: "1.8M"},
+                        {name: "MNEK", artistId: "7uMh23xWiuR7zsNkuNcm2G", listeners: "2.8M"},
+                        {name: "Sia", artistId: "5WUlDfRSoLAfcVSX1WnrxN", listeners: "30.3M"},
+                        {name: "LÉON", artistId: "4SqTiwOEdYrNayaGMkc7ia", listeners: "2.7M"},
+                        {name: "Trace", artistId: "5k7Y2t4cB5dG219QgFCvXW", listeners: "637.8k"},
+                        {name: "Panic! At The Disco", artistId: "20JZFwl6HVl6yg8a4H3ZqK", listeners: "6M"},
+                        {name: "Maluma", artistId: "1r4hJ1h58CWwUQe3MxPuau", listeners: "14.8M"},
+                        {name: "Toro y Moi", artistId: "6O4EGCCb6DoIiR6B1QCQgp", listeners: "994.1k"},
+                        {name: "Hozier", artistId: "2FXC3k01G6Gw61bmprjgqS", listeners: "7.9M"},
+                        {name: "FLETCHER", artistId: "5qa31A9HySw3T7MKWI9bGg", listeners: "661.6k"},
+                        {name: "Jack Garratt", artistId: "1Zp054Jc86WVKCxKEqZGOA", listeners: "1.4M"},
+                        {name: "BANNΞRS", artistId: "4qWnlmXWuGv2TtuxtIWlJX", listeners: "1.1M"},
+                        {name: "Hunter Hayes", artistId: "7H6dkUChT5EoOQtUVMg4cN", listeners: "2.5M"},
+                        {name: "Parson James", artistId: "48sLioddyaXkuhyHXSkpsB", listeners: "2.3M"},
+                        {name: "Little Simz", artistId: "6eXZu6O7nAUA5z6vLV8NKI", listeners: "156.6k"},
+                    ],
+
+        routes: {
+            auth: '/auth',
+            contact: '/contact',
+            token: '/token'
+        }
+        };    </script>
+
+    <link rel="icon" href="https://spartists-1.global.ssl.fastly.net/i/favicon.png?v=c9eb931">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+  
+  <body  data-qa="s4a-website">
+          <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP2G964"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    
+    
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="facebook-icon" viewBox="0 0 448 448">
+    <path d="m119.75 242.25v-74h63.75v-54.5q0-46.5 26-72.125t69.25-25.625q36.75 0 57 3v66h-39.25q-21.5 0-29 9t-7.5 27v47.25h73.25l-9.75 74h-63.5v189.75h-76.5v-189.75h-63.75z"/>
+  </symbol>
+  <symbol id="twitter-icon" viewBox="0 0 448 448">
+    <path d="m27 347.75q8.75 1 19.5 1 56.25 0 100.25-34.5-26.25-0.5-47-16.125t-28.5-39.875q8.25 1.25 15.25 1.25 10.75 0 21.25-2.75-28-5.75-46.375-27.875t-18.375-51.375v-1q17 9.5 36.5 10.25-16.5-11-26.25-28.75t-9.75-38.5q0-22 11-40.75 30.25 37.25 73.625 59.625t92.875 24.875q-2-9.5-2-18.5 0-33.5 23.625-57.125t57.125-23.625q35 0 59 25.5 27.25-5.25 51.25-19.5-9.25 28.75-35.5 44.5 23.25-2.5 46.5-12.5-16.75 24.5-40.5 41.75 0.25 3.5 0.25 10.5 0 32.5-9.5 64.875t-28.875 62.125-46.125 52.625-64.5 36.5-80.75 13.625q-67.75 0-124-36.25z"/>
+  </symbol>
+  <symbol id="instagram-icon" viewBox="0 0 448 448">
+    <path d="m32 366.75v-285.5q0-20.25 14.5-34.75t34.75-14.5h285.5q20.25 0 34.75 14.5t14.5 34.75v285.5q0 20.25-14.5 34.75t-34.75 14.5h-285.5q-20.25 0-34.75-14.5t-14.5-34.75zm42.749-10.25q0 6.5 4.375 10.875t10.875 4.375h267.25q6.25 0 10.75-4.375t4.5-10.875v-162h-33.75q5 15.75 5 32.75 0 31.5-16 58.125t-43.5 42.125-60 15.5q-49.25 0-84.25-33.875t-35-81.875q0-17 5-32.75h-35.25v162zm72.501-133.25q0 31 22.625 52.875t54.375 21.875q32 0 54.625-21.875t22.625-52.875-22.625-52.875-54.625-21.875q-31.75 0-54.375 21.875t-22.625 52.875zm147.25-90q0 7.25 5 12.25t12.25 5h43.5q7.25 0 12.25-5t5-12.25v-41.25q0-7-5-12.125t-12.25-5.125h-43.5q-7.25 0-12.25 5.125t-5 12.125v41.25z"/>
+  </symbol>
+  <symbol id="chevron-down" viewBox="0 0 1024 1024">
+    <path class="path1" d="M476.455 806.696l-381.164-381.164q-14.621-14.621-14.621-35.293t14.621-34.789 35.293-14.117 34.789 14.117l342.846 343.35 349.4-349.4q14.621-14.117 35.293-14.117t34.789 14.117 14.117 34.789-14.117 34.789l-381.164 381.164q-19.159 19.159-38.318 19.159t-31.764-12.605z"></path>
+  </symbol>
+  <symbol id="scroll-down" viewBox="643.5 386 22.1 21.9">
+    <path d="M665.6,396.3c0,0.3-0.1,0.7-0.4,0.9l-9.8,10.4c-0.5,0.5-1.3,0.5-1.7,0l-9.8-10.4c-0.5-0.5-0.5-1.3,0-1.8
+      s1.3-0.5,1.7,0l8.9,9.5l8.9-9.5c0.5-0.5,1.3-0.5,1.7,0C665.5,395.6,665.6,396,665.6,396.3z">
+    <path d="M665.6,387.3c0,0.3-0.1,0.7-0.4,0.9l-9.8,10.4c-0.5,0.5-1.3,0.5-1.7,0l-9.8-10.4c-0.5-0.5-0.5-1.3,0-1.8
+      s1.3-0.5,1.7,0l8.9,9.5l8.9-9.5c0.5-0.5,1.3-0.5,1.7,0C665.5,386.6,665.6,387,665.6,387.3z">
+  </symbol>
+  <symbol id="music" viewBox="0 0 119 119">
+    <circle fill="none" stroke="#4C99F8" stroke-width="4" cx="59.5" cy="59.5" r="57.5"/>
+    <path d="M385.58,294.09v23.58A8,8,0,1,0,378.91,331a6.93,6.93,0,0,0,1.64,0,8,8,0,0,0,7.16-7.92V295.8l6.54-1.39v-2.17Zm-5.85,34.81a5.84,5.84,0,1,1,5.85-5.84A5.85,5.85,0,0,1,379.73,328.9Z" transform="translate(-336 -246)"/>
+    <path d="M404.25,290.13v2.17l7.9-1.67v21.77a7.94,7.94,0,1,0,2.13,5.39V288Zm2,33.49a5.84,5.84,0,1,1,5.85-5.83A5.85,5.85,0,0,1,406.3,323.62Z" transform="translate(-336 -246)"/>
+    <polygon points="63.15 29.5 57 36.69 62.13 36.69 62.13 53.59 64.18 53.59 64.18 36.69 69.3 36.69 63.15 29.5"/>
+  </symbol>
+  <symbol id="connect" viewBox="0 0 119 119">
+    <path d="M59.5,0A59.5,59.5,0,1,0,119,59.5,59.57,59.57,0,0,0,59.5,0Zm0,115A55.5,55.5,0,1,1,115,59.5,55.56,55.56,0,0,1,59.5,115Z"/>
+    <path d="M83,37.62A11.5,11.5,0,1,0,61.29,43L46.64,53.25a11.57,11.57,0,1,0,0,13L61.28,76.5a11.49,11.49,0,1,0,11.18-6.15V49.14A11.55,11.55,0,0,0,83,37.62ZM37.13,69.31a9.56,9.56,0,1,1,9.5-9.56A9.54,9.54,0,0,1,37.13,69.31ZM47.6,64.5a11.5,11.5,0,0,0,0-9.49L62.37,44.68a11.47,11.47,0,0,0,8.09,4.45V70.35a11.47,11.47,0,0,0-8.1,4.47ZM81,81.86a9.5,9.5,0,1,1-9.5-9.56A9.54,9.54,0,0,1,81,81.86Zm-9.5-34.67A9.56,9.56,0,1,1,81,37.62,9.54,9.54,0,0,1,71.46,47.19Z"/>
+    <path d="M40.66,61.58l-1.76-1.06,0.72-.84a3.29,3.29,0,0,0,.78-2.13V57.27a3.3,3.3,0,0,0-1-2.39A3.22,3.22,0,0,0,36.92,54a3.33,3.33,0,0,0-3,3.36v0.18a3.29,3.29,0,0,0,.78,2.13l0.71,0.88-1.76,1A3.29,3.29,0,0,0,32,64.43V65.5h1V64.43a2.24,2.24,0,0,1,1.12-1.94l1.76-1a1.08,1.08,0,0,0,.28-1.63L35.45,59a2.23,2.23,0,0,1-.53-1.45V57.37A2.27,2.27,0,0,1,37,55.05a2.18,2.18,0,0,1,1.66.6,2.21,2.21,0,0,1,.7,1.62v0.28A2.23,2.23,0,0,1,38.81,59l-0.72.85a1.08,1.08,0,0,0,.28,1.63l1.76,1a2.24,2.24,0,0,1,1.12,1.94V65.5h1V64.43A3.28,3.28,0,0,0,40.66,61.58Z"/>
+    <path d="M68.2,79.48v0.18A3.29,3.29,0,0,0,69,81.79l0.71,0.88-1.76,1a3.29,3.29,0,0,0-1.65,2.85v1.07h1V86.54a2.24,2.24,0,0,1,1.12-1.94l1.76-1A1.08,1.08,0,0,0,70.5,82l-0.72-.85a2.23,2.23,0,0,1-.53-1.45V79.48a2.27,2.27,0,0,1,2.06-2.32,2.18,2.18,0,0,1,1.66.6,2.21,2.21,0,0,1,.7,1.62v0.28a2.23,2.23,0,0,1-.53,1.45L72.43,82a1.08,1.08,0,0,0,.28,1.63l1.76,1a2.24,2.24,0,0,1,1.12,1.94v1.07h1V86.54A3.28,3.28,0,0,0,75,83.69l-1.76-1.06,0.72-.84a3.29,3.29,0,0,0,.78-2.13V79.39a3.3,3.3,0,0,0-1-2.39,3.22,3.22,0,0,0-2.44-.88A3.33,3.33,0,0,0,68.2,79.48Z"/>
+    <path d="M75,39.45L73.22,38.4l0.72-.84a3.29,3.29,0,0,0,.78-2.13V35.15a3.3,3.3,0,0,0-1-2.39,3.22,3.22,0,0,0-2.44-.88,3.33,3.33,0,0,0-3,3.36v0.18A3.29,3.29,0,0,0,69,37.55l0.71,0.88-1.76,1a3.29,3.29,0,0,0-1.65,2.85v1.07h1V42.3a2.24,2.24,0,0,1,1.12-1.94l1.76-1a1.08,1.08,0,0,0,.28-1.63l-0.72-.85a2.23,2.23,0,0,1-.53-1.45V35.24a2.27,2.27,0,0,1,2.06-2.32,2.18,2.18,0,0,1,1.66.6,2.21,2.21,0,0,1,.7,1.62v0.28a2.23,2.23,0,0,1-.53,1.45l-0.72.85a1.08,1.08,0,0,0,.28,1.63l1.76,1a2.24,2.24,0,0,1,1.12,1.94v1.07h1V42.3A3.28,3.28,0,0,0,75,39.45Z"/>
+  </symbol>
+  <symbol id="chart" viewBox="0 0 119 119">
+    <path fill-rule="evenodd" d="M59.5,0A59.5,59.5,0,1,0,119,59.5,59.57,59.57,0,0,0,59.5,0Zm0,115A55.5,55.5,0,1,1,115,59.5,55.56,55.56,0,0,1,59.5,115Z"/>
+    <rect x="77.41" y="55.21" width="2.56" height="34.61"/>
+    <rect x="67.19" y="62.9" width="2.56" height="26.92"/>
+    <rect x="56.97" y="75.72" width="2.56" height="14.1"/>
+    <rect x="46.74" y="72.52" width="2.56" height="17.3"/>
+    <rect x="36.52" y="83.41" width="2.56" height="6.41"/>
+    <polygon fill-rule="evenodd" points="73.21 41.97 57.45 60.48 47.55 52.01 35.24 66.46 36.91 67.89 47.8 55.1 57.69 63.58 74.88 43.4 78.91 46.85 81.25 34.22 69.17 38.51 73.21 41.97"/>
+  </symbol>
+  <symbol id="chevron-carousel" viewBox="0 0 119 119">
+    <polyline class="cls-1" points="0.71 0.71 15.71 15.71 0.71 30.71"/>
+  </symbol>
+  <symbol id="x" viewBox="0 0 16 16"><path d="M14.354 2.353l-.708-.707L8 7.293 2.353 1.646l-.707.707L7.293 8l-5.647 5.646.707.708L8 8.707l5.646 5.647.708-.708L8.707 8z"/></symbol>
+  <symbol id="check-alt" viewBox="0 0 32 32"><path d="M11.999 22.693l-5.122-5.997-.658.77 5.78 6.767L24.756 9.296l-.76-.649-11.997 14.046zM15.5 0C6.94 0 0 6.939 0 15.5 0 24.06 6.94 31 15.5 31S31 24.06 31 15.5C31 6.939 24.06 0 15.5 0zm0 30C7.505 30 1 23.495 1 15.5S7.505 1 15.5 1 30 7.505 30 15.5 23.495 30 15.5 30z"/></symbol>
+</svg>
+        <div class="navbar navbar-default navbar-static-top navbar-transparent-100" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="sidepanel" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Logo" class="navbar-brand" href="/">
+            <span class="navbar-logo">Spotify</span>
+            <span class="navbar-title">for Artists</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id=".navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li >
+              <a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Blog" href="/blog">Blog</a>
+            </li>
+            <li >
+              <a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Guide" href="/guide">Guide</a>
+            </li>
+            <li >
+              <a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="FAQs" href="/faq">FAQs</a>
+            </li>
+            <li role="separator" class="divider"></li>
+              <li class="dropdown loggedin hidden">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <span class="loggedin-name"></span>
+                  <svg class="svg-chevron-down">
+                    <use xlink:href="#chevron-down"></use>
+                  </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Your Account" href="/c" class="loggedin-user hidden">Your Account</a></li>
+                  <li><a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Get Access (logged in)" href="/c/access" class="loggedin-nonuser">Get Access</a></li>
+                  <li><a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Log Out" href="https://accounts.spotify.com/logout?continue=https://artists.spotify.com/">Log Out</a></li>
+                </ul>
+              </li>
+              <li class="loggedout sidepanel-item-small"><a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Get Access (logged out)" href="/c/access">Get Access</a></li>
+              <li class="loggedout sidepanel-item-small"><a data-ga-event-category="Top Nav" data-ga-event-action="click"
+      data-ga-event-label="Log In" href="https://accounts.spotify.com/login?continue=https://artists.spotify.com/c" data-qa="navigation-login">Log In</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="main">
+        <div class="section-home js-section-home">
+    <div class="hero hero-flush hero-home">
+      <div id="carousel-artists" class="carousel carousel-home slide" data-ride="carousel" data-pause="null">
+        <div class="carousel-inner" role="listbox">
+          <div class="container container-carousel-title">
+            <a class="left carousel-control" href="#carousel-artists" data-slide="prev">
+              <svg class="svg-chevron left">
+                <use xlink:href="#chevron-carousel"></use>
+              </svg>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-artists" data-slide="next">
+              <svg class="svg-chevron right">
+                <use xlink:href="#chevron-carousel"></use>
+              </svg>
+              <span class="sr-only">Next</span>
+            </a>
+            <div class="carousel-content">
+              <h1 class="display-1 text-white">Spotify <span class="text-nowrap">for Artists</span></h1>
+              <p class="text-white">Your music’s out there. We’ll show you who’s listening.</p>
+              <a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Carousel - Your Account" href="/c" class="btn btn-stroked-light loggedin-user hidden">Your Account</a>
+              <a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Carousel - Get Access" href="/c/access" class="btn btn-stroked-light loggedin-nonuser loggedout">Get Access</a>
+            </div>
+          </div>
+                      <div class="item  active  bg-fuchsia" style="background-image: url('https://spartists-1.global.ssl.fastly.net/cf/4axtYorJJmEgUckQoMSKcM/ca1772bd9bc25b018a7ee384690a2ab2/little-simz-bg.jpg?v=c9eb931');">
+              <div class="container" style="background-image: url('https://spartists-1.global.ssl.fastly.net/cf/ZUlu2bhcmkWcm0wIGm4oQ/18d782e07f371e5bbd683333318ccbfc/LittleSimz.jpg?v=2');">
+                <div class="hero-artist-info hidden-xs hidden-sm">
+                  <div class="pull-right">
+                    <div class="artist-info-group artist-info-name">
+                      <h2><a href="https://open.spotify.com/artist/6eXZu6O7nAUA5z6vLV8NKI?utm_campaign=s4a|carousel|6eXZu6O7nAUA5z6vLV8NKI&utm_source=s4a&utm_medium=s4acarousel" class="external" target="blank">Little Simz</a></h2>
+                                                <p>156.6k Monthly Listeners</p>
+                                            </div>
+                  </div><!-- /.pull-right -->
+                </div><!-- /.hero-artist-info -->
+              </div><!-- /.container -->
+            </div><!-- /.item -->
+                      <div class="item  bg-pink" style="background-image: url('https://spartists-1.global.ssl.fastly.net/cf/4aFZd6GC1yiYim6m6KI6K6/7ecfc9cdf7da51d2f29a67fc5bbd785b/verite-bg.png?v=c9eb931');">
+              <div class="container" style="background-image: url('https://spartists-1.global.ssl.fastly.net/cf/14uHGP9o5200UwmEEOKKEC/e3b35fa8b5c0767ba8e2b6c82137dfbb/verite.jpg?v=2');">
+                <div class="hero-artist-info hidden-xs hidden-sm">
+                  <div class="pull-right">
+                    <div class="artist-info-group artist-info-name">
+                      <h2><a href="https://open.spotify.com/artist/1Fr6agZ6iSM5Ynn2k4C8sc?utm_campaign=s4a|carousel|1Fr6agZ6iSM5Ynn2k4C8sc&utm_source=s4a&utm_medium=s4acarousel" class="external" target="blank">VÉRITÉ</a></h2>
+                                                <p>1.7M Monthly Listeners</p>
+                                            </div>
+                  </div><!-- /.pull-right -->
+                </div><!-- /.hero-artist-info -->
+              </div><!-- /.container -->
+            </div><!-- /.item -->
+                      <div class="item  bg-aquamarine" style="background-image: url('https://spartists-1.global.ssl.fastly.net/cf/2HH6yA56G4USIqySMKg8CY/a05a1dc25bffe55c4d46b71e2455d20c/S4AParsonJamesbg.jpg?v=c9eb931');">
+              <div class="container" style="background-image: url('https://spartists-1.global.ssl.fastly.net/cf/87o1wHsDkcoIQOMyQ268w/24eb2d9f48ea12e401722f4b0ed821e3/S4AParsonJames.jpg?v=2');">
+                <div class="hero-artist-info hidden-xs hidden-sm">
+                  <div class="pull-right">
+                    <div class="artist-info-group artist-info-name">
+                      <h2><a href="https://open.spotify.com/artist/48sLioddyaXkuhyHXSkpsB?utm_campaign=s4a|carousel|48sLioddyaXkuhyHXSkpsB&utm_source=s4a&utm_medium=s4acarousel" class="external" target="blank">Parson James</a></h2>
+                                                <p>2.3M Monthly Listeners</p>
+                                            </div>
+                  </div><!-- /.pull-right -->
+                </div><!-- /.hero-artist-info -->
+              </div><!-- /.container -->
+            </div><!-- /.item -->
+                  </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <a class="btn-scroll" name="know-your-audience" href="#know-your-audience">
+    <div class="btn-scroll-arrow">
+      <svg><use xlink:href="#scroll-down"></svg>
+      <svg><use xlink:href="#scroll-down"></svg>
+      <span class="sr-only">know-your-audience</span>
+    </div>
+  </a>
+
+    </div>
+
+    <div class="container-features-outer">
+      <div class="container-fluid container-features">
+        <div class="row">
+          <div class="col-sm-5 col-sm-push-7">
+            <div class="content-wrapper">
+              <h2 class="h1">Know your audience.</h2>
+              <p>Get closer to your listeners than ever before. Discover who your biggest fans are, and where they’re playing your music.</p>
+            </div>
+          </div>
+          <div class="col-sm-7 col-sm-pull-5">
+            <img class="img-browser" src="https://spartists-1.global.ssl.fastly.net/i/product-browser.png?v=c9eb931" alt="A graph in Spotify for Artists showing audience stats for the artist Little Simz.">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="content-wrapper-right">
+              <h2>Make Spotify your own.</h2>
+              <p>Spotify for Artists puts you in control. Update your image anytime, and feature tracks and playlists you’re into right now.</p>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <img class="img-laptop" src="https://spartists-1.global.ssl.fastly.net/i/product-laptop.png?v=c9eb931" alt="The profile section of Spotify for Artists showing the artist Parson James.">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5 col-sm-push-7">
+            <div class="content-wrapper">
+              <h2>Track your growth.</h2>
+              <p>Now you can see which songs are performing best, and learn how fans are discovering your music around the world.</p>
+            </div>
+          </div>
+          <div class="col-sm-7 col-sm-pull-5">
+            <img class="img-phone" src="https://spartists-1.global.ssl.fastly.net/i/product-phone.png?v=c9eb931" alt="The songs section of Spotify for Artists showing song stats for the artist Verite.">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-quotes-outer">
+      <div class="container container-quotes">
+        <h2 class="text-center">What artists are saying.</h2>
+        <figure>
+          <div class="row">
+            <div class="col-md-6">
+              <blockquote>
+                <h1 class="h2">Spotify for Artists gave me the courage to tour Latin America. It was overwhelming to hear fans sing along so far from home.</h1>
+                <footer>
+                  <cite><a target="blank" href="https://open.spotify.com/artist/2uvY5pgdD9t1CZ5zMNw1rl" title="Listen to Lucy Rose on Spotify.">Lucy Rose</a></cite>
+                                      <p>1.5M Monthly Listeners</p>
+                                  </footer>
+              </blockquote>
+            </div>
+            <div class="col-md-6">
+              <img src="https://spartists-1.global.ssl.fastly.net/i/lucy-rose.jpg?v=c9eb931" alt="The artist Lucy Rose.">
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <div class="row">
+            <div class="col-md-6 col-md-push-6">
+              <blockquote>
+                <h1 class="h2">It gives me a reason to keep creating when I see people all over the world appreciating my music.</h1>
+                <footer>
+                  <cite><a target="blank" href="https://open.spotify.com/artist/2TLYSzGyVYkxAgYSCqUnQj" title="Listen to Jay Prince on Spotify.">Jay Prince</a></cite>
+                                      <p>337.4k Monthly Listeners</p>
+                                  </footer>
+              </blockquote>
+            </div>
+            <div class="col-md-6 col-md-pull-6">
+              <img src="https://spartists-1.global.ssl.fastly.net/i/jay-prince.jpg?v=c9eb931" alt="The artist Jay Prince.">
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="container container-quotes-carousel">
+        <div id="carousel-quotes" class="carousel carousel-quotes slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <blockquote>
+                <h1 class="h2">Spotify for Artists gives managers a direct window into the growth of our artists’ records.</h1>
+                <footer>
+                  <cite>Jake Udell, Founder, TH3RD BRAIN</cite>
+                </footer>
+              </blockquote>
+            </div>
+            <div class="item">
+              <blockquote>
+                <h1 class="h2">Spotify for Artists is often the first place I go in the morning when I fire up my computer.</h1>
+                <footer>
+                  <cite>Ryan Chisholm, Manager, Nettwerk</cite>
+                </footer>
+              </blockquote>
+            </div>
+            <div class="item">
+              <blockquote>
+                <h1 class="h2">This acts as a bridge between the listener & the artist.</h1>
+                <footer>
+                  <cite>Atu, <a target="blank" href="https://open.spotify.com/artist/2ICR2m4hOBPhaYiZB3rnLW">Sonder</a></cite>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#carousel-quotes" data-slide="prev">
+            <span class="icon-prev"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-quotes" data-slide="next">
+            <span class="icon-next"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-recent-posts">
+      <h2 class="text-center recent-posts-title">Recent blog posts</h2>
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+                      <div class="col-md-4 col-story">
+                            <div class="img-crop">
+                <a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Recent Post #1" href="/blog/nerd-out-on-your-data">
+                  <span class="sr-only">Link to blog post.</span>
+                  <img src="https://spartists-1.global.ssl.fastly.net/cf/3DPJG0V29GM40SAccK0ki6/0ed7591ef3d154e9993e01a2e16711da/S4ABlogAssets__followers_.jpg?v=2&fm=jpg&w=300" alt="Lead image for blog post.">
+                </a>
+              </div>
+                            <h3><a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Recent Post #1" href="/blog/nerd-out-on-your-data">Nerd Out on Your Data</a></h3>
+            </div>
+                      <div class="col-md-4 col-story">
+                            <div class="img-crop">
+                <a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Recent Post #2" href="/blog/how-to-edit-your-spotify-bio">
+                  <span class="sr-only">Link to blog post.</span>
+                  <img src="https://spartists-1.global.ssl.fastly.net/cf/4JH2LTXmb6WaQSImSIaAiO/e6ad966ef86d9f7053d5501339910dda/bio.edit.jpg?v=2&fm=jpg&w=300" alt="Lead image for blog post.">
+                </a>
+              </div>
+                            <h3><a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Recent Post #2" href="/blog/how-to-edit-your-spotify-bio">How to Edit Your Spotify Bio</a></h3>
+            </div>
+                      <div class="col-md-4 col-story">
+                            <div class="img-crop">
+                <a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Recent Post #3" href="/blog/add-team-members-to-your-spotify-for-artists-account">
+                  <span class="sr-only">Link to blog post.</span>
+                  <img src="https://spartists-1.global.ssl.fastly.net/cf/1DeKujtffKEgk0SUKMCUOg/8925d029bf2291828018e501b7985455/S4A-AddTeam-Blog.jpg?v=2&fm=jpg&w=300" alt="Lead image for blog post.">
+                </a>
+              </div>
+                            <h3><a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Recent Post #3" href="/blog/add-team-members-to-your-spotify-for-artists-account">Add Team Members to Your Spotify for Artists Account</a></h3>
+            </div>
+                  </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient loggedin-nonuser loggedout">
+      <div class="container container-insights">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            <h1 class="display-1 text-white text-center">Let’s go.</h1>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="text-white text-center h2">If you’re an artist or part of their management team, we’ll show you how to get the most out of Spotify.</p>
+              </div>
+            </div>
+            <p class="text-center"><a data-ga-event-category="Home" data-ga-event-action="click"
+      data-ga-event-label="Insights - Get Access" href="/c/access" class="btn btn-stroked-light">Get Access</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <footer class="footer footer-default" role="contentinfo">
+      <div class="container">
+        <nav class="row">
+          <div class="col-xs-12 col-md-2">
+            <div class="footer-logo">
+              <a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Logo" href="https://www.spotify.com">Spotify</a>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <h3 class="nav-title">Helpful Links</h3>
+            <ul class="nav">
+              <li><a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="About" href="https://www.spotify.com/about-us/contact/">About</a></li>
+              <li><a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Press &amp; Media" href="https://press.spotify.com">Press &amp; Media</a></li>
+              <li><a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Contact Us" href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+          </div>
+          <div class="col-xs-12 col-md-4 col-md-push-2 col-social">
+            <ul class="nav">
+              <li>
+                <a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Social - Twitter" href="https://twitter.com/spotifyartists">
+                  <svg class="social-icon">
+                    <use xlink:href="#twitter-icon"></use>
+                  </svg>
+                  <span class="social-text">Twitter</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <nav class="row row-small">
+          <div class="col-xs-7 col-md-4 col-md-offset-2">
+            <ul class="nav nav-small">
+              <li>
+                <a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Legal" href="https://www.spotify.com/us/legal/spotify-for-artists-terms-and-conditions/">Legal</a>
+              </li>
+              <li>
+                <a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Privacy Policy" href="https://www.spotify.com/legal/privacy-policy/">Privacy Policy</a>
+              </li>
+              <li>
+                <a data-ga-event-category="Footer" data-ga-event-action="click"
+      data-ga-event-label="Cookies" href="https://www.spotify.com/legal/privacy-policy/#s13">Cookies</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-5 col-md-6 text-right">
+            <small class="copyright">&copy; 2017 Spotify AB</small>
+          </div>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- jQuery required for Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Compiled and minified Bootstrap 3.3.6 JavaScript + Sp-bootstrap 7.4.1 theme JavaScript -->
+    <script src="https://sp-bootstrap.global.ssl.fastly.net/7.4.1/sp-bootstrap.min.js"></script>
+
+    <script>
+                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-5784146-42', 'auto');
+        ga('require', 'displayfeatures');
+              </script>
+
+          <script src="https://spartists-1.global.ssl.fastly.net/js/bundle.js?v=c9eb931"></script>
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"c46846e661","applicationID":"27927077","transactionName":"M11TNxBYChZYARJRXgoXcAAWUAsLFgoJVVQ=","queueTime":0,"applicationTime":33,"atts":"HxpQQVhCGRg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h1 class="modal-header"></h1>
+          <div class="modal-inner-content">
+            <p></p>
+          </div>
+
+          <p><a class="btn btn-primary modal-cta"></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
