@@ -1,0 +1,1386 @@
+<!doctype html public "-//w3c//dtd html 4.01//en" "http://www.w3.org/tr/html4/strict.dtd">
+<html lang="zh-tw">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Big5">
+<meta name="application-name" content="Yahoo!奇摩股市"/>
+<meta name="msapplication-TileColor" content="#7b0099"/> 
+<meta name="msapplication-TileImage" content="https://s.yimg.com/f/i/tw/stock/tw_stock_icon_pin.png"/>
+<meta name="description" content="Yahoo!奇摩股市提供您當日行情、大盤走勢、類股走勢、期貨及選擇權分類報價、港滬深股、美股、財經新聞等資訊。">
+<title>Yahoo!奇摩股市</title>
+<title>Yahoo!奇摩股市</title>
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/f/i/tw/hp/masthead/yhtw_masthead_standard.css" media="screen, print" />
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/f/i/tw/hp/masthead/yhtw_masthead_12.css" media="screen, print" />
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/f/i/tw/stock/revampe/css_1960_min.css" media="screen, print" />
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/f/i/tw/stock/img06/stock_wd.css" media="screen, print" />
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/f/i/tw/stock/stock_print_1_2.css" media="print" />
+<link href="https://s.yimg.com/f/i/tw/hp/Universal_header/uh_bt3.css" type="text/css" rel="stylesheet"/>
+<link href="https://s.yimg.com/f/i/tw/stock/revampe/ystock_uh_1_1_min.css" type="text/css" rel="stylesheet"/> 
+<link href="https://s.yimg.com/ud/others/stock/gemini-v1.css" type="text/css" rel="stylesheet"/>
+<link href="https://s.yimg.com/ud/others/stock/ysm-gemini.css" type="text/css" rel="stylesheet"/>
+<script type="text/JavaScript"> 
+<!--
+function MM_swapImgRestore() { //v3.0
+ var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+ var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+ var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+ if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+ var p,i,x; if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+ d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+ if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+ for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+ if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+ var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+ if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+.style1 {
+ color: #000000;
+ font-family: "新細明體";
+}
+.style2 {color: #4f5d70}
+.style4 {color: #009900}
+.style5 {color: #FF0000}
+.style8 {font-size: 10pt;}
+.style9 {color: #000000; }
+.style12 {line-height: 25pt; font-family: "新細明體", mingliu, taipei;}
+.style13 {color: #4f5d70}
+-->
+</style>
+<script language="JavaScript" src="https://s.yimg.com/f/i/tw/hp/wd/wd_20050720.js"></script>
+<script language="JavaScript" src="https://s.yimg.com/f/i/tw/stock/yui2/yahoo_200_b2.js" ></script>
+<script language="JavaScript" src="https://s.yimg.com/f/i/tw/stock/yui2/dom_200_b2.js" ></script>
+<script language="JavaScript" src="https://s.yimg.com/f/i/tw/stock/yui2/event_200_b2.js" ></script>
+<script language="JavaScript" src="https://s.yimg.com/f/i/tw/stock/yui2/dragdrop_200_b2.js" ></script>
+<script language="JavaScript" src="https://s.yimg.com/f/i/tw/stock/img06/stk_wd_1_2.js"></script>
+<script language="javascript" src="https://s.yimg.com/f/i/tw/stock/img06/stock22.js"></script>
+<script type="text/javascript" src="https://s.yimg.com/lh/mbz/loader-min.js"></script>
+<script src="https://yui-s.yahooapis.com/combo?3.5.0/yui/yui-min.js"></script>
+<script type="text/javascript" src="https://sec.yimg.com/us.js.yimg.com/lib/common/utils/2/connection_2.1.0.js" ></script>
+</head> 
+<script language="javascript" src="https://s.yimg.com/f/i/tw/mc/mc.js"></script>
+<body onLoad="drawChartImg(); MM_preloadImages('https://s.yimg.com/f/i/tw/stock/img06/addstock.gif','https://s.yimg.com/f/i/tw/stock/img06/addstock_o.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon02_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon03.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon04_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon05_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon06_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon07_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon08_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon09_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon10_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/icon11_1.gif','https://s.yimg.com/f/i/tw/stock/revamp/setrss_f2.gif','https://s.yimg.com/f/i/tw/stock/revamp/whatisrss_f2.gif','https://s.yimg.com/f/i/tw/stock/revamp/search3_f2.gif','https://s.yimg.com/f/i/tw/stock/revamp/button01_f2.gif')">
+<center>
+ 
+<!--BEGIN:Universal Master Header-->
+ <div id="ygma" class="fix750" style="margin: 0 auto;border:none;">
+ <link type='text/css' rel='stylesheet' href='https://s.yimg.com/zz/combo?kx/yucs/uh2/uh/295/css/yunivhead-min.css&kx/yucs/uh2/uh/295/css/logo-min.css&kx/ucs/avatar/css/17/avatar-min.css&kx/yucs/uh2/mail-link/85/css/mailcount_v2-min.css&kx/yucs/uh2/mail-link/85/css/mail_preview-min.css&kx/ucs/search/css/190/search_all-min.css&kx/ucs/search/css/190/search_buttons-min.css&kx/yucs/uh2/uh/295/css/yunivhead_https-min.css&kx/yucs/uh_common/meta/3/css/meta-min.css' /><div id="yUnivHead" class="yucs-zh-hant-tw" data-lang="zh-hant-tw" data-property="finance" data-flight="1507136710" data-uhvc="/;_ylt=AtftmdxJuKLeMyg6OL.Np8Oc3R0J"> <div id="yucs-disclaimer" class="yucs-disclaimer yucs-activate yucs-hide yucs-property-finance yucs-fcb- " data-cobrand="standard" data-cu = "0" data-dsstext="想要享受更好的搜尋體驗嗎？ {dssLink}將您的搜尋設為 Yahoo奇摩{linkEnd}" data-dsstext-mobile="更少的搜尋動作，更多的搜尋結果" data-dsstext-mobile-ok="確定" data-dsstext-mobile-set-search="將您的搜尋設定為 Yahoo。" data-dssstbtext="Yahoo is the preferred search engine for Firefox. Switch now." data-dssstb-ok="Yes" data-dssstb-no="Not Now" data-ylt-link="https://tw.search.yahoo.com/searchset;_ylt=Ahd56Yo31BShYcuTjodHdfqc3R0J?pn=" data-ylt-dssbarclose="/;_ylt=Ai1wDKokjXsmqPacEP_qtbKc3R0J" data-ylt-dssbaropen="/;_ylt=AgA22nlsyn7KItRIFZrFSbic3R0J" data-ylt-dssstb-link="https://downloads.yahoo.com/sp-firefox;_ylt=Ah18m_qeTKIXYmdyXFAGgiSc3R0J" data-ylt-dssstbbarclose="/;_ylt=AlvA1c0T0qYieYbaeId2skuc3R0J" data-ylt-dssstbbaropen="/;_ylt=AgHb8ONsVkVBazLRNiuQaw6c3R0J" data-ylt-dssCookieCleanedSuccess="/;_ylt=Ar_azD13MEEUhUzjd6.JTA6c3R0J" data-ylt-dssCookieCleanedFailed="/;_ylt=AthG4gSLaB2NfT81HsX_jPSc3R0J" data-linktarget="_top" data-lang="zh-hant-tw" data-property="finance" data-device="Desktop" data-close-txt="關閉此視窗" data-maybelater-txt = "稍後再說" data-killswitch = "0" data-host="tw.futures.finance.yahoo.com" data-spaceid="152952220" data-pn="vt.eYqe.OP7" data-dss-cookie-cleanup="eTyAF6xw2Vr" data-pn-en-ca-mobile-frontpage="K0AbMlT2.Ac" data-pn-de-de-mobile-frontpage="JEVGdWtlMrA" data-pn-es-es-mobile-frontpage="3uULzNY2hbs" data-pn-fr-fr-mobile-frontpage="IATsqjEJhvd" data-pn-en-in-mobile-frontpage="ZNtDVOfgL/C" data-pn-it-it-mobile-frontpage="HMNcMw8VoNW" data-pn-en-us-mobile-frontpage="vt.eYqe.OP7" data-pn-en-sg-mobile-frontpage="0LOk.uy6QDd" data-pn-en-gb-mobile-frontpage="cqdpzDOVkK/" data-pn-en-us-mobile-mail="8K.WoxRpsfA" data-pn-en-ca-mobile-mail="jqp//f3NMa8" data-pn-de-de-mobile-mail="3gfXsMLC6nG" data-pn-es-es-mobile-mail="N68jHfBGkkh" data-pn-fr-fr-mobile-mail="wl23GAG6sW2" data-pn-en-in-mobile-mail="zYGTXS/m3ns" data-pn-it-it-mobile-mail="hq37lOoni2G" data-pn-en-sg-mobile-mail="kcrhHZSRR3K" data-pn-en-gb-mobile-mail="FL.9jN2DmPD" data-pn-pt-br-mobile-mail="4I8btQ.UdDE" data-pn-en-us-tablet-frontpage="kTyS3zTJild" data-pn-en-us-tablet-mail="Dhx1ZtJurF1" data-pn-en-ca-tablet-mail="tI.Ab4WAK2B" data-pn-de-de-tablet-mail="g3NSBDa3PRU" data-pn-es-es-tablet-mail="uojBu2doywy" data-pn-fr-fr-tablet-mail="UkQYwA8vkfh" data-pn-en-in-tablet-mail="9vURLtxvKrz" data-pn-it-it-tablet-mail="PmnJLubk9tY" data-pn-en-sg-tablet-mail="3Z/ZFHcrHWi" data-pn-en-gb-tablet-mail="S01zfoldKLx" data-pn-pt-br-tablet-mail="aHhui.J9.Rl" data-news-search-yahoo-com="MRUGNZdTfcV" data-answers-search-yahoo-com="L4LpWp7jN17" data-finance-search-yahoo-com="XCwgqeZu2Ct" data-images-search-yahoo-com="Uuy4LwG1os." data-video-search-yahoo-com="UjDef1oXm5q" data-sports-search-yahoo-com="gFhylVUl/IY" data-shopping-search-yahoo-com="1HS79UDo7U0" data-shopping-yahoo-com="1HS79UDo7U0" data-us-qa-trunk-news-search-yahoo-com ="MRUGNZdTfcV" data-dss=""></div>    <a href="#yuhead-search" class="yucs-skipto-search yucs-activate">跳至搜尋欄。</a>  <div id="yuhead-hd" class="yuhead-clearfix"> <div id="yuhead-mepanel-cont"> <ul id="yuhead-mepanel" class="yucs-toolbar yucs-activate" aria-label="用戶服務"><li class="yuhead-me yuhead-nodivide yuhead-nopad"> <a class="yuhead-signup" href="https://us.lrd.yahoo.com/_ylt=AnfO7V0aN6zvS49A6mpigG.c3R0J/SIG=14q9c0ckm/EXP=1508346310/**https%3A//edit.yahoo.com/config/eval_register%3F.src=quote%26.intl=tw%26.lang=zh-Hant-TW%26.done=https%3A//tw.futures.finance.yahoo.com/" target="_top" rel="nofollow"> <em>是新用戶嗎？</em> 請註冊</a></li><li class="yuhead-me"> <a href="https://login.yahoo.com/config/login;_ylt=Aufmyuf_Joufr8a8Bfs5w.ac3R0J?.src=quote&.intl=tw&.lang=zh-Hant-TW&.done=https://tw.futures.finance.yahoo.com/" target="_top" rel="nofollow"> <em>登入</em></a></li><li class="yuhead-me"><a href="http://us.lrd.yahoo.com/_ylt=AsSaditX6EOgPZvWpyECNCyc3R0J/SIG=1209b19ld/EXP=1508346310/**http%3A//tw.help.cc.yahoo.com/%3Fproduct=stock" rel="nofollow" target="_top">服務說明</a></li></ul>   </div> <div id="yuhead-promo"><a style="font-weight:bold;"href="http://us.lrd.yahoo.com/_ylt=Al2AJ81McW_h3SllKoNNYJKc3R0J/SIG=11musgucd/EXP=1508346310/**http%3A//tw.overview.mail.yahoo.com/" target="_top" rel="nofollow">Download the new Yahoo Mail app</a></div> <div id="yuhead-com-links-cont"> <ul id="yuhead-com-links" class="yucs-toolbar yucs-activate" aria-label="Yahoo 奇摩服務總覽">  <li class="yuhead-com-link-item yucs-mailpreview-ancestor"> <a class="sp yltasis yuhead-ico-mail" href="https://us.lrd.yahoo.com/_ylt=AoTrSs8o0YzmTRkmlo55VAac3R0J/SIG=12cpj080c/EXP=1508346310/**https%3A//tw.mail.yahoo.com/%3F.intl=tw%26.lang=zh-Hant-TW" rel="nofollow" target="_top">信箱</a><ul class="yucs-mail-preview-panel hide" data-uri-scheme="http" data-uri-path="ucs.query.yahoo.com/v1/console/yql" data-mail-txt="信箱" data-mail-view="檢視所有 Yahoo 信件" data-mail-help-txt="服務說明" data-mail-help-url="http://help.cc.tw.yahoo.com/help_cp.html?product=29" data-mail-loading-txt="載入中..." data-languagetag="zh-hant-tw" data-mrd-crumb="eN.VfPBgSls" data-authstate="signedout" data-middleauth-signin-text="點選這裡檢視您的信件" data-popup-login-url="https://login.yahoo.com/config/login_verify2?.pd=c%3DOIVaOGq62e5hAP8Tv..nr5E3&.src=sc" data-middleauthtext="你有 {count} 封新信。" data-yltmessage-link="http://us.lrd.yahoo.com/_ylt=AqxvIqqt13bR0hvbei2bO5ec3R0J/SIG=132dj1iit/EXP=1508346310/**http%3A//mrd.mail.yahoo.com/msg%3Fmid=%7BmsgID%7D%26fid=Inbox%26src=uh%26.crumb=" data-yltviewall-link="https://us.lrd.yahoo.com/_ylt=AsodOrZnlt.RlRF2HnG_R5ac3R0J/SIG=11ec4nkqq/EXP=1508346310/**https%3A//tw.mail.yahoo.com/" data-yltpanelshown="/;_ylt=AnGRQ8aSFg6_5PqwAry2q_Gc3R0J"></ul></li><li class="yuhead-com-link-item"> <a href="http://tw.bid.yahoo.com/;_ylt=ApHeVE5AIZSak3xyHpQd2ROc3R0J" rel="nofollow" target="_top"> 拍賣 </a></li><li id="yuhead-com-home"><a class="sp yuhead-ico-home" href="https://us.lrd.yahoo.com/_ylt=AiDu2hdRJcgOk7R_hYRozzGc3R0J/SIG=119256acq/EXP=1508346310/**https%3A//tw.yahoo.com/" rel="nofollow" target="_top">Yahoo 奇摩</a></li> </ul> </div> </div> <div id="yuhead-bd" class="yuhead-clearfix"> <div class="yuhead-logo"> <style> .yuhead-logo h2{ width:350px; height:58px; background-image:url(https://s.yimg.com/rz/d/yahoo_finance_zh-Hant-TW_s_f_pw_351x40_stock.png
+); _background-image:url(https://s.yimg.com/rz/d/yahoo_finance_zh-Hant-TW_s_f_pw_351x40_stock.gif
+); } .yuhead-logo a{ width:350px; height:58px; } .yuhead-logo div.yuhead-comarketing { width:350px; } .yog-tablet #yUnivHead h2 { background-position: -350px 5px !important; } html[lang='en-AU'] .yog-tablet #yUnivHead .yuhead-logo h2 { background-position: -350px 5px !important; } html[lang='en-NZ'] .yog-tablet #yUnivHead .yuhead-logo h2 { background-position: -350px 5px !important; } .yog-smartphone #yUnivHead h2 { background-position: -265px 0; background-size: 534px; margin-left: 26%; } .yog-tablet .yuhead-logo h2{ background-repeat: repeat-x; } .yog-tablet.yog-version-v2 #yUnivHead h2 { background-position: center !important; } .yog-tablet #yUnivHead .yuhead-logo h2 { height: 40px !important; } .yog-rtl.yog-smartphone #yUnivHead .yuhead-logo h2 { background-position: -352px 0; !important; background-size: 536px !important; margin-left: 30% !important; } html[lang='ar'] .yog-rtl.yog-smartphone #yUnivHead .yuhead-logo h2 { background-position: -386px 0; !important; } .yog-smartphone #yUnivHead h2.yuhead-music { background-position: 0 0 !important; width: 260px !important; } html[lang='en-US'] .yog-smartphone #yUnivHead h2 { background-size: auto 21px !important; background-position: -350px 0; } html[lang='pt-BR'] .yog-smartphone #yUnivHead h2.yuhead-sports { background-position: -265px 0 !important; background-size: 534px; margin-left: 17%; } html[lang='ar'] .yog-smartphone #yUnivHead h2.yuhead-omg { background-position: -383px 0 !important; background-size: 605px; margin-left: 0; width: auto; } html[lang='en-PH'] .yog-tablet #yUnivHead .yuhead-logo h2 { height: 47px !important; } html[lang='en-PH'] .yog-smartphone #yUnivHead h2 { width: 255px; } </style> <h2 class="yuhead-finance yuhead-standard"> <a href="https://us.lrd.yahoo.com/_ylt=Au7tBO6_sNHSdJFHdui6I5qc3R0J/SIG=11h9s425a/EXP=1508346310/**https%3A//tw.finance.yahoo.com/" target="_top" tabindex="-1"> Yahoo 股市 </a> </h2> <div id="yucs-disclaimer-md" class="yucs-disclaimer-md yucs-activate yucs-hide Desktop  yucs-property-finance yucs-fcb-" data-dsstext="想要享受更好的搜尋體驗嗎？ {dssLink}將您的搜尋設為 Yahoo奇摩{linkEnd}" data-dsstext-mobile="更少的搜尋動作，更多的搜尋結果" data-dsstext-mobile-ok="確定" data-dsstext-mobile-set-search="將您的搜尋設定為 Yahoo。" data-ylt-link="https://tw.search.yahoo.com/searchset;_ylt=An8VrNQJxd0SJtqRe619djuc3R0J?pn=" data-ylt-dssbarclose="/;_ylt=Ah52KWMmB9uY3Q9iGu8Z8O.c3R0J" data-ylt-dssbaropen="/;_ylt=AlsO3bLjXmlXce8kXld3iTCc3R0J" data-linktarget="_top" data-lang="zh-hant-tw" data-property="finance" data-device="Desktop" data-close-txt="關閉此視窗" data-maybelater-txt = "稍後再說" data-killswitch = "0" data-dss=""></div><script typ="text/javascript" src="https://s.yimg.com/kx/yucs/uh3/disclaimer/274/js/disclaimer_seed-min.js"></script> </div> <div id="yuhead-search"> <div id="yuhead-sform-cont" class="yuhead-s-web yuhead-search-form"> <form role="search" class="yucs-search yucs-activate" target="_top" action="https://tw.search.yahoo.com/search;_ylt=An4tAIT3GIjE2hQfft7tgFec3R0J" method="get"><table role="presentation"> <tbody role="presentation"><tr role="presentation"><td class="yucs-form-input" role="presentation"> <label for="yuhead-sform-searchfield"> <span>搜尋</span> </label> <input autocomplete="off" type="text" class="sp yuhead-ico-mglass yuhead-search-hint yucs-search-field" name="p" data-sh="搜尋"  data-gosurl="" id="yuhead-sform-searchfield" data-pubid="" /></td><td NOWRAP class="yucs-form-btn" role="presentation"><div class="yucs-btn-wrap"> <button class="yucs-sweb-btn" type="submit">網頁搜尋</button></div> </td> </tr> </tbody></table><input type="hidden" id="fr" name="fr" value="ush1-finance" /></form> </div> </div>  </div>               <!-- meta --><div id="yucs-meta" data-authstate="signedout" data-cobrand="standard" data-crumb="r.tI0QTAVem" data-mc-crumb="Jrl1rwWXhVL" data-gta="ES.PH44kjiK" data-device="desktop" data-experience="" data-firstname="" data-style="" data-flight="1507136710" data-forcecobrand="standard" data-guid="" data-host="tw.futures.finance.yahoo.com" data-https="1" data-languagetag="zh-hant-tw" data-property="finance" data-protocol="https" data-shortfirstname="" data-shortuserid="" data-status="active" data-spaceid="152952220" data-test_id="" data-userid="" data-stickyheader="true" data-headercollapse="" data-uh-test="" data-beacon="0" ></div><!-- /meta --></div><script type="text/javascript" charset="utf-8"> YUI().use('node','event','event-mouseenter','substitute','oop','node-focusmanager','node','event','substitute','cookie','event-resize','node', 'event', 'querystring-stringify','node','event','node','event','event-custom','event-valuechange','classnamemanager','node', function(Y) {});</script><script charset='utf-8' type='text/javascript' src='https://s.yimg.com/zz/combo?kx/ucs/common/js/140/setup-min.js&kx/ucs/sts/js/442/skip-min.js&kx/yucs/uh2/uh/295/js/timestamp_library-min.js&kx/ucs/menu_utils/js/164/menu_utils_v2-min.js&kx/yucs/uh2/uh/295/js/aria_toolbar-min.js&kx/ucs/username/js/43/user_menu-min.js&kx/ucs/help/js/41/help_menu-min.js&kx/ucs/utility_link/js/20/utility_menu-min.js&kx/yucs/uh2/uh/295/js/logo_debug-min.js&kx/yucs/uh3/disclaimer/388/js/disclaimer_seed-min.js&kx/ucs/common/js/131/jsonp-super-cached-min.js&kx/ucs/avatar/js/30/avatar-min.js&kx/yucs/uh2/mail-link/85/js/mailcount_v2-min.js&kx/ucs/search/js/226/search-min.js&kx/ucs/search/js/210/search_text_dir-min.js&kx/yucs/uh2/uh/295/js/activate_library-min.js&kx/yucs/uhc/meta/71/js/meta-min.js'></script> </div> 
+ <script type="text/javascript">
+ YUI().use('node',function(Y){
+ Y.one('#yuhead-sform-cont form').on('submit',function(e){
+ e.preventDefault();
+ var yui_stock_search_dom=Y.one('#yuhead-sform-searchfield'),
+ yui_stock_search_h = yui_stock_search_dom.get('value');
+ yui_stock_search_h = Y.Lang.trim(yui_stock_search_h);
+ if(yui_stock_search_h===document.getElementById('yuhead-sform-searchfield').getAttribute("data-sh")){
+ yui_stock_search_dom.set('value','');
+ }
+ var newUrl=this.get('action')+'?p='+encodeURIComponent(Y.one('#yuhead-sform-searchfield').get('value'))+'&fr='+Y.one('#fr').get('value');
+ window.top.location.href=newUrl;
+ })
+ })
+ </script>
+ <!--END:Universal Master Header--><div align="center">
+ 
+<!-- SpaceID=152952220 loc=SREC noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;SREC;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['RiC7DQrtSSQ-']='(as$12536hpga,aid$RiC7DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=SREC)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$12536hpga,aid$RiC7DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=SREC)"></noscript><!-- SpaceID=152952220 loc=N1 noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;N1;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['0mu5DQrtSSQ-']='(as$1259qigjs,aid$0mu5DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=N1)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$1259qigjs,aid$0mu5DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=N1)"></noscript></div>
+<table align=center border=0 cellpadding=0 cellspacing=0 width=650><tbody><tr align=middle><td nowrap><a hpp="title_l" href="https://goo.gl/8vvVds">時逢中秋假期 台股收復季線</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a hpp="title_m" href="https://goo.gl/9GG9Qk">未來5年最夯產業 鋰電池概念股上場</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a hpp="title_r" href="https://goo.gl/hXdfpX">三大法人賣超台股42.32億</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></td></tr></tbody></table><script lang="text/javascript">
+<!--
+var redirect = "https://tw.rd.yahoo.com/referurl/stock/index";
+function stkClearMe(control)
+{
+ control.value = '';
+ control.style.color = "black";
+}
+function stkRestore(control, str)
+{
+ if (control.value == '') {control.value = str; control.style.color = "#a8a8a8";};
+ 
+}
+function stockmenu_submit (form) 
+{
+ if (form.stock_id.value == '輸入台股代號/名稱')
+ {
+ return false;
+ }
+ else
+ { 
+ switch ( form.func.value ) { 
+ case 'G': form.action = redirect + '/get_quote/quote/*' + form.action; break;
+ case 'L': form.action = redirect + '/get_quote/chart/*' + form.action; break;
+ case 'I': form.action = redirect + '/get_quote/prices/*' + form.action; break;
+ case 'N': form.action = redirect + '/get_quote/news/*' + form.action; break;
+ case 'H': form.action = redirect + '/get_quote/health/*' + form.action; break;
+ case 'F': form.action = redirect + '/get_quote/fundamental/*' + form.action; break;
+ case 'C': form.action = redirect + '/get_quote/credit/*' + form.action; break;
+ case 'T': form.action = redirect + '/get_quote/daily/*' + form.action; break;
+ case 'W': form.action = redirect + '/get_quote/weekly/*' + form.action; break;
+ case 'M': form.action = redirect + '/get_quote/monthly/*' + form.action; break;
+ }
+ form.submit();
+ }
+}
+//-->
+</script>
+<!--主選單 start-->
+<div id="ystkglonav" class="yui-ystkglonav">
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr>
+ <td height="36" valign="bottom" background="https://s.yimg.com/f/i/tw/stock/revamp/t_bg01.jpg"><table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr>
+<td width="57" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/home/*https://tw.futures.finance.yahoo.com/' hpp='home'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t1_idx_o_new.png" name="Image50" width="53" height="31" border="0" title="首頁" alt="首頁"></a></td>
+<td width="89" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/portfolio/*https://tw.futures.finance.yahoo.com/pf/mypf' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image51','','https://s.yimg.com/f/i/tw/stock/yimg/t2_ivst_v.png',1)" hpp='portfolio'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t2_ivst.png" name="Image51" width="85" height="24" border="0" title="投資組合" alt="投資組合"/></a></td>
+<td width="89" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/industry/*https://tw.futures.finance.yahoo.com/h/getclass.php' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image52','','https://s.yimg.com/f/i/tw/stock/yimg/t3_tdy_v.png',1)" hpp='industry'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t3_tdy.png" name="Image52" width="85" height="24" border="0" title="當日行情" alt="當日行情"/></a></td>
+<td width="57" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/tse/*https://tw.futures.finance.yahoo.com/s/tse.php' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image53','','https://s.yimg.com/f/i/tw/stock/yimg/t4_big_v.png',1)" hpp='tse'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t4_big.png" name="Image53" width="53" height="24" border="0" title="大盤" alt="大盤"/></a></td>
+<td width="57" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/indice/*https://tw.futures.finance.yahoo.com/s/nine.php' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image54','','https://s.yimg.com/f/i/tw/stock/yimg/t5_cls_v.png',1)" hpp='indice'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t5_cls.png" name="Image54" width="53" height="24" border="0" title="類股" alt="類股"/></a></td>
+<td width="57" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/futures/*https://tw.futures.finance.yahoo.com/future/' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image55','','https://s.yimg.com/f/i/tw/stock/yimg/t6_ftr_v_future.png',1)" hpp='futures'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t6_ftr_future.png" name="Image55" width="53" height="24" border="0" title="期權" alt="期權"/></a></td>
+<td width="89" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/hkcn/*https://tw.futures.finance.yahoo.com/hkcn/' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image56','','https://s.yimg.com/f/i/tw/stock/yimg/t7_hk_v.png',1)" hpp='hkcn'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t7_hk.png" name="Image56" width="85" height="24" border="0" title="港滬深股" alt="港滬深股"/></a></td>
+<td width="57" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/us/*https://tw.futures.finance.yahoo.com/us/' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image57','','https://s.yimg.com/f/i/tw/stock/yimg/t8_us_v.png',1)" hpp='us'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t8_us.png" name="Image57" width="53" height="24" border="0" title="美股" alt="美股"/></a></td>
+<td width="57" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/nav/news/*https://tw.futures.finance.yahoo.com/news_index.html' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image58','','https://s.yimg.com/f/i/tw/stock/yimg/t9_nws_v.png',1)" hpp='news'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t9_nws.png" name="Image58" width="53" height="24" border="0" title="新聞" alt="新聞"/></a></td>
+<td width="77" valign="bottom"><a href='https://tw.rd.yahoo.com/referurl/stock/index/SIG=125gf33ql/**https://tw.screener.finance.yahoo.net/screener/basic.html' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image59','','https://s.yimg.com/f/i/tw/stock/yimg/t10a_fd_v_new.png',1)" hpp='screener'><img src="https://s.yimg.com/f/i/tw/stock/yimg/t10a_fd_new.png" name="Image59" width="73" height="24" border="0" title="Y選股" alt="Y選股"/></a></td>
+ </tr>
+ </table></td>
+ </tr>
+ <tr>
+ <td height="8" background="https://s.yimg.com/f/i/tw/stock/revamp/bg02.gif"></td>
+ </tr>
+ <tr>
+ <td height="36" bgcolor="#4f627b"><table width="740" border="0" align="center" cellpadding="0" cellspacing="2">
+ <tr><form name="menu" action="https://tw.futures.finance.yahoo.com/h/stockmenu.php" onsubmit="return stockmenu_submit(this);">
+ <td valign="top"><a href="javascript:open_win('/h/kimosel.php','menu','stock_id','stock_name')" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('button01','','https://s.yimg.com/f/i/tw/stock/revamp/button01_f2.gif',1);" class="yui-tw-stock-block yui-nav-but"><img name="button01" src="https://s.yimg.com/f/i/tw/stock/revamp/button01.gif" width="95" height="21" border="0" title="查詢股號/股名" alt="查詢股號/股名"/></a></td>
+ <td>
+ <input type="hidden" name="stock_name" value>
+ <input value="輸入台股代號/名稱" onfocus="javascript:stkClearMe(this);" onblur="javascript:stkRestore(this,'輸入台股代號/名稱');" id="stock_id" name="stock_id" type="text" size="15" />
+<script language="javascript">
+if(document.getElementById("stock_id").value == "輸入台股代號/名稱")
+{
+ document.getElementById("stock_id").style.color = "#a8a8a8";
+}
+ </script>
+ </td>
+ <td><label>
+ <select name="func" onChange="return stockmenu_submit(this.form);">
+ <option VALUE="G" SELECTED>－－當日個股股價－－</option>
+ <option VALUE="L">－－當日個股走勢－－</option>
+ <option VALUE="I">－－個股成交明細－－</option>
+ <option VALUE="N">－－個股新聞－－</option>
+ <option VALUE="H">－－個股健診－－</option>
+ <option VALUE="F">－－公司基本資料－－</option>
+ <option VALUE="C">－－個股籌碼分析－－</option>
+ <option VALUE="T">－－歷史股價Ｋ線圖－</option>
+ </select>
+ </label></td>
+ <td><label>
+ <input style="width:38px;height:23px;padding-bottom:3px;*padding-top:3px;padding-left:3px;text-align:left;" type="submit" name="xSubmit" value="查詢" />
+ </label></td>
+<!-- type - 4, ref: Array
+(
+    [hh] => 4
+    [mm] => 0
+)
+ -->
+ <td width="270" class="ssbody"><div align="right"><span class="ssbodyw">2017/10/05 01:05 距離美股收盤還有2小時55分鐘</span></idv></td>
+ <td>
+ <a class="refresh" href='https://tw.rd.yahoo.com/referurl/stock/get_quote/refresh/*https://tw.futures.finance.yahoo.com/' >更新</a>
+ </td>
+ </div></td> </form></tr>
+ </table> 
+ <label></label></td>
+ </tr>
+ <tr>
+ <td height="4" bgcolor="#FFFFFF"></td>
+ </tr>
+</table>
+</div>
+ 
+<!--主選單 end-->
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="yui-text-left"> 
+ <tr>
+ <td width="440" valign="top"><table width="440" border="0" cellspacing="0" cellpadding="0">
+ <tr>
+ <td><img src="https://s.yimg.com/f/i/tw/stock/revamp/c01.gif" width="440" height="12" /></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--線圖start-->
+<div id="ystkchatw">
+ <div class="rcn"><div class="rce"><div class="rcw"></div></div></div>
+ <div id="ystkchatwtb" name="ystkchatwtb" class="yui-ie7-rel">
+ <h3 title="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tab/tw/*">台股</h3>
+ <div class="tbd tbd0">
+ <div class="tbdw">
+ <div class="tbdp">
+ <div class="colorline on">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/tse_quote/*https://tw.stock.yahoo.com/s/tse.php">上市</a></th><td class="dx">10469.35</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up">4.19</td><td class="vol"><span>1068.18億</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/otc_quote/*https://tw.stock.yahoo.com/s/otc.php">上櫃</a></th><td class="dx">142.24</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up">0.18</td><td class="vol"><span>349.07億</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/elec_quote/*https://tw.futures.finance.yahoo.com/s/stock_cate.php?cat_id=%2523020">電子</a></th><td class="dx">446.39</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up">0.83</td><td class="vol"><span>767.24億</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e last">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/fin_quote/*https://tw.futures.finance.yahoo.com/s/stock_cate.php?cat_id=%2523010">金融</a></th><td class="dx">1125.77</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up">0.50</td><td class="vol"><span>27.65億</span></td></tr> </tbody>
+ </table>
+ </div>
+ </div>
+ <div class="tbds"><label class="bigimg"><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/tse_chart/*https://tw.stock.yahoo.com/s/tse.php"><img class="ystkchartimg on" src="https://tw.quote.finance.yahoo.net/quote/charts/%23001.gif" /></a><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/otc_chart/*https://tw.stock.yahoo.com/s/otc.php"><img class="ystkchartimg" src="https://tw.quote.finance.yahoo.net/quote/charts/%23026.gif" /></a><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/elec_chart/*https://tw.stock.yahoo.com/s/stock_cate.php?cat_id=idx23"><img class="ystkchartimg" src="https://tw.quote.finance.yahoo.net/quote/charts/%23020.gif" /></a><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tw/fin_chart/*https://tw.stock.yahoo.com/s/stock_cate.php?cat_id=idx28"><img class="ystkchartimg" src="https://tw.quote.finance.yahoo.net/quote/charts/%23010.gif" /></a></label></div>
+ </div>
+ </div>
+ <h3 title="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tab/asia/*">亞股</h3>
+ <div class="tbd tbd1">
+ <div class="tbdw">
+ <div class="tbdp">
+ <div class="colorline on">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/nikkei_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^N225">日經指數</a></th><td class="dx">20626.66</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>12.59</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/kr_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^KS11">韓國綜合</a></th><td class="dx">2394.47</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>21.33</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/hk_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^HSI">香港恆生</a></th><td class="dx">28379.18</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>205.97</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e last">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/sh_quote/*https://tw.stock.yahoo.com/us/q?stock_id=000001.SS">上海綜合</a></th><td class="dx">3348.94</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>9.30</span></td></tr> </tbody>
+ </table>
+ </div>
+ </div>
+ <div class="tbds"><label>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/nikkei_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EN225"><img width='190' height='95' class="ystkchartimg on" id='chart_JP' /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/kr_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EKS11"><img width='190' height='95' class="ystkchartimg" id='chart_KR' /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/hk_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EHSI"><img width='190' height='95' class="ystkchartimg" id='chart_HK' /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/asia/sh_chart/*https://tw.stock.yahoo.com/us/q?stock_id=000001.SS"><img width='190' height='95' class="ystkchartimg" id='chart_SH' /></a>
+ </label></div>
+ </div>
+ <div class="tbdv">
+ <table width="417" height="31" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+ <td bgcolor="#dae1e8"><span class="sbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/money/offshorenav/*https://tw.money.yahoo.com/fund_index_intl">境外基金淨值</a> </span></td>
+ <td bgcolor="#dae1e8"><div align="center"><span class="sbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/money/offshoreperform/*https://tw.money.yahoo.com/fund_per_intl">境外基金績效排行</a></span></div></td>
+ <td bgcolor="#dae1e8"><div align="right"><span class="sbody"> <a href="https://tw.rd.yahoo.com/referurl/stock/index/money/intl_futures/*https://tw.money.yahoo.com/intl_futures">全球商品期貨報價</a></span></div></td>
+ </tr>
+ </table>
+ </div>
+ </div>
+ <h3 title="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tab/europe/*">歐股</h3>
+ <div class="tbd tbd2">
+ <div class="tbdw">
+ <div class="tbdp">
+ <div class="colorline on">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/uk_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^FTSE">英國FTSE</a></th><td class="dx">7470.83</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>2.72</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/ger_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^GDAXI">德國DAX</a></th><td class="dx">12970.52</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>67.87</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/fr_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^FCHI">法國CAC</a></th><td class="dx">5363.49</td><td class="im"><span class="downi"><i>跌</i></span></td><td class="chg down"><span>3.91</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e last">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/nl_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^AEX">荷蘭AEX</a></th><td class="dx">541.65</td><td class="im"><span class="downi"><i>跌</i></span></td><td class="chg down"><span>0.60</span></td></tr> </tbody>
+ </table>
+ </div>
+ </div>
+ <div class="tbds"><label>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/uk_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EFTSE"><img class="ystkchartimg on" width='190' height='95' id="chart_UK" /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/ger_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EGDAXI"><img class="ystkchartimg" width='190' height='95' id="chart_DZ" /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/fr_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EFCHI"><img class="ystkchartimg" width='190' height='95' id="chart_FR" /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/eu/nl_chart/*https://tw.stock.yahoo.com/us/q?stock_id=^AEX"><img class="ystkchartimg" width='190' height='95' id="chart_DU" /></a>
+ </label></div>
+ </div>
+ <div class="tbdv">
+ <table width="417" height="31" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+ <td bgcolor="#dae1e8"><span class="sbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/money/offshorenav/*https://tw.money.yahoo.com/fund_index_intl">境外基金淨值</a> </span></td>
+ <td bgcolor="#dae1e8"><div align="center"><span class="sbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/money/offshoreperform/*https://tw.money.yahoo.com/fund_per_intl">境外基金績效排行</a></span></div></td>
+ <td bgcolor="#dae1e8"><div align="right"><span class="sbody"> <a href="https://tw.rd.yahoo.com/referurl/stock/index/money/intl_futures/*https://tw.money.yahoo.com/intl_futures">全球商品期貨報價</a></span></div></td>
+ </tr>
+ </table>
+ </div>
+ </div>
+ <h3 title="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/tab/us/*">美股</h3>
+ <div class="tbd tbd3">
+ <div class="tbdw">
+ <div class="tbdp">
+ <div class="colorline on">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/dj_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^DJI">道瓊工業</a></th><td class="dx">22677.45</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>35.78</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/nsx_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^IXIC">那斯達克</a></th><td class="dx">6538.80</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>7.09</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline o">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/sp_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^SPX">S&P500</a></th><td class="dx">2538.94</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>4.36</span></td></tr> </tbody>
+ </table>
+ </div>
+ <div class="colorline">
+ <table class="chartline e last">
+ <tbody>
+<tr><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/ps_quote/*https://tw.stock.yahoo.com/us/q?stock_id=^SOX">費城半導體</a></th><td class="dx">1183.35</td><td class="im"><span class="upi"><i>漲</i></span></td><td class="chg up"><span>0.93</span></td></tr> </tbody>
+ </table>
+ </div>
+ </div>
+ <div class="tbds"><label>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/dj_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EDJI"><img width='190' height='95' class="ystkchartimg on" id="chart_DJ" /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/nsx_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EIXIC"><img width='190' height='95' class="ystkchartimg" id="chart_ND" /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/sp_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5EGSPC"><img width='190' height='95' class="ystkchartimg" id="chart_SP" /></a>
+ <a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/us/ps_chart/*https://tw.stock.yahoo.com/us/q?stock_id=%5ESOX"><img width='190' height='95' class="ystkchartimg" id="chart_SX" /></a>
+ </label></div>
+ </div>
+ <div class="tbdv">
+ <table width="417" height="31" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+ <td bgcolor="#dae1e8"><span class="sbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/money/offshorenav/*https://tw.money.yahoo.com/fund_index_intl">境外基金淨值</a> </span></td>
+ <td bgcolor="#dae1e8"><div align="center"><span class="sbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/money/offshoreperform/*https://tw.money.yahoo.com/fund_per_intl">境外基金績效排行</a></span></div></td>
+ <td bgcolor="#dae1e8"><div align="right"><span class="sbody"> <a href="https://tw.rd.yahoo.com/referurl/stock/index/money/intl_futures/*https://tw.money.yahoo.com/intl_futures">全球商品期貨報價</a></span></div></td>
+ </tr>
+ </table>
+ </div>
+ </div>
+ <cite><a href="https://tw.rd.yahoo.com/referurl/stock/index/index_chart/more/*https://tw.stock.yahoo.com/us/worldidx.php">更多</a></cite>
+ <div class="ft"><div></div></div>
+ <script language="javascript">installYstkInnerTabBrowsing(3);</script> </div>
+ </div>
+ <!--線圖end-->
+ </td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td>
+<a href="https://goo.gl/TW2smn" title="Stock APP Banner 20170825" ><img src="https://s.yimg.com/os/creatr-images/GLB/2017-08-10/c251aa90-7da4-11e7-9c1c-1f739ea96fb6_420x60.gif" border="0" width="430"></a> </td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--財經要聞start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<table width="429" border="0" cellspacing="0" cellpadding="0" id="headlineTitle">
+ <tr>
+ <td height="24" background="https://s.yimg.com/f/i/tw/stock/revamp/title01.gif"><div align="right">
+<img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/headline/more/*https://tw.futures.finance.yahoo.com/news_list/url/d/e/N1.html">更多</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title02.gif" width="6" height="24" class="yui-tw-stock-block"/></td>
+ </tr>
+ </table> 
+ 
+ <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#a5b2bd" class="yui-text-left" id="headlineContainer">
+ <tr>
+ <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="2" id="headlineTable">
+ <tr>
+ <td id="headlineTitle" valign="top"><span class="title"><strong><a href="https://tw.rd.yahoo.com/referurl/stock/index/headline/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/投資人操作謹慎-日股微漲0-06-135001646.html" hpp="Headline_1">投資人操作謹慎 日股微漲0.06%</a></strong></span><span class="t1">（法新社 21:50）</span> </td>
+ </tr>
+ <tr>
+ <td id="headlineDetail" height="50" valign="top"><span class="mbody">（法新社東京4日電） 東京股市今天微幅收漲，未能持續稍早的強勁漲勢，因為市場注意力轉向了本...</span><span class="mbody">(<a href="https://tw.rd.yahoo.com/referurl/stock/index/headline/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/投資人操作謹慎-日股微漲0-06-135001646.html" hpp="Headline_1">詳全文</a>)</span></td>
+ </tr> <tr>
+ <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" id="headlineSubtitles"> <tr>  
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/headline/2/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/漲勢延續-港股收紅-095002128.html" hpp='Headline_2'>漲勢延續 港股收紅</a></span><span class="t1">（法新社 17:50）</span></td>
+ </tr> <tr>  
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/headline/3/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/涉偽造檢驗新車文件-日產再陷醜聞風暴-085001937--finance.html" hpp='Headline_3'>涉偽造檢驗新車文件 日產再陷醜聞風暴</a></span><span class="t1">（法新社 16:50）</span></td>
+ </tr><!-- native ads start -->
+ <tr>
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=d3rlRGgGIS95NhKR_Uouv3n0B46amBpeZQ4VkNKFvfr6QjXiuENJxvM2.muMKs1.ocBSKaHTBuh1o3UhtxZgD_fAXYBzwui5pb1kZS8QrMW9nBWrHDbfZgBoY0TtKI6zChGKHim5XXaGMcYXYiJcTP22iWKZDOmZ6R1uw3hGaYH1ona03ffIKh9VrzEqKSHwB0i2UwK6W0pEVy4cwJTosl6kSfCFsxHdTKxcpXaJayNvqKPxuXndZ7vB_G2kQKMDnFeafxDhql10M3TkuvUfTEy8yGBXD3h7enMUAGOSvErd6UMdV2Qi3RONQKTsMzfRVo1FxB.8GHn4OOsZj2iDUSFkS5rn2Ale00H.xczrRQFea1_GBCsiDytb4h7Ao3KjYT6IBrVxydvPrzwE_Xdqf2qjc7KR4GDDSMu7xKxK8bQmILqBQk4zFGzQZOPJCV5nEViSrrIihu0RUB.ED9trPW14vFeCWEckd4Sw_m0lVemFi014t8l4WCD8YRDArNAmpkLOKuLf6fKWfdzPJgEAcV.LIpMfC8QhTwU4gallfTEPaVHAtqH6fe6y9L3FVnekKWwOHgwJeVgR.mbZBkSHvXTW9FFlF32tKAq.ys0QQGW4_I4szf3Uuf9udBP0jIKIESEQO754i18vvav4qY4yt6DYU3aAp5Z.ORY-%26lp=" target="_blank">Partez ? la d?couverte de nos r?gions</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>H?tels Mercure</span>
+        </div>
+      </div>
+</td>
+</tr> <!-- native ads end -->
+ </table></td>
+ </tr>
+ </table></td>
+ </tr>
+ </table>
+</td></tr></table>
+<!--財經要聞end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--財經新聞搜尋start-->
+<script type="text/javascript" src="https://s.yimg.com/os/finance/nebula/chart/0.2.95/build/libra.js"></script>
+<script type="text/javascript" src="/js/charts.js"></script>
+<script type="text/javascript">
+<!--
+function submit_search_form ()
+{
+ var form = document.sn_search;
+ form.action = "https://tw.rd.yahoo.com/referurl/stock/index/news_search/button/*https://tw.futures.finance.yahoo.com/news_search.html";
+ form.submit();
+}
+function drawChartImg(){
+	  var globalChartsMap = {"chart_JP":"^N225", "chart_KR": "^KS11", "chart_HK": "^HSI", "chart_SH": "000001.SS",
+	  	 "chart_UK": "^FTSE", "chart_DZ": "^GDAXI", "chart_FR": "^FCHI", "chart_DU": "^AEX",
+	  	 "chart_DJ": "^DJI", "chart_ND": "^IXIC", "chart_SP": "^GSPC", "chart_SX": "^SOX"
+	  };
+	  var o = YUD.popElementByClass(img, "tbd", 10);
+	  var t = YUD.getElementsByClassName("tbds", "div", o, 10);
+
+	  for (var imgKey in globalChartsMap){
+	  	 var img = document.getElementById(imgKey);
+	     render_and_write(t[0], globalChartsMap[imgKey], '1d', img);
+	  }   
+}	  
+-->
+</script>
+<table width="429" border="0" cellpadding="0" cellspacing="1" bgcolor="#a5b2bd">
+ <tr>
+ <td height="38" bgcolor="#eef3f6"><form name="sn_search" action="https://tw.rd.yahoo.com/referurl/stock/index/news_search/enter/*https://tw.futures.finance.yahoo.com/news_search.html"><input type="hidden" name="ei" value="Big5">
+ <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+ <tr>
+ <td valign="bottom"><div align="center">
+ <label><img src="https://s.yimg.com/f/i/tw/stock/revamp/search20.gif" width="140" height="30"> </label>
+ </div></td>
+ <td><input name="q" type="text" size="25" /></td>
+ <td width="60" valign="bottom"><div align="center">
+ <label> <a href="javascript:submit_search_form();" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Search31','','https://s.yimg.com/f/i/tw/stock/revamp/search3_f2.gif',1)"><img src="https://s.yimg.com/f/i/tw/stock/revamp/search3.gif" alt="" name="Search31" width="44" height="21" border="0" id="Search31"></a> </label>
+ </div></td>
+ <td width="35" valign="middle" class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news_search/help/*https://help.yahoo.com/kb/helpcentral">說明</a></td>
+ </tr>
+ </table></form></td>
+ </tr>
+ </table>
+<!--財經新聞搜尋end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--快速連結start-->
+<table width="429" border="0" cellpadding="5" cellspacing="1" bgcolor="#a5b2bd" class="yui-text-left"><tr><td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="2" cellpadding="0"><tr><td valign="top" class="stext"><font color="#FF0000">【熱門】</font></td><td valign="top" class="stext"><a href="https://goo.gl/wckL2K"><font color="#FF0000">蘋概股</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/dy8yWE">多條件選股</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/ZmJAdS">盤勢分析</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/JhVyCA"><font color="#FF0000">熱門概念股</font></a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/Sc1XbP"><font color="#FF0000">產業動態</font></a></div></td></tr><tr><td valign="top" class="stext">【焦點】</td><td valign="top" class="stext"><a href="https://goo.gl/cT3L6f">最新匯率</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/1yxEVs">美股走勢</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/GnG8tC">陸股走勢</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/xHywp6">熱門基金</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/ziSA1s">熱門族群</a></div></td></tr><tr><td valign="top" class="stext"><font color="#FF0000">【看盤】</font></td><td valign="top" class="stext"><a href="https://goo.gl/3aUtHp"><font color="#FF0000">5分鐘看台股</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/2Do2kZ">當日熱門股</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/vkpBov">類股報價</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/TVjyFr">集團股</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/iwfs3H">興櫃報價</a></div></td></tr><tr><td valign="top" class="stext">【盤後】</td><td valign="top" class="stext"><a href="https://goo.gl/jQyKGH">三大法人</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/FVqvnm"><font color="#FF0000">外資買超股</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/f5LkbL">外資賣超股</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/yppPLi">資券餘額</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/pU7ouL">自營商買超</a></div></td></tr><tr><td valign="top" class="stext">【排行】</td><td valign="top" class="stext"><a href="https://goo.gl/BXmZzU"><font color="#FF0000">漲幅排行</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/xjS9eP">跌幅排行</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/eCxbL4">當沖排行</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/csjRsU">成交值排行</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/TbuKfH">更多排行</a></div></td></tr><tr><td valign="top" class="stext"><font color="#FF0000">【理財】</font></td><td valign="top" class="stext"><a href="https://goo.gl/G2nK3u"><font color="#FF0000">財經小學堂</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/W94D6T">小資理財</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/9f4bTV"><font color="#FF0000">進擊的荷包</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/o7CXtC">專家專欄</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/16tkM5"><font color="#FF0000">理財粉絲團</font></a></div></td></tr><tr><td valign="top" class="stext">【分析】</td><td valign="top" class="stext"><a href="https://goo.gl/pyMRgV">大佛外幣解析</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/4g7eax">投資風向球</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/HpG7Tk">法人觀點</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/Na9RbA">產業研究</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/WGbAJ6">投資建議</a></div></td></tr><tr><td valign="top" class="stext">【期貨】</td><td valign="top" class="stext"><a href="https://goo.gl/FjrcNK"><font color="#FF0000">台指期貨</font></a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/Td1sx7">操作策略</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/YDh2Bj">前十大交易人</a>&nbsp;&nbsp;&nbsp;&nbsp<a href="https://goo.gl/eYL53W">指數選擇權</a></td><td valign="top" class="stext"><div align="right"><a href="https://goo.gl/QSHddh">未平倉數</a></div></td></tr></table></td></tr></table><!--快速連結end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!-- MNTL start -->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<!-- SpaceID=152952220 loc=MNTL noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;MNTL;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['mJG4DQrtSSQ-']='(as$1257vbhsa,aid$mJG4DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=MNTL)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$1257vbhsa,aid$mJG4DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=MNTL)"></noscript></td></tr>
+</table>
+<!-- MNTL end -->
+<!--BE Request form start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<!-- SpaceID=152952220 loc=BE noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;BE;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['VAuwDQrtSSQ-']='(as$125n50j3f,aid$VAuwDQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=BE)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$125n50j3f,aid$VAuwDQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=BE)"></noscript></td></tr></table>
+<!--BE Request form end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--研究報告與盤勢分析 start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0" id="R999title">
+<tr>
+ <td height="27" background="https://s.yimg.com/f/i/tw/stock/revamp/title03.gif"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/commentary/more/*https://tw.futures.finance.yahoo.com/report_index.html">更多</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title04.gif" width="5" height="27" class="yui-tw-stock-block"/></td>
+ </tr>
+ </table>
+<table width="429" border="0" cellspacing="0" cellpadding="0" class="yui-text-left" id="researchNews">
+ <tr><td>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#a5b2bd">
+ <tr>
+ <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="itemTable">
+ <tr class="newsItem">
+ <td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+ <td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/commentary/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/美股盤前-西班牙政治危機加劇-美國指數期貨盤前小幅走低-120002204.html">美股盤前─ 加泰隆尼亞將宣布獨立 美國指數期貨盤前小幅走低</a></span><span class="t1">（鉅亨網 20:00）</span></td>
+ </tr> <tr class="newsItem">
+ <td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+ <td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/commentary/2/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/封閉式基金淨值表20-13-元大etf富櫃50-13-87-010703861.html">《封閉式基金淨值表20-13》元大ETF富櫃50(13.87)、元大摩臺(37.95)</a></span><span class="t1">（時報資訊 09:07）</span></td>
+ </tr> <tr class="newsItem">
+ <td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+ <td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/commentary/3/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/美股盤中-三大指數再創新高-擴大昨日漲幅-161307236.html">美股盤中─ 三大指數再創新高 分析師預期漲勢將能持續</a></span><span class="t1">（鉅亨網 00:13）</span></td>
+ </tr><!-- native ads (2) start -->
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=gk.d3TwGIS9RwXNY2LI397fryoJNoo_6HEWji0Mo1aq7uu4Uqciui7d3wJvcn9ddIIK40Elkw1gtmbvJB4GUGGSR.Iy4Q2X3KusJMa0Ag1xF2OfBF8PIKV2paGchsNqTlL6XbAPckb9ub1KvY1QCmU56B_JotBRASLhC97E_fzN0UbMSOlglq6Zh3rM9yJTLEOSwtnXf6slg9qRCMupQzI.Ihj3xgSLM9Es_TyBFb64UEADUR6W77emB53fVt7bW6kZboNXV4lYvlyYA0.Hk8kSjAuFDdtGpGuoZe_zIIagP12.9x8fH2RTZZDqbjQ0qx6yX3Tpbbksf95ED_AFCXwZ.9Aa8hiW.atKesJKaDBFUJNOYAz9vQN4olghEh3Yfwr0pR93JHVUx_owd39qo6J6vOEMfaTmFM0lkQURcGm1G3elOf0ovZ1JMxpZcdvuhehBqUeIMYpVSgn2Otn8NvKJDorYWluUX2ZJpdo8o1xzzG0q6NtasOyQ_hz3q.QDhRRHqdvGczDIokLvJCjmd9DOAGI_8mu4p0kiyZwt_qDccUkjtgAV3gJMTMmaR0qsouPCKBDrWUuubGwxi1ITeFw9Y11v25Oirx99qCcb6dwtBML00gYL128Thk2kozsFoRXIdI0SPLTJuZye8u20zA4UmgIZv1404f.Cur9UP7iTTN.lnJubOvyJlFHIIHKHuYnhBt5u1DL5uhiy_kugwQ4sm6kuMbTupv1qlP1SjPdhM1dkRs5YBxHFLcHZGP3g4ajZYmzE5Xa7XE2hv0Kzg9NGnl3Rb.CaERAw3QOk.hxnreTk12yEG2iaFvNjqCIPCka6wyNJOCpeBs927Tc3i7qvm3f3Jyg.j0TYgWSi7ZbMDCFk0hSOFO5GfR0fy_sIz5zemE3ZqUdrWgz8MskHrj9erg2xoK1tGtn34QM14hb.Qyew0wK9snitG8zh0Ciuw3fR7bl9wMWZadgWbCZhLLYl9seepUAHJMkoVkWoV6mEDnwzRugRwwOSBIrqAixxWbw8oKJQBLpO0co_.J6aBGNmDrP91REWcpWz6zV2oyv0efHePDNw1Vy31LzwvbjIe4yoGEAAn98PKTy.ed3eu75Hx2uQRjL89niDtfEjP44ysGxezSjgNkYaJrTNxDZiXUf6H4DCufDnEUd.WCt2jADnwAVDG3hnfVkpBcSo961agIyKwplY-%26lp=" target="_blank">La fibre et le Pack Play Premium</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>SFR</span>
+        </div>
+      </div>
+</td> <!-- native ads (2) end -->
+ </table></td>
+ </tr>
+ </table>
+</td></tr></table>
+<!--研究報告與盤勢分析 end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td>
+<!--台股盤勢 start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<table width="429" border="0" cellspacing="0" cellpadding="0" id="M1title"> 
+ <tr>
+ <td height="27" background="https://s.yimg.com/f/i/tw/stock/revamp/title_hp1.gif"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news1/more/*https://tw.futures.finance.yahoo.com/news_list/url/d/e/N2.html">更多</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title04.gif" width="5" height="27" class="yui-tw-stock-block"/></td>
+ </tr>
+ </table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#a5b2bd" class="printhide" class="yui-text-left" id="M1News">
+<tr>
+<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news1/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/台北股市-台股萬點強力支撐-長多格局重啟有望-083511949.html">《台北股市》台股萬點強力支撐，長多格局重啟有望</a></span><span class="t1">（時報資訊 16:35）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news1/2/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/台北股市-內資節前不退-中小型股出運-021800792.html">《台北股市》內資節前不退，中小型股出運</a></span><span class="t1">（時報資訊 10:18）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news1/3/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/台北股市-集團作帳行情-q4蓄勢待發-021048540.html">《台北股市》集團作帳行情，Q4蓄勢待發</a></span><span class="t1">（時報資訊 10:10）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news1/4/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/台北股市-台股強心劑-台積-大立光法說將登場-014346643.html">《台北股市》台股強心劑，台積、大立光法說將登場</a></span><span class="t1">（時報資訊 09:43）</span></td>
+</tr><!--native ads (3,4,5,6) start -->
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=SNQ1PwkGIS8HymjpvcV44qoRtHmXW_xnGO4sbd7i1_1SJymwR2zVG88RPCv54iaS9Y0PWw4843Q6yQaAt3oyJhQ4Q2lvGL6HvwORps0Vpt8NjidcItcVV3fTi4PG10NF4yJL6FVyivs0SroM28IWYNhHjvvb2LQ_ziawb7M7VhK5FoIZOgvULFQ_tvzgyLyoJz.TX3wRirlb0GCDRLtU.YQnG8PYS2WSLZdSxxN3dnp.QwXZM8kATND69SwU_mqVIkTSea6KtuXnMWzaaLm5DnD.22IzQU_gP4_DP.dZteS2S0eihtr94USk0ApqSAC67BUwzN2h9FEwGp7Jgstw8.iZBOXKHw2Lr_b2CDGB1MrY9X.x_6IZVwVmoisFYUGTHzFnlOr94lxR.2QqtpN7XXBDkjxZD_WtNx5PR8ki6kRjGw6PFD8oMs7D.0Oa_OomTQRHBfNgwwyISs.yUp0tcb03bWwAIvQk17Ow79Yz0HQidVknae8TAgpjfOAcO1vCeh2Yyg--%26lp=" target="_blank">Comment bien choisir votre Assurance Auto ?</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>Axa</span>
+        </div>
+      </div>
+</td></table></td>
+</tr>
+</table></td></tr></table>
+<!--台股盤勢 end-->
+</td>
+ </tr>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td>
+<!--個股動態 start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<table width="429" border="0" cellspacing="0" cellpadding="0" id="M2title"> 
+ <tr>
+ <td height="27" background="https://s.yimg.com/f/i/tw/stock/revamp/title_hp2.gif"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news2/more/*https://tw.futures.finance.yahoo.com/news_list/url/d/e/N3.html">更多</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title04.gif" width="5" height="27" class="yui-tw-stock-block"/></td>
+ </tr>
+ </table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#a5b2bd" class="printhide" class="yui-text-left" id="M2News">
+<tr>
+<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news2/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/台燿與日立化成簽技術授權-102014998.html">台燿與日立化成簽技術授權</a></span><span class="t1">（中央社 18:20）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news2/2/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/宏-焌r裝置在美預購-17日出貨-094513863.html">宏?焌R裝置在美預購 17日出貨</a></span><span class="t1">（中央社 17:45）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news2/3/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/國際金融-高盛想攻比特幣交易-085444863.html">《國際金融》高盛想攻比特幣交易</a></span><span class="t1">（時報資訊 16:54）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news2/4/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/義隆電9月營收7-5億創新高-觸控晶片熱-083712866.html">義隆電9月營收7.5億創新高 觸控晶片熱</a></span><span class="t1">（中央社 16:37）</span></td>
+</tr><!--native ads (3,4,5,6) start -->
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=YWiCfjIGIS9.JvqP9FdZschHiRwgdjgqoKLbb1lTrw4eUhosNfFw9gVJzdlMcD4_5FxsmlgwHiZLaRHkhjuwG.YPVC7saxXIATVRQhBPVOOFARAGCoDKz0Gbr3FUj8lZU1_lR9AwoViO5f1azJQlTgtmpz.UBZhRmTx.h..82qmw2.tFU3gxwHTx3UFFKLxUHnVcoy58K5YkQmiwZhHT9PRdWo6Qdsa3_ct8ZlH3m1xd8SpDbi3vF__wnVaKoRcHiYUfxesKUjWBum1t7oCjcw6Pir.aDyN6KlMeCrd2c4O_3_n8VK6GWnzQkOUEDmLlpd19GE.pE8rePtp1EK6BJ0gHKruMq2k68THfI12q.dkyX6Yyci60hmdRnkjLbq.NiCU0qrjjzkGZrU9HHz0Z081iacJXVUiYyt4a4jdmw3hP6ULeHSNUKm4Lk0P_d1pM9SWTZNqKNRGjKEOlZRPfeudF8hjJB3p638pOsVLGOwws4ohceiKbTjZEYFt6q8_vL8Z3IEa1sgxPPqfQNiSACLzwkoVdkpaCRYeRRsbNUKUPMFEEa77qvqHZVy_edL88kQX50Mmkr.4RdmAw6kZP_So1ZXCvUmkKUU_8BuW_e_sT9ru8kjTL4hKD7omZGFxjGiuZRv0h7hG9IgA.Nn34.zr79W7u3KiJum_PZFwzB.2AAJI-%26lp=" target="_blank">Un concentr? d'innovations 1?re classe</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>Opel</span>
+        </div>
+      </div>
+</td></table></td>
+</tr>
+</table></td></tr></table> 
+<!--個股動態 end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td>
+<!--經貿財稅 start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<table width="429" border="0" cellspacing="0" cellpadding="0" id="M3title"> 
+ <tr>
+ <td height="27" background="https://s.yimg.com/f/i/tw/stock/revamp/title_hp3.gif"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news3/more/*https://tw.futures.finance.yahoo.com/news_list/url/d/e/N10.html">更多</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title04.gif" width="5" height="27" class="yui-tw-stock-block"/></td>
+ </tr>
+ </table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#a5b2bd" class="printhide" class="yui-text-left" id="M3News">
+<tr>
+<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news3/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/提升引水人素質-協會籲檢討考照制及薪資-141015698.html">提升引水人素質 協會籲檢討考照制及薪資</a></span><span class="t1">（中央社 22:10）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news3/2/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/大福彩頭獎-槓龜-140203513.html">大福彩頭獎 槓龜</a></span><span class="t1">（中央社 22:09）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news3/3/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/今彩539-頭獎1注中獎-142803071.html">今彩539 頭獎1注中獎</a></span><span class="t1">（中央社 22:08）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news3/4/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/大福彩開獎-125500559.html">大福彩開獎</a></span><span class="t1">（中央社 20:54）</span></td>
+</tr><!--native ads (3,4,5,6) start -->
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=uaU98AIGIS_eW81PYlfE66fjmVUV6DI3tnW.7s4v7Z9uuK_ws.ddslKUDKKK4b1eedhrTDAhVzzSbo0.4HEHKW.8x3jDgbeZprfg.7aLaYPDOkULTl7GD55IIo56C9mwnXvyhg.92jU51KF8r5PJ.IacEI7eJh6nB3lsJ4IQkdHE1ZBYaMDf32I.AH4nWjHsCoSxtL71P5jAszFloiYihL8WW8GlBpEvmoXDz7cZMSWRvLelVKz5XksWyAeb_poGJVBQpmuAniW4iwE456dTim7kZDjeZCQgIcjYg9Ie2__DBpX67KdMkhUz_Q6gP10oC8tsv0Ey9jD9o4z0vUjidReJ8dA_zfDgoEIolkIGRnN8cmgahFJiBWarPiovk19X_46vphinMVgBfSKcHExx3gGJ2WLjBL97IUv53aNOrnJyu5KqxqEHRpnod4XXuSd4PzUdo.otHs_d2dqZ0NfA_1PkMDafJyMARcBnGa0DFbR4jbzuXMs.Gurbza1Jh6wFvXN0PpH7u7m4d8juENFKB5gYNTLtXotXzaVUFI7qu9xPtYp7iVzSdhKTKYq6dAcRJjQjhwbGpAHltGa86doaBRulKozmlcAR%26lp=" target="_blank">來自摩納哥的時尚珠寶</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>APM Monaco</span>
+        </div>
+      </div>
+</td></table></td>
+</tr>
+</table></td></tr></table>
+<!--經貿財稅 end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td>
+<!--國際財經 start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<table width="429" border="0" cellspacing="0" cellpadding="0" id="M4title">
+ <tr>
+ <td height="27" background="https://s.yimg.com/f/i/tw/stock/revamp/title_hp4.gif"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/news4/more/*https://tw.futures.finance.yahoo.com/news_list/url/d/e/N12.html">更多</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title04.gif" width="5" height="27" class="yui-tw-stock-block"/></td> 
+ </tr>
+ </table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#a5b2bd" class="printhide" class="yui-text-left" id="M4News">
+<tr>
+<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news4/1/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171005/歐股盤後-西班牙爆憲政危機-泛歐指數收低0-08-163801884.html">歐股盤後─西班牙爆憲政危機 泛歐指數收低0.08%</a></span><span class="t1">（鉅亨網 00:38）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news4/2/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171005/歐股盤後-西班牙爆憲政危機-泛歐指數收低0.08-163801973.html">歐股盤後─西班牙爆憲政危機 泛歐指數收低0.08%</a></span><span class="t1">（鉅亨網 00:38）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news4/3/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/oecd-已開發國家女性教育程度較男性高-141115674.html">OECD：已開發國家女性教育程度較男性高</a></span><span class="t1">（中央社 22:11）</span></td>
+</tr><tr class="tableItem">
+<td width="8" valign="top"><span class="stext style2">&#9642;</span></td>
+<td valign="top"><span class="mbody"><a href="http://tw.rd.yahoo.com/referurl/stock/index/news4/4/*https://tw.futures.finance.yahoo.com/news_content/url/d/a/20171004/歐盟命亞馬遜-向盧森堡繳90億元欠稅-141015219.html">歐盟命亞馬遜 向盧森堡繳90億元欠稅</a></span><span class="t1">（中央社 22:10）</span></td>
+</tr><!--native ads (3,4,5,6) start -->
+ <td width="8" class="stext style2" valign="top">&#9642;</td>
+ <td valign="top">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=rBjnvM0GIS8RddG3of4fYWdH5W8mJ4XmVXSEw9G.XccsRC76T8cUySm2KKw02ZBp77n2jXBhr8wshfWTiw7WUJswkUo45QV8rc3uM6RkAtnUmfq5Tg7cyQdkzc44tbMCqSXiU7Am3LOw2XH9khUIavYTxeLcEIZwHr_u9jLjs0R7G4kgFG6_9LiEA0anM.BjuflhoV4LG7zHV.Hg6awv_cbb0quT5xtXe4sTLP4woGgxFUPzN36UWVGEcRPL.40a9McSnuByYuF5yaRzYpc_3pykpNshRgyOt_3tdSFuUQshyxtaqQu0QH8wa0autzk4hkvKNZvzcA_3AUlNHOY5aWkZDA.Ss2YIsmkiqeaZ0K2IGgWeOiQpwlfFMuID8__1nh2aC.2KycQ1qsh4DdJj45cF_9gMl7FZDIGMiGTkxwnLaYp7h3EaKVYFL4AqdgT0kWF9UMLFUXSTpQnk%26lp=" target="_blank">高明一對一 - 台北升學補習班</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>高明一對一</span>
+        </div>
+      </div>
+</td></table></td>
+</tr>
+</table></td></tr></table>
+<!--國際財經 end-->
+<!--贊助網站 YSM start-->
+<table width="429" border="0" cellspacing="0" cellpadding="0">
+ <tr><td>
+<!--YSM BEGIN--> 
+<div id="hc-dcm-hd" class="ysm">
+  <div class="ysmlabel">
+     <a href="https://tw.rd.yahoo.com/referurl/evt=41260/*https://tw.emarketing.yahoo.com/ysm/contactus/index.html?o=TW0054&amp;cmp=TW0054" target="_blank">
+       刊登贊助網站</a>
+  </div>
+  <div class="dcm-hd" id="hc-dcm-db">
+    <ul>
+<li><a href='https://tw.linkspot.search.yahoo.com/sales/ysmlist.php?Partner=yahoo_tw_stock_xml_park&p=%E5%A4%96%E5%B9%A3' target='_blank'>外幣</a></li>
+<li><a href='https://tw.linkspot.search.yahoo.com/sales/ysmlist.php?Partner=yahoo_tw_stock_xml_park&p=%E5%84%AA%E6%83%A0%E5%AD%98%E6%AC%BE' target='_blank'>優惠存款</a></li>
+<li><a href='https://tw.linkspot.search.yahoo.com/sales/ysmlist.php?Partner=yahoo_tw_stock_xml_park&p=%E4%BF%A1%E7%94%A8%E5%8D%A1' target='_blank'>信用卡</a></li>
+<li><a href='https://tw.linkspot.search.yahoo.com/sales/ysmlist.php?Partner=yahoo_tw_stock_xml_park&p=%E7%90%86%E8%B2%A1%E8%A6%8F%E5%8A%83' target='_blank'>理財規劃</a></li>
+<li><a href='https://tw.linkspot.search.yahoo.com/sales/ysmlist.php?Partner=yahoo_tw_stock_xml_park&p=%E9%80%B1%E8%BD%89%E9%87%91' target='_blank'>週轉金</a></li>
+    </ul>
+  </div>
+<div class="dcm-bd">
+     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=WaBMr94GIS8KL.tsmOuo3He.R7PIr5.uSOVEU_ozs0iI3g2I2xuPAXVt3RbUJ9hNpCil9q3VS_CbBN15EW0OILYcp4TCPeL5DLSObn3iiDrRGdrZySFayo.5P7xVAFOAgy3nkwoQc49G9yY17MpXuudzbvIQ8P1GQ4WSxgJ0BJx1OsluuQTZzot_vJ0ehUSQMCaThSCBgjIX0zw7orRa7OTb.rf_lq_8T9hF0vBDnXWGNaB7O0jm2Y0.69deV2bTBato6i.rDK8.vuGhwZ9DuzB9wIg3o8U2_7MpVLuYus1ROTLsAdKg94GfVHlgJOOdIKeZGzxuiavVF7HjcPvwJSzPt0xCQUOHzBdZG0y.lP5MaKFjR.WCulw3Z8T3NOXJ29BMWo5OObOTCOoCVr38wC9PUnfBaWwWLZMwMiGsTiWT3a4ABuN1HHGUNeGIvUS3YWHm_L1Bl1pZ%26lp=" target="_blank">新吉成物流-兩岸貨運進出口快遞</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>新吉成</span>
+        </div>
+      </div>     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=H49sW2sGIS._TE6_5b0F6xFOiCTxv0bHrdVxwG_n4.1JjGp17eHiYmNESZ50GJpugL8.343yWR4zALzvWjrSlpzm7h8OFBszIV2kIzQoaxgx_dSrPSs_0wRfJJ9xjNgBiGdmCQrqSWOH3IP0Rg42W0.1u6lpo5jgDO1xIpjkEkkcSImo3kbquaMLvpkpXfAC0lbMNGBR7Ug1SKjJ9r8R5wyemtTQd6SiFPXByG_aJhYmBgZZ2gBOFFnnAYt8N1gnlzKIWaBbcMzg6j4gsKxBgk4OW2KaVqn2Y6T8HHbXHd8QamdyoctED_okmvlm82XcZ9mi3XoyZdADsuB1spc1vzbs.s16Lo.CJ.vQNM4zEP9SncOFZq.A.LYvE.sHW.sDJBYdXAXvBg2sb6Sn9J2Yy1SXdFxh.Q66TS592UUWqplVM4eF4zu6RVwNk9spncMOP6oPN3v2tSPwKAT1_PjOUESEhclMFOPcoyE-%26lp=" target="_blank">巨輪興-大型螺栓工作件</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>SUN RUN</span>
+        </div>
+      </div>     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=kMCMojMGIS_IQUvOKCKzsXbudIAZBZiKlMz.TtNf9MaVRPcTyw7NGQCofu8AlIcrxVQMA.CnG3O6tvkPTbyJQUM4ZAP.ZmglYWoWkjLITwDrFUjSx3WXR_X26UPL99EXTrEqA3OfYB_KH7haqhuvhbD_SuecKfs6W2OJwZaaKYomVxRy57.lX1iQcrrHofWpChbd9M8qKnFTjAsxo7ddy9V6KlFQUCHUduQfPBcjV8TZpM6FFp07Gi.kv4.WvorM2O8OCjp6c0IWG8kxutpGd6PjBkB_JZ7dWjR4ur8jKwt5RFUn42cCUu8DqLJlPqem1KjfhYNj0Km0dbkBgGxdgE1A9jPztLWO9YFhg9dvBMe5aC67WHdA6EFBrVc7QPbTLwRxB7oCtXfyco5WBm5o6SBsDSdoj0zjOxUzNyWc0p4uNJogDEwEobr35LzBXdPThOK2TPc_N4cbO8UcdwkJrztEj.d0AOrAixXJXPJx7jINE.w0xsdcbm0g4oed5p3NNhEgngvjWc2Lx7in9DhutjhV5mV0U0GL1YyN0HhXDMqcKmvqKVe0iXJnO.F7rPOVoHZWl54Z0l9CUqilNnD43tJN4g--%26lp=" target="_blank">採購時機來了！中國最大型商品交易會即將開辦</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>Cantonfair</span>
+        </div>
+      </div>     <div class="geminiAd">
+        <div class="nativeAd">
+          <a href="https://beap.gemini.yahoo.com/mbclk?bv=1.0.0&es=rLlxy3kGIS8_CKOH1JhVOJZXPfRMsJv0CysopUEsW5qxh_n0ohkYX6hFpqWXQqiHWYyy5Sw.v0ELOHGmL6S6rbNUXjktAq.TW1gPvaF2rBhVTxQ5h0JQjCuSt3jwRaddbxg0EU1vndRO6oUBqjII6J81NjyNWUH3yIWUKVrIQ6PBphORRmUgjDBgMOvJK20ImpAHHHyjY92P.nZRJVV9X09DicVq4JdT8VEgspC6L2Wm2_VguNblyrHBb09YeUkYZwAlLxq1UhNPXSBR74qAv37ZG8xpbsR5Wz4dBD261.0AqyPmqL0ekU9rTg0vvBTgIIhpm4gOHMtddEIH9t4KHZuZ5foeU3mdlNiQhvvmc_wLAz4zc.o877cNqRIPvcccI1DRfVUTKHGrbNRgMLHGPqjSNkI0xVeBIxC0ELD.ZCUJMFzAEOPhn.sEiuwT6ukigJwj_3G.YXktT1JTdWJu0AI-%26lp=" target="_blank">Seafood也讚嘆！雙十連假住宿首選【慕夏】</a>
+        </div>
+        <div class="dollar">
+          <a href="https://tw.emarketing.yahoo.com/ysmacq/project.html" target="_blank">
+             <img src='https://s.yimg.com/os/publish-images/finance/2015-05-19/61e488a0-fe0b-11e4-98a6-e351ea28d523_AD-1x.png'></a>
+        </div>
+        <div class="t1">
+           <span class="sponsored">Sponsored</span>
+           <span>高雄慕夏Motel</span>
+        </div>
+      </div> </div>
+</div>
+
+<!--YSM END--></td></tr></table>
+<!--贊助網站 YSM end-->
+</td>
+ </tr>
+ 
+ </table></td>
+ <td width="10" valign="top" background="https://s.yimg.com/f/i/tw/stock/revamp/c03.gif"><img src="https://s.yimg.com/f/i/tw/stock/revamp/c02.gif" width="10" height="12" /></td>
+ <td width="300" valign="top"><table width="302" border="0" cellspacing="0" cellpadding="0">
+ <tr>
+ <td width="302" valign="top">
+<!--廣告 start-->
+<table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+ <td><img src="https://s.yimg.com/f/i/tw/stock/revamp/ad_t.gif" width="300" height="15" class="yui-tw-stock-block"></td>
+</tr>
+<tr>
+ <td valign="top" background="https://s.yimg.com/f/i/tw/stock/revamp/ad_bg.gif"><table width="95%" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#eeeeee">
+ <tr><td valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+ <td width="5" valign="top"><span class="stext">‧</span></td>
+ <td valign="top" class="stext" align="left"><!-- APT Vendor: Yahoo -->
+<!-- TEXT 1 LINE popup 20131204-->
+<a href="https://beap-bc.yahoo.com/yc/YnY9MS4wLjAmYnM9KDE3cXQ2cDBnZShnaWQkOXpHX3dERXhPUzdQSU1RVldkVVV2eHh6TXpjdU5RQUFBQUNjUUJPVyxzdCQxNTA3MTM2NzEwMzg4NTE2LHNpJDI0NDA2MSxzcCQxNTI5NTIyMjAsY3QkMjUseWJ4JEV5Wk5hdUFHQm1lcF93WUdhVzFBNmcsbG5nJHpoLXR3LGNyJDE0OTExNzk1NjEsdiQyLjAsYWlkJHlMLnhEUXJ0U1NRLSxiaSQzMjY0NDIwNjEsbW1lJDQ0MzU4MDE2ODM1MTk3MjYwMDEsciQwLHJkJDEzOTJiYXNhMSx5b28kMSxhZ3AkMzg0NzI3NDQ5LGFwJEtUMSkp/0/*http://www.skis.com.tw/mgm/mgm_ad.aspx?utm_source=yahoo&amp;utm_medium=word_MGM&amp;utm_campaign=20150901" target="_blank">&#x3010;&#x63ea;&#x5718;&#x9001;&#x597d;&#x79ae;&#x3011;&#x5fc5;&#x52dd;&#x5ba2;&#x96d9;&#x6bd4;&#x85a9;/&#x738b;&#x54c1;/&#x5bb6;&#x6a02;&#x798f;</a>
+<img src="https://s.yimg.com/f/a/tw/k_alan/space_p.gif" width=1 height=1 border=0 style="display:none;">
+<!--End TEXT 1 LINE popup 20131204--><script>var url = ""; if(url && url.search("http") != -1){document.write('<script src="' + url + '"><\/script>');}</script><!--QYZ 326442061,1491179561,;;KT1;152952220;1--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['yL.xDQrtSSQ-']='(as$138ge3tj9,aid$yL.xDQrtSSQ-,bi$326442061,agp$384727449,cr$1491179561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT1)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$138ge3tj9,aid$yL.xDQrtSSQ-,bi$326442061,agp$384727449,cr$1491179561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT1)"></noscript></td>
+</tr>
+<tr>
+ <td width="5" valign="top"><span class="stext">‧</span></td>
+ <td valign="top" class="stext" align="left"><!-- APT Vendor: Yahoo -->
+<!-- TEXT 1 LINE popup 20131204-->
+<a href="https://beap-bc.yahoo.com/yc/YnY9MS4wLjAmYnM9KDE3cTNmdGNrYShnaWQkOXpHX3dERXhPUzdQSU1RVldkVVV2eHh6TXpjdU5RQUFBQUNjUUJPVyxzdCQxNTA3MTM2NzEwMzg4NTE2LHNpJDI0NDA2MSxzcCQxNTI5NTIyMjAsY3QkMjUseWJ4JEV5Wk5hdUFHQm1lcF93WUdhVzFBNmcsbG5nJHpoLXR3LGNyJDE0NzMxOTY1NjEsdiQyLjAsYWlkJEFwcXlEUXJ0U1NRLSxiaSQzMzA2NTMwNjEsbW1lJDQ0NTI0NjE4NjE2NjA4MTg2OTEsciQwLHJkJDEyc2F0ZGxlcSx5b28kMSxhZ3AkMzg5NTE4OTQ5LGFwJEtUMikp/0/*http://web2.promoney.com.tw/activities/activity.php?gid=eb79f58c-1340-11e6-9acb-000c29f08a2c" target="_blank">&#x946b;&#x8c50;&#x65b0;&#x958b;&#x671f;&#x8ca8;&#x6236;&#x4eab;&#x5373;&#x6642;&#x4e92;&#x52d5;&#x7dda;&#x4e0a;&#x8ab2;&#x7a0b;!</a>
+<img src="https://s.yimg.com/f/a/tw/k_alan/space_p.gif" width=1 height=1 border=0 style="display:none;">
+<!--End TEXT 1 LINE popup 20131204--><script>var url = ""; if(url && url.search("http") != -1){document.write('<script src="' + url + '"><\/script>');}</script><!--QYZ 330653061,1473196561,;;KT2;152952220;1--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['ApqyDQrtSSQ-']='(as$138f70poi,aid$ApqyDQrtSSQ-,bi$330653061,agp$389518949,cr$1473196561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT2)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$138f70poi,aid$ApqyDQrtSSQ-,bi$330653061,agp$389518949,cr$1473196561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT2)"></noscript></td>
+</tr>
+<!-- SpaceID=152952220 loc=KT3 noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;KT3;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['PHSzDQrtSSQ-']='(as$1251eucmf,aid$PHSzDQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT3)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$1251eucmf,aid$PHSzDQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT3)"></noscript><!-- SpaceID=152952220 loc=KT4 noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;KT4;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['dk60DQrtSSQ-']='(as$125mtncol,aid$dk60DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT4)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$125mtncol,aid$dk60DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT4)"></noscript><!-- SpaceID=152952220 loc=KT5 noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;KT5;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['sCi1DQrtSSQ-']='(as$125toal04,aid$sCi1DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT5)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$125toal04,aid$sCi1DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT5)"></noscript><!-- SpaceID=152952220 loc=KT6 noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;KT6;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['6gK2DQrtSSQ-']='(as$125grn4gr,aid$6gK2DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT6)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$125grn4gr,aid$6gK2DQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KT6)"></noscript></table>
+ </td>
+ </tr>
+ </table>
+ </td>
+</tr>
+<tr>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/ad_dn.gif" width="300" height="8" class="yui-tw-stock-block"></td>
+</tr>
+</table> 
+<!--廣告 end-->
+<!--廣告 LREC start-->
+<table width="300" border="0" cellspacing="0" cellpadding="0" class="yui-ad-center">
+ <tr>
+ <td valign="top">
+<!-- APT Vendor: Right Media -->
+<!-- BEGIN STANDARD TAG - DO NOT MODIFY -->
+<SCRIPT TYPE="text/javascript" SRC="https://na.ads.yahoo.com/yax/banner?ve=1&tt=1&si=35307561&tc=a1c4c81bfabc7643&asz=300x250&u=https://tw.futures.finance.yahoo.com/&gdAdId=JN22DQrtSSQ-&gdUuid=9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW&gdSt=1507136710388516&publisher_blob=${RS}|9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW|152952220|LREC|1507136710.530590|${SECURE-DARLA}&pub_redirect=https://beap-bc.yahoo.com/yc/YnY9MS4wLjAmYnM9KDE3ZWM0dGZvZihnaWQkOXpHX3dERXhPUzdQSU1RVldkVVV2eHh6TXpjdU5RQUFBQUNjUUJPVyxzdCQxNTA3MTM2NzEwMzg4NTE2LHNpJDI0NDA2MSxzcCQxNTI5NTIyMjAsY3QkMjUseWJ4JEV5Wk5hdUFHQm1lcF93WUdhVzFBNmcsbG5nJHpoLXR3LGNyJDE0NTU0MjE1NjEsdiQyLjAsYWlkJEpOMjJEUXJ0U1NRLSxiaSQzMzA1NTk1NjEsbW1lJDQ0NTMyNTIxMzU2NDMyMzA0NDcsciQwLHlvbyQxLGFncCQzODk2Mjc5NDksYXAkTFJFQykp/0/*&K=1"></SCRIPT>
+<!-- END TAG --><script>var url = ""; if(url && url.search("http") != -1){document.write('<script src="' + url + '"><\/script>');}</script><!--QYZ 330559561,1455421561,;;LREC;152952220;1--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['JN22DQrtSSQ-']='(as$1386t2k8v,aid$JN22DQrtSSQ-,bi$330559561,agp$389627949,cr$1455421561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=LREC)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$1386t2k8v,aid$JN22DQrtSSQ-,bi$330559561,agp$389627949,cr$1455421561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=LREC)"></noscript> </td>
+ </tr>
+</table><!--廣告 LREC end-->
+</td>
+ </tr>
+ <tr>
+ <td height="5"></td>
+ </tr>
+ <tr>
+ <td width="302" valign="top">
+<table width="300" border="0" cellspacing="0" cellpadding="0">
+ <tr>
+ <td valign="top">
+<!--廣告NP start-->
+<!-- APT Vendor: Right Media -->
+<!-- BEGIN STANDARD TAG  - DO NOT MODIFY -->
+<SCRIPT TYPE="text/javascript" SRC="https://na.ads.yahoo.com/yax/banner?ve=1&tt=1&si=35307561&tc=a584d5b1cd6b6f22&asz=300x100&u=https://tw.futures.finance.yahoo.com/&gdAdId=DEa6DQrtSSQ-&gdUuid=9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW&gdSt=1507136710388516&publisher_blob=${RS}|9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW|152952220|NP1|1507136710.530854|${SECURE-DARLA}&pub_redirect=https://beap-bc.yahoo.com/yc/YnY9MS4wLjAmYnM9KDE3ZDA5czY3NyhnaWQkOXpHX3dERXhPUzdQSU1RVldkVVV2eHh6TXpjdU5RQUFBQUNjUUJPVyxzdCQxNTA3MTM2NzEwMzg4NTE2LHNpJDI0NDA2MSxzcCQxNTI5NTIyMjAsY3QkMjUseWJ4JEV5Wk5hdUFHQm1lcF93WUdhVzFBNmcsbG5nJHpoLXR3LGNyJDE0NTUyNjg1NjEsdiQyLjAsYWlkJERFYTZEUXJ0U1NRLSxiaSQzMzA4NDIwNjEsbW1lJDQ0NTMxMTg5OTE2NTcwNTQxNTgsciQwLHlvbyQxLGFncCQzODk2OTY5NDksYXAkTlAxKSk/1/*&K=1"></SCRIPT>
+<!-- END TAG --><script>var url = ""; if(url && url.search("http") != -1){document.write('<script src="' + url + '"><\/script>');}</script><!--QYZ 330842061,1455268561,;;NP1;152952220;1--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['DEa6DQrtSSQ-']='(as$138uu4ci6,aid$DEa6DQrtSSQ-,bi$330842061,agp$389696949,cr$1455268561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=NP1)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$138uu4ci6,aid$DEa6DQrtSSQ-,bi$330842061,agp$389696949,cr$1455268561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=NP1)"></noscript><!--廣告NP end-->
+ </td>
+ </tr>
+</table>
+</td>
+ </tr> 
+ <tr>
+ <td>
+<!--最新查過的個股行情 start-->
+<!--最新查過的個股行情 end-->
+</td>
+ </tr> 
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td>
+<a href="http://www.facebook.com/VTraingGame" title="Yahoo money fb" ><img src="https://s.yimg.com/os/publish-images/finance/2015-01-12/ccb8fc90-9a3f-11e4-b1bd-7be932b222fb_300x51-1-.jpg" border="0" width="300"></a> </td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--台股期貨相對行情表 start-->
+<div style="height:225px;overflow:hidden;">
+<iframe width="302" height="221" frameborder="0" scrolling="no" src="https://tw.screener.finance.yahoo.net/future/aa02"></iframe>
+</div><!--台股期貨相對行情表 end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--熱門個股 start-->
+<div id="ystkhot">
+ <div class="ystkmenu">
+ <h2 title="">熱門個股</h2>
+ <cite><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/more/*https://tw.stock.yahoo.com/d/i/hot.html">更多</a></cite>
+ </div>
+ <div id="ystkhotb" name="ystkhotb">
+ <h3 title="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/tab/volume/*">成交量大</h3>
+ <div class="tbd">
+ <table>
+ <colgroup>
+ <col class="cg1" />
+ <col class="cg2" />
+ <col class="cg3" />
+ <col class="cg4" />
+ <col class="cg5" />
+<col class="cg6" />
+ </colgroup>
+ <thead>
+ <tr><th>股名</th><th>價位</th><th> </th><th>漲跌</th>
+ <th>%</th><th>量(張)</th></tr>
+ </thead>
+ <tbody>
+ <tr class="o"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/volume1/*https://tw.stock.yahoo.com/q/q?s=2303" title="聯電"><span>2303</span>聯電</a></th><td>15.80</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">0.65</span></td>
+ <td><span class="up">4.29%</span></td><td>120826</td></tr> <tr class="e"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/volume2/*https://tw.stock.yahoo.com/q/q?s=3481" title="群創"><span>3481</span>群創</a></th><td>14.15</td><td><span class="downi"><i>跌</i></span></td>
+ <td><span class="down">0.15</span></td>
+ <td><span class="down">1.05%</span></td><td>49185</td></tr> <tr class="o"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/volume3/*https://tw.stock.yahoo.com/q/q?s=3019" title="亞光"><span>3019</span>亞光</a></th><td>125.0</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">9.0</span></td>
+ <td><span class="up">7.76%</span></td><td>41900</td></tr> <tr class="e"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/volume4/*https://tw.stock.yahoo.com/q/q?s=1455" title="集盛"><span>1455</span>集盛</a></th><td>11.20</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">0.25</span></td>
+ <td><span class="up">2.28%</span></td><td>36968</td></tr> <tr class="o"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/volume5/*https://tw.stock.yahoo.com/q/q?s=2330" title="台積電"><span>2330</span>台積電</a></th><td>222.5</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">2.0</span></td>
+ <td><span class="up">0.91%</span></td><td>36593</td></tr> </tbody>
+ </table>
+ </div>
+ <h3 title="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/tab/value/*">成交值大</h3>
+ <div class="tbd">
+ <table>
+ <colgroup>
+ <col class="cg1" />
+ <col class="cg2" />
+ <col class="cg3" />
+ <col class="cg4" />
+ <col class="cg5" />
+<col class="cg6" />
+ </colgroup>
+ <thead>
+ <tr><th>股名</th><th>價位</th><th> </th><th>漲跌</th>
+ <th>%</th><th>值(億)</th></tr>
+ </thead>
+ <tbody>
+ <tr class="o"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/value1/*https://tw.stock.yahoo.com/q/q?s=2330"><span>2330</span>台積電</a></th><td>222.5</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">2.0</span></td>
+ <td><span class="up">0.91%</span></td><td>81.1194</td></tr> <tr class="e"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/value2/*https://tw.stock.yahoo.com/q/q?s=3406"><span>3406</span>玉晶光</a></th><td>414.0</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">11.5</span></td>
+ <td><span class="up">2.86%</span></td><td>54.5697</td></tr> <tr class="o"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/value3/*https://tw.stock.yahoo.com/q/q?s=3019"><span>3019</span>亞光</a></th><td>125.0</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">9.0</span></td>
+ <td><span class="up">7.76%</span></td><td>51.5663</td></tr> <tr class="e"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/value4/*https://tw.stock.yahoo.com/q/q?s=2474"><span>2474</span>可成</a></th><td>305.5</td><td><span class="downi"><i>跌</i></span></td>
+ <td><span class="down">7.5</span></td>
+ <td><span class="down">2.40%</span></td><td>44.7096</td></tr> <tr class="o"><th><a href="https://tw.rd.yahoo.com/referurl/stock/index/hot_stock/value5/*https://tw.stock.yahoo.com/q/q?s=4739"><span>4739</span>康普</a></th><td>132.0</td><td><span class="upi"><i>漲</i></span></td>
+ <td><span class="up">11.0</span></td>
+ <td><span class="up">9.09%</span></td><td>30.7397</td></tr> </tbody>
+ </table></div>
+ <div class="ft"><div></div></div>
+ <script>installYstkInnerTabBrowsing();</script>
+ </div>
+</div>
+<!--熱門個股 end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--匯率兌換 start-->
+<form id="currencyConverter" method="post" action="https://tw.rd.yahoo.com/referurl/stock/index/currency/*https://tw.money.yahoo.com/currency-converter">
+<table width="300" border="0" cellpadding="3" cellspacing="1" bgcolor="#a5b2bd">
+ <tr>
+ <td valign="top" bgcolor="#eef3f6"><table width="99%" border="0" align="right" cellpadding="0" cellspacing="3">
+ <tr>
+ <td height="20" colspan="2" valign="top"><!--a href="https://tw.stock.yahoo.com/d/c/ex.php"--><img src="https://s.yimg.com/f/i/tw/stock/revamp/text.gif" width="67" height="16"><!--/a--></td>
+<td height="20" valign="top"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/currency/more/*https://tw.money.yahoo.com/currency-converter">更多</a></span></div></td>
+ </tr>
+ <tr>
+ <td width="55"><div align="right"><span class="stext">將</span><br>
+ </div></td>
+ <td><label>
+ <input name="amt" type="text" value="1" size="5">
+ </label>
+ <label>
+ <select name="from">
+ <option value="TWD">新台幣(TWD)</option>
+ <option value="CNY">人民幣(CNY)</option>
+ <option value="JPY">日圓(JPY)</option>
+ <option value="KRW">韓圜(KRW)</option>
+ <option value="HKD">港幣(HKD)</option>
+ <option value="THB">泰銖(THB)</option>
+ <option value="SGD">新加坡幣(SGD)</option>
+ <option value="IDR">印尼盾(IDR)</option>
+ <option value="VND">越南幣(VND)</option>
+ <option value="MYR">馬來西亞幣(MYR)</option>
+ <option value="PHP">菲律賓披索(PHP)</option>
+ <option value="INR">印度幣(INR)</option>
+ <option value="AED">阿拉伯幣(AED)</option>
+ <option value="KWD">科威特幣(KWD)</option>
+ <option value="AUD">澳幣(AUD)</option>
+ <option value="NZD">紐西蘭幣(NZD)</option>
+ <option value="USD" selected>美元(USD)</option>
+ <option value="CAD">加拿大幣(CAD)</option>
+ <option value="BRL">巴西幣(BRL)</option>
+ <option value="MXN">墨西哥披索(MXN)</option>
+ <option value="ARS">阿根廷披索(ARS)</option>
+ <option value="CLP">智利披索(CLP)</option>
+ <option value="VEB">委內瑞拉幣(VEB)</option>
+ <option value="EUR">歐元(EUR)</option>
+ <option value="GBP">英鎊(GBP)</option>
+ <option value="RUB">俄羅斯盧比(RUB)</option>
+ <option value="CHF">瑞士法郎(CHF)</option>
+ <option value="SEK">瑞典克朗(SEK)</option>
+ <option value="ZAR">南非幣(ZAR)</option>
+ </select>
+ </label></td>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td class="stext"><div align="right">兌換成</div></td>
+ <td><select name="to">
+ <option value="TWD" selected>新台幣(TWD)</option>
+ <option value="CNY">人民幣(CNY)</option>
+ <option value="JPY">日圓(JPY)</option>
+ <option value="KRW">韓圜(KRW)</option>
+ <option value="HKD">港幣(HKD)</option>
+ <option value="THB">泰銖(THB)</option>
+ <option value="SGD">新加坡幣(SGD)</option>
+ <option value="IDR">印尼盾(IDR)</option>
+ <option value="VND">越南幣(VND)</option>
+ <option value="MYR">馬來西亞幣(MYR)</option>
+ <option value="PHP">菲律賓披索(PHP)</option>
+ <option value="INR">印度幣(INR)</option>
+ <option value="AED">阿拉伯幣(AED)</option>
+ <option value="KWD">科威特幣(KWD)</option>
+ <option value="AUD">澳幣(AUD)</option>
+ <option value="NZD">紐西蘭幣(NZD)</option>
+ <option value="USD">美元(USD)</option>
+ <option value="CAD">加拿大幣(CAD)</option>
+ <option value="BRL">巴西幣(BRL)</option>
+ <option value="MXN">墨西哥披索(MXN)</option>
+ <option value="ARS">阿根廷披索(ARS)</option>
+ <option value="CLP">智利披索(CLP)</option>
+ <option value="VEB">委內瑞拉幣(VEB)</option>
+ <option value="EUR">歐元(EUR)</option>
+ <option value="GBP">英鎊(GBP)</option>
+ <option value="RUB">俄羅斯盧比(RUB)</option>
+ <option value="CHF">瑞士法郎(CHF)</option>
+ <option value="SEK">瑞典克朗(SEK)</option>
+ <option value="ZAR">南非幣(ZAR)</option>
+ </select></td>
+ <td><label>
+ <input type="submit" value="確定">
+ </label></td>
+ </tr>
+ </table></td>
+ </tr>
+ </table>
+</form>
+<!--匯率兌換 end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--廣告 LREC start-->
+<!-- APT Vendor: Right Media -->
+<!-- BEGIN STANDARD TAG - DO NOT MODIFY -->
+<SCRIPT TYPE="text/javascript" SRC="https://na.ads.yahoo.com/yax/banner?ve=1&tt=1&si=35307561&tc=a1c4c81bfabc7643&asz=300x250&u=https://tw.futures.finance.yahoo.com/&gdAdId=Xre3DQrtSSQ-&gdUuid=9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW&gdSt=1507136710388516&publisher_blob=${RS}|9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW|152952220|LREC3|1507136710.530705|${SECURE-DARLA}&pub_redirect=https://beap-bc.yahoo.com/yc/YnY9MS4wLjAmYnM9KDE3Zjl2MjhxMyhnaWQkOXpHX3dERXhPUzdQSU1RVldkVVV2eHh6TXpjdU5RQUFBQUNjUUJPVyxzdCQxNTA3MTM2NzEwMzg4NTE2LHNpJDI0NDA2MSxzcCQxNTI5NTIyMjAsY3QkMjUseWJ4JEV5Wk5hdUFHQm1lcF93WUdhVzFBNmcsbG5nJHpoLXR3LGNyJDE0NTU0MTQ1NjEsdiQyLjAsYWlkJFhyZTNEUXJ0U1NRLSxiaSQzMzA4ODUwNjEsbW1lJDQ0NTMzNjE2NTczMDkyNzg0NTgsciQwLHlvbyQxLGFncCQzODk3NDQ0NDksYXAkTFJFQzMpKQ/2/*&K=1"></SCRIPT>
+<!-- END TAG --><script>var url = ""; if(url && url.search("http") != -1){document.write('<script src="' + url + '"><\/script>');}</script><!--QYZ 330885061,1455414561,;;LREC3;152952220;1--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['Xre3DQrtSSQ-']='(as$1386movqf,aid$Xre3DQrtSSQ-,bi$330885061,agp$389744449,cr$1455414561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=LREC3)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$1386movqf,aid$Xre3DQrtSSQ-,bi$330885061,agp$389744449,cr$1455414561,ct$25,at$HR,eob$gd1_match_id=-1:ypos=LREC3)"></noscript><!--廣告 LREC end-->
+</td>
+ </tr>
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <!--QR code image start-->
+ <tr>
+ <td>
+ <a href="https://goo.gl/t2AaKR" title="Editorial Ad (8U Bottom)" ><img src="https://s.yimg.com/os/publish-images/finance/2014-11-20/a60e39c0-708c-11e4-980f-d7c70714875d_300x150_APP.gif" border="0" width="300"></a> </td>
+ </tr>
+ <!--QR code image end-->
+ <tr>
+ <td height="10"></td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--RSS專區 start--> 
+<table width="300" border="0" cellspacing="0" cellpadding="0" id="RSStitle">
+ <tr>
+ <td height="23" background="https://s.yimg.com/f/i/tw/stock/revamp/title14.gif"><div align="right"><img src="https://s.yimg.com/f/i/tw/stock/revamp/arrow.gif" width="5" height="5" /> <span class="stext"><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/more/*https://tw.futures.finance.yahoo.com/rss_index.html#listings">更多 RSS</a></span></div></td>
+ <td width="5"><img src="https://s.yimg.com/f/i/tw/stock/revamp/title11.gif" width="5" height="23" class="yui-tw-stock-block"></td>
+ </tr>
+ </table>
+ <table width="300" border="0" cellpadding="0" cellspacing="1" bgcolor="#a5b2bd" id="RSSnews">
+ <tr>
+ <td valign="top" bgcolor="#eef3f6"><table width="100%" border="0" align="center" cellpadding="3" cellspacing="0">
+ <tr>
+ <td width="1%" align="right" bgcolor="#f1f4f7"><div align="right"></div>
+ </td>
+ <td width="35%" align="right" bgcolor="#f1f4f7"><div align="left"><span class="ssbody"><span class="stext">重大要聞</span></span></div></td>
+ <td width="25%" bgcolor="#f1f4f7"><div align="right"><!-- a href="#"><img src="https://s.yimg.com/f/i/tw/stock/revamp/myyahoo.gif" width="91" height="17" border="0"></a --></div></td>
+ <td width="12%" bgcolor="#f1f4f7"><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/headline/news/*https://tw.futures.finance.yahoo.com/rss/url/d/e/N1.html"><img src="https://s.yimg.com/f/i/tw/stock/img06/rss.gif" width="36" height="17" border="0"></a></td>
+ </tr>
+ <tr bgcolor="#FFFFFF">
+ <td align="right"><div align="left"><span class="ssbody"></span></div></td>
+ <td align="right"><div align="left"><span class="ssbody"><span class="stext">台股盤勢</span></span></div></td>
+ <td><div align="right"></div></td>
+ <td><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/tse/news/*https://tw.futures.finance.yahoo.com/rss/url/d/e/N2.html"><img src="https://s.yimg.com/f/i/tw/stock/img06/rss.gif" width="36" height="17" border="0"></a></td>
+ </tr>
+ <tr>
+ <td align="right" bgcolor="#f1f4f7"><div align="left"><span class="ssbody"></span></div></td>
+ <td align="right" bgcolor="#f1f4f7"><div align="left"><span class="ssbody"><span class="stext">個股動態</span></span></div></td>
+ <td bgcolor="#f1f4f7"><div align="right"></div></td>
+ <td bgcolor="#f1f4f7"><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/single/news/*https://tw.futures.finance.yahoo.com/rss/url/d/e/N3.html"><img src="https://s.yimg.com/f/i/tw/stock/img06/rss.gif" width="36" height="17" border="0"></a></td>
+ </tr>
+ <tr bgcolor="#FFFFFF">
+ <td align="right"><div align="left"><span class="ssbody"></span></div></td>
+ <td align="right"><div align="left"><span class="ssbody"><span class="stext">經貿財稅</span></span></div></td>
+ <td><div align="right"></div></td>
+ <td><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/eco/news/*https://tw.futures.finance.yahoo.com/rss/url/d/e/N10.html"><img src="https://s.yimg.com/f/i/tw/stock/img06/rss.gif" width="36" height="17" border="0"></a></td>
+ </tr>
+ <tr>
+ <td align="right" bgcolor="#f1f4f7"><div align="left"><span class="ssbody"></span></div></td>
+ <td align="right" bgcolor="#f1f4f7"><div align="left"><span class="ssbody"><span class="stext">國際財經</span></span></div></td>
+ <td bgcolor="#f1f4f7"><div align="right"></div></td>
+ <td bgcolor="#f1f4f7"><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/intl/news/*https://tw.futures.finance.yahoo.com/rss/url/d/e/N12.html"><img src="https://s.yimg.com/f/i/tw/stock/img06/rss.gif" width="36" height="17" border="0"></a></td>
+ </tr>
+ <tr bgcolor="#FFFFFF">
+ <td align="right"><div align="left"><span class="ssbody"></span></div></td>
+ <td align="right"><div align="left"><span class="ssbody"><span class="stext">研究報告</span></span></div></td>
+ <td><div align="right"></div></td>
+ <td><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/commentary/com/*https://tw.futures.finance.yahoo.com/rss/url/d/e/R999.html"><img src="https://s.yimg.com/f/i/tw/stock/img06/rss.gif" width="36" height="17" border="0"></a></td>
+ </tr>
+ </table>
+ <table width="100%" border="0" cellpadding="5" cellspacing="0">
+ <tr bgcolor="#f1f4f7">
+ <td width="45%" height="25" align="left" bgcolor="#a5b2bd" class="ssbody"><table width="95%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+ <td width="50%" height="30" class="stext"><div align="right"><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/setup/*https://tw.futures.finance.yahoo.com/rss_index.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage ('setrss1','','https://s.yimg.com/f/i/tw/stock/revamp/setrss_f2.gif',1)"><img src="https://s.yimg.com/f/i/tw/stock/revamp/setrss.gif" alt="" name="setrss1" width="118" height="27" border="0" id="setrss1" class="yui-tw-stock-block"></a></div></td>
+ <td width="50%" height="30"><div align="left"><a href="https://tw.rd.yahoo.com/referurl/stock/index/rss/help/*https://tw.futures.finance.yahoo.com/rss_help.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage ('whatisrss1','','https://s.yimg.com/f/i/tw/stock/revamp/whatisrss_f2.gif',1)"><img src="https://s.yimg.com/f/i/tw/stock/revamp/whatisrss.gif" alt="" name="whatisrss1" width="118" height="27" border="0" id="whatisrss1" class="yui-tw-stock-block"></a></div></td>
+ </tr>
+ </table></td>
+ </tr>
+ </table></td>
+ </tr>
+ </table> 
+<!--RSS專區 end-->
+</td>
+ </tr>
+ <tr>
+ <td valign="top">
+<!--ysm hotword start-->
+<!--YSM Begin-->
+<style>
+.clearfix {zoom:1;}
+.clearfix:after {clear:both;content:'.';display:block;height:0;visibility:hidden;}
+#ysm_keyword {border:1px solid #A5B2BD;margin-top:10px;}
+#ysm_keyword h3{color:#262d40;font-weight:bold;font-size:100%;padding:5px 10px;margin:0;}
+#ysm_keyword ul {font-size:83%;margin:0;padding:0 20px 10px;}
+#ysm_keyword li {background:url(https://s.yimg.com/f/i/tw/ysm/hybrid/dot.gif) 0 50% no-repeat;
+list-style:none;float:left;padding:3px 0;width:50%;zoom:1;}
+#ysm_keyword li a {color:#0b08c9;padding-left:15px;}
+</style>
+<div>
+<script>
+var param_ctxtID = "tw_stock_index2_001"; 
+//var param_partner = "yahoo_tw_stock_index_cm_hybrid"; //please remove "_test" before release
+var param_partner = "yahoo_tw_stock_cm&type=index_cm_hybrid";
+document.write("<script src='https://tw.linkspot.search.yahoo.com/" + param_ctxtID + "/big5/?rnd="+ Number(new Date)+"'></sc" + "ript>");
+</script>
+<script>
+if(window.ovtw!=null)
+{
+ document.write("<script src='https://s.yimg.com/f/i/tw/ysm/stock/stock_park_big5_091006.js?rnd="+Number(new Date)+"'></sc" + "ript>");
+}
+</script>
+</div>
+<!--YSM End-->
+<!--ysm hotword end-->
+</td>
+ </tr> 
+ </table></td>
+ </tr>
+</table><table width="750" border="0" align="center" cellpadding="0" cellspacing="0"> 
+ <tr>
+ <td height="90" valign="bottom">
+<DIV id=yhtw_mastfoot>
+ <DIV class=ln>
+ <A href="https://tw.rd.yahoo.com/referurl/central/f/tos/*http://tw.yahoo.com/info/utos.html">服務條款</A> 
+ <A href="https://tw.rd.yahoo.com/referurl/central/f/pri/*http://privacy.yahoo.com/privacy/tw">隱私權</A>
+ </DIV>
+<DIV class=other>資料來源<A href="http://www.tse.com.tw/" target="_new">台灣證券交易所(TSEC)</A>及<A href="http://www.taifex.com.tw/chinese/index.asp" target="_new">台灣期貨交易所</A>。本資料僅供參考，成交值及成交量不含零股及巨額交易，使用者依本資料交易發生交易損失需自行負責，Yahoo!奇摩對資料內容錯誤、更新延誤或傳輸中斷不負任何責任。(請看 Yahoo!奇摩之<A href="http://tw.yahoo.com/info/disclaimers.html">免責條款</A>)</DIV>
+</DIV></td>
+ </tr>
+</table>
+<!-- SpaceID=152952220 loc=KFE noad --><!-- fac-gd2-noad --><!-- gd2-status-2 --><!--QYZ CMS_NONE_AVAIL,,;;KFE;152952220;2--><script language=javascript>
+if(window.xzq_d==null)window.xzq_d=new Object();
+window.xzq_d['juWwDQrtSSQ-']='(as$125afambs,aid$juWwDQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KFE)';
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3&al=(as$125afambs,aid$juWwDQrtSSQ-,cr$-1,ct$25,at$HR,eob$gd1_match_id=-1:ypos=KFE)"></noscript></center>
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/f/i/tw/movie/twmovie/browser_detection_120426_min.css">
+<style>
+#browser-upgrade .upgrade-group img {
+ margin-top: 10px;
+}
+#browser-upgrade .upgrade-group span.upgrade {
+ font-size: 10px;
+ margin-top: 20px;
+ width: 60%;
+}
+</style>
+<script src="https://yui-s.yahooapis.com/combo?3.5.0/yui/yui-min.js"></script>
+<script type="text/javascript" src="https://s.yimg.com/f/i/tw/wretch/BUP/browser_detection_0411_min.js"></script>
+<script type="text/javascript" defer="defer">
+ YUI().use('browser-detection', function(Y) {
+ Y.BrowserDetection({
+ showOverlay: true,
+ showDecoMedia: true,
+ decoMediaPath: 'https://s.yimg.com/f/i/tw/stock/img06/stock_deco.png',
+ yLogoPath: 'https://s.yimg.com/f/i/tw/movie/twmovie/mhlogo.png',
+ headLine: '漲跌就在一秒間',
+ subHeadLine: '升級最新瀏覽器版本 股市看盤不怕漏',
+ warning: '注意',
+ warningMsg: '您正使用舊版瀏覽器',
+ ieDownloadText: '馬上升級',
+ ffDownloadText: '馬上升級'
+ });
+ });
+</script>
+ </body> <script src="https://s.yimg.com/f/i/tw/mb/universal_header/uh_tw_v11.js" type="text/javascript"></script> 
+<!-- Begin comScore Tag --> 
+<script>
+ var _comscore = _comscore || [];
+ _comscore.push({
+ c1: "2",
+ c2: "7241469",
+ c5: "152952220",
+ c7: "https%3A%2F%2Ftw.futures.finance.yahoo.com%252f"
+ });
+ (function() {
+ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+ s.src = "https://s.yimg.com/lq" + "/lib/3pm/cs_0.2.js";
+ el.parentNode.insertBefore(s, el);
+ })();
+ YUI().use('node',function(Y){
+ if(Y.one('#yuhead-sform-searchfield')){
+ Y.one('#yuhead-sform-searchfield').set('value',document.getElementById('yuhead-sform-searchfield').getAttribute("data-sh"));
+ }
+ })
+</script>
+<noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=7241469&c7=https%3A%2F%2Ftw.futures.finance.yahoo.com%252f&c5=152952220&cv=2.0&cj=1" width="1" height="1" alt=""/></noscript>
+<!-- End comScore Tag -->
+<!-- Gemini Ads Beacon -->
+<script type="text/javascript">
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=6J1vCRoGIS8jTwziEieA_GRnj2TxvtlbDJZ.AJ2YxbWTXRzbEuZV.LZAmS.GHRn1vz9XR5kYpOAJ3n0UkFyxS2AJ7A4x6I9kdkEtyl4eGuErd6ElkVeGQ21f701icVbM5LG0.q6pAPRzxs.pbbbwDWPRDQrfzWSwaImDswKcf5oa14zp_m4p0pBaoDK3vs4MvroFXBR4utkTLXBPAD1fgVqRmirmiwlTnrPsXxoEx3JAsnq3KXDa_Nd_z8ywxyu4YkcyBOB5edC8UhuhaRW09VLQIS4fuIyu3ScK9DgIxBCa5wczpTMySTsiXE6O_RdGaqDg4FvAljIqXpXpaMyjbhqQDav9z8Hhkzq6xooOm8p4QbFXOSk1HrEDz9GH8z5_.zTeJJi6SUy42avIG.0WKg3oXktdph9l2gY.VawNewhYyBu9HRk-&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://ad.doubleclick.net/ddm/trackimp/N547802.2455103ICD/B20317021.205405166;dc_trk_aid=405317686;dc_trk_cid=93157544;ord=1507136710');
+YAHOO.util.Connect.asyncRequest('GET', 'https://ad.doubleclick.net/ddm/trackimp/N547802.2455103ICD/B20317021.205405166;dc_trk_aid=405317686;dc_trk_cid=93157544;ord=1507136710');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=arAhUI0GIS_toHY84PQgzOFx1yIgL_US5wMnjFKBLkNf8DNdmUYufwObVm_C9qU.ciR2.uOmvwrltqE46IOBtX3N_Kq4uz8sob1ZDMV_PZC6qWlluP60V3j1Kf6iFQhGKHtFCchMffHt60szcbRQP1zpQTd_HHl378IuiKaP9pETvSumvAhFlleXoFmW5DeK8TbM8u0rfhYCCAMt5P_Jo8rz5EZmnCYSJ754gw2gmAEt_qk7Rn8.ewN_Xgf7.IyBZYcX0rgYgnj1SABD6lnqtKJr6BihF.TQeZFGXPtLmvXsFrlydE7e5.WM3.Wa_4uJp7ITPdelpJ14Ppuz.Ud8Ak0bG.tUGvBpjnwsoV9.uvb9lwpbnCBzjo0BHyAl6YuH52deSDiq77F6PgedRPFMib65UK164MwwJ5nVKV.KecFbYduMzA--&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=RSqy.4wGIS.Y80j32yaawcAaf1FS5Kbapi4GPLytQIJdYoWzNKe8dwbM0nwKqsdKJBkW5zJA_E7_sUeHLgjvV0fECoTYQPiVDg3nfCPbzcrA4AoJz3SkdxEK3v8qC1RSAOhny2NoxcXO14lkNLE8iH827xSh0_4xOU0FXwDi8vmXoOS9ay7fo7XjMN0RMAK6WRZkGvkBtLkRE1PKEartSNGrObw8oZEwvhoA8hlQwK1h0uymo.dr88wdmwh1IaQMyVcscsUbfCwZaUXx8yLIq_CxWXGtyWDuojxeCN95kOjS24pc..JIujXTIVoGLzdpmyn5thoWkZgwyz9nxAL0yb8OZZekVnd14Mct1d0NBJprtd5LNyEUvqBEaSFDOTBfeFV4MmgQMwIvWhvZ3xqKGqcS.10DPjoSVwghZ11eanvz1hnhAsI-&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=4mSpFAwGIS8OaATnybvcxd0TI53PeRH_znATJHZhnI38s.wb.bhC.yV.IA6Hh8ncC2TSxpm9uTEDukzz5NV0Sq1Q9ifbpFu_0tOQybNVwwCgsDHaULBPG9YcU8R1SkvDqNCw9t6kiKUoaqQxnnEmds4MvCwbmx0gZGm5FYVOVdChAcgLtxOCQTM0ZdVGLxym0jVB9CMcjKRTE4eSy69AtSzN3MosYN13oWFARjngXwEe_hTdbowaMjndRoVEUnxrw1ehWxQW5d5ZAR7FeRFcCOosN9SdwjVSveXEOeJ0OupdlTxC3spccqqPxq5AvcKz2Hm6j7YqbdV993V0QxFxQqAvem9Iue780DZm.jQ8bFdRkAuXw2IU_C3vDm6zdZim384hzmsIcCudQ.aiv8GVxhvZ0dbTYxtREHpsEy9N21Nz3k36SQ--&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=Zng3KQAGIS_Am8rTbIbjEDBnv59_5.WKn_Z3G5c1dQ9cptA8qGAh7cP5Rf54OtDbgXCS3AX0uYLEa7oaEUvWflUFU2FA5C_MKRWz9XC4BET3CMVU13sFtE2qRWWh1hfPuz7t1iEjqxFbX5ZbD_uywtqEPxBv5ZmU6fQB6zKZ7Hguv5Rz_tW2JhLTp9Fix9wOZn46D4o0YJFhUtZiydfKeF.CbhkS0xvlzAw.aZnJD8d3dt26uZwtpqfGe8S4TvJwBoeQxyXu_pKjXd2F8OHc6hPH4giFjJ.7CGPckyhL57jkuJaovsAB_u26tZ2MdReKkwRCreJx8Y3f_p0wQvnz38Pq_bJy88_3Vf5wWiKRxKmtxRYV5XwJB7yF.JMMBWTZYoLpGDvDlFZs5y8hv21TKbHsxSFXH54NCJE.s8WzexTHPA--&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=RjI23nQGIS88__q0soxYDD1RgaRDuUFeEUwgqOjZx2Zo6jwMpKO2FZfMncEQD2zIRbpZeAvBdlcZ7QaMqxrzS76CE47.HuDm4s0ElyOhrNEBr3oTntAAgFuwmm_WSeSNfg7KdCEauBuceSjq9NbxcIZprIjDe_3PH0dP_lXgKZRHrmkj_IfAcqSj_uRQCjZJPnDkcyEDFBv3H4uwRBIKSAnux_Cp_y7G1IlSM3kmUN2W0hgoiF5zwLJogiJGgG0yiOFKBqNR9zVBsqFnVPZq5.p4QTiuvzZXtigqvNfTrFwuSmbF5BjDgnchLeUs_2m.vNDbauJ4KU_3Ang8BU1549lbjFZ3lvCfNLku9cqGZhgZoxO7IYPrRO.Yp1ItVAnM0mCoqwj1dqfmb0B96Cq.UP4GDuSyTF.uhc9nSL6P3yXEYJ58&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=WPguVywGIS_ekvPS3znhYFvEGj8i9tiXtB9i2BzeBKk8257ISlvZ53QAe6ZJUCcJ08IcLu1Wfz_V_eeh6i8sQPR.3VWCc1bF9fEQTO6Fth5LcV2ckE.ISFRwfktTZTuszQzsgZ_gc3KV2HnQS8JMTdKxxiwrMjSn4qFrVWo8gE_sPsDv8p3kdvCP3nkxaVyE3WMhoLA2LXQEY7D1LbxddD8NXynODImoqn1lcJben_Z.nJyO6n7aem_N_yilWHA3fNUnz6sPokeGBg96Vc9YTjGczzRTFsK_NHFnaCRyLx5AUaP2QhrJC9So0B3PSWHLEBIozUWMsbiCP2AUuAkn.J3ZZ8VAt5esvu_S4yTanZQkgpvHixOOxhSg8Bc_1frb3r0i3461_qXt1crZ9k.ojzoOELEHpCBM.arnuZJFlXYWOWuZ&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=wEH91NkGIS9EpLrxJ0i1OnOG8qCvDdPqwftxp3wVdCqd74Gv4dwneXIciIwN1Vl9lzWvrx6MVfWIg8PS6WZPdZ4VQ4UtPU8ZoBBzRWogQRjH8XT81DwjymyYYuzetqtEumd9oRP4yhTvo8Rqm6WfT1oi0e.fFfW2UblsdXQFkbZuR9OPrHIi72U4DUKQk2DCvFkOqI5MH4Ra7DDUzSDdLhrCJW3mxa3qOP01fcoXwRTcM1Or2GZSsgn0sl8kp927pAmsGjIh16x29VQ7ed17LoYyHybirb_Fp_wbsivccuHC4f3NuSqhdIOj32HPPCLOBmKGVZRYH7HBBNj.Z7mjaYOsduVk4ZpRS_9sO4ETQbVE9XVfoqaXbTxEeD_MiPcfXc_0q9RSi1w9jtGuwaapbZShDYD7IOpdf5uFTtYj2KWJbPMz&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=Uhfs0YgGIS_ZrT_eIsnRKW0TU86EUzaAC6rH_zWZDVPIDQeN.o94QRe0oXYts_d0Z07t3mchzYfbNlkk2hPzeLtAZSo47vfbOyOpS9HZcc61g89W32s2makiZLpWxPa4EwhBDdKMjo3WAFjMbE8Jp77beNkTFy9ohtbjHGTbpxn8vbhX1x3OmmE4ir2_6E6g8PUdz97Mh5bOc5gHtnvhpF2GS2j3qXMo8RZBVO8mPI6shjBqSA7MiZ3aBoQfce3maID0YCOW7pBsCnygpIkcC2ELMj7Qza44accH_8pEgibOh.z3eLxW4iveLIKjbtuOslPcSnfFIUtYWm_yAEbmZi3jR7tlUb33MxJKL0gCib2axCAPIoNhAvPsTm6O96RciwSRmskIPlYdcayqcpdQiVuPtdUciIOPt4xaTxwOKcB24Vdc&ap=pp%3Dm%2Cpi%3D1');
+YAHOO.util.Connect.asyncRequest('GET', 'https://tp2.beap.gemini.yahoo.com/mbcsc?bv=1.0.0&es=WLSRfRcGIS98lJbWCeiZuz_g2ErVoZ.U4dJrE1pbu3c6kFox9w8w7dFS2OmRSS.qgKRFFh46ZL9WI1Dudhfq8.OfKBAS10pbejXYuUmo23wr5I_KIeLHYetlAy7cMS0KNrEFbVBPzKTDy7uAPjvCYf1.BzVhjoeUA1XFcDSUdXBSRP.3WRrxfC_b6yQmFwu92Yz7mrkjgtFfyRlwjTp4ejJENtOQ7wk.73p93QsMB.FyowTfl7FM2khGUPGld7azMeujWSYoi6fhM5Alu4UfHo_1CVEkL8LS1cGXTX6_xEY3NbUfDXc9giID.r0iR3ve.AnyZnrFDTd_tWDxME7lYsO.Cm7DMR0epvNH8HKsM.s4ANdT7ppNYCHRWLWJMVgq0FGCja6b_9IQGS2d_iWKu1yRSW.KIl7U5tVBY5q3_91utkv6&ap=pp%3Dm%2Cpi%3D1');
+</script>
+</html>
+<script language=javascript>
+(function(){window.xzq_p=function(R){M=R};window.xzq_svr=function(R){J=R};function F(S){var T=document;if(T.xzq_i==null){T.xzq_i=new Array();T.xzq_i.c=0}var R=T.xzq_i;R[++R.c]=new Image();R[R.c].src=S}window.xzq_sr=function(){var S=window;var Y=S.xzq_d;if(Y==null){return }if(J==null){return }var T=J+M;if(T.length>P){C();return }var X="";var U=0;var W=Math.random();var V=(Y.hasOwnProperty!=null);var R;for(R in Y){if(typeof Y[R]=="string"){if(V&&!Y.hasOwnProperty(R)){continue}if(T.length+X.length+Y[R].length<=P){X+=Y[R]}else{if(T.length+Y[R].length>P){}else{U++;N(T,X,U,W);X=Y[R]}}}}if(U){U++}N(T,X,U,W);C()};function N(R,U,S,T){if(U.length>0){R+="&al="}F(R+U+"&s="+S+"&r="+T)}function C(){window.xzq_d=null;M=null;J=null}function K(R){xzq_sr()}function B(R){xzq_sr()}function L(U,V,W){if(W){var R=W.toString();var T=U;var Y=R.match(new RegExp("\\\\(([^\\\\)]*)\\\\)"));Y=(Y[1].length>0?Y[1]:"e");T=T.replace(new RegExp("\\\\([^\\\\)]*\\\\)","g"),"("+Y+")");if(R.indexOf(T)<0){var X=R.indexOf("{");if(X>0){R=R.substring(X,R.length)}else{return W}R=R.replace(new RegExp("([^a-zA-Z0-9$_])this([^a-zA-Z0-9$_])","g"),"$1xzq_this$2");var Z=T+";var rv = f( "+Y+",this);";var S="{var a0 = '"+Y+"';var ofb = '"+escape(R)+"' ;var f = new Function( a0, 'xzq_this', unescape(ofb));"+Z+"return rv;}";return new Function(Y,S)}else{return W}}return V}window.xzq_eh=function(){if(E||I){this.onload=L("xzq_onload(e)",K,this.onload,0);if(E&&typeof (this.onbeforeunload)!=O){this.onbeforeunload=L("xzq_dobeforeunload(e)",B,this.onbeforeunload,0)}}};window.xzq_s=function(){setTimeout("xzq_sr()",1)};var J=null;var M=null;var Q=navigator.appName;var H=navigator.appVersion;var G=navigator.userAgent;var A=parseInt(H);var D=Q.indexOf("Microsoft");var E=D!=-1&&A>=4;var I=(Q.indexOf("Netscape")!=-1||Q.indexOf("Opera")!=-1)&&A>=4;var O="undefined";var P=2000})();
+</script><script language=javascript>
+if(window.xzq_svr)xzq_svr('https://beap-bc.yahoo.com/');
+if(window.xzq_p)xzq_p('yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3');
+if(window.xzq_s)xzq_s();
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(1345jkptt(gid$9zG_wDExOS7PIMQVWdUUvxxzMzcuNQAAAACcQBOW,st$1507136710388516,si$244061,sp$152952220,pv$1,v$2.0))&t=JR_3-DR_3"></noscript><script>(function(c){var d="https://",a=c&&c.JSON,e="ypcdb",g=document,b;function j(n,q,p,o){var m,r;try{m=new Date();m.setTime(m.getTime()+o*1000);g.cookie=[n,"=",encodeURIComponent(q),"; domain=",p,"; path=/; max-age=",o,"; expires=",m.toUTCString()].join("")}catch(r){}}function k(m){return function(){i(m)}}function i(n){var m,o;try{m=new Image();m.onerror=m.onload=function(){m.onerror=m.onload=null;m=null};m.src=n}catch(o){}}function f(o){var p="",n,s,r,q;if(o){try{n=o.match(/^https?:\/\/([^\/\?]*)(yahoo\.com|yimg\.com|flickr\.com|yahoo\.net|rivals\.com)(:\d+)?([\/\?]|$)/);if(n&&n[2]){p=n[2]}n=(n&&n[1])||null;s=n?n.length-1:-1;r=n&&s>=0?n[s]:null;if(r&&r!="."&&r!="/"){p=""}}catch(q){p=""}}return p}function l(B,n,q,m,p){var u,s,t,A,r,F,z,E,C,y,o,D,x,v=1000,w=v;try{b=location}catch(z){b=null}try{if(a){C=a.parse(p)}else{y=new Function("return "+p);C=y()}}catch(z){C=null}if(y){y=null}try{s=b.hostname;t=b.protocol;if(t){t+="//"}}catch(z){s=t=""}if(!s){try{A=g.URL||b.href||"";r=A.match(/^((http[s]?)\:[\/]+)?([^:\/\s]+|[\:\dabcdef\.]+)/i);if(r&&r[1]&&r[3]){t=r[1]||"";s=r[3]||""}}catch(z){t=s=""}}if(!s||!C||!t||!q){return}A=g.URL||b.href||"";E=f(A);if(!E||g.cookie.indexOf("ypcdb="+n)>-1){return}if(t===d){q=m}u=0;while(F=q[u++]){o=F.lastIndexOf("=");if(o!=-1){D=F.substr(1+o);x=C[D];if(x){setTimeout(k(t+F+x),w);w+=v}}}u=0;while(F=B[u++]){setTimeout(k(t+F),w);w+=v}setTimeout(function(){j(e,n,E,86400)},w)}function h(){l(['ads.yahoo.com/get-user-id?ver=2&s=800000008&type=redirect&ts=1507136710&sig=9a00ed3580cdc052'],'3652c1fad07b9f62755d7f08a3707f75',['csync.flickr.com/csync?ver=2.1','csync.yahooapis.com/csync?ver=2.1'],['csync.flickr.com/csync?ver=2.1','csync.yahooapis.com/csync?ver=2.1'],'{"2.1":"&id=23351&value=ph8642ypgn55i%26o%3d3%26f%3d41&optout=&timeout=1507136710&sig=11gg6va9f"}')}if(c.addEventListener){c.addEventListener("load",h,false)}else{if(c.attachEvent){c.attachEvent("onload",h)}else{c.onload=h}}})(window);
+</script><script>(function(d){var a=d.body.appendChild(d.createElement('iframe')),b=a.contentWindow.document;a.style.cssText='height:0;width:0;frameborder:no;scrolling:no;sandbox:allow-scripts;display:none;';b.open().write('<body onload="var d=document;d.getElementsByTagName(\'head\')[0].appendChild(d.createElement(\'script\')).src=\'https:\/\/s.yimg.com\/rq\/sbox\/bvr.js\'">');b.close();})(document);</script>
+<!-- w231.finance.tw1.yahoo.com Wed Oct  4 17:05:10 UTC 2017 -->

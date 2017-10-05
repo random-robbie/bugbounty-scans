@@ -1,0 +1,151 @@
+
+
+
+
+<!DOCTYPE html>
+
+<html class="tenant-uber">
+    <head>
+        <title>Hatch - Login</title>
+        <link rel="shortcut icon" type="image/ico" href="/assets/1.2.4M11/images/favicon.ico">
+        <link rel="stylesheet" media="screen" href="/assets/1.2.4M11/libs/bootstrap/css/bootstrap.css">
+        <link href="/assets/1.2.4M11/libs/flatui/css/flat-ui.css" rel="stylesheet">
+        <link href="/assets/1.2.4M11/stylesheets/modules/meow.css" rel="stylesheet">
+        <!-- Loading Common Style Sheets -->
+        <link href="/assets/1.2.4M11/stylesheets/common.css" rel="stylesheet">
+        <link href="/assets/1.2.4M11/stylesheets/tenants.css" rel="stylesheet">
+        
+          <script src='https://www.google.com/recaptcha/api.js'></script>
+        
+    </head>
+    <body>
+        <div class="login" style="background-image: url(/loginImage)">
+            
+            <div class="login-content">
+                <div class="login-screen">
+                    <div class="login-icon">
+                        <img src='/assets/1.2.4M11/images/logo.png'>
+                    </div>
+                    <div class="before-login-form">
+                    </div>
+                    
+                        <form action="/authenticate" method="post">
+                    
+                        <input type="hidden" name="redirectUrl" value="https://hatch.uber.com/">
+
+                        <div class="login-form">
+                            <div class="control-group">
+                                <div class="input-prepend">
+                                    <input id="username" name="emailOrUsername" type="text" placeholder='Username' value=''>
+                                    <span class="add-on login-username"><img src='/assets/1.2.4M11/images/user-name.png'></span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="input-prepend">
+                                    <input id="password" name="password" type="password" placeholder='Password' value=''>
+                                    <span class="add-on"><img src='/assets/1.2.4M11/images/icons/lock-16.png'></span>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                
+                                    <button id="js-btn-login" class="btn btn-primary btn-block" type="submit">Login</button>
+                                 
+                                
+                                <a class="btn btn-primary btn-block" style="font-size: 14px; text-transform: none;" href="/one/login">OneLogin</a>
+                                
+                                <a class="btn btn-block btn-need-a-little-help" style="color: #11939a;text-transform: uppercase;" href="mailto:info@lykit.io?subject=Hatch - Login page issues&body=Please provide a brief description of the issue and attach screenshots or files as necessary.%0A%0A%0AThanks - Hatch Support.">Need a little help?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="login-footer">
+                <div class="login-footer-inner">
+                    &copy; 2017 Lykit LLC
+                </div>
+            </div>
+        </div>
+
+        <!-- Load JS here for greater good -->
+        <script src="/assets/1.2.4M11/libs/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="/assets/1.2.4M11/libs/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="/assets/1.2.4M11/libs/jquery.meow.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+    				var UA = navigator.userAgent.toLowerCase();
+    				if(UA.indexOf('chrome')==-1 && UA.indexOf('crios')==-1){
+    			        $("#username").tooltip({title: "Sorry, this site requires the<br/>Google Chrome web-browser.", placement: "right", trigger: "manual", html: true});
+    			        showErrorAction($('#username'));
+    					$('#js-btn-login').attr('disabled','disabled');
+    					return;
+    				}
+                
+
+                
+                
+                
+                $('body').on('click', 'div.meows', function() {
+                    window.location.href = $('.btn-need-a-little-help').attr('href');
+                });
+
+                var _this = this;
+                //init the tooltip
+                $("#username").tooltip({title: "Sorry, this is not a valid username.", placement: "right", trigger: "manual"});
+                $("#username").tooltip('hide');
+                $("#password").tooltip({title: "That's not the password on file.", placement: "right", trigger: "manual"});
+                $("#password").tooltip('hide');
+                $("#g-recaptcha").tooltip({title: "Please check this box to login.", placement: "right", trigger: "manual"});
+                $("#g-recaptcha").tooltip('hide');
+                //show valid error
+                if($(this).find("p.error").text() != "") {
+                    if($(this).find("p.error").text().indexOf("username") > 0){
+                        showErrorAction($('#username'));
+                    } else if ($(this).find("p.error").text().indexOf("disable") > 0) {
+                        $.fn.meow({type: 'error', title: 'Sorry', message: 'You are disabled.'});
+                    } else if ($(this).find("p.error").text().indexOf("reCAPTCHA") > 0) {
+                        showErrorAction($('#g-recaptcha'));
+                    } else {
+                        showErrorAction($('#password'));
+                    }
+                }
+                //hide error action
+                $(this).find("input").keyup(function() {
+                    if($(this).val() != "") {
+                        removeErrorAction($(this));
+                    }
+                });
+                //hover
+                $(".btn.btn-block").hover(function() {
+                    $(this).css('opacity', '0.7');  //透明度
+                }, function() {
+                    $(this).css('opacity', '1');
+                });
+                //valid
+                $("#js-btn-login").click(function(e) {
+                    e.preventDefault();
+                    //if username is null show username tooltip
+                    if($(_this).find("#username").val() == "") {
+                        showErrorAction($('#username'));
+                    //if password is null show pass word tooltip
+                    }else if($(_this).find("#password").val() == ""){
+                        showErrorAction($("#password"));
+                    }else {
+                        //if username and password are both not null then submit form
+                        $(_this).find("form").submit();
+                    }
+                });
+            });
+            //show error infos
+            var showErrorAction = function(element) {
+                $(element).focus();
+                $(element).tooltip('show');
+            };
+            //hide error infos
+            var removeErrorAction = function(element) {
+                $(element).tooltip('hide');
+            }
+        </script>
+    </body>
+</html>

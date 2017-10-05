@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="assets/css/uswds.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+    <title>Private Eye Demo</title>
+  </head>
+  <body>
+    <div class="usa-grid">
+      <div class="usa-width-one-whole">
+        <img src="assets/img/detective.png">
+        <h1>Private Eye</h1>
+        <p>Made by <a href="https://18f.gsa.gov">18F</a>.  Available on <a href="https://github.com/18F/private-eye/">GitHub</a>.</p>
+        <p>A JavaScript plugin to warn users about links to private pages. Places a :lock: icon next to any links with any URLs that you specify as private, and gives a warning message.</p>
+        <p>At 18F, this is used on public sites that contain links to internal content like private GitHub repositories or Google Docs. Rather than write two versions to redact those links, this allows us to publish new content and give a warning to both staff and external readers.</p>
+        <p>Use <code>ignoreUrls</code> to supply all the private URLs. Any link that matches one of the URLs will have a lock icon next to it.</p>
+        <h2>Demo</h2>
+        <p>Cat ipsum dolor sit amet, lick the other cats. Plan steps for world domination <a href="https://pages.18f.gov/private-eye/notfound">a private link</a> while this is a <a href="#">public link</a> on your pillow rainbow while flying in a toasted bread costume in space.</p>
+        <h3>Code</h3>
+        <code><pre>
+&lt;script src="private-eye.js">&lt;/script&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+  PrivateEye({
+    // list of URLs to match as substrings – can be full URLs, hostnames, etc.
+    ignoreUrls: [
+      'http://so.me/private/url',
+      'anoth.er',
+      // ...
+    ]
+  });
+}, false );
+&lt;/script&gt;
+        </pre></code>
+      </div>
+    </div>
+    <script src="private-eye.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      PrivateEye({
+        // list of URLs to match as substrings – can be full URLs, hostnames, etc.
+        ignoreUrls: [
+          'https://pages.18f.gov/private-eye/notfound',
+          'anoth.er',
+          // ...
+        ]
+      });
+    }, false );
+    </script>
+  </body>
+</html>

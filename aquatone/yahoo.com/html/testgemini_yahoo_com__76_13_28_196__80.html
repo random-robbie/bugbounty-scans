@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="gemini.advertiser"
+      ng-class="{
+      homepageV2: noSession && homePageV2 && !homePageV3,
+      homepageV3: noSession && homePageV2 && homePageV3
+      }">
+  <head>
+    <meta charset="utf-8">
+    <title>Gemini - Advertiser</title>
+    <base href="/advertiser/">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="https://s.yimg.com/rz/l/favicon.ico">
+
+    <!-- 9e2c0bfb440e6b7d0e063e47cd525b83311ae94f -->
+
+    <!-- Redirect snippet in case / is forgotten at the end of the url -->
+    <script type="text/javascript" nonce="0LVCXLoi+mq0Z/5eIzjPSo88vP4TwD5I0Z/JC9BoXmx6oqET">
+      var rx = /^(\/internal)?\/advertiser$/,
+          wl = window.location,
+          path = wl.pathname;
+
+      if (rx.test(path)) {
+        wl.href = wl.href.replace(path, path + '/');
+      }
+    </script>
+    <!--  -->
+    <link href="https://s.yimg.com/av/gemini-ui/w/dist/castorCss.9e2c0bfb440e6b7d0e063e47cd525b83311ae94f.css" rel="stylesheet" type="text/css">
+    <!--  -->
+  </head>
+  <body ng-class="{
+          homepage: noSession && !homePageV2,
+          standard: !centerContent,
+          centered: centerContent,
+          homepageV2: noSession && homePageV2 && !homePageV3,
+          homepageV3: noSession && homePageV2 && homePageV3,
+          'gray-bg': !homePageV2
+        }"
+  ng-csp>
+
+  <div id="wrapper">
+    <!--[if lt IE 9]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div page-loader state="$root.loading" class="loading-account-backdrop">
+      <dots-loader></dots-loader>
+    </div>
+
+    <div
+      ng-if="homePageMessage"
+      ng-class="{ 'header-system-message': noSession }"
+      ng-include=" '/common/templates/systemMessage.html' ">
+    </div>
+
+    <nav
+      ng-if="!noSession"
+      ng-include=" '/advertiser/templates/shared/header.html' "
+      ng-controller="NavbarCtrl"
+      id="header"
+      ng-class="{ 'navbar-fixed-initial': homePageMessage }"
+      class="navbar navbar-default navbar-fixed-top">
+    </nav>
+
+    <nav
+      ng-if="noSession && !homePageV2"
+      ng-class="{ 'navbar-with-message': hasScheduledMaintenance }"
+      home-nav
+      ng-controller="HomeNavbarCtrl"
+      id="header"
+      class="navbar navbar-default navbar-fixed-top gemini">
+    </nav>
+
+    <nav
+      ng-if="noSession && homePageV2 && !homePageV3"
+      home-page-header
+      ng-controller="HomeNavbarCtrl"
+      id="header"
+      ng-class="{ 'navbar-fixed-initial': homePageMessage }"
+      class="navbar navbar-default navbar-fixed-top gemini">
+    </nav>
+
+    <nav
+      ng-if="noSession && homePageV2 && homePageV3"
+      home-page-header-v3
+      ng-controller="HomeNavbarCtrlV3"
+      id="header-v3"
+      ng-class="{ 'navbar-fixed-initial': homePageMessage }"
+      class="navbar-v3 navbar-default navbar-fixed-top navbar-v3 gemini">
+    </nav>
+
+    <div id="content" class="container-fluid content" ng-class="{ full: adminTools }">
+      <banners></banners>
+      <feature-banner></feature-banner>
+      <payg-banner></payg-banner>
+      <sync-banner></sync-banner>
+      <div class="view-backdrop" ng-show="$root.showViewBackdrop"></div>
+      <div class="view" ng-view="" autoscroll="true"></div>
+      <upload-widget></upload-widget>
+    </div>
+
+    <page-view-monitor></page-view-monitor>
+    <page-view-tracker></page-view-tracker>
+
+    <div
+      ng-if="!guided && !adminTools && !homePageV2"
+      ng-include=" '/common/partials/appFooter.html' "
+      ng-controller="AppFooterCtrl"
+      id="footer"
+      class="mt40">
+    </div>
+
+    <div
+      id="feature-splash"
+      ng-if="$root.isTorsoFeatureSplashOn"
+      ng-show="$root.showTorsoFeatureSplash"
+      ng-controller="FeatureSplashCtrl as ctrl"
+      ng-include=" '/advertiser/templates/modals/featuresSplash.html' ">
+    </div>
+
+    <gemini-new-feature-splash></gemini-new-feature-splash>
+
+    <!-- This is currently not being used, but we may want to roll out PAYG to other
+    countries in the future, hence why we're not flat-out deleting it. -->
+    <div
+      id="feature-splash"
+      ng-if="false && $root.showPaygModel"
+      ng-include=" '/advertiser/templates/modals/paygSplash.html' ">
+    </div>
+  </div>
+
+  <ad-block-detect></ad-block-detect>
+
+    <!--[if lt IE 9]>
+    <script src="libs/es5-shim/es5-shim.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="https://s.yimg.com/ss/rapid-3.29.js"></script>
+    <script type="text/javascript" src="https://s.yimg.com/aj/lh-0.11.js"></script>
+
+    <script src="https://s.yimg.com/av/gemini-ui/w/dist/castorVendor.170b6a0175647f92a5aa.js"></script>
+    <script src="https://s.yimg.com/av/gemini/de8d34b77/lang/en-US.js"></script>
+    <script src="https://mb.zenfs.com/av/gemini-ui/angulari18n/en-US.js"></script>
+    <script src="https://s.yimg.com/av/gemini-ui/w/dist/castor.229b0004fe62279ef91d.js"></script>
+
+
+    <!--  -->
+
+    <!-- Here is where all the NodeJS stuff will be bootstrapped to the app -->
+    <script type="text/javascript" nonce="0LVCXLoi+mq0Z/5eIzjPSo88vP4TwD5I0Z/JC9BoXmx6oqET">
+      var settings = "%7B%22isInternal%22%3Afalse%2C%22noSession%22%3Atrue%2C%22cmHomePage%22%3Afalse%2C%22loginUrl%22%3A%22https%3A%2F%2Flogin.yahoo.com%2Fconfig%2Flogin_verify2%3F.intl%3Dus%26%22%2C%22logoutUrl%22%3A%22https%3A%2F%2Flogin.yahoo.com%2Fconfig%2Flogin%3Flogout%3D1%26.direct%3D1%26.done%3Dundefined.scrumb%3D0%22%2C%22signUpUrl%22%3A%22https%3A%2F%2Flogin.yahoo.com%2Faccount%2Fcreate%3F.intl%3Dus%26%22%2C%22simpleAccounts%22%3A%5B%5D%2C%22accountCount%22%3Anull%2C%22billingCountrySettings%22%3A%7B%22name%22%3A%22US%22%2C%22billingCountry%22%3A%22US%22%2C%22woeid%22%3A23424977%2C%22language%22%3A%22Language.en%22%2C%22billingCountryFlag%22%3Atrue%2C%22privacyPolicyLink%22%3A%22https%3A%2F%2Finfo.yahoo.com%2Fprivacy%2Fus%2Fyahoo%2F%22%2C%22phone%22%3A%221%20(866)%20540-7881%22%2C%22email%22%3A%22helloGemini%40cc.yahoo-inc.com%22%2C%22tcLink%22%3A%22https%3A%2F%2Finfo.yahoo.com%2Flegal%2Fus%2Fyahoo%2Fadvertising%2Fmasterterms%2Fmasterterms-322.html%22%2C%22promoTCLink%22%3A%22http%3A%2F%2Fhelp.yahoo.com%2Fadv%2FSOL3152.html%22%2C%22phoneHOOP%22%3A%22Monday%20-%20Friday%2C%207am%20-%204pm%20PDT%22%2C%22emailHOOP%22%3A%22Replies%20sent%20Monday%20-%20Friday%2C%207am%20-%204pm%20PDT%22%2C%22geoInfo%22%3A%7B%22name%22%3A%22US%22%2C%22parentWoeid%22%3A23424977%2C%22type%22%3A%22COUNTRY%22%2C%22woeid%22%3A23424977%7D%7D%2C%22userId%22%3Anull%2C%22userName%22%3A%22User%22%2C%22capabilityList%22%3A%5B%5D%2C%22featureSwitches%22%3A%5B%5D%2C%22featureFlags%22%3A%7B%22bulkAlertTriggerTime%22%3A%2210000%22%2C%22bulkVersion%22%3A%22v3%22%2C%22creditCountryList%22%3A%7B%22blacklist%22%3A%5B%22US%22%2C%22CA%22%2C%22AT%22%2C%22BE%22%2C%22CH%22%2C%22DE%22%2C%22DK%22%2C%22ES%22%2C%22FI%22%2C%22FR%22%2C%22GB%22%2C%22IE%22%2C%22IL%22%2C%22IT%22%2C%22LU%22%2C%22NL%22%2C%22NO%22%2C%22PT%22%2C%22SE%22%5D%7D%2C%22enableYamasRelay%22%3A%221%22%2C%22epayServer%22%3A%22https%3A%2F%2Fwallet.secure.yahoo.com%2Ftr%2F%22%2C%22firehoseClickMultiplier%22%3A%2250%22%2C%22gossipServer%22%3A%22https%3A%2F%2Fsearch.yahoo.com%2Fsugg%2Fgossip%2Fgossip-gl-location%22%2C%22homePageMessage%22%3A%22%22%2C%22isAdditionalFrequencyCappingOn%22%3Afalse%2C%22isAddNewReportAccountCampaignSummaryOn%22%3A%221%22%2C%22isAdjustmentReportOn%22%3A%221%22%2C%22isAdSiteSettingOn%22%3A%221%22%2C%22isAdvertiserEditBudgetOn%22%3A%221%22%2C%22isAdWordsExternalizationBannerOn%22%3Afalse%2C%22isAdWordsSyncColumnOn%22%3A%221%22%2C%22isBam2MvpOn%22%3A%221%22%2C%22isBulkEditOn%22%3A%221%22%2C%22isCampaignBudgetTooltipOn%22%3A%221%22%2C%22isCampaignDimensionsOn%22%3A%221%22%2C%22isCampaignSearchTermOn%22%3A%221%22%2C%22isCloningCampaignCrossContextOn%22%3A%221%22%2C%22isCloningOn%22%3A%221%22%2C%22isCloningFeatureSplashOn%22%3Afalse%2C%22isDimensionsExternalAccountsOn%22%3A%221%22%2C%22isDownloadSharedAssetsOnlyOn%22%3A%221%22%2C%22isDynamicProductAdsOn%22%3A%221%22%2C%22isExternalBulkUploaderDownloaderOn%22%3A%221%22%2C%22isGlobalSearchFeatureSplashOn%22%3Afalse%2C%22isJobOutputFileRenamingOn%22%3A%221%22%2C%22isMailAdTemplateOn%22%3A%221%22%2C%22isManagedAccountUsersOn%22%3A%221%22%2C%22isManualBulkFileRenameOn%22%3A%221%22%2C%22isNewReportingScheduleOn%22%3A%221%22%2C%22isNewSignUpOn%22%3A%221%22%2C%22isPowerEditorOn%22%3A%221%22%2C%22isPowerEditorSplashOn%22%3A%221%22%2C%22isReachOn%22%3Afalse%2C%22isReengageAppCampaignOn%22%3A%221%22%2C%22isReportingAccountGroupByResellerOn%22%3A%221%22%2C%22isReportingAccountGroupOn%22%3A%221%22%2C%22isReportingDayNotRequiredOn%22%3A%221%22%2C%22isReportingFlattenOn%22%3A%221%22%2C%22isScheduleMultiAccountsReportFeatureOn%22%3A%221%22%2C%22isSlideshowAdOn%22%3A%221%22%2C%22isSiteDeviceTargetingOn%22%3A%221%22%2C%22isSpendPlannerOn%22%3A%221%22%2C%22isTorsoAutosyncOn%22%3A%221%22%2C%22isTorsoSignOutOn%22%3A%221%22%2C%22isTorsoSplashOn%22%3Afalse%2C%22isTumblrCMOn%22%3A%221%22%2C%22isVideoSubtitleOn%22%3A%221%22%2C%22isViewThroughConvWindowOn%22%3A%221%22%2C%22isVisitOfferCampaignOn%22%3A%221%22%2C%22showHomePageV2%22%3A%221%22%2C%22showHomePageV3%22%3A%221%22%2C%22SORRYPAGE%22%3Afalse%2C%22syndicationYUIServerName%22%3A%22p.gemini.yahoo.com%22%2C%22tcVersionAdvertiser%22%3A%222.0%22%2C%22tcVersionPublisher%22%3A%221.0%22%2C%22tilesTemplateUrl%22%3A%22https%3A%2F%2Fs.yimg.com%2Fav%2Fmoneyball%2Fads%2Fad-templates-poc%2Fpost-tap-ad-0_0_65.html%22%2C%22torsoClientId%22%3A%22148635691800-fhsia30m3q51rekpu5lmfdpogfv5kvdm.apps.googleusercontent.com%22%2C%22uGeoServer%22%3A%22https%3A%2F%2Fus-locdrop.query.yahoo.com%2Fv1%2Fpublic%2Fyql%22%2C%22yahooPaymentClientId%22%3A%22gemini%22%2C%22yahooPaymentServer%22%3A%22https%3A%2F%2Fui.payment.yahoo.com%2FgetForm%22%7D%2C%22campaignCount%22%3Anull%2C%22locales%22%3A%7B%22id-ID%22%3A%22Bahasa%20Indonesia%22%2C%22ms-MY%22%3A%22Bahasa%20Melayu%22%2C%22de-DE%22%3A%22Deutsch%22%2C%22en-GB%22%3A%22English%20(U.K.)%22%2C%22en-US%22%3A%22English%20(U.S.)%22%2C%22es-MX%22%3A%22Espa%C3%B1ol%22%2C%22es-ES%22%3A%22Espa%C3%B1ol%20(Espa%C3%B1a)%22%2C%22fr-CA%22%3A%22Fran%C3%A7ais%20(Canada)%22%2C%22fr-FR%22%3A%22Fran%C3%A7ais%20(France)%22%2C%22it-IT%22%3A%22Italiano%22%2C%22nl-NL%22%3A%22Nederlands%22%2C%22pt-BR%22%3A%22Portugu%C3%AAs%20(Brasil)%22%2C%22ro-RO%22%3A%22Rom%C3%A2n%C4%83%22%2C%22sv-SE%22%3A%22Svenska%22%2C%22vi-VN%22%3A%22Ti%E1%BA%BFng%20Vi%E1%BB%87t%22%2C%22el-GR%22%3A%22%CE%95%CE%BB%CE%BB%CE%B7%CE%BD%CE%B9%CE%BA%CE%AC%22%2C%22ar-JO%22%3A%22%D8%A7%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%E2%80%8F%22%2C%22zh-Hant-TW%22%3A%22%E4%B8%AD%E6%96%87(%E5%8F%B0%E7%81%A3)%22%2C%22zh-Hant-HK%22%3A%22%E4%B8%AD%E6%96%87(%E9%A6%99%E6%B8%AF)%22%7D%2C%22lang%22%3A%22en-US%22%2C%22supportedCountries%22%3A%7B%22public%22%3A%5B%22US%22%2C%22GB%22%2C%22CA%22%2C%22DE%22%2C%22FR%22%2C%22IT%22%2C%22ES%22%2C%22IE%22%2C%22GR%22%2C%22RO%22%2C%22SE%22%2C%22ZA%22%2C%22BE%22%2C%22BH%22%2C%22EG%22%2C%22JO%22%2C%22KW%22%2C%22LB%22%2C%22OM%22%2C%22QA%22%2C%22SA%22%2C%22AE%22%2C%22BR%22%2C%22MX%22%2C%22AR%22%2C%22CL%22%2C%22CO%22%2C%22PE%22%2C%22VE%22%2C%22HK%22%2C%22SG%22%2C%22TW%22%2C%22PH%22%2C%22MY%22%2C%22ID%22%2C%22VN%22%2C%22AU%22%2C%22NZ%22%5D%2C%22dev%22%3A%5B%22US%22%2C%22GB%22%2C%22CA%22%2C%22DE%22%2C%22FR%22%2C%22IT%22%2C%22ES%22%2C%22IE%22%2C%22GR%22%2C%22RO%22%2C%22SE%22%2C%22ZA%22%2C%22BE%22%2C%22BH%22%2C%22EG%22%2C%22JO%22%2C%22KW%22%2C%22LB%22%2C%22OM%22%2C%22QA%22%2C%22SA%22%2C%22AE%22%2C%22BR%22%2C%22MX%22%2C%22AR%22%2C%22CL%22%2C%22CO%22%2C%22PE%22%2C%22VE%22%2C%22HK%22%2C%22SG%22%2C%22TW%22%2C%22PH%22%2C%22MY%22%2C%22ID%22%2C%22VN%22%2C%22AU%22%2C%22NZ%22%5D%7D%2C%22environment%22%3A%22production%22%2C%22scrumb%22%3A%22%22%2C%22uuid%22%3A%22cd6fea30-a924-11e7-8641-27cc414045ae%22%2C%22isRTL%22%3Afalse%2C%22dimensionLookBackInfo%22%3A%7B%22Device%20Type%22%3A400%2C%22Month%22%3A400%2C%22Day%22%3A400%2C%22Hour%22%3A31%2C%22Age%22%3A90%2C%22Gender%22%3A90%2C%22City%20WOEID%22%3A31%2C%22Search%20Term%22%3A31%2C%22External%20Site%20Name%22%3A400%2C%22Day%20of%20Week%22%3A400%7D%2C%22dimensionMaxDaysWindowInfo%22%3A%7B%22Device%20Type%22%3A400%2C%22Month%22%3A400%2C%22Day%22%3A400%2C%22Hour%22%3A31%2C%22Age%22%3A31%2C%22Gender%22%3A31%2C%22City%20WOEID%22%3A31%2C%22Search%20Term%22%3A31%2C%22External%20Site%20Name%22%3A400%2C%22Day%20of%20Week%22%3A400%7D%2C%22campaign%22%3Anull%2C%22adGroup%22%3Anull%2C%22API_PREFIX%22%3A%22%2Fadvertiser%2Fajax%2F%22%2C%22ADVERTISER_API_PREFIX%22%3A%22%2Fadvertiser%2Fajax%2F%22%7D";
+      try {
+        settings = JSON.parse(decodeURIComponent(settings));
+      } catch (e) {
+        console.warn('No valid settings detected from API, got: ' + settings);
+        settings = {};
+      }
+      angular.module('gemini.settings', []).constant('SETTINGS', settings);
+
+      if (settings.uuid) {
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.id = 'gemini-analytics-cont';
+        iframe.src = 'https://s.yimg.com/av/gemini/1.0.18/analytics/geminiAnalytics.html?clientId=' +
+          settings.uuid + '&env=' + settings.environment;
+        document.body.appendChild(iframe);
+      }
+    </script>
+
+    <noscript>
+      <img src="https://a.analytics.yahoo.com/p.pl?a=10001409634862&js=no" width="1" height="1" />
+    </noscript>
+
+    
+  </body>
+</html>

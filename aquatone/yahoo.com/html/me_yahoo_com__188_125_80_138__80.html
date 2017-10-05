@@ -1,0 +1,780 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html id="Stencil">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Yahoo OpenID</title>
+        <link type="text/css" rel="stylesheet" href="https://s.yimg.com/lq/lib/reg/css/reset-fonts-grids.css">
+        <link type="text/css" rel="stylesheet" href="https://s.yimg.com/lq/lib/reg/css/container.css">
+	<link rel="stylesheet" type="text/css" href="https://s.yimg.com/zz/combo?kx/yucs/uh3s/atomic/88/css/atomic-min.css&kx/yucs/uh_common/meta/3/css/meta-min.css&kx/yucs/uh3s/uh/394/css/uh-center-aligned-min.css">
+	<link rel="stylesheet" type="text/css" href="https://s.yimg.com/zz/combo?/sf/assets/mbrlogin/css/desktop/header/2/header-min.css">
+
+<style type="text/css">
+body,
+header,
+header #UH {
+width: 750px;
+min-width: 750px;
+}
+
+header #UH {
+position: static !important;
+}
+
+body #mem_ft {
+border-top:none;
+}
+</style>
+ 
+<style type="text/css">
+.yui-panel {
+	border: none;
+	background-color: transparent;
+}
+#tourDiv {
+	z-index: 5;
+	text-align: left;
+	background-color: transparent;
+	border: none;
+}
+#tcnt {
+	width:670px;
+	height:31em;
+	margin:0 auto;
+	background: transparent url(https://s.yimg.com/lq/i/reg/openid/topframe.gif) no-repeat scroll left top;
+}
+#tnav {
+	width: 670px;
+	height: 3.84em;
+	margin: 0 auto;
+	background: transparent url(https://s.yimg.com/lq/i/reg/openid/bottomframe.gif) no-repeat scroll left bottom;
+	border-top: 4px solid #ffc60d;
+}
+#close {
+	float: right;
+	margin: 0.75em 0.75em 0 0;
+	cursor: pointer
+}
+#close #cross {
+	color: #0066cc;
+	font-weight: bold;
+	background: transparent url(https://s.yimg.com/lq/i/reg/openid/close.gif) no-repeat bottom right;
+	padding-right: 20px
+}
+#tcnt .pg {
+	margin: 0 3em;
+}
+#pghowto, #pgsecurity {
+	display: none;
+}
+#tcnt h2 {
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	font-size: 108%;
+	padding: 1.46em 0 0.5em 0;
+	margin-bottom: 1em;
+}
+.pgbody {
+	margin-top: 0.5em
+}
+#tcnt .pg p {
+	margin-bottom: 1em
+}
+.yellowbg {
+	background: #CC9A00 url(https://s.yimg.com/lq/i/reg/openid/gradient.gif) repeat;
+	font-size: 108%;
+	font-weight: bold;
+	color: #000;
+}
+.greybg {
+	background-color: #969BA3;
+	font-size: 108%;
+	color: #fff;
+	text-decoration: underline
+}
+#tnav #buttons {
+	float: left;
+	width: 68%;
+	height: 99%;
+	_height: 100%;
+	margin-left: auto;
+	margin-right: auto
+}
+#tnav table {
+	width: 100%;
+	height: 3.55em
+}
+#tnav table tr td {
+	width: 14.2%;
+	text-align: center;
+}
+#tnav .gryButtonWrapper {
+	width: 7em;
+	float: left;
+	background:transparent url(https://s.yimg.com/lq/i/reg/openid/grybuttonbg.gif) repeat-x scroll center bottom;
+    cursor:pointer;
+}
+#tnav  #prevbtn .gryButtonWrapper {
+	margin: 0 0 0 0.6em
+}
+#tnav  #nextbtn .gryButtonWrapper {
+	margin: 0 0.6em 0 0
+}
+#tnav .gryButton {
+	background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey_tour.gif ) no-repeat bottom right;
+	margin-bottom:0pt;
+    padding-right:4px;
+}
+#tnav .gryButton .btnTop {
+	background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey_tour.gif ) no-repeat top right;
+	font-size: 0pt;
+	height: 4px;
+	margin-right: -4px;
+}
+#tnav .gryButton .btnTop DIV {
+	background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey_tour.gif ) no-repeat top left;
+	font-size: 0pt;
+	height: 4px;
+	width: 4px;
+}
+#tnav .gryButton .btnContent {
+	background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey_tour.gif ) no-repeat bottom left;
+	padding:0pt 0pt 4px 4px;
+}
+#yreglgtb input {
+    background-color:#fff;
+}
+#previewImg {
+    background:transparent url(https://a248.e.akamai.net/sec.yimg.com/i/reg/pv_05.gif) no-repeat;
+    position:absolute;
+    height:74px;
+    width:238px;
+    top:171px;
+    left:378px;
+}
+</style>
+		<style type="text/css">
+		body {width:750px;margin:0 auto;text-align:left;}
+		.tosBody {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box.gif) no-repeat scroll right bottom;
+            padding-right:13px;
+         }
+        .gryButton {
+            background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey.gif ) no-repeat bottom right;
+            padding-right: 4px;
+            margin-bottom: 0;
+        }
+        .gryButton .btnTop {
+            background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey.gif ) no-repeat top right;
+            height: 4px;
+            font-size: 0;
+            margin-right: -4px;
+        }
+        .gryButton .btnTop DIV {
+            background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey.gif ) no-repeat top left;
+            width: 4px;
+            height: 4px;
+            font-size: 0;
+            *float:left;
+        }
+        .gryButton .btnContent {
+            background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_grey.gif ) no-repeat bottom left;
+            padding: 0 0 4px 4px;
+            color: #ffffff;
+        }
+        .gldButton .btnContent div, .gryButton .btnContent  div {
+            text-align: center;
+        }
+        .tosBody .top {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box.gif) no-repeat scroll right top;
+            font-size:0pt;
+            height:13px;
+            margin-right:-13px;
+        }
+
+        .tosBody .top div {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box.gif) no-repeat scroll left top;
+            font-size:0pt;
+            height:13px;
+            width:13px;
+        }
+        .tosBody .content {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box.gif) no-repeat scroll left bottom;
+            color:#000;
+            padding:0.5em 0.4em 1em 1.5em;
+            font-size:100%;
+            text-align:left;
+        }
+        .tosBody .content h2 {
+            font-weight:bold;
+            font-size:108%;
+            padding-bottom:0.5em;
+            border-bottom:1px solid #DFDFDF;
+            margin-bottom:0.5em;
+        }
+        .tosBody .content p {
+            margin-bottom: 1em;
+        }
+        .tosBodyInv {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box_with_bg.gif) no-repeat scroll right top;
+            padding-right:13px;
+                   margin-top:-5px;
+         }
+        .tosBodyInv .btm {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box_with_bg.gif) no-repeat scroll right bottom;
+            font-size:0pt;
+            height:13px;
+            margin-top:-13px;
+            margin-right:-13px;
+        }
+
+        .tosBodyInv .btm div {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box_with_bg.gif) no-repeat scroll left bottom;
+            font-size:0pt;
+            height:13px;
+            width:13px;
+        }
+        .tosBodyInv .content {
+            background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box_with_bg.gif) no-repeat scroll left top;
+            color:#000;
+            padding:0.5em 0.4em 1em 1.5em;
+            font-size:100%;
+            text-align:left;
+        }
+        .gldButton {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_gold.gif ) no-repeat bottom right;
+          padding-right: 4px;
+          margin-bottom: 0;
+        }
+        .greenButtonWrapper .gldButton {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_green.gif ) no-repeat bottom right;
+          padding-right: 4px;
+          margin-bottom: 0;
+        }
+        .gldButton .btnTop {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_gold.gif ) no-repeat top right;
+          height: 4px;
+          font-size: 0;
+          margin-right: -4px;
+        }
+        .greenButtonWrapper .gldButton .btnTop {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_green.gif ) no-repeat top right;
+          height: 4px;
+          font-size: 0;
+          margin-right: -4px;
+        }
+        .gldButton .btnTop DIV {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_gold.gif ) no-repeat top left;
+          width: 4px;
+          height: 4px;
+          font-size: 0;
+          float:left;
+        }
+        .greenButtonWrapper .gldButton .btnTop DIV {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_green.gif ) no-repeat top left;
+          width: 4px;
+          height: 4px;
+          font-size: 0;
+          float:left;
+        }
+        .gldButton .btnContent {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_gold.gif ) no-repeat bottom left;
+          padding: 0px 9px 5px 10px;
+          color: #ffffff;
+        }
+        .greenButtonWrapper .gldButton .btnContent {
+          background: url( https://s.yimg.com/lq/i/reg/openid/rounded_corner_button_green.gif ) no-repeat bottom left;
+          padding: 0px 9px 5px 10px;
+          color: #ffffff;
+        }
+        .gldButton .btnContent  div {
+              text-align:center;
+        }
+        .gldButtonWrapper {
+        	background:transparent url(https://s.yimg.com/lq/i/reg/openid/gldButtonBG.gif) repeat-x bottom;
+        	margin:1em auto 3px;
+        	cursor:pointer;
+            width:13em;
+        }
+        .greenButtonWrapper {
+        	background:transparent url(https://s.yimg.com/lq/i/reg/openid/greenbuttonbg.gif) repeat-x bottom;
+        	margin:1em auto 3px;
+        	cursor:pointer;
+            width:13em;
+        }
+        .gldButton input,  .gryButton input, .gldButton button{
+        	background-color:transparent;
+        	border:0 none;
+        	color:#000000;
+        	cursor:pointer;
+        	display:block;
+        	font-size:114%;
+        	font-weight:bold;
+        	margin:0 auto;
+        	width:100%;
+            height:2em;
+            font-family:arial,helvetica,clean,sans-serif;
+            font-size:114%;
+            font-weight:bold;
+        }
+        img#flickrImg {
+            margin-bottom: -4px;
+        }
+        
+        #btmtxt h1 {font-size:131%;font-weight:bold;color:#fff;padding:0.5em 0 0 0;}
+		#btmtxt h2 {font-size:108%;font-weight:bold;color:#E6E6E6;padding:0 0 0.5em 0;}
+		
+		#easySimple .tosBody  {background-image:url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box_with_bg.gif);}
+		#easySimple .tosBody .content {background-image:url(https://s.yimg.com/lq/i/reg/openid/splash_grey_box_with_bg.gif);}
+		#hd {margin: 0.54em;}
+		#ft {margin-top: 1.54em;padding-top: .31em;border-top: 1px solid #ccc;font-size: 77%;}
+		a#tour {color:#0000EE; text-decoration: underline; cursor: pointer;}
+
+        .primaryCTA {
+                font-family: arial,helvetica,clean,sans-serif;
+                text-alig:center;
+                height: 2.8em;
+                cursor:pointer;
+                margin: 1em auto 3px;
+                width:13em;
+                font-size:100%;
+                font-weight:bold;
+        }
+
+        .purpleCTA {
+            background-color: #6E329D;
+            background-image: -moz-linear-gradient(left center , #6E329D 0%, #6E329D 100%);
+            border: 1px solid #522675;
+            border-radius: 2px 2px 2px 2px;
+            color:#fff;
+        }
+
+        .greenCTA {
+            background-color: #d3ee6a;
+            background-image: -moz-linear-gradient(left center , #d3ee6a 0%, #d3ee6a 100%);
+            border: 1px solid #522675;
+            border-radius: 2px 2px 2px 2px;
+            color:#000;
+        }
+		</style>
+	</head>
+	<body style="margin:0 auto;">
+	<div id="tourDiv"></div>
+			<header><div class="mbr-header-container mbr-text-center pure-u-1">
+	<div id="mbr-header" class="mbr-header pure-u-1 StencilRoot">
+		<style type="text/css">@font-face{font-family:uh;src:url(https://s.yimg.com/os/uh-icons/0.1.16/uh/fonts/uh.eot?);src:url(https://s.yimg.com/os/uh-icons/0.1.16/uh/fonts/uh.eot?#iefix) format('embedded-opentype'),url(https://s.yimg.com/os/uh-icons/0.1.16/uh/fonts/uh.woff2?) format('woff2'),url(https://s.yimg.com/os/uh-icons/0.1.16/uh/fonts/uh.woff?) format('woff'),url(https://s.yimg.com/os/uh-icons/0.1.16/uh/fonts/uh.ttf?) format('truetype'),url(https://s.yimg.com/os/uh-icons/0.1.16/uh/fonts/uh.svg?#uh) format('svg');font-weight:400;font-style:normal}[class^=Ycon],[class*=" Ycon"]{font-family:uh;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}</style><link type="text/css" rel="stylesheet" href="https://s.yimg.com/zz/combo?os/stencil/3.0.1/desktop/styles-ltr.css" /><!-- meta --><div id="yucs-meta" data-authstate="signedout" data-cobrand="standard" data-crumb="BzGtFx/oEwK" data-mc-crumb="KaAih9U6ZZD" data-gta="ptXALq469G0" data-device="desktop" data-experience="uh304" data-firstname="" data-style="lightbg" data-flight="1507136696" data-forcecobrand="standard" data-guid="" data-host="openid.yahoo.com" data-https="1" data-languagetag="en-us" data-property="login" data-protocol="https" data-shortfirstname="" data-shortuserid="" data-status="active" data-spaceid="" data-test_id="" data-userid="" data-stickyheader="true" data-headercollapse="" data-uh-test="acctswitch" data-beacon="0" ></div><!-- /meta --><div id="UH" class="Row Pos(r) Start(0) T(0) End(0) Z(10) yucs-en-us yucs-login yucs" role="banner" data-protocol='https' data-property="login" data-spaceid="" data-stencil="true"> <style>body {
+margin-top: 0px !important; 
+}
+
+#UH{
+font: 13px/1.25 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.YLogoMY{
+text-indent: -30em;
+}</style> <div id="uhWrapper" class="Mx(a) Z(1) Pos(r) Zoom Mstart(16px) Pt(14px)" data-ylk="rspns:nav;act:click;t1:a1;t2:uh-d;itc:0;" style ="height: 3.8em;"> <div class="UHCol1 Pos(a) Fl(start)" role="presentation"><style>/** * IE7+ and non-retina display */.YLogoMY { background-repeat: no-repeat; background-image: url(https://s.yimg.com/rz/l/yahoo_en-US_f_pw_125x32.png); _background-image: url(https://s.yimg.com/rz/l/yahoo_en-US_f_pw_125x32.gif); /* IE6 */ width: 125px !important; }.DarkTheme .YLogoMY { background-position: -125px 0px !important;}/** * For 'retina' display */@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and ( min--moz-device-pixel-ratio: 2), only screen and ( -o-min-device-pixel-ratio: 2/1), only screen and ( min-device-pixel-ratio: 2), only screen and ( min-resolution: 192dpi), only screen and ( min-resolution: 2dppx) { .YLogoMY { background-image: url(https://s.yimg.com/rz/l/yahoo_en-US_f_pw_125x32_2x.png) !important; background-size: 250px 32px !important; }}</style><a class="YLogoMY D(b) Ov(h) Ti(-20em) Zoom Darktheme_Bgp(b_t) W(137px) H(34px) Mx(a)! " data-ylk="slk:logo;t3:logo;t5:logo;elm:img;elmt:logo;" href="https://www.yahoo.com" target="_top" >Yahoo</a></div> <div class="UHCol3" role="presentation" id="uhNavWrapper"> <ul class="Fl(end) Mend(10px) Lts(-0.31em) Tren(os) Whs(nw) My(6px)"> <li class="D(ib) Zoom Va(t) Pos(r) Pstart(4px) Mend(20px) Lts(n)" id="yucs-profile" data-yltmenushown="/"> <a class="D(b) MouseOver Td(n) Td(n)!:h signin yucs-trigger Lh(1) Lts($ws)" href="https://login.yahoo.com/config/login?.src=ymbr&.intl=us&.lang=en-US&.done=https://openid.yahoo.com/" target="_top" rel="nofollow" aria-label="Profile" aria-haspopup="true" role="button" data-ylk="t3:tl-lst;t5:usersigni;slk:usersigni;elm:tl;elmt:lgi;"> <i class="Va(m) W(a) yucs-avatar Ycon YconProfile Fz(22px) Lh(1) C(#32007f) Mend(7px) Lts(n)">&#x1f464;</i> <b class="Va(m) yucs-trigger:h_Td(u) Lts(n) Fz(13px)" title="Sign in">Sign in</b></a> </li>  <li id="yucs-help" class=" yucs-activate yucs-help yucs-menu_nav D(ib) Zoom Va(t) Pos(r) Lh(1.7)"> <a id="yucs-help_link" class="C(#000)! D(ib) Lts(n) yltasis yucs-trigger Lh(1) Td(n)! Td(u)!:h Fz(13px)" href="https://help.yahoo.com/kb/index?locale=en_US&amp;page=product&amp;y=PROD_ACCT" target="_blank" data-ylk="act:click;t2:uh-d;t3:tl-lst;elm:itm;elmt:mu;itc:0;"> <b>Help</b> </a></li> </ul> </div> </div><!-- /#UH --></div>   	</div>
+</div>
+</header>        
+        <div id="bd">
+        <div class="yui-gc" style="margin:0 0 1em 7px;">
+            <div class="yui-u first">
+
+                    <img alt="" src="https://s.yimg.com/lq/i/reg/openid/splash_ill.gif">
+                    <div id="btmtxt" style="margin-top:-5px;padding-left:1.5em;background:transparent url(https://s.yimg.com/lq/i/reg/openid/splash_blue_grad.gif) no-repeat scroll bottom left">
+                        <h1>Yahoo meets OpenID&#013;</h1>
+                        <h2>Log in to websites with your Yahoo account</h2>
+                    </div>
+            </div>
+            
+            <div id="easySimple" class="yui-u">
+                    <div class="tosBodyInv">
+		              <div class="section" style="*margin-bottom:-1.16em;">
+
+                
+	    		         <div class="content" style="text-align:center;">
+                            <div style="font-weight:bold;font-size:108%;margin:3.15em 0 2.38em">
+                                Ready to enable your account for OpenID access?&#013;
+                            </div>
+                            <div style="font-weight:bold;font-size:131%;padding-bottom:1em;border-bottom:1px solid #B5B6BD">
+                                It's easy!
+                            </div>
+                            <!--
+                            <div class="gldButtonWrapper" id="goldBtn" onmouseover="gold2Green();" onmouseout="green2Gold();">
+        						<div class="gldButton">
+        							<div class="btnTop"><div></div></div>
+        							<div class="btnContent">
+        								<div>
+        								    <button onfocus="gold2Green();" onblur="green2Gold();" onclick="window.location='https://open.login.yahoo.com/openid/op/start?.intl=';">Get Started&#013;</button>
+        								</div>
+        							</div>
+        						</div>
+					       </div>
+                            -->
+                            <div><button id="primaryCTA" class="primaryCTA purpleCTA" onmouseover="toGreen();" onmouseout="toPurple();" onclick="window.location='https://open.login.yahoo.com/openid/op/start?.intl=';">Get Started&#013;</button></div>
+
+	    		         </div>
+	    	          </div>
+	    	          <div class="btm"><div></div></div>
+                    </div>
+            
+            </div>
+        </div>
+        
+		<div class="tosBody">
+		  <div class="section">
+
+	    		<div class="top"><div></div></div>
+	    		<div class="content">
+                    <div class="yui-gc" style="overflow:hidden;">
+                        <div class="yui-u first" >
+                            <h2>
+                                Why OpenID?&#013;
+                            </h2>
+                            <div>
+                                <p>Are you tired of creating a new account on every website you use? Do you avoid new websites because they come with yet another username and password? Do you paste stickies with password hints all over your computer monitor?&#013;</p>
+                                <p>OpenID is an open technology standard that solves all of these problems. The OpenID technology will allow you to use your Yahoo account to sign in to hundreds of websites! And this list is growing every day...</p>
+                                <p>Once you enable your Yahoo account for OpenID access, you can simply tell any OpenID enabled website that you are a Yahoo user. You will be sent to Yahoo to verify your Yahoo ID and password and then signed in to the website. Its that easy!&#013;</p>
+                            </div>
+                            
+                            <h2>Still not convinced?&#013;</h2>
+                            <div>
+                                <p>Take our <a id="tour" href="javascript:YAHOO.OpenId.showTour();">handy-dandy OpenID tour</a> to learn more or <a id="openIDLink" href="http://openid.net" target="_blank"">visit the OpenID homepage</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="yui-u" style="width:29%;padding-left:2%;margin-left:2%;border-left:1px solid #BFBFBF; padding-bottom:1000px; margin-bottom:-1000px;">
+                            <h2>Why Yahoo?&#013;</h2>
+                            <div>
+                                <p>You already enjoy a bunch of great services with your Yahoo account. The Yahoo OpenID service lets you take your account beyond Yahoo. Plus, the free <a href="https://protect.login.yahoo.com/?.intl=us" target="_blank">Yahoo Sign-In Seal</a> will help protect you from password theft, also known as phishing.</p>
+                            </div>
+                            
+                                                        <h2>Don't have a Yahoo ID?&#013;</h2>
+                            <div>
+                                <p><a href="https://edit.yahoo.com/registration?.src=openid&.pd=c%3deAgv_E6p2e4crYww_U25oj8hKA--&.intl=us&.done=http%3A%2F%2Fopenid.yahoo.com%2F&.partner=">Sign up now</a>. It only takes a couple of minutes.&#013;</p>
+                            </div>
+                                                    </div>
+                    </div>
+	    		</div>
+	    	</div>
+        </div>
+
+<div id="tour_acc" style="position:absolute;left:-2000px;top:-2000px;">
+            <div>
+                    <div class="pg">
+                        <h2>
+                            What is OpenID?
+                        </h2>
+                        <div class="pgbody">
+                            <div>
+                                <img alt="" src="https://s.yimg.com/lq/i/reg/openid/tour_ill5.gif">
+                            </div>
+                            <div>
+                                <p>
+                                    In a nutshell, the OpenID technology makes life simpler by having only one username and password to remember.&#013;
+                                </p>
+                                <p>
+                                    Once you have enabled your Yahoo account for OpenID access, you only need to remember your Yahoo ID and password to use hundreds of websites... So bid farewell to password spreadsheets and stickies all over your desk!&#013;
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="pg">
+                        <h2>
+                            Bada bing, bada boom! It's that simple.&#013;
+                        </h2>
+                        <div class="pgbody">
+                            <p>
+                                When you are on a website that supports OpenID login, simply look for a Yahoo login button. Or if you see a text box with an OpenID icon, simply type in "yahoo.com". You will be sent to Yahoo to verify your Yahoo ID and password, and then you will be able to continue on.
+                            </p>
+                            <p class="grey bold">
+                                For people who prefer pictures, here are the steps:&#013;
+                            <p>
+                            <img alt="" src="https://s.yimg.com/lq/i/reg/openid/tour_ill4.gif">
+                        </div>
+                    </div>
+                    <div class="pg">
+                        <h2>
+                            A quick note on security&#013;
+                        </h2>
+                        <div class="pgbody">
+                            <div>
+                               <img alt="" src="https://s.yimg.com/lq/i/reg/openid/tour_baby.png">
+                            </div>
+                            <div>
+                                <p>
+                                When using OpenID, you should not enter your Yahoo ID and password on any website other than Yahoo.&#013;
+                                </p>
+                                <p>
+                                If you haven't already done so, we strongly recommend setting up your free Yahoo sign-in seal. A sign-in seal is a personalized image or a message that will only appear on genuine Yahoo pages.
+                                </p>
+                                <p>
+                                To help prevent the bad guys on the Internet from stealing your Yahoo account data, always look for your sign-in seal before typing your Yahoo ID and password.&#013;
+                                </p>
+                                <p>
+                                    <a href="http://protect.login.yahoo.com?.intl=us" target="_blank" class="bold">Set Up A Sign In Seal&#013;</a>
+                                    <br>
+                                    <span style="font-size:77%;">Link will open in a new window.&#013;</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+</div>
+        </div>
+
+        <!-- intl = us, spaceid = 150002002 offset = 0 position = FOOT -->
+<!-- static compact footer --> 
+	
+	<style type="text/css">
+	#mem_ft {border-top:1px solid #CCCCCC;font-size:10px;margin-top:1em;padding-top:0.5em;font-family:arial,helvetica,clean,sans-serif;text-align:center}
+	#mem_ft p {margin:0;padding:0;}
+	</style>
+	<!--[if IE]> 
+	<style type="text/css">
+	#mem_ft p {margin:0.25em 0 0 0;}
+	</style>
+	<![endif]--><div id="mem_ft">
+    <!--<p> Copyright © 2017 Yahoo! Inc. All rights reserved.</p>-->
+    <p>
+        <!--<a href="https://legalredirect.yahoo.com/copyright?intl=us&lang=en-US" target='_blank'>Copyright/IP Policy</a> | -->
+        <a href="https://legalredirect.yahoo.com/utos?intl=us&lang=en-US" target='_blank'>Terms</a> | 
+        <!-- <a href="http://security.yahoo.com" target="_blank">Guide to Online Security</a> | -->
+        <a href="https://legalredirect.yahoo.com/privacy?intl=us&.lang=en-US" target="_blank">Privacy</a>     </p>
+</div><script src="https://s.yimg.com/lq/lib/reg/js/utilities-min-dom-event-container.js"></script><script>
+gold2Green = function() {
+    if (document.getElementById('goldBtn') != null) {
+        YAHOO.util.Dom.replaceClass('goldBtn', 'gldButtonWrapper', 'greenButtonWrapper');
+    } else {
+        YAHOO.util.Dom.replaceClass('gldButtonWrapper_d', 'gldButtonWrapper', 'greenButtonWrapper');
+    }
+}
+
+green2Gold = function() {
+    if (document.getElementById('goldBtn') != null) {
+        YAHOO.util.Dom.replaceClass('goldBtn', 'greenButtonWrapper', 'gldButtonWrapper');
+    } else {
+        YAHOO.util.Dom.replaceClass('gldButtonWrapper_d', 'greenButtonWrapper', 'gldButtonWrapper');
+    }
+}
+
+grey2Green = function() {
+    YAHOO.util.Dom.replaceClass('greyBtn', 'gryButtonWrapper', 'greenButtonWrapper');
+}
+
+green2Grey = function() {
+    YAHOO.util.Dom.replaceClass('greyBtn', 'greenButtonWrapper', 'gryButtonWrapper');
+}
+
+purpleToGreen = function() { YAHOO.util.Dom.replaceClass('purpleBtn', 'purpleCTA','greenCTA'); };
+greenToPurple = function() { YAHOO.util.Dom.replaceClass('purpleBtn', 'greenCTA', 'purpleCTA'); };
+greyToGreen = function() { YAHOO.util.Dom.replaceClass('greyBtn2', 'greyCTA','greenCTA'); };
+greenToGrey = function() { YAHOO.util.Dom.replaceClass('greyBtn2', 'greenCTA', 'greyCTA'); };
+
+</script>
+ 
+<script type="text/javascript">
+
+YAHOO.namespace("OpenId");
+
+//tour stuff
+YAHOO.OpenId.tour = new YAHOO.widget.Panel("tourDiv",
+     {  width: "670px",
+        fixedcenter: true,
+        close: false,
+        draggable: false,
+        modal: true,
+        zindex:4,
+        visible: false,
+        monitorresize:false
+     });
+
+YAHOO.OpenId.showTour = function() {
+
+var content = document.getElementById("tourDiv");
+
+content.innerHTML = "";
+
+if (YAHOO.OpenId.tour) {
+
+     YAHOO.OpenId.tour.setHeader("Loading, please wait...");
+     YAHOO.OpenId.tour.setBody("<img src=\"https://s.yimg.com/lq/i/us/per/gr/gp/rel_interstitial_loading.gif\"/>");
+
+     YAHOO.OpenId.tour.buildMask();
+     YAHOO.OpenId.tour.render(document.body);
+
+ }
+
+// Define the callback object for Connection Manager that will set the body of our content area when the content has loaded
+var tourFallback = false;
+ var callback = {
+ success : function(o) {
+ content.innerHTML = o.responseText;
+ content.style.visibility = "visible";
+ YAHOO.OpenId.tour.center();
+
+ },
+ failure : function(o) {
+ if(!tourFallback && o.status!='200') {
+    // try the us
+    intl = "us";
+    var conn = YAHOO.util.Connect.asyncRequest("GET", "/" + intl + "/tour", callback);
+    tourFallback = true;
+ } else {
+ content.innerHTML = "CONNECTION FAILED!";
+ content.style.visibility = "visible";
+ }
+ }
+}
+
+ // Show the Panel
+ YAHOO.OpenId.tour.show();
+
+ // Connect to our data source and load the data
+ intl = "us";
+ var conn = YAHOO.util.Connect.asyncRequest("GET", "/" + intl + "/tour", callback);
+}
+
+var dispId = "pgoverview";
+YAHOO.OpenId.closeTour = function() {
+    document.getElementById('tourDiv').style.visibility = 'hidden';
+    document.getElementById('prevbtn').style.visibility = 'hidden';
+    document.getElementById('nextbtn').style.visibility = 'hidden';
+    YAHOO.OpenId.tour.hide();
+    dispId = "pgoverview";
+};
+
+YAHOO.OpenId.checkKey = function(e) {
+    var key = (window.event) ? event.keyCode : e.keyCode;
+    if (key == 13) {
+        YAHOO.OpenId.closeTour();
+    }
+}
+//tour buttons functionality
+YAHOO.OpenId.showNext = function() {
+
+    switch (dispId) {
+
+    case "pgoverview":
+                document.getElementById('pgoverview').style.display = 'none';
+                document.getElementById('pghowto').style.display = 'block';
+                document.getElementById('pgsecurity').style.display = 'none';
+                YAHOO.util.Dom.replaceClass('overview','yellowbg','greybg');
+                YAHOO.util.Dom.replaceClass('howto','greybg','yellowbg');
+                YAHOO.util.Dom.replaceClass('scrty','yellowbg','greybg');
+                dispId = "pghowto";
+                document.getElementById('prevbtn').style.visibility = 'visible';
+                document.getElementById('nextbtn').style.visibility = 'visible';
+                break;
+
+
+    case "pghowto":
+                document.getElementById('pgoverview').style.display = 'none';
+                document.getElementById('pghowto').style.display = 'none';
+                document.getElementById('pgsecurity').style.display = 'block';
+                YAHOO.util.Dom.replaceClass('overview','yellowbg','greybg');
+                YAHOO.util.Dom.replaceClass('howto','yellowbg','greybg');
+                YAHOO.util.Dom.replaceClass('scrty','greybg','yellowbg');
+                dispId = "pgsecurity";
+                document.getElementById('nextbtn').style.visibility = 'hidden';
+                document.getElementById('prevbtn').style.visibility = 'visible';
+                break;
+    }
+
+}
+
+YAHOO.OpenId.showPrev = function() {
+
+    switch (dispId) {
+
+    case "pghowto":
+                document.getElementById('pgoverview').style.display = 'block';
+                document.getElementById('pghowto').style.display = 'none';
+                document.getElementById('pgsecurity').style.display = 'none';
+                YAHOO.util.Dom.replaceClass('overview','greybg','yellowbg');
+                YAHOO.util.Dom.replaceClass('howto','yellowbg','greybg');
+                YAHOO.util.Dom.replaceClass('scrty','yellowbg','greybg');
+                dispId = "pgoverview";
+                document.getElementById('prevbtn').style.visibility = 'hidden';
+                document.getElementById('nextbtn').style.visibility = 'visible';
+                break;
+
+    case "pgsecurity":
+                document.getElementById('pgoverview').style.display = 'none';
+                document.getElementById('pghowto').style.display = 'block';
+                document.getElementById('pgsecurity').style.display = 'none';
+                YAHOO.util.Dom.replaceClass('overview','yellowbg','greybg');
+                YAHOO.util.Dom.replaceClass('howto','greybg','yellowbg');
+                YAHOO.util.Dom.replaceClass('scrty','yellowbg','greybg');
+                dispId = "pghowto";
+                document.getElementById('prevbtn').style.visibility = 'visible';
+                document.getElementById('nextbtn').style.visibility = 'visible';
+                break;
+
+    }
+}
+
+YAHOO.OpenId.displayTourPg = function(divClicked) {
+
+    switch (divClicked.id) {
+
+    case "overview":
+        document.getElementById('pgoverview').style.display = 'block';
+        document.getElementById('pghowto').style.display = 'none';
+        document.getElementById('pgsecurity').style.display = 'none';
+        YAHOO.util.Dom.replaceClass('overview','greybg','yellowbg');
+        YAHOO.util.Dom.replaceClass('howto','yellowbg','greybg');
+        YAHOO.util.Dom.replaceClass('scrty','yellowbg','greybg');
+        dispId = "pgoverview";
+        document.getElementById('prevbtn').style.visibility = 'hidden';
+        document.getElementById('nextbtn').style.visibility = 'visible';
+        break;
+
+    case "howto":
+        document.getElementById('pgoverview').style.display = 'none';
+        document.getElementById('pghowto').style.display = 'block';
+        document.getElementById('pgsecurity').style.display = 'none';
+        YAHOO.util.Dom.replaceClass('overview','yellowbg','greybg');
+        YAHOO.util.Dom.replaceClass('howto','greybg','yellowbg');
+        YAHOO.util.Dom.replaceClass('scrty','yellowbg','greybg');
+        dispId = "pghowto";
+        document.getElementById('prevbtn').style.visibility = 'visible';
+        document.getElementById('nextbtn').style.visibility = 'visible';
+        break;
+
+    case "scrty":
+        document.getElementById('pgoverview').style.display = 'none';
+        document.getElementById('pghowto').style.display = 'none';
+        document.getElementById('pgsecurity').style.display = 'block';
+        YAHOO.util.Dom.replaceClass('overview','yellowbg','greybg');
+        YAHOO.util.Dom.replaceClass('howto','yellowbg','greybg');
+        YAHOO.util.Dom.replaceClass('scrty','greybg','yellowbg');
+        dispId = "pgsecurity";
+        document.getElementById('prevbtn').style.visibility = 'visible';
+        document.getElementById('nextbtn').style.visibility = 'hidden';
+        break;
+    }
+}
+
+
+
+</script>
+        <script>
+        toGreen = function() { YAHOO.util.Dom.replaceClass('primaryCTA', 'purpleCTA','greenCTA'); };
+        toPurple = function() { YAHOO.util.Dom.replaceClass('primaryCTA', 'greenCTA', 'purpleCTA'); };
+        </script>
+	
+<script src="https://s.yimg.com/zz/combo?/sf/assets/mbrlogin/js/3/login-yui-3.18.1-combined-min.js"></script>
+<script src="https://s.yimg.com/zz/combo?kx/yucs/uh3s/uh/414/js/uh-min.js&kx/yucs/uh2/common/145/js/jsonp-super-cached-min.js&kx/yucs/uh3s/uh/379/js/escregex-min.js&kx/yucs/uh3s/uh/376/js/persistence-min.js&kx/yucs/uh3s/uh/401/js/menu_group_plugin-min.js&kx/yucs/uh3s/uh/430/js/menu-plugin-min.js&kx/yucs/uh3s/uh/463/js/menu_handler_v2-min.js&kx/yucs/uh3s/uh/376/js/gallery-jsonp-min.js&kx/yucs/uh3s/uh/408/js/logo_debug-min.js&kx/yucs/uh3/uh/js/958/localeDateFormat-min.js&kx/yucs/uh3s/uh/409/js/timestamp_library-min.js&kx/yucs/uh3s/uh/376/js/usermenu_v2-min.js&kx/yucs/uh3/signout-link/10/js/signout-min.js&kx/yucs/uhc/rapid/50/js/uh_rapid-min.js&kx/yucs/uhc/meta/71/js/meta-min.js"></script>
+<script type='text/javascript' charset='utf-8'>YUI().use('node','node-focusmanager', function(Y) {});</script>
+	</body>
+</html>
+ 
+<script language=javascript>
+(function(){window.xzq_p=function(R){M=R};window.xzq_svr=function(R){J=R};function F(S){var T=document;if(T.xzq_i==null){T.xzq_i=new Array();T.xzq_i.c=0}var R=T.xzq_i;R[++R.c]=new Image();R[R.c].src=S}window.xzq_sr=function(){var S=window;var Y=S.xzq_d;if(Y==null){return }if(J==null){return }var T=J+M;if(T.length>P){C();return }var X="";var U=0;var W=Math.random();var V=(Y.hasOwnProperty!=null);var R;for(R in Y){if(typeof Y[R]=="string"){if(V&&!Y.hasOwnProperty(R)){continue}if(T.length+X.length+Y[R].length<=P){X+=Y[R]}else{if(T.length+Y[R].length>P){}else{U++;N(T,X,U,W);X=Y[R]}}}}if(U){U++}N(T,X,U,W);C()};function N(R,U,S,T){if(U.length>0){R+="&al="}F(R+U+"&s="+S+"&r="+T)}function C(){window.xzq_d=null;M=null;J=null}function K(R){xzq_sr()}function B(R){xzq_sr()}function L(U,V,W){if(W){var R=W.toString();var T=U;var Y=R.match(new RegExp("\\\\(([^\\\\)]*)\\\\)"));Y=(Y[1].length>0?Y[1]:"e");T=T.replace(new RegExp("\\\\([^\\\\)]*\\\\)","g"),"("+Y+")");if(R.indexOf(T)<0){var X=R.indexOf("{");if(X>0){R=R.substring(X,R.length)}else{return W}R=R.replace(new RegExp("([^a-zA-Z0-9$_])this([^a-zA-Z0-9$_])","g"),"$1xzq_this$2");var Z=T+";var rv = f( "+Y+",this);";var S="{var a0 = '"+Y+"';var ofb = '"+escape(R)+"' ;var f = new Function( a0, 'xzq_this', unescape(ofb));"+Z+"return rv;}";return new Function(Y,S)}else{return W}}return V}window.xzq_eh=function(){if(E||I){this.onload=L("xzq_onload(e)",K,this.onload,0);if(E&&typeof (this.onbeforeunload)!=O){this.onbeforeunload=L("xzq_dobeforeunload(e)",B,this.onbeforeunload,0)}}};window.xzq_s=function(){setTimeout("xzq_sr()",1)};var J=null;var M=null;var Q=navigator.appName;var H=navigator.appVersion;var G=navigator.userAgent;var A=parseInt(H);var D=Q.indexOf("Microsoft");var E=D!=-1&&A>=4;var I=(Q.indexOf("Netscape")!=-1||Q.indexOf("Opera")!=-1)&&A>=4;var O="undefined";var P=2000})();
+</script><script language=javascript>
+if(window.xzq_svr)xzq_svr('https://beap-bc.yahoo.com/');
+if(window.xzq_p)xzq_p('yi?bv=1.0.0&bs=(135lqkrnu(gid$qi.NGDk4LjEEP.HQWdUUtwHbMjAwMQAAAACbavc4,st$1507136696443759,si$4465551,sp$150002002,pv$1,v$2.0))&t=J_3-D_3');
+if(window.xzq_s)xzq_s();
+</script><noscript><img width=1 height=1 alt="" src="https://beap-bc.yahoo.com/yi?bv=1.0.0&bs=(135lqkrnu(gid$qi.NGDk4LjEEP.HQWdUUtwHbMjAwMQAAAACbavc4,st$1507136696443759,si$4465551,sp$150002002,pv$1,v$2.0))&t=J_3-D_3"></noscript><script>(function(c){var d="https://",a=c&&c.JSON,e="ypcdb",g=document,b;function j(n,q,p,o){var m,r;try{m=new Date();m.setTime(m.getTime()+o*1000);g.cookie=[n,"=",encodeURIComponent(q),"; domain=",p,"; path=/; max-age=",o,"; expires=",m.toUTCString()].join("")}catch(r){}}function k(m){return function(){i(m)}}function i(n){var m,o;try{m=new Image();m.onerror=m.onload=function(){m.onerror=m.onload=null;m=null};m.src=n}catch(o){}}function f(o){var p="",n,s,r,q;if(o){try{n=o.match(/^https?:\/\/([^\/\?]*)(yahoo\.com|yimg\.com|flickr\.com|yahoo\.net|rivals\.com)(:\d+)?([\/\?]|$)/);if(n&&n[2]){p=n[2]}n=(n&&n[1])||null;s=n?n.length-1:-1;r=n&&s>=0?n[s]:null;if(r&&r!="."&&r!="/"){p=""}}catch(q){p=""}}return p}function l(B,n,q,m,p){var u,s,t,A,r,F,z,E,C,y,o,D,x,v=1000,w=v;try{b=location}catch(z){b=null}try{if(a){C=a.parse(p)}else{y=new Function("return "+p);C=y()}}catch(z){C=null}if(y){y=null}try{s=b.hostname;t=b.protocol;if(t){t+="//"}}catch(z){s=t=""}if(!s){try{A=g.URL||b.href||"";r=A.match(/^((http[s]?)\:[\/]+)?([^:\/\s]+|[\:\dabcdef\.]+)/i);if(r&&r[1]&&r[3]){t=r[1]||"";s=r[3]||""}}catch(z){t=s=""}}if(!s||!C||!t||!q){return}A=g.URL||b.href||"";E=f(A);if(!E||g.cookie.indexOf("ypcdb="+n)>-1){return}if(t===d){q=m}u=0;while(F=q[u++]){o=F.lastIndexOf("=");if(o!=-1){D=F.substr(1+o);x=C[D];if(x){setTimeout(k(t+F+x),w);w+=v}}}u=0;while(F=B[u++]){setTimeout(k(t+F),w);w+=v}setTimeout(function(){j(e,n,E,86400)},w)}function h(){l(['ads.yahoo.com/get-user-id?ver=2&s=800000004&type=redirect&ts=1507136696&sig=7d129b6a7b39a69c','ads.yahoo.com/get-user-id?ver=2&s=800000006&type=redirect&ts=1507136696&sig=007bb8aa928f02fb'],'37cae4d4426c243fdd83170a14529b43',['csync.flickr.com/csync?ver=2.1','csync.yahooapis.com/csync?ver=2.1'],['csync.flickr.com/csync?ver=2.1','csync.yahooapis.com/csync?ver=2.1'],'{"2.1":"&id=23351&value=08si1d1pgn55a%26o%3d3%26f%3d6z&optout=&timeout=1507136696&sig=11gee18ge"}')}if(c.addEventListener){c.addEventListener("load",h,false)}else{if(c.attachEvent){c.attachEvent("onload",h)}else{c.onload=h}}})(window);
+</script>
+<!-- oid03.member.bf1.yahoo.com Wed Oct  4 17:04:56 UTC 2017 -->

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="MOnPMZKo_gmKqZgcnzortlWhXu0qUWvmbNAeWx84v9I" />
+  <link rel="apple-touch-icon-precomposed" href="../static/images/apple-touch-icon-precomposed.png">
+  <title>YQL - Yahoo Developer Network</title>
+
+  <link rel="shortcut icon" href="https://s.yimg.com/rz/l/favicon.ico"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://s.yimg.com/zz/combo?oo/fe/css/codemirror-nomq-min_d170dcce5.css&oo/fe/css/pure-nomq-min_8d0d0c293.css&oo/fe/css/main-nomq-min_3f1aaa2f9.css&oo/fe/css/side-menu-nomq-min_3e64d78b8.css">
+<link rel="stylesheet" href="/static/css/featherlight.min.css">
+<link rel="stylesheet" href="https://s.yimg.com/zz/combo?oo/fe/css/less-styles-nomq-min_7ed7cdf19.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://s.yimg.com/zz/combo?oo/fe/css/codemirror-min_93ef46ec0.css&oo/fe/css/pure-min_34c07d9c0.css&oo/fe/css/main-min_068601b24.css&oo/fe/css/side-menu-min_d3dd0d83d.css&oo/fe/css/featherlight.min_2802ef65c.css&oo/fe/css/less-styles-min_c0c48fb1c.css">
+  <!--<![endif]-->
+
+  <script src="https://s.yimg.com/zz/combo?oo/fe/js/vendor/jquery213_min-min_773f3c5d8.js&oo/fe/js/vendor/jquery-cookie-min_102a59720.js&oo/fe/js/vendor/featherlight_min-min_53715450d.js&oo/fe/js/vendor/slick_min-min_8fd43fbed.js&oo/fe/js/vendor/scrollReveal_min-min_2f50a8cc6.js&oo/fe/js/vendor/codemirror-compressed-min_cab99a4b0.js"></script>
+
+  
+  <script src="https://yui-s.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+  <script>YUI.applyConfig({ combine: true, comboBase: 'https://yui-s.yahooapis.com/combo?' });</script>
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86392702-1', 'auto');
+      ga('require', 'outboundLinkTracker');
+      ga('send', 'pageview');
+
+  </script>
+  <script src="/static/js/autotrack.js"></script>
+</head>
+
+<body class="yui3-skin-sam">
+<div id="layout">
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+
+  <!-- Check if there is custom header data -->
+    <div class="page-head-search">
+      <a href="/"><div class="logo-container"></div></a>
+      <div class="head-controls">
+        <form id="search-form" action="/find/" method="GET" autocomplete="off">
+          <input id="search-input" name="q" placeholder="">
+          <button type="submit" class="pure-button search-ydn"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    
+      <div class="head-right-controls">
+        <a href="/everything.html">Products</a>
+        <a id="myapps-dropdown" >My Apps <span class="caret"></span></a>
+            <div class="user-account">
+              <img class="pic-id my-id" src="https://s.yimg.com/dh/ap/social/profile/profile_b64.png">
+    
+              <a href="https://login.yahoo.com/config/login?.done=">Sign In</a>
+            </div>
+        <a id="language-dropdown"><span class="flag-icon flag-icon-us"></span> <span class="caret"></span></a>
+      </div>
+    
+      <div id="language-overlay" class="yui3-overlay-loading">
+        <div class="pointer"></div>
+        <ul>
+          <li><a class='rapidnofollow' data-lang="en-US" href="#"><span class="flag-icon flag-icon-us"></span> English (U.S.)</a></li>
+          <li><a class='rapidnofollow' data-lang="zh-Hant-HK" href="#"><span class="flag-icon flag-icon-hk"></span> 中文(香港)</a></li> 
+          <li><a class='rapidnofollow' data-lang="zh-Hant-TW" href="#"><span class="flag-icon flag-icon-tw"></span> 中文(台灣)</a></li> 
+        </ul>
+      </div>
+    
+    
+      <div id="apps-overlay" class="yui3-overlay-loading">
+        <div class="pointer"></div>
+        <ul>
+          <li><a href="/apps">YDN Apps</a></li>
+          <li><a href="https://dev.flurry.com">Flurry Apps</a></li>
+          <li><a href="/search-sdk/apps">Search SDK Apps</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <script>
+      var BACKSPACE_KEY = 8;
+      var DELETE_KEY = 46;
+    
+      var searchForm = document.querySelector('#search-form');
+      var searchScopeName = document.querySelector('#search-scope-name');
+      var searchScopeUrl = document.querySelector('#search-scope-url');
+      var searchInput = document.querySelector('#search-input');
+      var searchScope = document.querySelector('.search-scope');
+    
+      if (searchScope) {
+        var paddingOffset = searchScope.offsetWidth + 40;
+        searchInput.style.paddingLeft = paddingOffset + 'px';
+      }
+    
+      searchInput.addEventListener('keydown', handleSearchKeyDown);
+      searchInput.addEventListener('blur', handleSearchLoseFocus);
+      searchInput.addEventListener('focus', handleSearchFocus);
+      searchInput.addEventListener('blur', handleLoseFocus);
+    
+      function handleSearchFocus(event) {
+        searchForm.style.width = "375px";
+      }
+    
+      function handleLoseFocus(event) {
+        searchForm.style.width = "250px";
+      }
+    
+      window.addEventListener('resize', function(event){
+        searchForm.style.width = "250px";
+      });
+    
+      function handleSearchKeyDown(event) {
+        var searchText = document.querySelector('#search-input').value;
+        searchScope = document.querySelector('.search-scope');
+    
+        // When search bar is empty and Backspace or Delete keys are pressed, then
+        // remove contextual scope from the search bar.
+        // Note: Brightroll DSP is locked into contextual search.
+        // Note: A.I. Studio is locked into contextual search.
+        if (!searchText.length && searchScopeName.value !== 'Brightroll DSP' && searchScopeName.value !== 'A.I. Studio' && (event.keyCode === BACKSPACE_KEY || event.keyCode === DELETE_KEY)) {
+          searchScope.style.display = 'none';
+          searchInput.style.paddingLeft = 10 + 'px';
+          searchScopeName.disabled = true;
+          searchScopeUrl.disabled = true;
+        }
+      }
+    
+      // Reset contextual search when the search bar loses focus and it's empty.
+      function handleSearchLoseFocus(event) {
+        var searchText = document.querySelector('#search-input').value;
+    
+        // Restore contextual label if it has been removed via the backspace key
+        // but the text field is still empty.
+        if (searchScope && !searchText.length) {
+          searchScope.style.display = 'block';
+          searchInput.style.paddingLeft = paddingOffset + 'px';
+          searchScopeName.disabled = false;
+          searchScopeUrl.disabled = false;
+        }
+      }
+    
+      // Update locale setting from language dropdown
+      $('a[data-lang]').click(function(e) {
+        e.preventDefault();
+    
+        // Load PH cookie and convert it to object.
+        // If PH cookie is not available, create an empty object.
+        var locale = $(this).data('lang');
+        var phCookie = $.cookie('PH');
+        var phCookieObject = phCookie ? queryStringToObject(phCookie) : {};
+    
+        // Update locale.
+        phCookieObject.l = locale;
+    
+        // Set new PH cookie.
+        $.cookie.raw = true;
+    
+        $.cookie('PH', $.param(phCookieObject), { path: '/', domain: 'yahoo.com' });
+    
+        location.reload();
+      });
+    
+      function queryStringToObject(query) {
+        var qs = {};
+        var vars = query.split('&');
+    
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split('=');
+          pair[0] = decodeURIComponent(pair[0]);
+          pair[1] = decodeURIComponent(pair[1]);
+          if (typeof qs[pair[0]] === 'undefined') {
+            qs[pair[0]] = pair[1];
+          } else if (typeof qs[pair[0]] === 'string') {
+            qs[pair[0]] = [qs[pair[0]], pair[1]];
+          } else {
+            qs[pair[0]].push(pair[1]);
+          }
+        }
+        return qs;
+      }
+    
+    </script>
+  <a href="/find/" class="mobile-search-icon"></a>
+
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+  <ul>
+    <li class="light-bkg mobile-menu-only">
+      <a href="https://developer.yahoo.com/apps">My Apps</a></li>
+
+      <li class="pure-menu-heading"><a href="/everything.html">Products</a></li>
+
+
+        <li class=" selected"><a href="/yql/" title="YQL">YQL</a></li>
+        
+        <li class=""><a href="/yql/console/" title="YQL Console">YQL Console</a></li>
+        
+        <li class=""><a href="https://developer.yahoo.com/apps/create/" title="Create an App">Create an App</a></li>
+        
+        <li class=""><a href="#get-started" title="Get Started">Get Started</a></li>
+        
+        <li class=""><a href="/yql/guide/" title="Documentation">Documentation</a></li>
+        
+        <li class=""><a href="/forums#/categories/yql" title="Forum">Forum</a></li>
+        
+        <li class=""><a href="/yql/faq/" title="FAQ">FAQ</a></li>
+        
+
+
+
+
+      <li class="light-bkg mobile-menu-only">
+        <a href="https://login.yahoo.com/config/login?.done=">Sign In</a>
+      </li>
+    <li class="light-bkg mobile-menu-only">
+      <a href="#">Language:</a>
+      <ul>
+        <li><a data-lang="en-US" href="#"><span class="flag-icon flag-icon-us"></span> English (U.S.)</a></li>
+        <li><a data-lang="zh-Hant-HK" href="#"><span class="flag-icon flag-icon-hk"></span> 中文(香港)</a></li> 
+        <li><a data-lang="zh-Hant-TW" href="#"><span class="flag-icon flag-icon-tw"></span> 中文(台灣)</a></li> 
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script>
+  // Update locale setting from language dropdown
+  $('a[data-lang]').click(function(e) {
+    e.preventDefault();
+
+    // Load PH cookie and convert it to object.
+    // If PH cookie is not available, create an empty object.
+    var locale = $(this).data('lang');
+    var phCookie = $.cookie('PH');
+    var phCookieObject = phCookie ? queryStringToObject(phCookie) : {};
+
+    // Update locale.
+    phCookieObject.l = locale;
+
+    // Set new PH cookie.
+    $.cookie.raw = true;
+
+    $.cookie('PH', $.param(phCookieObject), { path: '/', domain: 'yahoo.com' });
+
+    location.reload();
+  });
+
+  function queryStringToObject(query) {
+    var qs = {};
+    var vars = query.split('&');
+
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      pair[0] = decodeURIComponent(pair[0]);
+      pair[1] = decodeURIComponent(pair[1]);
+      if (typeof qs[pair[0]] === 'undefined') {
+        qs[pair[0]] = pair[1];
+      } else if (typeof qs[pair[0]] === 'string') {
+        qs[pair[0]] = [qs[pair[0]], pair[1]];
+      } else {
+        qs[pair[0]].push(pair[1]);
+      }
+    }
+    return qs;
+  }
+</script>
+
+
+    </div>
+
+    <div id="main">
+      <a href="/" class="logo-phone"></a>
+      <link href="https://s.yimg.com/oo/cms/products/site/assets/css/landing_28692d7ff.css" type="text/css" rel="stylesheet" />
+<style>
+    .pure-g.landing-promo {
+        background: url(https://s.yimg.com/oo/cms/products/site/yql/images/landing_boss_655670355.png) no-repeat right bottom;
+        background-color: #404090;
+        background-size: auto 100%;
+        margin-bottom: 1.45em;
+    }
+    .landing-promo .pure-u-1 {
+        background-color: rgba(61, 47, 85, 0.85);
+    }
+    @media screen and (min-width: 48em){
+        .intro .g-content {
+            width: 60%;
+        }
+        .landing-promo .pure-u-1 {
+            background-color: transparent;
+        }
+    }
+    .btn-test {
+        text-align: right;
+    }
+</style>
+
+<div class="content">
+    <div class="pure-g intro landing-promo">
+        <div class="">
+            <div class="pure-u-1">
+                <div class="g-content">
+                    <h1 menuSelect="Weather">Yahoo Query Language (YQL)</h1>
+                    <p>
+                        The YQL (Yahoo! Query Language) platform enables you to query, filter, and combine data across the web through a single interface. It exposes a SQL-like syntax that is both familiar to developers and expressive enough for getting the right data.
+                    </p>
+                    <p><a href="/yql/console/" class="pure-button pure-button-primary">Try YQL Console</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="pure-g">
+        <div class="pure-u-1">
+            <div class="pure-g-r features bkg-box">
+                <div class="pure-u-1-3">
+                    <div class="g-content">
+                        <h3>Access Data Across the Web</h3>
+                        <div class="">
+                            Select, filter, sort and join data across web services. You can even insert, update and delete from YQL.
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="g-content">
+                        <h3>Easily Scrape HTML</h3>
+                        <div class="">
+                            Scrape HTML from the web and turn it into data to reuse. Create an API where one doesn’t exist.
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="g-content">
+                        <h3>Transform XML to JSON</h3>
+                        <div class="">
+                            Use YQL to convert XML to JSON & vice versa. Access atom, rss, micro formats and more. You can even load CSV files from anywhere.
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="g-content">
+                        <h3>Speed up Your App</h3>
+                        <div class="">
+                            With YQL, apps run faster with fewer lines of code and a smaller network footprint. Batch multiple HTTP requests into a single request.
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="g-content">
+                        <h3>Mashup Data Sources</h3>
+                        <div class="">
+                            Mix and match data from disparate sources using YQL sub-selects.
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="g-content">
+                        <h3>Extend it</h3>
+                        <div class="">
+                            Define Open Data Tables to access any data sources other than Yahoo Web Services
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <div class="">
+                <h2 class="outside-bkg-box">Sample YQL Response</h2>
+                    <div id="rest-api" class="tab bkg-box">
+                        <div class="pure-g-r">
+                            <div class="sample-want pure-u-1-3">
+                                <div class="g-content">
+                                    <h3 class="content-subhead">Examples</h3>
+                                        <ul id="exampleQueries">
+                                            <li class="selected">
+                                                <div>
+                                                    <a href="" title="select * from html where url='http://en.wikipedia.org/wiki/Yahoo' and xpath='//table/*[contains(.,&quot;Founder&quot;)]//a'" class='rapidnofollow'>Extract HTML using XPath</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <a href="" title="select * from rss where url in (select title from atom where url='http://spreadsheets.google.com/feeds/list/pg_T0Mv3iBwIJoc82J1G8aQ/od6/public/basic')" class='rapidnofollow'>Aggregate and filter multiple rss feeds</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <a href="" title="select * from csv where url='http://download.finance.yahoo.com/d/quotes.csv?s=YHOO,GOOG,AAPL&f=sl1d1t1c1ohgv&e=.csv' and columns='symbol,price,date,time,change,col1,high,low,col2'" class='rapidnofollow'>Convert CSV to JSON or XML</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <a href="" title="SELECT * FROM data.html.cssselect WHERE url='http://www.w3.org/' AND css='ul.theme'" class='rapidnofollow'>Extract HTML via CSS Selectors</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <a href="" title="SELECT * from applinks WHERE url IN ('movietickets.com', 'pinterest.com')" class='rapidnofollow'>Get AppLinks meta data</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <a href="" title="select Status.presence from xml where url = 'http://mystatus.skype.com/pjjdonnelly.xml' and Status.presence.lang = 'en'" class='rapidnofollow'>Parse any XML source</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="sample-response pure-u-2-3">
+                                    <div class="g-content">
+                                        <h3 class="content-subhead">Responses</h3>
+                                        <form id="responses" class="pure-form">
+                                            <label for="option-JSON" class="pure-radio">
+                                                <input id="option-JSON" type="radio" name="dataTypeRadios" value="JSON" checked>
+                                                JSON
+                                            </label>
+                                            <label for="option-XML" class="pure-radio">
+                                                <input id="option-XML" type="radio" name="dataTypeRadios" value="XML" >
+                                                XML
+                                            </label>
+                                            <p>
+                                            </p>
+                                            <div class="pure-g">
+                                                <div class="pure-u-1-2">
+                                                    <label class="yql-label">YQL Query<span class="yql-help">?</span>
+                                                    </label>
+                                                    <div id="yql-overlay" class="yui3-overlay-loading">
+                                                        <div class="overlay-close">+</div>
+                                                        YQL (Yahoo Query Language) is a SQL-like language that lets you query, filter, and join data from Web services. With YQL, you can access data across the Internet through simple REST requests, eliminating the need to learn how to use different APIs.</div>
+                                                </div>
+                                                <div class="pure-u-1-2 yql-link">
+                                                    <label>
+                                                        <a href="https://developer.yahoo.com/yql/console/" id="yqlLink" target="_blank">YQL Console</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <input id="query" type="text" spellcheck="false" class="query" value="select * from rss where url in (select title from atom where url='http://spreadsheets.google.com/feeds/list/pg_T0Mv3iBwIJoc82J1G8aQ/od6/public/basic')"/>
+                                                <div class="btn-test">
+                                                    <button class="pure-button" id="testQuery">Test</button>
+                                                </div>
+                                            </div>
+                                            <div class="response-container">
+                                                <label>Response</label>
+                                                <textarea spellcheck="false" class="response-raw" id="yqlresponse" style="word-wrap: normal;white-space: pre"></textarea>
+                                            </div>
+                                        <p></p>
+                                        <label>Endpoint</label>
+                                        <input id="endpoint" type="text" value=""/>
+                                        </form>
+                                    </div>
+                                </div> <!-- end .sample-response -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end of pure-g section of sample response -->
+			<div class="pure-g bkg-box">
+			    <div class="users pure-u-1">
+			        <div class="g-content">
+                        <div class="head-left">
+                            <h4>Who's using YQL</h4>
+                        </div>
+			            <div class="pure-g-r">
+			                <div class="pure-u-1-5"><div class="v-cent"></div><img src="https://s.yimg.com/oo/cms/products/site/yql/images/pinterest_ef4b809df.png" alt=""></div>
+		                    <div class="pure-u-1-5"><div class="v-cent"></div><img src="https://s.yimg.com/oo/cms/products/site/yql/images/samsung_29d1a04f2.png" alt=""></div>
+		                    <div class="pure-u-1-5"><div class="v-cent"></div><img src="https://s.yimg.com/oo/cms/products/site/yql/images/nytimes_d0ef2371b.jpg" alt=""></div>
+		                    <div class="pure-u-1-5"><div class="v-cent"></div><img src="https://s.yimg.com/oo/cms/products/site/yql/images/stackoverflow_f9f529611.png" alt=""></div>
+		                    <div class="pure-u-1-5"><div class="v-cent"></div><img src="https://s.yimg.com/oo/cms/products/site/yql/images/sharethis_0687103b7.png" alt=""></div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+            <div class="pure-g bkg-box">
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <h2>
+                            <span class="scroll-spot" id="attibutionguidelines"></span>
+                            Attribution Guidelines
+                        </h2>
+                        <p>Thank you for being a part of Yahoo Developer Network community, that helps Yahoo to be part of your users’ daily habits. Please follow our <a href="/attribution/">Attribution Guidelines for Yahoo APIs</a> wherever you use YQL.
+                        </p>
+                    </div>
+                </div>
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <h2>
+                            <span class="scroll-spot" id="ratelimits"></span>
+                            Rate Limits
+                        </h2>
+                        <p>
+                            Use of the YQL should not exceed reasonable request volume. Access is limited as below:
+                            <ul>
+							<li> Per application limit (identified by your Access Key): 100,000 calls per day </li>
+							<li> Per IP limits: /v1/public/*: 2,000 calls per hour; /v1/yql/*: 20,000 calls per hour </li>
+							</ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- steps -->
+            <div class="pure-g">
+                <div class="pure-u-1">
+                    <div class="">
+                        <h2 class="outside-bkg-box">
+                            <span class="scroll-spot" id="get-started"></span>
+                            Get Started
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="pure-g steps bkg-box">
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <label class="step-num">1</label>
+                        <h2 class="content-subhead">Check out YQL Console</h2>
+                        Explore the YQL platform directly in your browser. Build and test your YQL queries easily.
+                                                <div class="get-key-group">
+                            <a href="/yql/console/" class="pure-button pure-button-primary">Try YQL Console</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <label class="step-num">2</label>
+                        <h2 class="content-subhead">Get your API Keys</h2>
+                        <a href="https://developer.yahoo.com/apps/create/">Create an application</a>. This will give you Consumer Key and Secret which are needed for using the API.
+                    </div>
+                </div>
+                <div class="pure-u-1 step-two">
+                    <div class="g-content">
+                        <label class="step-num">3</label>
+                        <h2 class="content-subhead">Copy Example Code</h2>
+                         We have code examples in different languages below to get you up and running as quickly as possible. Replace your key and secret in the code below.
+                        <div class="snipet-tabview yui3-tabview-loading">
+                            <ul>
+                                <li><a href="#js">JS</a></li>
+                                <li><a href="#ios">iOS</a></li>
+                                <li><a href="#nodejs">Node.js</a></li>
+                                <li><a href="#php">PHP</a></li>
+                                <li><a href="#python">Python</a></li>
+                            </ul>
+                            <div>
+                                <div id="js">
+                                    <script src="https://gist.github.com/ydn/68bcc1338a80fbe8b2c0.js?file=yql.js"></script>
+                                </div>
+
+                                <div id="ios">
+                                    <script src="https://gist.github.com/ydn/68bcc1338a80fbe8b2c0.js?file=yql.m"></script>
+                                </div>
+
+                                <div id="nodejs">
+                                    <script src="https://gist.github.com/ydn/68bcc1338a80fbe8b2c0.js?file=node-yql.js"></script>
+                                </div>
+
+                                <div id="php">
+                                    <script src="https://gist.github.com/ydn/68bcc1338a80fbe8b2c0.js?file=yql.php"></script>
+                                </div>
+
+                                <div id="python" >
+                                    <script src="https://gist.github.com/ydn/68bcc1338a80fbe8b2c0.js?file=yql.py"></script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of tabview control -->
+                    </div>
+                </div>
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <label class="step-num">4</label>
+                        <h2 class="content-subhead">Build and Launch</h2>
+                        When your app is ready to use, tell other developers what you have built in our <a href="/forum/YQL">Forums</a>.
+                    </div>
+                </div>
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <label class="step-num wild">&nbsp;</label>
+                        <h2 class="content-subhead">What's Next?</h2>
+                        <ul>
+                            <li>Complete the <a href="/yql/guide/two-minute-tutorial.html">Two-Minute Tutorial.</a></li>
+                            <li>Check out our <a href="/yql/guide/">documentation</a></li>
+                            <li>Read <a href="/attribution/">Yahoo API Attribution Guidelines</a></li>
+                            <li>Explore other <a href="/everything.html">Yahoo APIs</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- end .steps .bkg-box -->
+            <div class="pure-g bkg-box">
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <h2>
+                            <span class="scroll-spot" id="attibutionguidelines"></span>
+                            Using YQL for Commercial and Non-Commercial Applications
+                        </h2>
+                        <p>Our goal is to make it easy for you to use YQL in the widest possible range of applications. Please read the notice and usage limits described below for more information. If you have additional questions, please read the <a href="https://info.yahoo.com/legal/us/yahoo/api/api-2140.html">YQL Terms of Service</a>.</p>
+                        <p><b>Notice</b></p>
+                        <ul>
+                        <li> The YQL Service can be used for commercial purposes without prior approval from Yahoo. </li>
+                        <li> Developers using the YQL Service fetching data from a content provider need to conform to the Terms of Service of the content provider. </li>
+                        <li> Data available on the Yahoo! network (e.g., Finance, Weather) is not approved for commercial usage via YQL, unless mentioned otherwise in the Terms of Service. </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <h2>
+                            <span class="scroll-spot" id="additionalnotes"></span>
+                            Additional Notes
+                        </h2>
+                        <ul>
+                        <li> All rates and terms of service are subject to change. </li>
+                        <li> You may also be subject to the underlying rate limits of other Yahoo and 3rd party web services. </li>
+                        <li> YQL relies on the correct operation of the web services and content providers it accesses. </li>
+                        <li> Open Source content/data tables are not certified by Yahoo. </li>
+                        <li> Please remember that it is your responsibility to obtain the necessary permissions from the content or API providers to use their content or services, separate from your use of YQL: neither Yahoo nor your use of YQL cover those permissions. </li>
+                        <li> Content or API providers can opt out or restrict YQL access to their data by following the instructions in <a href="/yql/provider/">YQL for Content and API Providers</a>. </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pure-u-1">
+                    <div class="g-content">
+                        <p>Please use the <a href="/forum/YQL/">YQL Forum</a> for additional information or questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .content -->
+
+
+<script>
+YUI({combine: true}).use('node', 'transition', 'event-delegate', 'tabview', 'overlay', 'yql', 'escape', function(Y) {
+
+
+    var yqlLabel = Y.one('.yql-label');
+
+    // rest tab select different example items highlight
+    Y.one('.sample-want ul').delegate('click', function(e) {
+        e.preventDefault();
+        Y.all('.sample-want ul li').removeClass('selected');
+        e.currentTarget.addClass('selected');
+    }, 'li');
+
+    var tabview = new Y.TabView({
+        srcNode: '.snipet-tabview'
+    });
+
+    tabview.render();
+
+
+
+    // Create an overlay from markup
+    var yqlOverlay = new Y.Overlay({
+        srcNode:"#yql-overlay",
+        width: "20em",
+        zIndex: 10
+    });
+
+    yqlOverlay.set("align", {
+        node: "#query",
+        points: [Y.WidgetPositionAlign.TL, Y.WidgetPositionAlign.TL] //[overlay's Top Center, node's Top Center]
+    });
+
+    yqlLabel.on('mouseover', function(){
+        yqlOverlay.render();
+        yqlOverlay.show();
+    });
+    yqlLabel.on('click', function(){
+        yqlOverlay.render();
+        yqlOverlay.show();
+    });
+    yqlLabel.on('mouseleave', function(){
+        yqlOverlay.hide();
+    });
+    Y.one('#yql-overlay .overlay-close').on('click', function(){
+        yqlOverlay.hide();
+    });
+    Y.one('#endpoint').on('focus', function(e) {
+        e.target.select();
+    });
+    Y.one('#endpoint').on('click', function(e) {
+        e.target.select();
+    });
+
+    function unescapeHtml(safe) {
+        return safe.replace(/&nbsp;/g, ' ')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&#039;/g, "'")
+            .replace(/&#x2F;/g, "/")
+            .replace(/&amp;/g, '&');
+    }
+
+    function cook(str,allow) {
+        var tmp = Y.Escape.html(str);
+        if (allow) { tmp = tmp.replace(/&amp;nbsp;/g, '&nbsp;'); }
+        return tmp;
+    }
+
+    function setEndpoint(query,isJson) {
+        var encodedQ = encodeURIComponent(query);
+        var endpointFormat = (isJson) ? "json" : "xml";
+        Y.one("#endpoint").set("value", "https://query.yahooapis.com/v1/public/yql?q=" + encodedQ + "&format=" + endpointFormat + "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+    }
+
+    function setConsoleLink(query) {
+        var encodedQ = encodeURIComponent(query);
+        Y.one("#yqlLink").setAttribute("href", "https://developer.yahoo.com/yql/console/?q=" + encodedQ + "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+    }
+
+    // YQL Response CodeMirror
+    var yqlResponseCodeMirror = CodeMirror.fromTextArea(Y.one('#yqlresponse').getDOMNode(), {
+        tabSize: 2,
+        lineWrapping: true
+    });
+
+    function runQuery(query) {
+        var query = (query) ? query : Y.one("#query").get('value');
+        var isJsonChecked = Y.one("#option-JSON").get("checked");
+        var format = (isJsonChecked) ? "json" : "console";
+
+        if (isJsonChecked) {
+            yqlResponseCodeMirror.setOption('mode', 'application/ld+json');
+        } else {
+            yqlResponseCodeMirror.setOption('mode', 'xml');
+        }
+
+        yqlResponseCodeMirror.setValue('Loading Data...');
+
+        Y.one("#endpoint").set("value", "");
+
+        var q = new Y.YQLRequest(query, function(r) {
+            if (isJsonChecked) {
+                var niceJSON = JSON.stringify(r,null,'&nbsp;');
+                var yqlResult = cook(niceJSON,"spaceallow");
+            } else {
+                var yqlResult = r.xml;
+            }
+
+            yqlResponseCodeMirror.setValue(unescapeHtml(yqlResult));
+
+            setEndpoint(query,isJsonChecked);
+            setConsoleLink(query);
+
+        }, { format: format }, { proto: 'https' });
+
+        q.send();
+    }
+
+    Y.all('#responses input[type=radio]').on('change', function(e) {
+        e.preventDefault();
+        runQuery();
+    });
+
+    Y.one('#testQuery').on('click', function(e) {
+        e.preventDefault();
+        runQuery();
+    });
+
+    Y.one('#exampleQueries').delegate('click', function(e) {
+        e.preventDefault();
+        Y.one('#query').set('value', this.get('title'));
+        runQuery();
+    }, 'div a');
+
+    Y.on('domready', function() {
+        var initQuery = Y.one("#exampleQueries li.selected > div > a").get('title');
+        Y.one('#query').set('value', initQuery);
+        runQuery();
+
+
+    });
+
+});
+</script>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<!-- Check for footer data -->
+  <div id="foot" class="footer">
+  	<div class="container">
+  	  <div class="pure-g-r">
+  	    <div class="pure-u-3-4">
+  	      <ul class="footer-links">
+  			  <li><a href="/everything.html" alt="Products">Products</a></li>
+  			  <li><a href="http://yahoodevelopers.tumblr.com" alt="Blog">Blog</a></li>
+  			  <li><a href="https://developer.yahoo.com/apps" alt="My Apps">My Apps</a></li>
+  			  <li><a href="https://developer.yahoo.com/jobs" alt="Jobs">Jobs</a></li>
+  			  <li><a href="https://info.yahoo.com/privacy/us/yahoo/devel/details.html" alt="Privacy">Privacy</a></li>
+  			  <li><a href="https://info.yahoo.com/legal/us/yahoo/api/api-2140.html" alt="Terms">Terms</a></li>
+  			  <li><a href="/policies" alt="Policies">Policies</a></li>
+  			  <li>
+  			    <ul class="footer-social">
+  			      <li><a title="Follow us on GitHub" href="https://github.com/yahoo"><i class="fa fa-github"></i></a></li>
+  			      <li><a title="Follow us on Facebook" href="https://www.facebook.com/yahoodevelopernetwork"><i class="fa fa-facebook"></i></a></li>
+  			      <li><a title="Follow us on Twitter" href="https://twitter.com/ydn"><i class="fa fa-twitter"></i></a></li>
+  			      <li><a title="Follow us on Tumblr" href="http://yahoodevelopers.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+  			      <li><a title="Follow us on YouTube" href="https://www.youtube.com/user/ydntheater"><i class="fa fa-youtube-play"></i></a></li>
+  			    </ul>
+  			  </li>
+  			</ul>
+  	    </div>
+  	    
+  	    <div class="pure-u-1-4">
+  		    <div id="mobileappholderz">
+              <a href="https://www.oath.com"><img src="/static/images/ydnoath.png" width="228px" height="40px"></a>
+  				</div>
+  			</div>
+  
+  	  </div>
+  	</div>
+  </div>
+<script src="https://s.yimg.com/zz/combo?oo/fe/js/polyfills/assign-min_2edd34b46.js&oo/fe/js/navigation-min_bed1f5851.js&oo/fe/js/utils-min_b3b65e945.js&oo/fe/js/admin-min_96aae1501.js&oo/fe/js/bundle-min_de7c37f8c.js"></script>
+
+    <script>
+      YUI().use('node', 'event', 'overlay', function(Y) {
+        var head = Y.one('.page-head-search'),
+          url = document.URL,
+          fragment = url.substring(url.indexOf('#')),
+          pathAndFragment = '/' + url.split('/').splice(3).join('/'), // i.e., /gemini/guide/gsg.html#integrating-oauth
+          path = (pathAndFragment.indexOf('#') > -1) ? pathAndFragment.substring(0, pathAndFragment.indexOf('#')) : pathAndFragment, // i.e., /gemini/guide/gsg.html
+          // the menu li container that matches the scope of menu items on the current page
+          menuPageRoot,
+          languageLeaveWait,
+          userLeaveWait, // a timeout for mouseleave from header's user id and pic elements
+          menuIsExpanded = false,
+          overMenu = false, // is cursor over the user id or pic
+          userOverlay, // menu overlay that pops up from user id or pic
+          appsOverlay, // menu overlay that pops up from My Apps link
+          languageOverlay, // menu overlay that pops up from language dropdown link
+          searchOverlay,
+          headToMenuArr = [],
+          $headings,
+          menuList = Y.all('.pure-menu a'),
+          menuLiList = Y.all('.pure-menu li'),
+          pageMenuList, // only the menu items that have heads on this page (used for scrolling highlight)
+          isThrottled = false,
+          throttleDuration = 100; // ms
+    
+          if (Y.one('.feedback_close')) {
+            Y.one('.feedback_close').on('click', function(e) {
+              Y.one('.feedback').remove();
+            });
+          }
+    
+          // allows the menu to slide in/out on mobile size screens
+          function slideMobileMenu() {
+            Y.one('#layout').toggleClass('active'); // the menu and page contents
+            Y.one('.pure-menu').toggleClass('active'); // the menu
+            Y.one('#menuLink').toggleClass('active'); // hamburger icon
+            Y.one('.footer').toggleClass('active'); // footer needs to slide too
+          }
+    
+          Y.one('#menuLink').on('click', function(e) {
+            e.preventDefault(); // without this, the first menu item can get triggered on a mobile device when the hamburger icon is clicked
+            setTimeout(function() {
+              slideMobileMenu();
+            }, 200);
+          });
+    
+          // set/remove box-shadow on head if scrolled
+          Y.one(document).on('scroll', function() {
+            if (window.scrollY > 5) {
+              head.addClass('head-shadow');
+            } else {
+              head.removeClass('head-shadow');
+            }
+          });
+    
+    
+          // My Apps Overlay Dropdown
+          appsOverlay = new Y.Overlay({
+            srcNode: "#apps-overlay",
+            zIndex: 10
+          });
+    
+          appsOverlay.render();
+          appsOverlay.hide();
+          appsOverlay.set("align", {
+            node: ".head-right-controls",
+            points: [Y.WidgetPositionAlign.TR, Y.WidgetPositionAlign.BR] //[overlay's Top Center, node's Top Center]
+          });
+    
+          // show the apps menu if mouse enters My Apps link
+          Y.one('.head-right-controls').delegate('mouseover', function(e) {
+            languageOverlay.hide();
+            appsOverlay.render();
+            appsOverlay.show();
+          }, '#myapps-dropdown');
+    
+          // when over My Apps menu, clear the timer
+          // that's waiting to remove the menu
+          Y.one('#apps-overlay').on('mouseover', function() {
+            clearTimeout(languageLeaveWait);
+            overMenu = true;
+          });
+    
+          // when cursor leaves My Apps,
+          // if it doesn't move over the menu within 1sec,
+          // hide the menu
+          Y.all('#myapps-dropdown').on('mouseleave', function(e) {
+            languageLeaveWait = setTimeout(function() {
+              if (overMenu === false) {
+                removeAppsOverlay(e);
+              }
+            }, 1000);
+          });
+    
+    
+          function removeAppsOverlay(e) {
+            appsOverlay.hide();
+            overMenu = false;
+          }
+    
+          Y.one('#apps-overlay').on('click', removeAppsOverlay);
+          Y.one('#apps-overlay').on('mouseleave', removeAppsOverlay);
+    
+          // Begin language overlay
+          languageOverlay = new Y.Overlay({
+            srcNode: "#language-overlay",
+            zIndex: 10
+          });
+    
+          languageOverlay.render();
+          languageOverlay.hide();
+          languageOverlay.set("align", {
+            node: ".head-right-controls",
+            points: [Y.WidgetPositionAlign.TR, Y.WidgetPositionAlign.BR] //[overlay's Top Center, node's Top Center]
+          });
+    
+          Y.one('.head-right-controls').delegate('mouseover', function(e) {
+            appsOverlay.hide();
+            languageOverlay.render();
+            languageOverlay.show();
+          }, '#language-dropdown');
+    
+    
+          // when cursor leaves My Apps,
+          // if it doesn't move over the menu within 1sec,
+          // hide the menu
+          Y.all('#language-dropdown').on('mouseleave', function(e) {
+            languageLeaveWait = setTimeout(function() {
+              if (overMenu === false) {
+                removeLanguageOverlay(e);
+              }
+            }, 1000);
+          });
+    
+    
+          function removeLanguageOverlay() {
+            languageOverlay.hide();
+            overMenu = false;
+          }
+    
+          Y.one('#language-overlay').on('click', removeLanguageOverlay);
+          Y.one('#language-overlay').on('mouseleave', removeLanguageOverlay);
+    
+          
+          function supportsSVG() {
+            return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
+          }
+    
+          if (!supportsSVG()) {
+            var imgs = document.getElementsByTagName('img');
+            var dotSVG = /\.svg$/;
+            for (var i = 0; i !== imgs.length; ++i) {
+              if (imgs[i].src.match(dotSVG) && imgs[i].dataAlternate) {
+                imgs[i].src = imgs[i].dataAlternate;
+              }
+            }
+          }
+    
+      }); // End YUI code
+    </script>
+
+<!-- Use default JavaScript -->
+
+
+<script src="https://s.yimg.com/ss/rapid-3.41.3.js"></script>
+<script>
+  var rapid = new YAHOO.i13n.Rapid({webworker_file: 'http://l.yimg.com/oo/fe/js/vendor/rapidworker-1-min_b8fccc270.js' ,spaceid:1197800063, tracked_mods:['layout']});
+</script>
+
+<script>  
+(function(){
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+      if ($(':header').length > 0 && $(':header').is(':visible') === false) {
+        var callout = $('div.g-content');
+        callout.first().prepend("<div class='admonition important' style='margin-top: 20px'><p class='first admonition-title'>Ad Blocker Detected</p><p class='last'>We've detected the use of an ad blocker. For the best viewing experience, we recommend that you disable your ad blocker.</p>");
+      }
+    }
+    test.remove();
+  }, 100);
+})();
+</script>
+
+<script>
+  (function() {
+    // Check if we're in gemini domain
+    if (window.location.href.indexOf('gemini-publishers-synd/docs/') > -1) {
+      console.log(window.location.href);
+      var callout = $('div.g-content');
+      callout.first().prepend("<div class='admonition important' style='margin-top: 20px'><p class='first admonition-title'>Deprication Warning</p><p class='last'>These docs have been deprecated. Please use <a href='https://developer.yahoo.com/flurry/docs/publisher/web/'>the documentation here</a>.</p>");
+    }
+  })();
+</script>
+
+</body>
+</html>

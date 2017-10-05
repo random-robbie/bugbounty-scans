@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+
+
+
+  <!-- Title, Twitter, and OpenGraph data
+================================================== -->
+
+  <meta name="twitter:site" content="@18F">
+  <meta name="twitter:creator" content="@18F">
+  <meta property="og:type" content="website" />
+
+  
+
+  
+
+  <!-- title, description, and image may change per-page, per-post -->
+  
+    <title>Your guide to launching software at 18F - Before you ship</title>
+    <meta property="og:title" content="Your guide to launching software at 18F - Before you ship" />
+  
+
+  
+
+  <!-- use large summary card for posts with images, normal summary otherwise -->
+  
+    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://18f.gsa.gov/assets/images/18F-Logo-L.png" />
+  
+
+  <!-- If any of the file paths after guides_style_18f_asset_root change, the old ones need to stay in place. See https://github.com/18F/pages-server/issues/55 for more information. -->
+  <!--<link rel="shortcut icon" type="image/ico" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicons/18f-center-57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/favicons/18f-center-72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/favicons/18f-center-114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicons/18f-center-144.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicons/18f-center-192.png" />-->
+  <link rel="stylesheet" href="/assets/uswds/css/uswds.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  
+  
+
+  <script src="/assets/uswds/js/uswds.min.js"></script>
+
+</head>
+
+
+  <body>
+
+    <div class="container">
+      <header class="usa-header usa-header-extended" role="banner">
+  <div class="usa-banner">
+  <div class="usa-accordion">
+    <div class="usa-banner-header">
+      <div class="usa-grid usa-banner-inner">
+      <img src="/assets/uswds/img/favicons/favicon-57.png" alt="U.S. flag">
+      <p>An official website of the United States government</p>
+      <button class="usa-accordion-button usa-banner-button"
+        aria-expanded="false" aria-controls="gov-banner">
+        <span class="usa-banner-button-text">Here's how you know</span>
+      </button>
+      </div>
+    </div>
+    <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+      <div class="usa-banner-guidance-gov usa-width-one-half">
+        <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+        <div class="usa-media_block-body">
+          <p>
+            <strong>The .gov means it’s official.</strong>
+            <br>
+            Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.
+          </p>
+        </div>
+      </div>
+      <div class="usa-banner-guidance-ssl usa-width-one-half">
+        <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-https.svg" alt="SSL">
+        <div class="usa-media_block-body">
+          <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <a class="usa-skipnav" href="#main">Skip to main content</a>
+  <div class="usa-navbar">
+    <button class="usa-menu-btn">Menu</button>
+    <div class="usa-logo" id="logo">
+      <em class="usa-logo-text">
+        <a accesskey="1" title="Home" aria-label="Home" href="/">Before you ship</a>
+      </em>
+    </div>
+  </div>
+
+
+
+  <nav role="navigation" class="usa-nav">
+    <div class="usa-nav-inner">
+      <button class="usa-nav-close">
+        <img src="/assets/uswds/img/close.svg" alt="close">
+      </button>
+
+      
+      
+
+      <div class="usa-nav-secondary">
+        <ul class="usa-unstyled-list usa-nav-secondary-links">
+          
+          <li>
+          <div role="search" class="usa-search usa-search-small">
+            <form action="/search/" class="search-interface">
+  <div class="field">
+    <label>
+      <span class="label-text">Search</span>
+      <input type="search" id="search-input" name="q"
+       placeholder="Search - click or press '/'">
+    </label>
+  </div>
+  <button type="submit">Search</button>
+</form>
+
+          </div>
+          </li>
+        
+          
+          <li>
+            <a href="https://pages.18f.gov/guides/">Read more 18F guides</a>
+          </li>
+          
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+</header>
+<div class="usa-overlay"></div>
+
+      <div class="usa-grid">
+
+        <aside class="usa-width-one-third usa-layout-docs-sidenav">
+    <ul class="usa-sidenav-list">
+        
+        <li>
+          <a href="/" 
+             class="usa-current" 
+             title="Current Page
+                  ">Overview</a>
+          
+          
+
+        </li>
+        <li>
+          <a href="/ato/" 
+             class="" 
+             title="Lifecycle of a Launch">Lifecycle of a Launch</a>
+          
+          
+
+<ul class="usa-sidenav-sub_list">
+  
+  
+    <li class="">
+      <a href="/ato/checklist/"
+        title="Checklist">Checklist</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/ato/types/"
+        title="Types">Types</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/ato/ssp/"
+        title="System Security Plan">System Security Plan</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/ato/levels/"
+        title="Impact Levels">Impact Levels</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/ato/background/"
+        title="Background">Background</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/ato/tips/"
+        title="Tips">Tips</a>
+      
+      
+
+      
+    </li>
+</ul>
+
+        </li>
+        <li>
+          <a href="/security/" 
+             class="" 
+             title="Security">Security</a>
+          
+          
+
+<ul class="usa-sidenav-sub_list">
+  
+  
+    <li class="">
+      <a href="/security/scanning/"
+        title="Scanning">Scanning</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/security/static-analysis/"
+        title="Static Analysis">Static Analysis</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/security/dynamic-scanning/"
+        title="Dynamic Scanning">Dynamic Scanning</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/security/frameworks/"
+        title="Frameworks">Frameworks</a>
+      
+      
+
+      
+    </li>
+</ul>
+
+        </li>
+        <li>
+          <a href="/infrastructure/" 
+             class="" 
+             title="Infrastructure">Infrastructure</a>
+          
+          
+
+<ul class="usa-sidenav-sub_list">
+  
+  
+    <li class="">
+      <a href="/infrastructure/sandbox/"
+        title="Sandbox Accounts">Sandbox Accounts</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/infrastructure/aws/"
+        title="Amazon Web Services">Amazon Web Services</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/infrastructure/good-production-practices/"
+        title="Good Production Practices">Good Production Practices</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/infrastructure/common-questions/"
+        title="Common Questions">Common Questions</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/infrastructure/monitoring/"
+        title="Monitoring">Monitoring</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/infrastructure/pinning-dependencies/"
+        title="Pinning Dependencies">Pinning Dependencies</a>
+      
+      
+
+      
+    </li>
+</ul>
+
+        </li>
+        <li>
+          <a href="/laws/" 
+             class="" 
+             title="Laws">Laws</a>
+          
+          
+
+<ul class="usa-sidenav-sub_list">
+  
+  
+    <li class="">
+      <a href="/laws/508/"
+        title="508 - Accessibility">508 - Accessibility</a>
+      
+      
+
+      
+    </li>
+  
+    <li class="">
+      <a href="/laws/pra/"
+        title="Paperwork Reduction Act (PRA)">Paperwork Reduction Act (PRA)</a>
+      
+      
+
+      
+    </li>
+</ul>
+
+        </li>
+        <li>
+          <a href="/privacy/" 
+             class="" 
+             title="Privacy">Privacy</a>
+          
+          
+
+        </li>
+    </ul>
+</aside>
+
+        <main id="main" class="usa-width-two-thirds usa-layout-docs-main_content" role="main">
+          <h1>Your guide to launching software at 18F</h1>
+          <p>The goal of this guide is to provide 18F staff with the information they need to launch software from a technical and compliance perspective. It explains requirements and best practices for projects at 18F, and the process of obtaining an ATO. <strong>This site is a companion to <a href="https://product-guide.18f.gov/lifecycle-of-a-project/">the Lifecycle section of 18F’s Product Guide</a></strong>, which gives broader guidance.</p>
+
+<p><strong>Read this guide early and often</strong>, especially when you’re starting to consider a future project launch or feature release. <strong>This isn’t a last-minute pre-launch checklist.</strong></p>
+
+<h3 id="key-roles">Key roles</h3>
+
+<ul>
+  <li><strong>Authorizing Official (AO)</strong> The AO is ultimately responsible for determining if the risk of operating the system is acceptable, and if so, issuing an Authority to Operate (ATO) for that system. At 18F the Director of Infrastructure is the AO.</li>
+  <li><strong>System Owner</strong> The system owner is usually the product lead or tech lead of the project team. They will be named in the ATO documents and are the main contact during the evaluation process that leads up to an ATO.</li>
+</ul>
+
+<h3 id="ato-status-of-federalist-sites">ATO status of Federalist sites</h3>
+
+<p>If you are publishing a new site through <a href="infrastructure/#federalist">Federalist</a> and it’s not connecting to any APIs or third-party services beyond public API calls from the browser (i.e. it’s a simple static site), the site is considered part of that system, so it does not require its own ATO (<a href="https://github.com/18F/before-you-ship/issues/95#issuecomment-174011747">source</a>). <em>Note: Technically, static site builders are just adding a collection of pages in an existing system. Therefore, from an ATO perspective, “sites” created through Federalist remain within the security boundary, and thus ATO.</em></p>
+
+<p>To make a new Federalist site public (and covered under the ATO), <strong>see <a href="https://federalist-docs.18f.gov/pages/how-federalist-works/custom-urls/#technical-steps-to-set-up-a-new-site">the custom domain setup instructions</a></strong>.</p>
+
+        </main>
+
+
+      </div><!-- /.wrap content -->
+
+      <footer class="usa-footer usa-footer-slim" role="contentinfo">
+  
+  <div class="usa-grid usa-footer-return-to-top">
+      <a href="#">Return to top</a>
+  </div>
+  <div class="usa-footer-primary-section">
+    <div class="usa-grid">
+      <div class="usa-footer-logo usa-width-one-third">
+        
+        
+        <img src="/assets/img/18f-logo.png" alt="18F logo">
+      </div>
+
+      <nav class="usa-footer-nav usa-width-one-third">
+        <ul class="usa-unstyled-list">
+          <li class="usa-footer-primary-content">
+            <a class="usa-footer-primary-link" href="https://github.com/18F/guides-template/">
+            18F Guides theme
+            </a>
+          </li>
+          
+          <li class="usa-footer-primary-content">
+            <a class="usa-footer-primary-link" href="https://github.com/18F/before-you-ship/edit/master/_pages/index.md">
+            Edit this page
+            </a>
+          </li>
+          <li class="usa-footer-primary-content">
+            <a class="usa-footer-primary-link" href="https://github.com/18F/before-you-ship/issues">
+            File an issue on GitHub
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <div class="usa-width-one-third">
+        <ul class="usa-unstyled-list">
+          <li class="usa-footer-primary-content">
+              Maintained by <a href="https://18f.gsa.gov">18F</a>
+          </li>
+          <li class="usa-footer-primary-content">
+              Hosted by <a href="https://federalist.fr.cloud.gov/">Federalist</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div> <!-- /.container -->
+
+    <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-19', 'auto');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+  ga('set', 'forceSSL', true);
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+    <!-- If any of the file paths after guides_style_18f_asset_root change, the old ones need to stay in place. See https://github.com/18F/pages-server/issues/55 for more information. -->
+<script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="/assets/js/accordion.js"></script>
+<script src="/assets/js/vendor/private-eye-1.1.0.js"></script>
+<script src="/assets/js/18f-guide.js"></script>
+<script>JEKYLL_PAGES_API_SEARCH_BASEURL = '';</script>
+<script async src="/assets/js/search-bundle.js"></script>
+
+  </body>
+</html>

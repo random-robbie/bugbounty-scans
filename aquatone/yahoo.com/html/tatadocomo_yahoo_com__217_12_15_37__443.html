@@ -1,0 +1,832 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<title>IBTimes India: Get Latest World News, Breaking News, Business, Technology, Political & Sport News</title>
+	<link rel="stylesheet" type="text/css" href="http://graphic1.ibtimes.co.in/www/css/tatadocomo/main.css?v=1.0.4" />
+	<!--[if (gte IE 6)&(lte IE 8)]> 
+		<script type="text/javascript" src="http://graphic1.ibtimes.co.in/www/js/responsive/selectivizr.js"></script>
+	<![endif]-->
+	<link rel="dns-prefetch" href="//graphic1.ibtimes.co.in"><link rel="dns-prefetch" href="//data1.ibtimes.co.in">
+	<link rel="shortcut icon" href="http://graphic1.ibtimes.co.in/favicon.ico" type="image/x-icon" />
+	<script src="http://graphic1.ibtimes.co.in/www/js/feb2014/jquery-1.11.0.min.js"></script>
+	<meta name="robots" content="noindex, follow" />
+	<script>
+	var dfpSlots = dfpSlots || {}, dfpEx = []; dfpSlots.cmd=dfpSlots.cmd||[]; 
+	function setCookie(t,i,e){var o,n="";e&&(o=new Date,o.setTime(o.getTime()+24*e*60*60*1e3),n="; expires="+o.toGMTString()),document.cookie=t+"="+i+n+"; path=/"}function setCookieHours(t,i,e){var o,n="";e&&(o=new Date,o.setTime(o.getTime()+60*e*60*1e3),n="; expires="+o.toGMTString()),document.cookie=t+"="+i+n+"; path=/"}function getCookie(t){for(var i=t+"=",e=document.cookie.split(";"),o=0;o<e.length;o++){for(var n=e[o];" "==n.charAt(0);)n=n.substring(1,n.length);if(0==n.indexOf(i))return n.substring(i.length,n.length)}return null}function deleteCookie(t){setCookie(t,"",-1)}function getBrowser(){var t,i="",e=0,o=navigator.userAgent;return i=(t=o.match(/msie ([0-9]+\.[0-9]+)/i))?"MSIE":(t=o.match(/firefox(?:[\/\s]?)([0-9]+\.[0-9]+)/i))?"Firefox":(t=o.match(/chrome ([0-9]+\.[0-9]+)/i))?"Chrome":(t=o.match(/safari ([0-9]+\.[0-9]+)/i))?"Safari":(t=o.match(/opera ([0-9]+\.[0-9]+)/i))?"Opera":(t=o.match(/Trident(?:[\w\/\.;\s]+)rv\:([0-9]+\.[0-9]+)/i))?"MSIE":(t=o.match(/bot|slurp ([0-9]+\.[0-9]+)?/i))?"Robot":(t=o.match(/x11 ([0-9]+\.[0-9]+)/i))?"Netscape":(t=o.match(/gec ([0-9]+\.[0-9]+)/i))?"Gecko":(t=o.match(/internet explorer ([0-9]+\.[0-9]+)/i))?"MSIE":(t=o.match(/mozilla ([0-9]+\.[0-9]+)/i))?"Mozilla":"Unknown",e="Unknown"!=i?parseFloat(t[1]):0,[i,e]}
+	</script>
+		<link rel="stylesheet" type="text/css" href="http://graphic1.ibtimes.co.in/css/video-js.min.css?ver=1.0.0" />	
+		<link rel="stylesheet" type="text/css" href="http://graphic1.ibtimes.co.in/www/css/tatadocomo/swiper.css" />	
+
+	
+		<script src="http://graphic1.ibtimes.co.in/js/video.min.js?ver=5.15.1"></script> 
+	<script src="http://graphic1.ibtimes.co.in/js/videojs.imasdk.min.js?ver=1.0.20"></script> 
+	<script src="http://graphic1.ibtimes.co.in/js/videojs.custom.min.js?ver=1.0.14"></script> 
+    <script>
+	
+function showIbtimesTvArticle(o){
+	if(mobile_device) var path = o.url[0].url.replace('/480p/','/144p/');
+	else var path = o.url[0].url.replace('/480p/','/288p/');
+	var ad={}, thumb = o.thumb || '', auto=(o.fStopAutoPlay?false:true), prod=(typeof o.sid!='undefined'&&o.sid==7510) ? 'omnisport' : 'in-house'; 
+	if(typeof o.companion == 'undefined') o.companion = {"id":"companion_300x250","width":"300","height":"250"};
+	if(typeof dfpSlots.extDomain=='undefined') ad = { mode:'flash',
+                ad : ['http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast3&unviewed_position_start=1&iu=' + (typeof dfp_videoadunit!='undefined'?dfp_videoadunit:dfp_adunit)
+							+ '&sz=640x360&url=[referrer_url]&ciu_szs=300x250&correlator=[timestamp]&description_url=[description_url]'
+							+ '&cust_params=' + encodeURIComponent("videokey="+getPidByRand()+getDfpExclusion()+"&vprod="+prod
+							+ "&vid=[vid]&media=[media]&ref=[ref]&title=[title]&description=[description]&duration=[duration]&autoplay="+auto+"&w=[width]&h=[height]&pageurl=[triple_esc_url]")
+							],
+                companion: {id:o.companion.id, size:o.companion.width+'x'+o.companion.height}
+            };
+	var video = videojs(o.id, {controls:true, autoplay:auto,preload:"none",poster:thumb,sources:[{src: path, type:"video/mp4"}],
+			//	nativeControlsForTouch: false,
+			debug:{console:1},
+			ad:o.ad,
+			lists:o.lists,
+			controlBar: { volumeMenuButton: { inline: false, vertical: true }, height: 42,out:(o.controlOut||false) /*, !mobile_device,*/ },
+			inactivityTimeout: 0,
+			plugins: {
+				playerDesign: { duration: o.duration },
+            playlist: { interval: 10000, hardNext:(o.hardNext||false) },
+            socialShare: {},
+            videoJsResolutionSwitcher: { default: 'low', /* Default resolution [{Number}, 'low', 'high'], */ dynamicLabel: true },
+            tracking: { checkAdblock: 'http://graphic1.ibtimes.co.in/js/ads.js', },
+            ibtVideoAd: ad
+			}
+	});
+	video.volume(0.25);
+	dfpSlots.actplayer = 2;
+};
+
+function showIbtimesVideo(o, oo){
+	if(typeof dfpSlots.extDomain!='undefined') return;
+		var adtag, adunit, mkfrom=getCookie('mkfrom')?getCookie('mkfrom').toLowerCase():'', oo = oo || (typeof ibtMainVideo=='undefined'?(typeof ibtContentTv[0]=='undefined'?ibtContentTv:ibtContentTv[0]):ibtMainVideo), thumb = oo.thumb || '', auto = (typeof oo.autoPlay=='undefined')?true:oo.autoPlay;
+		if(o.pid.substr(0,1)=="b"){
+			switch(mkfrom){
+				case 'revc': o.pid = 'e'+(parseInt(o.pid.substr(1))+1); break;
+				case 'rave': o.pid = 'f'+(parseInt(o.pid.substr(1))+1); break;
+				case 'adsup': o.pid = 'g'+(parseInt(o.pid.substr(1))+1); break;
+				default : 
+					//evt = { onStart : function(a){ try { ga('send', 'event', 'VideoStarted', oo.vid.toString(), oo.title); } catch(e){} } }; 
+			}
+		}
+		adunit = (typeof o.adunit!='undefined') ? o.adunit : (typeof dfp_videoadunit!='undefined'?dfp_videoadunit:dfp_adunit);
+		adtag = oo.ad_tag ? oo.ad_tag : 'http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast3&unviewed_position_start=1&iu=' + adunit
+							+ '&sz=640x360&url=[referrer_url]&ciu_szs=300x250&correlator=[timestamp]&description_url=[description_url]'
+							+ '&cust_params=' + encodeURIComponent("videokey=p"+o.pid+getDfpExclusion()+"&vprod=in-house&vid=[vid]&media=[media]&ref=[ref]&title=[title]&description=[description]&duration=[duration]&autoplay="+auto+"&w=[width]&h=[height]&pageurl=[triple_esc_url]");
+		if(typeof o.ad_tag!='undefined') adtag = o.ad_tag;
+		var video = videojs(o.id, {controls:true,autoplay:true,preload:"none",sources:[{src: 'http://video.ibtimes.co.in/Ibtukvideos/01_01_13s1.mp4', type:"video/mp4"}], debug:getCookie('developer')?({console:1}):0,
+			plugins: {
+             ibtVideoAd: {
+                 volume:0.45, livemode:o.lp, media:oo, mode:'flash', ad : [adtag],
+						companion: {id:o.companion.id, size:o.companion.width+'x'+o.companion.height}
+				}
+			}
+		});
+};
+	</script> 
+	
+	<!-- Start: GPT Async -->
+	 
+	<script type='text/javascript'>
+			var dfp_adunit = '/133596308/ibtimes.co.in/tatadocomo';
+				var gptadslots=[];
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function(){ var gads = document.createElement('script');
+			gads.async = true; gads.type = 'text/javascript';
+			var useSSL = 'https:' == document.location.protocol;
+			gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+			var node = document.getElementsByTagName('script')[0];
+			node.parentNode.insertBefore(gads, node);
+		})();
+		
+		googletag.cmd.push(function() {
+		   				
+			
+gptadslots[1]= googletag.defineSlot(dfp_adunit, [[970,250],[970,90],[728,90],[320,100],[320,50],[300,50]],'div-gpt-ad-Top').setTargeting('pos',['Top']).addService(googletag.pubads());
+gptadslots[2]= googletag.defineSlot(dfp_adunit, [[300,250]],'div-gpt-ad-Right1').setTargeting('pos',['Right1']).addService(googletag.pubads());
+gptadslots[3]= googletag.defineSlot(dfp_adunit, [[300,250]],'div-gpt-ad-Right2').setTargeting('pos',['Right2']).addService(googletag.pubads());
+gptadslots[4]= googletag.defineSlot(dfp_adunit, [[728,90]],'div-gpt-ad-Top1').setTargeting('pos',['Top1']).addService(googletag.pubads());
+
+
+			googletag.pubads().enableSingleRequest();
+			googletag.pubads().collapseEmptyDivs();
+			googletag.pubads().enableAsyncRendering();
+			googletag.enableServices();
+		
+		});
+			</script>
+	<!-- End: GPT -->
+	
+
+		</head>
+<body> 
+
+		
+	<header id="page-header">
+		<!-- #### Mashead portion starts ####-->
+		<section id="site-title-warp">
+			<div class="container dropdown-c">
+				<div class="photon-logo"><img src="http://graphic1.ibtimes.co.in/www/img/tatadocomo/photon-logo.png" alt="photon logo"></div>
+				<div class="site-title"><a href="http://www.ibtimes.co.in/" class="bg-logo" target="_blank">International Business Times, India Edition</a></div>
+			</div>
+		</section>	
+<style>
+div[id^='expContainer33631'] { left: -200px  !important; }
+span[id^='zd_pushdown_close_span']{ left: 5px !important;  bottom: 11px !important;}
+div[id^='zd_pushdown_ad_div'] { z-index:99 !important; }
+</style>	    
+		<!-- #### Mashead portion end ####-->
+		<section id="navi-wrap">
+			<nav id="site-nav" class="container dropdown">
+				<div class="logo">
+					<a href="http://www.ibtimes.co.in/" target="_blank" class="bg-btn"><span>International Business Times, India Edition</span></a>
+				</div>
+				<div class="wrapper">
+					<ul  id="menu" class="clearfix">
+			<li style="background:none;padding:2px 10px 0 0;" id="navi-home">
+					<a	href="http://www.ibtimes.co.in/" class="btn_main" target="_blank"><img src="http://graphic1.ibtimes.co.in/www/responsive/latest/home.png" title="home" alt="home"></a>
+					</li>         
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/india" class="btn_main" target="_blank">India</a>
+					</li>					
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/world" class="btn_main" target="_blank">World</a>
+					</li>  
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/business" class="btn_main" target="_blank">Business</a>
+					</li>  
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/technology" class="btn_main" target="_blank">Technology</a>
+					</li>  
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/sports" class="btn_main" target="_blank">Sports</a>
+					</li>  
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/entertainment" class="btn_main" target="_blank">Entertainment</a>
+					</li>  
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/auto" class="btn_main" target="_blank">Auto</a>
+					</li>  
+					
+					<li class="main-nav" >
+					<a	href="http://www.ibtimes.co.in/photos" class="btn_main" target="_blank">Photos</a>
+					</li> 
+				   
+					<li class="main-nav"><a href="http://www.ibtimes.co.in/tv" class="btn_main" target="_blank">Video</a>					    
+				
+			</li>
+					
+		
+	
+		</ul>
+					<ul class="icon-sns">
+						<li class="search"><a href="javascript:void();" class="icon-search search-btn" onclick="$('#search-form-header').toggle('slow');">Search</a>
+							<div id="search-form-header" class="hidden" style="z-index: 10000000; display: none;">
+								<form name="search" method="get" action="http://www.ibtimes.co.in/search">
+									 <input type="text" name="q" value="" required="">
+									<input type="image" src="http://graphic1.ibtimes.co.in/www/responsive/latest/main-search.png" alt="Search">								
+								</form>
+							</div>
+						</li>					
+					</ul>
+				</div>
+			</nav>
+		</section>
+		
+		<section id="leaderboard">
+	<div class="container banner">	
+		<div id='div-gpt-ad-Top'>
+			<script type='text/javascript'>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-Top'); });
+			</script>
+		</div>
+	</div>
+</section>
+	</header>
+	<main>
+		<article class="container">
+			<div class="column-left">
+				<div class="mainstream-box">
+					<div class="photon-box">
+						<ul class="photon-link">
+							<li>
+								<a class="button_aRight"><span>Pay bills</span></a>
+								<a href="https://billpay.tatadocomo.com/" target="_blank" rel="nofollow" class="button_bRight slidebttn"><span class="recharge"></span></a>
+							</li>
+							<li>
+								<a class="button_aRight p2"><span>Recharge</span></a>
+								<a href="https://recharge.tatadocomo.com/" target="_blank" rel="nofollow" class="button_bRight slidebttn p2"><span class="bill"></span></a>
+							</li>
+							<li>
+								<a class="button_aRight p3"><span>My Account</span></a>
+								<a href="https://myaccount.tatatel.co.in:4448/myaccountgsm/" target="_blank" rel="nofollow" class="button_bRight slidebttn p3"><span class="account"></span></a>
+							</li>
+							<li>
+								<a class="button_aRight p4"><span>Shop</span></a>
+								<a href="https://shop.tatadocomo.com/" target="_blank" rel="nofollow" class="button_bRight slidebttn p4"><span class="support"></span></a>
+							</li>
+							<li>
+								<a class="button_aRight p5"><span>App</span></a>
+								<a href="https://www.tatadocomo.com/en-in/mytatadocomoapp"  target="_blank" rel="nofollow" class="button_bRight slidebttn p5"><span class="web"></span></a>
+							</li>
+						</ul>
+					</div>
+					<script type="text/javascript">
+						$(function() {
+							$('.slidebttn').hover(
+								function () {
+									var $this 		= $(this);
+									var $slidelem 	= $this.prev();
+									$slidelem.stop().animate({'width':'150px'},300);
+									$slidelem.find('span').stop(true,true).fadeIn();
+									$this.addClass('button_c');
+								},
+								function () {
+									var $this 		= $(this);
+									var $slidelem 	= $this.prev();
+									$slidelem.stop().animate({'width':'38px'},200);
+									$slidelem.find('span').stop(true,true).fadeOut(10);
+									$this.removeClass('button_c');
+								}
+							);
+						});
+						
+						dfp_videoadunit='/133596308/video.ibtimes.co.in/tatadocomo';
+
+						
+					
+					</script>
+									
+					<div class="mainstream-stories">
+						<div class="highlight-story">
+							<div class="swiper-container swiper1">
+								<div class="swiper-wrapper">
+																	
+									<div class="swiper-slide">
+									
+																			<div class="single-fold">
+											<a href="http://www.ibtimes.co.in/pm-narendra-modi-says-low-gdp-quarter-not-big-issue-takes-dig-critics-744375?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/659979/prime-minister-narendra-modi.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+											
+												<div class="article-heading">
+													<h1>PM Modi says low GDP in a quarter not a big issue, takes a dig at critics</h1>
+												</div>
+											</a>
+										</div>
+								  									</div>
+									 									
+									<div class="swiper-slide">
+									
+																			<div class="tri-fold">
+											<a href="http://www.ibtimes.co.in/pakistan-can-have-economic-benefits-india-by-ending-terror-safe-havens-says-us-744266?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/648841/india-pakistan.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+											
+												<div class="article-heading">
+													<h1>'Eliminating terror safe havens will help Pakistan get economic benefits from India'</h1>
+												</div>
+											</a>
+										</div>
+								  										<div class="tri-fold">
+											<a href="http://www.ibtimes.co.in/over-6000-indian-companies-data-leaked-online-put-sale-15-bitcoins-744242?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/624141/hacker.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+																							<div class="player-icon"><span></span></div>
+											
+												<div class="article-heading">
+													<h1>Over 6,000 Indian firms' data leaked online, put up for sale for 15 Bitcoins</h1>
+												</div>
+											</a>
+										</div>
+								  										<div class="tri-fold">
+											<a href="http://www.ibtimes.co.in/las-vegas-shooting-focus-shifts-stephen-paddocks-girlfriend-marilou-danley-financial-details-744255?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/663765/las-vegas-shooting.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+																							<div class="player-icon"><span></span></div>
+											
+												<div class="article-heading">
+													<h1>Las Vegas shooting: Focus shifts to Paddock's girlfriend Marilou Danley</h1>
+												</div>
+											</a>
+										</div>
+								  									</div>
+									 									
+									<div class="swiper-slide">
+									
+																			<div class="db-fold">
+											<a href="http://www.ibtimes.co.in/modi-govt-raise-about-rs-11370-crore-gic-res-ipo-744259?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/657775/ipo.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+											
+												<div class="article-heading">
+													<h1>Modi govt to raise about Rs 11,370 crore from GIC Re's IPO</h1>
+												</div>
+											</a>
+										</div>
+								  										<div class="db-fold">
+											<a href="http://www.ibtimes.co.in/rbi-keeps-policy-rate-unchanged-6-slashes-growth-forecast-744325?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/629742/pay-commission-7th-cpc-allowances-hike-allowances-rbi-governor-urjit-patel-statement-comment.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+											
+												<div class="article-heading">
+													<h1>RBI keeps policy rate unchanged at 6%, slashes growth forecast</h1>
+												</div>
+											</a>
+										</div>
+								  									</div>
+									 									
+									<div class="swiper-slide">
+									
+																			<div class="tri-fold">
+											<a href="http://www.ibtimes.co.in/pakistans-intelligence-agency-isi-has-clear-connections-terrorist-groups-us-744286?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/663965/general-joseph-dunford.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+											
+												<div class="article-heading">
+													<h1>Pakistan's ISI has clear connections with terrorist groups: US</h1>
+												</div>
+											</a>
+										</div>
+								  										<div class="tri-fold">
+											<a href="http://www.ibtimes.co.in/egypt-ordered-30000-rocket-grenades-north-korea-23-million-deal-report-744346?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/660677/north-korea-says-it-has-developed-advanced-hydrogen-bomb.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+																							<div class="player-icon"><span></span></div>
+											
+												<div class="article-heading">
+													<h1>Egypt ordered 30,000 rocket grenades from N Korea in a $23m deal</h1>
+												</div>
+											</a>
+										</div>
+								  										<div class="tri-fold">
+											<a href="http://www.ibtimes.co.in/aamir-khan-opens-his-autobiography-plans-744351?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" style="background:url('http://data1.ibtimes.co.in/en/full/664033/aamir-khan.jpg?w=535&amp;h=320&amp;l=50&amp;t=40?w=507&h=320&l=50&t=40') top center no-repeat;">
+											
+												<div class="article-heading">
+													<h1>Aamir Khan opens up on his autobiography plans</h1>
+												</div>
+											</a>
+										</div>
+								  									</div>
+									 									
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination swiper-pagination1"></div>
+								<!-- Add Arrows -->
+								<div class="swiper-button-next swiper-button-white"></div>
+								<div class="swiper-button-prev swiper-button-white"></div>
+							</div>
+						</div>
+						
+												<div class="mainstream-list">
+							<ul>
+														
+								<li>
+									<a href="http://www.ibtimes.co.in/kangana-ranaut-hrithik-roshan-feud-read-their-full-set-explicit-e-mails-here-744376?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" class="img"><img src="http://data1.ibtimes.co.in/en/full/664056/kangana-ranaut-hrithik-roshan-emails.jpg?w=280&amp;h=170&amp;l=50&amp;t=40" alt="" /></a>
+									<h2><a href="http://www.ibtimes.co.in/kangana-ranaut-hrithik-roshan-feud-read-their-full-set-explicit-e-mails-here-744376?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Kangana Ranaut-Hrithik Roshan feud: Read full set of explicit e-mails here</a></h2> 
+								</li>
+							
+								 								 
+								  											<li>
+									<a href="http://www.ibtimes.co.in/panchkula-court-sends-honeypreet-insan-6-day-police-remand-744363?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank" class="img"><img src="http://data1.ibtimes.co.in/en/thumb/659980/honeypreet.jpg?w=110&amp;h=90&amp;l=50&amp;t=40" alt="Honeypreet Insan on sets directing a film of Dera chief Gurmeet Ram Ram Singh" /></a>
+									<h2><a href="http://www.ibtimes.co.in/panchkula-court-sends-honeypreet-insan-6-day-police-remand-744363?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Panchkula court sends Honeypreet Insan on a 6-day police remand</a></h2> 
+								</li>
+																	</ul>
+						</div>
+													
+					</div>
+				</div>
+				<!-- #### LATEST LIST #### -->
+				<div class="latest-list">
+					<ul>
+										  					  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/hrithik-vs-kangana-if-you-read-complaint-you-will-be-shocked-by-facts-says-rakesh-roshan-744253?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/627023/hrithik-roshan-kangana-ranauts-legal-case-not-closed-says-kaabil-actors-legal-team.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/bollywood?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Bollywood</a></span>
+							<h2><a href="http://www.ibtimes.co.in/hrithik-vs-kangana-if-you-read-complaint-you-will-be-shocked-by-facts-says-rakesh-roshan-744253?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Hrithik vs Kangana: You will be shocked by the facts, says Rakesh Roshan</a></h2> 
+						</li>
+					
+											  
+					   					   
+					   	<li style="border-bottom:2px solid #4d9fdb;">
+							<a href="http://www.ibtimes.co.in/airasia-takes-premium-seat-comfort-whole-new-altitude-742446?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/612921/airasia.jpg?w=108&h=108&l=50&t=40"></a>
+							<span>Sponsored</span>
+							<h2><a href="http://www.ibtimes.co.in/airasia-takes-premium-seat-comfort-whole-new-altitude-742446?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">AirAsia takes premium seat comfort to a whole new altitude</a></h2> 
+						</li>
+					  					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/andhra-doctors-screen-ss-rajamoulis-baahubali-2-during-awake-brain-surgery-744310?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/649519/anushka-prabhas-baahubali-2.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/entertainment?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Entertainment</a></span>
+							<h2><a href="http://www.ibtimes.co.in/andhra-doctors-screen-ss-rajamoulis-baahubali-2-during-awake-brain-surgery-744310?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Andhra doctors screen Baahubali 2 during awake brain surgery!</a></h2> 
+						</li>
+					
+											  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/this-what-virat-kohli-revealed-about-anushka-sharma-chat-show-aamir-khan-744254?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/663944/aamir-virat-anushka.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/bollywood?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Bollywood</a></span>
+							<h2><a href="http://www.ibtimes.co.in/this-what-virat-kohli-revealed-about-anushka-sharma-chat-show-aamir-khan-744254?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">This is what Kohli REVEALED about Anushka on a chat show with Aamir</a></h2> 
+						</li>
+					
+											  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/ghost-jar-kidney-stones-bizarre-items-sold-ebay-744332?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/521222/photo-illustration-ebay-logo-encinitas-california.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/weird-world?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Weird World</a></span>
+							<h2><a href="http://www.ibtimes.co.in/ghost-jar-kidney-stones-bizarre-items-sold-ebay-744332?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">From a ghost in a jar to kidney stones: Bizarre items sold on eBay</a></h2> 
+						</li>
+					
+											  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/yahoo-2013-hacking-more-3-billion-user-accounts-compromised-744257?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/653017/petya-ransomware-attack.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/smartphones?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Smartphones</a></span>
+							<h2><a href="http://www.ibtimes.co.in/yahoo-2013-hacking-more-3-billion-user-accounts-compromised-744257?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Yahoo 2013 Hacking: Over 3 billion user accounts compromised</a></h2> 
+						</li>
+					
+											  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/bigg-boss-11-day-3-shilpa-arshi-among-5-nominated-eviction-vikas-gets-into-fight-akash-744256?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/663940/bigg-boss-11.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/bigg-boss?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Bigg Boss</a></span>
+							<h2><a href="http://www.ibtimes.co.in/bigg-boss-11-day-3-shilpa-arshi-among-5-nominated-eviction-vikas-gets-into-fight-akash-744256?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Bigg Boss 11 Day 3: Shilpa and Arshi nominated for eviction</a></h2> 
+						</li>
+					
+											  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/asus-zenfone-zoom-s-review-reliable-mid-range-phone-praiseworthy-dual-camera-battery-life-744232?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/663908/asus-zenfone-zoom-s-review-display-battery-performance-design-camera.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/smartphones?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Smartphones</a></span>
+							<h2><a href="http://www.ibtimes.co.in/asus-zenfone-zoom-s-review-reliable-mid-range-phone-praiseworthy-dual-camera-battery-life-744232?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Asus Zenfone Zoom S: Reliable mid-range phone with battery life</a></h2> 
+						</li>
+					
+											  
+					   					  
+					    					
+						<li>
+							<a href="http://www.ibtimes.co.in/this-photo-proves-alia-bhatt-should-marry-varun-dhawan-not-sidharth-malhotra-according-fans-744230?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/thumb/521048/humpty-sharma-ki-dulhania.jpg?w=108&h=108&l=50&t=40"></a>
+							<span><a href="http://www.ibtimes.co.in/bollywood?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Bollywood</a></span>
+							<h2><a href="http://www.ibtimes.co.in/this-photo-proves-alia-bhatt-should-marry-varun-dhawan-not-sidharth-malhotra-according-fans-744230?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">This photo proves Alia Bhatt should marry Varun Dhawan</a></h2> 
+						</li>
+					
+																	</ul>
+				</div>				
+				<!-- #### Video & Most Popular #### -->
+								
+				<script>
+				var ibtMainVideo = {
+	url:[{url:"http://video.ibtimes.co.in/transcoder/288p/146/las_vegas_news_conf.mp4"}],
+								title:'Las Vegas shooter named as 64-year-old Steven Paddock',
+								adunit:dfp_videoadunit,
+								volume:'0.2',
+								description:'Las Vegas shooter named as 64-year-old Steven Paddock',
+								thumb:"https://d.ibtimes.co.uk/en/full/1583144/worlds-eight-richest-people.jpg",
+								vid:47277, 
+								autoPlay:true,id:'tvplayer_bottom',
+								lists:[{"url":"http://video.ibtimes.co.in/transcoder/288p/146/las_vegas_news_conf.mp4","mobile":[{"label":"Lo","res":144,"type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/146/las_vegas_news_conf.mp4"},{"label":"Hi","res":288,"type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/las_vegas_news_conf.mp4"}],"pc":[{"label":"SD","res":288,"type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/las_vegas_news_conf.mp4"},{"label":"HD","res":480,"type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/146/las_vegas_news_conf.mp4"}],"title":"Las Vegas shooter named as 64-year-old Steven Paddock","description":"Las Vegas shooter named as 64-year-old Steven Paddock","thumb":"http://data1.ibtimes.co.in/en/full/663748/las-vegas-shooter-named-64-year-old-steven-paddock.jpg?w=580&h=328&l=50&t=50","vid":"47277","link":"http://www.ibtimes.co.in/47277","shorten":"http://ibtimes.co.in/47277"},{"url":"http://video.ibtimes.co.in/transcoder/288p/146/sequence_01_107.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/146/sequence_01_107.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/sequence_01_107.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/sequence_01_107.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/146/sequence_01_107.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/664061/1507122557_theresa-may-has-coughing-fit-during-disastrous-speech.jpg","vid":"","link":"http://www.ibtimes.co.in/theresa-may-has-coughing-fit-during-disastrous-speech-744380","shorten":"http://ibtimes.co.in/744380"},{"url":"http://video.ibtimes.co.in/transcoder/288p/146/lv_hotel_room_0.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/146/lv_hotel_room_0.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/lv_hotel_room_0.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/lv_hotel_room_0.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/146/lv_hotel_room_0.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/664060/1507122605_look-inside-las-vegas-shooter-stephen-paddocks-hotel-room.jpg","vid":"","link":"http://www.ibtimes.co.in/a-look-inside-las-vegas-shooter-stephen-paddocks-hotel-room-744379","shorten":"http://ibtimes.co.in/744379"},{"url":"http://video.ibtimes.co.in/transcoder/288p/146/paddock_plan_2.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/146/paddock_plan_2.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/paddock_plan_2.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/paddock_plan_2.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/146/paddock_plan_2.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/664059/1507123062_how-stephen-paddock-orchestrated-las-vegas-massacre.jpg","vid":"","link":"http://www.ibtimes.co.in/how-stephen-paddock-orchestrated-the-las-vegas-massacre-744378","shorten":"http://ibtimes.co.in/744378"},{"url":"http://video.ibtimes.co.in/transcoder/288p/144/iphone_x_jess_d.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/144/iphone_x_jess_d.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/144/iphone_x_jess_d.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/144/iphone_x_jess_d.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/144/iphone_x_jess_d.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/661616/1507131147_xiaomi-mi-mix-2.jpg","vid":"","link":"http://www.ibtimes.co.in/ahead-iphone-x-launch-india-xiaomi-bringing-mi-mix-2-its-glorious-bezel-free-form-744374","shorten":"http://ibtimes.co.in/744374"},{"url":"http://video.ibtimes.co.in/transcoder/480p/139/andriodo-1501756010.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/139/andriodo-1501756010.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/139/andriodo-1501756010.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/139/andriodo-1501756010.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/139/andriodo-1501756010.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/650696/1507130970_nokia-6-review.jpg","vid":"","link":"http://www.ibtimes.co.in/android-7-1-2-nougat-update-nokia-3-nokia-5-nokia-6-nokia-8-coming-soon-744373","shorten":"http://ibtimes.co.in/744373"},{"url":"http://video.ibtimes.co.in/transcoder/288p/146/lvmp_body_cam.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/146/lvmp_body_cam.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/lvmp_body_cam.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/lvmp_body_cam.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/146/lvmp_body_cam.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/664055/1507098732_las-vegas-police-video-shows-officers-scrambling-cover-barrage-bullets.jpg","vid":"","link":"http://www.ibtimes.co.in/las-vegas-police-video-shows-officers-scrambling-for-cover-in-barrage-of-bullets-744372","shorten":"http://ibtimes.co.in/744372"},{"url":"http://video.ibtimes.co.in/transcoder/288p/146/sequence_01_103.mp4","mobile":[{"label":"Lo","res":"144","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/144p/146/sequence_01_103.mp4"},{"label":"Hi","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/sequence_01_103.mp4"}],"pc":[{"label":"SD","res":"288","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/288p/146/sequence_01_103.mp4"},{"label":"HD","res":"480","type":"video/mp4","path":"http://video.ibtimes.co.in/transcoder/480p/146/sequence_01_103.mp4"}],"title":"","description":"","thumb":"http://data1.ibtimes.co.in/cache-img-163-92/en/full/664054/1507116700_pro-spain-protesters-demonstrate-solidarity-spanish-police.jpg","vid":"","link":"http://www.ibtimes.co.in/pro-spain-protesters-demonstrate-in-solidarity-with-spanish-police-744371","shorten":"http://ibtimes.co.in/744371"}]						};
+						
+						</script>
+				<div class="mix-box">
+					<div class="video-box">
+						<div class="player-box" style="position:relative;max-height:328px;"><video id="tvplayer_bottom" class="tvplayer video-js vjs-default-skin" poster="http://data1.ibtimes.co.in/en/full/663748/las-vegas-shooter-named-64-year-old-steven-paddock.jpg?w=580&h=328&l=50&t=50" style="position:absolute;display:none; width: 100%; height: 100%;"></video>
+						
+						<a href="javascript:;" onclick="$('#tvplayer_bottom').show();this.style.zIndex=-1;showIbtimesTvArticle(ibtMainVideo);" style="display:block;position: absolute;">
+								<div class="player-icon"><span></span></div>
+																		<img src="http://data1.ibtimes.co.in/en/full/663748/las-vegas-shooter-named-64-year-old-steven-paddock.jpg?w=580&h=328&l=50&t=50" alt="Las Vegas shooter named as 64-year-old Steven Paddock">
+									</a></div>
+									
+						<div class="video-content">
+						
+							<h2><a href="http://www.ibtimes.co.in/las-vegas-shooter-named-as-64-year-old-steven-paddock-744081?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Las Vegas shooter named as 64-year-old Steven Paddock</a></h2>
+							<p><a href="http://www.ibtimes.co.in/las-vegas-shooter-named-as-64-year-old-steven-paddock-744081?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">The Oct. 1 shooting in Las Vegas has left at least 50 people dead and 200 people injured.</a></p>
+						</div>
+					</div>
+					<div class="popular-box">
+						<div class="shade-title"><h2>										Must Read									 </h2></div>
+						
+										
+
+																	
+													
+											<div class="popular-1">
+													<a href="http://www.ibtimes.co.in/aamirs-peepli-live-shah-rukhs-paheli-7-bollywood-films-that-courted-controversy-over-oscar-744278?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/en/full/663051/newton-box-office-collections.jpg?w=255&h=170&l=50&t=40" alt="From Aamir's Peepli Live to Shah Rukh's Paheli: Bollywood films that courted controversy over Oscar selection"></a>
+												</a>
+												<h3><a href="http://www.ibtimes.co.in/aamirs-peepli-live-shah-rukhs-paheli-7-bollywood-films-that-courted-controversy-over-oscar-744278?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">From Aamir's Peepli Live to Shah Rukh's Paheli: Bollywood films that courted controversy over Oscar selection</a></h3>
+												</div>
+												
+											    
+											
+										
+
+																	
+											    
+												<h3 class="listed"><a href="http://www.ibtimes.co.in/soaking-eyes-boric-acid-separating-lashes-safety-pin-bizarre-beauty-tricks-old-hollywood-divas-744345?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">From soaking eyes in boric acid to separating lashes with safety pin: Bizarre beauty tricks of old Hollywood divas</a></h3>
+												    
+											
+										
+
+																	
+											    
+												<h3 class="listed"><a href="http://www.ibtimes.co.in/foreign-secretary-s-jaishankar-visits-bhutan-chinas-pla-deploys-troops-doklam-again-744265?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Foreign Secretary S Jaishankar visits Bhutan as China's PLA deploys troops at Doklam again</a></h3>
+												    
+											
+									 
+					</div>
+				</div>
+			</div>
+			<div class="column-right">
+								
+				<!-- #### MPU HOLDER #### -->
+				<div class="mpu-holder">
+					<div class="ad-box">
+				
+		<div id='div-gpt-ad-Right1'>
+			<script type='text/javascript'>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-Right1'); });
+			</script>
+		</div>
+	
+					</div>
+				</div>
+				<!-- #### PHOTON PROMO #### -->
+				<div class="photon-ad-holder">
+					<iframe src="http://ads1.tataindicom.com/" width="372" height="250" frameBorder="0"  scrolling="no"> </iframe>
+				</div>
+				
+				<div class="mpu-holder">
+					<div class="ad-box">
+
+					<div id='div-gpt-ad-Right2'>
+					<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-Right2'); });
+					</script>
+					</div>
+
+					</div>
+				</div>
+											<div class="right-common-box">
+					<div class="common-title"><h2><a href="http://www.ibtimes.co.in/photos?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Photo Gallery</a></h2></div>
+					<ul>
+					  
+					  						<li class="gallery">
+							<a href="http://www.ibtimes.co.in/photos/varun-sharma-pooja-bedi-bakhtiyaar-tanaaz-irani-baba-sehgal-spotted-tamil-food-festival-13511-slide-74735?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="" alt=""  /></a>
+							<h2><a href="http://www.ibtimes.co.in/photos/varun-sharma-pooja-bedi-bakhtiyaar-tanaaz-irani-baba-sehgal-spotted-tamil-food-festival-13511-slide-74735?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Varun Sharma, Pooja Bedi, Bakhtiyaar, Tanaaz Irani, Baba Sehgal spotted at the Tamil food Festival in Mumbai</a></h2> 
+						</li>
+													<li class="gallery">
+							<a href="http://www.ibtimes.co.in/photos/bigg-boss-11-day-1-shilpa-shinde-vikas-gupta-begin-day-heated-argument-13518-slide-74773?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank"><img src="http://data1.ibtimes.co.in/photo/en/full/74773/after-excitement-entering-bigg-boss-house-wore-away-nerves-contestants-tiredness-paves.jpg?w=166&amp;h=115&amp;l=50&amp;t=40" alt="After the excitement of entering the Bigg Boss House wore away, the nerves and the contestants’ tiredness paves the way for the first fight in the house. Shilpa Shinde and Vikas Gupta picked up the strings were they had left off onstage and break into an argument in the wee hours of the morning. As Shilpa tries to clarify her side of the story, Vikas loses his temper and calls her a ‘psycho’ and ‘mentally challenged person.’ While the remaining contestants try to intervene and break up the argument, Shilpa finally moves away from the scene crying."  /></a>
+							<h2><a href="http://www.ibtimes.co.in/photos/bigg-boss-11-day-1-shilpa-shinde-vikas-gupta-begin-day-heated-argument-13518-slide-74773?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Bigg Boss 11 on Day 1: Shilpa Shinde, Vikas Gupta begin the day with a heated argument</a></h2> 
+						</li>
+								
+						
+					</ul>
+				</div>
+				
+			</div>	
+
+	<script>	
+function setCookieHoursVid(t,i,e){var o,n="";e&&(o=new Date,o.setTime(o.getTime()+60*e*60*1e3),n="; expires="+o.toGMTString()),document.cookie=t+"="+i+n+"; path=/"};
+var dfp_videoadunitinside =  '/133596308/video.ibtimes.co.in/tatadocomo';
+
+dfpSlots.cmd.push(function(){ $(document.body).append('<style>.player-control-i { position:absolute; z-index:-1;width:480px;height:300px;top:0;display:block;overflow:hidden; } .player-control-i .ibtplayer { position:absolute;top:0;z-index:1;width:100%;height:100%;} .player-control-i .thumb { position:absolute; z-index:8; width:100%;height:100%; background:#fff; }</style>'); $('.player-box').after('<div class="player-control-i"><div class="thumb">&nbsp;</div><video id="tvplayer01" class="ibtplayer video-js vjs-default-skin"></video><video id="tvplayer02" class="ibtplayer video-js vjs-default-skin"></video></div>'); $('.box-contents:first').before('<div class="box-readmore2" style="position:absolute;z-index:1; width:300px; height:250px; overflow:hidden;"><div id="companion2_300x250"></div><div id="companion1_300x250"></div></div>'); showIbtimesVideo({ lp:8, id:'tvplayer01', pid:'b1',  companion:{id:"companion1_300x250",width:"300",height:"250"} });
+showIbtimesVideo({ lp:6, id:'tvplayer02', pid:'b2', adunit:dfp_videoadunitinside, companion:{id:"companion2_300x250",width:"300",height:"250"} });
+});
+</script>
+		
+	<script>setCookieHoursVid("ibtimes_thqleldh",1,1);</script>	
+
+
+
+
+
+			
+			<div class="column-bottom">
+				<ul>
+					<li>
+						<div class="common-title"><h2>Sports</h2></div>
+						 						<h3 class="listed"><a href="http://www.ibtimes.co.in/wwe-network-subscription-india-price-shows-available-all-details-744365?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">WWE Network subscription in India: Price, shows available, all details</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/isl-2017-mumbai-city-fc-embark-33-day-pre-season-tour-spain-744355?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">ISL 2017: Mumbai City FC embark on a 33-day pre-season tour of Spain</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/keralas-jln-stadium-capacity-further-lowered-ahead-u-17-world-cup-744335?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Kerala's JLN Stadium capacity further lowered ahead of U-17 World Cup</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/wwe-india-tour-2017-set-december-triple-h-arrives-mumbai-video-744326?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">WWE India tour 2017 set for December: Triple H arrives in Mumbai [Video]</a></h3>
+								
+					</li>
+					<li>
+						<div class="common-title"><h2>Technology</h2></div>
+						 						<h3 class="listed"><a href="http://www.ibtimes.co.in/samsung-galaxy-note-8-sales-exceed-iphone-8-india-samsung-doubles-capacity-meet-demand-744364?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Samsung Galaxy Note 8 sales exceed iPhone 8 in India</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/iphone-8-plus-vs-samsung-galaxy-note-8which-smartphone-houses-better-camera-744362?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">iPhone 8 Plus vs Samsung Galaxy Note 8–Which has better camera?</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/amazon-echo-echo-plus-dot-alexa-finally-arrive-india-price-specifications-availability-744367?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Amazon Echo, Echo Plus and Dot with Alexa finally arrive in India</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/ultimate-flagship-nokia-9-polished-blue-variant-offing-what-we-know-so-far-744342?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Ultimate flagship Nokia 9 Polished Blue variant in offing</a></h3>
+								
+					</li>
+					<li>
+						<div class="common-title"><h2>Business</h2></div>
+						 						<h3 class="listed"><a href="http://www.ibtimes.co.in/next-sbi-chief-rajnish-kumar-leads-race-succeed-arundhati-bhattacharya-744308?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Rajnish Kumar to succeed Arundhati Bhattacharya as SBI chairman</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/former-equifax-chief-apologises-to-congress-over-hack-744360?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Former Equifax chief apologises to Congress over hack</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/september-2017-sales-tata-motors-registers-18-growth-riding-tiago-tigor-nexon-744136?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Sept 2017: Tata sees 18% growth from Tiago, Tigor, Nexon sales</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/health-indias-corporate-finances-improves-despite-economic-slowdown-744293?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Health of India's corporate finances improves despite economic slowdown</a></h3>
+								
+					</li>
+					<li>
+						<div class="common-title"><h2>Entertainment</h2></div>
+						 						<h3 class="listed"><a href="http://www.ibtimes.co.in/bigg-boss-11-former-contestant-kishwer-merchant-gives-befitting-reply-hina-khan-744366?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Former Bigg Boss inmate Kishwer Merchant gives befitting reply to Hina Khan</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/solo-movie-preview-facts-know-before-watching-dulquer-salmaan-bejoy-nambiars-film-744356?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Solo movie preview: Facts to know about DQ-Bejoy Nambiar's film</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/pooja-hegde-sizzle-item-number-ram-charan-sukumars-rangasthalam-744354?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Pooja Hegde to sizzle in an item number in Ram Charan's Rangasthalam</a></h3>
+													<h3 class="listed"><a href="http://www.ibtimes.co.in/venom-movie-update-jenny-slate-play-pivotal-role-alongside-tom-hardy-744344?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo" target="_blank">Venom movie update: Jenny Slate to play a pivotal role alongside Tom Hardy</a></h3>
+								
+				</ul>
+			</div>
+		</article>
+		
+	<section id="leaderboard">
+	<div class="container banner">	
+		<div id='div-gpt-ad-Top1'>
+			<script type='text/javascript'>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-Top1'); });
+			</script>
+		</div>
+	</div>
+</section>
+	</main>
+	<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+var google_tag_params = {
+ecomm_prodid: '1234',
+ecomm_pagetype: '4321',
+ecomm_totalvalue: '6756',
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 984742556;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/984742556/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- Google Code for Remarketing Tag -->
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://5387536.fls.doubleclick.net/activityi;src=5387536;type=;cat=;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://5387536.fls.doubleclick.net/activityi;src=5387536;type=;cat=;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1522134651441229'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1522134651441229&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+	<footer>		<nav class="footer_section">
+			<ul class="container">
+            	            <li><a href="http://www.ibtimes.co.in/india" target="_blank">India</a></li>
+            				<li><a href="http://www.ibtimes.co.in/us" target="_blank">US</a></li>
+            				<li><a href="http://www.ibtimes.co.in/world" target="_blank">World</a></li>
+            				<li><a href="http://www.ibtimes.co.in/business" target="_blank">Business</a></li>
+            				<li><a href="http://www.ibtimes.co.in/technology" target="_blank">Technology</a></li>
+            				<li><a href="http://www.ibtimes.co.in/sports" target="_blank">Sports</a></li>
+            				<li><a href="http://www.ibtimes.co.in/entertainment" target="_blank">Entertainment</a></li>
+            				<li><a href="http://www.ibtimes.co.in/auto" target="_blank">Auto</a></li>
+            				<li><a href="http://www.ibtimes.co.in/photos" target="_blank">Photos</a></li>
+            				<li class="list-child"><a href="http://www.ibtimes.co.in/tv" target="_blank">Video</a></li>
+              
+			</ul>
+		</nav>
+		<nav class="aboutus-editions">
+			<div class="container">
+				<ul>
+					<li><a href="http://www.ibtimes.co.in/corporate/about" target="_blank" >About us</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/advertise-with-us" target="_blank" >Advertise with us</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/brand-guidelines" target="_blank" >Brand</a></li>
+					
+					<li><a href="http://www.ibtimes.co.in/corporate/terms-services" target="_blank" >Terms of service</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/privacy-policy" target="_blank" >Privacy & Cookie Policy</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/permission" target="_blank" >Permission</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/syndication" target="_blank" >Syndication</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/careers" target="_blank" >Careers</a></li>
+					<li><a href="http://www.ibtimes.co.in/corporate/contact" target="_blank" >Contact</a></li>
+				</ul>
+				<ul>
+					<li>Editions:</li>
+					<li><a href="http://www.ibtimes.com.au/" rel="nofollow" title="business news australia" target="_blank">Australia</a></li>
+					<li><a href="http://www.ibtimes.com.cn/" rel="nofollow" title="business news china" target="_blank">China</a></li>
+					<li><a href="http://www.ibtimes.co.in/" title="business news india" target="_blank">India</a></li>
+					<li><a href="http://it.ibtimes.com" rel="nofollow" title="business news italy" target="_blank">Italy</a></li>
+					<li><a href="http://jp.ibtimes.com" rel="nofollow" title="business news japan" target="_blank">Japan</a></li>
+					<li><a href="http://www.ibtimes.sg" rel="nofollow"  title="business news Singapore" target="_blank">Singapore</a></li>
+					<li><a href="http://www.ibtimes.co.uk" rel="nofollow" title="business news uk" target="_blank">U.K.</a></li>
+					<li><a href="http://www.ibtimes.com" rel="nofollow" title="business news us" target="_blank">U.S.</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<ul>
+				<li class="copyright">&copy; Copyright 2016 <b>International Business Times, India Edition</b> All Rights Reserved.</li>
+				<li class="icon-sns">
+					<a target="_blank"  href="https://www.facebook.com/ibtimes.india" class="icon-facebook bg-btn">Facebook</a>
+					<a target="_blank"  href="https://twitter.com/ibtimes_india" class="icon-twitter bg-btn">Twitter</a>
+					<a target="_blank" href="https://plus.google.com/+IbtimesCoInInternationalBusinessTimesIndia/posts" class="icon-google bg-btn" rel="publisher">Google Plus</a>
+					<a target="_blank" href="https://in.pinterest.com/IBTimesIndia/" class="icon-pin bg-btn" rel="publisher">Pinterest</a>
+					<a target="_blank" href="http://www.ibtimes.co.in/rss" class="icon-rss bg-btn">RSS</a>
+				</li>
+			</ul>
+		</div>
+		</footer> 
+		
+		<script src="http://graphic1.ibtimes.co.in/www/js/tatadocomo/swiper.min.js"></script>
+	<script>
+		var swiper1 = new Swiper('.swiper1', {
+			pagination: '.swiper-pagination1',
+			paginationClickable: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			spaceBetween: 30,
+			centeredSlides: true,
+			autoplay: 10000,
+			loop: true,
+			autoplayDisableOnInteraction: false
+		});
+	</script>
+
+	
+	<script>
+	
+	var mobile_device = mobile_device || (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+	var set_menu = function(json) {
+		set_menu_active();
+		$("#site-nav ul#menu >li").bind("mouseover.first", function() {
+			$(this).unbind("mouseover.first");
+			$("#site-nav ul#menu").html(json.data);
+				set_menu_active();
+		});
+	};
+	var get_menu = function(t) {
+		 if (!mobile_device) {
+			$.ajax({
+				url: "http://graphic1.ibtimes.co.in/www/js/nov2014/menu.json?t=" + t,
+				dataType: "jsonp",
+			});
+		}
+	};
+	var set_menu_active = function() {
+		var a = "";
+		var docomoreferal = "?utm_source=tatadocomo&utm_medium=referral&utm_campaign=tatadocomo";
+		if ($(".breadcrumb").length) a = 'http://www.ibtimes.co.in' + $(".breadcrumb a").attr("href").replace('http://www.ibtimes.co.in', '');
+		else if (typeof art_pg_name !== 'undefined') a = 'http://www.ibtimes.co.in/' + art_pg_name.replace('section', '');
+		else a = 'http://www.ibtimes.co.in' + location.href.replace('http://www.ibtimes.co.in', '').replace(/\?\=(.*)/g, '');
+		if (a) {
+		   $("#site-nav ul#menu >li >a").each(function() {
+			 
+				if ($(this).attr("href") == a) $(this).closest('li').addClass('active');
+				var hreflink = $(this).attr('href');
+				$(this).attr('href',hreflink+docomoreferal);
+				 $(this).attr('target', '_blank');
+			});
+			 $("#site-nav ul#menu >li >ul >li >dl >dd >a").each(function() {   
+				var hreflink = $(this).attr('href');
+				var sitedomain ='http://www.ibtimes.co.in'
+			   if(!hreflink.includes(sitedomain))	
+				   $(this).attr('href',sitedomain+hreflink+docomoreferal);
+				else
+				  $(this).attr('href',hreflink+docomoreferal);			   
+				 $(this).attr('target', '_blank');
+			});
+		}
+	};
+	get_menu('1507131488');
+
+	</script>
+	
+<!-- Start new google Code -->
+			<script>
+		 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-61823585-3', 'auto');  // IBT India docomo Code
+ga('create', 'UA-68329367-13', 'auto', 'docomo');  // Docomo Code
+ga('send', 'pageview');
+ga('docomo.send', 'pageview');
+		$(document).ready(function(){
+  $('.btn_main a').attr('target', '_blank');
+});
+		</script>
+		<!-- End new google Code -->
+		</body>
+</html>
