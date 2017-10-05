@@ -1,0 +1,353 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to nChannel AppSuite</title>
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/assets/css/font-awesome.min.css" />
+    <link href="/Content/assets/css/jquery-ui-1.10.3.full.min.css" rel="stylesheet" />
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="/Content/assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+    <!-- fonts -->
+    <link href="/Content/assets/css/jquery.gritter.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/assets/css/ace-fonts.css" />
+    <link href="/Content/assets/css/ui.jqgrid.css" rel="stylesheet" />
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="/Content/assets/css/ace.min.css" />
+    <link rel="stylesheet" href="/Content/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="/Content/assets/css/ace-skins.min.css" />
+
+    <link href="/Content/assets/css/ui.multiselect.css" rel="stylesheet" />
+
+    <link href="/Content/custom.css" rel="stylesheet" />
+
+    <script src="/Content/assets/js/jquery-1.8.2.min.js"></script>
+    <script src="/Content/assets/js/bootstrap.min.js"></script>
+
+    <script src="/Content/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+    <script src="/Content/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="/Content/assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="/Content/assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="/Content/assets/js/ace-extra.min.js"></script>
+
+    
+    <script src="/Content/assets/js/html5shiv.js"></script>
+    <script src="/Content/assets/js/respond.min.js"></script>
+</head>
+<body style="background-color:#3b3e4b;">
+    <div> 
+        
+
+
+<style>
+    html {
+        
+    }
+    body{
+        /*background-color:transparent !important;*/
+        background: url('/content/assets/images/loginbg.png') #3b3e4b bottom left repeat-x !important;
+    }
+    .login-container {
+        width: 780px; /*100%*/
+    }
+
+    .login-box .widget-body {
+        background-color: transparent;
+    }
+
+    .login-box .widget-body .widget-main .header {
+        border-bottom: none;
+        text-align: center;
+    }
+
+    .login-box .widget-body .widget-main {
+        background-color: transparent;
+    }
+
+    .login-input {
+        width:40%;
+    }
+    .login-input-left {
+        float:left;
+    }
+    .login-input-right {
+        float: right;
+    }
+    .login-button-section {
+        clear: both;
+        text-align: center;
+    }
+    .login-button-section .inline {
+        display: block !important;
+    }
+
+    .login-button-section button, .login-button-section a {
+        clear: both;
+        float: none !important;
+        margin-top: 20px;
+    }
+    .login-button-section span.lbl{
+        color:#fff !important;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    }
+    .login-box .toolbar {
+        background-color: transparent;
+        border: none;
+    }
+    
+    .container-null{}
+    .row-margin-null{
+       /* margin-left:0;margin-right:0;*/
+    }
+    .width100{
+        /*width:100%;*/
+    }
+    .colsm12-nullpadding{
+        /*padding-left:0;padding-right:0;
+        margin:0;
+        width:100%;*/
+    }
+    .login-header-top, .login-header-bottom{
+        /*background: #ee7541;padding: 10px; text-shadow: 1px 1px 1px rgba(0,0,0,0.3);*/
+        color:#fff !important;
+        font-family:Kreon;
+    }
+    .login-header-top{
+        /*margin-bottom: 0; padding-bottom: 0;*/
+    }
+    .login-header-bottom{
+        /*margin-top: 0;padding-top: 0;margin-bottom: 0;*/
+    }
+    .login-header-form{
+        /*background: #9cdcf2; padding: 30px 25%;*/
+    }
+    .img-fix{
+       /* margin: 20px auto 0 auto;
+        max-width:780px;*/
+    }
+    .img-fix img{
+        width: 100%;
+    }
+
+    #loginBtn{
+        display:inline-block;
+        background-color:#00b2ee !important;
+        border-radius: 0px 10px;
+        border:5px solid #00b2ee;
+        font-family:Roboto, helvetica, sans-serif;
+        text-decoration:none;
+        cursor:pointer;
+    }
+</style>
+
+<div class="container-null">
+    <div class="content-wrapper width100">
+        <div class="row width100 row-margin-null">
+            <div class="col-sm-10 col-sm-offset-1 colsm12-nullpadding">
+                <div class="login-container">
+                    <div class="center">
+                        <h1 class="img-fix">
+							<img src="/Content/assets/images/logo/nchannel_wires.png" alt="nChannel logo" />
+                        </h1>
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main" style="padding: 0 !important;">
+
+                                    <h4 class="header lighter bigger-200 login-header-top">
+                                        Multichannel...simplified
+                                    </h4>
+
+                                    <div class="space-6" style="display:none;"></div>
+
+                                    <div class="login-header-form">
+                                        <form action="/Home/Login" method="post" autocomplete="off" id="loginForm">
+                                            <label class="block clearfix login-input login-input-left">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input autofocus type="text" class="form-control" placeholder="Username" name="email" />
+                                                    <i class="icon-user"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block clearfix login-input login-input-right">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input id="password" type="password" class="form-control" placeholder="Password" name="password" />
+                                                    <i class="icon-lock"></i>
+                                                </span>
+                                            </label>
+
+                                            <div class="space" style="display:none;"></div>
+
+                                            <div class="clearfix login-button-section">
+                                                <a class="btn" id="loginBtn">begin here</a>
+                                            </div>
+
+                                            <div class="space-4"></div>
+                                        </form>
+                                    </div>
+                                </div><!-- /widget-main -->
+
+                            </div><!-- /widget-body -->
+                        </div><!-- /login-box -->
+
+                        <div id="forgot-box" class="forgot-box widget-box no-border hide">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header red lighter bigger">
+                                        <i class="icon-key"></i>
+                                        Retrieve Password
+                                    </h4>
+
+                                    <div class="space-6"></div>
+                                    <p>
+                                        Enter your email and to receive instructions
+                                    </p>
+
+                                    <form>
+                                        <fieldset>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="email" class="form-control" placeholder="EmailToReset" id="EmailToReset" />
+                                                    <i class="icon-envelope"></i>
+                                                </span>
+                                            </label>
+
+                                            <div class="clearfix">
+                                                <a href="#" class="width-35 pull-right btn btn-sm btn-danger" style="margin-left:10px;" onclick="Publish('intercept_forgot_password',null)"><i class="icon-lightbulb"></i>Send Me</a>
+                                                
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div><!-- /widget-main -->
+
+                                <div class="toolbar center">
+                                    <a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+                                        Back to login
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div><!-- /widget-body -->
+                        </div><!-- /forgot-box -->
+
+                        <div id="signup-box" class="signup-box widget-box no-border hide">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header green lighter bigger">
+                                        <i class="icon-group blue"></i>
+                                        New User Registration
+                                    </h4>
+
+                                    <div class="space-6"></div>
+                                    <p> Enter your details to begin: </p>
+
+                                    <form>
+                                        <fieldset>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="email" class="form-control" placeholder="Email" />
+                                                    <i class="icon-envelope"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" class="form-control" placeholder="Username" />
+                                                    <i class="icon-user"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" class="form-control" placeholder="Password" />
+                                                    <i class="icon-lock"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" class="form-control" placeholder="Repeat password" />
+                                                    <i class="icon-retweet"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block">
+                                                <input type="checkbox" class="ace" />
+                                                <span class="lbl">
+                                                    I accept the
+                                                    <a href="#">User Agreement</a>
+                                                </span>
+                                            </label>
+
+                                            <div class="space-24"></div>
+
+                                            <div class="clearfix">
+                                                <button type="reset" class="width-30 pull-left btn btn-sm">
+                                                    <i class="icon-refresh"></i>
+                                                    Reset
+                                                </button>
+
+                                                <button type="button" class="width-65 pull-right btn btn-sm btn-success" onclick="Publish('login_click_createAccount', null)">
+                                                    Register
+                                                    <i class="icon-arrow-right icon-on-right"></i>
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+
+                                <div class="toolbar center">
+                                    <a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+                                        <i class="icon-arrow-left"></i>
+                                        Back to login
+                                    </a>
+                                </div>
+                            </div><!-- /widget-body -->
+                        </div><!-- /signup-box -->
+                    </div><!-- /position-relative -->
+
+                </div>
+            </div><!-- /.col -->
+    </div><!-- /.row -->
+    </div>
+</div><!-- /.main-container -->
+
+<script>
+
+    function submitForm() {
+        var formEl = document.getElementById("loginForm");
+        formEl.submit();
+    }
+
+    document.getElementById("loginBtn").onclick = function () {
+        submitForm();
+    };
+
+    document.getElementById('password').onkeydown = function(e) {
+        // If they pressed enter
+        if (!e) e = window.event;
+        var _code = e.keyCode || e.which;
+        if (_code == '13') {
+            submitForm();
+        }
+    };
+</script>
+    </div>
+</body>
+</html>

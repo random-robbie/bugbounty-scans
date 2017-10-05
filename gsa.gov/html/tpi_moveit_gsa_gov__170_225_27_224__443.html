@@ -1,0 +1,292 @@
+
+
+
+
+ 
+
+    
+
+
+
+	
+
+
+
+
+
+
+ 
+
+    
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+	<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+	<meta Http-Equiv="Cache-Control" Content="no-cache">
+	<meta Http-Equiv="Pragma" Content="no-cache">
+	<meta Http-Equiv="Expires" Content="0">
+	<meta http-equiv="X-UA-Compatible" content="IE=8">	
+	<title>TransPort Integrator Portal - Login Page</title>
+	<link href="/portal/css/main.css" rel="stylesheet"  type="text/css"/>
+	<script src="/portal/js/jquery-1.7.2.min.js" ></script>
+	<script src="/portal/js/jquery.cookie.js" ></script>
+	<script src="/portal/js/jquery-ui-1.8.21.custom.min.js" ></script>	
+	<script src="/portal/js/i18n/grid.locale-en.js" ></script>
+	<script src="/portal/js/jquery.jqGrid.min.js" ></script>
+	<script src="/portal/js/jquery.sessionTimeout.1.0.js" ></script>
+	
+	<script>
+	
+	
+		$(function() {
+			$('.button').button();
+			$('.date').datepicker();
+			$('#loading').ajaxStart(function() {
+				$(this).show();
+			});
+			$('#loading').ajaxStop(function() {
+				$(this).hide();
+				$('.wwFormTable input[type="checkbox"]').css('width', 'auto');				
+				$('.wwFormTable td').attr('align', 'left');
+			});
+			
+			$('.wwFormTable td').attr('align', 'left');
+			$('.wwFormTable input[type="checkbox"]').css('width', 'auto');			
+
+		});
+
+		$.ajaxSetup ({
+		    cache: false
+		});
+		
+		$.extend($.jgrid.defaults, {
+			autoencode: true,
+			rowList: [10, 25, 100],
+			rowNum: 10,
+	    	viewrecords: true,
+			datatype: "json",
+			scrollOffset: 0,
+			height: 'auto',
+			jsonReader:{
+				repeatitems: false
+			}			
+		});
+		
+
+		function nameFormatter(cellvalue, options, rowObject) {
+			var ret = rowObject.lastName + ', ' + rowObject.firstName;
+			if (rowObject.middleInitial) {
+				ret += ' ' + rowObject.middleInitial;
+			}
+			return $.jgrid.htmlEncode(ret);
+		}
+		
+		function booleanFormatter(cellvalue, options, rowObject) {
+			return cellvalue ? 'Yes' : 'No';
+		}		
+		
+		function addFieldHint(field, hint) {
+		
+			var id = $('input[name="' + field + '"]').attr('id');
+			$('label[for="' + id + '"]').parent().append('<p class="fieldHint">' + hint + '</p>')
+		
+		}
+		
+		function offScreenRowTab(grid, idx, editFunc, title) {
+			var ret = "";
+			ret += "<a href='#' class='offScreen' ";
+			ret += " onfocus='$(\"" + grid + "\").jqGrid(\"setSelection\", " + idx + ");return false;'";
+			ret += " onclick='" + editFunc + "(" + idx + ");return false;'";
+			ret += " title='" + title + "' >&nbsp;";
+			ret += "</a>";
+			return ret;
+		}
+		
+		function highlight(ele) {
+			ele.css('backgroundColor', '#ff0');
+			ele.animate({
+				backgroundColor: '#fff'
+			}, 2000)
+		}
+		
+	</script>
+</head>
+<body id="tmsWebBody">
+<noscript>
+	This application requires JavaScript to function properly.  Please use a browser that supports JavaScript, or enable JavaScript if it is disabled to ensure the proper function of this application.
+</noscript>
+<a href="#skipNav" class="offScreen" >Skip To Content</a>
+	
+
+
+
+
+
+ 
+
+    
+
+
+
+
+
+<script>
+
+	$(function() {
+		$('#logoutForm input[type="submit"]').css('background', '#fff');
+	});
+</script>
+
+	<div id="mainContainer">	
+		<div id="mainContainerBorder">
+			<div id="banner">
+				
+
+					<div id="gsaLogoContainer">
+						<a href="/portal/" class="left" style="position: relative;margin-left: 4px" ><img  src="/portal/img/logo/GSAlogo.gif" alt="U.S. General Services Administration"/></a>
+					</div>					
+					<img src="/portal/img/logo/blend.png" class="left" />
+					
+					<span class="left" style="position: relative; top: -.50em; font-size: 115%">
+						<strong>
+							
+							TransPort Integrator Portal</span>
+						</strong>
+					</span>
+
+					<div id="bannerRight" class="right">
+
+						
+						
+					</div>					
+					
+					
+					
+					
+				<br class="clear" />	
+			</div>
+			
+	
+<div class="skinny" style="margin: 0 auto">
+	<div class="titleBox">
+		<h1>TransPort Integrator Portal - Login</h1>
+	</div>
+	
+	<div id="accessWarningArea" title="Authorized Access Only Warning">
+		<p>This is a U.S. Federal Government Information System that is &quot;FOR OFFICIAL USE ONLY.&quot; Unauthorized access is a violation of U.S. Law and may result in criminal or administrative penalties.</p>
+		<p>Users shall not access other users or system files without proper authority. Absence of access controls IS NOT authorization for access!</p>
+		<p>Information systems and equipment related to the GSA TransPort Integrator are intended for communication, transmission, processing, and storage of U.S. Government information.</p>
+		<p>These systems and equipment are subject to monitoring by law enforcement and authorized officials. Monitoring may result in the acquisition, recording, and analysis of all data being communicated, transmitted, processed, or stored in this system by law enforcement and authorized officials. Use of this system constitutes consent to such monitoring.</p>
+	</div>
+	
+	
+
+
+
+ 
+
+    
+
+
+
+
+
+
+
+
+	<div id="browserWarning" class="ui-state-error">
+		<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 1em"></span>GSA TPI is optimized for use with Microsoft Internet Explorer browser version 8.0. Other browsers may or may not work correctly and are not supported.
+	</div>
+
+
+
+	
+	
+	<div style="width: 700px; margin: 0 auto">	
+	
+			
+			<div id="loginPanel" style="width: 33%; float: left">
+		
+		
+		<form method="POST" action="/portal/j_security_check" autocomplete="off">
+			<input type="hidden" name="LOGIN_TOKEN" value="474f071d-b6a5-49f4-98af-6eab0591b43f" id="LOGIN_TOKEN"/>
+			<tr>
+    <td class="tdLabel"><label for="j_username" class="label">Username:</label></td>
+    <td
+><input type="text" name="j_username" value="" id="j_username"/></td>
+</tr>
+
+			<tr>
+    <td class="tdLabel"><label for="j_password" class="label">Password:</label></td>
+    <td
+><input type="password" name="j_password" id="j_password"/></td>
+</tr>
+					
+			<input type="submit" value="Login     " class="button" />
+		</form>
+		</div>
+		
+		
+		
+			<div style="width: 33%; float: left;margin-top: 2em; text-align: center" >
+				OR
+			</div>
+			
+			<div id="pivPanel" style="width: 33%; float: left;" >
+				<p>
+					If you are a GSA authenticated user, click this button to access this application using your GSA Single Sign-on credentials.
+				</p>
+				<button class="button" onclick="location.href='https://sso.tpi.moveit.gsa.gov/sp/startSSO.ping?PartnerIdpId=SSO03-IDP-Extended'" >GSA Single Sign-on Access</button>
+			</div>
+
+		
+	</div>
+	<div class="clear"> </div>
+	<br> </br>
+	<div id="left">
+		<a href="resetPassword" style="float: left; margin-top: .5em">Reset Password</a>
+		<a href="register" style="float: left; clear: left;margin-top: .5em">Register</a>	
+	</div>
+</div>
+<div class="clear"> </div>
+<div>
+	
+
+
+
+ 
+
+    
+
+
+
+
+
+
+
+			<div id="footer">
+				<div id="contactInfo" class="FooterContact">
+					TransPort Integrator Portal Help Desk phone:800-449-4960, email:tpi.helpdesk@gsa.gov.  Help Desk Hours 7:00 AM - 8:00 PM Eastern Time.
+					<br>
+	
+				</div>
+			</div>
+			
+			<div id="loading" class="ui-state-highlight" title='Loading asynchronous content...'>
+				Loading...
+			</div>
+	
+	
+			</div>
+	</div>
+
+</body>
+</html>	
+	
+	
+</div>

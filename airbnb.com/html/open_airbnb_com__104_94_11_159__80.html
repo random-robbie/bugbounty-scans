@@ -1,0 +1,618 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"4180ab4812","applicationID":"19471562","transactionName":"b1FaMkBSDEdZBhBfWlYbdTBxHCFZSzUFUVB7W1YSQFwOWF0XS35aVVEL","queueTime":0,"applicationTime":11,"ttGuid":"35B2C6ACF7CA1205","agent":""}</script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+	
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@airbnbopen" />
+		<meta name="twitter:title" content="Airbnb Open LA, Nov 17-19" />
+		<meta name="twitter:description" content="I just registered for Airbnb Open LA! Join me in Los Angeles for the festival of hosting https://airbnb.com/open" />
+		<meta name="twitter:image" content="https://airbnbopen.com/content/splash/img/main/main__bg.jpg" />
+	
+		<meta property="og:url" content="https://airbnb.com/open">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Airbnb Open LA, Nov 17-19">
+		<meta property="og:site_name" content="Airbnb Open">
+		<meta property="og:description" content="I just registered for Airbnb Open LA! Join me in Los Angeles for the festival of hosting.">
+		<meta property="og:image" content="https://airbnbopen.com/content/splash/img/main/main__bg.jpg" />
+		<meta property="og:image:secure_url" content="https://airbnbopen.com/content/splash/img/main/main__bg.jpg">
+
+    
+
+    <title>Airbnb Open 2016</title>
+
+	<link href="/Content/css/bootstrap.css" rel="stylesheet">
+	<link href="/Content/deps/jQuery-Youtube-Channels-Playlist/css/ycp.css" rel="stylesheet" />
+	<link href="/bundles/css/cms?v=ujl_SxjOL_1cGddZG4UEc77P1x-pNQPxm3dsi3QWqug1" rel="stylesheet"/>
+
+    <style nonce="FbumhICP7A3pQzGwLkFzaq7FJ43YvXsBwv5sHDFTXHC4tpZaqz8JJ0iIKUtlozMw">
+        @page {
+            size: A4 portrait;
+        }
+		.galleria{ height: 432px; }
+		body .galleria-thumbnails .galleria-image { width:152px !important}
+		.galleria .galleria-info-text { display: none; }
+	    </style>
+    
+	<style>
+	.header--with-bg__home3 {
+		background: #221620 url(https://endpoint896797.azureedge.net/airbnbopen/content/img/header/header__bg3.png) no-repeat center 10%;
+		background-size: cover;
+	}
+
+	@media (max-width: 761px) {
+		.header--with-bg__home3 {
+			background-position: -150px -100px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.header--with-bg__home3 {
+			background-position: -320px -100px;
+		}
+	}
+
+	@media (min-width: 1700px) {
+		.header--with-bg__home3 {
+			background-position-y: -100px;
+			visibility: visible;
+		}
+	}
+
+	.youtube-playlist .about {
+		display: none;
+	}
+	</style>
+
+</head>
+
+    <body>
+
+
+
+<!-- HEADER -->
+<header class="header home-header header--absolute header--with-bg header--with-bg__home3 container-fluid">
+	<div class="container container-wide">
+		<!-- HEADER NAVIGATION -->
+		
+<nav class="header__navigation header__navigation--classic row navbar">
+	<!-- MAIN MENU LOGO AND MOBILE BURGER -->
+	<div class="header__navbar-header navbar-header">
+		<!-- MOBILE BURGER -->
+		<button class="header__burger navbar-toggle" type="button" data-toggle="collapse" data-target=".header__navigation-items">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<!-- MOBILE BURGER END -->
+
+		<!-- HEADER LOGO -->
+		<a href="/home" class="logo logo--small navbar-brand">
+			<img src="/content/img/logo/logo-small.svg" class="logo__image logo__image--small" alt="Airbnb Open 2016 logo">
+		</a>
+		<!-- HEADER LOGO END -->
+	</div>
+	<!-- MAIN MENU LOGO AND MOBILE BURGER END -->
+	<!-- HEADER NAVIGATION END -->
+	<!-- MAIN MENU -->
+	<ul class="header__navigation-items collapse navbar-collapse list-inline" id="header__navigation-items">
+		
+		
+		<li class="header__navigation-item">
+			<a href="/speakers" class="header__navigation-link">Speakers</a>
+		</li>
+		
+	    <li class="header__navigation-item">
+			<a href="/our-partners" class="header__navigation-link">Our Partners</a>
+		</li>
+		<li class="header__navigation-item hidden-lg">
+
+			
+
+
+	<a href="/Airbnb/Auth?returnUrl=/e180/login" class="header__navigation-link">Brain Dates</a>
+
+		</li>
+		<li class="header__navigation-item hidden-lg">
+			<a href="/wristband" class="header__navigation-link">My Wristband</a>
+		</li>
+			</ul>
+	<!-- MAIN MENU END -->
+			<a href="/Airbnb/Auth" target="_self" class="button button--orange button--small button--login">Log In</a>
+</nav>
+
+		<!-- HEADER NAVIGATION END -->
+		<!-- HEADER LOGO -->
+		<div class="logo logo--big row">
+			<div class="col-xs-12">
+				<a href="/home" class="logo navbar-brand--turquoise">
+					<img src="/content/img/logo/logo-big__turquoise.svg" class="logo__image" alt="Airbnb Open 2016 logo">
+				</a>
+			</div>
+		</div>
+		<!-- HEADER LOGO END -->
+		<!-- INTRO -->
+		<div class="intro intro--nopadding row">
+			<div class="col-xs-12">
+				<!-- VIDEO PAUSE/PLAY BUTTON -->
+				<a href="#" class="video-modal__open visible-xs" data-trailer-trigger="">
+					<svg width="94px" height="94px" class="play-icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+					</svg>
+				</a>
+				<!-- VIDEO PAUSE/PLAY BUTTON END -->
+				<span class="intro__text">Airbnb Open<br>November 17th-19th, 2016</span>
+				<a href="#" class="button button--white button--big hidden-xs" data-trailer-trigger="">Watch Now</a>
+			</div>
+		</div>
+		<!-- INTRO END -->
+		<!-- VIDEO BACKGROUND -->
+		<section class="video-background">
+			<video class="video-background__videofile" preload="auto" muted autoplay loop>
+				<source src="https://a0.muscache.com/v/38/10/38101bb7-3da9-48cd-93a5-f3e87434015b/f53f46d618515b978a4cca363b3be2a3_8000k_1.mp4" type="video/mp4">
+			</video>
+		</section>
+		<!-- VIDEO BACKGROUND END -->
+	</div>
+</header>
+<!-- HEADER END -->
+<!-- UPDATES SIGNUP -->
+<section class="updates">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+
+				<img class="updates-photo-new" src="https://endpoint896797.azureedge.net/airbnbopen/content/img/home/globe-marquee.jpg" alt="Airbnb Open events updates">
+            </div>
+	        <div class="col-xs-12 col-md-8">
+		        <p>Airbnb Open is a community-powered festival of travel and hospitality that celebrates a city and its neighborhoods.</p>
+		        <p class="signup-proposal">Sign up for updates about upcoming Airbnb Open events.</p>
+				<form action="/signup-for-updates" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate updates__form" target="_blank" novalidate>
+					<input type="text" name="name" id="mce-FNAME" placeholder="Name" value="">
+					<input type="email" name="email" id="mce-EMAIL" placeholder="Email Address" value="">
+					<button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button button--orange button--big">Submit</button>
+					<div class="error" style="display: none;"></div>
+					<div class="success" style="display: none;">Thank you for signing up for updates!</div>
+					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					<div style="position: absolute; left: -5000px;" aria-hidden="true">
+						<input type="text" name="b_4c60e549027053dd3d4bf70eb_2a64febdf5" tabindex="-1" value="">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- UPDATES SIGNUP END -->
+<!-- HIGHLIGHTS -->
+<section class="highlights container">
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 class="lined-heading">Airbnb Open Highlights</h2>
+			<span>Inspiring talks and community celebrations from the festival of hosting.</span>
+		</div>
+	</div>
+
+	<div class="highlights__video row">
+		<div class="col-xs-12">
+			<div class="">
+				<div class="youtube-playlist" data-ycp="PLe_YVMnS1oXY2DvtclSPQoEqG_91CVu-P"></div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+	<div class="col-xs-12">
+			<a href="https://www.youtube.com/playlist?list=PLe_YVMnS1oXY4KMyK1VXAfONrf3xUG2Gx" target="_blank" class="button button--big button--orange-inactive" style="margin: 15px 10px 5px 0;">See more from Trips on Airbnb</a>
+			
+		</div>
+	</div>
+
+</section>
+<!-- HIGHLIGHTS LINKS -->
+<!-- PHOTO GALLEREY -->
+<section class="photo-gallery container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 class="lined-heading">Photo Gallery</h2>
+			<span>Discover Airbnb Open&rsquo;s people, places, and unforgettable moments.</span>
+		</div>
+	</div>
+
+	<div class="photo-gallery__images row">
+		<div class="col-xs-12">
+			<div class="galleria">
+			</div>
+		</div>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-xs-12">
+				<a href="https://www.facebook.com/pg/airbnb/photos/?tab=album&album_id=10154838318412458" target="_blank" class="button button--big button--orange-inactive" style="margin: 15px 10px 5px 0;">See more Open 2016 photos</a>
+				<a href="https://www.facebook.com/pg/airbnb/photos/?tab=album&album_id=10154838448597458" target="_blank" class="button button--big button--orange-inactive" style="margin: 15px 10px 5px 0;">See B&eacute;lo Awards red carpet photos</a>
+		</div>
+	</div>
+
+</section>
+<!-- PHOTO GALLEREY END -->
+<!-- JOIN THE CONVERSATION -->
+<section class="conversation container-fluid">
+	<div class="container">
+
+		<img src="/content/img/conversation/conversation__svg.png" alt="conversation__svg" class="conversation__svg" width="505">
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="mr-space mr-space_airbnb-open" id="mr-space_airbnb-open" data-space-id="airbnb/airbnb-open" style="min-height: 500px;"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- JOIN THE CONVERSATION END -->
+<!-- VIDEO MODAL -->
+<section class="video-modal">
+
+	<!-- VIDEO -->
+	<video preload="auto" loop="loop" controls class="video-modal__videofile">
+		<source src="https://a0.muscache.com/v/38/10/38101bb7-3da9-48cd-93a5-f3e87434015b/f53f46d618515b978a4cca363b3be2a3_8000k_1.mp4" type="video/mp4">
+	</video>
+	<!-- VIDEO END -->
+	<!-- VIDEO PAUSE/PLAY BUTTON -->
+	<a href="#" class="video-modal__pause">
+		<svg width="94px" height="94px" class="play-icon">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+		</svg>
+	</a>
+	<!-- VIDEO PAUSE/PLAY BUTTON END -->
+	<!-- CLOSE ICON -->
+	<a href="#" class="video-modal__close">
+		<svg width="18px" height="18px">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+		</svg>
+	</a>
+	<!-- CLOSE ICON END -->
+
+</section>
+<!-- VIDEO MODAL -->
+
+
+
+<!-- FOOTER -->
+<footer class="footer container-fluid text-center">
+	<div class="container">
+
+		<!-- AIRBNB LOGO -->
+		<div class="footer__logo row">
+			<div class="col-xs-12">
+				<svg width="158px" height="49px" viewBox="643 67 158 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g id="footer__airbnb-logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(643.000000, 67.000000)">
+						<path d="M42.4032954,39.6116966 C42.0375209,42.1654572 40.3260406,44.354276 37.9368508,45.323384 C36.7645964,45.7990573 35.4829982,45.9666808 34.1805859,45.8157086 C32.9339555,45.670842 31.7073067,45.2512282 30.4301489,44.5324453 C28.6620541,43.5372502 26.8723125,42.0094897 24.8583328,39.7684968 C28.0645485,35.8076979 30.0665946,32.157169 30.8078568,28.9054397 C31.1469891,27.4187525 31.2188674,26.0128243 31.020994,24.7259532 C30.8303361,23.4837632 30.3921284,22.3564674 29.7194142,21.3751484 C28.2196835,19.1877173 25.6345628,17.8814196 22.8032799,17.8814196 C19.9733845,17.8814196 17.388819,19.1874398 15.8888107,21.3745934 C15.2160965,22.3559124 14.7781663,23.4829306 14.5875084,24.7242881 C14.3893575,26.0097715 14.4609582,27.4154222 14.799258,28.9021094 C15.5402426,32.1552263 17.5425663,35.8068653 20.7496145,39.7687743 C18.7356349,42.0094897 16.9458933,43.5372502 15.1777984,44.5324453 C13.9009181,45.2512282 12.6739919,45.670842 11.4273615,45.8157086 C10.1255042,45.9666808 8.84335096,45.7990573 7.67109658,45.323384 C5.2816292,44.354276 3.57042643,42.1654572 3.20492951,39.6116966 C3.02620512,38.3634011 3.16413372,37.1595092 3.63897445,35.8229616 C3.81409105,35.3303595 4.01890254,34.846638 4.27255796,34.2721668 C4.63139435,33.4593038 5.01215501,32.6331198 5.38042716,31.8344105 L5.43010366,31.7270093 C8.80227765,24.4109653 12.4222791,16.9941807 16.1890899,9.682022 L16.3389519,9.39090106 C16.7224878,8.64547604 17.1190672,7.87479649 17.5192545,7.13020405 C17.9344279,6.35813689 18.3523765,5.61160178 18.9013157,4.96802747 C19.9273158,3.76580068 21.276907,3.13027451 22.8041124,3.13027451 C24.3307629,3.13027451 25.679799,3.76552316 26.7057991,4.96747242 C27.2555708,5.61132426 27.673242,6.35730432 28.0878603,7.12853891 C28.4844398,7.86674835 28.8774114,8.63048984 29.257617,9.36925431 L29.4188575,9.68229952 C33.1853907,16.9936257 36.8053922,24.4104103 40.1778437,31.7275644 L40.2083712,31.7936147 C40.5833039,32.6059226 40.970725,33.4454277 41.3353894,34.2724443 C41.5895999,34.8477481 41.7946889,35.3317471 41.9692504,35.8226841 C42.4438136,37.1600643 42.5817422,38.3639562 42.4032954,39.6116966 L42.4032954,39.6116966 Z M22.8041124,37.3274102 C20.1509988,33.958289 18.4486768,30.8297796 17.8514487,28.2071935 C17.600846,27.1062623 17.5433989,26.0946934 17.68105,25.2002389 C17.8001071,24.4267841 18.065696,23.7351984 18.4706011,23.1446309 C19.3864248,21.8089158 21.0060452,21.0118717 22.80439,21.0118717 C24.6019022,21.0118717 26.2218001,21.8091934 27.1379014,23.1451859 C27.5428065,23.7357535 27.8081178,24.4276167 27.9271749,25.201349 C28.064826,26.096636 28.0071013,27.10876 27.7559436,28.2091361 C27.1581605,30.8317223 25.456116,33.9591216 22.8041124,37.3274102 L22.8041124,37.3274102 Z M44.9187579,34.7747597 C44.6992377,34.1581051 44.4430846,33.561432 44.1991425,33.00833 C43.8239323,32.1580015 43.4306831,31.306008 43.0504775,30.4820441 L43.0205051,30.4168264 C39.6289045,23.0588765 35.9889215,15.600741 32.201574,8.24889661 L32.0408886,7.93668398 C31.6543,7.18598604 31.2549453,6.40975604 30.8450448,5.64712464 C30.3665963,4.75655544 29.8365286,3.81353452 29.0863857,2.93489878 C27.4709282,1.04247392 25.2399261,0.0001 22.8041124,0.0001 C20.3677438,0.0001 18.1359091,1.04302897 16.5198965,2.93656392 C15.7711412,3.81492213 15.2410735,4.75738801 14.76207,5.64823473 C14.3485617,6.41780419 13.9455992,7.20124977 13.5556803,7.95888576 L13.4063733,8.24889661 C9.61874839,15.6010185 5.97876533,23.0594315 2.58744229,30.4165488 L2.53804332,30.5236725 C2.16449824,31.3340377 1.77790962,32.1718777 1.4088049,33.0080525 C1.16514028,33.5605995 0.90898716,34.156995 0.689466986,34.7753148 C0.0472802833,36.5828178 -0.143377567,38.3098393 0.106392542,40.0551773 C0.629244637,43.7073714 3.07671418,46.8372684 6.49412432,48.2240475 C7.76295648,48.7388515 9.11032745,49 10.4984942,49 C10.9253236,49 11.359646,48.9747455 11.7886956,48.9247914 C13.4330155,48.7338561 15.0898239,48.173816 16.7130521,47.2602124 C18.6992795,46.1423524 20.6608074,44.5038605 22.8041124,42.162682 C24.9468625,44.5038605 26.9086679,46.1423524 28.8948953,47.2602124 C30.518401,48.1740935 32.1752094,48.7341336 33.8192518,48.9247914 C34.2483013,48.9747455 34.6826238,49 35.1094532,49 C36.4976199,49 37.8447134,48.7388515 39.1135455,48.2240475 C42.5306781,46.8378234 44.9784252,43.7076489 45.5018323,40.0551773 C45.7513249,38.3106719 45.5606671,36.5836504 44.9187579,34.7747597 L44.9187579,34.7747597 Z M93.8123668,17.5453401 C95.2668614,17.5453401 95.9526192,17.7537594 95.9526192,17.7537594 L95.9526192,22.0992042 C95.9526192,22.0992042 92.0323385,20.8028973 89.5737681,23.5775657 L89.5737681,36.460708 L84.8680992,36.460708 L84.8680992,18.003807 L88.8780196,18.003807 C89.2859774,18.003807 89.5737681,18.3287856 89.5737681,18.6967803 L89.5737681,19.5049253 C90.4102204,18.4542257 92.3184641,17.5453401 93.8123668,17.5453401 L93.8123668,17.5453401 Z M106.602817,32.4965788 C104.80697,32.4965788 103.35414,31.5690991 102.593451,30.5042459 L102.593451,23.9028219 C103.323058,22.8959709 104.889116,21.910489 106.602817,21.910489 C109.739097,21.910489 112.140497,23.8817302 112.140497,27.2036727 C112.140497,30.5256151 109.739097,32.4965788 106.602817,32.4965788 L106.602817,32.4965788 Z M107.364893,17.5428424 C104.119824,17.5428424 102.593451,19.5082556 102.593451,19.5082556 L102.593451,9.12420208 L97.894443,9.12420208 L97.894443,36.460708 L101.897425,36.460708 C102.305383,36.460708 102.593451,36.1357293 102.593451,35.7680122 L102.593451,34.9354452 L102.593451,34.9354452 C102.593451,34.9354452 104.094292,36.9438744 107.364893,36.9438744 C112.708031,36.9438744 116.851994,32.828773 116.851994,27.2433584 C116.851994,21.6293589 112.708031,17.5428424 107.364893,17.5428424 L107.364893,17.5428424 Z M135.666344,25.5085662 L135.666344,36.460708 L130.967891,36.460708 L130.967891,26.0416866 C130.967891,22.9939362 129.99018,21.7842163 127.32319,21.7842163 C125.913654,21.7842163 124.416698,22.5340817 123.513641,23.6247445 L123.513641,36.460708 L118.787158,36.460708 L118.787158,18.0051946 L122.513173,18.003807 C122.920853,18.003807 123.208921,18.3287856 123.208921,18.6967803 L123.208921,19.5049253 C124.586264,18.0809582 126.408476,17.5456176 128.19905,17.5456176 C130.256323,17.5456176 131.971134,18.1558892 133.342372,19.2987262 C135.018884,20.6702417 135.666344,22.4227953 135.666344,25.5085662 L135.666344,25.5085662 Z M146.786109,32.4965788 C144.990262,32.4965788 143.537433,31.5690991 142.776744,30.5042459 L142.776744,23.9028219 C143.50635,22.8959709 145.072409,21.910489 146.786109,21.910489 C149.922389,21.910489 152.32379,23.8817302 152.32379,27.2036727 C152.32379,30.5256151 149.922389,32.4965788 146.786109,32.4965788 L146.786109,32.4965788 Z M147.548186,17.5428424 C144.303117,17.5428424 142.776744,19.5082556 142.776744,19.5082556 L142.776744,9.12420208 L138.077736,9.12420208 L138.077736,36.460708 L142.080995,36.460708 C142.488676,36.460708 142.776744,36.1357293 142.776744,35.7680122 L142.776744,34.9354452 L142.776744,34.9354452 C142.776744,34.9354452 144.277585,36.9438744 147.548186,36.9438744 C152.891323,36.9438744 157.035287,32.828773 157.035287,27.2433584 C157.035287,21.6293589 152.891323,17.5428424 147.548186,17.5428424 L147.548186,17.5428424 Z M77.2681499,36.460708 L81.9588325,36.460708 L81.9588325,18.0051946 L77.2681499,18.0051946 L77.2681499,36.460708 Z M69.6601523,30.5036909 C68.8994636,31.5688216 67.4463566,32.4965788 65.650232,32.4965788 C62.513952,32.4965788 60.1125512,30.5256151 60.1125512,27.2036727 C60.1125512,23.8817302 62.513952,21.910489 65.650232,21.910489 C67.3644875,21.910489 68.9308236,22.8962484 69.6601523,23.903377 L69.6601523,30.5036909 Z M69.6595973,18.6967803 L69.6595973,19.5082556 C69.6595973,19.5082556 68.1335019,17.5428424 64.8881556,17.5428424 C59.5452955,17.5428424 55.4013319,21.6293589 55.4013319,27.2433584 C55.4013319,32.828773 59.5452955,36.9438744 64.8881556,36.9438744 C68.159034,36.9438744 69.6595973,34.9354452 69.6595973,34.9354452 L69.6595973,35.7649594 C69.6595973,36.1490504 69.9712549,36.460708 70.3556233,36.460708 L74.3586056,36.460708 L74.3586056,18.003807 L70.3556233,18.003807 C69.9476655,18.003807 69.6595973,18.3287856 69.6595973,18.6967803 L69.6595973,18.6967803 Z M82.8066633,12.2912871 C82.8066633,14.041898 81.387414,15.4611473 79.6368031,15.4611473 C77.8859146,15.4611473 76.4666653,14.041898 76.4666653,12.2912871 C76.4666653,10.5403986 77.8859146,9.12114934 79.6368031,9.12114934 C81.387414,9.12114934 82.8066633,10.5403986 82.8066633,12.2912871 L82.8066633,12.2912871 Z"></path>
+					</g>
+				</svg>
+			</div>
+		</div>
+		<!-- AIRBNB LOGO END -->
+		<!-- PARTNERS -->
+		<div class="footer__partners row">
+			<ul class="footer__partners-items col-xs-12 list-inline">
+				<li class="footer__partners-item">
+					<img src="/content/img/footer/footer__partners/airbnbopen__logo.svg" class="footer__partners-image" alt="Airbnb Open 2016 logo">
+				</li>
+				<li class="footer__partners-item">
+					<img src="/content/img/footer/footer__partners/americanexpress__logo.png" srcset="/content/img/footer/footer__partners/americanexpress__logo.png 1x, /content/img/footer/footer__partners/americanexpress__logo@2x.png 2x" class="americanexpress__logo" alt="American Express logo">
+				</li>
+			</ul>
+		</div>
+		<!-- PARTNERS END -->
+		<!-- FOOTER NAVIGATION -->
+		<div class="footer__navigation row">
+			<ul class="footer__navigation-items col-xs-12 list-inline">
+				<li class="footer__navigation-item">
+					<a href="https://www.airbnb.com/help/topic/396/airbnb-open" class="footer__navigation-link" target="_blank">Help</a>
+				</li>
+				<li class="footer__navigation-item">
+					<a href="https://community.airbnb.com/t5/Community-Center/ct-p/community-center" class="footer__navigation-link" target="_blank">Community Center</a>
+				</li>
+				<li class="footer__navigation-item">
+					<a href="https://www.airbnb.com/" class="footer__navigation-link footer__navigation-link--active" target="_blank">Airbnb.com</a>
+				</li>
+			</ul>
+		</div>
+		<!-- FOOTER NAVIGATION END -->
+		<!-- SOCIAL SHARE -->
+		<div class="footer__share row">
+			<span>Join the conversation with #AirbnbOpen</span>
+			<ul class="footer__share-items list-inline col-xs-12">
+				<li class="footer__share-item">
+					<a href="https://www.facebook.com/airbnb" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/facebook__logo.svg" class="footer__share-image" alt="Facebook logo">
+					</a>
+				</li>
+				<li class="footer__share-item">
+					<a href="https://plus.google.com/+airbnb" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/googleplus__logo.svg" class="footer__share-image" alt="Google+ logo">
+					</a>
+				</li>
+				<li class="footer__share-item">
+					<a href="https://twitter.com/airbnb" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/twitter__logo.svg" class="footer__share-image" alt="Twitter logo">
+					</a>
+				</li>
+				<li class="footer__share-item">
+					<a href="https://www.linkedin.com/company/airbnb" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/linkedin__logo.svg" class="footer__share-image" alt="LinkedIn logo">
+					</a>
+				</li>
+				<li class="footer__share-item">
+					<a href="https://www.pinterest.com/airbnb/" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/pinterest__logo.svg" class="footer__share-image" alt="Pinterest logo">
+					</a>
+				</li>
+				<li class="footer__share-item">
+					<a href="https://www.youtube.com/c/airbnb" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/youtube__logo.svg" class="footer__share-image" alt="YouTube logo">
+					</a>
+				</li>
+				<li class="footer__share-item">
+					<a href="https://www.instagram.com/airbnb/" class="footer__share-link" target="_blank">
+						<img src="/content/img/footer/footer__share/instagram__logo.svg" class="footer__share-image" alt="Instagram logo">
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- SOCIAL SHARE END -->
+		<!-- COPYRIGHT -->
+		<div class="footer__copyright row">
+			<ul class="footer__copyright-items list-inline col-xs-12">
+				<li class="footer__copyright-item">
+					<a href="https://www.airbnb.com/help/article/1322/airbnb-open-registration---participation-terms" class="footer__copyright-link" target="_blank">Terms of Use</a>
+				</li>
+				<li class="footer__copyright-item">
+					<a href="https://www.airbnb.com/terms/privacy_policy" class="footer__copyright-link" target="_blank">Privacy Policy</a>
+				</li>
+				<li class="footer__copyright-item">
+					<span>&copy; 2017 <a href="https://www.airbnb.com/" target="_blank">Airbnb, Inc</a>. All rights reserved.</span>
+				</li>
+			</ul>
+		</div>
+		<!-- COPYRIGHT END -->
+
+	</div>
+</footer>
+<!-- FOOTER END -->
+
+
+	<!-- SVG ICONS -->
+	<svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+		<!-- PLAY ICON -->
+		<symbol id="icon-play" viewBox="673 303 94 95">
+			<path d="M720,397 C745.957383,397 767,375.957383 767,350 C767,324.042617 745.957383,303 720,303 C694.042617,303 673,324.042617 673,350 C673,375.957383 694.042617,397 720,397 Z M707.558824,370.735294 L707.558824,329.264706 L741.998765,350.150676 L707.558824,370.735294 Z"
+				  fill="#ffffff" stroke="none" fill-rule="evenodd"></path>
+		</symbol>
+		<!-- PLAY ICON END -->
+		<!-- CHEVRON LEFT ICON -->
+		<symbol id="chevron-left" viewBox="93 6730 35 60">
+			<g opacity="0.703299907" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(111.000000, 6759.500000) scale(1, -1) translate(-111.000000, -6759.500000) translate(95.000000, 6731.000000)" fill-opacity="0.849999964">
+				<path d="M8.17003243,28.6470231 C15.7540324,36.2501247 23.3338811,43.8573897 30.9220324,51.4561543 C31.7651027,52.3003072 32.1710703,53.2553138 31.8100757,54.4328951 C31.2435892,56.2816699 28.9821405,56.9400259 27.4983784,55.7020737 C27.3548108,55.5821991 27.2212757,55.4493135 27.0887784,55.3166014 C18.1708108,46.373368 9.25353514,37.4296142 0.334875676,28.4872482 C0.243718919,28.3958243 0.135956757,28.320881 0,28.2086395 C0.145816216,28.0542425 0.248389189,27.9406132 0.356324324,27.8323617 C9.26322162,18.8986697 18.1727135,9.9675799 27.0744216,1.02851001 C27.9562378,0.142895355 28.9542919,-0.257322667 30.1644108,0.174989128 C31.9309838,0.806282315 32.5099243,3.0073947 31.3108757,4.45369623 C31.1546811,4.64209536 30.9801514,4.81609565 30.8071784,4.9895755 C23.2458378,12.5744617 15.6841514,20.1588274 8.11900541,27.7400704 C7.98858378,27.8707008 7.81768649,27.9609103 7.57414054,28.1356045 C7.86421622,28.3833337 8.02784865,28.5044227 8.17003243,28.6470231 Z"
+					  fill="#780061"></path>
+			</g>
+		</symbol>
+		<!-- CHEVRON LEFT ICON END -->
+		<!-- CHEVRON RIGHT ICON -->
+		<symbol id="chevron-right" viewBox="1323 6730 35 60">
+			<g opacity="0.703299907" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1340.000000, 6759.500000) scale(-1, -1) translate(-1340.000000, -6759.500000) translate(1324.000000, 6731.000000)" fill-opacity="0.849999964">
+				<path d="M8.17003243,28.6470231 C15.7540324,36.2501247 23.3338811,43.8573897 30.9220324,51.4561543 C31.7651027,52.3003072 32.1710703,53.2553138 31.8100757,54.4328951 C31.2435892,56.2816699 28.9821405,56.9400259 27.4983784,55.7020737 C27.3548108,55.5821991 27.2212757,55.4493135 27.0887784,55.3166014 C18.1708108,46.373368 9.25353514,37.4296142 0.334875676,28.4872482 C0.243718919,28.3958243 0.135956757,28.320881 0,28.2086395 C0.145816216,28.0542425 0.248389189,27.9406132 0.356324324,27.8323617 C9.26322162,18.8986697 18.1727135,9.9675799 27.0744216,1.02851001 C27.9562378,0.142895355 28.9542919,-0.257322667 30.1644108,0.174989128 C31.9309838,0.806282315 32.5099243,3.0073947 31.3108757,4.45369623 C31.1546811,4.64209536 30.9801514,4.81609565 30.8071784,4.9895755 C23.2458378,12.5744617 15.6841514,20.1588274 8.11900541,27.7400704 C7.98858378,27.8707008 7.81768649,27.9609103 7.57414054,28.1356045 C7.86421622,28.3833337 8.02784865,28.5044227 8.17003243,28.6470231 Z"
+					  fill="#780061"></path>
+			</g>
+		</symbol>
+		<!-- CHEVRON RIGHT ICON END -->
+
+		<!-- EDIT ICON -->
+		<symbol id="icon-edit" viewBox="821 338 16 15">
+			<path d="M835.180542,340.209216 L834.484477,340.899348 L833.072177,339.496936 L833.761914,338.811549 C833.809769,338.76409 833.853668,338.763299 833.902314,338.811154 L835.180937,340.081868 C835.204271,340.104411 835.209017,340.128931 835.209017,340.145146 C835.209017,340.161361 835.203876,340.185882 835.180542,340.209216 L835.180542,340.209216 Z M827.447103,347.877794 L826.039945,346.480918 L832.510975,340.054183 L833.923275,341.4562 L827.447103,347.877794 L827.447103,347.877794 Z M825.719201,347.277043 L826.642674,348.193792 L825.294048,348.615781 L825.719201,347.277043 L825.719201,347.277043 Z M835.73858,339.521061 L834.459166,338.249556 C834.122207,337.915761 833.54123,337.917739 833.204667,338.249951 L825.313822,346.087404 C825.268736,346.13249 825.23512,346.187859 825.215741,346.248369 L824.310461,349.099862 C824.26577,349.240657 824.302946,349.394108 824.406961,349.498518 C824.482104,349.574057 824.583745,349.615188 824.687364,349.615188 C824.726913,349.615188 824.766462,349.609255 824.805616,349.596995 L827.680047,348.698439 C827.740558,348.679455 827.795531,348.646629 827.840617,348.601939 L835.737789,340.770418 C835.906664,340.60273 836,340.380068 836,340.145146 C836,339.909829 835.90706,339.687958 835.73858,339.521061 Z M833.469251,344.078308 C833.250544,344.078308 833.073759,344.255093 833.073759,344.473799 L833.073759,351.235516 C833.073759,351.657505 832.745106,351.988136 832.325094,351.988136 L823.374728,351.988136 C822.847934,351.988136 822.790983,351.461737 822.790983,351.235516 L822.790983,341.629821 C822.790983,341.303145 822.892229,340.914377 823.374728,340.914377 L829.909828,340.914377 C830.128535,340.914377 830.305319,340.737592 830.305319,340.518886 C830.305319,340.300179 830.128535,340.123394 829.909828,340.123394 L823.374728,340.123394 C822.552501,340.123394 822,340.728496 822,341.629821 L822,351.235516 C822,352.158988 822.552501,352.779119 823.374728,352.779119 L832.325094,352.779119 C833.188452,352.779119 833.864742,352.100851 833.864742,351.235516 L833.864742,344.473799 C833.864742,344.255093 833.687957,344.078308 833.469251,344.078308 Z"
+				  stroke="none" fill="#C8C8C8" fill-rule="evenodd"></path>
+		</symbol>
+		<!-- EDIT ICON END -->
+		<!-- ADD ICON END -->
+		<symbol id="icon-add" viewBox="1054 493 17 18">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1054.000000, 493.000000)">
+				<path d="M16.575,8.49687805 L9.0134,8.49687805 L9.0134,0.438146341 C9.0134,0.195804878 8.823,0 8.5884,0 C8.3538,0 8.1634,0.195804878 8.1634,0.438146341 L8.1634,8.49687805 L0.425,8.49687805 C0.189975,8.49687805 0,8.69356098 0,8.93590244 C0,9.1782439 0.189975,9.37492683 0.425,9.37492683 L8.1634,9.37492683 L8.1634,17.1228293 C8.1634,17.3647317 8.327025,17.5609756 8.561625,17.5609756 C8.8893,17.5609756 9.0134,17.3256585 9.0134,17.1228293 L9.0134,9.37492683 L16.575,9.37492683 C16.6923,9.37492683 17,9.24673171 17,8.90868293 C17,8.66590244 16.8096,8.49687805 16.575,8.49687805"
+					  fill="#FF5A61"></path>
+			</g>
+		</symbol>
+		<!-- ADD ICON END -->
+		<!-- CLOSE ICON END -->
+		<symbol id="icon-close" viewBox="0 0 14 14">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-789.000000, -867.000000)" fill="#FF5A61">
+					<g transform="translate(789.000000, 867.000000)">
+						<path d="M13.4309644,0.0976310729 C13.5611392,-0.032543691 13.7721942,-0.032543691 13.9023689,0.0976310729 C14.0325437,0.227805837 14.0325437,0.43886083 13.9023689,0.569035594 L7.47140452,7 L13.9023689,13.4309644 C14.0325437,13.5611392 14.0325437,13.7721942 13.9023689,13.9023689 C13.7721942,14.0325437 13.5611392,14.0325437 13.4309644,13.9023689 L7,7.47140452 L0.569035594,13.9023689 C0.43886083,14.0325437 0.227805837,14.0325437 0.0976310729,13.9023689 C-0.032543691,13.7721942 -0.032543691,13.5611392 0.0976310729,13.4309644 L6.52859548,7 L0.0976310729,0.569035594 C-0.032543691,0.43886083 -0.032543691,0.227805837 0.0976310729,0.0976310729 C0.227805837,-0.032543691 0.43886083,-0.032543691 0.569035594,0.0976310729 L7,6.52859548 L13.4309644,0.0976310729 Z"
+							  id="icon-remove"></path>
+					</g>
+				</g>
+			</g>
+		</symbol>
+		<!-- CLOSE ICON END -->
+
+	</svg>
+	<!-- SVG ICONS END -->
+
+<!-- SCRIPTS -->
+	<script src="/content/js/jquery.min.js"></script>
+	<script src="/content/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="/content/deps/jquery/jquery.validate.min.js"></script>
+	<script src="/content/deps/jquery/jquery.validate.unobtrusive.min.js"></script>
+	<script src="/content/deps/jquery/jquery.validation.custom-methods.js"></script>
+	<script src="/content/js/bootstrap.min.js"></script>
+	<script src="/content/deps/lodash/lodash.js"></script>
+	<script src="/content/js/scrollorama.min.js"></script>
+	<script src="/content/js/script.js"></script>
+	<script src="/content/js/tracekit.js"></script>
+	<script src="/content/js/mixpanel/mixpanel-event-sender.js"></script>
+	<script src="/content/js/mixpanel/mixpanel-wrapper.js"></script>
+	<script src="/content/js/gallery/galleria-1.4.7.min.js"></script>
+	<script src="/content/js/gallery/plugins/flickr/galleria.flickr.min.js"></script>
+	<script src="/Content/deps/jQuery-Youtube-Channels-Playlist/js/ycp.js"></script>
+	<script src="https://www.youtube.com/player_api"></script>
+	 
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		function getClientIdFromQueryString()
+		{
+			var clientId = window.location.search.replace("?","").split("&").map(function(x){
+				var parts = x.split("=");
+				if(parts[0]=="clientId") return parts[1];
+			});
+
+			if (clientId.length) return clientId[0];
+		}
+
+		ga('create', 'UA-2725447-20', 'auto', {
+			'clientId': getClientIdFromQueryString()
+		});
+		ga('send', 'pageview');
+	</script>
+
+<!-- SCRIPTS END -->
+
+<script type="text/javascript" nonce="FbumhICP7A3pQzGwLkFzaq7FJ43YvXsBwv5sHDFTXHC4tpZaqz8JJ0iIKUtlozMw">
+	(function() {
+		var reportHandler = function(errorReport) {
+			$.ajax({
+				url: '/AddClientError',
+				type: 'POST',
+				dataType: 'json',
+				global: false,
+				contentType: 'application/json; charset=utf-8',
+				data: JSON.stringify(errorReport)
+			});
+		};
+
+		TraceKit.report.subscribe(reportHandler);
+	})();
+</script>
+
+
+	<script>!function(a,b,c,d,e,f,g,h,i,j,k){h=a[d]=a[d]||{},h.ui=h.ui||[],i=a[e]=a[e]||{},i[f]||(j=b.getElementsByTagName(c)[0],k=b.createElement(c),k.src="https://platform.massrelevance.com/js/massrel.js",j.parentNode.insertBefore(k,j),i[f]=function(){h.ui.push([].slice.call(arguments))}),i[f]("load",{el:b.getElementById(g)})}(window,document,"script","massrel","spredfast","exp","mr-space_airbnb-open");</script>
+<script>
+	$(function () {
+
+		if ($('.galleria').length) {
+			Galleria.loadTheme('content/js/gallery/folio/galleria.folio.min.js');  /// RIGHT FILE WAY HERE
+
+			// Initialize Galleria
+			Galleria.run('.galleria', {
+				flickr: 'set:72157676646779326',
+				flickrOptions: {
+					description: true,
+					thumbSize: 'medium',
+					max: 75
+				}
+			});
+		}
+	});
+</script>
+
+	<script>
+		$(function() {
+			var form = $('.updates__form');
+			var error = form.find('.error');
+			var success = form.find('.success');
+			var hideError = function() { error.hide(); };
+			var name = form.find('input[name=name]');
+			var email = form.find('input[name=email]');
+
+			form.find('input').change(hideError).keyup(hideError);
+			form.submit(function(e) {
+				e.preventDefault();
+				var valid = true;
+				var msg = '';
+
+				if (!name.val() || !name.val().length) {
+					valid = false;
+					msg = "Name is required";
+				}
+				if (!email.val() || !email.val().length) {
+					valid = false;
+					msg = "Email is required";
+				}
+
+				if (valid &&
+					!
+					/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email.val())) {
+					valid = false;
+					msg = "Email is invalid";
+				}
+
+				if (!valid) {
+					error.text(msg);
+					error.show();
+				}
+				else
+				{
+					var url = form.attr('action');
+					$.post(url, form.serialize(), function (response) {
+						if (!response.success) {
+							console.error(response.error);
+							error.text("Error occured");
+							error.show();
+						} else {
+							form.children().hide();
+							$('.signup-proposal').hide();
+							form.find('.success').show();
+						}
+					});
+				}
+
+				return valid;
+			});
+
+			$(".youtube-playlist")
+				.ycp(
+					playlist = 10, // number of videos playlist count
+					autoplay = false, // true or false
+					related = false, // true or false
+					apikey = 'AIzaSyCj2GrDSBy6ISeGg3aWUM4mn3izlA1wgt0' // your google api key
+				);
+		});
+	</script>
+
+
+
+<script nonce="FbumhICP7A3pQzGwLkFzaq7FJ43YvXsBwv5sHDFTXHC4tpZaqz8JJ0iIKUtlozMw">
+	$(function() {
+		var onResize = function() {
+			var ww = $(window).width();
+			if (ww >= 768) {
+				var navbarHeight = $('.navbar').outerHeight();
+				$('.main').css('margin-top', navbarHeight);
+			} else {
+				$('.main').css('margin-top', '');
+			}
+		};
+
+		$(window).on('resize', onResize);
+
+		onResize();
+	});
+</script>
+<script nonce="FbumhICP7A3pQzGwLkFzaq7FJ43YvXsBwv5sHDFTXHC4tpZaqz8JJ0iIKUtlozMw">
+	setTimeout(function() {
+			$("body a").click(function() { this.blur(); });
+		},
+		1000);
+</script>
+
+</body>
+</html>

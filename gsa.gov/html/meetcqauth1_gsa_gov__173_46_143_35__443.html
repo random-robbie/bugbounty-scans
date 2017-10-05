@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Adobe&reg; CQ5 - Sign In</title>
+
+    <link rel="shortcut icon" href="login/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="icon" href="login/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" type="text/css" href="/libs/cq/core/content/login/login.css">
+ 
+    <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="/libs/cq/core/content/login/login_ie.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <style type="text/css">#user input, #password input {padding: 10px 5px;}</style>
+    <![endif]-->
+
+    <script type="text/javascript" src="login/login.js"></script>
+    <script type="text/javascript">
+        if(navigator.userAgent.match(/Mobile/i) || navigator.userAgent.match(/BlackBerry/i)) {
+            document.write('<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">');
+            document.write('<link rel="stylesheet" type="text/css" href="/libs/cq/core/content/login/login_mobile.css">');
+        }
+    </script>
+</head>
+<body style="background-color:#000; background-image:url('/libs/cq/core/content/login/bg/background.png'); background-position: 0 0; background-repeat: no-repeat;">
+<div id="wrapper">
+
+    <div id="tag"></div>
+    <div id="product"></div>
+    <div id="productclaim" onclick="window.open('http://my.omniture.com');"></div>
+    <div class="right">
+        <div class="right-bg">
+            <div id="login-box" class="loginbox">
+                
+                <form name="login" method="POST" action="&#x2f;libs&#x2f;cq&#x2f;core&#x2f;content&#x2f;login.html&#x2f;j_security_check" onsubmit="return loginuser('User name and password do not match');">
+                    <div id="login-error" class="err-hidden">&nbsp;</div>
+                    <div id="user">
+                        <input id="input-username" onkeyup="txtCtrl(this,'lblUsername')" type="text" name="j_username" spellcheck="false" autocomplete="off">
+                        <div id="lblUsername" class="label"><label for="input-username">Username</label></div>
+                    </div>
+                    <div id="password">
+                        <input id="input-password" onkeyup="txtCtrl(this,'lblPassword')" type="password" name="j_password" spellcheck="false" autocomplete="off">
+                        <div id="lblPassword" class="label"><label for="input-password">Password</label></div>
+                    </div>
+                    <div id="submit">
+                        <input id="input-submit" type="submit" value="Sign In" title="Sign In">
+                        <input type="hidden" id="resource" name="resource" value="&#x2f;">
+                        <input type="hidden" name="_charset_" value="UTF-8">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // try to set focus to usr field and, if possible, select existing text
+        try {
+            var usr = document.getElementById("input-username");
+            usr.focus();
+            if (usr.value) {
+                usr.select();
+                txtCtrl(usr, 'lblUsername')
+            }
+        } catch (e) {
+            // ignore
+        }
+
+        // try to append the current hash/fragment to the redirect resource
+        if (window.location.hash) {
+            var resource = document.getElementById("resource");
+            if (resource) {
+               resource.value += window.location.hash;
+            }
+        }
+    </script>
+    
+    <!-- QUICKSTART_HOMEPAGE - (string used for readyness detection, do not remove) -->
+</div>
+</body>
+</html>

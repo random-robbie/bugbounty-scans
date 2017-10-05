@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+  Mapbox Tasking Manager
+ - </title>
+    <link rel="shortcut icon" href="http://54.84.129.23/static/630a797be797ad1d3cfefb9efdc144f3/img/favicon.ico">
+    <link rel="stylesheet" href="http://54.84.129.23/static/369de5e8a2e60fcfcb9780487741aa76/css/main.css">
+    <link rel="stylesheet" href="http://54.84.129.23/static/508a9152edee29484ed209845c60b3e9/js/lib/leaflet.css">
+    <script src="http://54.84.129.23/static/c07f2267a050732b752cc3e7a06850ac/js/lib/jquery-1.12.3.min.js"></script>
+    <script src="http://54.84.129.23/static/bd0a8f24807c40a9ed56185167534f26/js/lib/velocity.min.js"></script>
+    <script src="http://54.84.129.23/static/444faf512fb24d50a5dec747cbbe39bd/js/lib/velocity.ui.min.js"></script>
+    <script src="http://54.84.129.23/static/c2a3b61ae6d11454014d9f8fe4c99392/js/lib/showdown/dist/showdown.js"></script>
+    <script src="http://54.84.129.23/static/665345a048696b810b4d6574250ca459/js/lib/showdown-youtube.js"></script>
+    <script src="http://54.84.129.23/static/5709a09a93eca0c81afa5ca6efb9a2eb/js/lib/jquery-timeago/jquery.timeago.js"></script>
+    
+    <script src="http://54.84.129.23/static/09ce1b88cf9cdc1bc8377780ef0fe0a5/js/lib/jquery-timeago/locales/jquery.timeago.en.js"></script>
+    <script src="http://54.84.129.23/static/55346924ad17dc9d49251d3b911e9eb9/js/lib/sammy-latest.min.js"></script>
+    <script src="http://54.84.129.23/static/c5b5b2fa19bd66ff23211d9f844e0131/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://54.84.129.23/static/3bdc8c84eaf711cf7726506b36486793/js/shared.js"></script>
+
+
+    <script>
+        var base_url = "/";
+        var markdown_ref_url = "http://54.84.129.23/static/4c479888ecaf3f447ddfb626523da3e6/html/markdown_quick_ref.html";
+        var unreadMsgsI18n = "You have unread messages";
+    </script>
+
+  </head>
+  <body id="home">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">
+            <i class="glyphicon glyphicon-home"></i> 
+  Mapbox Tasking Manager
+
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+          <a href="/about" class="btn btn-link pull-right">About</a>
+          </li>
+          
+<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">English<b class="caret"></b></a>
+  <ul role="menu" class="dropdown-menu languages">
+    <li><a href='en'>English</a></li>
+    <li><a href='fr'> Français</a></li>
+    <li><a href='es'> Español</a></li>
+    <li><a href='de'> Deutsch</a></li>
+    <li><a href='pt'> Português</a></li>
+    <li><a href='ja'> 日本語</a></li>
+    <li><a href='lt'> Lietuvos</a></li>
+    <li><a href='zh_TW'> 中文</a></li>
+    <li><a href='id'> Indonesia</a></li>
+    <li><a href='da'> Dansk</a></li>
+    <li><a href='pt_BR'> Português (Brasil)</a></li>
+    <li><a href='ru'> Русский</a></li>
+    <li><a href='sl'> Slovenščina</a></li>
+    <li><a href='it'> Italiano</a></li>
+    <li><a href='nl_NL'> Nederlands</a></li>
+    <li><a href='uk'> Українська</a></li>
+    <li><a href='ta'> தமிழ்</a></li>
+    <li><a href='si'> සිංහල</a></li>
+    <li><a href='cs'> Česky</a></li>
+    <li><a href='nb'> Bokmål</a></li>
+  </ul>
+</li>
+
+          <li>
+          <a href="/login?came_from=http%3A%2F%2F54.84.129.23%2F" class="btn btn-link pull-right">login to OpenStreetMap</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <div class="container">
+    <div class="row">
+</div>
+  </div>
+    
+  <style>
+    /* The ribbons */
+    .corner-ribbon {
+      z-index: 1031;
+      width: 210px;
+      background: #e43;
+      position: absolute;
+      top: 30px;
+      left: -50px;
+      text-align: center;
+      line-height: 40px;
+      letter-spacing: 1px;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      cursor: default;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      background: #e82;
+      box-shadow: 0 0 3px rgba(0,0,0,.3);
+      position: fixed;
+      display: none;
+    }
+    .corner-ribbon a {
+      color: #f0f0f0;
+    }
+
+    #donate-banner {
+      position: fixed;
+      top: 80px;
+      z-index: 10000;
+      left: 0px;
+      right: 0px;
+      display:none;
+    }
+    #donate-banner > div {
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-image: radial-gradient(circle at 100% 0% , transparent 0%, transparent 18px, #e82 18px, #e82 100%);
+      color: #f0f0f0;
+      box-shadow: 0 0 3px rgba(0,0,0,.3);
+    }
+    #donate-banner > div > p {
+      display: inline-block;
+      width: 80%;
+      margin: 0px;
+      text-align:justify;
+    }
+    #donate-banner .donate {
+      display: inline-block;
+      width: 15%;
+      position: relative;
+      margin: 10px 17px;
+    }
+    #donate-banner .close_ {
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      text-decoration: none;
+      border-radius: 50%;
+      background-color: #e82;
+      color: rgb(0, 0, 0);
+      font-size: 18px;
+      line-height: 15px;
+      top: -12px;
+      padding: 5px 3.5px;
+      text-indent: 0.5px;
+      right: -12.5px;
+      box-shadow: 0 0 3px rgba(0,0,0,.3);
+    }
+  </style>
+  <div class="corner-ribbon top-left sticky orange shadow ">
+    <a href="https://donate.hotosm.org" target="_blank">Please donate!</a>
+  </div>
+
+    
+
+<div class="container">
+  <div class="col-md-6">
+    <h3>Projects</h3>
+    
+    <form class="form-inline" role="form"
+          action="http://54.84.129.23/"
+          method="GET">
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="hidden" name="sort_by"
+                 value="priority">
+          <input type="hidden" name="direction"
+                 value="asc">
+
+          <div class="form-group left-inner-addon">
+            <i class="glyphicon glyphicon-search text-muted"></i>
+            <input type="search" class="form-control input-sm"
+                   name="search" placeholder="Search"
+                   value="">
+          </div>
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle"
+                    data-toggle="dropdown">
+              Sort by: <strong>High priority first</strong>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                
+                <li>
+                  <a href="http://54.84.129.23/?direction=asc&amp;sort_by=priority">
+                    High priority first
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="http://54.84.129.23/?direction=desc&amp;sort_by=created">
+                    Creation date
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="http://54.84.129.23/?direction=desc&amp;sort_by=last_update">
+                    Last update
+                  </a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+        </div>
+      </div>
+    </form>
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 47.02%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 52.98%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;100%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/119">#119 Turn Lane mapping in SF Bay
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 16.4949574435px; left: 18.3042022385px;" class="marker"></div>
+  </div>
+  
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/Jothirnadh">Jothirnadh</a></span> -
+    <span>Updated <span class="timeago" title="2017-09-20 04:39:40.875866Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 0.0%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 100.0%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;100%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/118">#118 Turn Lane mapping in SF
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 16.4305878493px; left: 18.1889557747px;" class="marker"></div>
+  </div>
+  
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/Jothirnadh">Jothirnadh</a></span> -
+    <span>Updated <span class="timeago" title="2017-08-09 09:55:13.114079Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 0.05%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 99.44%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;99%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/117">#117 Mapping Exit/destinations and entrances in LA
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 17.6736910842px; left: 19.6647791664px;" class="marker"></div>
+  </div>
+  
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/Jothirnadh">Jothirnadh</a></span> -
+    <span>Updated <span class="timeago" title="2017-09-14 05:23:07.400042Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 0.19%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 99.25%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;99%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/116">#116 Mapping Exit/destinations and entrances in DC
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 16.0344325131px; left: 33.3221896427px;" class="marker"></div>
+  </div>
+  <p>Map all Entrances and exit destinations to motorway_links in DC</p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/saikabhi">saikabhi</a></span> -
+    <span>Updated <span class="timeago" title="2017-08-09 12:49:24.528923Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 0.34%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 0.0%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;0%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/99">#99 Building footprints - Campbell
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 16.5787717478px; left: 18.3409262251px;" class="marker"></div>
+  </div>
+  <p>Tracing building footprints in Campbell from satellite imagery</p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/oini">oini</a></span> -
+    <span>Updated <span class="timeago" title="2017-08-02 04:53:52.046734Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 15.13%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 0.0%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;15%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/81">#81 San Francisco City POI mapping
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 16.4165631754px; left: 18.1863325198px;" class="marker"></div>
+  </div>
+  <p>Mapping Points of Interests in San Francisco City</p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/ramyaragupathy">ramyaragupathy</a></span> -
+    <span>Updated <span class="timeago" title="2017-05-15 12:17:44.107567Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 7.01%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 54.78%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;61%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/79">#79 Building footprints - Alameda
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 16.4087867441px; left: 18.2402592622px;" class="marker"></div>
+  </div>
+  <p>Tracing building footprints in Alameda from satellite imagery</p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/PlaneMad">PlaneMad</a></span> -
+    <span>Updated <span class="timeago" title="2017-05-11 21:50:56.377584Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 0.0%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 7.8%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;7%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/78">#78 Navigational Mapping in Detroit
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 14.8753696626px; left: 31.3175698045px;" class="marker"></div>
+  </div>
+  <p>Map navigational assets in Detroit using street level imagery from Mapillary and OpenStreetCam (OpenStreetView)</p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/oini">oini</a></span> -
+    <span>Updated <span class="timeago" title="2016-12-16 10:38:17.009762Z"></span></span> -
+    <span>Priority: medium</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 43.61%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 6.39%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;50%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/97">#97 Building Tracing
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 24.2115747272px; left: 95.0013331696px;" class="marker"></div>
+  </div>
+  <p>Trace buildings as much as you can</p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/nammala">nammala</a></span> -
+    <span>Updated <span class="timeago" title="2017-08-02 03:21:26.638808Z"></span></span> -
+    <span>Priority: low</span>
+  </small>
+
+</div>
+
+          
+
+<div class="project well ">
+  <ul class="nav project-stats">
+    <li>
+      <table>
+        <tr>
+          
+          <td>
+            <div class="progress">
+              <div style="width: 0.6%;" class="progress-bar progress-bar-warning"></div>
+              <div style="width: 0.0%;" class="progress-bar progress-bar-success"></div>
+            </div>
+          </td>
+          <td>&nbsp;0%</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <h4>
+    <a href="/project/96">#96 Building tracing in Memphis
+    </a>
+  </h4>
+  <div class="clear"></div>
+  <div class="world_map">
+    
+    <div style="top: 17.2859026686px; left: 29.0086389499px;" class="marker"></div>
+  </div>
+  <p>Trace as many buildings as you can </p>
+  <div class="clear"></div>
+  
+  
+  <small class="text-muted">
+    <span>Created by <a href="/user/nammala">nammala</a></span> -
+    <span>Updated <span class="timeago" title="2017-09-03 21:31:59.503076Z"></span></span> -
+    <span>Priority: low</span>
+  </small>
+
+</div>
+
+        
+<div class="text-center">
+  <div class="btn-group btn-group-xs">
+    
+    
+    
+     <span class="btn btn-default btn-primary">1</span> <a class="btn btn-small btn-default" href="/?page=2">2</a> <a class="btn btn-small btn-default" href="/?page=2">&gt;</a>
+  </div>
+</div>
+
+  </div>
+  <div class="col-md-6">
+    
+    <h3>About the Mapbox Tasking Manager</h3>
+    
+    <p>
+    Mapbox Tasking Manager is a tool to coordinate and manage collaborative mapping projects around the world. The purpose of the tool is to divide up a mapping job into smaller tasks that can be completed rapidly. It highlights the areas need to be mapped and areas which need the mapping validated.
+    </p>
+    <p>
+    This approach facilitates the distribution of tasks among various mappers and avoids conflicts between the mappers working around the same region. It also permits control of the progress and the homogeneity of the work done (e.g. elements to cover, specific tags to use, imagery offset etc.).
+    </p>
+    <p>
+    Select one of the projects from the list and read through instructions to start mapping.
+    </p>
+
+    <hr />
+    <h4>History</h4>
+    <p>
+    Mapbox Tasking Manager is a customised forked version of the <a href="http://tasks.hotosm.org/" target="_blank">HOT's Tasking Manager</a>. The original <a href="http://tasks.openstreetmap.in/" target="_blank">OSM Tasking Manager</a> was designed and built for the <a href="https://hotosm.org/" target="_blank">Humanitarian OSM Team</a> collaborative mapping in context of emergency mapping.
+    </p>
+    <p>
+    Please visit <a href="http://tasks.hotosm.org/" target="_blank">HOT Tasking Manager</a> to support and contribute for emergency/disaster mapping projects.
+    </p>
+    <p>
+    Here is the <a href="https://github.com/hotosm/osm-tasking-manager2" target="_blank">GitHub</a> repository for development of HOT's tasking manager.
+    </p>
+    <hr>
+    <h4>New to Mapping?</h4>
+    <p>
+    Just jump over to <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, create an account, and then refer to these <a href="https://www.mapbox.com/mapping/" target="_blank">guides</a> to get started with mapping. Also visit the <a href="http://learnosm.org/en/coordination/tasking-manager/" target="_blank">LearnOSM tutorials</a> on the Tasking Manager. Once you have read up on how to map, come back here to support mapping project and help map for people on the ground!
+    </p>
+    <hr>
+    <h4>Questions About Tasks, Mapping Projects?</h4>
+    <p>
+    Check out our mapping repository on <a href="https://github.com/mapbox/mapping" target="_blank">GitHub</a> for details of the project and comment on the issues for feedback, suggestions and questions.
+    </p>
+    <p>
+    If you would like to host a community mapping project on the instance, please open a <a href="https://github.com/mapbox/mapping/issues/248" target="_blank">request on the Mapbox mapping repository</a>. For further queries on a task/project or mapping in general, please feel free to <a href="http://wiki.openstreetmap.org/wiki/Mapbox#Mapbox_Data_Team" target="_blank">get in touch</a> with us.
+    </p>
+
+  </div>
+</div>
+
+    <footer class="footer">
+      <div class="container">
+
+
+        <p class="pull-right">Fork the code on <a href='http://github.com/hotosm/osm-tasking-manager2'>github</a>.
+        </p>
+        <p>
+          <a href="/about">About the Tasking Manager</a><br />
+          
+  Email HOT at <a href='mailto:info@hotosm.org'>info@hotosm.org</a><br />
+  Follow HOT on <a href='http://www.twitter.com/hotosm'>Twitter</a><br />
+  Like HOT on <a href='http://facebook.com/hotosm'>Facebook</a>
+
+        </p>
+      </div>
+    </footer>
+  
+  <!--
+  put here any code to track usage
+  piwik or google analytics code
+  -->
+
+  </body>
+</html>

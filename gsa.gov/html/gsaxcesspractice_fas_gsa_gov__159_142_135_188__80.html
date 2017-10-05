@@ -1,0 +1,434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="GSAXcess?, GSAXcess&#174;, GSAXcess, GSAExcess, excess, surplus, personal, property, federal, disposal, system, FEDS, donation, Transfer, EADS, AAMS, Xcess, xcess,">
+        <meta name="description" content="GSAXcess&#174; maintains records of all Federal Excess and Surplus Personal Property Reported to General Services Administration (GSA).">
+        <meta name="provider" content="FAS Federal Supply Service">
+        <meta http-equiv="Expires" CONTENT="0">
+        <meta http-equiv="Cache-Control" CONTENT="no-cache">
+        <meta http-equiv="Pragma" CONTENT="no-cache">
+		<title>GSAXcess&#174; Home - Welcome to GSAXcess&#174;</title>
+		<link href="/js/feds.css" rel="stylesheet" type="text/css">
+		<link href="/css/xcess_home.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="/js/xcess_home_jquery.js"></script>
+		<script type="text/javascript" src="/js/xcessPages.js"></script>
+		<script type="text/javascript" src="/js/pubheader.js"></script>		
+		<script type="text/javascript" src="/js/xcess_home_slides.js"></script>
+<style>
+#gsaxcess .contentWrapper {
+    background-color: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    padding: 5px 5px 5px;
+}
+</style>
+
+<script type="text/javascript">
+
+function openFedswlog(icn)
+{document.indexForm.Continue.value = "Continue";
+
+if (icn==" ")
+document.indexForm.ICN.value="";
+else
+document.indexForm.ICN.value = icn;
+
+document.indexForm.submit();
+} //end openFedswlog
+
+function openRegister()
+{document.indexForm.Continue.value = "Register";
+document.indexForm.ICN.value = "";
+document.indexForm.submit();
+}
+
+var picName = new Array();
+var picTit = new Array();
+var picICN = new Array();
+var picDesc = new Array();
+var tabPic = [ "19384661950049AA.JPG","DELL LAPTOP","Excess",];
+//var tabPic = [ "36570322570013A.JPG","Spreader","Surplus", "W81ET422680001AA.JPG","Tractor","Surplus", "125C1622631217A.JPG","Sedan","Surplus", "148KFZ22500014A.JPG","BOAT WITH TRAILER AND MOTOR","Surplus",];
+// Specify the image files
+var j=0;
+var host = window.location.host;
+function getPicInfo()
+{ for (var i = 0; i < tabPic.length - 1; i += 3)
+	{var scDLSCPic=tabPic[i];
+		var scItemName=tabPic[i+1];
+		var scItemStatus=tabPic[i+2];
+		var dlscPicLen=scDLSCPic.length;
+		var hist=0;
+		/* Note: if the item is moved to history, then we will receive ICN as HIST-BMAA008255A001A.JPG otherwise it will be BMAA008255A001A.JPG */
+		var dlscLen=dlscPicLen -5;
+		var histPic=scDLSCPic.substr(hist,5);
+		var histDLSCPic="";
+		if (histPic=="HIST-")
+		{hist=5;
+			scDLSCPic=scDLSCPic.substr(hist,dlscLen);
+			dlscLen=dlscLen-hist;
+		}
+		picICN[j]= scDLSCPic.substr(0,dlscLen);
+		if (scItemName > " ")
+		{picTit[j]="ICN: " + picICN[j] + " - " + scItemName + " ( " + scItemStatus + " )";
+			picDesc[j]="ICN: " + picICN[j] + "<br>" + scItemName +  "<br> ( " + scItemStatus + " )";
+		}
+		else
+		{picTit[j]="ICN: " + picICN[j] + " - "  + scItemStatus;
+			picDesc[j]="ICN: " + picICN[j] + "<br>" + scItemStatus;
+		}
+
+		if (hist==5)
+		picName[j]="/img/history/"+scDLSCPic;
+		else
+		picName[j]="/img/"+scDLSCPic;
+
+		j=j+1;
+	}
+}
+getPicInfo();
+
+function getPicTag(j)
+{
+	if (j < picName.length)
+	{var liLine="";
+		liLine='<li><a onkeypress="openFedswlog('
+		+ "'"+picICN[j] + "'"+ ')" onclick="openFedswlog('
+		+  "'"+picICN[j] + "'"+ ')"' + ' title="Click here to see the item details of ' + picTit[j] + '" href="#">'
+//		+ '<img src="https://' + host + picName[j]
+		+ '<img src="' + picName[j]
+		+ '" title="' + picTit[j] + '" alt="Picture of ' + picTit[j] + '" width="270" height="200"></a><div class="caption">' + picTit[j] + '</div>'
+		+ '</li>';
+	}
+	else
+	liLine='<li>&nbsp;</li>';
+	return liLine;
+}
+
+function buildSlidePic()
+{var picSlideLine="";
+ var bSlideDiv='<div class="slide"><ul>';
+     
+	for (var i = 0; i < picName.length; i += 3)
+	{var j=i;
+		var liLine1, liLine2, liLine3="";
+		liLine1=getPicTag(j);
+		liLine2=getPicTag(j+1);
+		liLine3=getPicTag(j+2);
+		picSlideLine+=bSlideDiv + liLine1 + liLine2 + liLine3 + '</ul></div>';
+	}
+	$('.slides_container').html(picSlideLine);
+}
+</script>
+	</head>
+	<body id="gsaxcess">
+		<div id="header">
+			<noscript>
+				Form value defined
+			</noscript>
+			<script type="text/javascript">
+				var host = window.location.host;
+				var temphttp = "https://";
+				var appDir = "/fedsweb";
+				var server = host + appDir;
+				var temptcode = "/fedsweb/";
+				var frmAction = temphttp + server + temptcode;
+				document.write('<form action="/fedsweb/fedsweb/" method=post name=indexForm>');
+			</script>
+			<noscript>
+				Build header lines
+			</noscript>
+			<script type="text/javascript">
+				hdrFlag();
+				hdrBar1();
+			</script>
+
+			<input name="Continue" type="hidden" value="Continue">
+			<input name="ICN" type="hidden" value="ICN">
+
+			<table cellpadding="0" cellspacing="0" width=100%>
+				<tr align="center">
+					<td id="L2">&nbsp;</td>
+				</tr>
+			</table>
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td bgcolor="#9f0c0c">&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="wrapper clearfix">
+			<script type="text/javascript">
+var scResponse=["$REPLACE=RESPONSE1",];
+if (scResponse[0].substring(0, 1)=="$")
+document.write('<div class=hpmessage>Welcome to GSAXcess&#174;</div>');
+else
+if (scResponse[0]=="You are successfully logged out")
+{
+document.write('<div class=hpmessage>You are successfully logged out</div>');
+document.write('<div class=hpmessage>Click Login Button to Login Again</div>');
+}
+else
+{var now = new Date();
+min1=now.getMinutes();
+now.setMinutes(min1);
+hrs=now.getHours();
+min1=now.getMinutes();
+if (min1<10)
+min1="0"+min1;
+if (hrs<10)
+hrs="0"+hrs;
+document.write('<div class=hpmessage>' + 'Your online session expired at <strong>' + hrs + ":" + min1 + '</strong> due to user inactivity</div>');
+document.write('<div class=hpmessage>Click Login Button to Login Again</div>');
+}
+</script>
+			<div id="slides">
+				<div class="slides_container">
+					<!--<div class="slide">
+					<ul>				
+					<li>TEST</li> slide pictures here
+					</ul>
+					</div>-->
+				</div>
+				<a href="#" class="prev"></a>
+				<a href="#" class="next"></a>
+			</div>
+			<div class="button_container">
+				<div class="nasa">
+					<a href="/NASAWel.htm" title="Click here to go to NASA Space Programs - Historic Artifacts Prescreening" class="button-2"></a>
+					<p><a href="/NASAWel.htm" title="Click here to go to NASA Space Programs - Historic Artifacts Prescreening">Click here</a> to go to the NASA Prescreening Module where you can view and request NASA Space Program historic artifacts including shuttle tiles.</p>
+				</div>
+				<div class="login_container">
+					<div class="small register-text">Self-<a href="#" onkeypress="openRegister()" onclick="openRegister()" title="Click here to Self-Register if you do not have an Access code but have a .gov or .mil email address">[Register]</a> for VIEW ONLY with .gov or .mil email</div>
+					<div class="login_button">
+						<span class="block small"><strong>GSAXcess&reg;</strong></span>
+						<input type="button" class="button login" name="Login" value="Login" onkeypress="openFedswlog(' ')" onclick="openFedswlog(' ')" title="Click here to login to GSAXcess&reg; System" />
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!--
+			<div class="contentWrapper">   
+ <p style="font-size:13px;"> <strong><span style="color:#FF0000">** Attention - Attention ** </span> Access to some federal facilities is now impacted by the Real ID Act.  If using a drivers license or state issued identification card as identification, it will need to comply with the requirements of the Real ID act at those locations. Individuals without licenses from compliant jurisdictions may present alternative forms of identification - such as a U.S. Passport - accepted by the agency. Some agencies may have additional processes to accommodate individuals lacking the prescribed identification documents.</strong></p>
+ 		<h1><span style="color:#FF0000">Notice </span> - DLA Disposition Service-Susquehanna</h1>
+				<p>
+					<a href="/htm/SCREEN/DLA_NOTICE_FEB2015.PDF">RTD Customers: Please take note of this disruption in service starting February 26 (click here for details)</a>
+				</p>  
+ 		</div>
+		-->
+			<div class="col-left">
+				
+				<h1>How To</h1>
+				<ul>
+					<li>
+						<a href="https://gsa.gov/portal/content/127665">Dispose of Federal Excess Property</a>
+					</li>
+					<li>
+						<a href="https://gsa.gov/portal/category/21179">Acquire Federal Excess Property</a>
+					</li>
+					<li>
+						<a href="https://www.gsa.gov/portal/category/21183">Acquire Federal Surplus Property</a>
+					</li>
+					<li>
+						<a href="https://www.gsa.gov/portal/ext/public/site/FMR/file/SubchB.html/category/21858/hostUri/portal">Personal Property Federal Management Regulations</a>
+					</li>
+				</ul>
+
+				<h1>Further Assistance</h1>
+				<ul>
+					<li>
+						<a href="/htm/xcesscontlinks.htm">Property Contacts</a>
+					</li>
+					<li>
+						<a href="https://gsa.gov/portal/content/101639" target="_blank">How to Obtain A GSAXcess&reg; User ID</a>
+					</li>
+					<li>
+						<a href="https://www.gsa.gov/portal/content/125369" target="_blank">Contact a Sales Office</a>
+					</li>
+				</ul>
+
+				<h1>What's New</h1>
+				<ul>
+					<li>
+						<a href="/htm/XCESSWhatsnew.html" target="_blank">What's New</a>
+					</li>
+				</ul>
+
+				<h1>Training Presentations</h1>
+				<ul>
+					<li>
+						<a href="/htm/xcesstrainingdocs.htm">GSAXcess&reg; Training Presentations</a>
+					</li>
+					<li>
+						<a href="/htm/training/xcess/AgencyApprovalTO.doc">GSAXcess&reg; Electronic Approval Agency Instructions</a>
+					</li>
+					<li>
+						<a href="/htm/userguides/XCS_Picture_Guidelines.ppt">Picture Guidelines</a>
+					</li>
+					<li>
+						<a href="/htm/userguides/XCS_Multi_ICN_Pic_Upload_Guide.doc">Upload Multiple ICN Pictures</a>
+					</li>					
+					<li>
+						<a href="/htm/cfltrainingdocs.htm">CFL Training Presentations</a>
+					</li>
+					<li>
+						<a href="/htm/Training/xcess/AAMS_Presentation.ppt">Internal Agency User Training Presentation</a>
+					</li>			
+					<li>
+						<a href="/htm/XCESS_TRAINING_UD.HTM">GSAXcess&reg; U & D Training Presentations</a>
+					</li>
+					<li>
+						<a href="/htm/training/xcess/TUE_ABANDONMENT_DESTRUCTION.PPTX">U&D Abandonment and Destruction Process</a>
+					</li>					
+					<li>
+						<a href="/htm/xcessuserguides.htm">GSAXcess&reg; User Guides</a>
+					</li>
+				</ul>
+
+				<h1>Training</h1>
+				<ul>
+					<!--	
+					<li>
+						<a href="https://gsa.gov/portal/content/120428">GSA Disposal Solutions Fall Workshop - Philadelphia, PA, November 19, 2013</a>
+					</li>	
+					-->			
+					<li>
+						<a href="https://gsa.gov/portal/event/getEvents/future/category/22104/hostUri/portal">GSA Regional Training Events</a>
+					</li>
+					<!-- <li>
+						<a href="https://gsa.gov/portal/content/122764">Property Custodian Seminar-July 9, 2014</a>
+					</li>
+					-->										
+				</ul>
+				<h1>GSA Publications</h1>
+				<ul>
+					<li>
+						<a href="https://gsa.gov/portal/content/136021" target="_blank">GSA Publications</a>
+					</li>
+				</ul>
+
+			</div>
+			<div class="col-right">			    
+				<h1>Overview</h1>
+				<p>
+					<strong>GSAXcess.gov</strong> is the entry site for the Federal Excess Personal Property Utilization Program and the Federal Surplus Personal Property Donation Program operated by the General Services Administration. Your agency can report excess personal property for transfer by GSA to other Federal and State Agencies for Surplus Property (SASPs) as well as search for and obtain excess personal property. Your agency can also report and transfer excess computers and peripheral equipment to schools and educational nonprofit organizations through the Computers for Learning program or post your CFL transfers done outside our system. This site is not intended for the general public.
+				</p>
+				
+				<p><a href="/htm/SCREEN/E_Cycle_Pitts_Announce.docx" target="_blank"><strong>Pittsburgh E-Cycle Day, May 24, 2017</strong></a></p>
+				
+				<p><strong>High Mobility Multii-Purpose Wheeled Vehicles (HMMWVs)</strong> are now available for transfer and donation. Donation recipients will be required to sign a Conditional Transfer Document and the linked <a href="/htm/SCREEN/Hold_Harmless_Statmt.pdf" target="_blank">Hold Harmless Statement</a>.</p>
+				<!--
+				<h1>USGS Copper Engraving Plates - Herndon, VA - Screening of the property ends on October 14, 2014</h1>
+				<p>GSA is assisting with the excess of engravings once used to reproduce the US Geological Survey's (USGS) topographic and geologic maps. The engraved plates are located at the USGS warehouse, 302 Victory Blvd, Herndon, VA 20171.  Screening of the property ends on October 14, 2014.</p>
+				
+				<p><a href="htm/screen/xcess_USGS_Screening_VA.htm" title="Click here to view USGS Copper Engraving Plates Property Listing and More details">USGS Copper Engraving Plates - Property Listing and More details</a></p>
+				
+				<h1>Harrisburg E-Cycle Day 2014	(Wednesday, October 8, 2014)</h1>
+				<p><a href="/htm/SCREEN/doc/HarrisE_CycleDay_8Oct2014.pdf" title="Click here to view Harrisburg E-Cycle Day 2014 event details">E-Cycle Day 2014 - Wednesday, October 8, 2014, from 10am - 3pm on City Island in Harrisburg, Pennsylvania</a></p>
+				-->
+				<!--				
+				<h1>Furniture Special Screening - July 30 and Aug 6, 2013</h1>
+				<p><ul><strong>When:</strong> <li>The special screening is scheduled to begin at 9:00 AM EST to 3:00 PM.</li>
+					<li>Tuesday, July 30th for Federal Agencies, and </li>
+					 <li>Tuesday, August 6th for State Agencies for Surplus Property (SASP) and approved donees.</li></ul>
+				</p> -->
+				<h1>Processing Change for Federal Electronics</h1>
+				<p>
+					We are implementing the guidance in GSA <a href="/htm/SCREEN/FMR_Bulletin_B-34.pdf">FMR Bulletin, B-34, Disposal of Federal Electronic Assets</a>. All customers are advised that, effective Monday, 19 March 2012, the following notice applies to federal electronics assets contained in this bulletin.
+				</p>
+				<p>
+					The Federal Government has determined that improper disposal of used electronics may have potentially harmful effects on human health and the environment. This/these electronic product(s) must be disposed of at their end of useful life in accordance with all Federal, state, and local laws. The Federal Government strongly encourages recycling these products through certified recyclers, even when such recycling is not required by Federal, state or local laws. Information regarding certified recyclers is available at <a href="https://www.epa.gov/fec/resources/reuse.pdf">https://www.epa.gov/fec/resources/reuse.pdf</a>.
+				</p>
+
+				<h1>Attention Federal Agencies Located in the Washington Metropolitan Area</h1>
+				<p>
+					GSA regularly assists in the disposal of large volumes of office furniture! If your agency is in need of assistance in either acquiring or disposing of office furniture, please contact Rick Parker in the National Capital Region (NCR) Property Office at <a href="mailto:rick.parker@gsa.gov">rick.parker@gsa.gov</a>.
+				</p>
+				
+				<h1>FDA Notice</h1>
+				<p>
+					<a href="/htm/SCREEN/FDA_NOTICE_SS1.PDF">Do NOT Report, Transfer, Donate or Sell STERIS System 1 Processor (click here for details)</a>
+				</p>
+			</div>
+			<div class="clear"></div>
+
+			<div class="quicklinks">
+				<div class="column">
+					<h1>Contact Us</h1>
+					<h2>GSAXcess&reg; HelpDesk</h2>
+					<p>
+						1-866-333-7472 Option 1
+						<br />
+						<a href="mailto:GSAXcessHelp@gsa.gov">GSAXcessHelp@gsa.gov</a>
+					</p>
+
+					<h2>CFL Helpdesk</h2>
+					<p>
+						1-866-333-7472 Option 2
+						<br />
+						<a href="mailto:Computers.Learning@gsa.gov">Computers.Learning@gsa.gov</a>
+					</p>
+				</div>
+				<div class="column">
+					<h1>Links</h1>
+					<h2><a href="/NASAWel.htm">NASA SSP Artifacts Prescreening</a></h2>
+					<p>
+						NASA Space Shuttle Program - Historic Artifacts Prescreening
+					</p>
+					<h2><a href="mailto:GSAXcess@gsa.gov?subject=Ask The Expert">GSAXcess&reg; Ask The Expert</a></h2>
+					<p>
+						Property Disposal Questions
+					</p>
+					<h2><a href="mailto:Computers.Learning@gsa.gov?subject=CFL Ask The Expert">CFL Ask The Expert</a></h2>
+					<p>
+						Computers for Learning Questions
+					</p>
+					<h2><a href="https://gsaauctions.gov" target="_blank">GSA Auctions&reg;</a></h2>
+					<p>
+						Public Sales of Government Property
+					</p>
+				</div>
+				<div class="column">
+					<h1>&nbsp;</h1>
+					<h2><a href="https://mysales.fas.gsa.gov/sasy/sasywel/" target="_blank">MySales</a></h2>
+					<p>
+						MySales allows Federal Agencies the ability to review, modify and maintain status of surplus and/or exchange/sale property reported to GSA for sale
+					</p>
+					<h2><a href="https://computersforlearning.gov/" target="_blank">Computers for Learning</a></h2>
+					<p>
+						School site to obtain excess computer equipment from federal agencies
+					</p>
+				</div>
+				<div class="column last">
+					<h1>&nbsp;</h1>
+					<h2><a href="https://www.gsaadvantage.gov/" target="_blank">GSA Advantage!&reg;</a></h2>
+					<p>
+						To create or change your Agency Activity Address Code
+					</p>
+					<h2><a href="http://www.dispositionservices.dla.mil/" target="_blank">DLA RTD2</a></h2>
+					<p>
+						Property at the Defense Logistics Agency Disposition Services prior to rolling over to DOD Sales
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<script type="text/javascript">
+			 footerLine();
+			 </script>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				buildSlidePic();
+				$("#slides").slides({
+					preload : true,
+					play : 6000,
+					pause : 3000,
+					slideSpeed : 500
+				});
+			});
+		</script>
+	</body>
+</html> 

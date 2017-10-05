@@ -1,0 +1,219 @@
+<html>
+<head>
+<!DOCTYPE html>
+
+
+ 
+
+
+
+
+
+
+
+
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="cache-control" content="no-store" />
+<meta http-equiv="expires" content="0" />
+
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<!-- <META HTTP-EQUIV="Expires" CONTENT="-1"> -->
+
+
+<link rel="shortcut icon" type="image/x-icon"
+	href="/AutoVendor/resources/images/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>AutoVendor</title>
+<link href="/AutoVendor/resources/css/autoStyles.css" rel="stylesheet"
+	type="text/css" />
+<link href="/AutoVendor/resources/css/form.css" rel="stylesheet"
+	type="text/css" />
+<link href="/AutoVendor/resources/css/style_ie.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript"
+	src="/AutoVendor/resources/js/browcss.js"></script>
+
+<script type="text/javascript"
+	src="/AutoVendor/resources/js/headerpage.js"></script>
+<script type="text/javascript"
+	src="/AutoVendor/resources/js/footerpage.js"></script>
+<script type="text/javascript"
+	src="/AutoVendor/resources/js/headerpageTimeout.js"></script>
+
+
+<script type="text/javascript"
+	src="/AutoVendor/resources/js/common.js"></script>
+<script type="text/javascript" 
+	src="/AutoVendor/resources/js/main.js"></script>
+<script type="text/javascript" src="/AutoVendor/resources/js/googleAnalytics.js"></script>
+<script type="text/javascript" src="/AutoVendor/resources/js/Universal-Federated-Analytics.js"></script> 
+
+<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> 
+ <script src="//code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+ 
+ 
+ <script>
+
+var token = "";
+var input = document.createElement("input"); 
+
+$( document ).ready(function(){
+    if (typeof document.forms[0] !== 'undefined') { 
+    	input.setAttribute("type", "hidden"); 
+    	input.setAttribute("name", "token");
+    	input.setAttribute("value", token); 
+        // for chrome  id is needed before you can  use the getElementById
+    	document.getElementsByTagName('form')[0].setAttribute('id',document.forms[0].name);
+		document.getElementById(document.forms[0].name).appendChild(input);
+    }
+	
+});
+
+
+
+$(".external").click(function(event) {
+	  alert("You are opening another window for this link."); 
+/* 	  var confirmation = confirm("Are you sure you want to leave this page?");
+	   if (!confirmation) {
+	     prevents the default event for the click
+	     which means that in this case it won't follow the link
+	    event.preventDefault();
+	   } */
+	 });
+
+
+</script>
+ 
+	
+
+<script>
+	function FormSubmit() {
+		document.forms[0].pageAction.value = "Submit";
+		//goSub("Login");
+		return true;
+	}
+
+	function forgotPw() {
+		document.forms[0].pageAction.value = "ForgotPw";
+		//go("Login");
+		document.myForm.submit();
+		return true;
+	}
+</script>
+</head>
+
+<body class="twoColElsLtHdr">
+	<div id="container">
+		<div id="header">
+			<!-- <div id="loginnav">
+				<div class="loginnav">
+					<li><a href="ContactUs">CONTACT US</a></li>|
+				</div>
+			</div>
+			 -->
+			<a href="/AutoVendor/Home"
+				style="text-decoration: none; outline: none;"><img
+				src="resources/images/GSAlogo.jpg" width="184" height="39" BORDER=0 /></a>
+			<div id="mainnnav"></div>
+		</div>
+
+		<div id="mainContent2">
+			<form id="loginBean" name="myForm" onSubmit="return FormSubmit()" action="/AutoVendor/Home" method="post">
+				<div class="contentBoxhome"
+					style="float: none; height: 100%; overflow: hidden; vertical-align: top; padding-top: 15px; margin: 0 auto; width: 70%;">
+
+					<div class="loghead">Login to AutoVendor</div>
+					<br>
+
+					<div Class="label12B"></div>
+
+					<div Class="label12B">
+						
+							
+						
+					</div>
+
+					<div Class="label12B"></div>
+					<div style="float: left">
+
+						<div id="inputline">
+							<div class="inputleft">
+								<div style="text-align: right; width: 90px; float: left;">User
+									Name:&nbsp;</div>
+								<div
+									style="text-align: left; float: left; width: auto; position: relative;">
+									<input type="text" name="userAccountGroupDUNSDTO.userID"
+										id="userAccountGroupDUNSDTO.userID"
+										alt="Username for Auto Vendor  Login"
+										class="text-box single-line" />
+								</div>
+							</div>
+						</div>
+
+						<div id="inputline">
+							<div class="inputleft">
+								<div style="text-align: right; width: 90px; float: left;">Password:&nbsp;</div>
+								<div
+									style="text-align: left; float: left; width: auto; position: relative;">
+									<input name="userAccountGroupDUNSDTO.password"
+										id="userAccountGroupDUNSDTO.password" type="password"
+										alt="Password for Auto Vendor Login" autocomplete="off"
+										class="text-box single-line" />
+								</div>
+							</div>
+						</div>
+
+
+						<div id="inputline">
+							<div class="inputleft" style="width: 220px">
+								<input type="submit" class="Btn_Save" value="Login" />&nbsp;&nbsp;
+								<input type="reset" class="Btn_Delete" value="Clear" />
+							</div>
+						</div>
+
+						<div id="inputline">
+							<div class="inputleft" style="width: 305px;">
+								<a href="#" onClick="forgotPw();">Forgot Password ? Enter
+									User ID and click here </a>
+							</div>
+
+						</div>
+					</div>
+					<!-- end login box -->
+				</div>
+				<input type="hidden" name="command" value="Login">
+				<input type="hidden" name="pageAction" value="">
+			</form>
+		</div>
+
+		<br class="clearfloat" />
+
+		<div id="footer">
+			<script type="text/javascript">
+				pagefooter();
+			</script>
+			<!-- end #footer -->
+		</div>
+		<!-- end #container -->
+	</div>
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

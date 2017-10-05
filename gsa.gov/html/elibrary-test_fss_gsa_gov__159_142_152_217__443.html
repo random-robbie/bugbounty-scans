@@ -1,0 +1,718 @@
+
+
+
+
+<script language="javascript" id="_fed_an_ua_tag" src="js/Universal-Federated-Analytics.1.04.js?agency=GSA&sp=searchText,tcSearchText"></script>
+
+
+
+
+
+
+
+
+
+<html lang="en">
+<head><title>Welcome to GSA eLibrary</title>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.autocomplete.js" type="text/javascript"></script>
+<script src="js/jquery.bgiframe.min.js" type="text/javascript"></script>
+<script src="js/jquery.mcdropdown.js" type="text/javascript"></script>
+<link href="css/autocomplete.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+jQuery(function(){
+var callAction="/ElibMain/autoComplete";
+    $("#searchText").autocomplete(callAction, {
+	    max: 15,
+      minChars: 2,
+      matchSubset: false,
+      scroll: false,
+      selectFirst: false      
+    });    
+
+    $('#scheduleMenu li ul li').click(function() {
+        //GET THE TEXT INSIDE THAT SPECIFIC LI
+        var content= this.innerText;
+        var split = content.split(' - ');
+        //PLACE THE TEXT INSIDE THE INPUT FIELD, YOU CAN CHANGE YOUR SELECTOR TO TARGET THE RIGHT INPUT
+		$.ajax({
+    		url: "scheduleSummary.do",
+    		type: "POST",
+    		data: {scheduleNumber: split[0]},
+    		success: function() {
+    			$('#scheduleNumber').val(split[0]);
+                $('#elibHomeForm').submit(); // submits the form if success
+            }
+		});
+    });
+})
+
+$(document).ready(function (){
+	
+	 var dd, val;
+
+	    // the option object to pass to mcDropdown
+	    // set neccessary callbacks
+	    var options = new Object();
+	    options.select = selectHandler;
+	    options.init   = initHandler;
+	    
+  		$("#scheduleNumber").mcDropdown("#scheduleMenu",options);
+  		
+  	// create a reference to the dropdown
+  	    // here you can set initial value
+  	    function initHandler() {
+  	        // get a copy of the object
+  	        dd = $('#scheduleNumber').mcDropdown();
+  	        dd.setValue("Select a Contract Vehicle");
+  	    }
+
+  	    // called whenever someone changes a selection on mcDropdown
+  	    function selectHandler() {
+  	        val = dd.getValue();
+  	        console.log(val);
+  	    }
+});
+
+</script>
+
+<meta http-equiv=content-type content="text/html; charset=iso-8859-2">
+<link href="images/content.css" type=text/css rel=stylesheet>
+<link href="images/tree.css" type=text/css rel=stylesheet>
+<link href="images/adv_styles.css" type=text/css rel=stylesheet>
+<link href="css/jquery.mcdropdown.css" type="text/css" rel="stylesheet"/>
+
+<meta content="MSHTML 6.00.2800.1479" name=generator>
+
+</head>
+<body vlink=#660000 link=#990000 bgcolor="#ffffff" leftmargin=0 topmargin=0 marginwidth="0" marginheight="0">
+<table cellspacing=0 cellpadding=0 width="98%" border=0 bgcolor="#f0f0f0">
+<tr>
+    <td>
+        <table cellspacing=0 cellpadding=0 border=0 bgcolor="#ffffff" width=100%>
+        <tr>       			
+			<td width="250" align=center valign="bottom"><img src="images/eLibrary_logo.gif" title="GSA eLibrary" width="240" height="41" border="0"></td>	
+		<td align="left" valign="bottom">
+		<font size="2" color="#C0C0C0"><strong>GSA Federal Acquisition Service</strong></font>
+		</td>
+            <td align=right valign=bottom>
+        	    <table width=100% border="0" cellspacing="0" cellpadding="0" align="right">			
+                <tr>
+                    <td align=right>
+                	    <table border="0" cellspacing="0" cellpadding="1" align=right>
+                		<tr>
+                            <td><a href="home.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web"><img src="images/eLib_ban_home.gif" title="home" width="50" height="21" border="0"></a></td>
+		
+							<td><a href="advRedirect.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?app=ebuy&source=elibrary"><img src="images/eLib_ban_eBuy.gif" title="eBuy - quotes" width="94" height="21" border="0"></a></td>
+                            <td><a href="advRedirect.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web"><img src="images/eLib_ban_advantage.gif" title="GSA Advantage - online shopping" width="216" height="21" border="0"></a></td>
+
+  <td><a href="https://www.gsaadvantage.gov/images/products/elib/pdf_files/elibhp.pdf" target="_blank"><img src="images/eLib_ban_help.gif" title="Help on eLibrary" width="41" height="21" border="0"></a></td>
+                        </tr>
+                        </table>
+                    </td>
+                </tr>
+                </table>
+        	</td>
+        </tr>
+        </table>
+    </td>
+</tr>
+</table>
+
+<table width=99% border="0" cellspacing="0" cellpadding="0" bgcolor="#E7EBF0">
+<tr>
+    <td colspan=3 bgcolor="#003265"><img src="images/blank.gif" title="" width="1" height="1" border="0"></td>	
+</tr>
+ <td height="4"><tr>
+
+<!--left column-->
+	<td valign="top">
+	    <table border="0" cellspacing="0" cellpadding="4" width=100%>
+		<tr>
+		    <td>						
+<table width=99% border="0" cellspacing="0" cellpadding="2" background="images/library-congress-picture2.gif">
+				<tr>
+					<td valign="middle" rowspan="2"><img src="images/library-congress-picture4.gif" title="Library" width="121" height="79" border="0" align="left"></td>					
+				</tr>
+				<tr>							
+					<td><strong>Welcome! </strong><font size=2>GSA eLibrary is your one source for the latest GSA contract award
+information. GSA offers unparalleled acquisition solutions to meet today's acquisition challenges. GSA's key goal is to deliver excellent
+acquisition services that provide best value, in terms of cost, quality and service, for federal agencies and taxpayers.</font></td>
+				</tr>
+				<tr>
+					<td colspan="2"><font size="1" color="#004080">GSA offers a wide range of acquisition services and solutions utilizing a variety of tools, contract vehicles, and services to meet the customer's specific needs including Multiple Award Schedules, Governmentwide Acquisition Contracts, Technology Contracts, and Assisted Acquisition Services. For more information on what GSA has to offer,<a href="http://www.gsa.gov" target="_blank" title="Visit GSA Home Page">visit GSA.gov.</a></font></td>
+				</tr>			
+				
+				</table>                
+                <div style="margin-top: 10px"> 
+                <table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+
+              <tr>
+                    <td valign="top">
+					<table cellspacing=0 cellpadding=0 width="100%" bgcolor=#819fba border=0>
+                    				<tr>                      					
+                      					<td colspan=2 valign=center align=left>
+        				<table border="0" width=100% cellpadding="0" cellspacing="0" bgcolor="#819FBA">
+        				<tr><!-- first row-->                      						
+                     <!-- Column one -->
+				<td width="21%" rowspan="2" align="left" valign="middle" nowrap>
+				<img src="images/search2.jpg" title="Search eLibrary" width="57" height="42" border="0">
+				<img src="images/eLib_search.gif" title="Search" width="100" height="21" border="0" align="top"></td> 
+                  <!-- Column two -->
+         		<td width="79%" align="left" valign="top"> 
+                				<table border="0" cellpadding="2" cellspacing="0"  bgcolor="#819FBA">        		        		
+                                <form action="searchResults.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web" method="get">
+                                 <tr>
+								 
+								      <td><input type="text" id="searchText" name="searchText" maxlength="120" size="30" value="">  <font color=#FFFFFF size=2>in 
+                	    			<select name="searchType">
+                    					<option value="allWords" >all the words</option>
+                    					<option value="anyWords" >any of the words</option>
+										<option value="exactWords" >exact phrase</option>                    															
+                    				</select>&nbsp;<input type="image" src="images/red_search.gif" title="Search" width="54" height="22" border="0" align="top"></font></td>
+                                </tr>
+                                </form>
+                                </table>                            
+                            </td>
+                        </tr> <!-- First row ends -->
+						
+                		<tr> <!-- Second row begins -->
+        				     <td colspan="2"><font color="#ffffff" size=1><font size="1">enter</font> <b>Keywords, Contract Number, Contractor/Mfr Name,Schedule/SIN/GWAC Number,NAICS</b></font></td>
+                          </tr><!-- Second row ends -->
+						  </table>
+										</td>
+									</tr>
+                        <tr bgcolor=#f0f0f0>
+                      		<td colspan="1">&nbsp;&nbsp;<img height=9 title="" src="images/arrow_right_grey.gif" width=6 border=0> 
+							<font size=2><a href="contractorList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?contractorListFor=A">Contractor Directory <font size=1>(a-z)</a></font></td>
+                      		<td colspan="1" align="left">&nbsp;&nbsp;<img height=9 title="" src="images/arrow_right_grey.gif" width=6 border=0> 
+							<font size=2><a href="crossScheduleSearch.do">Cross-Schedule Search</a></font></td>
+						</tr>
+					
+            			</table>
+                   </td>
+               </tr>			
+               </table>  
+			</div>
+                <div style="margin-top: 10px">  
+                
+                
+
+<table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+   <tr>
+	<td valign=top> 
+	<table width="100%" cellspacing="0" cellpadding="1" bgcolor="#ffffff">
+   	    <tr>
+        	<td colspan=2 bgcolor="#819FBA">
+			<img src="images/category3.jpg" title="Category Guide" width="28" height="19" border="0">
+			<img src="images/title_category_guide.gif" title="Category Guide" width="131" height="19" border="0">
+			</td>
+		</tr>
+                				
+		<tr>
+		
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=317&famid=317&sched=no"><b>Fall/Winter Supplies & Services</b></a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=88&famid=88&sched=no"><b>Winter Supplies & Services</b></a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=1&famid=1&sched=yes">Building & Industrial</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=294&famid=294&sched=no">Disaster Relief</a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=2&famid=2&sched=yes">Furniture & Furnishings</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=28&famid=28&sched=yes">Hospitality, Cleaning, & Chemicals</a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=29&famid=29&sched=yes">IT Solutions & Electronics</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=30&famid=30&sched=yes">Laboratory, Scientific, & Medical</a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=31&famid=31&sched=yes">Law Enforcement, Fire, & Security</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=32&famid=32&sched=yes">Office Solutions</a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=690&famid=690&sched=no">Security Solutions</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=34&famid=34&sched=no">Services</a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=82&famid=82&sched=yes">Tools, Hardware, & Machinery</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=273&famid=273&sched=no">Travel & Transportation Solutions</a></font></td>
+
+				</tr><tr>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=83&famid=83&sched=yes">Vehicles & Watercraft</a></font></td>
+
+	<td><font class="CatLink"><img src="images/blue_arrow_rt.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?catid=279&famid=279&sched=no">Wildland Fire & Equipment</a></font></td>
+	
+</tr>
+</table>
+
+
+</tr>
+</table>     
+				</div>
+                
+                <div style="margin-top: 10px">  
+                <table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+        	    <tr>
+        			<td valign=top>
+        				<table width=100% border="0" bgcolor="#f0f0f0" cellspacing="0" cellpadding="2">
+                  
+							<tr bgcolor="#819fba">
+                            <td colspan=2><img src="images/news.jpg" title="News" width="28" height="19" border="0">
+										<img src="images/eLib_news.gif" title="News" width="131" height="19" border="0"></td>
+                        </tr>
+                       <tr bgcolor=#ffffff>
+                      				<td><img height=1 title="" 
+				                        src="images/blank.gif" 
+				                        width=15 border=0></td>
+				                      <td><font color="#25587E" size=2><b> Announcing the new Human Capital and Training Solutions (HCaTS) Program contracts.</b> <font color="#666666"> HCaTS provide reliable, flexible, fast and efficient ways to obtain best value customized solutions for human capital management and training requirements.  Additional information can be found on the 
+<a href="http://www.gsa.gov/hcats" target="_blank"> HCaTS webpage </a></font> </font></font> 
+									</td>
+								</tr>
+                </table>
+			</div>
+
+			</td>
+        </tr>
+        </table>
+
+
+  <div style="MARGIN-TOP: 10px"></div>
+            	<table width="100%"  cellspacing="0" cellpadding="0" >
+                <tr>
+					<td width=50% valign=top>
+		            	<table cellspacing=0 cellpadding=1 width="100%" bgcolor=#003265>
+        	        	<tr>
+            	    		<td valign=top>
+								<table cellspacing=0 cellpadding=2 width="100%" bgcolor="#ffffff" border=0 height="120">
+								<tr bgcolor="#819fba" height=18>
+									<td><img src="images/rfq.jpg" title="RFQ" width="28" height="19" border="0"><font size=2 color="#FFFFFF"><strong>Get Quotes</strong></td></tr>
+								<tr>
+									<td><img src="images/ebuy_logo_sm.jpg" title="GSA eBuy" width="66" height="33" border="0" align="right"><font size=1>GSA eBuy is an easy-to-use electronic Request for Quotation (RFQ) system designed to facilitate the request for submission of quotations.  
+											<br><br>With eBuy, getting quotes is just a click away!</td></tr>
+								<tr>
+									<td align=right><font size=1><strong><a href="advRedirect.do?app=ebuy&source=elibrary">go to eBuy >></a></strong></td></tr>
+								</table>
+							</td>
+						</tr>
+						</table>
+					</td>
+					<td width=2>&nbsp;</td>
+					<td width=48%  valign=top>
+		            	<table cellspacing=0 cellpadding=1 width="100%" bgcolor=#003265>
+        	        	<tr>
+            	    		<td valign=top>
+								<table cellspacing=0 cellpadding=2 width="100%" bgcolor="#ffffff" border=0 height="120">
+								<tr bgcolor="#819fba" height=18>
+									<td colspan=2><img src="images/additional.jpg" title="Additional Information" width="28" height="19" border="0"><font size="2" color="#FFFFFF"><strong>Additional Information</strong></td></tr>
+								<tr>
+									<td valign=top width=50%><font size=2 color="#25587E">Customers<br></font>
+										<font size=1>
+										<li><a href="http://www.gsa.gov/portal/category/27105" target="_blank">Training Opportunities</a>										
+										<li><a href="https://www.fpds.gov" target="_blank">FPDS-NG </a>
+										<li><a href="http://www.epls.gov/" target="_blank">EPLS</a>																				
+										<li><a href="strategicSourcingBPA.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web">GSA Strategic Sourcing BPAs</a>
+										<li>
+					 						<a href="https://hallways-test.cap.gsa.gov/login-information?utm_campaign=Marcom&utm_source=Marcom&utm_medium=link&utm_content=eLibrary" target="_blank" title="Acquisition Gateway" >Acquisition Gateway</a>
+                  	    					</td>
+									<td valign=top width=49%>
+										<font size=2 color="#25587E">Contractors<br></font>
+										<font size=1>								    
+
+										<li><a href="http://www.fbo.gov" target="_blank">FedBizOps</a>
+										<li><a href="http://ssq.gsa.gov/" target="_blank">Schedules Sales Query</a>
+										<li><a href="http://vsc.gsa.gov/" target="_blank">Vendor Support (VSC)</a>										
+										</td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						</table>								
+					</td>
+
+				</tr>
+				</table>
+				
+				
+
+
+   
+		</td>
+	</tr>
+</table>
+
+    </td>
+
+<!--right column-->
+	<td width=5><img src="images/blank.gif" title="" width="1" height="1" border="0"></td>
+	<!--<td valign="top" width=200>-->
+	<td valign="top" width=240>
+	    <table border="0" cellspacing="0" cellpadding="4"  width=100%>
+		<tr>
+		    <td>
+		      <form id="elibHomeForm" action=scheduleSummary.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web method=post>
+		    
+                <table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+        	    <tr>
+        			<td valign=top>
+        				<table width=100% border="0" bgcolor="#ffffff" cellspacing="0" cellpadding="1">
+                	    <tr>
+										
+                			<td bgcolor="#003265" align="left"><img src="images/search.jpg" title="Search Schedules" width="28" height="21" border="0"><img src="images/r_qsearch.jpg" title="Quick Search" width="115" height="21" border="0"></td>						
+                        </tr>
+        		        <tr>	
+                			<td bgcolor="#E6E2D6">						
+                				<table width="100%" cellspacing="0" cellpadding="2" border=0 height=50>
+                				<tr>
+                					<td><font size=2>Go to </font> 
+                						<input type="text" name="scheduleNumber" id="scheduleNumber" value="" size="30"/>
+                						<ul id="scheduleMenu" class="mcdropdown_menu">
+                							
+                										
+                											<li>
+                												Multiple Award Schedule (MAS)
+                											
+                											<ul>                												
+                												
+																<li rel="00CORP - The Professional Services Sched"> 
+																	00CORP - The Professional Services Sched</li>               											
+                										
+																<li rel="03FAC - FACILITIES MAINTENANCE AND MANAG"> 
+																	03FAC - FACILITIES MAINTENANCE AND MANAG</li>               											
+                										
+																<li rel="23 V - AUTOMOTIVE SUPERSTORE"> 
+																	23 V - AUTOMOTIVE SUPERSTORE</li>               											
+                										
+																<li rel="36 - THE OFFICE, IMAGING AND DOCUMENT SO"> 
+																	36 - THE OFFICE, IMAGING AND DOCUMENT SO</li>               											
+                										
+																<li rel="48 - TRANSPORTATION, DELIVERY AND RELOCA"> 
+																	48 - TRANSPORTATION, DELIVERY AND RELOCA</li>               											
+                										
+																<li rel="51 V - HARDWARE SUPERSTORE"> 
+																	51 V - HARDWARE SUPERSTORE</li>               											
+                										
+																<li rel="56 - BUILDINGS AND BUILDING MATERIALS/IN"> 
+																	56 - BUILDINGS AND BUILDING MATERIALS/IN</li>               											
+                										
+																<li rel="58 I - PROFESSIONAL AUDIO/VIDEO TELEMETR"> 
+																	58 I - PROFESSIONAL AUDIO/VIDEO TELEMETR</li>               											
+                										
+																<li rel="599 - TRAVEL SERVICES SOLUTIONS"> 
+																	599 - TRAVEL SERVICES SOLUTIONS</li>               											
+                										
+																<li rel="621 I - PROFESSIONAL AND ALLIED HEALTHCA"> 
+																	621 I - PROFESSIONAL AND ALLIED HEALTHCA</li>               											
+                										
+																<li rel="621 II - MEDICAL LABORATORY TESTING AND"> 
+																	621 II - MEDICAL LABORATORY TESTING AND</li>               											
+                										
+																<li rel="65 I B - PHARMACEUTICALS AND DRUGS"> 
+																	65 I B - PHARMACEUTICALS AND DRUGS</li>               											
+                										
+																<li rel="65 II A - MEDICAL EQUIPMENT AND SUPPLIES"> 
+																	65 II A - MEDICAL EQUIPMENT AND SUPPLIES</li>               											
+                										
+																<li rel="65 II C - DENTAL EQUIPMENT AND SUPPLIES"> 
+																	65 II C - DENTAL EQUIPMENT AND SUPPLIES</li>               											
+                										
+																<li rel="65 II F - PATIENT MOBILITY DEVICES"> 
+																	65 II F - PATIENT MOBILITY DEVICES</li>               											
+                										
+																<li rel="65 V A - X-RAY EQUIPMENT AND SUPPLIES"> 
+																	65 V A - X-RAY EQUIPMENT AND SUPPLIES</li>               											
+                										
+																<li rel="65 VII - INVITRO DIAGNOSTICS, REAGENTS,"> 
+																	65 VII - INVITRO DIAGNOSTICS, REAGENTS,</li>               											
+                										
+																<li rel="66 - SCIENTIFIC EQUIPMENT AND SERVICES"> 
+																	66 - SCIENTIFIC EQUIPMENT AND SERVICES</li>               											
+                										
+																<li rel="66 III - CLINICAL ANALYZERS, LABORATORY,"> 
+																	66 III - CLINICAL ANALYZERS, LABORATORY,</li>               											
+                										
+																<li rel="67 - PHOTOGRAPHIC EQUIPMENT - CAMERAS, P"> 
+																	67 - PHOTOGRAPHIC EQUIPMENT - CAMERAS, P</li>               											
+                										
+																<li rel="70 - GENERAL PURPOSE COMMERCIAL INFORMAT"> 
+																	70 - GENERAL PURPOSE COMMERCIAL INFORMAT</li>               											
+                										
+																<li rel="71 - FURNITURE"> 
+																	71 - FURNITURE</li>               											
+                										
+																<li rel="71 II K - COMPREHENSIVE FURNITURE MANAGE"> 
+																	71 II K - COMPREHENSIVE FURNITURE MANAGE</li>               											
+                										
+																<li rel="72 - FURNISHING AND FLOOR COVERINGS"> 
+																	72 - FURNISHING AND FLOOR COVERINGS</li>               											
+                										
+																<li rel="73 - FOOD SERVICE, HOSPITALITY, CLEANING"> 
+																	73 - FOOD SERVICE, HOSPITALITY, CLEANING</li>               											
+                										
+																<li rel="736 - TEMPORARY ADMINISTRATIVE AND PROFE"> 
+																	736 - TEMPORARY ADMINISTRATIVE AND PROFE</li>               											
+                										
+																<li rel="738 X - Human Capital Management and Adm"> 
+																	738 X - Human Capital Management and Adm</li>               											
+                										
+																<li rel="75 - OFFICE PRODUCTS/SUPPLIES AND SERVIC"> 
+																	75 - OFFICE PRODUCTS/SUPPLIES AND SERVIC</li>               											
+                										
+																<li rel="751 - LEASING OF AUTOMOBILES AND LIGHT T"> 
+																	751 - LEASING OF AUTOMOBILES AND LIGHT T</li>               											
+                										
+																<li rel="76 - PUBLICATION MEDIA"> 
+																	76 - PUBLICATION MEDIA</li>               											
+                										
+																<li rel="78 - SPORTS, PROMOTIONAL, OUTDOOR, RECRE"> 
+																	78 - SPORTS, PROMOTIONAL, OUTDOOR, RECRE</li>               											
+                										
+																<li rel="81 I B - SHIPPING, PACKAGING AND PACKING"> 
+																	81 I B - SHIPPING, PACKAGING AND PACKING</li>               											
+                										
+																<li rel="84 - TOTAL SOLUTIONS FOR LAW ENFORCEMENT"> 
+																	84 - TOTAL SOLUTIONS FOR LAW ENFORCEMENT</li>               											
+                																										
+                												</ul>
+                											</li>                 											
+										
+                										
+                											<li>
+                												Blanket Purchase Agreement (BPA)
+                											
+                											<ul>                												
+                												
+																<li rel="BPA - MAS Blanket Purchase Agreements (B"> 
+																	BPA - MAS Blanket Purchase Agreements (B</li>               											
+                																										
+                												</ul>
+                											</li>                 											
+										
+                										
+                											<li>
+                												Indefinite-Delivery, Indefinite Quantity (IDIQ)
+                											
+                											<ul>                												
+                												
+																<li rel="BMOS1 - Building Maintenance and Operati"> 
+																	BMOS1 - Building Maintenance and Operati</li>               											
+                										
+																<li rel="BMOU1 - Building Maintenance and Operati"> 
+																	BMOU1 - Building Maintenance and Operati</li>               											
+                										
+																<li rel="HCATS - Human Capital and Training Solut"> 
+																	HCATS - Human Capital and Training Solut</li>               											
+                										
+																<li rel="HCATS SB - Human Capital and Training So"> 
+																	HCATS SB - Human Capital and Training So</li>               											
+                										
+																<li rel="OASIS - One Acquisition Solution for Int"> 
+																	OASIS - One Acquisition Solution for Int</li>               											
+                										
+																<li rel="OASIS SB - One Acquisition Solution for"> 
+																	OASIS SB - One Acquisition Solution for</li>               											
+                										
+																<li rel="OS3 - Federal Strategic Sourcing Initiat"> 
+																	OS3 - Federal Strategic Sourcing Initiat</li>               											
+                																										
+                												</ul>
+                											</li>                 											
+										
+                										
+                											<li>
+																Governmentwide Acquisition Contracts (GWACs)
+                											
+                											<ul>                												
+                												
+																<li rel="8ASTARS2 - 8(a) Streamlined Technology A"> 
+																	8ASTARS2 - 8(a) Streamlined Technology A</li>               											
+                										
+																<li rel="ALLIAN - Alliant - Information Technolog"> 
+																	ALLIAN - Alliant - Information Technolog</li>               											
+                										
+																<li rel="ALLSB - Alliant Small Business (ASB)"> 
+																	ALLSB - Alliant Small Business (ASB)</li>               											
+                										
+																<li rel="VETS2 - Veterans Technology Services 2 ("> 
+																	VETS2 - Veterans Technology Services 2 (</li>               											
+                																										
+                												</ul>
+                											</li>                 											
+										
+                										
+                											<li>
+																Network Services and Telecommunications
+															
+                											<ul>                												
+                												
+																<li rel="CONNII - CONNECTIONS II"> 
+																	CONNII - CONNECTIONS II</li>               											
+                										
+																<li rel="CS2 - Custom SATCOM Solutions (CS2)"> 
+																	CS2 - Custom SATCOM Solutions (CS2)</li>               											
+                										
+																<li rel="CS2SB - Custom SATCOM Solutions Small Bu"> 
+																	CS2SB - Custom SATCOM Solutions Small Bu</li>               											
+                										
+																<li rel="GRITS2 - GSA Region 4 Integrated Telecom"> 
+																	GRITS2 - GSA Region 4 Integrated Telecom</li>               											
+                																										
+                												</ul>
+                											</li>                 											
+										
+                						</ul>                						                					
+                					</td>
+                					
+										<td><br></td>
+                				</tr>					
+                				</table>
+                            </td>
+                        </tr>
+                		</table>
+                    </td>
+                </tr>
+                </table>
+                </form>
+<div style="margin-top: 10px">
+                <table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+        	    <tr>
+        			<td valign=top>
+        				<table width=100% border="0" bgcolor="#ffffff" cellspacing="0" cellpadding="2">
+                	    <tr>
+                			<td bgcolor="#003265"><img src="images/info.jpg" title="Find Information" width="28" height="21" border="0"><img src="images/r_schedule_contracts.gif" title="Schedule Contracts" width="190" height="21" border="0"></td>						
+                        </tr>
+                        <tr>	
+                			<td bgcolor="#E6E2D6">		                           
+                        <table width="250" cellspacing="0" cellpadding="1" border=0>
+                				<tr>
+                					<td><font size=1>GSA schedule contracts offer direct delivery of millions of state-of-the-art, high-quality commercial supplies and services at volume discount pricing!</font><br>
+                            <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> 
+                              <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web"><font face="Verdana" size=1>View schedule contracts</font></a><br>
+                            <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> 
+                              <a href="http://www.gsa.gov/schedules" target="_blank"><font face="Verdana" size=1>GSA schedules info</font></a><br>
+                            <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> 
+                              <a href="http://www.fss.va.gov/fss/" target="_blank"><font face="Verdana" size=1>VA schedules info</font></a><br>
+                            <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> 
+                              <a href="/docs/Schedule-SIN-NAICS-crosswalk.xlsx"><font face="Verdana" size=1>NAICS schedule/SIN crosswalk</font></a><br>
+                            <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> 
+                              <a href="/docs/Schedule-SIN-PSC-crosswalk.xlsx"><font face="Verdana" size=1>PSC schedule/SIN crosswalk</font></a><br>
+                          </td>
+                        </tr>
+
+                                 </table>
+                             </td>
+                         </tr>
+                         </table>
+                     </td>
+                 </tr>
+                 </table>
+                </div>
+
+                <div style="margin-top: 10px">
+                <table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+        	    <tr>
+        			<td valign=top>
+        				<table width=100% border="0" bgcolor="#ffffff" cellspacing="0" cellpadding="2">
+                	    <tr>
+                			<td bgcolor="#003265"><img src="images/info.jpg" title="Find Information" width="28" height="21" border="0"><img src="images/r_tech_contracts.gif" title="Technology Contracts" width="190" height="20" border="0"></td>						
+                        </tr>
+                        <tr>	
+                			<td bgcolor="#E6E2D6">		
+                                <table width="100%" cellspacing="0" cellpadding="1" border=0>
+                				<tr>
+                					<td><font size=1>GSA technology contracts cover the whole spectrum of IT solutions, from network 						services and information assurance to telecommunications and purchase of hardware and software.</font>
+<br><img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?flag=techContract"><font face="Verdana" size=1>View technology contracts</font></a><br><img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> <a href="http://www.gsa.gov/its" target="_blank"><font face="Verdana" size=1>GSA technology contracts info</font></a></td></tr>
+
+                                 </table>
+                             </td>
+                         </tr>
+                         </table>
+                     </td>
+                 </tr>
+                 </table>
+</div>
+                <div style="margin-top: 10px">
+                <table width="100%" cellspacing="0" cellpadding="1" bgcolor="#003265">
+        	    <tr>
+        			<td valign=top>
+        				<table width="100%" border="0" bgcolor="#ffffff" cellspacing="0" cellpadding="2">
+                	    <tr>
+                			<td bgcolor="#003265"><img src="images/state.jpg" title="State and Locals" width="28" height="21" border="0"><img src="images/r_statelocal.gif" title="State and Local Governments" width="190" height="21" border="0"></td>						                        
+        			   </tr>
+        		        <tr>	
+                			<td bgcolor="#E6E2D6">		
+                                <table width="100%" cellspacing="0" cellpadding="1" border=0>
+                                <tr>
+                                    <td><img src="images/state_local.gif" title="Indicates that authorized state and local government entities may procure from this contract" width="28" height="15" border="0" align="right"><font size=1><b>Cooperative Purchasing</b><br>
+                                        Purchase IT products, services, 
+						                              and support equipment from Federal Supply 
+						                              Schedules.
+</font><br>
+                                        <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> <a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?flag=coop"><font face="Verdana" size=1>View participating vendors</font></a><br>										
+                                        <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> <a href="http://www.gsa.gov/portal/content/202313" target="_blank"><font face="Verdana" size=1>Cooperative Purchase FAQ</font></a></td>
+                                </tr>
+                                </table>
+                            </td>
+                        </tr>
+        		        <tr>	
+                			<td bgcolor="#E6E2D6">		
+                            <hr>
+                                <table width="100%" cellspacing="0" cellpadding="1" border=0>
+                                <tr>
+                                    <td><img src="images/disast_purch.png" title="Indicates that state and local governments may procure Disaster Purchasing products/services from this contract" width="28" height="15" border="0" align="right"><font size=1><b>Disaster Purchasing</b><br>
+                                        Purchase products and services to facilitate recovery from a major disaster.</font><br>
+                                    <img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> <font face="Verdana" size=1><a href="scheduleList.do;jsessionid=152EE7679722EB890765CD819A465BB8.tst1web?flag=disasterRecovery">View participating vendors</a></font><br>
+									<img src="images/r_arrow.gif" title="" width="6" height="10" border="0"> <a href="http://www.gsa.gov/portal/content/202557" target="_blank"><font face="Verdana" size=1>Disaster Purchasing FAQ</font></a> </td>
+									
+                                </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        </table>
+                    </td>
+                </tr>
+                </table>
+</div>
+
+
+<!-- Get Quotes code ends -->
+
+         
+             </td>
+         </tr>
+         </table>
+     </td>
+	<td bgcolor="#003265" width=1><img src="images/blank.gif" title="" width="1" height="1" border="0"></td>                                
+</tr>
+<tr>
+    <td colspan=3 bgcolor="#003265"><img src="images/blank.gif" title="" width="1" height="1" border="0"></td>
+</tr>
+</table>
+</div>
+<div style="margin-top: 10px">
+<table border="0" cellpadding="3" cellspacing="0" width="98%">
+<tr>
+    <td><font size=1>*** WARNING ***  This is a U.S. General Services Administration computer system that is "<i>FOR OFFICIAL USE ONLY</i>." This system is subject to monitoring.  Therefore, no expectation of privacy is to be assumed.  Individuals found performing unauthorized activities are subject to disciplinary action including criminal prosecution. <a href="privacy.do" title="Privacy and Security">Privacy and Security</a></font></td>
+</tr>
+</table>
+</div>
+<br>
+
+</body>
+</html>

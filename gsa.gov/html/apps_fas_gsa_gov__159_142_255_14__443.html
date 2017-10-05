@@ -1,0 +1,334 @@
+
+
+	
+
+
+
+	
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function doFormalTime() {
+var myTime = new Date();
+var myHour = myTime.getHours();
+var myMinutes = myTime.getMinutes();
+var ampm = " in the morning.";
+
+if (myHour >= 12) {
+myHour -= 12; // change to PM
+ampm = "pm";
+}
+Hour = new Array(
+"One", "Two", "Three", "Four", 
+"Five", "Six", "Seven", "Eight", 
+"Nine", "Ten", "Eleven", "Twelve");
+
+// gets nearest 5 minutes
+myMin = myMinutes - (myMinutes % 5);
+// closer to next 5 minutes, go to next
+if (myMinutes % 5 > 2) myMin += 5;
+
+var text = "It is now about ";
+
+switch(myMin) {
+case 0 : myHour--; break;
+case 5 : text += "five after "; myHour--; break;
+case 10 : text += "ten after "; myHour--; break;
+case 15 : text += "quarter after "; myHour--; break;
+case 20 : text += "twenty after "; myHour--; break;
+case 25 : text += "twenty-five after "; myHour--; break;
+case 30 : text += "half past "; myHour--; break;
+case 35 : text += "twenty-five till "; break;
+case 40 : text += "twenty till  "; break;
+case 45 : text += "quarter till "; break;
+case 50 : text += "ten till "; break;
+case 55 : text += "five till "; break;
+case 60 : break;
+}
+if (myHour < 1) myHour++; // fix for noon/midnight
+if (ampm == "pm") {
+ampm = (myHour >= 4) ? " in the evening." : " in the afternoon.";
+}
+text += Hour[myHour] + ampm;
+return text;
+}
+//  End -->
+</script>
+
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+// news ticker function
+var newslist=new Array();
+var cnt=0;			// current news item
+var curr = "";
+var i=-1;			// current letter being typed
+
+newslist[0]=new Array("Here is some News","http://www.washingtonpost.com")
+newslist[1]=new Array("FSS moves static content to the GSA portal","http://www.gsa.gov/Portal/content/orgs_content.jsp?contentOID=22892&contentType=1005")
+newslist[2]=new Array("Do you need to buy a car?","http://www.autoauctions.gsa.gov")
+newslist[3]=new Array("Have you seen the Surplus Property Site?","http://surplussales.gsa.gov")
+newslist[4]=new Array("How about ordering from the CSC","https://apps.fss.gsa.gov/cops/csc")
+
+function newsticker()
+{
+  // next character of current item
+  if (i < newslist[cnt][0].length - 1)
+  {
+    i++;
+    temp1 = newslist[cnt][0];
+    temp1 = temp1.split('');
+    curr = curr+temp1[i];
+    temp2 = newslist[cnt][1];
+    mtxt.innerHTML = "<small><a href='"+temp2+"'><font color='#008080'>"+curr+"_</small></font></a>";
+    setTimeout('newsticker()',10)
+    return;
+  }
+  // new item
+  i = -1; curr = "";
+  if (cnt<newslist.length-1)
+    cnt++;
+  else
+    cnt=0;
+  setTimeout('newsticker()',3000)
+}
+//  End -->
+</script>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var description = new Array();
+description[0] = "<center><strong><font>The ARTS System collects and processes paid transportation bills submitted to General Services Administration.</font></strong><center>";
+description[1] = "<center><strong><font><i>All FSS employees who are engaged in the acquisition process are encouraged to subscribe to Clause Manual. </i></font></strong><center>";
+description[21] = "<center><strong><font><i>Airline City Pair Program offers discounted airfares for Government Employees traveling on official duty.</i></font></strong><center>";
+description[2] = "<center><strong><font><i>Customer Service Center Quick Order Form.  Fast and easy ordering for your supplies.</i></font></strong><center>";
+description[22] = "<center><strong><font><i>GSA EXPO 2002 at The San Diego Convention Center, May 21-23.</i></font></strong><center>";
+description[3] = "<center><strong><font><i>Information Technology Applications and Reports.</i></font></strong><center>";
+description[41] = "<center><strong><font><i>Email your comments to FSS.</i></font></strong><center>";
+description[4] = "<center><strong><font><i>Transportation and Travel. GSA works to identify and recover carrier overcharges and other debts relating to transportation bills paid by agencies around the world.</i></font></strong><center>";
+description[5] = "<center><strong><font><i>Welcome to the FSS Application Server.  Use the Links on the left and right to navigate around the site.</i></font></strong><center>";
+
+description[6] = "<center><strong><font>News and Events information systems.</font></strong><center>";
+description[7] = "<center><strong><font><i>The GSA Marketing Partnership will strengthen the success of FSS and FSS Schedule Contractors in building identification and increasing sales.</i></font></strong><center>";
+description[8] = "<center><strong><font><i>Surplus personal property sales offer items the federal government no longer needs for sale to the general public by competitive means.</i></font></strong><center>";
+description[9] = "<center><strong><font><i>FSS Publications Center</i></font></strong><center>";
+description[10] = "<center><strong><font><i>We manage the GSA Schedules (Multiple Award Schedules) Program.</i></font></strong><center>";
+description[91] = "<center><strong><font><i>The Office & Scientific Equipment Acquisition Center provides worldwide leadership for FSS in developing and executing Government-wide Acquisitions.</i></font></strong><center>";
+description[92] = "<center><strong><font><i>The Services Acquisition Center is dedicated to providing a broad spectrum of professional services to our Government Customers.</i></font></strong><center>";
+description[93] = "<center><strong><font><i>The U-MAS (Multiple Award Schedule) Virtual Campus is designed to provide you with a working knowledge of the subject matter.</i></font></strong><center>";
+description[94] = "<center><strong><font><i>The Office of Vehicle Acquisition and Leasing Services provides Federal Customer agencies with quality vehicles and fleet management services while offering low prices and economical lease rates.</i></font></strong><center>";
+description[95] = "<center><strong><font><i>This Contractor Guide is intended to help vendors understand how to participate in the Federal Supply Service Multiple Award Schedules program.</i></font></strong><center>";
+description[96] = "<center><strong><font><i>Viewers for the different document types used by FSS.  Download instructions are on the page.</i></font></strong><center>";
+description[97] = "<center><strong><font><i>FSS training units availabe on-line.</i></font></strong><center>";
+
+//  End -->
+</script>
+	
+	
+<!-- Controls the type of site -->
+	
+			
+			<HTML>
+			<HEAD>
+			
+				<Title>FSS Web Application Server</title>
+				
+				<META NAME="ROBOTS" Content="ALL">
+			
+                  <LINK HREF="http://apps.fas.gsa.gov/insite.css" REL="stylesheet" TYPE="text/css">
+			
+			<meta HTTP-EQUIV="imagetoolbar" and CONTENT="no">
+			</HEAD>
+			<BODY leftmargin="10" topmargin="0"> 
+			<table width="765" border="0" cellspacing="0" cellpadding="0" align="Center">
+			
+		    <TR>
+				<TD>   
+					
+					<table width="765" border="0" cellspacing="0" cellpadding="0" align="Center">
+					
+						<TR VALIGN="bottom">
+	   						<TD>
+								<IMG SRC="/_images/gsa_logo1.gif" WIDTH="47" HEIGHT="47" HSPACE="10" VSPACE="10" BORDER="0" ALT="GSA Logo">
+							</TD>
+	   						<TD ALIGN="right">
+								<A HREF="#content"><font color="White">Skip Navigation</font></A>
+								&nbsp; &nbsp;<a href="http://fss.gsa.gov/viewers"><font color="White">Section 508 Tools</font></a><br>
+                                
+								<IMG SRC="/_images/federalacquisitionservicesmall.jpg" BORDER="0" ALT="Federal Acquisition Service">
+								
+							</TD>
+						</TR>
+
+					
+								</FORM>
+						<TR>	
+		  					
+							<TD COLSPAN="2" align="center">
+								<IMG SRC="/_images/newflagmain.gif" WIDTH="765" HEIGHT="52" BORDER="0" ALT="GSA Flag Banner Image">
+							</TD>
+							
+						</TR>
+						
+							<TR BGCOLOR="#314B95">
+		  						<TD COLSPAN="2" ALIGN="center" valign="middle">	       
+								   <IMG SRC="/_images/blank.gif" width="30" align="absmiddle" alt="">
+								   <IMG SRC="/_images/blank.gif" width="30" align="absmiddle" alt="">
+        						   <A HREF="http://www.gsa.gov"><b><font color="#FFFFFF">GSA Home</font></b></A>
+ 								   <IMG SRC="/_images/blank.gif" width="30" align="absmiddle" alt="">
+								   <IMG SRC="/_images/blank.gif" width="30" align="absmiddle" alt="">
+								</TD>
+
+							</TR>
+						
+							    <TR BGCOLOR="#E5E5E5">
+		  							<td colspan="2" WIDTH="#width#" height="25" class="status_bar">&nbsp;
+		   							</td>
+								</TR>
+                            	
+					</TABLE>
+					
+		        </TD>
+	        </TR>
+                
+							  
+                
+	        <TR>
+				<TD> 
+                    
+					<table width="765" border="0" cellspacing="0" cellpadding="0" align="Center">
+			        	<TR Width="765" valign="top">
+					
+								<TD width="765">
+									<A NAME="content">
+								<!-- Begin unique page content -->
+								</a>
+								 <!-- Controls the type of site -->
+	
+                              	</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</Table>
+		<BR>
+		</BODY>
+		</HTML>
+		
+	    	
+
+<body onLoad="newsticker()" link="#000000">
+
+
+
+
+
+
+<table width="700" align="center">
+<tr>
+	<td valign="middle">
+	<table>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[0];" onMouseOut="Words.innerHTML = description[5];" href="arts/">Arts</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[1];" onMouseOut="Words.innerHTML = description[5];" href="clausemanual/">Clause Manual</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[21];" onMouseOut="Words.innerHTML = description[5];" href="citypairs/">City Pairs</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[2];" onMouseOut="Words.innerHTML = description[5];" href="cops/csc/">CSC Quick Order</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[22];" onMouseOut="Words.innerHTML = description[5];" href="http://expo.gsa.gov">GSA Expo 2002</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[3];" onMouseOut="Words.innerHTML = description[5];" href="it/itc/">ITC</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[41];" onMouseOut="Words.innerHTML = description[5];" href="Mailto/">Send us E-mail</a></strong></td>
+		</tr>
+		<tr>
+			<td align="right"><strong><a onMouseOver="Words.innerHTML = description[4];" onMouseOut="Words.innerHTML = description[5];" href="transtrav/tmc/">Travel Management Center</a></strong></td>
+		</tr>
+		
+	</table>
+</td>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#DADADA">
+	
+	
+	<tr>
+		<td>
+			<table width="300" bgcolor="#EEEEEE">
+				<tr bgcolor="#EEEEEE">
+					<td height="150" align="center" valign="middle" bgcolor="#EEEEEE"><a id="Words"><strong><font><i>Welcome to the FSS Application Server.  Use the Links on the left and right to navigate around the site.</i></font></strong></font></strong></a> 
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td height="50"></td>
+	</tr>
+	
+</table>
+
+</td>
+<td valign="middle">
+<table>
+		
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[6];" onMouseOut="Words.innerHTML = description[5];" href="newsevents/">News and Events</a></strong></td>
+		</tr>
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[7];" onMouseOut="Words.innerHTML = description[5];" href="partnership/">Marketing Partnership</a></strong></td>
+		</tr> 
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[8];" onMouseOut="Words.innerHTML = description[5];" href="http://surplussales.gsa.gov">Surplus Property Sales</a></strong></td>
+		</tr>
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[9];" onMouseOut="Words.innerHTML = description[5];" href="pub/">Publications</a></strong></td>
+		</tr>
+		
+		
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[93];" onMouseOut="Words.innerHTML = description[5];" href="umas/">UMAS</a></strong></td>
+		</tr>
+		
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[95];" onMouseOut="Words.innerHTML = description[5];" href="vendorguide/">Vendor Guide</a></strong></td>
+		</tr>
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[96];" onMouseOut="Words.innerHTML = description[5];" href="viewers/">Viewers</a></strong></td>
+		</tr>
+		<tr>
+			<td align="left"><strong><a onMouseOver="Words.innerHTML = description[97];" onMouseOut="Words.innerHTML = description[5];" href="webtraining/">Web Training</a></strong></td>
+		</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<table align="center">
+	<tr>
+		<td width="250"colspan="3" align="center"><small><span id="mtxt" style="position:relative;top:1px;padding:1px 1px 1px 1px;font-family:Arial;font-size:16pt;width:100%;text-decoration:none;overflow:none;height:20px"></span></td>
+		
+	</tr>
+	<tr>
+		<td colspan="4" align="center"><script>document.write(doFormalTime());</script></font></td>
+	</tr>
+</table>
+
+
+
+
+
+
+<table>
+	<tr>
+		<td><font size="-4" color="#C0C0C0"><strong></strong></font></td>
+	</tr>
+</table>
+

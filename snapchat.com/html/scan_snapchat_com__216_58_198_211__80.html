@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<title>Make a Snapcode &bull; Snapchat</title>
+
+		<!-- Meta -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="/global/images/favicon/favicon.ico?v=2016-05-19"/>
+
+		
+		<!-- Core, Scripts -->
+		<script src="/global/libraries/jquery/jQuery.js"></script>
+		<script src="/generator/libraries/croppie/croppie_fix.js?v=1"></script>
+		<script src="/generator/libraries/cookie/js.cookie.min.js"></script>
+		<script src="/generator/localizedstrings.js"></script>
+
+		<!-- Core, Semantic UI -->
+		<link rel="stylesheet" href="/global/libraries/semantic/semantic.min.css"/>
+		<script src="/global/libraries/semantic/semantic.min.js"></script>
+
+		<!-- App -->
+		<script src="/generator/app.js?bust=102"></script>
+		<link rel="stylesheet" href="/generator/app.css?bust=102"/>
+
+	</head>
+	
+	<body class="sc-header-white sc-header-selected-snapcodes">
+
+		<div class="header-container">
+			<div class="header-hamburger" id="headerHamburger"><span></span><span></span><span></span></div>
+			<div class="globalnav-container">
+				<div class="globalnav-left">
+					<a href="https://www.snapchat.com/" class="globalnav-ghost-icon-link">
+						<img src="https://www.snapchat.com/static/style-guide/images/ghost/ghost.svg" alt="Snapchat" style="height:64px;">
+					</a>
+					<div class="globalnav-item globalnav-home-link">
+						<a class="globalnav-link" href="https://www.snapchat.com/">Home</a>
+					</div>
+					<div class="globalnav-item globalnav-geofilters-link">
+						<a class="globalnav-link" href="https://www.snapchat.com/geofilters">Geofilters</a>
+					</div>
+					<div class="globalnav-item globalnav-snapcodes-link">
+						<a class="globalnav-link" href="https://accounts.snapchat.com/accounts/snapcodes">Snapcodes</a>
+					</div>
+					<div class="globalnav-item globalnav-ads-link">
+						<a class="globalnav-link" href="https://www.snapchat.com/ads">Ads</a>
+					</div>
+					<div class="globalnav-item globalnav-download-link">
+						<a class="globalnav-link" href="https://www.snapchat.com/download">Download</a>
+					</div>
+				</div>
+				<div class="globalnav-right"></div>
+			</div>
+		</div>
+
+		
+		<!-- Content -->
+		<div id="snapcode">
+
+			<!-- Animation -->
+			<div id="transporterEnergize" class="snapcodeMediaWrap">
+				<object class="chillah" type="image/svg+xml" data="/generator/static/waitingAnimation.svg?bust=1"></object>
+				<div class="snapcodeMedia"></div>
+				<div class="snapcodeError">
+					<div class="dizzy"></div>
+				</div>
+				<input type="file" class="upload" value="Choose a file" accept="image/*" />
+			</div>
+
+			<!-- Composer -->
+			<div id="snapcodeComposer">
+				<form class="ui form" novalidate>
+					<div class="field">
+						<input type="url" name="url" placeholder="Enter a URL">
+					</div>
+					<button class="fluid ui secondary button" type="submit">Make a Snapcode!</button>
+					<a class="uiTextButton otherSnapcodes" href="#">My Snapcodes</a>
+				</form>
+			</div>
+
+			<!-- Media Picker -->
+			<div id="snapcodeMediaPicker">
+			</div>
+
+			<!-- Download -->
+			<div id="SnapcodeManage">
+				<div class="snapcodeMediaWrap">
+					<object id="snapcodeResult" class="code" type="image/svg+xml"></object>
+					<div class="snapcodeMedia"></div>
+					<input type="file" class="upload" value="Choose a file" accept="image/*" />
+					<div id="image_add_tooltip" class="ui pointing teal solid label scanlabel">
+      					Add Image to Snapcode
+    				</div>
+				</div>
+				<a id="download_snapcode_created_btn" class="fluid ui secondary button" href="#" target="_blank">Download Your Snapcode</a>
+				<a class="uiTextButton" href="#">Make Another Snapcode</a>
+			</div>
+
+			<!-- History -->
+			<div id="snapcodeHistory" class="ui basic modal">
+				<h4 class="uiByline">My Snapcodes</h4>
+				<div class="scannables">
+					<div class="my-snapcode scannable">
+						<div class="url"></div>
+						<div class="actions"></div>
+					</div>
+					<div class="list"></div>
+					<div class="ui active inline loader"></div>
+				</div>
+				<a class="ui-modal-close" href="#">Close</a>
+			</div>
+
+			<!-- Crop and Creative -->
+			<div id="snapcodeCrop" class="ui basic small modal">
+				<div class="wrapper">
+					<div class="croppie"></div>
+					<div class="options">
+						<a data-action="save" class="fluid ui secondary button" href="#">Add Image to Snapcode</a>
+						<a data-action="close" class="uiTextButton" href="#">Cancel</a>
+					</div>
+					<a data-action="close" class="uiClose" href="#"></a>
+				</div>
+				<a class="ui-modal-close" href="#">Close</a>
+			</div>
+
+			<div id="canvasExporter" class="canvas-layers">
+				<canvas id="canvasExporterCanvas" width="1024" height="1024" id="canvas"></canvas>
+			</div>
+
+
+		</div>
+
+
+
+		<!-- End Content -->
+		<script src="/generator/static/ga.js" async></script>
+
+	</body>
+
+</html>

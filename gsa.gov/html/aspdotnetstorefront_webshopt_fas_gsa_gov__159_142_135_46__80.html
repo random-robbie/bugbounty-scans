@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=8" /><title>
+	GSA Store Portal
+</title><meta name="description" content="enter your site description here" /><meta name="keywords" content="enter your site keywords here" /><link href="favicon.ico" rel="shortcut icon" type="image/x-icon" /><meta name="viewport" content="width=device-width" /><link href="App_Themes/Skin_1/bootstrap.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Skin_1/bootstrap-theme.css" rel="stylesheet" /><link rel="stylesheet" href="App_Themes/Skin_1/assets/css/font-awesome.min.css" /><link href="App_Themes/Skin_1/assets/css/jquery-ui-1.10.3.full.min.css" rel="stylesheet" />
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="App_Themes/Skin_1/assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+
+    <!-- fonts -->
+    <link href="App_Themes/Skin_1/assets/css/jquery.gritter.css" rel="stylesheet" /><link rel="stylesheet" href="App_Themes/Skin_1/assets/css/ace-fonts.css" /><link href="App_Themes/Skin_1/assets/css/ui.jqgrid.css" rel="stylesheet" />
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="App_Themes/Skin_1/assets/css/ace.min.css" /><link rel="stylesheet" href="App_Themes/Skin_1/assets/css/ace-rtl.min.css" /><link rel="stylesheet" href="App_Themes/Skin_1/assets/css/ace-skins.min.css" /><link href="App_Themes/Skin_1/custom.css" rel="stylesheet" /><link href="App_Themes/Skin_1/customnav.css" rel="stylesheet" /><link href="App_Themes/Skin_1/sticky-footer.css" rel="stylesheet" /><link href="App_Themes/Skin_1/Stylesheet.css" rel="stylesheet" />
+    
+    
+
+    
+    <!--[if lte IE 8]>
+          <link rel="stylesheet" href="App_Themes/Skin_1/assets/css/ace-ie.min.css" />
+    
+        <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+   
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="~/App_Themes/Skin_1/assets/js/html5shiv.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Skin_1/assets/js/respond.min.js"></script>
+        
+    <script type="text/javascript" src="/App_Themes/Skin_1/assets/js/html5shiv.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+    <script type="text/javascript">
+        //if ("ontouchend" in document) document.write("<script src='~/App_Themes/Skin_1/assets/js/jquery.mobile.custom.min.js")'>" + "<" + "/script>");
+    </script>
+    <!-- add validation -->
+    
+    
+    
+    <script type="text/javascript" src="/App_Themes/Skin_1/assets/js/jquery-1.8.2.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/bootstrap.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/jquery-ui-1.10.3.full.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/jquery.ui.touch-punch.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/ace-extra.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/jquery.validate.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/additional-methods.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/jquery.maskedinput.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/ace.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/ace-elements.min.js"></script><script type="text/javascript" src="/App_Themes/Skin_1/assets/js/jquery.gritter.min.js"></script>
+    <script type="text/javascript" src="jscripts/Custom/globalfuncs.js"></script>
+
+    <style type="text/css">
+        
+    </style>
+    <style>
+        body, html {
+          scrollbar-face-color: ThreeDFace !important;
+          scrollbar-shadow-color: ThreeDDarkShadow !important;
+          scrollbar-highlight-color: ThreeDHighlight !important;
+          scrollbar-3dlight-color: ThreeDLightShadow !important;
+          scrollbar-darkshadow-color: ThreeDDarkShadow !important;
+          scrollbar-track-color: Scrollbar !important;
+          scrollbar-arrow-color: ButtonText !important;
+        }
+        .custom-horiz-nav {
+               
+        }
+        .custom-secondary-nav-manufacturer {
+            height: 330px;
+            width: 297px;
+            /*display: inline-block;*/
+            /*visibility: hidden;*/
+            display: none;
+            position: absolute;
+            margin-top: 3px;
+            left: 0;
+            z-index: 900;
+            top: 30px;
+        }
+        .custom-secondary-nav-manufacturer a {
+            color: #4269b4 !important;
+            font-size: 1em !important;
+            font-weight: normal !important;
+        }
+
+        .custom-secondary-nav-manufacturer span {
+            color: #4269b4 !important;
+            font-size: 1em !important;
+            font-weight: normal !important;
+        }
+
+        .custom-secondary-nav-select-wrap {
+            height: 30px;
+            margin-bottom: 1px;
+        }
+        .custom-secondary-nav-select {
+            height: inherit;
+            width: 180px;
+            margin: 0 auto;
+            border-bottom: 1px solid grey;
+            text-align: center;
+        }
+        .custom-secondary-nav-button {
+            width: 18%;
+            height: inherit;
+            display: inline-block;
+        }
+        .custom-secondary-nav-button:hover {
+            background-color: #F1F0F0;
+            cursor: pointer;
+        }
+        .custom-secondary-nav-button-selected {
+            background-color: #F1F0F0;
+        }
+        .custom-secondary-results-wrap {
+            height: 300px;
+            overflow-y: auto;
+            position: absolute;
+            width: 300px;
+            text-align: left;
+        }
+        .custom-secondary-nav-results-pane {
+            position: absolute;
+        }
+        .custom-secondary-nav-results-pane a {
+            float: left;
+            width: 140px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            height: 20px;
+            line-height: 20px;
+        }
+        .custom-entity-background {
+            border: 1px solid #DDD;
+            padding: 5px;           
+            background-color:#f8f8f8;
+        }
+        /*.custom-entity-background {
+            background-image: url("App_Themes/Skin_1/images/menu-bg.png");   
+        }*/
+        .idk1 {
+            position: relative;
+        }
+        .idk1:hover .custom-secondary-nav-manufacturer {
+            display: inline-block;
+        }
+        .custom-overflow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .custom-tab-username {
+            max-width: 173px;
+        }
+        .custom-horiz-nav {
+			   
+		}
+		.custom-secondary-nav-manufacturer {
+			height: 330px;
+			width: 297px;
+			/*display: inline-block;*/
+			/*visibility: hidden;*/
+			display: none;
+			position: absolute;
+			margin-top: 3px;
+			left: 0;
+			z-index: 900;
+		}
+		.custom-secondary-nav-manufacturer a {
+			color: #4269b4 !important;
+			font-size: 1em !important;
+			font-weight: normal !important;
+		}
+
+		.custom-secondary-nav-manufacturer span {
+			color: #4269b4 !important;
+			font-size: 1em !important;
+			font-weight: normal !important;
+		}
+
+		.custom-secondary-nav-select-wrap {
+			height: 30px;
+			margin-bottom: 1px;
+		}
+		.custom-secondary-nav-select {
+			height: inherit;
+			width: 180px;
+			margin: 0 auto;
+			border-bottom: 1px solid grey;
+			text-align: center;
+		}
+		.custom-secondary-nav-button {
+			width: 18%;
+			height: inherit;
+			display: inline-block;
+		}
+		.custom-secondary-nav-button:hover {
+			background-color: #F1F0F0;
+			cursor: pointer;
+		}
+		.custom-secondary-nav-button-selected {
+			background-color: #F1F0F0;
+		}
+		.custom-secondary-results-wrap {
+			height: 300px;
+			overflow-y: auto;
+			position: absolute;
+			width: 300px;
+			text-align: left;
+		}
+		.custom-secondary-nav-results-pane {
+			position: absolute;
+		}
+		.custom-secondary-nav-results-pane a {
+			float: left;
+			width: 140px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			height: 20px;
+			line-height: 20px;
+		}
+		.custom-entity-background {
+			border: 1px solid #DDD;
+			padding: 5px;
+			/*background: #D7D4CD url('App_Themes/Skin_1/images/left-nav-bg.gif') no-repeat top center;*/
+			background-image: url('App_Themes/Skin_1/images/menu-bg.png');
+		}
+		.idk1 {
+			position: relative;
+		}
+		.idk1:hover .custom-secondary-nav-manufacturer {
+			display: inline-block;
+		}
+        .custom-store-dropdown {
+            font-size: 1.7em !important;
+        }
+        .custom-store-info-comment {
+            font-size: 1.1em;
+        }
+        [id$="cblStores"] label {
+            margin:0 30px 0 10px;
+        }
+    </style>
+
+
+    
+<link href="App_Themes/Skin_1/assets/css/ace.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/ace-fonts.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/ace-ie.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/ace-rtl.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/ace-skins.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/bootstrap.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/bootstrap.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/bootstrap-editable.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/bootstrap-timepicker.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/chosen.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/chosen.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/colorbox.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/colorpicker.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/datepicker.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/daterangepicker.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/dropzone.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/font-awesome.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/font-awesome-ie7.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/fullcalendar.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/fullcalendar.print.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/jquery.gritter.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/jquery-ui-1.10.3.custom.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/jquery-ui-1.10.3.full.min.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/prettify.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/print.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/select2.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/ui.jqgrid.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/ace.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/ace-ie.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/ace-rtl.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/ace-skins.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/bootstrap.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/chosen.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/font-awesome.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/font-awesome-ie7.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/assets/css/uncompressed/jquery-ui-1.10.3.custom.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/bootstrap.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/bootstrap-theme.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/custom.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/customnav.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/shoppinglist.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/sticky-footer.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_1/StyleSheet.css" type="text/css" rel="stylesheet" /></head>
+<body>
+
+	
+    <!--
+PAGE INVOCATION: /
+PAGE REFERRER: 
+STORE LOCALE: en-US
+STORE CURRENCY: USD
+CUSTOMER ID: 0
+AFFILIATE ID: 0
+CUSTOMER LOCALE: en-US
+CURRENCY SETTING: USD
+CACHE MENUS: True
+-->
+
+    <form name="aspnetForm" method="post" action="Default.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTMyODYzNDU4Mw9kFgJmD2QWAgIDD2QWAgIDD2QWAgIBD2QWAgIBD2QWAgIBDw8WAh4HVmlzaWJsZWhkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgUSY3RsMDAkY2hrQWRtaW5QYXRoBRFjdGwwMCRjYmxTdG9yZXMkMB46C8czq905yeYaxyjiGpBF/D5d" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=6wZcUOi5ySMXvs_qJodBIAVPchA5QpT8mHU1I2qU66auxModX-X_hRoA6EzGzIxLhW-gMDbt3EG597URXNpP9YtdB-E1&amp;t=636271527501517547" type="text/javascript"></script>
+
+
+<script src="jscripts/formvalidate.js" type="text/javascript"></script>
+<script src="jscripts/core.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ONlMHW3U5nFOBpUNroWCJvgXLPs3INz8zZmUQ8c8lTjaAbhnFqjnV9CJ72FAiEJoTookYfFUu9376qcBqvf9xCS_Uxkxi4Une_zXwbbthLJaVP5SPQqLMYgDbUAL6V-jTqORueTVV_2qHIZFh0F0pJ8ybbYA654JxUlLFdThVqfwl5oI0&amp;t=2e2045e2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=M8nnN4rZQDz3YoiD-guvSrRvkiDfJXa3yS32pQMJ-Ep1SAZhy6dfVTG2S3vJxo3jn9fzmd3iEEGoYGTvuMfkESgYT8O4FJrJSIPYAHMdBoGq7YjKDfZa1clX7HhlkU1ai9ZIGPRd2pHf8MMVfjWaXFUbeqcCUvrW13SSPzGVBXV28J0o0&amp;t=2e2045e2" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCgKLiP6xBwKDiL7ADAK+mKmtBwL2lN7YCQLSra2SBAL3tq6tAgKCupKXDgKDupKXDgKAupKXDgKBupKXDpF3eTqHvgBJNKstZGmni33m9fGj" />
+</div>
+    
+  <div id="wrap">
+      
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="images/gsa-logo_clipped.png" class="nav-logo" alt="GSA Storeportal" />
+                    </a>
+                    <span class="OneRingStoreName">Store Portal</span> 
+                </div>
+                <div class="navbar-collapse collapse" style="height: 1px;">
+
+                    
+
+                     
+                    
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        
+            
+            <div style="clear:both;margin-top:66px;height:105px;">
+                <div class="feature" id="FeatureProfile">
+                    <h1>Welcome to the GSA Store Portal</h1>
+                    <div class="container">
+                        <div class="byline">Begin here by logging in or requesting access to begin shopping at a specific GSA ServMart.</div>
+                    </div>
+
+                </div>
+            </div>
+      <div style="clear:both;margin-top:25px;">
+		
+
+		<div id="bodyWrapper">
+			
+			
+			
+			
+			
+            
+            
+            
+            
+            
+
+			<!-- CONTENTS START -->
+			<div id="content" style="width:100%;min-height:500px;text-align:center;padding:35px;">
+                
+               
+                
+                
+				<div style="display:inline-table;width:70%;">
+                    
+                <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="tabbable tabs-left">
+                                    <ul class="nav nav-tabs" id="myTab3">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#login">
+                                                <i class="pink icon-chevron-right bigger-110"></i>
+                                                Login
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#request">
+                                                <i class="pink icon-key bigger-110"></i>
+                                                Request Access
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="login" class="tab-pane in active">
+                                            <div class="actionarea">
+                                                <div style="position:relative;">
+                                                    <div>
+                                                        <div style="font-size:1.6em;font-weight:bold;margin-bottom:20px;"><label for="ctl00_StoreList" style="font-size:1em;margin-bottom:0;"> Select your store location</label></div>
+                                                        <select name="ctl00$StoreList" id="ctl00_StoreList" class="custom-store-dropdown" size="4" style="width:450px;">
+	<option value="barstow.aspdotnetstorefront.webshopt.fas.gsa.gov">Barstow</option>
+	<option value="camplejeune.aspdotnetstorefront.webshopt.fas.gsa.gov">Camp Lejeune</option>
+	<option value="newriver.aspdotnetstorefront.webshopt.fas.gsa.gov">New River</option>
+	<option value="hickam.aspdotnetstorefront.webshopt.fas.gsa.gov">Hickam</option>
+
+</select>
+                                                    
+                                                    </div>
+                                                    <div class="actionbutton"><a href="#" onclick="_landingPage.login()" id="DoLoginLink" class="btn btn-info" style="width:150px;margin-top:10px;display:block;float:right;">login</a></div>
+                                                </div>
+                                                <div style="position:relative;margin-top:50px;">
+                                                    <div>
+                                                        <label for="ctl00_chkAdminPath" id="ctl00_label" class="inputLabel">Store Portal Administrators check this along with choosing the store above to be taken to admin login:</label>
+                                                        <span class="ace"><input id="ctl00_chkAdminPath" type="checkbox" name="ctl00$chkAdminPath" /></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div id="request" class="tab-pane">
+                                            <div class="actionarea">
+                                                <div>
+                                                    <div style="font-size:1.6em;font-weight:bold;margin-bottom:20px;">Select your stores for request:</div>
+                                                    <span id="ctl00_cblStores" style="text-align:left;"><span JSvalue="Barstow"><input id="ctl00_cblStores_0" type="checkbox" name="ctl00$cblStores$0" /><label for="ctl00_cblStores_0">Barstow</label></span><span JSvalue="Camp Lejeune"><input id="ctl00_cblStores_1" type="checkbox" name="ctl00$cblStores$1" /><label for="ctl00_cblStores_1">Camp Lejeune</label></span><span JSvalue="New River"><input id="ctl00_cblStores_2" type="checkbox" name="ctl00$cblStores$2" /><label for="ctl00_cblStores_2">New River</label></span><span JSvalue="Hickam"><input id="ctl00_cblStores_3" type="checkbox" name="ctl00$cblStores$3" /><label for="ctl00_cblStores_3">Hickam</label></span></span>
+                                                    
+                                                </div>
+                                                <div class="actionbutton"><a id="RequestAccessLink" href="#" onclick="_landingPage.request()" class="btn btn-info" style="width:150px;margin-top:10px;display:block;">request access</a></div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /span -->
+                        </div>
+                        </div>
+                
+				
+                
+                
+                
+                
+                            
+                              
+                            
+
+                          
+			</div>
+			<!-- CONTENTS END -->
+
+		</div>
+		
+		</div>
+		
+
+		<div id="footer">
+            <div style="background-color: White;">
+                
+                    <div style="width: 45px;height:45px;float:left;">
+                        <a id="ctl00_HyperLink1" href="default.aspx"><img id="ctl00_Image2" src="images/gsa_footer_logo.jpg" alt="GSA Storeportal" style="border-width:0px;" /></a>
+                    </div>
+                    <div style="text-align: left;">
+                        <ul class="tameHoriz" style="background-color: White; float: right;">
+                            <li><a href="account.aspx" id="ctl00_A9">Account</a> |</li>
+                            <li><a href="/t-privacy.aspx" id="ctl00_A12">Privacy Policy</a> |</li>
+                            <li><a href="/t-termsandconditions.aspx" id="ctl00_A13">Terms of Use</a> |</li>
+<!--
+                            <li><a href="HelpCenter.aspx" id="ctl00_A10">Help</a> |</li>
+                            <li><a href="/t-contact.aspx" id="ctl00_A11">Contact Us</a> |</li>
+                            <li><a href="CustomerSupport.aspx" id="ctl00_A14">Customer Support</a></li>
+-->
+                        </ul>
+                        <span>GSA Store Portal</span>
+                        <hr style="margin:5px;"/>
+                        <span>Provided by the U.S. General Services Administration (GSA)</span>
+                    </div>
+                
+            </div>
+            <div id="Div2">
+                <br />
+                <ul class="tame">
+                    <li>This is a U.S. General Services Administration computer system that is "FOR OFFICIAL USE ONLY". </li>
+                    <li>This system is subject to monitoring. Therefore, no expectation of privacy is to be assumed. </li>
+                    <li>Individuals found performing unauthorized activities are subject to disciplinary action including criminal prosecution.</li>
+                </ul>
+                <br />
+            </div>
+        </div>
+
+
+        </div><!--end wrap-->
+		
+		<script type="text/javascript">
+		    window._landingPage = (function() {
+		        var _private = {
+		            data: {
+		                elements: {
+		                    storeList: $('#ctl00_StoreList')
+		                },
+		                requestPrefix: 'http://',
+		                browseSuffix: '/createaccount.aspx',
+		                loginSuffix: '/signin.aspx',
+                        adminSuffix: '/a0'
+		            },
+                    validateAccessToStore: function () {
+                        
+                        var checkboxes = $('#ctl00_cblStores input:checked');
+                        var anyStoresChecked = checkboxes.length > 0;
+
+                        return anyStoresChecked;
+
+                    },
+		            requestAccessToStore: function() {
+		                var url = window.location.protocol + "//" + window.location.host + '/';
+		                url = url + _private.data.browseSuffix.substring(1,_private.data.browseSuffix.length);
+
+                        if (!_private.validateAccessToStore()) {
+                            
+                            $.gritter.add({
+                                title: 'No Store Selected',
+                                text: "Please select at least 1 store",
+                                position: 'top-right',
+                                class_name: 'gritter-center gritter-error',
+                                time: 2000
+                            });
+
+                            return;
+                        }
+
+		                _private.createCookie();
+
+		                $.gritter.add({
+		                    // (string | mandatory) the heading of the notification
+		                    title: 'Sending you to create account.',
+		                    // (string | mandatory) the text inside the notification
+		                    text: "Preparing to refresh page...",
+		                    //time: 2000,
+		                    position: '',
+		                    class_name: 'gritter-center gritter-success'
+		                });
+
+		                _private.goToUrl(url);
+		            },
+		            loginToStore: function () {
+		                var url = _private.findCurrentlySelectedStore();
+		                var spname = _private.findCurrentlySelectedStoreText();
+		                var grittertitle = "Sending you to login.";
+		                var grittertxt = "Preparing to refresh page...";
+		                var grittercls = " gritter-success"
+		                var grittertime = 0;
+		                url = _private.data.requestPrefix +
+		                    url +
+                            _private.adminState() +
+		                    _private.data.loginSuffix +
+		                    "?sp=" + spname;
+		                if (spname == "") {
+		                    grittertitle = "No Store Selected.";
+		                    grittertxt = "Please select a store from the list.";
+		                    grittercls = " gritter-warning"
+		                    grittertime = 2000;
+		                } else {
+                            _private.goToUrl(url);
+		                };
+		                $.gritter.add({
+		                    // (string | mandatory) the heading of the notification
+		                    title: grittertitle,
+		                    // (string | mandatory) the text inside the notification
+		                    text: grittertxt,
+		                    time: grittertime,
+		                    position: '',
+		                    class_name: 'gritter-center' + grittercls
+		                });
+		                
+		            },
+		            adminState: function(){
+		                var adminpath = "";
+		                if($('input[id$="chkAdminPath"]').prop("checked")){
+		                    adminpath = _private.data.adminSuffix;
+		                };
+		                return adminpath;
+		            },
+		            browseStore: function() {
+		                var url = _private.findCurrentlySelectedStore();
+		                url = _private.data.requestPrefix + url;
+		                _private.goToUrl(url);
+		            },
+		            findCurrentlySelectedStore: function() {
+		                return _private.data.elements.storeList.val();
+		            },
+		            findCurrentlySelectedStoreText: function () {
+		                return $(_private.data.elements.storeList).children('option:selected').text();
+		            },
+		            goToUrl: function(url) {
+		                window.location.replace(url);
+		            },
+		            createCookie: function () {
+		                
+		                var date, expires, txt;
+		                txt = "";
+		                
+		                $('span[id$="cblStores"] input:checked').each(function () {
+		                    txt += $(this).parent().attr('jsvalue') + ",";
+		                });
+		                var a = txt.lastIndexOf(",");
+		                if (a == txt.length-1)
+		                    txt = txt.substring(0, a);
+
+		                var value = txt;
+		                        date = new Date();
+		                        date.setTime(date.getTime() + (2 * 60 * 60 * 1000));///*5min*/(5 * 60 * 1000));
+		                        expires = "; expires=" + date.toGMTString();
+
+		                        document.cookie = "xtempStrSel=" + value + expires + "; path=/";
+		                
+		            }
+		        };
+
+		        return {                    
+		            request: _private.requestAccessToStore,
+                    login: _private.loginToStore,
+		            browse: _private.browseStore,
+		            data: _private.data
+		        };
+		    })();
+		</script>
+
+	</div>
+	<!-- wrapper -->
+	</form>
+	
+</body>
+</html>

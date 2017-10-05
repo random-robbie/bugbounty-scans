@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" >
+
+<html  xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!--
+                          Please do not modify controls that have the 'runat' attribute set to 'server'. 
+                          They are for system use. The script method 'OnInit' should also not be modified.
+                  -->
+	<meta name="T27XsltVersion" content="2.0" />
+	<meta name="ScreenName" content="SA0100" />
+	<meta name="ScreenDescription" content="" />
+	<title>SA0100</title>
+	<meta name="CODE_LANGUAGE" content="C#" />
+	<meta name="revision" content="4" />
+	<meta name="vs_defaultClientScript" content="JavaScript" />
+	<link  href="../Stylesheets/Default.css" type="text/css" rel="stylesheet" />
+	<link  href="../Stylesheets/sasy.css" type="text/css" rel="stylesheet" />
+	
+	<style type="text/css">
+
+/*<![CDATA[*/
+
+.style2 {font-size: 8pt}
+.style3 {font-size: xx-small}
+.style1 {font-size: 8pt; color: #000000; vertical-align:middle; text-align : right; font-family: arial;}
+.subTitle11   {font-family: arial;font-weight: bold;font-size: 14pt;color: #990000;background-color : #FFFFFF;text-align : center;}
+.labelRight1  {font-family: arial;font-weight: bold;font-size: 9pt;color: #000000;vertical-align : middle;text-align : right;}
+.labelLeft1   {font-family: arial;font-weight: bold;font-size: 9pt;color: #000000;vertical-align : middle;text-align : left;}
+.labelCenter1 {font-family: arial;font-weight: bold;font-size: 9pt;color: #000000;vertical-align : middle;text-align : center;}
+.labelLeft2   {font-family: arial;font-weight: bold;font-size: 9pt;color: #FFFFFF;vertical-align : middle;text-align : left;}
+
+/*]]>*/
+</style>
+
+<script type="text/javascript">
+<!--
+function chkUCPW()
+{       
+        if (!(document.forms[0].scUserId.value > " ") )
+        {
+        alert ("Enter Usercode");
+                document.forms[0].scUserId.focus();
+                document.forms[0].scUserId.select();
+                return false;
+        }
+        if (!(document.forms[0].scPassword.value > " ") )
+        {
+        alert ("Enter Password");
+                document.forms[0].scPassword.focus();
+                document.forms[0].scPassword.select();
+                return false;
+        }
+        return true;
+} 
+
+function displayMenu1()
+{   
+      //alert("status logon  "  + document.getElementById("SC_MSG").innerText); 
+        var test=document.getElementById("scError").innerHTML;
+	  //alert('test length  '  + test.length);   
+	    if (test.length > 0 )
+           { 
+	         document.getElementById("tr4").style.display  = "inline";
+	       }
+}
+//-->            
+</script>
+
+<script  type="text/javascript">
+<!--
+
+var image1=new Image()
+image1.src="../Images/Train.JPG";
+var image2=new Image()
+image2.src="../Images/Airplane.JPG";
+var image3=new Image()
+image3.src="../Images/ship yard.JPG";
+
+var image4=new Image()
+image4.src="../Images/Shipping.JPG"
+var image5=new Image()
+image5.src="../Images/Shipping2.JPG"
+
+//-->
+</script>
+
+</head>
+
+<body id="Body1" class="t27Background" style="margin-top:0;background-image: url(../Images/ASPATstBG.jpg);">
+<script type="text/javascript"  language="javascript" src="/../Scripts/common.js" ></script>
+
+<form method="post" action="./SA0100.aspx" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'EPortalSubmitButton1')" id="ePortalForm" onsubmit="chkUCPW();">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTgzODc0OTUyMw9kFgICAQ9kFgwCAg8PFgIeBFRleHQFEjEwLzA1LzE3ICAwNjoyNzo0NBYCHgVzdHlsZQU6Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3R5bGU6bm9ybWFsO3RleHQtZGVjb3JhdGlvbjpub25lO2QCBA8PFgIfAAVOICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGQCBg8PZBYIHgdvbmZvY3VzBQ50aGlzLnNlbGVjdCgpOx4HT25LZXlVUAVWaWYgKHRoaXMudmFsdWUubGVuZ3RoID09IHRoaXMubWF4TGVuZ3RoKSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2NQYXNzd29yZCcpLmZvY3VzKCkeBm9uYmx1cgUjdGhpcy52YWx1ZT10aGlzLnZhbHVlLnRvVXBwZXJDYXNlKCkfAQUQb3ZlcmZsb3cgOmhpZGRlbmQCCA8PZBYIHwIFIXRoaXMuc2VsZWN0KCk7IGF1dG9jb21wbGV0ZT1mYWxzZR8BBTpmb250LXdlaWdodDpub3JtYWw7Zm9udC1zdHlsZTpub3JtYWw7dGV4dC1kZWNvcmF0aW9uOm5vbmU7HwMFVGlmICh0aGlzLnZhbHVlLmxlbmd0aCA9PSB0aGlzLm1heExlbmd0aCkgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NjQ2hnUHdkJykuZm9jdXMoKR8EBSN0aGlzLnZhbHVlPXRoaXMudmFsdWUudG9VcHBlckNhc2UoKWQCCg8PZBYEHwEFZGJhY2tncm91bmQtY29sb3I6V2hpdGU7Ym9yZGVyLWNvbG9yOldoaXRlO2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDt0ZXh0LWRlY29yYXRpb246bm9uZTsfBAUjdGhpcy52YWx1ZT10aGlzLnZhbHVlLnRvVXBwZXJDYXNlKClkAhIPDxYCHwAFUCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgFgIfAQU6Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3R5bGU6bm9ybWFsO3RleHQtZGVjb3JhdGlvbjpub25lO2RkwNNoh3714MUkOVZiKuZoYYpZGNLlqYraGlNjGuiesfc=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ePortalForm'];
+if (!theForm) {
+    theForm = document.ePortalForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/SASyWeb/WebResource.axd?d=haH4GfrGAEFCWPhxsGRulh75u3s-ubiczPhmxOIp0kOE0TFDyhyftmH4SIIwdIl2ZmkPlPjEjOBPCl02W91fKf_x5x25FrEPHygb1NbS9KU1&amp;t=636268948852585083" type="text/javascript"></script>
+
+
+<script src="../Scripts/common.js" type="text/javascript"></script>
+<script src="../Scripts/Common.js" type="text/javascript"></script>
+<script src="../Scripts/Menu1000.js" type="text/javascript"></script>
+<script src="../Scripts/Menu1100.js" type="text/javascript"></script>
+<script src="../Scripts/Menu1110.js" type="text/javascript"></script>
+<script src="../Scripts/Menu2000.js" type="text/javascript"></script>
+<script src="../Scripts/Menu3000.js" type="text/javascript"></script>
+<script src="../Scripts/Menu4000.js" type="text/javascript"></script>
+<script src="../Scripts/Menu5000.js" type="text/javascript"></script>
+<script src="../Scripts/Menu6000.js" type="text/javascript"></script>
+<script src="../Scripts/Menu7000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuAR1000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuPRINTD.js" type="text/javascript"></script>
+<script src="../Scripts/MenuREPPRT.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSADABT.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSS2000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSS3000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSS4000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSS5000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSS6000.js" type="text/javascript"></script>
+<script src="../Scripts/MenuSSHELP.js" type="text/javascript"></script>
+<script src="../Scripts/SA2011.js" type="text/javascript"></script>
+<script src="../Scripts/SA2300.js" type="text/javascript"></script>
+<script src="../Scripts/T27Script.js" type="text/javascript"></script>
+<script src="/SASyWeb/WebResource.axd?d=fZXR6aK_q_fhE1w37htLxEelFKTsY8OPWS4iQOHiNx3welnmzLsZl6LzVcTpaGCVaOrO6hJZA5zdHadJJWbiqJyPglMITJlHRyVt_lTPAhQ1&amp;t=636268948852585083" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAbrkduhgaIImH1eV92q9zJhR8/mvyuVYNcTc8ScZxDv/pOp1qKn2ak3bqruHGcAgOWRQGiWQsc1qr8fXBBf/FLXZoppNfoLBEWu0V4g9Gm/hhzjkgVdJ7SSfZNdubbLcsgM7FcMFj6ndpUOnHMGjlPvwNs59+SR3ay9YKe5ML7owA==" />
+</div><input type="hidden" name="scTrancode" id="scTrancode" value="SA0100" />
+
+<script type="text/javascript">
+//
+    writeBanner();
+
+//
+</script>
+
+<!--=============   OUTER TABLE =================--> 
+<table id="table1"  style="border-color:silver;text-align:center;width:100%;background-color:#FDFDFD" align="center" border="1"   cellspacing="0" cellpadding="0">
+<tbody id="tbody1"><!--===========  HEADER =================--> 
+<tr>
+<td  >   
+<table id="table2" style="border-color:#000033; width:100%;white-space:nowrap;" cellspacing="0" cellpadding="0" >
+<tbody id="tbody2">
+       
+<tr id="tr1">
+   <td id="td1" colspan="2" style="height:16px;" class="labelLeft1">&nbsp;
+    <span id="scDateTime" style="font-weight:bold;font-weight:normal;font-style:normal;text-decoration:none;">10/05/17  06:27:44</span>&nbsp;(CT)
+
+  </td>
+  <td id="td2" style="height:16px;color:Black;font-weight:bold;" align="right">&nbsp;  
+  <a href="https://drivethru.fas.gsa.gov/html/privacy.htm" target="_blank" style=" color :navy;height:13px "><span><span style="font-size:smaller">Privacy &amp; Security&nbsp;</span></span></a>
+  </td>
+  
+ </tr>       
+</tbody>
+</table>
+       
+
+<table style="width:100%;height:300px" border="1" cellpadding="2" cellspacing="2" >
+   <tr>
+  <td style="border-color:#716F7C;width:50%" align="center"><div >
+  
+<script type="text/javascript">
+
+//Specify the slider's width (in pixels)
+var sliderwidth="450px"
+//Specify the slider's height
+var sliderheight="250px"
+//Specify the slider's slide speed (larger is faster 1-10)
+var slidespeed=1
+//configure background color:
+slidebgcolor="#EAEAEA"
+
+//Specify the slider's images
+var leftrightslide=new Array()
+var finalslide=''
+leftrightslide[0] = '<img src="../Images/Train.JPG"     height="250" width="220" border="0" alt="A picture of a train">'
+leftrightslide[1] = '<img src="../Images/Airplane.JPG"  height="250" width="220" border="0" alt="A picture of a airplane">'
+leftrightslide[2] = '<img src="../Images/ship yard.JPG" height="250" width="220" border="0" alt="A picture of a ship yard">'
+leftrightslide[3] = '<img src="../Images/Shipping.JPG"  height="250" width="220" border="0" alt="A picture of shipping goods">'
+leftrightslide[4] = '<img src="../Images/Shipping2.JPG" height="250" width="220" border="0" alt="A picture of shipping goods">'
+
+//Specify gap between each image (use HTML):
+var imagegap=" "
+
+//Specify pixels gap between each slideshow rotation (use integer):
+var slideshowgap=1
+
+
+////NO NEED TO EDIT BELOW THIS LINE////////////
+
+var copyspeed=slidespeed
+leftrightslide='<nobr>'+leftrightslide.join(imagegap)+'</nobr>'
+var iedom=document.all||document.getElementById
+if (iedom)
+document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+leftrightslide+'</span>')
+var actualwidth=''
+var cross_slide, ns_slide
+
+function fillup(){
+if (iedom){
+cross_slide=document.getElementById? document.getElementById("test2") : document.all.test2
+cross_slide2=document.getElementById? document.getElementById("test3") : document.all.test3
+cross_slide.innerHTML=cross_slide2.innerHTML=leftrightslide
+actualwidth=document.all? cross_slide.offsetWidth : document.getElementById("temp").offsetWidth
+cross_slide2.style.left=actualwidth+slideshowgap+"px"
+}
+else if (document.layers){
+ns_slide=document.ns_slidemenu.document.ns_slidemenu2
+ns_slide2=document.ns_slidemenu.document.ns_slidemenu3
+ns_slide.document.write(leftrightslide)
+ns_slide.document.close()
+actualwidth=ns_slide.document.width
+ns_slide2.left=actualwidth+slideshowgap
+ns_slide2.document.write(leftrightslide)
+ns_slide2.document.close()
+}
+lefttime=setInterval("slideleft()",40)
+}
+window.onload=fillup
+
+function slideleft()
+{
+if (iedom)
+{
+if (parseInt(cross_slide.style.left)>(actualwidth*(-1)+8))
+cross_slide.style.left=parseInt(cross_slide.style.left)-copyspeed+"px"
+else
+cross_slide.style.left=parseInt(cross_slide2.style.left)+actualwidth+slideshowgap+"px"
+
+if (parseInt(cross_slide2.style.left)>(actualwidth*(-1)+8))
+cross_slide2.style.left=parseInt(cross_slide2.style.left)-copyspeed+"px"
+else
+cross_slide2.style.left=parseInt(cross_slide.style.left)+actualwidth+slideshowgap+"px"
+
+}
+else if (document.layers)
+{
+if (ns_slide.left>(actualwidth*(-1)+8))
+ns_slide.left-=copyspeed
+else
+ns_slide.left=ns_slide2.left+actualwidth+slideshowgap
+
+if (ns_slide2.left>(actualwidth*(-1)+8))
+ns_slide2.left-=copyspeed
+else
+ns_slide2.left=ns_slide.left+actualwidth+slideshowgap
+}
+}
+
+
+if (iedom||document.layers)
+{
+with (document)
+{
+document.write('<table border="0" cellspacing="0" cellpadding="0"><td>')
+if (iedom){
+write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden">')
+write('<div style="position:absolute;width:'+sliderwidth+';height:'+sliderheight+';background-color:'+slidebgcolor+'" onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed">')
+write('<div id="test2" style="position:absolute;left:0px;top:0px"></div>')
+write('<div id="test3" style="position:absolute;left:-1000px;top:0px"></div>')
+write('</div></div>')
+}
+else if (document.layers)
+{
+write('<ilayer width='+sliderwidth+' height='+sliderheight+' name="ns_slidemenu" bgColor='+slidebgcolor+'>')
+write('<layer name="ns_slidemenu2" left=0 top=0 onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed"></layer>')
+write('<layer name="ns_slidemenu3" left=0 top=0 onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed"></layer>')
+write('</ilayer>')
+}
+document.write('</td></table>')
+}
+}
+</script>
+
+  </div>
+  </td>
+  
+  <td class="labelCenter" id="td8" style="width:100%;height:250px;">
+  <table id="tb1" style="width:100%;" border="0" cellpadding="1" cellspacing="1">
+  <tr>
+  <td></td>
+  <td style="text-align:center; color:Blue; font-size:large">
+  SASy User Login<br /><br />
+  </td>
+  </tr>
+  </table>
+  <table id="Table4" style="width:100%;height:50px;" border="0" cellpadding="1" cellspacing="1">
+  <tr id="tr4" style=" width:100%; text-align:center;border-color:#CC9933;white-space:nowrap ; display:none">
+    <td></td>
+    <td id="td7" style="border-color:#ffffff; height:30pt;" align="center" >
+         <div >
+              <span id="scError" style="color:Red;Width:100%;Height:15pt; border-style:Double;color:red;border-color:red; border-width:1px;Font-Size:11pt; padding-left:05px">                                                                              </span><script  type="text/javascript">displayMenu1();
+              </script>
+
+         </div>  
+     </td>
+    </tr>  
+  </table> 
+  <table> 
+  <tr> 
+      <td style="width:05%"></td>  
+      <td style="width:20%; text-align:left; font-size:medium"><strong>User ID:</strong></td>
+      <td style="width:20%; text-align:left">    
+          <input name="scUserId" type="text" maxlength="6" size="6" id="scUserId" onfocus="this.select();" OnKeyUP="if (this.value.length == this.maxLength) document.getElementById(&#39;scPassword&#39;).focus()" onblur="this.value=this.value.toUpperCase()" style="width:54px;overflow :hidden" /></td>
+  </tr>
+  <tr>        
+      <td style="width:05%"></td>  
+      <td style="width:20%; text-align:left; font-size:medium">    
+        <strong>Password:&nbsp;&nbsp; &nbsp;</strong></td>
+      <td style="width:20%; text-align:left">   
+        <input name="scPassword" type="password" maxlength="16" size="16" id="scPassword" onfocus="this.select(); autocomplete=false" OnKeyUP="if (this.value.length == this.maxLength) document.getElementById(&#39;scChgPwd&#39;).focus()" onblur="this.value=this.value.toUpperCase()" style="width:135px;font-weight:normal;font-style:normal;text-decoration:none;" /></td>
+  </tr>
+  <tr>  
+      <td style="width:05%"></td>  
+      <td style="width:20%; text-align:left; font-size: x-small";>        
+        Do You Wish to Change Your Password?
+      </td>
+      <td style="width:20%; text-align:left"> 
+         <input name="scChgPwd" type="text" value="N" maxlength="1" size="1" id="scChgPwd" onblur="this.value=this.value.toUpperCase()" style="width:12px;background-color:White;border-color:White;font-weight:normal;font-style:normal;text-decoration:none;" /><br />
+          <br /></td>
+  </tr>
+      <tr>
+          <td style="width: 5%">
+          </td>
+          <td style="width: 20%; text-align: right">
+          </td>
+      </tr>
+  
+   <tr>    
+       <td style="width:05%"></td>  
+      <td style="width:20%; text-align:right">     
+        <input type="submit" name="EPortalSubmitButton1" value="Submit" id="EPortalSubmitButton1" class="submitBtn" style="font-weight:bold;" /></td>
+   </tr>
+  </table>
+  </td>
+  
+  </tr>
+ 
+</table>
+
+<table style="border-color:#000033; width:100%;white-space:nowrap;" cellspacing="0" cellpadding="0" id="table3" >
+  <tbody id="tbody3">
+ <tr id="tr5">
+     <td id="td5"  style="height:20;" class="labelLeft1">
+     <br />
+     <br />
+     </td>
+ </tr>
+
+
+</tbody>
+</table>
+
+
+ <table style="width:100%;height:400" border="0"  cellpadding="0" cellspacing="1">
+
+   <tr>
+     <!--<td style="height:30px;width:33%; background-color:#980000;color:white"><div align="center" class="ColHdg" ><strong>TARPS</strong> </div></td>-->
+     <td style="height:30px;width:100%; background-color:#1F54A1;color:white" align="center"><div  class="ColHdg"><span>What's New</span> </div></td>
+   
+   </tr>
+   <tr>
+<!--
+    <td style="height:189; background-color:#748188">      
+	<div id="dhtmltooltip"></div></td>-->
+   <td style="background-color:#8EA2AD">
+
+      <div class="labelLeft1" >
+          &nbsp;&nbsp;<br/>&nbsp;
+          Last Updated :&nbsp; &nbsp; November 2015
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp;&nbsp;
+          <ul></ul>
+          <ul>
+               
+          </ul>
+          
+         &nbsp; &nbsp;The following programs have been updated: 
+          
+           <ul></ul>
+           
+           <ul>
+              <li>&nbsp; &nbsp; Renaming of the Return Codes on SA1400 and SA1700&nbsp(Return Item Transaction)&nbsp; </li></ul> 
+           <ul>
+              <li>&nbsp; &nbsp; Add Custodian Email Address to SA1700&nbsp(Load/Return Item Transaction)</li></ul>
+                   
+           <br /><br /><br />
+           <ul style="font-size:xx-small; text-align:right" ><li>ver. 5.0.1.03/11</li>
+                          
+           </ul>    
+       </div>
+ 
+   </td>	
+
+    </tr>
+
+</table>
+  
+<table style="width:791;height:87" border="0" align="center" cellpadding="0" cellspacing="2">
+<tbody>
+   <tr>
+     <td style="width:255; height:83;background-color:#A0A9AD" valign ="top">
+     <div align="center">
+      <p class="Desc"><a href="http://www.usa.gov/" target="_blank"><img src="../Images/usagov_logo_small.jpg" alt="USA.gov" style="width:150;height:36; border:0" /></a></p>
+     </div>
+    </td>
+     <td style="width:444; background-color:#A0A9AD"><div align="right">
+     <div class="warn">
+
+        <p align="left" class="FinePrint">This is a U.S. Federal Government computer system "FOR OFFICIAL USE ONLY" and
+          is subject to monitoring. No expectation of privacy can be assumed.   Unauthorized
+          activity may result in disciplinary action including criminal prosecution.</p>
+     </div>
+ </div>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</table> 
+
+  
+
+<script type="text/javascript">
+//<![CDATA[
+WebForm_AutoFocus('EPortalSubmitButton1');//]]>
+</script>
+</form>
+</body>
+</html>

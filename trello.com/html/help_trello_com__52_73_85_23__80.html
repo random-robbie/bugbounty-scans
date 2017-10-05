@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Trello Help</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Trello"/>
+    <link rel="canonical" href="http://help.trello.com"/>
+
+    
+        <link rel="stylesheet" href="//d25gbwvd82b2e5.cloudfront.net/assets/stylesheets/launch-1504779021173.css">
+    
+    <style>
+        body { background: #ffffff; }
+        .navbar .navbar-inner { background: #0079bf; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #c0c0c0; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #ffffff; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #ffffff; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #full-Article strong a, 
+        .collection a, 
+        .contentWrapper a,
+        .most-pop-articles .popArticles a, .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #5e98ba; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#4d4d4d; }
+    </style>
+    
+        <link rel="stylesheet" href="https://s3.amazonaws.com/helpscout.net/docs/assets/545804d8e4b09c5ca72525ce/attachments/555633a6e4b01a224b42483a/css.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d25gbwvd82b2e5.cloudfront.net/assets/ico/touch-152.png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/545804d8e4b09c5ca72525ce/images/564f8f0290336053e408b893/favicon.ico">
+    <!--[if lt IE 9]>
+    
+        <script src="//d25gbwvd82b2e5.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+        <script>
+// help.trello.com PANIC MODE
+// ==========================
+// 
+// Set the following variables to put help docs into panic mode.
+var fPanicMode = false; //either false or true, always lower case.
+var fPanicModeAndroid;  //leave undefined to inherit from fPanicMode
+var fPanicModeiOS;      //leave undefined to inherit from fPanicMode
+
+// Edit the copy you want to use when in panic mode
+var panicCopy = 'Trello is currently experiencing a service disruption. '
+var panicLink = '<a href="http://trellostatus.tumblr.com">Trello Status Blog</a>'
+
+// Edit the background color you want to use
+var panicBackgroundColor = '#EB5A46' //#EB5A46 is red. #F6E34C is yellow.
+
+// That's it! You don't need to edit anything else
+//
+//===================================================================================
+
+fPanicModeAndroid = typeof(fPanicModeAndroid) === 'undefined' ? fPanicMode : fPanicModeAndroid
+fPanicModeiOS = typeof(fPanicModeiOS) === 'undefined' ? fPanicMode : fPanicModeiOS
+var panicCSS = {'background-color': panicBackgroundColor}
+
+function getPreferredLocale(){
+  var identity = function(value) {
+    return value;
+  };
+
+  var compact = function(list) { 
+    var results = [];
+    for (var i = 0; i < list.length; i++){
+      if (identity(list[i])) results.push(list[i]);
+    }
+    return results;
+  };
+
+  var preferred = [].concat.apply([],compact([
+    (navigator.languages || []),   // Chrome, Firefox 
+    navigator.language,            // Safari, Chrome
+    navigator.userLanguage,        // Internet Explorer
+    navigator.browserLanguage,     // Fallback? Not sure.
+    'en-GB'                        // Just in case
+  ]));
+
+  return preferred[0].toLowerCase()
+}
+
+function mobileBanner(){
+
+  //isMobile via http://stackoverflow.com/a/12606298/166258
+  var isMobile = {
+      Android: function() {
+          return /Android/i.test(navigator.userAgent);
+      },
+      BlackBerry: function() {
+          return /BlackBerry/i.test(navigator.userAgent);
+      },
+      iOS: function() {
+          return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      },
+      Windows: function() {
+          return /IEMobile/i.test(navigator.userAgent);
+      },
+      any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+      }
+  };
+
+
+  function getCopy(device, link){
+    var copy = 'Hi! These docs are mainly for the Trello web client. ' +
+               'For %s app support, check out the ' +
+               '<a href="%link">public %s board</a>.'
+    copy = copy.replace(/\%s/g, device)
+    copy = copy.replace('%link', link)
+
+    if((device === 'Android' && fPanicModeAndroid) || (device === 'iOS' && fPanicModeiOS)){
+      copy = panicCopy + panicLink
+    }
+    return copy
+  }
+
+  if (isMobile.Android() || isMobile.iOS()) {
+    var device = ''
+    var link = ''
+
+    if (isMobile.Android()){
+      device = 'Android'
+      link = 'https://trello.com/b/ud59t1fL/trello-android-app'
+    } else if (isMobile.iOS()) {
+      device = 'iOS'
+      link = 'http://m.appurl.io/i59zibt2'
+    }
+
+    var copy = getCopy(device, link)
+
+    $('header').before('<div class="mobile-banner">' + copy + '</div>')
+    $('.mobile-banner').css({'font-size': '18px', 
+                             'padding': '15px 20px', 
+                             'background-color': '#F6E34C', 
+                             'margin': '0 -20px'})
+    //add a 'mobile' class to where we are inserting the regular banners.
+    //CSS rules will hide them.
+    $('#docsSearch').addClass('mobile') //for the main search page
+    $('#fullArticle').addClass('mobile')    //for the article page
+    if ((device === 'Android' && fPanicModeAndroid) || (device === 'iOS' && fPanicModeiOS)){
+      $('.mobile-banner').css(panicCSS)
+    }
+
+  }
+
+}
+
+function gsgBanner() {
+  var gsgCopy = 'Looking for help getting started? Check out our ';
+  var gsgLink = '<a href="http://trello.com/guide" target="_blank">Getting Started Guide</a>.';
+  if (fPanicMode){
+    gsgCopy = panicCopy;
+    gsgLink = panicLink
+  }
+
+  $('#docsSearch').append('<div class="gsg-banner">' + gsgCopy + gsgLink + '</div>')
+
+  if (fPanicMode){
+    $('.gsg-banner').css(panicCSS)
+  }
+};
+
+function articleBanner(){
+  var bannerCopy = 'Looking for help getting started? Check out our ';
+  var bannerLink = '<a href="http://trello.com/guide" target="_blank">Getting Started Guide</a>.';
+  if (fPanicMode){
+    bannerCopy = panicCopy;
+    bannerLink = panicLink
+  }
+
+  $('#fullArticle').prepend('<div class="article-banner">' + bannerCopy + bannerLink + '</div>')
+
+  if (fPanicMode){
+    $('.article-banner').css(panicCSS)
+  }
+};
+function contactFooter(){
+  var footerCopy = 'Still can\'t find what you\'re looking for? ';
+  var footerLink = '<a href="http://trello.com/contact?nosearch=1&source=from%20helpsite%20beacon" onclick="ga(\'send\', \'pageview\', \'/contact\');"> Contact Us</a>.';
+
+  $('#fullArticle').append('<center><section class="callout-blue dashed">' + footerCopy + footerLink + '</section></center>')
+
+ 
+};
+function contactHeader(){
+var testing = "Contact Us";
+$('.container-fluid').append('<div style="float:right; padding: 20px 0px 20px 0px"><a style="color:white; font-size:14px" href="http://trello.com/contact?nosearch=1&source=from%20helpsite%20beacon" onclick="ga(\'send\', \'pageview\', \'/contact\');">' + testing + '</a></div>');
+  
+};
+function defer(method) {
+    if (window.$)
+        method();
+    else
+        setTimeout(function() { defer(method) }, 50);
+}
+
+defer(function() {
+  $(document).ready(mobileBanner());
+  $(document).ready(gsgBanner());
+  $(document).ready(articleBanner());
+  $(document).ready(contactFooter());
+  $(document).ready(contactHeader());
+});
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53826304-3', 'auto');
+  ga('send', 'pageview');
+(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d78fikflryjgj.cloudfront.net/lib/snowplow/2.0.0.js","sp"));
+window.sp('newTracker','cf','c.trello.com',{appId:'help',cookieDomain:'.trello.com',respectDoNotTrack:true});window.sp('trackPageView');window.sp('enableLinkClickTracking');
+</script>
+
+<script src="https://d2uq3evf9h01ug.cloudfront.net/localize.js"></script>
+
+<script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","untranslatePage","bootstrap","prefetch","on","off"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
+
+<script>
+var isLiveSite = (document.domain === 'help.trello.com');
+//We need to add localizejs tags so that localize knows what to translate,
+//at which point we can set translateBody to false. This is to hopefully
+//prevent injected text from getting into our database.
+
+defer(function(){
+  $(document).ready(function(){
+    $('header, section').addClass('localizejs');
+  });
+});
+
+
+Localize.initialize({
+  key: 'HCz4Tv7lNHSU5',
+  rememberLanguage: true,
+  saveNewPhrases: isLiveSite,
+  translateBody: false
+ });
+console.log(Localize.getLanguage());
+ga('send', 'pageview', {
+  'dimension1':  Localize.getLanguage()
+});
+</script>
+    
+</head>
+    <body>
+        <script>
+            window.onload = function() {
+                $("#searchBar input.search-query" ).focus();
+            };
+        </script>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            
+            <a class="brand" href="/">
+            
+                
+                    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/545804d8e4b09c5ca72525ce/images/54876cdfe4b04581c47e9727/trello.png" alt="Trello Help" width="180" height="40">
+                
+
+            
+            </a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                    
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="docsSearch">
+            
+             
+
+<form action="/search" method="GET" id="searchBar" autocomplete="off">
+    
+                <input type="text" name="query" title="search-query" class="search-query" placeholder="Search the knowledge base" value="">
+                <button type="submit"><i class="icon-search lp"></i><span>Search</span></button>
+                <div id="serp-dd" style="display:none;">
+                    <ul class="result"></ul>
+                </div>
+            
+</form>
+
+        </section><!--/docsSearch-->
+        <section id="contentArea" class="container-fluid">
+            
+
+    
+
+    <div id="noResults" style="display:none;">No results found</div>
+    
+        <!-- Site has only one collection -->
+        
+            
+                <section class="most-pop-articles two-col">
+                    <h2>Most Popular Articles</h2>
+                    <ul class="popArticles">
+                        
+                            <li><a href="/article/821-using-markdown-in-trello"><i class="icon-article-doc"></i><span>How To Format Your Text in Trello</span></a></li>
+                        
+                            <li><a href="/article/771-loading-resources-from-trellos-cdn"><i class="icon-article-doc"></i><span>Loading resources from Trello&#x27;s CDN</span></a></li>
+                        
+                            <li><a href="/article/801-deleting-a-board"><i class="icon-article-doc"></i><span>Deleting a board</span></a></li>
+                        
+                            <li><a href="/article/829-using-trello-with-google-calendar"><i class="icon-article-doc"></i><span>Using Trello with Google Calendar</span></a></li>
+                        
+                            <li><a href="/article/811-viewing-cards-in-a-calendar-view"><i class="icon-article-doc"></i><span>Using the Calendar Power-Up</span></a></li>
+                        
+                            <li><a href="/article/795-archiving-and-deleting-cards"><i class="icon-article-doc"></i><span>Archiving and deleting cards</span></a></li>
+                        
+                            <li><a href="/article/736-troubleshooting-browser-issues-with-trello"><i class="icon-article-doc"></i><span>Troubleshooting browser issues with Trello</span></a></li>
+                        
+                            <li><a href="/article/734-how-to-use-trello-like-a-pro"><i class="icon-article-doc"></i><span>How to use Trello like a pro</span></a></li>
+                        
+                            <li><a href="/article/1049-slack-app"><i class="icon-article-doc"></i><span>The Trello App for Slack</span></a></li>
+                        
+                            <li><a href="/article/809-creating-cards-by-email"><i class="icon-article-doc"></i><span>Creating cards by email</span></a></li>
+                        
+                    </ul>
+                </section><!-- /most-popular-articles -->
+                <hr class="sep">
+                
+                <script>
+                window.onready = function() {
+                    $.fn.splitList = function(newListClass) {
+                        var newListClass = newListClass || "",
+                          list = this, 
+                          topNewList = $("<ul></ul>", {"class": newListClass}),
+                          bttmNewList = $("<ul></ul>", {"class": newListClass}),
+                          listItems = list.children("li"),
+                          listLength = listItems.size(), 
+                          splitPoint = Math.ceil(listLength/2);
+
+                        listItems.each(function(i, item) {
+                          (i < splitPoint) ? topNewList.append(item) : bttmNewList.append(item);
+                        });
+                        list.after(bttmNewList).after(topNewList).remove();
+                    }
+                    $(".popArticles").splitList("popArticles");
+                };
+                </script>
+                
+            
+
+            
+                
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-694" href="/category/694-category">
+                                <h3>Getting Started</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">8</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-1047" href="/category/1047-trello-enterprise">
+                                <h3>Trello Enterprise</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">6</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-696" href="/category/696-category">
+                                <h3>My Trello Account</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">13</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-698" href="/category/698-category">
+                                <h3>Using Trello</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">77</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-697" href="/category/697-category">
+                                <h3>About Trello</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">9</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-700" href="/category/700-category">
+                                <h3>Trello Teams</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">12</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-699" href="/category/699-category">
+                                <h3>Apps</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">10</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-701" href="/category/701-category">
+                                <h3>Troubleshooting</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">20</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-703" href="/category/703-category">
+                                <h3>Trello Business Class</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">16</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-1006" href="/category/1006-power-ups">
+                                <h3>Power-Ups</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">30</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-845" href="/category/845-trello-for-android">
+                                <h3>Trello for Android</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">6</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-846" href="/category/846-trello-for-ios">
+                                <h3>Trello for iOS</h3>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">11</span> articles
+                                    
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                
+            
+        
+    
+
+            <footer class="center">
+                
+
+<p>&copy;
+    
+        <a href="https://trello.com">Trello</a>
+    
+    2017. <span>Powered by <a href="https://www.helpscout.net/features/docs/?utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+    
+        
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+
+<section id="contactModal" class="modal hide" tabindex="-1">
+	<h2>Contact Us</h2>
+	<a href="#" id="closeBtn" data-dismiss="modal"><i
+		class="icon-close"></i></a>
+	<div class="modal-body">
+		<form data-parsley-validate novalidate method="post"
+			action="/contact" enctype="multipart/form-data"
+			class="form-horizontal contact">
+			<div class="control-group">
+				<label for="name" class="control-label">Name</label>
+				<div class="controls">
+					<input type="text" name="name" id="md-name"
+						placeholder="(optional)">
+				</div>
+				<!--/controls-->
+			</div>
+			<!--/control-group-->
+			<div class="control-group">
+				<label for="email" class="control-label">Email</label>
+				<div class="controls">
+					<input type="email" name="email" id="md-email"
+						data-parsley-required="true" data-parsley-type="email"
+						data-parsley-notblank="true"
+                        data-parsley-trigger="change"
+						data-parsley-required-message="Email is required">
+					<input type="text" name="phone" id="phone" value="">
+				</div>
+				<!--/controls-->
+			</div>
+			<!--/control-group-->
+			<div class="control-group">
+				<label for="subject" class="control-label">Subject</label>
+				<div class="controls">
+					<input type="text" name="subject" id="md-subject"
+						data-parsley-required="true" data-parsley-notblank="true"
+						data-parsley-required-message="Subject is required">
+				</div>
+				<!--/controls-->
+			</div>
+			<!--/control-group-->
+			<div class="control-group">
+				<label for="message" class="control-label">Message</label>
+				<div class="controls">
+					<textarea name="message" id="md-message" data-parsley-required="true"
+						data-parsley-notblank="true"
+						data-parsley-required-message="Message is required"></textarea>
+				</div>
+				<!--/controls-->
+			</div>
+			<!-- /control-group -->
+			<div class="control-group">
+				<label for="upload" class="control-label">Upload file</label>
+				<div class="controls">
+					<input id="file-upload" type="file" name="upload" data-parsley-max-file-size="10" />
+				</div>
+			</div>
+			<!--/control-group-->
+			<div class="form-actions">
+				
+				<input type="submit" class="btn" value="Send">
+			</div>
+			<!--/form-actions-->
+		</form>
+	</div>
+	<!--/modal-body-->
+</section>
+
+        
+        
+    <script src="//d25gbwvd82b2e5.cloudfront.net/assets/javascripts/app3.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+$('#contactModal').on('shown', function () {
+  $('#md-name').focus();
+});
+</script>
+    </body>
+</html>

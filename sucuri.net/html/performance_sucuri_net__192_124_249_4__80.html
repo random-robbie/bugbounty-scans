@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sucuri Load Time Tester</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&#038;ver=3.9.1" />
+    <link rel="stylesheet" type="text/css" href="/assets/loadtime-styles.css?v20160605" />
+</head>
+<body>
+
+    
+<div class="navbar navbar-inverse">
+    <div class="container clearfix">
+
+        <div class="navbar-header">
+            <a href="/" title="Sucuri Load Time Tester" class="navbar-brand">
+                <img src="/assets/blank.1x1.png" alt="Sucuri Load Time Tester">
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" target="_self">Home</a></li>
+            <li><a href="http://sucuri.net/" target="_blank">Sucuri</a></li>
+            <li><a href="http://blog.sucuri.net/" target="_blank">Blog</a></li>
+            <li><a href="http://labs.sucuri.net/" target="_blank">Labs</a></li>
+            <li><a href="http://kb.sucuri.net/" target="_blank">KB</a></li>
+        </ul>
+
+    </div>
+</div>
+
+    <div id="sucuri-loadtime">
+
+        <!-- #start: Load-time header. -->
+        <div id="loadtime-header">
+
+            <div class="heading">
+                <p>
+                    How fast is your site? You can test here the<br>
+                    performance of any of your sites from across the globe.
+                </p>
+            </div>
+
+            <div class="alert hidden">
+                <p></p>
+            </div>
+
+            <form action="/index.php?ajaxcall" method="post" id="loadtime-form">
+                <input type="hidden" name="form_action" value="test_load_time" />
+                <input type="text" name="domain" id="loadtime-input" placeholder="eg. http://example.com" />
+                <button id="loadtime-submit">Test Load-Time</button>
+                <label class="clearfix private-test">
+                    <span class="pull-right">Do not show the results on the boards</span>
+                    <input type="checkbox" id="is_private_test" class="pull-right" />
+                </label>
+            </form>
+
+            <div class="loadtime-disclaimer">
+                <p>
+                    This test measures how long it takes to connect to your site and for one page to
+                    fully load. A very important value to pay attention is the <strong>"time to
+                    first byte"</strong>, which gives us how long it took for the content to be sent
+                    back to browser to start processing the page. If you are using a CDN
+                    <em>(Content Delivery Network)</em>, your connection time may be low, but if
+                    the time to first byte and total time is also not low, it will not give you much
+                    in terms of performance.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- #start: Load-time content. -->
+        <div id="loadtime-content">
+            <table id="loadtime-table" class="table table-striped table-bordered loadtime-dataset hidden">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th data-sort="string">Location</th>
+                        <th data-sort="string">Website</th>
+                        <th data-sort="string">Connection</th>
+                        <th data-sort="string">First Byte</th>
+                        <th data-sort="string">Total</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="6">
+                            <div class="loadtime-loading">
+                                <img src="/assets/loading-bar.gif" alt="Loading..." />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="6">
+                            <div class="loadtime-cachemsg">
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table id="loadtime-multiple" class="table table-striped table-bordered loadtime-dataset hidden">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+
+                <tfoot>
+
+                    <tr>
+                        <td colspan="2">
+                            <div class="clearfix">
+                                <div class="btn-group pull-right comparisonfilter">
+                                    <button type="button" class="btn btn-xs btn-default dfilter_connect_time" data-filter="connect_time">Connection Time</button>
+                                    <button type="button" class="btn btn-xs btn-default dfilter_firstbyte_time" data-filter="firstbyte_time">First Byte Time</button>
+                                    <button type="button" class="btn btn-xs btn-default dfilter_total_time" data-filter="total_time">Total Time</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <div class="loadtime-loading">
+                                <img src="/assets/loading-bar.gif" alt="Loading..." />
+                            </div>
+                        </td>
+                    </tr>
+
+                </tfoot>
+            </table>
+
+            <div id="loadtime-mapcanvas" class="hidden" style="width:958px;height:548px"></div>
+
+            <div id="loadtime-tabular">
+                <div class="tabular-tabs">
+                    <ul class="clearfix">
+                        <li><a href="#" data-tabname="tabular-tab1">Connection Time</a></li>
+                        <li><a href="#" data-tabname="tabular-tab2">First Byte Time</a></li>
+                        <li><a href="#" data-tabname="tabular-tab3">Total Time</a></li>
+                    </ul>
+                </div>
+
+                <div class="tabular-content">
+                    <div id="tabular-tab1"><div id="loadtime-stats-connect_time" class="loadtime-stats"></div></div>
+                    <div id="tabular-tab2"><div id="loadtime-stats-firstbyte_time" class="loadtime-stats"></div></div>
+                    <div id="tabular-tab3"><div id="loadtime-stats-total_time" class="loadtime-stats"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- #start: Load-time footer. -->
+        <div id="loadtime-footer">
+
+            <div class="recent-results clearfix">
+
+                <div class="recent-domains">
+                    <h4>Recent</h4>
+                    
+                                            <ul>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/dev.caclub.in" class="recent-label">
+                                        dev.caclub.in                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/sylwiarusak.com" class="recent-label">
+                                        sylwiarusak.com                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/boaodeal.com" class="recent-label">
+                                        boaodeal.com                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/bankiros.ru" class="recent-label">
+                                        bankiros.ru                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/digitalmarketingbc.com" class="recent-label">
+                                        digitalmarketingbc.com                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/haferlandphotography.com" class="recent-label">
+                                        haferlandphotography.com                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/algarveportugal.co.uk" class="recent-label">
+                                        algarveportugal.co.uk                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/algarveshuttles.com" class="recent-label">
+                                        algarveshuttles.com                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/faroairporttransfers.net" class="recent-label">
+                                        faroairporttransfers.net                                    </a>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-z"></span>
+                                    <a href="/domain/faroairporttransfers.uk" class="recent-label">
+                                        faroairporttransfers.uk                                    </a>
+                                </li>
+                                                    </ul>
+                                    </div>
+
+                <div class="recent-best">
+                    <h4>Best</h4>
+
+                    
+                                            <ul>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/boaodeal.com" class="recent-label">
+                                        boaodeal.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>boaodeal.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.23 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.4 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.64 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/copyblogger.com" class="recent-label">
+                                        copyblogger.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>copyblogger.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.1 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.31 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.64 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/panduanim.com" class="recent-label">
+                                        panduanim.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a+</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>panduanim.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.16 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.27 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.39 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/brunofigueiredo.com.br" class="recent-label">
+                                        brunofigueiredo.com.br                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>brunofigueiredo.com.br</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.03 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.33 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.43 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/rubeshan.com" class="recent-label">
+                                        rubeshan.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a+</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>rubeshan.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.18 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.3 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.3 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/iisinstitute.org" class="recent-label">
+                                        iisinstitute.org                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>iisinstitute.org</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.15 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.26 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.48 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/words.paulraphaelson.com" class="recent-label">
+                                        words.paulraphaelson.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>words.paulraphaelson.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.05 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.54 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.63 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/portaldochaveiro24horas.com.br" class="recent-label">
+                                        portaldochaveiro24horas.com.br                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>portaldochaveiro24horas.com.br</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.15 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.27 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.45 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/uk.worlddutyfree.com" class="recent-label">
+                                        uk.worlddutyfree.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>uk.worlddutyfree.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.03 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.56 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.65 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-a"></span>
+                                    <a href="/domain/icn.pl" class="recent-label">
+                                        icn.pl                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">a</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>icn.pl</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.2 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.5 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>0.5 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                    </ul>
+                                    </div>
+
+                <div class="recent-worst">
+                    <h4>Worst</h4>
+
+                    
+                                            <ul>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-e"></span>
+                                    <a href="/domain/bankiros.ru" class="recent-label">
+                                        bankiros.ru                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">e</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>bankiros.ru</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.23 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>1.05 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>1.67 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-e"></span>
+                                    <a href="/domain/haferlandphotography.com" class="recent-label">
+                                        haferlandphotography.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">e</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>haferlandphotography.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.22 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.91 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>1.64 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/tipsmenulisbuku.com" class="recent-label">
+                                        tipsmenulisbuku.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>tipsmenulisbuku.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.61 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.81 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>2.6 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/ngonfig.net" class="recent-label">
+                                        ngonfig.net                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>ngonfig.net</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.44 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>1.23 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>2.87 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/echaussures.net" class="recent-label">
+                                        echaussures.net                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>echaussures.net</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.14 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>2.3 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>3.67 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/harvestamericancoffee.com" class="recent-label">
+                                        harvestamericancoffee.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>harvestamericancoffee.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.17 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.6 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>2.18 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/www.hitricks.com" class="recent-label">
+                                        www.hitricks.com                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>www.hitricks.com</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.05 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.72 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>3.49 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/thetri.org" class="recent-label">
+                                        thetri.org                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>thetri.org</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.15 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>1.48 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>2.29 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-f"></span>
+                                    <a href="/domain/reboot-it.pl" class="recent-label">
+                                        reboot-it.pl                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">f</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>reboot-it.pl</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0.08 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>9.41 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>17.66 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                            <li class="clearfix recent-domain">
+                                    <span class="recent-rate recent-rate-e"></span>
+                                    <a href="/domain/insurancemarket.sg" class="recent-label">
+                                        insurancemarket.sg                                    </a>
+                                    <div class="tooltip">
+                                        <ul>
+                                            <li>
+                                                <label>Global Performance Grade:</label>
+                                                <span class="rate-classification">e</span>
+                                            </li>
+                                            <li>
+                                                <label>Domain:</label>
+                                                <span>insurancemarket.sg</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Connection Time):</label>
+                                                <span>0 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (First Byte Time):</label>
+                                                <span>0.35 secs</span>
+                                            </li>
+                                            <li>
+                                                <label>Average (Total Time):</label>
+                                                <span>1.89 secs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                                    </ul>
+                                    </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+<div class="footer clearfix">
+    <div class="wrap">
+
+        <!-- Links -->
+        <div class="links">
+
+            <div>
+                <h5>PRODUCTS</h5>
+
+                <ul>
+                    <li><a href="http://sucuri.net/website-firewall/" target="_blank">Website Firewall</a></li>
+                    <li><a href="http://sucuri.net/website-antivirus/" target="_blank">Website AntiVirus</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>SOLUTIONS</h5>
+
+                <ul>
+                    <li><a href="http://sucuri.net/website-firewall/ddos" target="_blank">DDOS Protection</a></li>
+                    <li><a href="http://sucuri.net/services/website-scan-malware-detection" target="_blank">Malware Detection</a></li>
+                    <li><a href="http://sucuri.net/website-antivirus/malware-removal" target="_blank">Malware Removal</a></li>
+                    <li><a href="http://sucuri.net/services/preventive" target="_blank">Malware Prevention</a></li>
+                    <li><a href="http://sucuri.net/my-website-is-blacklisted-this-site-may-be-hacked" target="_blank">Blacklist Removal</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>SUPPORT</h5>
+
+                <ul>
+                    <li><a href="http://login.sucuri.net/" target="_blank">Login</a></li>
+                    <li><a href="http://kb.sucuri.net/" target="_blank">Knowledge Base</a></li>
+                    <li><a href="http://sitecheck.sucuri.net/" target="_blank">SiteCheck</a></li>
+                    <li><a href="http://blog.sucuri.net/" target="_blank">Blog</a></li>
+                    <li><a href="http://labs.sucuri.net/" target="_blank">Research Labs</a></li>
+                </ul>
+            </div>
+
+
+            <div>
+                <h5>COMPANY</h5>
+
+                <ul>
+                    <li><a href="http://sucuri.net/about-us/" target="_blank">About</a></li>
+                    <li><a href="http://sucuri.net/company/media" target="_blank">Media</a></li>
+                    <li><a href="http://sucuri.net/company/events" target="_blank">Events</a></li>
+                    <li><a href="http://sucuri.net/company/testimonials" target="_blank">Testimonials</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Company Info -->
+        <div class="company-info">
+            <a href="http://sucuri.net/" target="_blank" class="logo" title="Sucuri, Inc"></a>
+            <h6>Sucuri, Inc</h6>
+
+            <div class="contact-info">
+
+                <div>
+                    <h5>Email</h5>
+                    <h2>soc@sucuri.net</h2>
+                </div>
+
+                <div>
+                    <h5>Sales</h5>
+                    <h2>1-888-873-0817</h2>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="social-media">
+            <a target="_blank" href="https://www.facebook.com/SucuriSec" class="facebook"></a>
+            <a target="_blank" href="http://twitter.com/sucuri_security" class="twitter"></a>
+            <a target="_blank" href="https://www.linkedin.com/company/899487" class="linkedin"></a>
+        </div>
+
+        <div class="copyright">
+            <p class="copy">&copy; 2017 Sucuri Inc. All rights reserved.</p>
+            <p class="trademark">Sucuri<sup>&reg;</sup> is a registered trademark of Sucuri Inc. in the United States and/or other countries.</p>
+            <a href="http://sucuri.net/terms" target="_blank">Terms of Use</a>
+            <a href="http://sucuri.net/privacy" target="_blank">Privacy Policy</a>
+        </div>
+
+    </div><!-- /wrap -->
+</div>
+
+    <script type="text/javascript" src="/assets/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/loadtime-curvedline.min.js"></script>
+    <script type="text/javascript" src="/assets/d3.v3.min.js"></script>
+    <script type="text/javascript" src="/assets/c3.min.js"></script>
+    <script type="text/javascript" src="/assets/magictable.min.js"></script>
+    <script type="text/javascript" src="/assets/loadtime-parser.js?v20160608"></script>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+    { (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4077922-18', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

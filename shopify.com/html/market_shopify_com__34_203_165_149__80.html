@@ -1,0 +1,963 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"fa45dcf839","applicationID":"11600968","transactionName":"dl8KQUReDl4AEE1fUEdbAUFFHgtcAQca","queueTime":2,"applicationTime":194,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="shortcut icon" type="image/x-icon" href="//cdn.shopify.com/shopify-marketing_assets/static/shopify-favicon.png" />
+
+  <title>Flea Markets - Local Flea and Farmers Market Directory</title>
+
+  <meta name="description" content="Search for the best local flea and farmer&#39;s markets across the United States. Discover new and used treasure in your own neighborhood.
+" />
+  <link rel="canonical" href="https://market.shopify.com">
+
+  
+
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" />
+  <link rel="stylesheet" media="screen" href="/growth-tools-assets/market-9a9f35ebb17b0ee1025ac77f139fa871a1e0b7da35a6aaf19305b377903369bf.css" />
+  
+
+  
+
+    <meta property="og:image" content="https://market.shopify.com/growth-tools-assets/markets/social-share-962d998462c630860c3771becaf44dc695e2ffa30eaf08d7f5750f9798a95cc2.jpg">
+<meta property="og:title" content="Flea Markets - Local Flea and Farmers Market Directory">
+<meta property="og:description" content="Search for the best local flea and farmer&#39;s markets across the United States. Discover new and used treasure in your own neighborhood.
+">
+<meta property="og:site_name" content="Shopify">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Flea Markets - Local Flea and Farmers Market Directory">
+<meta property="twitter:description" content="Search for the best local flea and farmer&#39;s markets across the United States. Discover new and used treasure in your own neighborhood.
+">
+<meta property="twitter:image" content="https://market.shopify.com/growth-tools-assets/markets/social-share-962d998462c630860c3771becaf44dc695e2ffa30eaf08d7f5750f9798a95cc2.jpg">
+<meta property="twitter:site" content="@Shopify">
+<meta property="twitter:account_id" content="17136315">
+
+  <meta name="google-site-verification" content="zRqqHlRwmANV6MgOAicWpxHgU35MZvREm89M13cNQTg" />
+  <meta name="google-site-verification" content="KfcZOhXFMqbvMZ31PM9j5Tu3fSLrIbz56Ih74nQYQdY" />
+
+<meta name="verify-a" value="c56c27a8f68c6ddcafdf">
+<meta name="msvalidate.01" content="AE1E888386499A412C42CB1A632DA95C" />
+<meta name="p:domain_verify" content="8c574a25baf8ff1451e95459fdc79ed8"/>
+
+<script type="text/javascript">
+  (function(){
+    var config = {
+      'Trekkie': {
+        'appName': 'brochure'
+      },
+      'Optimizely': {},
+      'Clickstream': {
+        'appName': 'brochure'
+      },
+      'Performance': {
+        'navigationTimingApiMeasurementsEnabled': true,
+        'navigationTimingApiMeasurementsSampleRate': 0.01
+      }
+    };
+    var trekkie_version = '2017.02.21.1';
+    var analytics = window.analytics = window.analytics || [];
+    if (analytics.integrations) {
+      return;
+    }
+    analytics.methods = [
+      'identify',
+      'page',
+      'ready',
+      'track',
+      'trackForm',
+      'trackLink'
+    ];
+    analytics.factory = function(method){
+      return function(){
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift(method);
+        analytics.push(args);
+        return analytics;
+      };
+    };
+    for (var i = 0; i < analytics.methods.length; i++) {
+      var key = analytics.methods[i];
+      analytics[key] = analytics.factory(key);
+    }
+    analytics.load = function(config){
+      analytics.config = config;
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.onerror = function(e) { (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load'; };
+      script.async = true;
+      script.src = '//cdn.shopify.com/s/javascripts/tricorder/trekkie.' + config.Trekkie.appName + '.min.js?v=' + trekkie_version;
+      var first = document.getElementsByTagName('script')[0];
+      first.parentNode.insertBefore(script, first);
+    };
+    analytics.load(config);
+    analytics.page();
+  })();
+</script>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','_gaUTracker');
+
+  var _gaUTrackerOptions = {allowLinker: true};
+
+  analytics.ready(function() {
+    _gaUTrackerOptions.clientId = analytics.user().traits().uniqToken;
+    _gaUTracker('create', 'UA-82702-49', _gaUTrackerOptions);
+    _gaUTracker('require', 'displayfeatures');
+    _gaUTracker('set', 'transport', 'beacon');
+    _gaUTracker('send', 'pageview');
+
+    _gaUTrackerOptions.name = '_other';
+    _gaUTracker('create', 'UA-82702-3', _gaUTrackerOptions);
+    _gaUTracker('_other.require', 'displayfeatures');
+    _gaUTracker('_other.set', 'transport', 'beacon');
+    _gaUTracker('_other.send', 'pageview');
+  });
+</script>
+
+
+  <link rel="alternate" hreflang="x-default" href="https://market.shopify.com" />
+
+</head>
+
+<body class="page--markets">
+  <div id="GlobalIconSymbols" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="popular"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 14c-.263 0-.518-.104-.707-.293l-2-2c-.39-.39-.39-1.023 0-1.414s1.023-.39 1.414 0l1.02 1.02 2.378-4.76c.145-.288.417-.49.735-.54.314-.05.64.053.867.28L8.78 8.367l3.352-5.863c.183-.32.517-.524.896-.503.37.01.702.228.867.557l2 4c.247.494.047 1.095-.447 1.342-.493.246-1.094.046-1.342-.448l-1.164-2.33L9.87 10.5c-.158.27-.43.454-.74.495-.306.044-.62-.063-.84-.283L6.27 8.69l-2.38 4.76c-.142.285-.415.486-.732.54-.053.01-.107.01-.16.01z"/></svg></symbol><symbol id="globe"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M22.54.16c-.29-.04-.58-.07-.88-.09C21.12.02 20.56 0 20 0c-3.15 0-6.13.73-8.78 2.03-.4.19-.78.4-1.16.62C4.05 6.1 0 12.59 0 20c0 6.08 2.73 11.54 7.02 15.2.32.28.64.54.98.8 3.34 2.51 7.5 4 12 4 5.62 0 10.71-2.33 14.34-6.07.21-.21.41-.43.61-.65C38.09 29.75 40 25.09 40 20 40 9.83 32.37 1.41 22.54.16zm11.19 31.45c-.42.52-.88 1-1.37 1.45C29.13 36.12 24.78 38 20 38c-3.89 0-7.49-1.24-10.44-3.35-.54-.39-1.06-.8-1.56-1.25-.74-.65-1.42-1.37-2.03-2.15v-.01c-.76-.93-1.42-1.94-1.97-3.02-1.28-2.46-2-5.26-2-8.22 0-2.05.34-4.02.99-5.85.27-.81.6-1.58.99-2.33.01-.01.01-.03.02-.04.46-.91 1-1.77 1.61-2.57C6.58 7.92 7.72 6.76 9 5.77c.63-.5 1.3-.95 2-1.34.03-.02.07-.04.1-.06.65-.38 1.33-.71 2.03-1 .29-.13.58-.24.87-.34.65-.23 1.31-.42 2-.57.97-.23 1.97-.38 3-.43.33-.02.66-.03 1-.03.12 0 .24 0 .36.01.22 0 .43.01.64.02.46.03.91.07 1.36.13C31.17 3.32 38 10.88 38 20c0 4.42-1.6 8.48-4.27 11.61z"/><path d="M11.22 4.03c-.4.19-.78.4-1.16.62.05-.13.13-.26.23-.36.25-.25.6-.34.93-.26zM23.07 25.9c-.73 1.07-1.1 1.99-1.19 2.99-.07.71-.57 1.49-1.16 1.81-.4.22-.6.5-.78 1.09-.14.44-.39.88-.78 1.34-.58.7-1.7 2.41-2.31 3.4-.25.41-.66.64-1.11.64-.09 0-.18-.01-.27-.03-1.67-.36-3.1-4.54-3.32-6.18-.16-1.21-.37-1.88-1.11-2.34-.98-.62-1.5-1.43-1.55-2.43-.02-.4-.17-.66-.54-.95-1.13-.86-1.49-2.17-.98-3.61.14-.4.32-.76.49-1.11.08-.14.15-.28.21-.42.06-.12.1-.22.14-.3-.96-.11-1.61-.8-1.97-1.18-.48-.51-1.18-.92-1.87-1.32l-.09-.06c-1.2-.7-1.81-1.69-1.81-2.95-.01-.02-.04-.08-.08-.14.27-.81.6-1.58.99-2.33.02.06.02.13.02.19.02.07.24.39.37.59.33.49.7 1.05.7 1.69 0 .45.14.83.82 1.23l.09.05c.77.45 1.64.96 2.32 1.68.62.66.77.6 1.01.51.43-.15.9 0 1.16.36.81 1.14.34 2.15.05 2.75-.11.24-.19.39-.27.55-.15.31-.3.6-.4.88-.27.78 0 1.12.3 1.35.85.64 1.29 1.44 1.34 2.45.01.21.09.49.62.82 1.54.97 1.85 2.46 2.03 3.78.18 1.4.94 3.14 1.49 4.02.54-.84 1.41-2.18 2-2.88.26-.3.36-.51.39-.63.23-.74.63-1.66 1.75-2.27.02-.02.11-.18.12-.25.12-1.33.61-2.57 1.53-3.92.51-.74.46-.98.46-.98s-.11-.24-1.08-.58l-.11-.04c-1.12-.39-2-.69-3.01-.28-.31.12-.66.08-.93-.1-.28-.19-.44-.5-.44-.83 0-.1-.01-.18-.01-.26-.01-.19-.01-.39.03-.62.05-.22.2-.9.15-1.07-.06-.06-.36-.23-.88-.46-.03-.01-.13-.05-.25-.13-.21-.12-.42-.27-.63-.42-.39-.27-.76-.53-1.11-.64-.34-.1-.78-.11-1.28-.11-.22 0-.45-.01-.68-.01-.56.13-1.27-.01-1.77-1.15-.05-.12-.15-.35-.21-.4-.2-.04-.41-.15-.55-.3-1.26-1.35-.78-2.4-.51-2.79.69-1.01 2.25-1.27 3.29-1.06.13-.11.29-.26.44-.39.66-.62 1.66-1.53 3.19-2.49.05-.22.11-.6.15-.88.07-.41.13-.82.23-1.19-2.6-1.63-4.04-2.64-4.81-3.22.65-.38 1.33-.71 2.03-1 .92.65 2.37 1.62 4.65 3.03.34.21.52.61.46 1-.04.26-.18.49-.38.64-.07.24-.15.73-.2 1.05-.16 1.03-.3 1.93-1.03 2.24-1.4.87-2.32 1.72-2.94 2.29-.73.68-1.31 1.22-2.1.9-.32-.12-1.02-.01-1.27.16.02.04.05.09.1.16.77.3 1.09.98 1.27 1.4.23.01.44.01.65.01.62 0 1.25.01 1.88.21.63.2 1.17.57 1.64.9.16.11.33.23.49.33.03.01.06.03.09.04 1.7.77 2.19 1.4 1.99 2.97 1.08-.07 2.04.28 2.92.58l.1.04c.91.32 1.99.81 2.33 1.85.34 1.02-.24 2.05-.71 2.73zm-.53-23.74c-.29-.04-.58-.07-.88-.09.3-.12.63-.07.88.09zm11.19 29.45c-.42.52-.88 1-1.37 1.45-1.72-1.57-2.78-4.26-2.36-5.74.18-.67.36-2.18.28-2.6-.51-.85-.98-1.68-.87-2.82-.22-.21-.42-.45-.6-.67l-.16-.19c-.26.12-.51.23-.76.33-1.64.64-2.78-1.04-3.54-2.16-.1-.16-.21-.32-.31-.46-.53-.74-1.09-1.46-1.6-2.12l-.59-.77c-.17-.23-.24-.51-.19-.79.06-.32.14-.61.21-.88s.16-.64.14-.75c-.05-.21-.1-.38-.14-.52-.33-1.18-.07-1.53.86-2.54.34-.37.49-.38 2.93-.68 1.14-.14 3.22-.39 3.8-.56.08-.06.17-.11.27-.15.08-.03.16-.13.22-.25.07-.16.06-.29.05-.31-.16.04-.82.13-1.36.2-3.02.42-4.84.67-5.08-.74 0-.06-.01-.12-.01-.17-.23-.54-1.38-2.12-1.87-2.56-.04-.03-.07-.07-.1-.11-.9-1.08-1.31-2.1-1.22-3.04.22 0 .43.01.64.02.46.03.91.07 1.36.13v.02c-.05.37.22.95.74 1.58.38.4 1.8 1.93 2.28 3.2h.01c.74 0 2.2-.2 2.98-.31 1.01-.14 1.48-.19 1.78-.17.99.08 1.71.75 1.84 1.7.14 1.01-.41 2.07-1.28 2.55-.5.42-1.72.58-4.81.96-.68.08-1.49.18-1.87.24-.11.12-.21.23-.28.3.02.05.03.09.05.15.04.16.1.36.16.61.13.59-.01 1.16-.16 1.71-.03.1-.05.2-.08.31l.31.4c.52.68 1.09 1.42 1.63 2.18.11.15.23.32.35.5.29.43.91 1.34 1.21 1.41.2-.1.46-.22.73-.34l.46-.21c.25-.11.53-.12.79-.01.48.2.82.62 1.15 1.02.16.19.43.52.55.58.42.22.7.73.57 1.19-.2.7-.03 1.03.56 2.04.64 1.07-.1 4.06-.11 4.08-.19.7.59 2.67 1.81 3.76z"/></svg></symbol><symbol id="shopify-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 311.2 88.9"><path d="M107.6 49.5c-2.7-1.5-4.1-2.7-4.1-4.4 0-2.1 1.9-3.5 4.9-3.5 3.5 0 6.6 1.5 6.6 1.5l2.4-7.5s-2.2-1.8-8.9-1.8c-9.2 0-15.6 5.3-15.6 12.7 0 4.2 3 7.4 7 9.7 3.2 1.8 4.4 3.1 4.4 5 0 2-1.6 3.6-4.6 3.6-4.4 0-8.6-2.3-8.6-2.3L88.5 70s3.9 2.6 10.4 2.6c9.5 0 16.3-4.7 16.3-13.1 0-4.5-3.5-7.7-7.6-10zM145.4 33.7c-4.7 0-8.3 2.2-11.2 5.6l-.2-.1 4.1-21.2h-10.5l-10.2 53.9h10.5l3.5-18.4c1.4-7 5-11.2 8.3-11.2 2.4 0 3.3 1.6 3.3 3.9 0 1.5-.2 3.2-.5 4.7l-4 21.1H149l4.1-21.8c.5-2.3.8-5 .8-6.9.1-6-3-9.6-8.5-9.6zM177.8 33.7c-12.7 0-21.1 11.5-21.1 24.2 0 8.2 5 14.8 14.5 14.8 12.5 0 20.9-11.2 20.9-24.2 0-7.6-4.4-14.8-14.3-14.8zm-5.2 30.9c-3.6 0-5.1-3.1-5.1-6.9 0-6 3.1-15.9 8.9-15.9 3.7 0 5 3.2 5 6.3 0 6.6-3.2 16.5-8.8 16.5zM219.1 33.7C212 33.7 208 40 208 40h-.2l.6-5.7h-9.3c-.5 3.8-1.3 9.6-2.1 14l-7.3 38.6h10.5l2.9-15.6h.2s2.2 1.4 6.2 1.4c12.4 0 20.5-12.7 20.5-25.5 0-7.1-3.2-13.5-10.9-13.5zm-10.1 31c-2.7 0-4.4-1.5-4.4-1.5l1.8-9.9c1.2-6.6 4.7-10.9 8.3-10.9 3.2 0 4.2 3 4.2 5.8.1 6.8-4 16.5-9.9 16.5zM245 18.6c-3.4 0-6 2.7-6 6.1 0 3.1 2 5.3 5 5.3h.2c3.3 0 6.1-2.2 6.2-6.1-.1-3.1-2.2-5.3-5.4-5.3zM230.3 71.9h10.5l7.2-37.3h-10.6M274.8 34.5h-7.3l.4-1.8c.6-3.6 2.8-6.8 6.3-6.8 1.9 0 3.4.5 3.4.5l2.1-8.3s-1.8-.9-5.7-.9c-3.7 0-7.5 1.1-10.3 3.5-3.6 3.1-5.3 7.5-6.1 11.9l-.3 1.8h-4.9l-1.5 7.9h4.9L250 71.9h10.5l5.6-29.5h7.3l1.4-7.9zM300.2 34.6s-6.6 16.6-9.6 25.7h-.2c-.2-2.9-2.6-25.7-2.6-25.7h-11.1l6.3 34.3c.2.8.1 1.2-.2 1.8-1.2 2.4-3.3 4.7-5.7 6.3-2 1.5-4.2 2.4-6 3l2.9 8.9c2.1-.5 6.6-2.2 10.3-5.7 4.8-4.5 9.2-11.5 13.8-20.9L311 34.6h-10.8z"/><g><path d="M50.2 86.7L76.3 81s-9.4-63.7-9.5-64.1c-.1-.4-.4-.7-.8-.7-.3 0-7-.5-7-.5l-5.1-5.1c-.1-.1-.3-.2-.4-.3l-3.3 76.4zM52.3 10.3c-.1 0-.2 0-.3.1-.1 0-1 .3-2.6.8-1.5-4.5-4.3-8.5-9.1-8.5h-.4C38.6.8 36.9 0 35.5 0 24.3 0 18.9 14 17.3 21.1c-4.3 1.3-7.4 2.3-7.8 2.4-2.4.8-2.5.8-2.8 3.1C6.4 28.4 0 77.5 0 77.5l49 9.2 3.3-76.4zm-12.7 3.4v.5c-2.7.8-5.7 1.8-8.7 2.7 1.7-6.4 4.8-9.5 7.5-10.7.8 1.7 1.2 4.2 1.2 7.5zM35.2 3c.5 0 1 .2 1.4.5-3.6 1.7-7.4 5.9-9.1 14.4-2.4.7-4.7 1.5-6.8 2.1 1.9-6.4 6.4-17 14.5-17zm1.9 37.9s-2.9-1.5-6.4-1.5c-5.2 0-5.5 3.3-5.5 4.1 0 4.5 11.7 6.2 11.7 16.7 0 8.3-5.3 13.6-12.3 13.6-8.5 0-12.8-5.3-12.8-5.3l2.3-7.5s4.5 3.8 8.2 3.8c2.5 0 3.5-1.9 3.5-3.4 0-5.9-9.6-6.1-9.6-15.8 0-8.1 5.8-16 17.6-16 4.5 0 6.8 1.3 6.8 1.3l-3.5 10zm4.5-35.3c2.5.3 4.1 3.1 5.2 6.4-1.2.4-2.7.8-4.2 1.3v-.9c0-2.8-.4-5-1-6.8z"/></g></svg></symbol><symbol id="shopify-full-color-black"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 608 173.7"><path fill="#95BF47" d="M130.6 33c-.1-.9-.9-1.3-1.5-1.4-.6-.1-13.7-1-13.7-1s-9.1-9-10-10c-1-1-2.9-.7-3.7-.5-.1 0-2 .6-5.1 1.6C93.7 13 88.3 5 78.9 5h-.8c-2.7-3.5-6-5.1-8.8-5.1C47.4 0 37 27.3 33.7 41.2c-8.5 2.6-14.5 4.5-15.3 4.7-4.7 1.5-4.9 1.6-5.5 6.1C12.4 55.5 0 151.5 0 151.5l96.7 18.1 52.4-11.3c0-.1-18.4-124.4-18.5-125.3zm-39.3-9.6c-2.4.8-5.2 1.6-8.2 2.5v-1.8c0-5.4-.8-9.8-2-13.2 4.9.7 8.2 6.2 10.2 12.5zM75.2 12c1.3 3.4 2.2 8.2 2.2 14.7v.9c-5.3 1.6-11.1 3.4-16.9 5.2 3.3-12.4 9.4-18.5 14.7-20.8zm-6.5-6.1c.9 0 1.9.3 2.8.9-7 3.3-14.5 11.6-17.7 28.2-4.6 1.4-9.2 2.8-13.4 4.1C44.2 26.5 53 5.9 68.7 5.9z"/><path fill="#5E8E3E" d="M129.1 31.6c-.6-.1-13.7-1-13.7-1s-9.1-9-10-10c-.4-.4-.9-.6-1.4-.6l-7.3 149.6 52.4-11.3S130.7 33.9 130.6 33.1c-.1-.9-.9-1.4-1.5-1.5z"/><path fill="#FFF" d="M78.9 60.6l-6.5 19.2s-5.7-3-12.6-3c-10.2 0-10.7 6.4-10.7 8 0 8.8 22.9 12.1 22.9 32.7 0 16.2-10.3 26.6-24.1 26.6-16.6 0-25.1-10.3-25.1-10.3l4.4-14.7s8.7 7.5 16.1 7.5c4.8 0 6.8-3.8 6.8-6.6 0-11.5-18.8-12-18.8-30.8C31.3 73.4 42.7 58 65.6 58c9 .1 13.3 2.6 13.3 2.6z"/><path d="M210.2 96.6c-5.2-2.8-7.9-5.2-7.9-8.5 0-4.2 3.7-6.9 9.6-6.9 6.8 0 12.8 2.8 12.8 2.8l4.8-14.6s-4.4-3.4-17.3-3.4c-18 0-30.5 10.3-30.5 24.8 0 8.2 5.8 14.5 13.6 19 6.3 3.6 8.5 6.1 8.5 9.9 0 3.9-3.1 7-9 7-8.7 0-16.9-4.5-16.9-4.5l-5.1 14.6s7.6 5.1 20.3 5.1c18.5 0 31.8-9.1 31.8-25.5.1-8.9-6.6-15.1-14.7-19.8zM284 65.9c-9.1 0-16.3 4.3-21.8 10.9l-.3-.1 7.9-41.4h-20.6l-20 105.3h20.6l6.9-36c2.7-13.6 9.7-22 16.3-22 4.6 0 6.4 3.1 6.4 7.6 0 2.8-.3 6.3-.9 9.1l-7.8 41.2h20.6l8.1-42.6c.9-4.5 1.5-9.9 1.5-13.4-.1-11.6-6.2-18.6-16.9-18.6zm63.4 0c-24.8 0-41.2 22.4-41.2 47.3 0 16 9.9 28.8 28.4 28.8 24.3 0 40.8-21.8 40.8-47.3 0-14.8-8.7-28.8-28-28.8zm-10.1 60.3c-7 0-10-6-10-13.4 0-11.8 6.1-31.1 17.3-31.1 7.3 0 9.7 6.3 9.7 12.4 0 12.7-6.1 32.1-17 32.1zm90.8-60.3c-13.9 0-21.8 12.2-21.8 12.2h-.3l1.2-11H389c-.9 7.5-2.5 18.8-4.2 27.3l-14.3 75.4H391l5.7-30.5h.4s4.2 2.7 12.1 2.7c24.2 0 40-24.8 40-49.9.1-13.8-6.1-26.2-21.1-26.2zm-19.7 60.6c-5.4 0-8.5-3-8.5-3l3.4-19.3c2.4-12.8 9.1-21.4 16.3-21.4 6.3 0 8.2 5.8 8.2 11.3 0 13.4-7.9 32.4-19.4 32.4zm70.3-90.2c-6.6 0-11.8 5.2-11.8 11.9 0 6.1 3.9 10.3 9.7 10.3h.3c6.4 0 11.9-4.3 12.1-11.9 0-6-4-10.3-10.3-10.3zm-28.8 104.2h20.6l14-73h-20.7m73.1-.1h-14.3l.7-3.4c1.2-7 5.4-13.3 12.2-13.3 3.7 0 6.6 1 6.6 1l4-16.1s-3.6-1.8-11.2-1.8c-7.3 0-14.6 2.1-20.2 6.9-7 6-10.3 14.6-11.9 23.3l-.6 3.4h-9.6l-3 15.5h9.6l-10.9 57.6H509l10.9-57.6h14.2l2.8-15.5zm49.6.1s-12.9 32.5-18.7 50.2h-.3c-.4-5.7-5.1-50.2-5.1-50.2h-21.7l12.4 67c.3 1.5.1 2.4-.4 3.4-2.4 4.6-6.4 9.1-11.2 12.4-3.9 2.8-8.2 4.6-11.6 5.8l5.7 17.5c4.2-.9 12.8-4.3 20.2-11.2 9.4-8.8 18.1-22.4 27-40.9l25.2-54h-21.5z"/></svg></symbol></svg></div>
+  
+<div class="signup-form-wrapper signup--hidden " data-define="{form_0: new ShopifyMarketing.SignupForm(this)}">
+  <form class="marketing-form signup-form stateful-form " novalidate="novalidate" autocomplete="off" data-namespace="form_0" data-hidden-fields-namespace="hiddenFields_0" data-bind-event-submit="form_0.handleSubmit(this, event)" action="https://app.shopify.com/services/signup/setup" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+
+
+    
+<div class=" email" data-define="{email0:
+  new ShopifyMarketing.StatefulField(
+    'email',
+    form_0,
+    this,
+    {
+      required: true,
+      validate: true,
+      showError: true
+    },
+    {}
+  )}">
+  <div data-context="email0">
+      <label data-bind-class="{
+            &#39;js-has-error&#39;: state.error,
+            &#39;js-is-filled&#39;: state.filled || state.value.length &gt; 0
+          }" class="marketing-input-wrapper"><span class="marketing-label marketing-label--in-field marketing-label--floating">Email address</span><input name="signup[email]" type="email" autocomplete="off" data-bind="state.value" data-bind-event-blur="ShopifyMarketing.context.form_0
+            .handleFieldBlur(ShopifyMarketing.context.email0)" data-bind-event-keyup="null" class="marketing-input marketing-input--floating " placeholder="Email address" id="0_signup_email" /><span class="marketing-form__messages"><span class="error hide" data-bind="displayError()" data-bind-show="state.error == true"></span></span></label>
+
+
+    
+  </div>
+</div>
+
+    
+<div class=" password" data-define="{password0:
+  new ShopifyMarketing.StatefulField(
+    'password',
+    form_0,
+    this,
+    {
+      required: true,
+      validate: true,
+      showError: true
+    },
+    {}
+  )}">
+  <div data-context="password0">
+      <label data-bind-class="{
+            &#39;js-has-error&#39;: state.error,
+            &#39;js-is-filled&#39;: state.filled || state.value.length &gt; 0
+          }" class="marketing-input-wrapper"><span class="marketing-label marketing-label--in-field marketing-label--floating">Password</span><input name="signup[password]" type="password" autocomplete="off" data-bind="state.value" data-bind-event-blur="ShopifyMarketing.context.form_0
+            .handleFieldBlur(ShopifyMarketing.context.password0)" data-bind-event-keyup="null" class="marketing-input marketing-input--floating " placeholder="Password" id="0_signup_password" /><span class="marketing-form__messages"><span class="error hide" data-bind="displayError()" data-bind-show="state.error == true"></span></span></label>
+
+
+    
+  </div>
+</div>
+
+
+  
+<div class=" shop_name" data-define="{shop_name0:
+  new ShopifyMarketing.StatefulField(
+    'shop_name',
+    form_0,
+    this,
+    {
+      required: true,
+      validate: true,
+      showError: true
+    },
+    {}
+  )}">
+  <div data-context="shop_name0">
+      <label data-bind-class="{
+          &#39;js-has-error&#39;: state.error == true,
+          &#39;js-is-pending&#39;: state.pending == true,
+          &#39;js-is-focused&#39;: state.focus == true,
+          &#39;js-has-detail&#39;: state.error &amp;&amp; state.errors.existingAdmin,
+          &#39;js-is-filled&#39;: state.filled == true || state.value.length &gt; 0,
+        }" class="marketing-input-wrapper shop_name "><span class="marketing-label marketing-label--in-field marketing-label--floating">Your store name</span><input name="signup[shop_name]" type="text" autocomplete="off" data-bind="state.value" data-bind-event-blur="ShopifyMarketing.context.form_0
+            .handleFieldBlur(ShopifyMarketing.context.shop_name0)" data-bind-event-keyup="ShopifyMarketing.context.form_0.handleFieldKeyup(event, ShopifyMarketing.context.shop_name0)" class="marketing-input marketing-input--floating " placeholder="Your store name" id="0_signup_shop_name" /><span class="marketing-form__messages"><span class="error hide" data-bind="displayError()" data-bind-show="state.error == true &amp;&amp; state.pending == false" data-bind-unsafe-html="displayError()"></span></span></label>
+
+
+    
+  </div>
+</div>
+
+
+  <div data-define="{hiddenFields_0: new ShopifyMarketing.HiddenFields({
+      source:        &quot;&quot;,
+      signup_code:   &quot;&quot;,
+      signup_types:  [],
+      theme:         &quot;&quot;,
+      selected_app:  &quot;&quot;,
+      selected_plan: &quot;&quot;
+    }, this)}">
+
+    <div data-context="hiddenFields_0">
+      <input type="hidden" name="ref"             value="">
+      <input type="hidden" name="language"        value="en">
+      <input type="hidden" name="country"         value="com">
+      <input type="hidden" name="_y"              data-bind="fields.y">
+      <input type="hidden" name="forwarded_host"  data-bind="fields.forwarded_host">
+      <input type="hidden" name="ssid"            data-bind="fields.ssid">
+      <input type="hidden" name="source"          data-bind="fields.source">
+      <input type="hidden" name="signup_code"     data-bind="fields.signup_code">
+
+
+      <input type="hidden" name="signup_types[]" data-bind-disabled="fields.signup_types" data-bind="fields.signup_type">
+
+      <input type="hidden" name="extra[selected_theme]" data-bind="fields.theme">
+      <input type="hidden" name="extra[selected_app]" data-bind="fields.selected_app">
+      <input type="hidden" name="extra[selected_plan]" data-bind="fields.selected_plan">
+    </div>
+
+  </div>
+
+  <div class="">
+    <button name="button" type="submit" class="marketing-button marketing-form__button " data-bind-disabled="form_0.pending == true">Create your store</button>
+  </div>
+</form>
+</div>
+
+  
+    
+
+
+<div id="PageContainer">
+  <main role="main" id="Main">
+      <header class="page-header page-header--markets">
+  <div class="page-width page-width--fluid">
+    <div class="text-center page-header--markets__wordmark">
+      <a href="/">
+        
+  <img alt="Find flea and farmer’s markets. Local and fresh." sizes="100vw" srcset="/growth-tools-assets/markets/header/wordmark-small-e9df3a840d0a9082c5c3c1d3817cd04e17304b6d272b63e78b1e758d4f72fe80.png 1x,/growth-tools-assets/markets/header/wordmark-large-e74767bae2b3266a88b5a972cb0dc5a003ef54acf30e7369b5ca95b24a8e30c5.png 2x" class="">
+
+</a>    </div>
+
+    <div class="grid-container">
+      <div class="grid-item grid-content-8 grid-content--desktop-push-1 grid-content--tablet-10 gutter-bottom--half gutter-bottom--mobile">
+        <form class="js-form-validate page-header--markets__form" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+          <label class="marketing-input-wrapper marketing-input-button-pair"><span class="marketing-label marketing-label--in-field marketing-label--floating">Q</span><div class="marketing-input-button__field-wrapper"><input name="q" placeholder="Enter a market, city, or state" class="marketing-input-button-pair__input marketing-input marketing-input--floating page-header--markets__input" required="required" type="search" id="search_q" /><button name="button" type="submit" size="large" class="marketing-button marketing-form__button marketing-input-button-pair__button">Search</button></div><span class="marketing-form__messages"></span></label>
+</form>      </div>
+    </div>
+
+    <div class="grid-container">
+      <div class="text-center grid-item grid-content-6 grid-content--desktop-push-2 grid-content--tablet-10">
+        <p class="gutter-bottom--reset text-white heading--4">Search for the best flea and farmer’s markets across the United States. Discover the best markets in your own backyard.
+</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+  
+<div class="section-block">
+  <div class="page-width page-width--fluid">
+    <h1 class="heading--2 heading--serif">
+      Discover new and used treasures at nearby flea and farmer’s markets
+    </h1>
+
+    <p class="intro-content">Browse our localized list of indoor and outdoor events to scope out the best flea and farmer’s markets in your neighborhood. Connect directly with your community of local growers, craftsmen, and curators. Whether you’re looking for unique gifts, rare antiques and thrifted wares, fresh and organic produce, or other fresh foods, there’s likely a market in your area waiting to be explored.
+</p>
+
+    <h2 class="heading--5 heading-icon heading-icon--bordered">
+  <svg class="icon icon--red"> <use xlink:href="#popular" /> </svg> Popular markets
+</h2>
+
+<div class="grid-container grid-container--quarters">
+    <div class="grid-item grid-item--fluid__quarter grid--mobile">
+      <a href="/california/los-angeles/silverlake-flea">
+        
+<div class="marketing-block grid-item">
+
+
+    
+  <span class="lazyload-image gutter-bottom--half" style="max-width: 280px; max-height: 200px;">
+    <img alt="" data-sizes="100vw" data-srcset="/growth-tools-assets/markets/flea-markets-stock/flea-market-8-small-7d5c43f43f35b7db199e7b1ca4c36075602ff55b103728c1baa330b9d54f29f4.jpg 1x,/growth-tools-assets/markets/flea-markets-stock/flea-market-8-large-3dd544866956ff1a8213515eb5d3f2431f6fd200dc519ff5b798c6a54aa267ff.jpg 2x" class="lazyload">
+    <span class="lazyload-image__placeholder" style="padding-top: 71.430%;"></span>
+</span>
+
+  <div class="marketing-block__content">
+
+
+      <h3 class="heading--serif segment-markets-link heading--4">Silverlake Flea</h3>
+
+      <p class="display--desktop">1511 Micheltorena St., Los Angeles, California</p>
+
+
+  </div>
+
+</div>
+
+</a>    </div>
+    <div class="grid-item grid-item--fluid__quarter grid--mobile">
+      <a href="/wisconsin/milwaukee/rummage-a-rama">
+        
+<div class="marketing-block grid-item">
+
+
+    
+  <span class="lazyload-image gutter-bottom--half" style="max-width: 280px; max-height: 200px;">
+    <img alt="" data-sizes="100vw" data-srcset="/growth-tools-assets/markets/flea-markets-stock/flea-market-5-small-1cc728fae57a50ce85b323dea5a2ff84a0861e3962e64757394bf57a6fe22799.jpg 1x,/growth-tools-assets/markets/flea-markets-stock/flea-market-5-large-22dc18f81c23a15df56ca72335b76d467a153a86c3919871e3dad24a01f6b8d4.jpg 2x" class="lazyload">
+    <span class="lazyload-image__placeholder" style="padding-top: 71.430%;"></span>
+</span>
+
+  <div class="marketing-block__content">
+
+
+      <h3 class="heading--serif segment-markets-link heading--4">Rummage-A-Rama</h3>
+
+      <p class="display--desktop">6000 W Ryan Rd, Milwaukee, Wisconsin</p>
+
+
+  </div>
+
+</div>
+
+</a>    </div>
+    <div class="grid-item grid-item--fluid__quarter grid--mobile">
+      <a href="/california/san-jose/branham-bruin-flea-market">
+        
+<div class="marketing-block grid-item">
+
+
+    
+  <span class="lazyload-image gutter-bottom--half" style="max-width: 280px; max-height: 200px;">
+    <img alt="" data-sizes="100vw" data-srcset="/growth-tools-assets/markets/flea-markets-stock/flea-market-2-small-af528d9a8ec7925c7fa735693f2515deaaa63cfec1f49a1c1a1865477ceb200c.jpg 1x,/growth-tools-assets/markets/flea-markets-stock/flea-market-2-large-c10268c162c80d35af919fc89feec0c0daafa22d5b02c6916b2afffb86d3d36f.jpg 2x" class="lazyload">
+    <span class="lazyload-image__placeholder" style="padding-top: 71.430%;"></span>
+</span>
+
+  <div class="marketing-block__content">
+
+
+      <h3 class="heading--serif segment-markets-link heading--4">Branham Bruin Flea Market</h3>
+
+      <p class="display--desktop">1570 Branham Ln, San Jose, California</p>
+
+
+  </div>
+
+</div>
+
+</a>    </div>
+    <div class="grid-item grid-item--fluid__quarter grid--mobile">
+      <a href="/ohio/columbus/westland-flea-market">
+        
+<div class="marketing-block grid-item">
+
+
+    
+  <span class="lazyload-image gutter-bottom--half" style="max-width: 280px; max-height: 200px;">
+    <img alt="" data-sizes="100vw" data-srcset="/growth-tools-assets/markets/flea-markets-stock/flea-market-9-small-3d900fb625a12807eceba14fabfc1a48450398aadcc0f6418a31eb9223d532b5.jpg 1x,/growth-tools-assets/markets/flea-markets-stock/flea-market-9-large-6c4651e8387c43727932334c9485af8382453ed37e30552859f10661dcedc59a.jpg 2x" class="lazyload">
+    <span class="lazyload-image__placeholder" style="padding-top: 71.430%;"></span>
+</span>
+
+  <div class="marketing-block__content">
+
+
+      <h3 class="heading--serif segment-markets-link heading--4">Westland Flea Market</h3>
+
+      <p class="display--desktop">4170 W Broad St, Columbus, Ohio</p>
+
+
+  </div>
+
+</div>
+
+</a>    </div>
+</div>
+
+  </div>
+</div>
+
+
+<div class="js-map market-map page-block--light"></div>
+
+
+<div class="section-block section-block--border-top">
+  <div class="page-width page-width--fluid">
+    <ul class="gutter-bottom">
+      <li class="listing-row">
+  <a class="listing-row__link" href="/new-jersey/avenel/avenel-flea-market">
+    <span class="heading--2 heading--serif listing-row__name">Avenel Flea Market</span>
+    <span class="listing-row__address">1488 Rahway Ave, Avenel, New Jersey</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/louisiana/new-orleans/french-market">
+    <span class="heading--2 heading--serif listing-row__name">French Market</span>
+    <span class="listing-row__address">1235 N Peters St, New Orleans, Louisiana</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/indiana/indianapolis/woodruff-place-flea-market">
+    <span class="heading--2 heading--serif listing-row__name">Woodruff Place Flea Market</span>
+    <span class="listing-row__address">500 Middle Dr, Indianapolis, Indiana</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/florida/mount-dora/renningers-florida-twin-markets-mount-dora">
+    <span class="heading--2 heading--serif listing-row__name">Renninger&#39;s Florida Twin Markets - Mount Dora</span>
+    <span class="listing-row__address">20651 US-441, Mount Dora, Florida</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/missouri/kansas-city/fleamart">
+    <span class="heading--2 heading--serif listing-row__name">FleaMart</span>
+    <span class="listing-row__address">14300 E US Hwy 40, Kansas City, Missouri</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/new-jersey/lambertville/golden-nugget-antique-market">
+    <span class="heading--2 heading--serif listing-row__name">Golden Nugget Antique Market</span>
+    <span class="listing-row__address">1850 S River Rd, Lambertville, New Jersey</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/california/san-diego/spring-valley-swap-meet">
+    <span class="heading--2 heading--serif listing-row__name">Spring Valley Swap Meet</span>
+    <span class="listing-row__address">6377 Quarry Rd, San Diego, California</span>
+</a></li>
+<li class="listing-row">
+  <a class="listing-row__link" href="/pennsylvania/newry/leightys-flea-market">
+    <span class="heading--2 heading--serif listing-row__name">Leighty&#39;s Flea Market</span>
+    <span class="listing-row__address">16187 Dunnings Highway, Newry, Pennsylvania</span>
+</a></li>
+
+    </ul>
+
+    <h2 class="heading--5 heading-icon heading-icon--bordered">
+      <svg class="icon icon--red"> <use xlink:href="#globe" /> </svg> Browse all United States
+    </h2>
+
+    <ul class="region-list">
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/alabama">Alabama</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/alaska">Alaska</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/arizona">Arizona</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/arkansas">Arkansas</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/california">California</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/colorado">Colorado</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/connecticut">Connecticut</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/delaware">Delaware</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/district-of-columbia">District of Columbia</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/florida">Florida</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/georgia">Georgia</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/hawaii">Hawaii</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/idaho">Idaho</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/illinois">Illinois</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/indiana">Indiana</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/iowa">Iowa</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/kansas">Kansas</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/kentucky">Kentucky</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/louisiana">Louisiana</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/maine">Maine</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/maryland">Maryland</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/massachusetts">Massachusetts</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/michigan">Michigan</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/minnesota">Minnesota</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/mississippi">Mississippi</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/missouri">Missouri</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/montana">Montana</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/nebraska">Nebraska</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/nevada">Nevada</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/new-hampshire">New Hampshire</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/new-jersey">New Jersey</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/new-mexico">New Mexico</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/new-york">New York</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/north-carolina">North Carolina</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/north-dakota">North Dakota</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/ohio">Ohio</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/oklahoma">Oklahoma</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/oregon">Oregon</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/pennsylvania">Pennsylvania</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/rhode-island">Rhode Island</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/south-carolina">South Carolina</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/south-dakota">South Dakota</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/tennessee">Tennessee</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/texas">Texas</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/utah">Utah</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/vermont">Vermont</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/virginia">Virginia</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/washington">Washington</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/west-virginia">West Virginia</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/wisconsin">Wisconsin</a>
+          </p>
+        </li>
+        <li class="region-list__item">
+          <p class="gutter-bottom--reset">
+            <a class="segment-markets-link" href="/wyoming">Wyoming</a>
+          </p>
+        </li>
+    </ul>
+  </div>
+</div>
+
+
+  <div class="section-block section-block--light section-block--border-top">
+  <div class="page-width">
+    <form class="text-center js-market-form" action="https://www.shopify.com/content-services/subscribers" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Yv7wQqTB9OFtkIFjqONDuNfTyNjmt37gWmXxkcQ6NA2CMhvv0JSRbhksoRBrHdDQsjeTjcz1X/UiV0HreXNdpw==" />
+  <h2 class="marketing-form--inline__heading ">
+    Be notified when new flea markets open near&nbsp;you
+  </h2>
+
+  <div class="grid-container">
+    <label class="marketing-input-wrapper grid-item grid-item--fluid__quarter"><span class="marketing-label marketing-label--in-field marketing-label--floating">Email</span><input name="email" placeholder="Your email address" class="marketing-input marketing-input--floating" type="email" id="subscribe_email" /><span class="marketing-form__messages"></span></label>
+
+    <label class="marketing-input-wrapper grid-item grid-item--fluid__quarter"><span class="marketing-label marketing-label--in-field">State</span><div class="marketing-select-wrapper"><select name="state" id="subscribe_state"><option value="">Select a state</option>
+<option value="Alabama">Alabama</option>
+<option value="Alaska">Alaska</option>
+<option value="Arizona">Arizona</option>
+<option value="Arkansas">Arkansas</option>
+<option value="California">California</option>
+<option value="Colorado">Colorado</option>
+<option value="Connecticut">Connecticut</option>
+<option value="Delaware">Delaware</option>
+<option value="District of Columbia">District of Columbia</option>
+<option value="Florida">Florida</option>
+<option value="Georgia">Georgia</option>
+<option value="Hawaii">Hawaii</option>
+<option value="Idaho">Idaho</option>
+<option value="Illinois">Illinois</option>
+<option value="Indiana">Indiana</option>
+<option value="Iowa">Iowa</option>
+<option value="Kansas">Kansas</option>
+<option value="Kentucky">Kentucky</option>
+<option value="Louisiana">Louisiana</option>
+<option value="Maine">Maine</option>
+<option value="Maryland">Maryland</option>
+<option value="Massachusetts">Massachusetts</option>
+<option value="Michigan">Michigan</option>
+<option value="Minnesota">Minnesota</option>
+<option value="Mississippi">Mississippi</option>
+<option value="Missouri">Missouri</option>
+<option value="Montana">Montana</option>
+<option value="Nebraska">Nebraska</option>
+<option value="Nevada">Nevada</option>
+<option value="New Hampshire">New Hampshire</option>
+<option value="New Jersey">New Jersey</option>
+<option value="New Mexico">New Mexico</option>
+<option value="New York">New York</option>
+<option value="North Carolina">North Carolina</option>
+<option value="North Dakota">North Dakota</option>
+<option value="Ohio">Ohio</option>
+<option value="Oklahoma">Oklahoma</option>
+<option value="Oregon">Oregon</option>
+<option value="Pennsylvania">Pennsylvania</option>
+<option value="Rhode Island">Rhode Island</option>
+<option value="South Carolina">South Carolina</option>
+<option value="South Dakota">South Dakota</option>
+<option value="Tennessee">Tennessee</option>
+<option value="Texas">Texas</option>
+<option value="Utah">Utah</option>
+<option value="Vermont">Vermont</option>
+<option value="Virginia">Virginia</option>
+<option value="Washington">Washington</option>
+<option value="West Virginia">West Virginia</option>
+<option value="Wisconsin">Wisconsin</option>
+<option value="Wyoming">Wyoming</option></select></div><span class="marketing-form__messages"></span></label>
+
+    <label class="marketing-input-wrapper grid-item grid-item--fluid__quarter"><span class="marketing-label marketing-label--in-field marketing-label--floating">Text</span><input name="city" placeholder="City" class="marketing-input marketing-input--floating" type="text" id="subscribe_text" /><span class="marketing-form__messages"></span></label>
+
+    <div class="grid-item grid-item--fluid__quarter marketing-input-wrapper grid--last">
+      <button name="button" type="submit" class="marketing-button marketing-form__button segment-online-button marketing-button--block">Notify me</button>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <input name="vendor" type="hidden" value="0" /><input name="vendor" class="marketing-checkbox" type="checkbox" value="1" id="subscribe_vendor" /><label class="marketing-checkbox-label marketing-checkbox-label--inline marketing-input-wrapper" for="subscribe_vendor">I’m a vendor</label>
+  </div>
+
+  <input name="country" value="United States" type="hidden" id="subscribe_country" />
+
+  <input name="data_extension_key" value="61A8A133-59B6-4A5A-B021-B840FCF6F008" type="hidden" id="subscribe_data_extension_key" />
+
+  <p class="marketing-form__ajax-success gutter-bottom--reset heading--2 text-white text-center">
+    Thanks! We&#39;ll be in touch.
+  </p>
+</form>
+  </div>
+</div>
+
+
+  <div class="section-block sell-anywhere">
+  <div class="page-width">
+    <div class="grid-container grid-container--halves">
+      <div class="grid-item grid-4 media__right text-center--mobile media__offset">
+        <h2 class="heading--5 text-white gutter-bottom--half">Sell anywhere</h2>
+        <p class="heading--2 text-white">Shopify POS is the easiest way to sell your products at events like fairs, pop ups, and&nbsp;markets.
+</p>
+        <p>
+          <a class="marketing-button segment-pos-button" href="https://www.shopify.com/pos">Get a free card reader</a>
+        </p>
+      </div>
+      <div class="grid-item grid-4 media__last">
+        
+  <span class="lazyload-image " style="max-width: 341px; max-height: 319px;">
+    <img alt="Shopify POS app with card reader" data-sizes="100vw" data-srcset="/growth-tools-assets/markets/card-reader/pos-footer-small-e84b67cb43e7460f06d80739260947bf3d680ac2e7d38a821feaa5790fbcf779.png 1x,/growth-tools-assets/markets/card-reader/pos-footer-large-57729e701e02593585401c0f785248c9f0a3b1d87adbb017dcd7d5f051e984ea.png 2x" class="lazyload">
+    <span class="lazyload-image__placeholder" style="padding-top: 93.550%;"></span>
+</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+  </main>
+  
+<footer class="footer--main" id="ShopifyMainFooter" role="contentinfo">
+  
+  <div class="footer-bottom">
+    <div class="grid">
+      <div class="footer-bottom-item grid-item">
+        <a class="inline-link" target="_blank" rel="nofollow" href="http://goo.gl/forms/WPNn0iFG8kmUyeQq2">Suggest a market</a>
+        <a class="inline-link" href="https://www.shopify.com/legal/terms">Terms of Service</a>
+        <a class="inline-link" href="https://www.shopify.com/legal/privacy">Privacy Policy</a>
+      </div>
+
+      <div class="footer-bottom-item grid-item media__right">
+        
+<div class="powered-by-shopify">
+  <a class="powered-by-shopify__link" href="https://www.shopify.com/">
+    <span class="powered-by-shopify__label gutter-bottom--reset color-white">
+      powered by
+    </span>
+
+    <svg class="icon powered-by-shopify__logo icon--white" aria-labelledby="icon-shopify-logo-3-title"><title id="icon-shopify-logo-3-title">Shopify</title> <use xlink:href="#shopify-logo" /> </svg>
+</a></div>
+
+      </div>
+</div>  </div>
+
+</footer>
+</div>
+
+
+
+    <script src="/growth-tools-assets/application-da2d541fe40367f0e7817a92a97b65f9c5b6311c6bfc948022166734f0509469.js"></script>
+<script>
+  window.App.config = {
+    signupHost: 'app.shopify.com'
+  };
+
+  ShopifyMarketing.Config.set('subregionsEndpoint', '/tools/subregions.json');
+  ShopifyMarketing.Config.set('authenticityToken', 'u8JjSkzRD7zNO8J1VIczWznKTAQYFDSY0aDCmlOrALFbDojnOIRqM7mH4gaXeaAzXC4XUTJWFY2pknLg7uJpGw==');
+
+  window.I18n.data = {"modal":{"home":"Home","close":"Close"},"signup":{"header":"Start your free %{trial_length}-day trial of Shopify","create_now":"Create your store","tooltip":"Start your free %{trial_length}-day trial today!","labels":{"email":"Email","password":"Password","shop_name":"Store name"},"placeholders":{"shop_name":"Your store name","email":"Email address","password":"Password"},"checking":"Checking...","success_messages":{"email":"Got it","password":"Looks great","shop_name":"That name is available!"},"details":{"shop_name":"If you are the owner you can \u003ca href=\"https://%{admin}/admin\"\u003elog in here\u003c/a\u003e"},"store_address_suffix":".myshopify.com"},"forms":{"errors":{"throttled":"Too many requests from this IP, try again later.","global":{"invalid":"Please enter a valid email address","required":"This field is required.","generic":"Sorry, something went wrong. Please try again later.","throttled":"Too many requests from this IP, try again later."},"shop_name":{"empty":"Please enter a store name","minlength":"Your store name must be at least 4 characters","existingAdmin":"A store with that name already exists. If you are the owner you can \u003ca href=\"https://%{err}/admin\"\u003elog in here\u003c/a\u003e","message":"%{err}","matchesPassword":"Your store name can't be the same as your password","disallowed":"Your store name can’t contain the word \u003cstrong\u003e%{err}\u003c/strong\u003e. Try another."},"email":{"empty":"Please enter an email address","invalid":"Please enter a valid email address","member_exists":"You are already subscribed to this list","generic":"Sorry, something went wrong. Please try again later."},"password":{"empty":"Please enter a password","minlength":"Password must be at least 5 characters","spaces":"Password cannot start or end with a space"}}},"invoice_toggle":{"edit":"Edit","close":"Close"},"share":{"text":"Share on","bookmark_text":"Press cmd + d to bookmark","bookmark_alt":"Press ctrl + d to bookmark"},"dropzone_uploader":{"error":"There was an error while processing your images. Try again.","remove":"Remove file","start_over":"Start over","no_images":"Add some images.","fallback_text":"Add your images by browsing from your device.","loading":"Loading...","upload_cta":"Upload now"},"funnel":{"heading":"A link to your %{tool} is being emailed.","shopify_intro":"While you wait, set up a Shopify store and start selling online or in person. It's free for 14-days — no risk.","business_name":{"heading":"Step 1 of 3: Reserve your brand name on Shopify","cta":"Next"}},"errors":{"format":"%{attribute} %{message}","messages":{"model_invalid":"Validation failed: %{errors}","inclusion":"is not included in the list","exclusion":"is reserved","invalid":"is invalid","confirmation":"doesn't match %{attribute}","accepted":"must be accepted","empty":"can't be empty","blank":"can't be blank","present":"must be blank","too_long":{"one":"is too long (maximum is 1 character)","other":"is too long (maximum is %{count} characters)"},"too_short":{"one":"is too short (minimum is 1 character)","other":"is too short (minimum is %{count} characters)"},"wrong_length":{"one":"is the wrong length (should be 1 character)","other":"is the wrong length (should be %{count} characters)"},"not_a_number":"is not a number","not_an_integer":"must be an integer","greater_than":"must be greater than %{count}","greater_than_or_equal_to":"must be greater than or equal to %{count}","equal_to":"must be equal to %{count}","less_than":"must be less than %{count}","less_than_or_equal_to":"must be less than or equal to %{count}","other_than":"must be other than %{count}","odd":"must be odd","even":"must be even","required":"must exist","taken":"has already been taken"},"not_found":"Sorry, this page doesn't exist.","default_error":"Oops, something went wrong. Please try again later.","invalid_image":"needs to be a valid image (jpg, jpeg, png, or gif)"},"logos":{"show":{"page_title":"Free Logo Generator - Online Logo Maker","meta_description":"Need a logo for your business? With Shopify's logo maker you don't need to hire a designer to create an amazing logo. Give it a try – it’s free!\n","heading":"Free online logo generator","subhead":"Download your free logo below"},"index":{"page_title":"Online Logo Maker - Free Logo Generator","meta_description":"Need a logo for your business? With Shopify's logo maker you don't need to hire a designer to create an amazing logo. Give it a try – it’s free!\n","upload_form":{"heading":"Looking great!","subhead":"Enter your email and we'll send your logo right away.","email":"Email address","continue":"Continue editing your logo","submit":"Submit","blank_email":"Please enter your email address","invalid_email":"Please enter a valid email address","unprocessable":"Sorry, something went wrong. Please try again later."},"signup_form":{"heading":"Your logo is on its way","subhead":"While you wait, start building your Shopify store. Try it free for 14 days."},"menu":{"edit_icon":"Edit icon","edit_name":"Edit name","position":"Position","get_logo":"Get logo","edit":"Edit","frame":"Frame","color":"Color","size":"Size","done":"Done","small":"Small","medium":"Medium","large":"Large","font":"Font","top":"Top","left":"Left","bottom":"Bottom","right":"Right","store_name":"Your store name","icon":"Icon","load":"+ Load more","text_color":"Text color","icon_color":"Icon color","icon_size":"Icon size","icon_frames":"Icon frames","no_frame":"None"},"status":{"icon":"Editing icon","choose_icon":"Choose an icon","choose_frame":"Choose a frame","icon_color":"Change icon color","icon_size":"Change icon size","text":"Editing text","font":"Choose a font","text_color":"Change text color","position":"Change logo position"},"download":"Get your logo","business_name":"Your Business Name","seo_content":{"heading":"Create your business logo","subhead":"No design skills required","save_time":{"heading":"Save time and money","content":"With the online logo maker, you don’t need graphic design skills or a huge budget to create a logo – it’s easy and free to use!\n"},"brand":{"heading":"Make your brand look great","content":"With so many fonts, icons and frames to choose from, you’ll find a unique combination that represents your brand.\n"},"confidence":{"heading":"Get started on the right foot","content":"Creating an appealing logo is one of the best things you can do for your brand to inspire consumer confidence.\n"},"body":{"heading":"Business logo design made simple","content_markdown":"Your logo says a lot about your brand. If it looks good, it leaves a\ngood impression on your potential customers. If it looks bad, it\ncould leave a bad impression, even if your products or services are\ntop-notch.\n\nBut how do you get a great logo design so you can launch your brand\non the right foot? You could spend a lot of time and money getting\none professionally designed. Or, you can use the Shopify online logo\nmaker. You can test out virtually endless logo variations and create\na unique logo that’s perfect for your business. Best of all, you\ndon’t have to have any graphic design experience to create a\nbusiness logo you can be proud of – the logo generator makes it\neasy.\n"}}}},"markets":{"global":{"labels":{"popular":"Popular markets","directions":"Get directions"}}}};
+  window.I18n.globals = {"total_blog_subscribers":"335,494","trial_length":14,"total_domain_extensions":"50"};
+
+  jQuery(function () {
+    App.init();
+  });
+</script>
+
+
+
+
+    <script>
+//<![CDATA[
+
+    GrowthTools.MARKET_DATA = [{"name":"San Jose Flea Market","street_address":"1590 Berryessa Road","city":"San Jose","state":"California","post_code":"95133","country":"United States","latitude":"37.3701323","longitude":"-121.8771078","path":"/california/san-jose/san-jose-flea-market","location_string":"San Jose, California 95133","directions_url":"https://www.google.com/maps/dir/Current+Location//1590+Berryessa+Road+San+Jose%2C+California+95133+United+States"},{"name":"Barnyard Flea Market","street_address":"3674 Highway 51","city":"Fort Mill","state":"South Carolina","post_code":"29715","country":"United States","latitude":"35.088811","longitude":"-80.9190876","path":"/south-carolina/fort-mill/barnyard-flea-market","location_string":"Fort Mill, South Carolina 29715","directions_url":"https://www.google.com/maps/dir/Current+Location//3674+Highway+51+Fort+Mill%2C+South+Carolina+29715+United+States"},{"name":"Treasure Island Flea Market","street_address":"Ave of the Palms","city":"San Francisco","state":"California","post_code":"94130","country":"United States","latitude":"37.81911420000001","longitude":"-122.373792","path":"/california/san-francisco/treasure-island-flea-market","location_string":"San Francisco, California 94130","directions_url":"https://www.google.com/maps/dir/Current+Location//Ave+of+the+Palms+San+Francisco%2C+California+94130+United+States"},{"name":"Super Flea Market","street_address":"6200 St. John Ave","city":"Kansas City","state":"Missouri","post_code":"64123","country":"United States","latitude":"39.11327250000001","longitude":"-94.5082272","path":"/missouri/kansas-city/super-flea-market","location_string":"Kansas City, Missouri 64123","directions_url":"https://www.google.com/maps/dir/Current+Location//6200+St.+John+Ave+Kansas+City%2C+Missouri+64123+United+States"},{"name":"Bushwick Flea Market","street_address":"52 Wyckoff Ave","city":"New York City","state":"New York","post_code":"11237","country":"United States","latitude":"40.7053749","longitude":"-73.92142799999999","path":"/new-york/new-york-city/bushwick-flea-market","location_string":"New York City, New York 11237","directions_url":"https://www.google.com/maps/dir/Current+Location//52+Wyckoff+Ave+New+York+City%2C+New+York+11237+United+States"},{"name":"Franklin Flea Market","street_address":"801 Market","city":"Philadelphia","state":"Pennsylvania","post_code":"19107","country":"United States","latitude":"39.9516669","longitude":"-75.1537371","path":"/pennsylvania/philadelphia/franklin-flea-market","location_string":"Philadelphia, Pennsylvania 19107","directions_url":"https://www.google.com/maps/dir/Current+Location//801+Market+Philadelphia%2C+Pennsylvania+19107+United+States"},{"name":"Rosemead Swap Meet","street_address":"2540 Rosemead Blvd","city":"Los Angeles","state":"California","post_code":"91733","country":"United States","latitude":"34.0582404","longitude":"-118.0613039","path":"/california/los-angeles/rosemead-swap-meet","location_string":"Los Angeles, California 91733","directions_url":"https://www.google.com/maps/dir/Current+Location//2540+Rosemead+Blvd+Los+Angeles%2C+California+91733+United+States"},{"name":"Artists \u0026 Fleas","street_address":"647 Mateo Street","city":"Los Angeles","state":"California","post_code":"90021","country":"United States","latitude":"34.0364203","longitude":"-118.2328637","path":"/california/los-angeles/artists-fleas","location_string":"Los Angeles, California 90021","directions_url":"https://www.google.com/maps/dir/Current+Location//647+Mateo+Street+Los+Angeles%2C+California+90021+United+States"},{"name":"Westland Flea Market","street_address":"4170 W Broad St","city":"Columbus","state":"Ohio","post_code":"43228","country":"United States","latitude":"39.9549945","longitude":"-83.11286299999999","path":"/ohio/columbus/westland-flea-market","location_string":"Columbus, Ohio 43228","directions_url":"https://www.google.com/maps/dir/Current+Location//4170+W+Broad+St+Columbus%2C+Ohio+43228+United+States"},{"name":"Chabot College Flea Market","street_address":"25555 Hesperian Blvd","city":"San Jose","state":"California","post_code":"94545","country":"United States","latitude":"37.6063621","longitude":"-122.1178261","path":"/california/san-jose/chabot-college-flea-market","location_string":"San Jose, California 94545","directions_url":"https://www.google.com/maps/dir/Current+Location//25555+Hesperian+Blvd+San+Jose%2C+California+94545+United+States"},{"name":"Sugar Hill Market","street_address":"259 West 132nd St","city":"New York City","state":"New York","post_code":"10027","country":"United States","latitude":"40.8143152","longitude":"-73.9468121","path":"/new-york/new-york-city/sugar-hill-market","location_string":"New York City, New York 10027","directions_url":"https://www.google.com/maps/dir/Current+Location//259+West+132nd+St+New+York+City%2C+New+York+10027+United+States"},{"name":"LIC Flea \u0026 Food Market","street_address":"5-25 46th Ave","city":"New York City","state":"New York","post_code":"11101","country":"United States","latitude":"40.7475058","longitude":"-73.954225","path":"/new-york/new-york-city/lic-flea-food-market","location_string":"New York City, New York 11101","directions_url":"https://www.google.com/maps/dir/Current+Location//5-25+46th+Ave+New+York+City%2C+New+York+11101+United+States"},{"name":"Electronics Flea Market","street_address":"21250 Stevens Creek Blvd","city":"San Jose","state":"California","post_code":"95014","country":"United States","latitude":"37.3195396","longitude":"-122.0450548","path":"/california/san-jose/electronics-flea-market","location_string":"San Jose, California 95014","directions_url":"https://www.google.com/maps/dir/Current+Location//21250+Stevens+Creek+Blvd+San+Jose%2C+California+95014+United+States"},{"name":"So-Cal Cycle Swap Meet","street_address":"Long Beach Veteran's Stadium 5000 Lew Davis St","city":"Los Angeles","state":"California","post_code":"90808","country":"United States","latitude":"33.8284291","longitude":"-118.1368029","path":"/california/los-angeles/so-cal-cycle-swap-meet","location_string":"Los Angeles, California 90808","directions_url":"https://www.google.com/maps/dir/Current+Location//Long+Beach+Veteran%27s+Stadium+5000+Lew+Davis+St+Los+Angeles%2C+California+90808+United+States"},{"name":"Dollar Boutique","street_address":"3880 Decoto Rd Ste 149","city":"San Jose","state":"California","post_code":"94555","country":"United States","latitude":"37.4437111","longitude":"-121.8914878","path":"/california/san-jose/dollar-boutique","location_string":"San Jose, California 94555","directions_url":"https://www.google.com/maps/dir/Current+Location//3880+Decoto+Rd+Ste+149+San+Jose%2C+California+94555+United+States"},{"name":"The Auto Mart","street_address":"6880 El Cajon Blvd","city":"San Diego","state":"California","post_code":"92115","country":"United States","latitude":"32.7688781","longitude":"-117.0499621","path":"/california/san-diego/the-auto-mart","location_string":"San Diego, California 92115","directions_url":"https://www.google.com/maps/dir/Current+Location//6880+El+Cajon+Blvd+San+Diego%2C+California+92115+United+States"},{"name":"FleaMart","street_address":"14300 E US Hwy 40","city":"Kansas City","state":"Missouri","post_code":"64136","country":"United States","latitude":"39.037204","longitude":"-94.4119625","path":"/missouri/kansas-city/fleamart","location_string":"Kansas City, Missouri 64136","directions_url":"https://www.google.com/maps/dir/Current+Location//14300+E+US+Hwy+40+Kansas+City%2C+Missouri+64136+United+States"},{"name":"Rose Bowl Flea Market","street_address":"1001 Rose Bowl Dr","city":"Los Angeles","state":"California","post_code":"91103","country":"United States","latitude":"34.1606364","longitude":"-118.1674865","path":"/california/los-angeles/rose-bowl-flea-market","location_string":"Los Angeles, California 91103","directions_url":"https://www.google.com/maps/dir/Current+Location//1001+Rose+Bowl+Dr+Los+Angeles%2C+California+91103+United+States"},{"name":"Mile High Flea Market","street_address":"7007 E 88th Ave","city":"Denver","state":"Colorado","post_code":"80640","country":"United States","latitude":"39.8590006","longitude":"-104.9066524","path":"/colorado/denver/mile-high-flea-market","location_string":"Denver, Colorado 80640","directions_url":"https://www.google.com/maps/dir/Current+Location//7007+E+88th+Ave+Denver%2C+Colorado+80640+United+States"},{"name":"Patapsco Flea Market","street_address":"1400 W Patapsco Ave","city":"Baltimore","state":"Maryland","post_code":"21230","country":"United States","latitude":"39.2491545","longitude":"-76.63738359999999","path":"/maryland/baltimore/patapsco-flea-market","location_string":"Baltimore, Maryland 21230","directions_url":"https://www.google.com/maps/dir/Current+Location//1400+W+Patapsco+Ave+Baltimore%2C+Maryland+21230+United+States"},{"name":"Yellow Green Farmers Market","street_address":"Yellow Green Farmers Market 1940 North 30th Road","city":"Hollywood","state":"Florida","post_code":"33021","country":"United States","latitude":"26.0282942","longitude":"-80.1684197","path":"/florida/hollywood/yellow-green-farmers-market","location_string":"Hollywood, Florida 33021","directions_url":"https://www.google.com/maps/dir/Current+Location//Yellow+Green+Farmers+Market+1940+North+30th+Road+Hollywood%2C+Florida+33021+United+States"},{"name":"De Anza Flea Market","street_address":"De Anza College Parking Lot 21250 Stevens Creek Blvd","city":"San Jose","state":"California","post_code":"95014","country":"United States","latitude":"37.31317","longitude":"-122.0723816","path":"/california/san-jose/de-anza-flea-market","location_string":"San Jose, California 95014","directions_url":"https://www.google.com/maps/dir/Current+Location//De+Anza+College+Parking+Lot+21250+Stevens+Creek+Blvd+San+Jose%2C+California+95014+United+States"},{"name":"Georgetown Flea Market","street_address":"Hardy Middle School Parking Lot 1819 35th St NW","city":"Washington","state":"District of Columbia","post_code":"20007","country":"United States","latitude":"38.9153226","longitude":"-77.0686338","path":"/district-of-columbia/washington/georgetown-flea-market","location_string":"Washington, District of Columbia 20007","directions_url":"https://www.google.com/maps/dir/Current+Location//Hardy+Middle+School+Parking+Lot+1819+35th+St+NW+Washington%2C+District+of+Columbia+20007+United+States"},{"name":"International Flea Market","street_address":"239 Greens Rd","city":"Houston","state":"Texas","post_code":"77060","country":"United States","latitude":"29.9506477","longitude":"-95.41410970000001","path":"/texas/houston/international-flea-market","location_string":"Houston, Texas 77060","directions_url":"https://www.google.com/maps/dir/Current+Location//239+Greens+Rd+Houston%2C+Texas+77060+United+States"},{"name":"Traders Village Flea Market","street_address":"2602 Mayfield Rd","city":"Grand Prairie","state":"Texas","post_code":"75052","country":"United States","latitude":"32.6954289","longitude":"-97.05284139999999","path":"/texas/grand-prairie/traders-village-flea-market","location_string":"Grand Prairie, Texas 75052","directions_url":"https://www.google.com/maps/dir/Current+Location//2602+Mayfield+Rd+Grand+Prairie%2C+Texas+75052+United+States"},{"name":"Richmond Flea Market","street_address":"716 W Gertrude Ave","city":"Oakland","state":"California","post_code":"94801","country":"United States","latitude":"37.9538571","longitude":"-122.3619284","path":"/california/oakland/richmond-flea-market","location_string":"Oakland, California 94801","directions_url":"https://www.google.com/maps/dir/Current+Location//716+W+Gertrude+Ave+Oakland%2C+California+94801+United+States"},{"name":"Discover Goodwill","street_address":"1460 Garden of the Gods Road","city":"Colorado Springs","state":"Colorado","post_code":"80907","country":"United States","latitude":"38.8985283","longitude":"-104.8538729","path":"/colorado/colorado-springs/discover-goodwill","location_string":"Colorado Springs, Colorado 80907","directions_url":"https://www.google.com/maps/dir/Current+Location//1460+Garden+of+the+Gods+Road+Colorado+Springs%2C+Colorado+80907+United+States"},{"name":"Sunnyside Swap Meet","street_address":"5440 E Olive Ave","city":"Fresno","state":"California","post_code":"93727","country":"United States","latitude":"36.7563318","longitude":"-119.7028272","path":"/california/fresno/sunnyside-swap-meet","location_string":"Fresno, California 93727","directions_url":"https://www.google.com/maps/dir/Current+Location//5440+E+Olive+Ave+Fresno%2C+California+93727+United+States"},{"name":"Qualcomm Stadium Swap Meet","street_address":"9449 Friars Rd","city":"San Diego","state":"California","post_code":"92108","country":"United States","latitude":"32.7831396","longitude":"-117.1196165","path":"/california/san-diego/qualcomm-stadium-swap-meet","location_string":"San Diego, California 92108","directions_url":"https://www.google.com/maps/dir/Current+Location//9449+Friars+Rd+San+Diego%2C+California+92108+United+States"},{"name":"Austin Country Flea Market","street_address":"9500 Hwy 290 E","city":"Austin","state":"Texas","post_code":"78724","country":"United States","latitude":"30.3326172","longitude":"-97.6306899","path":"/texas/austin/austin-country-flea-market","location_string":"Austin, Texas 78724","directions_url":"https://www.google.com/maps/dir/Current+Location//9500+Hwy+290+E+Austin%2C+Texas+78724+United+States"},{"name":"Portland Flea","street_address":"525 SE Pine","city":"Portland","state":"Oregon","post_code":"97214","country":"United States","latitude":"45.5210161","longitude":"-122.6601164","path":"/oregon/portland/portland-flea","location_string":"Portland, Oregon 97214","directions_url":"https://www.google.com/maps/dir/Current+Location//525+SE+Pine+Portland%2C+Oregon+97214+United+States"},{"name":"Spring Garden Indoor Antique \u0026 Vintage Market","street_address":"820 Spring Garden St","city":"Philadelphia","state":"Pennsylvania","post_code":"19123","country":"United States","latitude":"39.96149339999999","longitude":"-75.1526681","path":"/pennsylvania/philadelphia/spring-garden-indoor-antique-vintage-market","location_string":"Philadelphia, Pennsylvania 19123","directions_url":"https://www.google.com/maps/dir/Current+Location//820+Spring+Garden+St+Philadelphia%2C+Pennsylvania+19123+United+States"},{"name":"Avenel Flea Market","street_address":"1488 Rahway Ave","city":"Avenel","state":"New Jersey","post_code":"7001","country":"United States","latitude":"40.5945924","longitude":"-74.26727129999999","path":"/new-jersey/avenel/avenel-flea-market","location_string":"Avenel, New Jersey 7001","directions_url":"https://www.google.com/maps/dir/Current+Location//1488+Rahway+Ave+Avenel%2C+New+Jersey+7001+United+States"},{"name":"Ridgewood Market","street_address":"657 Fairview Ave","city":"New York City","state":"New York","post_code":"11385","country":"United States","latitude":"40.7067838","longitude":"-73.90541710000001","path":"/new-york/new-york-city/ridgewood-market","location_string":"New York City, New York 11385","directions_url":"https://www.google.com/maps/dir/Current+Location//657+Fairview+Ave+New+York+City%2C+New+York+11385+United+States"},{"name":"Gotta Go Surplus","street_address":"2101 Monon Ave","city":"Louisville","state":"Kentucky","post_code":"47150","country":"United States","latitude":"38.30684","longitude":"-85.817832","path":"/kentucky/louisville/gotta-go-surplus","location_string":"Louisville, Kentucky 47150","directions_url":"https://www.google.com/maps/dir/Current+Location//2101+Monon+Ave+Louisville%2C+Kentucky+47150+United+States"},{"name":"Colorado Springs Indoor Flea Market","street_address":"2561 Airport Rd","city":"Colorado Springs","state":"Colorado","post_code":"80910","country":"United States","latitude":"38.8252563","longitude":"-104.7818992","path":"/colorado/colorado-springs/colorado-springs-indoor-flea-market","location_string":"Colorado Springs, Colorado 80910","directions_url":"https://www.google.com/maps/dir/Current+Location//2561+Airport+Rd+Colorado+Springs%2C+Colorado+80910+United+States"},{"name":"River Road Flea Market","street_address":"3908 River Rd","city":"New Orleans","state":"Louisiana","post_code":"70121","country":"United States","latitude":"29.955428","longitude":"-90.1648544","path":"/louisiana/new-orleans/river-road-flea-market","location_string":"New Orleans, Louisiana 70121","directions_url":"https://www.google.com/maps/dir/Current+Location//3908+River+Rd+New+Orleans%2C+Louisiana+70121+United+States"},{"name":"The Odd Market","street_address":"Van De Kamp Bakery Building 2930 Fletcher Dr","city":"Los Angeles","state":"California","post_code":"90039","country":"United States","latitude":"34.11391990000001","longitude":"-118.2466485","path":"/california/los-angeles/the-odd-market","location_string":"Los Angeles, California 90039","directions_url":"https://www.google.com/maps/dir/Current+Location//Van+De+Kamp+Bakery+Building+2930+Fletcher+Dr+Los+Angeles%2C+California+90039+United+States"},{"name":"Indoor Swapmeet of Stanton","street_address":"10401 Beach Blvd","city":"Los Angeles","state":"California","post_code":"90680","country":"United States","latitude":"33.8110656","longitude":"-117.9937685","path":"/california/los-angeles/indoor-swapmeet-of-stanton","location_string":"Los Angeles, California 90680","directions_url":"https://www.google.com/maps/dir/Current+Location//10401+Beach+Blvd+Los+Angeles%2C+California+90680+United+States"},{"name":"Santa Fe Springs Swap Meet","street_address":"13963 Alondra Blvd","city":"Los Angeles","state":"California","post_code":"90670","country":"United States","latitude":"33.8898141","longitude":"-118.0344209","path":"/california/los-angeles/santa-fe-springs-swap-meet","location_string":"Los Angeles, California 90670","directions_url":"https://www.google.com/maps/dir/Current+Location//13963+Alondra+Blvd+Los+Angeles%2C+California+90670+United+States"},{"name":"Artists and Fleas","street_address":"70 North 7th St","city":"New York City","state":"New York","post_code":"11249","country":"United States","latitude":"40.719877","longitude":"-73.9612119","path":"/new-york/new-york-city/artists-and-fleas","location_string":"New York City, New York 11249","directions_url":"https://www.google.com/maps/dir/Current+Location//70+North+7th+St+New+York+City%2C+New+York+11249+United+States"},{"name":"Spring Valley Swap Meet","street_address":"6377 Quarry Rd","city":"San Diego","state":"California","post_code":"91977","country":"United States","latitude":"32.7008832","longitude":"-117.0073672","path":"/california/san-diego/spring-valley-swap-meet","location_string":"San Diego, California 91977","directions_url":"https://www.google.com/maps/dir/Current+Location//6377+Quarry+Rd+San+Diego%2C+California+91977+United+States"},{"name":"Hester Street Fair","street_address":"Hester St \u0026 Essex St","city":"New York City","state":"New York","post_code":"10002","country":"United States","latitude":"40.7155676","longitude":"-73.9897804","path":"/new-york/new-york-city/hester-street-fair","location_string":"New York City, New York 10002","directions_url":"https://www.google.com/maps/dir/Current+Location//Hester+St+%26+Essex+St+New+York+City%2C+New+York+10002+United+States"},{"name":"Grand Marketplace","street_address":"1005 SE Grand Ave","city":"Portland","state":"Oregon","post_code":"97214","country":"United States","latitude":"45.5156696","longitude":"-122.6609785","path":"/oregon/portland/grand-marketplace","location_string":"Portland, Oregon 97214","directions_url":"https://www.google.com/maps/dir/Current+Location//1005+SE+Grand+Ave+Portland%2C+Oregon+97214+United+States"},{"name":"Goodwill Industries Thrift Store","street_address":"1900 NW 164th","city":"Oklahoma City","state":"Oklahoma","post_code":"73013","country":"United States","latitude":"35.63848309999999","longitude":"-97.5465402","path":"/oklahoma/oklahoma-city/goodwill-industries-thrift-store","location_string":"Oklahoma City, Oklahoma 73013","directions_url":"https://www.google.com/maps/dir/Current+Location//1900+NW+164th+Oklahoma+City%2C+Oklahoma+73013+United+States"},{"name":"Pasadena City College Flea Market","street_address":"1570 E Colorado Blvd","city":"Los Angeles","state":"California","post_code":"91106","country":"United States","latitude":"34.1439329","longitude":"-118.119168","path":"/california/los-angeles/pasadena-city-college-flea-market","location_string":"Los Angeles, California 91106","directions_url":"https://www.google.com/maps/dir/Current+Location//1570+E+Colorado+Blvd+Los+Angeles%2C+California+91106+United+States"},{"name":"Alpine Village Swap Meet","street_address":"833 Torrance Blvd","city":"Los Angeles","state":"California","post_code":"90502","country":"United States","latitude":"33.8423225","longitude":"-118.2876228","path":"/california/los-angeles/alpine-village-swap-meet","location_string":"Los Angeles, California 90502","directions_url":"https://www.google.com/maps/dir/Current+Location//833+Torrance+Blvd+Los+Angeles%2C+California+90502+United+States"},{"name":"Leander Flea Market","street_address":"1291 E Woodview Dr","city":"Austin","state":"Texas","post_code":"78641","country":"United States","latitude":"30.5714447","longitude":"-97.8282938","path":"/texas/austin/leander-flea-market","location_string":"Austin, Texas 78641","directions_url":"https://www.google.com/maps/dir/Current+Location//1291+E+Woodview+Dr+Austin%2C+Texas+78641+United+States"},{"name":"Topanga Vintage Market","street_address":"Pierce College Victory Blvd At Mason Ave","city":"Los Angeles","state":"California","post_code":"91306","country":"United States","latitude":"34.2099096","longitude":"-118.5797225","path":"/california/los-angeles/topanga-vintage-market","location_string":"Los Angeles, California 91306","directions_url":"https://www.google.com/maps/dir/Current+Location//Pierce+College+Victory+Blvd+At+Mason+Ave+Los+Angeles%2C+California+91306+United+States"},{"name":"Selma Flea Market","street_address":"10951 E Mountain View Ave","city":"Fresno","state":"California","post_code":"93662","country":"United States","latitude":"36.5460633","longitude":"-119.592215","path":"/california/fresno/selma-flea-market","location_string":"Fresno, California 93662","directions_url":"https://www.google.com/maps/dir/Current+Location//10951+E+Mountain+View+Ave+Fresno%2C+California+93662+United+States"},{"name":"Beaverton City Hall","street_address":"12755 SW Beaverdam Rd","city":"Portland","state":"Oregon","post_code":"97005","country":"United States","latitude":"45.4890278","longitude":"-122.8079272","path":"/oregon/portland/beaverton-city-hall","location_string":"Portland, Oregon 97005","directions_url":"https://www.google.com/maps/dir/Current+Location//12755+SW+Beaverdam+Rd+Portland%2C+Oregon+97005+United+States"},{"name":"Vintage Charlotte","street_address":"Varies (pop-up events)","city":"Charlotte","state":"North Carolina","post_code":"28205","country":"United States","latitude":"35.2263714","longitude":"-80.7990185","path":"/north-carolina/charlotte/vintage-charlotte","location_string":"Charlotte, North Carolina 28205","directions_url":"https://www.google.com/maps/dir/Current+Location//Varies+%28pop-up+events%29+Charlotte%2C+North+Carolina+28205+United+States"},{"name":"Phila Flea Markets","street_address":"Varies","city":"Philadelphia","state":"Pennsylvania","post_code":"19102","country":"United States","latitude":"39.9556241","longitude":"-75.1647529","path":"/pennsylvania/philadelphia/phila-flea-markets","location_string":"Philadelphia, Pennsylvania 19102","directions_url":"https://www.google.com/maps/dir/Current+Location//Varies+Philadelphia%2C+Pennsylvania+19102+United+States"},{"name":"Cattle Barn Flea Market","street_address":"4443 River Oaks Blvd and 8629 Camp Bowie West","city":"Fort Worth","state":"Texas","post_code":"76114","country":"United States","latitude":"32.7759515","longitude":"-97.4002872","path":"/texas/fort-worth/cattle-barn-flea-market","location_string":"Fort Worth, Texas 76114","directions_url":"https://www.google.com/maps/dir/Current+Location//4443+River+Oaks+Blvd+and+8629+Camp+Bowie+West+Fort+Worth%2C+Texas+76114+United+States"},{"name":"The Big Heap Vintage \u0026 Handmade Festival","street_address":"2446 Fort Tuthill Loop, Flagstaff, AZ and 3841 N Schoolhouse Rd. Cave Creek, AZ","city":"Phoenix","state":"Arizona","post_code":"85258","country":"United States","latitude":"35.1659677","longitude":"-111.6728926","path":"/arizona/phoenix/the-big-heap-vintage-handmade-festival","location_string":"Phoenix, Arizona 85258","directions_url":"https://www.google.com/maps/dir/Current+Location//2446+Fort+Tuthill+Loop%2C+Flagstaff%2C+AZ+and+3841+N+Schoolhouse+Rd.+Cave+Creek%2C+AZ+Phoenix%2C+Arizona+85258+United+States"},{"name":"Odds and Ends Again","street_address":"1080 W County Rd E","city":"Minneapolis","state":"Minnesota","post_code":"55126","country":"United States","latitude":"45.050933","longitude":"-93.2017707","path":"/minnesota/minneapolis/odds-and-ends-again","location_string":"Minneapolis, Minnesota 55126","directions_url":"https://www.google.com/maps/dir/Current+Location//1080+W+County+Rd+E+Minneapolis%2C+Minnesota+55126+United+States"},{"name":"Shelby County Flea Market","street_address":"820 Buck Creek Rd","city":"Louisville","state":"Kentucky","post_code":"40067","country":"United States","latitude":"38.196707","longitude":"-85.3465568","path":"/kentucky/louisville/shelby-county-flea-market","location_string":"Louisville, Kentucky 40067","directions_url":"https://www.google.com/maps/dir/Current+Location//820+Buck+Creek+Rd+Louisville%2C+Kentucky+40067+United+States"},{"name":"Torrance Antique Street Faire","street_address":"1317 Sartori Ave","city":"Los Angeles","state":"California","post_code":"90501","country":"United States","latitude":"33.8344908","longitude":"-118.3155532","path":"/california/los-angeles/torrance-antique-street-faire","location_string":"Los Angeles, California 90501","directions_url":"https://www.google.com/maps/dir/Current+Location//1317+Sartori+Ave+Los+Angeles%2C+California+90501+United+States"},{"name":"Old Town Flea Market","street_address":"748 Rodeo Dr","city":"Fresno","state":"California","post_code":"93612","country":"United States","latitude":"36.821287","longitude":"-119.69697","path":"/california/fresno/old-town-flea-market","location_string":"Fresno, California 93612","directions_url":"https://www.google.com/maps/dir/Current+Location//748+Rodeo+Dr+Fresno%2C+California+93612+United+States"},{"name":"French Market","street_address":"1235 N Peters St","city":"New Orleans","state":"Louisiana","post_code":"70116","country":"United States","latitude":"29.9603911","longitude":"-90.0583055","path":"/louisiana/new-orleans/french-market","location_string":"New Orleans, Louisiana 70116","directions_url":"https://www.google.com/maps/dir/Current+Location//1235+N+Peters+St+New+Orleans%2C+Louisiana+70116+United+States"},{"name":"Flea Martet San Antonio","street_address":"12280 Poteet Jourdanton Fwy","city":"San Antonio","state":"Texas","post_code":"78224","country":"United States","latitude":"29.2958904","longitude":"-98.5550794","path":"/texas/san-antonio/flea-martet-san-antonio","location_string":"San Antonio, Texas 78224","directions_url":"https://www.google.com/maps/dir/Current+Location//12280+Poteet+Jourdanton+Fwy+San+Antonio%2C+Texas+78224+United+States"},{"name":"Chelsea Flea Market","street_address":"W. 25th St. Btwn Sixth Ave. \u0026 Broadway","city":"New York City","state":"New York","post_code":"10011","country":"United States","latitude":"40.7409608","longitude":"-74.0018473","path":"/new-york/new-york-city/chelsea-flea-market","location_string":"New York City, New York 10011","directions_url":"https://www.google.com/maps/dir/Current+Location//W.+25th+St.+Btwn+Sixth+Ave.+%26+Broadway+New+York+City%2C+New+York+10011+United+States"},{"name":"Cypress College Swap Meet","street_address":"9200 Valley View St","city":"Los Angeles","state":"California","post_code":"90630","country":"United States","latitude":"33.8280924","longitude":"-118.0252758","path":"/california/los-angeles/cypress-college-swap-meet","location_string":"Los Angeles, California 90630","directions_url":"https://www.google.com/maps/dir/Current+Location//9200+Valley+View+St+Los+Angeles%2C+California+90630+United+States"},{"name":"Thieves Market","street_address":"1500 N. McClintock Dr.","city":"Tempe","state":"Arizona","post_code":"85281","country":"United States","latitude":"33.4456126","longitude":"-111.910783","path":"/arizona/tempe/thieves-market","location_string":"Tempe, Arizona 85281","directions_url":"https://www.google.com/maps/dir/Current+Location//1500+N.+McClintock+Dr.+Tempe%2C+Arizona+85281+United+States"},{"name":"FrankenBike Swap Meet","street_address":"1902 E 6th St","city":"Austin","state":"Texas","post_code":"78702","country":"United States","latitude":"30.2617385","longitude":"-97.722008","path":"/texas/austin/frankenbike-swap-meet","location_string":"Austin, Texas 78702","directions_url":"https://www.google.com/maps/dir/Current+Location//1902+E+6th+St+Austin%2C+Texas+78702+United+States"},{"name":"Marietta Flea Market","street_address":"550 Franklin Rd SE","city":"Marietta","state":"Georgia","post_code":"30067","country":"United States","latitude":"33.9305759","longitude":"-84.49665999999999","path":"/georgia/marietta/marietta-flea-market","location_string":"Marietta, Georgia 30067","directions_url":"https://www.google.com/maps/dir/Current+Location//550+Franklin+Rd+SE+Marietta%2C+Georgia+30067+United+States"},{"name":"SoWa Vintage Market","street_address":"450 Harrison Ave","city":"Boston","state":"Massachusetts","post_code":"02118","country":"United States","latitude":"42.34274790000001","longitude":"-71.0649102","path":"/massachusetts/boston/sowa-vintage-market","location_string":"Boston, Massachusetts 02118","directions_url":"https://www.google.com/maps/dir/Current+Location//450+Harrison+Ave+Boston%2C+Massachusetts+02118+United+States"},{"name":"Fantastic Indoor Swap Meet","street_address":"1717 S Decatur Blvd","city":"Las Vegas","state":"Nevada","post_code":"89102","country":"United States","latitude":"36.15078889999999","longitude":"-115.2056107","path":"/nevada/las-vegas/fantastic-indoor-swap-meet","location_string":"Las Vegas, Nevada 89102","directions_url":"https://www.google.com/maps/dir/Current+Location//1717+S+Decatur+Blvd+Las+Vegas%2C+Nevada+89102+United+States"},{"name":"Woodruff Place Flea Market","street_address":"500 Middle Dr","city":"Indianapolis","state":"Indiana","post_code":"46201","country":"United States","latitude":"39.7743753","longitude":"-86.1284897","path":"/indiana/indianapolis/woodruff-place-flea-market","location_string":"Indianapolis, Indiana 46201","directions_url":"https://www.google.com/maps/dir/Current+Location//500+Middle+Dr+Indianapolis%2C+Indiana+46201+United+States"},{"name":"Mesa Market Place Swap Meet","street_address":"10550 E Baseline Rd","city":"Mesa","state":"Arizona","post_code":"85209","country":"United States","latitude":"33.3810546","longitude":"-111.6052427","path":"/arizona/mesa/mesa-market-place-swap-meet","location_string":"Mesa, Arizona 85209","directions_url":"https://www.google.com/maps/dir/Current+Location//10550+E+Baseline+Rd+Mesa%2C+Arizona+85209+United+States"},{"name":"MIT Flea Market","street_address":"Albany \u0026 Main Sts","city":"Cambridge","state":"Massachusetts","post_code":"02139","country":"United States","latitude":"42.36284819999999","longitude":"-71.0919304","path":"/massachusetts/cambridge/mit-flea-market","location_string":"Cambridge, Massachusetts 02139","directions_url":"https://www.google.com/maps/dir/Current+Location//Albany+%26+Main+Sts+Cambridge%2C+Massachusetts+02139+United+States"},{"name":"The Roadium Open Air Market","street_address":"2500 Redondo Beach Blvd","city":"Torrance","state":"California","post_code":"90504","country":"United States","latitude":"33.8835627","longitude":"-118.3207987","path":"/california/torrance/the-roadium-open-air-market","location_string":"Torrance, California 90504","directions_url":"https://www.google.com/maps/dir/Current+Location//2500+Redondo+Beach+Blvd+Torrance%2C+California+90504+United+States"},{"name":"Madera Flea Market","street_address":"1850 Cleveland Ave","city":"Madera","state":"California","post_code":"93637","country":"United States","latitude":"36.972893","longitude":"-120.0804547","path":"/california/madera/madera-flea-market","location_string":"Madera, California 93637","directions_url":"https://www.google.com/maps/dir/Current+Location//1850+Cleveland+Ave+Madera%2C+California+93637+United+States"},{"name":"Flushing Night Out","street_address":"137-35 Northern Blvd","city":"New York City","state":"New York","post_code":"11354","country":"United States","latitude":"40.7638944","longitude":"-73.8300732","path":"/new-york/new-york-city/flushing-night-out","location_string":"New York City, New York 11354","directions_url":"https://www.google.com/maps/dir/Current+Location//137-35+Northern+Blvd+New+York+City%2C+New+York+11354+United+States"},{"name":"Arlington Civitan Flea Market","street_address":"15th \u0026 Quincy Street","city":"Arlington","state":"Virginia","post_code":"22201","country":"United States","latitude":"38.8902498","longitude":"-77.1082114","path":"/virginia/arlington/arlington-civitan-flea-market","location_string":"Arlington, Virginia 22201","directions_url":"https://www.google.com/maps/dir/Current+Location//15th+%26+Quincy+Street+Arlington%2C+Virginia+22201+United+States"},{"name":"Irvington Flea Market","street_address":"6301 E Washington St","city":"Indianapolis","state":"Indiana","post_code":"46219","country":"United States","latitude":"39.7713781","longitude":"-86.058723","path":"/indiana/indianapolis/irvington-flea-market","location_string":"Indianapolis, Indiana 46219","directions_url":"https://www.google.com/maps/dir/Current+Location//6301+E+Washington+St+Indianapolis%2C+Indiana+46219+United+States"},{"name":"The Garage Sale Warehouse","street_address":"4830 SW Western Ave","city":"Beaverton","state":"Oregon","post_code":"97005","country":"United States","latitude":"45.4845635","longitude":"-122.781859","path":"/oregon/beaverton/the-garage-sale-warehouse","location_string":"Beaverton, Oregon 97005","directions_url":"https://www.google.com/maps/dir/Current+Location//4830+SW+Western+Ave+Beaverton%2C+Oregon+97005+United+States"},{"name":"Greenlawn Grove Flea Market","street_address":"16447 Middlebelt Rd","city":"Romulus","state":"Michigan","post_code":"48174","country":"United States","latitude":"42.1841464","longitude":"-83.3245804","path":"/michigan/romulus/greenlawn-grove-flea-market","location_string":"Romulus, Michigan 48174","directions_url":"https://www.google.com/maps/dir/Current+Location//16447+Middlebelt+Rd+Romulus%2C+Michigan+48174+United+States"},{"name":"Artists and Fleas","street_address":"88 10th Ave 88 Tenth Ave","city":"New York City","state":"New York","post_code":"10011","country":"United States","latitude":"40.7430827","longitude":"-74.0072503","path":"/new-york/new-york-city/artists-and-fleas","location_string":"New York City, New York 10011","directions_url":"https://www.google.com/maps/dir/Current+Location//88+10th+Ave+88+Tenth+Ave+New+York+City%2C+New+York+10011+United+States"},{"name":"Tanque Verde Swap Meet","street_address":"4100 S Palo Verde Rd","city":"Tucson","state":"Arizona","post_code":"85714","country":"United States","latitude":"32.1747435","longitude":"-110.9187558","path":"/arizona/tucson/tanque-verde-swap-meet","location_string":"Tucson, Arizona 85714","directions_url":"https://www.google.com/maps/dir/Current+Location//4100+S+Palo+Verde+Rd+Tucson%2C+Arizona+85714+United+States"},{"name":"Renegade Craft Fair Chicago","street_address":"1425 N Damen Ave","city":"Chicago","state":"Illinois","post_code":"60622","country":"United States","latitude":"41.9080486","longitude":"-87.676738","path":"/illinois/chicago/renegade-craft-fair-chicago","location_string":"Chicago, Illinois 60622","directions_url":"https://www.google.com/maps/dir/Current+Location//1425+N+Damen+Ave+Chicago%2C+Illinois+60622+United+States"},{"name":"Ramona Flea Market","street_address":"7059 Ramona Blvd","city":"Jacksonville","state":"Florida","post_code":"32205","country":"United States","latitude":"30.31398","longitude":"-81.76412979999999","path":"/florida/jacksonville/ramona-flea-market","location_string":"Jacksonville, Florida 32205","directions_url":"https://www.google.com/maps/dir/Current+Location//7059+Ramona+Blvd+Jacksonville%2C+Florida+32205+United+States"},{"name":"The Market NYC","street_address":"290 Mulberry St","city":"New York City","state":"New York","post_code":"10012","country":"United States","latitude":"40.7246573","longitude":"-73.9948778","path":"/new-york/new-york-city/the-market-nyc","location_string":"New York City, New York 10012","directions_url":"https://www.google.com/maps/dir/Current+Location//290+Mulberry+St+New+York+City%2C+New+York+10012+United+States"},{"name":"Aquaduck Fleamarket","street_address":"700 Fountain Ave","city":"New York City","state":"New York","post_code":"11208","country":"United States","latitude":"40.6622186","longitude":"-73.8696863","path":"/new-york/new-york-city/aquaduck-fleamarket","location_string":"New York City, New York 11208","directions_url":"https://www.google.com/maps/dir/Current+Location//700+Fountain+Ave+New+York+City%2C+New+York+11208+United+States"},{"name":"Opa-Locka Hialeah Flea Market","street_address":"12705 NW 42nd Ave","city":"Miami","state":"Florida","post_code":"33054","country":"United States","latitude":"25.8872559","longitude":"-80.2659865","path":"/florida/miami/opa-locka-hialeah-flea-market","location_string":"Miami, Florida 33054","directions_url":"https://www.google.com/maps/dir/Current+Location//12705+NW+42nd+Ave+Miami%2C+Florida+33054+United+States"},{"name":"Village Flea Market","street_address":"2301 S Meridian Ave","city":"Wichita","state":"Kansas","post_code":"67213","country":"United States","latitude":"37.6526318","longitude":"-97.3733427","path":"/kansas/wichita/village-flea-market","location_string":"Wichita, Kansas 67213","directions_url":"https://www.google.com/maps/dir/Current+Location//2301+S+Meridian+Ave+Wichita%2C+Kansas+67213+United+States"},{"name":"South Drive-In Theater","street_address":"3050 S High St","city":"Columbus","state":"Ohio","post_code":"43207","country":"United States","latitude":"39.8979449","longitude":"-82.9917004","path":"/ohio/columbus/south-drive-in-theater","location_string":"Columbus, Ohio 43207","directions_url":"https://www.google.com/maps/dir/Current+Location//3050+S+High+St+Columbus%2C+Ohio+43207+United+States"},{"name":"Folsom Blvd Flea Market","street_address":"8521 Folsom Blvd","city":"Sacramento","state":"California","post_code":"95826","country":"United States","latitude":"38.5484777","longitude":"-121.3896355","path":"/california/sacramento/folsom-blvd-flea-market","location_string":"Sacramento, California 95826","directions_url":"https://www.google.com/maps/dir/Current+Location//8521+Folsom+Blvd+Sacramento%2C+California+95826+United+States"},{"name":"Boulevard Drive-In Swap 'n' Shop","street_address":"1051 Merriam Ln","city":"Kansas City","state":"Missouri","post_code":"66103","country":"United States","latitude":"39.0561011","longitude":"-94.6377213","path":"/missouri/kansas-city/boulevard-drive-in-swap-shop","location_string":"Kansas City, Missouri 66103","directions_url":"https://www.google.com/maps/dir/Current+Location//1051+Merriam+Ln+Kansas+City%2C+Missouri+66103+United+States"},{"name":"Rummage-A-Rama","street_address":"6000 W Ryan Rd","city":"Milwaukee","state":"Wisconsin","post_code":"53132","country":"United States","latitude":"42.8797898","longitude":"-87.98748909999999","path":"/wisconsin/milwaukee/rummage-a-rama","location_string":"Milwaukee, Wisconsin 53132","directions_url":"https://www.google.com/maps/dir/Current+Location//6000+W+Ryan+Rd+Milwaukee%2C+Wisconsin+53132+United+States"},{"name":"La Estrella Flea Market","street_address":"10420 Eastex Fwy","city":"Houston","state":"Texas","post_code":"77093","country":"United States","latitude":"29.86344119999999","longitude":"-95.33208169999999","path":"/texas/houston/la-estrella-flea-market","location_string":"Houston, Texas 77093","directions_url":"https://www.google.com/maps/dir/Current+Location//10420+Eastex+Fwy+Houston%2C+Texas+77093+United+States"},{"name":"Deep Ellum Outdoor Market","street_address":"2636 Main St","city":"Dallas","state":"Texas","post_code":"75226","country":"United States","latitude":"32.7836153","longitude":"-96.7850789","path":"/texas/dallas/deep-ellum-outdoor-market","location_string":"Dallas, Texas 75226","directions_url":"https://www.google.com/maps/dir/Current+Location//2636+Main+St+Dallas%2C+Texas+75226+United+States"},{"name":"Swap Meet Las Carpas","street_address":"Callejón de Servicios 15168","city":"San Diego","state":"California","post_code":"22115","country":"United States","latitude":"32.5331372","longitude":"-116.9777656","path":"/california/san-diego/swap-meet-las-carpas","location_string":"San Diego, California 22115","directions_url":"https://www.google.com/maps/dir/Current+Location//Callej%C3%B3n+de+Servicios+15168+San+Diego%2C+California+22115+United+States"},{"name":"Americas Flea Market","street_address":"3611 Salem Rd","city":"Atlanta","state":"Georgia","post_code":"30016","country":"United States","latitude":"33.5922527","longitude":"-83.971628","path":"/georgia/atlanta/americas-flea-market","location_string":"Atlanta, Georgia 30016","directions_url":"https://www.google.com/maps/dir/Current+Location//3611+Salem+Rd+Atlanta%2C+Georgia+30016+United+States"},{"name":"Swap Meet LA","street_address":"9800 Mills Ave","city":"Los Angeles","state":"California","post_code":"90604","country":"United States","latitude":"33.9438157","longitude":"-118.0242712","path":"/california/los-angeles/swap-meet-la","location_string":"Los Angeles, California 90604","directions_url":"https://www.google.com/maps/dir/Current+Location//9800+Mills+Ave+Los+Angeles%2C+California+90604+United+States"},{"name":"Bargain House of Fleas","street_address":"6016 Blanding Blvd","city":"Jacksonville","state":"Florida","post_code":"32244","country":"United States","latitude":"30.241008","longitude":"-81.742521","path":"/florida/jacksonville/bargain-house-of-fleas","location_string":"Jacksonville, Florida 32244","directions_url":"https://www.google.com/maps/dir/Current+Location//6016+Blanding+Blvd+Jacksonville%2C+Florida+32244+United+States"},{"name":"Cotton Bowl Trade Days","street_address":"State Fair Grounds","city":"Dallas","state":"Texas","post_code":"79701","country":"United States","latitude":"32.77933840000001","longitude":"-96.76374","path":"/texas/dallas/cotton-bowl-trade-days","location_string":"Dallas, Texas 79701","directions_url":"https://www.google.com/maps/dir/Current+Location//State+Fair+Grounds+Dallas%2C+Texas+79701+United+States"},{"name":"Durham Green Flea Market","street_address":"1600 E Pettigrew St","city":"Raleigh","state":"North Carolina","post_code":"27701","country":"United States","latitude":"35.9818607","longitude":"-78.8847237","path":"/north-carolina/raleigh/durham-green-flea-market","location_string":"Raleigh, North Carolina 27701","directions_url":"https://www.google.com/maps/dir/Current+Location//1600+E+Pettigrew+St+Raleigh%2C+North+Carolina+27701+United+States"},{"name":"Glen Ellyn French Market","street_address":"Downtown Glen Ellyn Crescent Blvd/Prospect Ave","city":"Chicago","state":"Illinois","post_code":"60137","country":"United States","latitude":"41.882841","longitude":"-88.05347789999999","path":"/illinois/chicago/glen-ellyn-french-market","location_string":"Chicago, Illinois 60137","directions_url":"https://www.google.com/maps/dir/Current+Location//Downtown+Glen+Ellyn+Crescent+Blvd%2FProspect+Ave+Chicago%2C+Illinois+60137+United+States"},{"name":"Lafayette Collectibles and Flea Market","street_address":"130 E Spaulding St","city":"Denver","state":"Colorado","post_code":"80026","country":"United States","latitude":"39.9912633","longitude":"-105.0901107","path":"/colorado/denver/lafayette-collectibles-and-flea-market","location_string":"Denver, Colorado 80026","directions_url":"https://www.google.com/maps/dir/Current+Location//130+E+Spaulding+St+Denver%2C+Colorado+80026+United+States"},{"name":"Newark Flea Market","street_address":"237 Verona Ave","city":"New York City","state":"New York","post_code":"7104","country":"United States","latitude":"40.6806886","longitude":"-74.01087989999999","path":"/new-york/new-york-city/newark-flea-market","location_string":"New York City, New York 7104","directions_url":"https://www.google.com/maps/dir/Current+Location//237+Verona+Ave+New+York+City%2C+New+York+7104+United+States"},{"name":"Pecan Park Flea \u0026 Farmers Market","street_address":"614 Pecan Park Rd","city":"Jacksonville","state":"Florida","post_code":"32218","country":"United States","latitude":"30.5160807","longitude":"-81.6368488","path":"/florida/jacksonville/pecan-park-flea-farmers-market","location_string":"Jacksonville, Florida 32218","directions_url":"https://www.google.com/maps/dir/Current+Location//614+Pecan+Park+Rd+Jacksonville%2C+Florida+32218+United+States"},{"name":"Silverlake Flea","street_address":"1511 Micheltorena St.","city":"Los Angeles","state":"California","post_code":"90026","country":"United States","latitude":"34.089274","longitude":"-118.275451","path":"/california/los-angeles/silverlake-flea","location_string":"Los Angeles, California 90026","directions_url":"https://www.google.com/maps/dir/Current+Location//1511+Micheltorena+St.+Los+Angeles%2C+California+90026+United+States"},{"name":"South High Flea Market","street_address":"3050 S High St","city":"Columbus","state":"Ohio","post_code":"43215","country":"United States","latitude":"39.8979449","longitude":"-82.9917004","path":"/ohio/columbus/south-high-flea-market","location_string":"Columbus, Ohio 43215","directions_url":"https://www.google.com/maps/dir/Current+Location//3050+S+High+St+Columbus%2C+Ohio+43215+United+States"},{"name":"Branham Bruin Flea Market","street_address":"1570 Branham Ln","city":"San Jose","state":"California","post_code":"95118","country":"United States","latitude":"37.2530586","longitude":"-121.898164","path":"/california/san-jose/branham-bruin-flea-market","location_string":"San Jose, California 95118","directions_url":"https://www.google.com/maps/dir/Current+Location//1570+Branham+Ln+San+Jose%2C+California+95118+United+States"},{"name":"DC Big Flea Market","street_address":"Dulles Expo Center 4368 Chantilly Shopping Ctr","city":"Washington","state":"District of Columbia","post_code":"20153","country":"United States","latitude":"38.89","longitude":"-77.44","path":"/district-of-columbia/washington/dc-big-flea-market","location_string":"Washington, District of Columbia 20153","directions_url":"https://www.google.com/maps/dir/Current+Location//Dulles+Expo+Center+4368+Chantilly+Shopping+Ctr+Washington%2C+District+of+Columbia+20153+United+States"},{"name":"Design District Market","street_address":"1530 Inspiration Dr","city":"Dallas","state":"Texas","post_code":"75207","country":"United States","latitude":"32.7914314","longitude":"-96.81605719999999","path":"/texas/dallas/design-district-market","location_string":"Dallas, Texas 75207","directions_url":"https://www.google.com/maps/dir/Current+Location//1530+Inspiration+Dr+Dallas%2C+Texas+75207+United+States"},{"name":"Fox Plaza Flea Market","street_address":"5559 Alameda Ave","city":"El Paso","state":"Texas","post_code":"79905","country":"United States","latitude":"31.7693897","longitude":"-106.4234219","path":"/texas/el-paso/fox-plaza-flea-market","location_string":"El Paso, Texas 79905","directions_url":"https://www.google.com/maps/dir/Current+Location//5559+Alameda+Ave+El+Paso%2C+Texas+79905+United+States"},{"name":"Hamel Lions Flea Market","street_address":"Medina Entertainment Center Grounds 500 Hwy 55","city":"Minneapolis","state":"Minnesota","post_code":"55340","country":"United States","latitude":"45.07486979999999","longitude":"-93.5772727","path":"/minnesota/minneapolis/hamel-lions-flea-market","location_string":"Minneapolis, Minnesota 55340","directions_url":"https://www.google.com/maps/dir/Current+Location//Medina+Entertainment+Center+Grounds+500+Hwy+55+Minneapolis%2C+Minnesota+55340+United+States"},{"name":"Indie Arts \u0026 Vintage Marketplace","street_address":"Glendale Town Ctr 62nd \u0026 Keystone","city":"Indianapolis","state":"Indiana","post_code":"46220","country":"United States","latitude":"39.8646455","longitude":"-86.1039189","path":"/indiana/indianapolis/indie-arts-vintage-marketplace","location_string":"Indianapolis, Indiana 46220","directions_url":"https://www.google.com/maps/dir/Current+Location//Glendale+Town+Ctr+62nd+%26+Keystone+Indianapolis%2C+Indiana+46220+United+States"},{"name":"Jack Of All Trades Market","street_address":"Jack London Sq","city":"San Francisco","state":"California","post_code":"94607","country":"United States","latitude":"37.7938168","longitude":"-122.2715234","path":"/california/san-francisco/jack-of-all-trades-market","location_string":"San Francisco, California 94607","directions_url":"https://www.google.com/maps/dir/Current+Location//Jack+London+Sq+San+Francisco%2C+California+94607+United+States"},{"name":"Lankershim Swapmeet","street_address":"7355 Lankershim Blvd","city":"Los Angeles","state":"California","post_code":"91605","country":"United States","latitude":"34.2042997","longitude":"-118.3886766","path":"/california/los-angeles/lankershim-swapmeet","location_string":"Los Angeles, California 91605","directions_url":"https://www.google.com/maps/dir/Current+Location//7355+Lankershim+Blvd+Los+Angeles%2C+California+91605+United+States"},{"name":"Robinson Flea Market","street_address":"1248 Gallatin Pike S","city":"Nashville","state":"Tennessee","post_code":"37115","country":"United States","latitude":"36.2449045","longitude":"-86.7230723","path":"/tennessee/nashville/robinson-flea-market","location_string":"Nashville, Tennessee 37115","directions_url":"https://www.google.com/maps/dir/Current+Location//1248+Gallatin+Pike+S+Nashville%2C+Tennessee+37115+United+States"},{"name":"Salvaged Treasures Marketplace","street_address":"Ohio Expo Center","city":"Columbus","state":"Ohio","post_code":"43211","country":"United States","latitude":"39.9977435","longitude":"-82.9909476","path":"/ohio/columbus/salvaged-treasures-marketplace","location_string":"Columbus, Ohio 43211","directions_url":"https://www.google.com/maps/dir/Current+Location//Ohio+Expo+Center+Columbus%2C+Ohio+43211+United+States"},{"name":"Santee Swap Meet","street_address":"10990 Woodside Ave N","city":"San Diego","state":"California","post_code":"92071","country":"United States","latitude":"32.8465511","longitude":"-116.9579717","path":"/california/san-diego/santee-swap-meet","location_string":"San Diego, California 92071","directions_url":"https://www.google.com/maps/dir/Current+Location//10990+Woodside+Ave+N+San+Diego%2C+California+92071+United+States"},{"name":"The Artsy Flea","street_address":"2930 Fletcher Drive","city":"Los Angeles","state":"California","post_code":"90039","country":"United States","latitude":"34.1140855","longitude":"-118.2467267","path":"/california/los-angeles/the-artsy-flea","location_string":"Los Angeles, California 90039","directions_url":"https://www.google.com/maps/dir/Current+Location//2930+Fletcher+Drive+Los+Angeles%2C+California+90039+United+States"},{"name":"Warren Community Trade Center","street_address":"2300 E 10 Mile Rd","city":"Detroit","state":"Michigan","post_code":"48091","country":"United States","latitude":"42.4756069","longitude":"-83.0789954","path":"/michigan/detroit/warren-community-trade-center","location_string":"Detroit, Michigan 48091","directions_url":"https://www.google.com/maps/dir/Current+Location//2300+E+10+Mile+Rd+Detroit%2C+Michigan+48091+United+States"},{"name":"Clark Park Flea Market","street_address":"43rd St and Baltimore Ave","city":"Philadelphia","state":"Pennsylvania","post_code":"19104","country":"United States","latitude":"39.94957309999999","longitude":"-75.20924029999999","path":"/pennsylvania/philadelphia/clark-park-flea-market","location_string":"Philadelphia, Pennsylvania 19104","directions_url":"https://www.google.com/maps/dir/Current+Location//43rd+St+and+Baltimore+Ave+Philadelphia%2C+Pennsylvania+19104+United+States"},{"name":"Dumbo Flea","street_address":"Anchorage Place","city":"New York City","state":"New York","post_code":"11201","country":"United States","latitude":"40.7031534","longitude":"-73.9879302","path":"/new-york/new-york-city/dumbo-flea","location_string":"New York City, New York 11201","directions_url":"https://www.google.com/maps/dir/Current+Location//Anchorage+Place+New+York+City%2C+New+York+11201+United+States"},{"name":"Whizcows Flea Market","street_address":"17003 E 24 Hwy","city":"Kansas City","state":"Missouri","post_code":"64056","country":"United States","latitude":"39.1194061","longitude":"-94.3749019","path":"/missouri/kansas-city/whizcows-flea-market","location_string":"Kansas City, Missouri 64056","directions_url":"https://www.google.com/maps/dir/Current+Location//17003+E+24+Hwy+Kansas+City%2C+Missouri+64056+United+States"},{"name":"Shipshewana Auction \u0026 Flea Market","street_address":"345 S Van Buren St","city":"Shipshewana","state":"Indiana","post_code":"46565","country":"United States","latitude":"41.6725883","longitude":"-85.57997329999999","path":"/indiana/shipshewana/shipshewana-auction-and-flea-market","location_string":"Shipshewana, Indiana 46565","directions_url":"https://www.google.com/maps/dir/Current+Location//345+S+Van+Buren+St+Shipshewana%2C+Indiana+46565+United+States"},{"name":"Elephant's Trunk Flea Market","street_address":"490 Danbury Rd","city":"New Milford","state":"Connecticut","post_code":"6776","country":"United States","latitude":"41.5203496","longitude":"-73.4233368","path":"/connecticut/new-milford/elephants-trunk-flea-market","location_string":"New Milford, Connecticut 6776","directions_url":"https://www.google.com/maps/dir/Current+Location//490+Danbury+Rd+New+Milford%2C+Connecticut+6776+United+States"},{"name":"Long Beach Antique Market","street_address":"4901 E Conant St","city":"Long Beach","state":"California","post_code":"90808","country":"United States","latitude":"33.8254471","longitude":"-118.1352884","path":"/california/long-beach/long-beach-antique-market","location_string":"Long Beach, California 90808","directions_url":"https://www.google.com/maps/dir/Current+Location//4901+E+Conant+St+Long+Beach%2C+California+90808+United+States"},{"name":"Keller's Flea Market","street_address":"5901 Ogeechee Rd","city":"Savannah","state":"Georgia","post_code":"31419","country":"United States","latitude":"31.9972115","longitude":"-81.2490916","path":"/georgia/savannah/kellers-flea-market","location_string":"Savannah, Georgia 31419","directions_url":"https://www.google.com/maps/dir/Current+Location//5901+Ogeechee+Rd+Savannah%2C+Georgia+31419+United+States"},{"name":"Vintage Garage Chicago","street_address":"5051 N. Broadway","city":"Chicago","state":"Illinois","post_code":"60640","country":"United States","latitude":"41.9742276","longitude":"-87.6591923","path":"/illinois/chicago/vintage-garage-chicago","location_string":"Chicago, Illinois 60640","directions_url":"https://www.google.com/maps/dir/Current+Location//5051+N.+Broadway+Chicago%2C+Illinois+60640+United+States"},{"name":"Trenton Punk Rock Flea Market","street_address":"675 South Clinton Avenue","city":"Trenton","state":"New Jersey","post_code":"8611","country":"United States","latitude":"40.209439","longitude":"-74.75274999999999","path":"/new-jersey/trenton/trenton-punk-rock-flea-market","location_string":"Trenton, New Jersey 8611","directions_url":"https://www.google.com/maps/dir/Current+Location//675+South+Clinton+Avenue+Trenton%2C+New+Jersey+8611+United+States"},{"name":"Leighty's Flea Market","street_address":"16187 Dunnings Highway","city":"Newry","state":"Pennsylvania","post_code":"16665","country":"United States","latitude":"40.388743","longitude":"-78.4347463","path":"/pennsylvania/newry/leightys-flea-market","location_string":"Newry, Pennsylvania 16665","directions_url":"https://www.google.com/maps/dir/Current+Location//16187+Dunnings+Highway+Newry%2C+Pennsylvania+16665+United+States"},{"name":"Bella Patina","street_address":"1320 W. 12th St","city":"Kansas City","state":"Missouri","post_code":"64101","country":"United States","latitude":"39.1009884","longitude":"-94.6008937","path":"/missouri/kansas-city/bella-patina","location_string":"Kansas City, Missouri 64101","directions_url":"https://www.google.com/maps/dir/Current+Location//1320+W.+12th+St+Kansas+City%2C+Missouri+64101+United+States"},{"name":"Roosevelt Mall Flea Market","street_address":"2445 Cottman Avenue","city":"Philadelphia","state":"Pennsylvania","post_code":"19149","country":"United States","latitude":"40.0464874","longitude":"-75.05780969999999","path":"/pennsylvania/philadelphia/roosevelt-mall-flea-market","location_string":"Philadelphia, Pennsylvania 19149","directions_url":"https://www.google.com/maps/dir/Current+Location//2445+Cottman+Avenue+Philadelphia%2C+Pennsylvania+19149+United+States"},{"name":"Wildcat Flea Market","street_address":"590 Hal Rogers Parkway","city":"London","state":"Kentucky","post_code":"40744","country":"United States","latitude":"37.1193018","longitude":"-84.03079919999999","path":"/kentucky/london/wildcat-flea-market","location_string":"London, Kentucky 40744","directions_url":"https://www.google.com/maps/dir/Current+Location//590+Hal+Rogers+Parkway+London%2C+Kentucky+40744+United+States"},{"name":"Wolffs","street_address":"6920 Mannheim Rd","city":"Rosemont","state":"Illinois","post_code":"60018","country":"United States","latitude":"42.0053169","longitude":"-87.8877941","path":"/illinois/rosemont/wolffs","location_string":"Rosemont, Illinois 60018","directions_url":"https://www.google.com/maps/dir/Current+Location//6920+Mannheim+Rd+Rosemont%2C+Illinois+60018+United+States"},{"name":"49 Flea Market","street_address":"19 Dewitt Carter Rd","city":"Hattiesburg","state":"Mississippi","post_code":"39401","country":"United States","latitude":"31.1357879","longitude":"-89.2279209","path":"/mississippi/hattiesburg/49-flea-market","location_string":"Hattiesburg, Mississippi 39401","directions_url":"https://www.google.com/maps/dir/Current+Location//19+Dewitt+Carter+Rd+Hattiesburg%2C+Mississippi+39401+United+States"},{"name":"Mower's Flea Market","street_address":"Maple Ln","city":"Woodstock","state":"New York","post_code":"12498","country":"United States","latitude":"42.040233","longitude":"-74.117921","path":"/new-york/woodstock/mowers-flea-market","location_string":"Woodstock, New York 12498","directions_url":"https://www.google.com/maps/dir/Current+Location//Maple+Ln+Woodstock%2C+New+York+12498+United+States"},{"name":"The Old Chicken Farm Vintage barn Sale","street_address":"12699 E Britton Rd","city":"Jones","state":"Oklahoma","post_code":"73049","country":"United States","latitude":"35.5665726","longitude":"-97.30655619999999","path":"/oklahoma/jones/the-old-chicken-farm-vintage-barn-sale","location_string":"Jones, Oklahoma 73049","directions_url":"https://www.google.com/maps/dir/Current+Location//12699+E+Britton+Rd+Jones%2C+Oklahoma+73049+United+States"},{"name":"The Providence Flea","street_address":"345 S Water St","city":"Providence","state":"Rhode Island","post_code":"2903","country":"United States","latitude":"41.8212949","longitude":"-71.40462889999999","path":"/rhode-island/providence/the-providence-flea","location_string":"Providence, Rhode Island 2903","directions_url":"https://www.google.com/maps/dir/Current+Location//345+S+Water+St+Providence%2C+Rhode+Island+2903+United+States"},{"name":"Hidden Treasures Flea Market","street_address":"9107 Highway 107","city":"Sherwood","state":"Arkansas","post_code":"72120","country":"United States","latitude":"34.8381288","longitude":"-92.2323404","path":"/arkansas/sherwood/hidden-treasures-flea-market","location_string":"Sherwood, Arkansas 72120","directions_url":"https://www.google.com/maps/dir/Current+Location//9107+Highway+107+Sherwood%2C+Arkansas+72120+United+States"},{"name":"Brooklyn Flea","street_address":"176 Lafayette Ave","city":"Brooklyn","state":"New York","post_code":"11238","country":"United States","latitude":"40.6876994","longitude":"-73.9692869","path":"/new-york/brooklyn/brooklyn-flea","location_string":"Brooklyn, New York 11238","directions_url":"https://www.google.com/maps/dir/Current+Location//176+Lafayette+Ave+Brooklyn%2C+New+York+11238+United+States"},{"name":"Alameda Point Antiques Faire","street_address":"2700 Saratoga St","city":"Alameda","state":"California","post_code":"94501","country":"United States","latitude":"37.7875647","longitude":"-122.3016465","path":"/california/alameda/alameda-point-antiques-faire","location_string":"Alameda, California 94501","directions_url":"https://www.google.com/maps/dir/Current+Location//2700+Saratoga+St+Alameda%2C+California+94501+United+States"},{"name":"Melrose Trading Post","street_address":"7850 Melrose Ave","city":"Los Angeles","state":"California","post_code":"90046","country":"United States","latitude":"34.0834007","longitude":"-118.3597341","path":"/california/los-angeles/melrose-trading-post","location_string":"Los Angeles, California 90046","directions_url":"https://www.google.com/maps/dir/Current+Location//7850+Melrose+Ave+Los+Angeles%2C+California+90046+United+States"},{"name":"Renninger's Antique Market - Adamstown","street_address":"2500 North Reading Road","city":"Denver","state":"Pennsylvania","post_code":"17517","country":"United States","latitude":"40.2309207","longitude":"-76.0809573","path":"/pennsylvania/denver/renningers-antique-market-adamstown","location_string":"Denver, Pennsylvania 17517","directions_url":"https://www.google.com/maps/dir/Current+Location//2500+North+Reading+Road+Denver%2C+Pennsylvania+17517+United+States"},{"name":"Renninger's Antique and Farmer's Market - Kutztown","street_address":"740 Noble Street","city":"Kutztown","state":"Pennsylvania","post_code":"19530","country":"United States","latitude":"40.5027818","longitude":"-75.7694625","path":"/pennsylvania/kutztown/renningers-antique-and-farmers-market-kutztown","location_string":"Kutztown, Pennsylvania 19530","directions_url":"https://www.google.com/maps/dir/Current+Location//740+Noble+Street+Kutztown%2C+Pennsylvania+19530+United+States"},{"name":"Renninger's Flea and Farmer's Market - Melbourne","street_address":"4835 West Eau Gallie Blvd.","city":"Melbourne","state":"Florida","post_code":"32934","country":"United States","latitude":"28.1149947","longitude":"-80.7077899","path":"/florida/melbourne/renningers-flea-and-farmers-market-melbourne","location_string":"Melbourne, Florida 32934","directions_url":"https://www.google.com/maps/dir/Current+Location//4835+West+Eau+Gallie+Blvd.+Melbourne%2C+Florida+32934+United+States"},{"name":"Renninger's Florida Twin Markets - Mount Dora","street_address":"20651 US-441","city":"Mount Dora","state":"Florida","post_code":"32757","country":"United States","latitude":"28.8049989","longitude":"-81.6243429","path":"/florida/mount-dora/renningers-florida-twin-markets-mount-dora","location_string":"Mount Dora, Florida 32757","directions_url":"https://www.google.com/maps/dir/Current+Location//20651+US-441+Mount+Dora%2C+Florida+32757+United+States"},{"name":"Golden Nugget Antique Market","street_address":"1850 S River Rd","city":"Lambertville","state":"New Jersey","post_code":"8530","country":"United States","latitude":"40.3365738","longitude":"-74.93034829999999","path":"/new-jersey/lambertville/golden-nugget-antique-market","location_string":"Lambertville, New Jersey 8530","directions_url":"https://www.google.com/maps/dir/Current+Location//1850+S+River+Rd+Lambertville%2C+New+Jersey+8530+United+States"},{"name":"127 Corridor Sale","street_address":"114 E Central Ave","city":"Jamestown","state":"Tennessee","post_code":"38556","country":"United States","latitude":"36.4275902","longitude":"-84.931493","path":"/tennessee/jamestown/127-corridor-sale","location_string":"Jamestown, Tennessee 38556","directions_url":"https://www.google.com/maps/dir/Current+Location//114+E+Central+Ave+Jamestown%2C+Tennessee+38556+United+States"},{"name":"Back Road Relics","street_address":"4741 S 131st Rd","city":"Bolivar","state":"Missouri","post_code":"65613","country":"United States","latitude":"37.561815","longitude":"-93.393791","path":"/missouri/bolivar/back-road-relics","location_string":"Bolivar, Missouri 65613","directions_url":"https://www.google.com/maps/dir/Current+Location//4741+S+131st+Rd+Bolivar%2C+Missouri+65613+United+States"},{"name":"Fayetteville's Funky Yardsale","street_address":"693 W North St","city":"Fayetteville","state":"Arkansas","post_code":"72701","country":"United States","latitude":"36.077075","longitude":"-94.168486","path":"/arkansas/fayetteville/fayettevilles-funky-yardsale","location_string":"Fayetteville, Arkansas 72701","directions_url":"https://www.google.com/maps/dir/Current+Location//693+W+North+St+Fayetteville%2C+Arkansas+72701+United+States"},{"name":"Peddlers Pass","street_address":"6201 AZ-69","city":"Prescott Valley","state":"Arizona","post_code":"86314","country":"United States","latitude":"34.580144","longitude":"-112.3572763","path":"/arizona/prescott-valley/peddlers-pass","location_string":"Prescott Valley, Arizona 86314","directions_url":"https://www.google.com/maps/dir/Current+Location//6201+AZ-69+Prescott+Valley%2C+Arizona+86314+United+States"},{"name":"Kings Trading Company","street_address":"754 Manhattan Ave","city":"Brooklyn","state":"New York","post_code":"11222","country":"United States","latitude":"40.726755","longitude":"-73.95220599999999","path":"/new-york/brooklyn/kings-trading-company","location_string":"Brooklyn, New York 11222","directions_url":"https://www.google.com/maps/dir/Current+Location//754+Manhattan+Ave+Brooklyn%2C+New+York+11222+United+States"},{"name":"Country Classics Antiques","street_address":"4781 S 135th Rd","city":"Bolivar","state":"Missouri","post_code":"65613","country":"United States","latitude":"37.5568581","longitude":"-93.39003319999999","path":"/missouri/bolivar/country-classics-antiques","location_string":"Bolivar, Missouri 65613","directions_url":"https://www.google.com/maps/dir/Current+Location//4781+S+135th+Rd+Bolivar%2C+Missouri+65613+United+States"},{"name":"Brimfield Antique Show and Flea Market","street_address":"1 Main St Ste 84","city":"Brimfield","state":"Massachusetts","post_code":"1010","country":"United States","latitude":"42.1223323","longitude":"-72.2007447","path":"/massachusetts/brimfield/brimfield-antique-show-and-flea-market","location_string":"Brimfield, Massachusetts 1010","directions_url":"https://www.google.com/maps/dir/Current+Location//1+Main+St+Ste+84+Brimfield%2C+Massachusetts+1010+United+States"},{"name":"Beavers Flea Market","street_address":"1005 Willow St","city":"Birch Tree","state":"Missouri","post_code":"65438","country":"United States","latitude":"36.9981058","longitude":"-91.5032109","path":"/missouri/birch-tree/beavers-flea-market","location_string":"Birch Tree, Missouri 65438","directions_url":"https://www.google.com/maps/dir/Current+Location//1005+Willow+St+Birch+Tree%2C+Missouri+65438+United+States"},{"name":"ATC Downtown Flea Market","street_address":"110 W Jackson St","city":"Bolivar","state":"Missouri","post_code":"65613","country":"United States","latitude":"37.6130945","longitude":"-93.4119465","path":"/missouri/bolivar/atc-downtown-flea-market","location_string":"Bolivar, Missouri 65613","directions_url":"https://www.google.com/maps/dir/Current+Location//110+W+Jackson+St+Bolivar%2C+Missouri+65613+United+States"},{"name":"The Slatington Market Place","street_address":"8281 PA-873","city":"Slatington","state":"Pennsylvania","post_code":"18080","country":"United States","latitude":"40.768761","longitude":"-75.60738400000001","path":"/pennsylvania/slatington/the-slatington-market-place","location_string":"Slatington, Pennsylvania 18080","directions_url":"https://www.google.com/maps/dir/Current+Location//8281+PA-873+Slatington%2C+Pennsylvania+18080+United+States"},{"name":"Salem Collectors \u0026 Flea Market","street_address":"2320 17th Ave NE","city":"Salem","state":"Oregon","post_code":"97301","country":"United States","latitude":"44.9574428","longitude":"-123.0110302","path":"/oregon/salem/salem-collectors-and-flea-market","location_string":"Salem, Oregon 97301","directions_url":"https://www.google.com/maps/dir/Current+Location//2320+17th+Ave+NE+Salem%2C+Oregon+97301+United+States"},{"name":"Schofield + Gray","street_address":"358 Hill St","city":"Fordland","state":"Missouri","post_code":"65652","country":"United States","latitude":"37.1586944","longitude":"-92.93800929999999","path":"/missouri/fordland/schofield-and-gray","location_string":"Fordland, Missouri 65652","directions_url":"https://www.google.com/maps/dir/Current+Location//358+Hill+St+Fordland%2C+Missouri+65652+United+States"},{"name":"RT 16 Flea Market","street_address":"1284 Ellenboro Rd","city":"Harrisville","state":"West Virginia","post_code":"26362","country":"United States","latitude":"39.2127861","longitude":"-81.0388689","path":"/west-virginia/harrisville/rt-16-flea-market","location_string":"Harrisville, West Virginia 26362","directions_url":"https://www.google.com/maps/dir/Current+Location//1284+Ellenboro+Rd+Harrisville%2C+West+Virginia+26362+United+States"},{"name":"Lincoln Road Antique and Collectible Market","street_address":"800-1120 Lincoln Rd","city":"Miami Beach","state":"Florida","post_code":"33139","country":"United States","latitude":"25.7901951","longitude":"-80.1409256","path":"/florida/miami-beach/lincoln-road-antique-and-collectible-market","location_string":"Miami Beach, Florida 33139","directions_url":"https://www.google.com/maps/dir/Current+Location//800-1120+Lincoln+Rd+Miami+Beach%2C+Florida+33139+United+States"}];
+
+//]]>
+</script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFfuZWRNxpOyslmOqm5RBVKBhti-cVzU&callback=GrowthTools.MarketMap.onGoogleMapsLoaded" async defer></script>
+<script src="/growth-tools-assets/market-b063577b530f82cae884ca504ca0280aa812a2ee3c8139fdda5589b0efb1eb82.js"></script>
+    <script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 1033599327;
+  var google_conversion_language = "en";
+  var google_conversion_format = "3";
+  var google_conversion_color = "666666";
+  var google_conversion_label = "ISC2COOZmQIQ3_Lt7AM";
+  var google_conversion_value = 0;
+  /* ]]> */
+</script>
+<div style="display: none">
+  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+</div>
+<noscript>
+  <img height="1" width="1" style="border-style:none;" src="//www.googleadservices.com/pagead/conversion/1033599327/?label=ISC2COOZmQIQ3_Lt7AM&amp;guid=ON&amp;script=0"/>
+</noscript>
+
+<script type="text/javascript">
+  (function(r) {
+    var brandedKeyword = function(ref) {
+      var match1 = new RegExp("((google|yahoo|bing)(.*)&?q=([^&]*)shopify)", "gi").test(ref);
+      return (match1);
+    }
+
+    var match1 = new RegExp("[\\?&](source|r|ref)=([^&#]*)", "gi").exec(r);
+    if(match1 && !brandedKeyword(document.referrer)) {
+      var days = 30;
+      var date = new Date();
+      date.setTime(date.getTime()+days*86400000);
+      document.cookie = "source=" + match1[2] + ";expires=" + date.toUTCString() + ";domain=.shopify.com;path=/";
+    }
+  })(window.location.href);
+</script>
+
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1904241839800487');
+  fbq('track', "PageView");
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1904241839800487&amp;ev=PageView&amp;noscript=1" />
+</noscript>
+
+<script src="https://cdn.optimizely.com/js/10264119.js"></script>
+
+
+
+  
+
+</body>
+</html>
+
+

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"fa45dcf839","applicationID":"2671381","transactionName":"dl8KQUReDl4AEE1RXlhdAVtCQk1bCwYHSg==","queueTime":3,"applicationTime":40,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <title>Shopify Customer Support Happiness Report</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-7138e97f86a038f5158d030c817337025686125801dffafcd6320c3fda765482.png" />
+    <link rel="stylesheet" media="all" href="/assets/application-dd7023f1eff56f1d41837dd2924945ed96b8b06d82928332092bf5f5ddae0700.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-a172aef320890fae3d425ebebe6e571899b35923990217f2cab0c3aade3ea063.js" crossorigin="anonymous" data-turbolinks-track="reload"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="FpO9fbrhlnog5Rjxh9Vc++u2kWXsUnDbUO79hrxLNZT0Sumv0mB4Bh/t9wotNBfP1DTJCEuGVHh+N8J1fhJMcQ==" />
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49178120-34', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body class="admin external-ui">
+    <header class="external-page-layout__nav">
+      
+<nav class="ui-navbar"><div class="ui-navbar__logo"><img src="/assets/shopify_white-6989170fc69c302a72467be92ffcbec5f12bbaadf7d7182ecf75a6b4df382524.png" alt="Shopify white" /></div></nav>    </header>
+    <main class="page-layout__content">
+    
+<!-- Tracking -->
+<script type="text/javascript">
+(function(){
+  var config = {
+    'Trekkie': {
+      'appName': 'smiley'
+    },
+    'Clickstream': {
+      'appName': 'smiley'
+    }
+  };
+  var trekkie_version = '2017.01.03.1';
+  var analytics = window.analytics = window.analytics || [];
+  if (analytics.integrations) {
+    return;
+  }
+  analytics.methods = [
+    'identify',
+    'page',
+    'ready',
+    'track',
+    'trackForm',
+    'trackLink'
+  ];
+  analytics.factory = function(method){
+    return function(){
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift(method);
+      analytics.push(args);
+      return analytics;
+    };
+  };
+  for (var i = 0; i < analytics.methods.length; i++) {
+    var key = analytics.methods[i];
+    analytics[key] = analytics.factory(key);
+  }
+  analytics.load = function(config){
+    analytics.config = config;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onerror = function(e) { (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load'; };
+    script.async = true;
+    script.src = '//cdn.shopify.com/s/javascripts/tricorder/trekkie.' + config.Trekkie.appName + '.min.js?v=' + trekkie_version;
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(script, first);
+  };
+  analytics.load(config);
+  analytics.page();
+})();
+</script>
+
+
+  
+<header class="ui-title-bar-container"><div class="ui-title-bar page-title"><div class="ui-title-bar__heading-group"><h1 class="ui-title-bar__title">Shopify Customer Happiness Report</h1></div></div><div class="collapsible-header"><div class="collapsible-header__heading"></div></div></header><div id="global-icon-symbols" data-tg-refresh="global-icon-symbols" data-tg-refresh-always="true" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg"></svg></div>
+
+<div class="ui-layout"><div class="ui-layout__sections">
+  <div class="ui-layout__section">
+    <div class="ui-layout__item">
+      <section class="ui-card">
+        <div class="ui-card__section"><div class="ui-type-container">
+          <h1>Making our customers smile every day.</h1>
+          <h2>Last 100 customer ratings</h2>
+          <table style="padding: 0;" class="text-center">
+            <thead>
+              <th class="text-center"><img src="/assets/smile-85-a280a1fd62d37c045d6478ca3f1b5d1e8efff2a7f97d6acb0cc5a13d7f4c1e0f.png" alt="Smile 85" width="35" height="35" /></th>
+              <th class="text-center"><img src="/assets/flatline-35-506e9baa80be0beb59ca83f76a917ce5e25824d3e2d20b484dd8406950250d3e.png" alt="Flatline 35" width="35" height="35" /></th>
+              <th class="text-center"><img src="/assets/frown-35-62df2ad12cc0f3b6f61d3cb93148e58198ac9832b0ec10cd78d9823610749ccc.png" alt="Frown 35" width="35" height="35" /></th>
+            </thead>
+            <tbody>
+              <td><span>81% said great!</span></td>
+              <td><span>6 said just OK</span></td>
+              <td><span>13 said not so good</span></td>
+            </tbody>
+          </table>
+</div></div></section></div></div>
+  <div class="ui-layout__section">
+    <div class="ui-layout__item">
+      <section class="ui-card">
+        <div class="ui-card__section"><div class="ui-type-container">
+          <h1>Shopify Customer Support Happiness Report</h1>
+          <div class="content intro">
+            <div class="copy">
+              <h3 class="slight-padding"><strong>How we measure customer happiness</strong></h3>
+
+              <p class="text-center happiness-text">After every interaction with our support team, a customer is asked to rate the experience by clicking one of three ratings: &ldquo;It was great&rdquo; (happy face), &ldquo;It was OK&rdquo; (flat-line face), or &ldquo;It wasn&rsquo;t good&rdquo; (frown face).</p>
+
+              <h3 class="slight-padding"><strong>This is how we get better</strong></h3>
+              <p class="text-center happiness-text">We study these ratings to help us improve. Every customer interaction is an opportunity to get better.<br />The ultimate goal is 100% happiness.</p>
+
+              <h3 class="slight-padding"><strong>Full transparency and accountability</strong></h3>
+              <p class="text-center happiness-text">We&rsquo;ve made these ratings public so everyone knows how we&rsquo;re doing. <br />We want to be held to the highest possible standards for customer service.<br />Full transparency keeps us honest.</p>
+            </div>
+</div></div></section></div></div>
+  <div class="ui-layout__section">
+    <div class="ui-layout__item">
+      <section class="ui-card"><header class="ui-card__header"><h2 class="ui-heading">
+          <h2>The last 100 customer support ratings.</h2>
+</h2></header>
+                <div class="ui-card__section"><div class="ui-type-container">
+          <div class="content smiles">
+            <div class="ratings">
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="flatline" src="/assets/flatline-68-dc6249c662ab9b119da4ecb9aafa4c13e64e23b42f9b48d8986a90e88f2ce7b1.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="flatline" src="/assets/flatline-68-dc6249c662ab9b119da4ecb9aafa4c13e64e23b42f9b48d8986a90e88f2ce7b1.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="flatline" src="/assets/flatline-68-dc6249c662ab9b119da4ecb9aafa4c13e64e23b42f9b48d8986a90e88f2ce7b1.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="flatline" src="/assets/flatline-68-dc6249c662ab9b119da4ecb9aafa4c13e64e23b42f9b48d8986a90e88f2ce7b1.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="flatline" src="/assets/flatline-68-dc6249c662ab9b119da4ecb9aafa4c13e64e23b42f9b48d8986a90e88f2ce7b1.png" width="30" height="30" />
+                <img alt="frown" src="/assets/frown-68-06e251e4a3a05518d40e4857f0268d4f9e04f8aa2bb17c050888c2da0ac76fd7.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="flatline" src="/assets/flatline-68-dc6249c662ab9b119da4ecb9aafa4c13e64e23b42f9b48d8986a90e88f2ce7b1.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+                <img alt="smile" src="/assets/smile-68-9254181550718b46ebc4f6620bda72e0156f70cd33189551e14e221396c1b971.png" width="30" height="30" />
+            </div>
+          </div>
+
+          <small class='last-rating'>Last rating 2 minutes ago.</small>
+</div></div></section></div></div></div></div>
+    </main>
+  </body>
+</html>

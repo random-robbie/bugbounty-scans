@@ -1,0 +1,642 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Loading</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW, NOARCHIVE">
+
+        <script type="text/javascript">
+            
+
+function popupBlocked(){
+    var res = false;
+    var popupAllowed = getWizardCookieItem('PopupAllowed');
+    popupAllowed = popupAllowed == 'True';
+    if (popupAllowed){
+        res = !popupAllowed;
+    } else {
+        var ptest = window.open('popupTest.html','tmp',"height=1,width=1,status=no,toolbar=no,menubar=no,location=no, top=1600,left=1600");
+        if(ptest!=null){
+            try{
+              ptest.close(); //close window
+              res = false;
+            } catch(e) {
+              //some popup blockers cause this close attempt to fail since the window wasn't actually opened
+              res=true;
+            }
+        }else{
+          //you have a blocker installed
+          res = true;
+        }
+    }
+    return res;
+}
+
+// Compare two comma- or dot-separated version numbers.
+// Return true if haveVersion >= wantVersion
+function isUpToDateVersion(haveVersion, wantVersion) {
+    var haveComponents = getVersionComponents(haveVersion);
+    var wantComponents = getVersionComponents(wantVersion);
+
+    for(var ix=0; ix<wantComponents.length; ix++) {
+
+        var have = ( ix<haveComponents.length ) ? parseInt(haveComponents[ix]) : 0;
+        var want = parseInt(wantComponents[ix]);
+
+        if( have > want ) {
+            return true;
+        }
+        if( have < want ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Split a version number into its components.
+// This function can accept a comma or dot as a separator.
+function getVersionComponents(version) {
+    if(version.indexOf(".") == -1) {
+        return version.split(",");
+    } else {
+        return version.split(".");
+    }
+}
+var ClientInfo = {
+    isIE: function() {return false;},
+    isFirefox: function() {return false;},
+    isNetscape: function() {return true;},
+    isSafari: function() {return false;},
+    isWindows: function() {return true;},
+    isWinCE: function() {return false;},
+    isMacOSX: function() {return false;},
+    isSymbian: function() {return false;}
+};
+
+var DetectionUtils = {
+    _popupsEnabled: null,
+    popupsEnabled: function() {
+        if (DetectionUtils._popupsEnabled != null) {
+            return DetectionUtils._popupsEnabled;
+        }
+        try {
+            var popup = window.open("","testwindow","height=1,width=1,scrollbars=no,status=no,resizable=no,toolbar=no");
+            if (popup != null) {
+                popup.close();
+                DetectionUtils._popupsEnabled = true;
+                return true;
+            }
+        } catch(e) {}
+        DetectionUtils._popupsEnabled = false;
+        return false;
+    }
+};
+
+
+var _CitrixClient = {
+    init: function(mimeType) {
+        if (ClientInfo.isNetscape() || ClientInfo.isFirefox() || (ClientInfo.isMacOSX() && ClientInfo.isSafari())) {
+            if (_CitrixClient.isInstalled(null, mimeType)) {
+                var hiddenDiv = document.getElementById("hiddenDiv");
+                hiddenDiv.innerHTML = "<embed type='" + mimeType + "' hidden='true' name='IcaObj' id='IcaObj'></embed>";
+            }
+        }
+    },
+    isInstalled: function(activeX, mimeType) {
+        if (ClientInfo.isWinCE() || ClientInfo.isSymbian()) {
+            return true; // We can't tell or install it if we could
+        }
+        if (ClientInfo.isIE() && ClientInfo.isWindows()) {
+            try {
+                var obj = new ActiveXObject(activeX);
+                if (obj) {
+                    return true;
+                }
+            } catch (e) {}
+            return false;
+        }
+        if (ClientInfo.isNetscape() || ClientInfo.isFirefox() || (ClientInfo.isMacOSX() && ClientInfo.isSafari())) {
+            var found = false;
+            navigator.plugins.refresh(false);
+            for (var idx = 0; (!found) && (idx < navigator.plugins.length); idx++) {
+                var plugIn = navigator.plugins[idx];
+                var mimeCount = plugIn.length;
+                for (mimeIdx = 0; (!found) && (mimeIdx < mimeCount); mimeIdx++) {
+                    if (plugIn[mimeIdx].type == mimeType) {
+                        found = true;
+                    }
+                }
+            }
+            return found;
+        }
+        return false;
+    },
+    isCorrectZone: function(activeX) {
+        if (ClientInfo.isIE() && ClientInfo.isWindows()) {
+            try {
+                var obj = new ActiveXObject(activeX);
+                if (obj != null) {
+                    obj.Launch = true;
+                    var propertyChanged = obj.Launch;
+                    if (propertyChanged) {
+                        return true;
+                    }
+                 }
+            } catch (e) {
+            }
+            return false;
+        }
+        return true; // Zone doesn't matter on non-IE browsers
+    },
+    getVersion: function(activeX) {
+        // Only call if native is detected
+        if (ClientInfo.isIE() && ClientInfo.isWindows()) {
+            try {
+                var obj = new ActiveXObject(activeX);
+                if (obj != null) {
+                    var version = obj.ClientVersion;
+                    if (version != null && version != "") {
+                        return version;
+                    }
+                }
+            } catch (e) {
+            }
+            return null;
+        }
+        if (ClientInfo.isNetscape() || ClientInfo.isFirefox() || (ClientInfo.isMacOSX() && ClientInfo.isSafari())) {
+            try {
+                var version = document.IcaObj.GetPropValue("ClientVersion");
+                if (version != null && version != "") {
+                    return version;
+                }
+            } catch (e) {}
+            return null;
+        }
+        return null; // No version found
+    },
+    isPassThrough: function(activeX) {
+        if (ClientInfo.isWindows()) {
+            // Pass-through mode is only relevant for Windows OSes
+            if (ClientInfo.isIE()) {
+                // Use ActiveX for IE
+                try {
+                    var obj = new ActiveXObject(activeX);
+                    return obj.IsPassThrough();
+                } catch (e) {}
+                return null;
+            } else if (ClientInfo.isNetscape() || ClientInfo.isFirefox()) {
+                // Use the browser plug-in
+                try {
+                    return document.IcaObj.IsPassThrough();
+                } catch (e) {}
+                return null;
+            } else {
+                // For other Windows browsers, assume pass-through to disable workspace control
+                return true;
+            }
+        } else {
+            // Non-Windows OS - this will never be pass-through
+            return false;
+        }
+    }
+};
+
+var ICA = {
+    _mimeType: "application/x-ica",
+    _activeX: "Citrix.ICAClient",
+    init: function() {
+        _CitrixClient.init(ICA._mimeType);
+    },
+    isInstalled: function() {
+        return _CitrixClient.isInstalled(ICA._activeX, ICA._mimeType);
+    },
+    isCorrectZone: function() {
+        return _CitrixClient.isCorrectZone(ICA._activeX);
+    },
+    getVersion: function() {
+        return _CitrixClient.getVersion(ICA._activeX);
+    },
+    isPassThrough: function() {
+        return _CitrixClient.isPassThrough(ICA._activeX);
+    },
+    getDetails: function() {
+        var result = {
+            available: null,
+            detected: null,
+            version: null,
+            correctZone: null,
+            passthrough: null
+        };
+        ICA.init();
+        result.detected = ICA.isInstalled();
+        result.available = result.detected;
+        if (result.available) {
+            result.correctZone = ICA.isCorrectZone();
+            result.version = ICA.getVersion();
+            result.passthrough = ICA.isPassThrough();
+        }
+        return result;
+    }
+};
+
+var Streaming = {
+    _mimeType: "application/x-ctxrade",
+    _activeX: "Rco.RadeClient",
+    init: function() {
+        _CitrixClient.init(Streaming._mimeType);
+    },
+    isInstalled: function() {
+        return _CitrixClient.isInstalled(Streaming._activeX, Streaming._mimeType);
+    },
+    isCorrectZone: function() {
+        return _CitrixClient.isCorrectZone(Streaming._activeX);
+    },
+    getVersion: function() {
+        var version = _CitrixClient.getVersion(Streaming._activeX);
+        if (version != null && version.indexOf("4.5.") == 0) {
+            version = "1.0.0.0";
+        }
+        return version;
+    },
+    getDetails: function() {
+        var result = {
+            available: null,
+            detected: null,
+            correctZone: null,
+            version: null
+        };
+        Streaming.init();
+        result.detected = Streaming.isInstalled();
+        result.correctZone = Streaming.isCorrectZone();
+        result.available = result.detected && result.correctZone;
+        if (result.available) {
+            result.version = Streaming.getVersion();
+        }
+        return result;
+    }
+};
+
+var Java = {
+    init: function() {
+        if (ClientInfo.isIE()) {
+            document.body.id = 'oClientCaps';
+            document.body.style.behavior = 'url(#default#clientCaps)';
+        }
+    },
+    isInstalled: function() {
+        if (ClientInfo.isIE()) {
+            try {
+                if (oClientCaps) {
+                    var installed = oClientCaps.isComponentInstalled("{08B0E5C0-4FCB-11CF-AAA5-00401C608500}", "ComponentID");
+                    return installed && oClientCaps.javaEnabled;
+                }
+            } catch (e) {}
+            return false;
+        }
+        if (ClientInfo.isNetscape() || ClientInfo.isFirefox()) {
+            if (navigator.plugins) {
+               navigator.plugins.refresh(false);
+               // Check to find a java plugin
+               for (var i=0; i < navigator.plugins.length; i++) {
+                    var plugin = navigator.plugins[i];
+                    if (plugin && plugin.name.toLowerCase().indexOf('java') != -1) {
+                        // Check if this java plugin has a mime type for applets
+                        for (var j=0; j < plugin.length; j++) {
+                            var mimetype = plugin[j];
+                            if (mimetype && mimetype.type && mimetype.type.toLowerCase().indexOf('java-applet') != -1) {
+                                return true; // We have java applet support
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        try {
+            if (navigator && navigator.javaEnabled) {
+                return navigator.javaEnabled();
+            }
+        } catch(e) {}
+        return false;
+    },
+    getDetails: function() {
+        var result = {
+            available: null,
+            javaInstalled: null,
+            popupsEnabled: null
+        };
+        Java.init();
+        result.javaInstalled = Java.isInstalled();
+        result.popupsEnabled = DetectionUtils.popupsEnabled();
+        result.available = result.javaInstalled && result.popupsEnabled;
+        return result;
+    }
+};
+
+var RDP = {
+    _classID: "4EB89FF4-7F78-4A0F-8B8D-2BF02E94E4B2", // RDP 6.0
+    getClassID: function() {
+        try {
+            rdpClient = new ActiveXObject("MsRdp.MsRdp.5");
+            if (rdpClient != null) {
+                return RDP._classID;
+            }
+        } catch (e) {}
+        return null;
+    },
+    isCorrectZone: function() {
+        var hiddenDiv = document.getElementById("hiddenDiv");
+        hiddenDiv.innerHTML = "<object classid=clsid:" + RDP._classID + " id='rdpobj' height='0' width='0' border='0'></object>";
+        if (document.rdpobj != null) {
+            if (document.rdpobj.SecuredSettingsEnabled) {
+                return true;
+            }
+        }
+        return false;
+    },
+    getDetails: function() {
+        var result = {
+            available: null,
+            classID: null,
+            correctZone: null
+        };
+        result.classID = RDP.getClassID();
+        result.correctZone = RDP.isCorrectZone();
+        result.available = result.classID && result.correctZone;
+        return result;
+    }
+};
+
+
+var SilentDetection = {
+    run: function (remoteClientToDetect, useJavaFallback, detectStreamingClient, serverRemoteClientVersion, serverStreamingClientVersion) {
+        var client;
+        var correctZone = true;
+        var canUpgradeRemote = false;
+        var result = {
+            remoteClient: "",
+            streamingClient: "",
+            icoStatus: "IcoNotDetected",
+            rdpClassId: null
+        }
+
+        // Always use ICO to determine whether this is a pass-through session
+        client = ICA.getDetails();
+        if (client.available && (client.passthrough != null)) {
+            result.icoStatus = client.passthrough ? "IsPassthrough" : "IsNotPassthrough";
+        }
+
+        switch (remoteClientToDetect) {
+            case "Ica-Local":
+                if (client.available) {
+                    result.remoteClient = "Ica-Local";
+                    correctZone = client.correctZone;
+                    if (client.version) {
+                        canUpgradeRemote = !isUpToDateVersion(client.version, serverRemoteClientVersion);
+                    }
+                } else if (useJavaFallback) {
+                    client = Java.getDetails();
+                    if (client.available) {
+                        result.remoteClient = "Ica-Java";
+                    }
+                }
+                break;
+            case "Ica-Java":
+                client = Java.getDetails();
+                if (client.available) {
+                    result.remoteClient = "Ica-Java";
+                }
+                break;
+            case "Rdp-Embedded":
+                client = RDP.getDetails();
+                if (client.available) {
+                    result.remoteClient = "Rdp-Embedded";
+                    correctZone = client.correctZone;
+                    result.rdpClassId = client.classID;
+                }
+                break;
+        }
+
+        if (result.remoteClient) {
+            // There is no opportunity for the user to "force" a client during silent detection
+            result.remoteClient += "=Auto";
+
+            if (canUpgradeRemote) {
+                result.remoteClient += ",CanUpgrade";
+            }
+            if (!correctZone) {
+                result.remoteClient += ",IncorrectZone";
+            }
+        }
+
+        if (detectStreamingClient) {
+            client = Streaming.getDetails();
+            if (client.available) {
+                result.streamingClient = "Rade-Local=Auto";
+                if (client.version && !isUpToDateVersion(client.version, serverStreamingClientVersion)) {
+                    result.streamingClient += ",CanUpgrade";
+                }
+            }
+        }
+
+        return result;
+    }
+};
+
+        </script>
+
+        <style type="text/css" media="handheld,all">
+            
+
+body {
+  background: white;
+  font-family: Segoe UI, Tahoma,Verdana, Helvetica, Arial, sans-serif;
+  font-size: 70%;
+  text-align: center;
+  margin: 0;
+}
+
+
+
+body {
+  background: #566169 url("../media/HorizonBgBottom.png") repeat-x left 325px;
+}
+
+#horizonTop {
+  height: 325px;
+  background: #FDFDFD url("../media/HorizonBgTop.png") no-repeat top left;
+}
+
+#mainPane {
+  position: relative;
+  top: -120px;
+  background: url(../media/Devices.png) no-repeat center 30px;
+  color: white;
+}
+
+#mainPane h3 {
+  font-size: 160%;
+  font-weight: normal;
+  margin: 38px 0;
+}
+
+#mainPane img {
+  margin-bottom: 36px;
+}
+
+#actionPane {
+  width: 23em;
+}
+
+td.glowBoxLeft {
+  width:20px;
+}
+td.glowBoxRight {
+  width:20px;
+}
+td.glowBoxTop {
+  height:20px;
+}
+td.glowBoxFooter {
+  height:51px;
+}
+td.glowBoxMid {
+  background: #73808C;
+  padding: 7px 30px;
+}
+
+td.glowBoxTopLeft {
+  background-position:bottom right;
+  background-repeat:no-repeat;
+  background-image:url(../media/LoginPaneTopLeftBorderGlow.png);
+}
+
+td.glowBoxTopMid .leftGradient {
+  background-position:top left;
+  background-repeat:no-repeat;
+  background-image:url(../media/LoginPaneTopLeftGradient.png);
+  height: 20px;
+}
+
+td.glowBoxTopMid .rightGradient {
+  background-position:top right;
+  background-repeat:no-repeat;
+  background-image:url(../media/LoginPaneTopRightGradient.png);
+  height: 20px;
+  margin-left: 96px;
+}
+
+td.glowBoxTopMid .centerGradient {
+  background-position:top left;
+  background-repeat:repeat-x;
+  background-image:url(../media/LoginPaneTopMidBorderGlow.png);
+  height: 20px;
+  margin-right: 96px;
+}
+
+td.glowBoxTopRight {
+  background-position:bottom left;
+  background-repeat:no-repeat;
+  background-image:url(../media/LoginPaneTopRightBorderGlow.png);
+}
+
+td.glowBoxMidLeft {
+  background-position:center left;
+  background-repeat:repeat-y;
+  background-image:url(../media/LoginPaneCenterLeftBorderGlow.png);
+}
+
+td.glowBoxMidRight {
+  background-position:center right;
+  background-repeat:repeat-y;
+  background-image:url(../media/LoginPaneCenterRightBorderGlow.png);
+}
+
+td.glowBoxFooterLeft {
+  background-position:top left;
+  background-repeat:no-repeat;
+  background-image:url(../media/LoginPaneFooterLeftBorderGlow.png);
+}
+
+td.glowBoxFooterMid {
+  background-position:top center;
+  background-repeat:repeat-x;
+  background-image:url(../media/LoginPaneFooterMidBorderGlow.png);
+}
+
+td.glowBoxFooterRight {
+  background-position:top right;
+  background-repeat:no-repeat;
+  background-image:url(../media/LoginPaneFooterRightBorderGlow.png);
+}
+
+
+        </style>
+    </head>
+
+    <body onload="postWizardResults();">
+
+    <script type="text/javascript">
+    function postWizardResults() {
+        // Perform the required silent detection and update wizardOutputForm with the results
+        var clientToDetect = "Ica-Local";
+        var useJavaFallback = false;
+        var detectStreamingClient = true;
+        var serverRemoteClientVersion = "";
+        var serverStreamingClientVersion = "";
+        var result = SilentDetection.run(clientToDetect, useJavaFallback, detectStreamingClient, serverRemoteClientVersion, serverStreamingClientVersion);
+
+        document.wizardOutputForm.RemoteClient.value = result.remoteClient;
+        document.wizardOutputForm.StreamingClient.value = result.streamingClient;
+        document.wizardOutputForm.IcoStatus.value = result.icoStatus;
+    
+        document.wizardOutputForm.submit();
+    }
+    </script>
+
+
+
+  <div id="horizonTop"></div>
+  <div id="mainPane">
+
+    <table class="glowBox dynamicGlowBoxMargin" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td class="glowBoxTop glowBoxLeft glowBoxTopLeft"></td>
+        <td class="glowBoxTop glowBoxTopMid"><div class="leftGradient"><div class="rightGradient"><div class="centerGradient"></div></div></div></td>
+        <td class="glowBoxTop glowBoxRight glowBoxTopRight"></td>
+      </tr>
+      <tr>
+        <td class="glowBoxLeft glowBoxMidLeft"></td>
+        <td class="glowBoxMid loginTableMidWidth">
+          <div id="actionPane">
+            <h3>One Moment Please...</h3>
+
+            <img src="../media/Loader.gif" alt="">
+
+          </div>
+        </td>
+        <td class="glowBoxRight glowBoxMidRight"></td>
+      </tr>
+      <tr>
+        <td class="glowBoxFooter glowBoxLeft glowBoxFooterLeft"></td>
+        <td class="glowBoxFooter glowBoxFooterMid"></td>
+        <td class="glowBoxFooter glowBoxRight glowBoxFooterRight"></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <form name="wizardOutputForm" action="clientDetectionOutputs.aspx" method="post">
+    <input type="hidden" name="SESSION_TOKEN" value="8D26D3E46584B7909ABD81B41D48090C">
+    <input type="hidden" name="RemoteClient" value="placeholder">
+    <input type="hidden" name="StreamingClient" value="placeholder">
+    <input type="hidden" name="IcoStatus" value="placeholder">
+
+  </form>
+
+  <div id='hiddenDiv'></div>
+
+</body>
+
+</html>

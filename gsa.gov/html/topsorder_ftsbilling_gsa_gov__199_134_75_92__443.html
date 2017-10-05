@@ -1,0 +1,148 @@
+<HTML><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY>
+<script language="Javascript">
+function valfld(field) {
+  var i;    
+  var j;    
+  var tstchr;  
+  var bad = true;
+  var len=field.value.length;
+  if (len > 30) {
+      bad = true;
+      i   = 30; 
+      }
+  else {
+      for (j=0; j < len; j++) {
+          bad = true; 
+          tstchr = field.value.substr(j,1); 
+          if (tstchr >= "0" && tstchr <= "9") { 
+              bad = false;
+              }
+          else { if (tstchr >= "A" && tstchr <= "Z") { 
+              bad = false;  
+              } 
+               else { if (tstchr >= "a" && tstchr <= "z") { 
+                   bad = false; 
+                   } 
+                   else { 
+                       if (tstchr == "_" || tstchr == "$") { 
+                         bad = false; 
+                       } 
+                       else { 
+                           i =  j ; 
+                           break; 
+                       } 
+                  } 
+               } 
+          } 
+      }
+  }
+  if (bad == true) {
+        field.value = field.value.substring(0,i);
+     }
+  }
+</script>
+<form method=post action="wuser_stats" name=wuserstats>
+<table border=0>
+<tr><td width="2%">
+<img SRC="/images/gsalogo.jpg" BORDER=0  align=LEFT></td>
+<td align="center" <B><font face="Arial"><font color="#0000FF">
+<font size="5">Telecommunications Ordering and Pricing System(TOPS) </font></font></font></B></td>
+<td width="15%></td">
+</tr>
+<tr><td></td><td align="center"><font face="Arial"><font color="red"><i><b>Notice:</font></font></td></tr>
+<tr><td></td><td align="center"><font face="Arial"><font color="red"><i><b>
+The Tops billing cycle runs on the 23rd of each month unless otherwise notified.<br>
+All users will be locked out of the system during the processing.<br>
+the downtime will begin at 10PM Eastern on the 22nd.<br>
+Please plan ahead!</i></font></font></td></tr>
+<tr><td></td><td align="center"><br><img src="/images/announcements1.gif"></td></tr>
+<tr><td>&nbsp</td></tr>
+<tr><td></td><td align="center">
+<a href="https://topsorder.ftsbilling.gsa.gov/Notice_12192012.doc"><font face="Arial" size=2>
+<b>ATTENTION: Notice to All GSA users - Login Issues</b></font></td></tr>
+<tr><td></td><td align="center">
+<a href="https://topsorder.ftsbilling.gsa.gov/nuance.doc"><font face="Arial" size=2>
+<b>ATTENTION: Users with NUANCE PDF Converter -<br>Not Applicable to Adobe Reader Users.</b></font></a></td></tr>
+<tr><td>&nbsp</td></tr>
+<tr><td></td><td>
+<table border=0 width="100%" bordercolor="blue">
+<tr><td colspan="9" align="center">
+<font color="darkred"><font face="Arial"></font></font>
+</td></tr>
+<tr><td colspan="9" width="80%"><hr color="red" alicn="center"</td></tr>
+<tr><td width="20%"></td>
+<td width=10% align="right"><font face="Arial">User name:&nbsp;</font></td>
+<td width="10%"><input type="text" value="" size="25" maxlength="30" name="username" onKeyUp="javascript:valfld(this);" required/></td>
+</tr>
+<tr><td width="10%"></td>
+<td width=10% align="right"><font face="Arial">Password:&nbsp;</td>
+<td width="10%"><input type="password" value="" size="25" maxlength="30" name="passwd" onKeyUp="javascript:valfld(this);" required/></td>
+</tr>
+</td></tr>
+<tr><td></td><td width="10%"></td><td align="left">
+<input type="submit" value="Login" onclick="window.open('https://topsorder.ftsbilling.gsa.gov/wuser_stats,,
+'resizable=yes, location=no, width=1200, height=750',)"> 
+</td><td width="25%"></td></tr>
+<tr><td colspan="9" width="80%" align="center"><hr color="red" alicn="center"</td></tr>
+</td></tr>
+</table>
+</td></tr>
+<tr><td></td><td align="center"><font color="blue" face="Arial">
+If you're logging into this website for the first time, you must have administrative privileges with your PC user profile
+to permit the native Java Plug-in on your PC to run with the TOPS login process.  Jinitiator is no longer required to be
+used with TOPS.  Contact your local IT for assistance or if you need Java installed on your PC.<br>
+<tr><td>&nbsp</td></tr>
+<tr><td></td><td align="center">
+<a href="https://topsorder.ftsbilling.gsa.gov/java_guide.docx" title="Java Guide, Last Revised: August 2015">Java Troubleshooting Guide</a>
+</td></tr>
+<tr><td>&nbsp</td></tr>
+<tr><td></td><td align="center"><font color="red" face="Arial">For help Call 1(877)-944-TOPS (8677)
+<br>or eMail us at Fasbilling.help@gsa.gov</font></td></tr>
+<tr><td>&nbsp</td></tr>
+<tr>
+<td></td>
+<td align="center">
+<input TYPE="button" VALUE="SYSTEM CONTACTS"
+ onclick="window.open('https://topsorder.ftsbilling.gsa.gov/fts_ep/wls_contacts.home','Contacts',
+'resizable=yes, location=no, width=1000, height=750','')">
+<input TYPE="button" value="REQUEST HELP"
+ onclick="window.open('https://topsorder.ftsbilling.gsa.gov/tops_tp/usrmgr.userform','userform',
+'resizable=yes, location=no, width=750, height=650','')">
+<input TYPE="button" VALUE="CONTACT US" width="5%"
+ onclick="window.open('https://topsorder.ftsbilling.gsa.gov/fts_ep/wnetworx_contact','Netxcont',
+'resizable=yes, location=no, width=1500, height=750','')">
+</td>
+</tr>
+<tr><td>&nbsp</td></tr>
+<tr><td></td><td align="center">
+<font face="Verdana, Helvetica, Arial" size="1">
+<a href="http://www.gsa.gov">GSA</a> |
+<a href="http://www.gsa.gov/portal/content/104555 ">GSA e-Tools</a> |
+<a href="http://www.gsa.gov/portal/content/105309">GSA Online Billing</a> |
+<a href="http://www.gsa.gov/portal/category/21188">FAS</a> |
+<a href="https://emorris.fasbilling.gsa.gov">E-MORRIS</a> |
+<a href="https://topsbill.ftsbilling.gsa.gov">E*bill</a>
+</font>
+</td></tr>
+<tr><td>&nbsp</td></tr>
+<tr><td></td>
+<td align="center">
+<FONT COLOR="#FF0000" size="3" FACE="Arial"><b>  WARNING: </b>
+</FONT>
+<FONT FACE="Arial" COLOR="#333333" size="2"> <B>
+You are about to access a <FONT COLOR="#FF0000"><B>U. S. Government Computer System. </B></FONT><br>
+   Access to this system is restricted to <FONT COLOR="#FF0000"><B>Authorized Users Only.</B></FONT><br>
+   Anyone who accesses this system without authorization, or in excess of their authorization could be subject
+   to a fine or imprisonment, or both under Public Law 98-473. By entering this system, you consent to having
+   your accesses and activities monitored and recorded.
+   If this monitoring or record reveals suspected unauthorized or criminal activity, the evidence will be
+   provided to supervisory personnel and law enforcement officials.<BR><font size +2> <B>DO NOT</B></font>
+   process classified information on this system.<b>
+</FONT>
+</td></tr>
+<td></td>
+</table>
+</BODY></HTML>

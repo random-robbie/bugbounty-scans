@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html>
+  
+
+    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WePay Documentation</title>
+  <meta name="description" content="WePay Developer Documentation. Designed for platforms like marketplaces, crowdfunding sites & small business tools. Get a seamless user experience & fraud protection.
+">
+
+  <script src="https://use.typekit.net/ucd5wea.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <script src="/js/main.js" type="text/javascript"></script>
+
+  <script>
+    // Abort if we are on github.io - our links are not set up for that.
+    if (window.location.hostname.includes("github.")) {
+      var path = window.location.href.split(location.host)[1].replace('/developer-docs', '');
+      var redirect_domain = "https://developer.wepay.com";
+      if (!redirect_domain.includes("github.")) {
+        // Let's only redirect if we're sure we're not going back to github (infinite redirect is bad.)
+        window.location.href = redirect_domain + path;
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="canonical" href="https://developer.wepay.com/">
+</head>
+
+
+  <body>
+    <div class="page-wrapper container-fluid">
+
+      <header class="site-header row flex-container">
+
+    <div class="logo-wrapper col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+      <a class="site-title logo" href="/">
+      </a>
+    </div>
+
+    <div class="login">
+      
+      <a href="/api/" target="_blank" title="API Reference">API Reference <i class="fa fa-external-link" aria-hidden="true"></i></a>
+      
+      <a href="https://www.wepay.com/login" title="Login" class="login-url" target="_blank">Login</a>
+    </div>
+
+    <div class="site-nav col-xs-12 col-sm-12">
+      <select>
+        
+          
+        
+        
+
+<optgroup label="Overview">
+
+
+<option value="/docs/overview/">Introduction</option>
+
+
+
+<option value="/docs/overview/build-ecommerce-platform">Ecommerce Platforms</option>
+
+
+
+<option value="/docs/overview/build-crowdfunding-platform">Crowdfunding Platforms</option>
+
+
+
+<option value="/docs/overview/build-online-marketplace">Online Marketplaces</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="Articles">
+
+
+<option value="/docs/articles/access-tokens">Access Tokens</option>
+
+
+
+<option value="/docs/articles/account-ids">Account IDs</option>
+
+
+
+<option value="/docs/articles/api-endpoints">API Endpoints</option>
+
+
+
+<option value="/docs/articles/api-versioning">API Versioning</option>
+
+
+
+<option value="/docs/articles/batch-calls">Batch Calls</option>
+
+
+
+<option value="/docs/articles/beneficiaries">Beneficiaries</option>
+
+
+
+<option value="/docs/articles/best-practices">Best Practices</option>
+
+
+
+<option value="/docs/articles/canadian-merchants">Canadian Merchants</option>
+
+
+
+<option value="/docs/articles/analytics">Google Analytics</option>
+
+
+
+<option value="/docs/articles/customization">Customization</option>
+
+
+
+<option value="/docs/articles/iframe-sizes">Iframe Sizes</option>
+
+
+
+<option value="/docs/articles/iframe-tokenization">Iframe Tokenization</option>
+
+
+
+<option value="/docs/articles/ipn">IPNs</option>
+
+
+
+<option value="/docs/articles/mcc">MCC</option>
+
+
+
+<option value="/docs/articles/payment-bank-tokenization">Payment Bank Tokenization</option>
+
+
+
+<option value="/docs/articles/security">Security</option>
+
+
+
+<option value="/docs/articles/surcharging">Surcharging</option>
+
+
+
+<option value="/docs/articles/testing">Testing</option>
+
+
+
+<option value="/docs/articles/throttling">Throttling</option>
+
+
+
+<option value="/docs/articles/uk-merchants">UK Merchants</option>
+
+
+
+<option value="/docs/articles/upgrade-api-version">Upgrade API Version</option>
+
+
+
+<option value="/docs/articles/whitelisted-ips">Whitelisted IPs</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="Create Accounts">
+
+
+<option value="/docs/create-accounts/overview">Overview</option>
+
+
+
+<option value="/docs/create-accounts/custom-account">Custom Account</option>
+
+
+
+<option value="/docs/create-accounts/oauth2-account">OAuth2 Account</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="Process Payments">
+
+
+<option value="/docs/process-payments/overview">Overview</option>
+
+
+
+<option value="/docs/process-payments/custom-checkout">Custom Checkout</option>
+
+
+
+<option value="/docs/process-payments/embedded-checkout">Embedded Checkout</option>
+
+
+
+<option value="/docs/process-payments/refund-a-payment">Refund a Payment</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="Facilitate Withdrawals">
+
+
+<option value="/docs/facilitate-withdrawals/overview">Overview</option>
+
+
+
+<option value="/docs/facilitate-withdrawals/embedded-withdrawals">Embedded Withdrawals</option>
+
+
+
+<option value="/docs/facilitate-withdrawals/settlement">Settlement</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="Use Cases">
+
+
+<option value="/docs/use-cases/delayed-payouts">Delayed Payouts</option>
+
+
+
+<option value="/docs/use-cases/mobile-app">Mobile App</option>
+
+
+
+<option value="/docs/use-cases/split-chained-payments">Split Chained Payments</option>
+
+
+
+<option value="/docs/use-cases/tipping-point-payments">Tipping Point Payments</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="Mobile">
+
+
+<option value="/docs/mobile/overview">Overview</option>
+
+
+
+<option value="/docs/mobile/apple-pay">Apple Pay on the Web</option>
+
+
+
+<option value="/docs/mobile/android-pay">Android Pay on the Web</option>
+
+
+
+<option value="/docs/mobile/payment-request-api">Payment Request API</option>
+
+
+
+<option value="/docs/mobile/mpos-program-overview">mPOS Program Overview</option>
+
+
+
+<option value="/docs/mobile/mpos-tech-index">mPOS Technical Docs</option>
+
+
+
+<option value="/docs/mobile/mpos-tech-faq">mPOS Technical FAQs</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="SDKs">
+
+
+<option value="/docs/sdks/overview">Overview</option>
+
+
+
+<option value="/docs/sdks/ruby-on-rails-tutorial">Ruby on Rails Tutorial</option>
+
+
+
+</optgroup>
+
+
+
+<optgroup label="FAQ">
+
+
+<option value="/docs/faq/general">General</option>
+
+
+
+</optgroup>
+
+
+
+<option value="/docs/support">Support</option>
+
+
+
+<option value="/api/">API Reference</option>
+
+
+
+      </select>
+      <div class="mobile-ref-link">
+        
+        <a href="/api/" target="_blank" title="API Reference">API <i class="fa fa-external-link" aria-hidden="true"></i></a>
+        
+      </div>
+    </div>
+</header>
+
+      
+      
+      
+      
+      
+      
+      <div class="page-body row flex-container docs">
+        <div id="side-nav" class="flex-child col-sm-2 col-md-2 col-lg-2 col-xl-2 docs">
+          <ul class="top" mardownify="1">
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Overview 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/overview/">
+
+Introduction 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/overview/build-ecommerce-platform">
+
+Ecommerce Platforms 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/overview/build-crowdfunding-platform">
+
+Crowdfunding Platforms 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/overview/build-online-marketplace">
+
+Online Marketplaces 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Articles 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/access-tokens">
+
+Access Tokens 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/account-ids">
+
+Account IDs 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/api-endpoints">
+
+API Endpoints 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/api-versioning">
+
+API Versioning 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/batch-calls">
+
+Batch Calls 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/beneficiaries">
+
+Beneficiaries 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/best-practices">
+
+Best Practices 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/canadian-merchants">
+
+Canadian Merchants 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/analytics">
+
+Google Analytics 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/customization">
+
+Customization 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/iframe-sizes">
+
+Iframe Sizes 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/iframe-tokenization">
+
+Iframe Tokenization 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/ipn">
+
+IPNs 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/mcc">
+
+MCC 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/payment-bank-tokenization">
+
+Payment Bank Tokenization 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/security">
+
+Security 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/surcharging">
+
+Surcharging 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/testing">
+
+Testing 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/throttling">
+
+Throttling 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/uk-merchants">
+
+UK Merchants 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/upgrade-api-version">
+
+Upgrade API Version 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/articles/whitelisted-ips">
+
+Whitelisted IPs 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Create Accounts 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/create-accounts/overview">
+
+Overview 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/create-accounts/custom-account">
+
+Custom Account 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/create-accounts/oauth2-account">
+
+OAuth2 Account 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Process Payments 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/process-payments/overview">
+
+Overview 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/process-payments/custom-checkout">
+
+Custom Checkout 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/process-payments/embedded-checkout">
+
+Embedded Checkout 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/process-payments/refund-a-payment">
+
+Refund a Payment 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Facilitate Withdrawals 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/facilitate-withdrawals/overview">
+
+Overview 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/facilitate-withdrawals/embedded-withdrawals">
+
+Embedded Withdrawals 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/facilitate-withdrawals/settlement">
+
+Settlement 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Use Cases 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/use-cases/delayed-payouts">
+
+Delayed Payouts 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/use-cases/mobile-app">
+
+Mobile App 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/use-cases/split-chained-payments">
+
+Split Chained Payments 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/use-cases/tipping-point-payments">
+
+Tipping Point Payments 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+Mobile 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/overview">
+
+Overview 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/apple-pay">
+
+Apple Pay on the Web 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/android-pay">
+
+Android Pay on the Web 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/payment-request-api">
+
+Payment Request API 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/mpos-program-overview">
+
+mPOS Program Overview 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/mpos-tech-index">
+
+mPOS Technical Docs 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/mobile/mpos-tech-faq">
+
+mPOS Technical FAQs 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+SDKs 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/sdks/overview">
+
+Overview 
+</a>
+</span>
+
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/sdks/ruby-on-rails-tutorial">
+
+Ruby on Rails Tutorial 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+	
+	<a class="expandable" role="button">
+
+FAQ 
+</a>
+</span>
+
+
+
+
+
+<ul class="sub collapsable hidden " mardownify="1">
+
+<li >
+<span class="text">
+
+
+<a href="/docs/faq/general">
+
+General 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+
+</li>
+
+<li >
+<span class="text">
+
+
+<a href="/docs/support">
+
+Support 
+</a>
+</span>
+
+
+</li>
+
+<li  class="new_tab" >
+<span class="text">
+
+
+<a href="/api/" target="_blank">
+
+API Reference <i class="fa fa-external-link" aria-hidden="true"></i> 
+</a>
+</span>
+
+
+</li>
+
+</ul>
+        </div>
+
+        <div id="content" 
+        class="flex-child col-sm-10 col-md-10 col-lg-10 col-xl-10 api-call">
+        <article class="post">
+
+		
+
+  <div class="post-content">
+    <p> </p>
+
+<!--This file exists as dev-docs/_pages/docs/index.md and dev-docs/_pages/docs/overview/introduction.md -->
+
+<section class="legend">
+
+  <div class="row">
+<div class="legend col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#quick-start-integration">Quick Start Integration</a>
+          <ul>
+            <li><a href="#merchant-onboarding">Merchant Onboarding</a></li>
+            <li><a href="#payment-processing">Payment Processing</a></li>
+          </ul>
+        </li>
+        <li><a href="#sign-up">Sign Up</a></li>
+      </ul>
+
+    </div>
+</div>
+
+</section>
+
+<div class="info-box relative">
+<b>On This Page</b>
+
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#quick-start-integration">Quick Start Integration</a>
+    <ul>
+      <li><a href="#merchant-onboarding">Merchant Onboarding</a></li>
+      <li><a href="#payment-processing">Payment Processing</a></li>
+    </ul>
+  </li>
+  <li><a href="#sign-up">Sign Up</a></li>
+</ul>
+
+
+</div>
+
+<div class="info-box fixed">
+<b>On This Page</b>
+
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#quick-start-integration">Quick Start Integration</a>
+    <ul>
+      <li><a href="#merchant-onboarding">Merchant Onboarding</a></li>
+      <li><a href="#payment-processing">Payment Processing</a></li>
+    </ul>
+  </li>
+  <li><a href="#sign-up">Sign Up</a></li>
+</ul>
+
+
+</div>
+
+<section>
+
+  <div class="row">
+<div class="col-md-12 col-lg-12 col-xl-12">
+
+      <h1 id="wepay-documentation">WePay Documentation</h1>
+
+      <hr />
+
+      <h2 id="introduction">Introduction</h2>
+
+      <p>WePay helps platforms increase revenue through integrated payments without friction or fraud.</p>
+
+      <p>We provide everything you need to seamlessly facilitate payments between your users (<em>payers</em> and <em>merchants</em>, <em>buyers</em> and <em>sellers</em>, <em>donors</em> and <em>organizers</em>, etc.)</p>
+
+      <p><img src="/images/platform_diagram_1.png" alt="Simple WePay Diagram" /></p>
+
+      <!-- Check our [Web & Server SDKs](/docs/sdks/sdks) and our [API Reference](/api/) to see if WePay is right for you.  -->
+
+      <hr />
+
+      <h2 id="quick-start-integration">Quick Start Integration</h2>
+
+      <h4 id="merchant-onboarding"><a href="/docs/create-accounts/overview">1. Merchant Onboarding</a></h4>
+
+      <p>Enable your users to accept payments.</p>
+
+      <h4 id="payment-processing"><a href="/docs/process-payments/overview">2. Payment Processing</a></h4>
+
+      <p>Charge payers on behalf of your merchants.</p>
+
+      <hr />
+
+      <h2 id="sign-up">Sign Up</h2>
+
+      <p>Begin integration in our stage environment with <a href="https://stage.wepay.com/register/">test credentials</a>.</p>
+
+    </div>
+</div>
+
+</section>
+
+  </div>
+
+</article>
+
+        </div>  
+      </div>    
+
+      <footer class="site-footer row flex-container">
+
+    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+          <a href="" title="WePay" class="logo"></a>
+    </div>
+
+    <div class="links col-sm-8 col-md-8 col-lg-8 col-xl-8">
+      <p>
+        <a href="https://go.wepay.com/terms-of-service-us">Terms of Service</a> |
+        <a href="https://go.wepay.com/privacy-policy-us">Privacy Policy</a> |
+        © 2016 WePay
+      </p>
+    </div>
+
+    <div class="social col-sm-2 col-md-2 col-lg-2 col-xl-2">
+        
+          <a href="https://github.com/wepay"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span></a>
+
+        
+
+        
+          <a href="https://twitter.com/wepay"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span></a>
+
+        
+    </div>
+
+</footer>
+
+
+    </div>
+  </body>
+
+
+
+</html>

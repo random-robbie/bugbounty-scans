@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="google-signin-client_id" content="972582042137-g0ct9oa55nq09eiifa35cag5iqchk6eh.apps.googleusercontent.com">
+    
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: ws: 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src * data:; script-src * 'unsafe-inline' 'unsafe-eval';" />
+    
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />-->
+
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <title>Social Bingo</title>
+
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+    <div id="fb-root"></div>
+
+    <div id="msgBox" class="alert fade in hide" role="alert">
+        <button type="button" class="close">&times;</button>
+        <div class="inner-alert"></div>
+    </div>
+
+    <div class="page-wrap container-fluid">
+        <div class="row header">
+            <nav class="col-md-5 col-md-offset-1">
+                <a href=".">Home</a> |
+                <a href="privacy-policy">Privacy Policy</a> |
+                <a href="terms-and-conditions">Terms & Conditions</a> |
+                <a href="contact-us">Contact Us</a>
+            </nav>
+            <div class="col-md-5 app-store">
+                <p>Also available on</p>
+                <a href="https://play.google.com/store/apps/details?id=com.parlaygames.warriorbingo" target="_blank"><img src="img/play-store-icon.svg"></a>
+                <img src="img/app-store-icon.svg">
+            </div>
+            <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+                <img class="logo" src="img/logo@2x.png">
+            </div>
+        </div>
+
+
+            <div id="landing" class="row">
+            <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+                <div class="login-badge pink">Play For Free</div>
+                <button class="guest-btn">Play Now</button>
+                <button class="connect-btn">
+                    <span class="left fa fa-facebook"></span>
+                    Connect
+                    <span class="right fa fa-google"></span>
+                </button>
+                <a class="connect-btn" href="#">Connect for more rewards</a>
+            </div>
+        </div>
+
+        <div id="connect" class="row">
+            <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+                <div class="login-badge green">Get an account to save your journey</div>
+                <button class="connect-btn facebook sso-fb"><span class="fa fa-facebook"></span>Sign In with Facebook</button>
+                <button class="connect-btn google sso-goog"><span class="fa fa-google"></span>Sign In with Google</button>
+                <button class="account-btn">Create Account</button>
+                <a class="login-lnk" href="#">Already have an Account?</a>
+                <p>By proceeding you agree with our <a href="terms-and-conditions">Terms and Conditions</a></p>
+                <button class="back-btn">Back</button>
+            </div>
+        </div>
+
+        <div id="register">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+                    <p>Create Account</p>
+
+                    <form id="register-form">
+                        <div class="col-md-6 first-name form-group">
+                            <label class="sr-only" for="firstname">First Name</label>
+                            <input type="text" class="form-control" id="firstname" name="firstName" placeholder="First Name" />
+                        </div>
+                        <div class="col-md-6 last-name form-group">
+                            <label class="sr-only" for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Last Name" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="sr-only" for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="sr-only" for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                        </div>
+
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="submit" class="btn btn-danger btn-block">Continue</button>
+                        </div>
+                    </form>
+                    <div class="row no-pad">
+                        <div class="col-md-4 col-md-offset-4 ">
+                            <button class="back-btn btn btn-block">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="login">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+                    <h1>Login</h1>
+
+                    <form id="login-form">
+                        <div class="col-md-12 form-group">
+                            <label class="sr-only" for="email">Email</label>
+                            <input type="email" class="form-control" id="username" name="username" placeholder="Email" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label class="sr-only" for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                        </div>
+
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-danger btn-block">Login</button>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><a class="forgot-password" href="#">Forgot Password?</a></p>
+                        </div>
+                    </div>
+                    <div class="row no-pad">
+                        <div class="col-md-4 col-md-offset-4 ">
+                            <button class="back-btn btn btn-block">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="forgotPassword">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+                    <h1>Forgot Password</h1>
+
+                    <form id="forgot-password-form">
+                        <div class="col-md-12 form-group">
+                            <label class="sr-only" for="email">Email</label>
+                            <input type="email" class="form-control" id="fpEmail" name="email" placeholder="Email" />
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-danger btn-block">Continue</button>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Enter recovery email associated with your account</p>
+                        </div>
+                    </div>
+                    <div class="row no-pad">
+                        <div class="col-md-4 col-md-offset-4 ">
+                            <button class="back-btn btn btn-block">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+
+    <div id="inGameConnect" class="modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1>Register</h1>
+                    <div class="back-btn alt close-modal-only">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                            <button class="btn btn-block facebook sso-fb"><span class="fa fa-facebook"></span>Sign In with Facebook</button>
+                            <button class="btn btn-block google sso-goog"><span class="fa fa-google"></span>Sign In with Google</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                            <button class="account-modal-btn btn-block">Create Account</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                            <p>By proceeding you agree with our <a href="terms-and-conditions" target="_blank">Terms and Conditions</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="inGameRegister" class="modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1>Create Account</h1>
+                    <div class="back-btn alt close-modal-only">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </div>
+                    <div class="row form-row">
+                        <form id="register-form">
+                            <div class="col-md-6 first-name form-group">
+                                <label class="sr-only" for="firstname">First Name</label>
+                                <input type="text" class="form-control" id="firstname" name="firstName" placeholder="First Name" />
+                            </div>
+                            <div class="col-md-6 last-name form-group">
+                                <label class="sr-only" for="lastname">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Last Name" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="sr-only" for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="sr-only" for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                            </div>
+                            <div class="col-md-6 col-md-offset-3">
+                                <button type="submit" class="btn btn-block">Continue</button>
+                                <a href="#" class="back-modal-btn"><span class="glyphicon glyphicon-menu-left"></span>Back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="purchase" class="modal hide">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="back-btn close-modal-only">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="row header">
+                        <div class="col-xs-8 header-left">
+                            <p id='buyDetails'><strong>20</strong> Powerup Pack</p>
+                        </div>
+                        <div class="col-xs-4 header-right">
+                            <p id="buyCost">$4.99</p>
+                        </div>
+                    </div>
+                    <div class="row steps">
+                        <div class="line"></div>
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="circle step1-badge active">1</div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="circle step2-badge inactive">2</div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="circle step3-badge inactive">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step1">
+                        <div class="row paymentaccept">
+                            <div class="col-xs-12">
+                                <span>Payment</span>
+                                <img src="img/purchase/cards/amex.svg" />
+                                <img src="img/purchase/cards/discover.svg" />
+                                <img src="img/purchase/cards/jcb.svg" />
+                                <img src="img/purchase/cards/dinersclub.svg" />
+                                <img src="img/purchase/cards/mastercard.svg" />
+                                <img src="img/purchase/cards/paypal.svg" />
+                                <img src="img/purchase/cards/visa.svg" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="ccName">Cardholder Name</label>
+                                        <input type="text" class="form-control" id="ccName" placeholder="As it appears on your card" />
+                                    </div>
+                                    <div class="form-group ccNumGroup">
+                                        <label for="ccNumber">Card Number</label>
+                                        <input type="text" class="form-control" id="ccNumber" placeholder="">
+                                        <img src="img/purchase/cards/visa.svg" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="ccExpM">Expiration</label>
+                                                <select id="ccExpM" class="form-control">
+                                                    <option value="">mm</option>
+                                                    <option value="1">01 - Jan</option>
+                                                    <option value="2">02 - Feb</option>
+                                                    <option value="3">03 - Mar</option>
+                                                    <option value="4">04 - Apr</option>
+                                                    <option value="5">05 - May</option>
+                                                    <option value="6">06 - Jun</option>
+                                                    <option value="7">07 - Jul</option>
+                                                    <option value="8">08 - Aug</option>
+                                                    <option value="9">09 - Sep</option>
+                                                    <option value="10">10 - Oct</option>
+                                                    <option value="11">11 - Nov</option>
+                                                    <option value="12">12 - Dec</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="ccExpY">&nbsp;</label>
+                                                <select id="ccExpY" class="form-control">
+                                                    <option value="">yyyy</option>
+                                                    <option value="2017">2017</option>
+                                                    <option value="2018">2018</option>
+                                                    <option value="2019">2019</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 col-xs-offset-3">
+                                            <div class="form-group">
+                                                <label for="ccCVV">CVV</label>
+                                                <input type="text" class="form-control" id="ccCVV"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-block btn-default btn-step1">Next
+                                        &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step2">
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <p class="help-block">Billing Information</p>
+                                <form>
+
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label for="ccBillingCountry">Country</label>
+                                                <select class="form-control" id="ccBillingCountry" required="required">
+                                                    <option value="US" selected="selected">United States</option>
+                                                    <option value="CA">Canada</option>
+                                                    <option value="AF">Afghanistan</option>
+                                                    <option value="AX">Åland Islands</option>
+                                                    <option value="AL">Albania</option>
+                                                    <option value="DZ">Algeria</option>
+                                                    <option value="AS">American Samoa</option>
+                                                    <option value="AD">Andorra</option>
+                                                    <option value="AO">Angola</option>
+                                                    <option value="AI">Anguilla</option>
+                                                    <option value="AQ">Antarctica</option>
+                                                    <option value="AG">Antigua and Barbuda</option>
+                                                    <option value="AR">Argentina</option>
+                                                    <option value="AM">Armenia</option>
+                                                    <option value="AW">Aruba</option>
+                                                    <option value="AU">Australia</option>
+                                                    <option value="AT">Austria</option>
+                                                    <option value="AZ">Azerbaijan</option>
+                                                    <option value="BS">Bahamas</option>
+                                                    <option value="BH">Bahrain</option>
+                                                    <option value="BD">Bangladesh</option>
+                                                    <option value="BB">Barbados</option>
+                                                    <option value="BY">Belarus</option>
+                                                    <option value="BE">Belgium</option>
+                                                    <option value="BZ">Belize</option>
+                                                    <option value="BJ">Benin</option>
+                                                    <option value="BM">Bermuda</option>
+                                                    <option value="BT">Bhutan</option>
+                                                    <option value="BO">Bolivia, Plurinational State of</option>
+                                                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                                    <option value="BA">Bosnia and Herzegovina</option>
+                                                    <option value="BW">Botswana</option>
+                                                    <option value="BV">Bouvet Island</option>
+                                                    <option value="BR">Brazil</option>
+                                                    <option value="IO">British Indian Ocean Territory</option>
+                                                    <option value="BN">Brunei Darussalam</option>
+                                                    <option value="BG">Bulgaria</option>
+                                                    <option value="BF">Burkina Faso</option>
+                                                    <option value="BI">Burundi</option>
+                                                    <option value="KH">Cambodia</option>
+                                                    <option value="CM">Cameroon</option>
+                                                    <option value="CV">Cape Verde</option>
+                                                    <option value="KY">Cayman Islands</option>
+                                                    <option value="CF">Central African Republic</option>
+                                                    <option value="TD">Chad</option>
+                                                    <option value="CL">Chile</option>
+                                                    <option value="CN">China</option>
+                                                    <option value="CX">Christmas Island</option>
+                                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                                    <option value="CO">Colombia</option>
+                                                    <option value="KM">Comoros</option>
+                                                    <option value="CG">Congo</option>
+                                                    <option value="CD">Congo, the Democratic Republic of the</option>
+                                                    <option value="CK">Cook Islands</option>
+                                                    <option value="CR">Costa Rica</option>
+                                                    <option value="CI">Côte d'Ivoire</option>
+                                                    <option value="HR">Croatia</option>
+                                                    <option value="CU">Cuba</option>
+                                                    <option value="CW">Curaçao</option>
+                                                    <option value="CY">Cyprus</option>
+                                                    <option value="CZ">Czech Republic</option>
+                                                    <option value="DK">Denmark</option>
+                                                    <option value="DJ">Djibouti</option>
+                                                    <option value="DM">Dominica</option>
+                                                    <option value="DO">Dominican Republic</option>
+                                                    <option value="EC">Ecuador</option>
+                                                    <option value="EG">Egypt</option>
+                                                    <option value="SV">El Salvador</option>
+                                                    <option value="GQ">Equatorial Guinea</option>
+                                                    <option value="ER">Eritrea</option>
+                                                    <option value="EE">Estonia</option>
+                                                    <option value="ET">Ethiopia</option>
+                                                    <option value="FK">Falkland Islands (Malvinas)</option>
+                                                    <option value="FO">Faroe Islands</option>
+                                                    <option value="FJ">Fiji</option>
+                                                    <option value="FI">Finland</option>
+                                                    <option value="FR">France</option>
+                                                    <option value="GF">French Guiana</option>
+                                                    <option value="PF">French Polynesia</option>
+                                                    <option value="TF">French Southern Territories</option>
+                                                    <option value="GA">Gabon</option>
+                                                    <option value="GM">Gambia</option>
+                                                    <option value="GE">Georgia</option>
+                                                    <option value="DE">Germany</option>
+                                                    <option value="GH">Ghana</option>
+                                                    <option value="GI">Gibraltar</option>
+                                                    <option value="GR">Greece</option>
+                                                    <option value="GL">Greenland</option>
+                                                    <option value="GD">Grenada</option>
+                                                    <option value="GP">Guadeloupe</option>
+                                                    <option value="GU">Guam</option>
+                                                    <option value="GT">Guatemala</option>
+                                                    <option value="GG">Guernsey</option>
+                                                    <option value="GN">Guinea</option>
+                                                    <option value="GW">Guinea-Bissau</option>
+                                                    <option value="GY">Guyana</option>
+                                                    <option value="HT">Haiti</option>
+                                                    <option value="HM">Heard Island and McDonald Islands</option>
+                                                    <option value="VA">Holy See (Vatican City State)</option>
+                                                    <option value="HN">Honduras</option>
+                                                    <option value="HK">Hong Kong</option>
+                                                    <option value="HU">Hungary</option>
+                                                    <option value="IS">Iceland</option>
+                                                    <option value="IN">India</option>
+                                                    <option value="ID">Indonesia</option>
+                                                    <option value="IR">Iran, Islamic Republic of</option>
+                                                    <option value="IQ">Iraq</option>
+                                                    <option value="IE">Ireland</option>
+                                                    <option value="IM">Isle of Man</option>
+                                                    <option value="IL">Israel</option>
+                                                    <option value="IT">Italy</option>
+                                                    <option value="JM">Jamaica</option>
+                                                    <option value="JP">Japan</option>
+                                                    <option value="JE">Jersey</option>
+                                                    <option value="JO">Jordan</option>
+                                                    <option value="KZ">Kazakhstan</option>
+                                                    <option value="KE">Kenya</option>
+                                                    <option value="KI">Kiribati</option>
+                                                    <option value="KP">Korea, Democratic People's Republic of</option>
+                                                    <option value="KR">Korea, Republic of</option>
+                                                    <option value="KW">Kuwait</option>
+                                                    <option value="KG">Kyrgyzstan</option>
+                                                    <option value="LA">Lao People's Democratic Republic</option>
+                                                    <option value="LV">Latvia</option>
+                                                    <option value="LB">Lebanon</option>
+                                                    <option value="LS">Lesotho</option>
+                                                    <option value="LR">Liberia</option>
+                                                    <option value="LY">Libya</option>
+                                                    <option value="LI">Liechtenstein</option>
+                                                    <option value="LT">Lithuania</option>
+                                                    <option value="LU">Luxembourg</option>
+                                                    <option value="MO">Macao</option>
+                                                    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                                    <option value="MG">Madagascar</option>
+                                                    <option value="MW">Malawi</option>
+                                                    <option value="MY">Malaysia</option>
+                                                    <option value="MV">Maldives</option>
+                                                    <option value="ML">Mali</option>
+                                                    <option value="MT">Malta</option>
+                                                    <option value="MH">Marshall Islands</option>
+                                                    <option value="MQ">Martinique</option>
+                                                    <option value="MR">Mauritania</option>
+                                                    <option value="MU">Mauritius</option>
+                                                    <option value="YT">Mayotte</option>
+                                                    <option value="MX">Mexico</option>
+                                                    <option value="FM">Micronesia, Federated States of</option>
+                                                    <option value="MD">Moldova, Republic of</option>
+                                                    <option value="MC">Monaco</option>
+                                                    <option value="MN">Mongolia</option>
+                                                    <option value="ME">Montenegro</option>
+                                                    <option value="MS">Montserrat</option>
+                                                    <option value="MA">Morocco</option>
+                                                    <option value="MZ">Mozambique</option>
+                                                    <option value="MM">Myanmar</option>
+                                                    <option value="NA">Namibia</option>
+                                                    <option value="NR">Nauru</option>
+                                                    <option value="NP">Nepal</option>
+                                                    <option value="NL">Netherlands</option>
+                                                    <option value="NC">New Caledonia</option>
+                                                    <option value="NZ">New Zealand</option>
+                                                    <option value="NI">Nicaragua</option>
+                                                    <option value="NE">Niger</option>
+                                                    <option value="NG">Nigeria</option>
+                                                    <option value="NU">Niue</option>
+                                                    <option value="NF">Norfolk Island</option>
+                                                    <option value="MP">Northern Mariana Islands</option>
+                                                    <option value="NO">Norway</option>
+                                                    <option value="OM">Oman</option>
+                                                    <option value="PK">Pakistan</option>
+                                                    <option value="PW">Palau</option>
+                                                    <option value="PS">Palestinian Territory, Occupied</option>
+                                                    <option value="PA">Panama</option>
+                                                    <option value="PG">Papua New Guinea</option>
+                                                    <option value="PY">Paraguay</option>
+                                                    <option value="PE">Peru</option>
+                                                    <option value="PH">Philippines</option>
+                                                    <option value="PN">Pitcairn</option>
+                                                    <option value="PL">Poland</option>
+                                                    <option value="PT">Portugal</option>
+                                                    <option value="PR">Puerto Rico</option>
+                                                    <option value="QA">Qatar</option>
+                                                    <option value="RE">Réunion</option>
+                                                    <option value="RO">Romania</option>
+                                                    <option value="RU">Russian Federation</option>
+                                                    <option value="RW">Rwanda</option>
+                                                    <option value="BL">Saint Barthélemy</option>
+                                                    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                                    <option value="KN">Saint Kitts and Nevis</option>
+                                                    <option value="LC">Saint Lucia</option>
+                                                    <option value="MF">Saint Martin (French part)</option>
+                                                    <option value="PM">Saint Pierre and Miquelon</option>
+                                                    <option value="VC">Saint Vincent and the Grenadines</option>
+                                                    <option value="WS">Samoa</option>
+                                                    <option value="SM">San Marino</option>
+                                                    <option value="ST">Sao Tome and Principe</option>
+                                                    <option value="SA">Saudi Arabia</option>
+                                                    <option value="SN">Senegal</option>
+                                                    <option value="RS">Serbia</option>
+                                                    <option value="SC">Seychelles</option>
+                                                    <option value="SL">Sierra Leone</option>
+                                                    <option value="SG">Singapore</option>
+                                                    <option value="SX">Sint Maarten (Dutch part)</option>
+                                                    <option value="SK">Slovakia</option>
+                                                    <option value="SI">Slovenia</option>
+                                                    <option value="SB">Solomon Islands</option>
+                                                    <option value="SO">Somalia</option>
+                                                    <option value="ZA">South Africa</option>
+                                                    <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                                    <option value="SS">South Sudan</option>
+                                                    <option value="ES">Spain</option>
+                                                    <option value="LK">Sri Lanka</option>
+                                                    <option value="SD">Sudan</option>
+                                                    <option value="SR">Suriname</option>
+                                                    <option value="SJ">Svalbard and Jan Mayen</option>
+                                                    <option value="SZ">Swaziland</option>
+                                                    <option value="SE">Sweden</option>
+                                                    <option value="CH">Switzerland</option>
+                                                    <option value="SY">Syrian Arab Republic</option>
+                                                    <option value="TW">Taiwan, Province of China</option>
+                                                    <option value="TJ">Tajikistan</option>
+                                                    <option value="TZ">Tanzania, United Republic of</option>
+                                                    <option value="TH">Thailand</option>
+                                                    <option value="TL">Timor-Leste</option>
+                                                    <option value="TG">Togo</option>
+                                                    <option value="TK">Tokelau</option>
+                                                    <option value="TO">Tonga</option>
+                                                    <option value="TT">Trinidad and Tobago</option>
+                                                    <option value="TN">Tunisia</option>
+                                                    <option value="TR">Turkey</option>
+                                                    <option value="TM">Turkmenistan</option>
+                                                    <option value="TC">Turks and Caicos Islands</option>
+                                                    <option value="TV">Tuvalu</option>
+                                                    <option value="UG">Uganda</option>
+                                                    <option value="UA">Ukraine</option>
+                                                    <option value="AE">United Arab Emirates</option>
+                                                    <option value="GB">United Kingdom</option>
+                                                    <option value="UM">United States Minor Outlying Islands</option>
+                                                    <option value="UY">Uruguay</option>
+                                                    <option value="UZ">Uzbekistan</option>
+                                                    <option value="VU">Vanuatu</option>
+                                                    <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                                    <option value="VN">Viet Nam</option>
+                                                    <option value="VG">Virgin Islands, British</option>
+                                                    <option value="VI">Virgin Islands, U.S.</option>
+                                                    <option value="WF">Wallis and Futuna</option>
+                                                    <option value="EH">Western Sahara</option>
+                                                    <option value="YE">Yemen</option>
+                                                    <option value="ZM">Zambia</option>
+                                                    <option value="ZW">Zimbabwe</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="ccBillingHouseNum">House #</label>
+                                                <input type="text" class="form-control" id="ccBillingHouseNum" placeholder="House #" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <div class="form-group">
+                                                <label for="ccBillingAddress">Address</label>
+                                                <input type="text" class="form-control" id="ccBillingAddress" placeholder="Address" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <div class="form-group">
+                                                <label for="ccBillingApt">APT</label>
+                                                <input type="text" class="form-control" id="ccBillingApt" placeholder="APT" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <div class="form-group">
+                                                <label for="ccBillingCity">City</label>
+                                                <input type="text" class="form-control" id="ccBillingCity" placeholder="City" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="form-group">
+                                                <label for="ccBillingProv">Province</label>
+                                                <input type="text" class="form-control" id="ccBillingProv" placeholder="Province" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="form-group">
+                                                <label for="ccBillingPostal">Postal</label>
+                                                <input type="text" class="form-control" id="ccBillingPostal" placeholder="Postal" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label for="ccBillingPhone">Phone Number</label>
+                                                <input type="text" class="form-control" id="ccBillingPhone" placeholder="Phone Number" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <button type="button" class="btn btn-block btn-default back btn-step1-back">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <button type="button" class="btn btn-block btn-default btn-step2">Next
+                                            &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step3">
+                        <div class="row">
+                            <input type="hidden" id="productSku" value=""/>
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <h2>Card Number</h2>
+                                <p>**** **** **** 1234</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h2>Expiry Date</h2>
+                                        <p>01/2019</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h2>Purchase Date</h2>
+                                        <p>July 18, 2017</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="toc" value="yes">
+                                                I have read and accept the <a href="terms-and-conditions" target="_blank">terms of use, rules, and privacy policy</a>.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 keep-card">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id='keepCard' value="yes">
+                                        Keep this card for future purchases
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-5 col-xs-offset-1">
+                                <button type="button" class="btn btn-block btn-default back btn-step2-back">
+                                    <i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back
+                                </button>
+                            </div>
+                            <div class="col-xs-5">
+                                <button type="button" class="btn btn-block btn-default btn-step3">
+                                    Purchase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loader">
+                    <img src="img/loader.svg" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="http://socialdev.parlaygames.net:2166/socket.io/socket.io.js"></script>
+
+    <script type="application/javascript" src="js/libs/jquery-2.2.0.min.js"></script>
+    <script type="application/javascript" src="js/libs/jquery.payform.min.js"></script>
+
+    <script type="application/javascript" src="js/bootstrap.min.js"></script>
+
+    <script type="application/javascript" src="js/libs/underscore-min-1.5.2.js"></script>
+    <script type="application/javascript" src="js/libs/TweenMax.min.1.18.2.js"></script>
+    <script type="application/javascript" src="js/libs/phaser.min.2.7.9.js"></script>
+    <script type="application/javascript" src="js/libs/webfontloader.js"></script>
+    <script type="application/javascript" src="js/libs/raven.min.3.16.0.js"></script>
+
+    <script src="js/bin/socialBingo.min.js"></script>
+    <script src="js/app.min.js"></script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+            onload="this.onload=function(){};handleClientLoad()"
+            onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+
+</body>
+</html>
