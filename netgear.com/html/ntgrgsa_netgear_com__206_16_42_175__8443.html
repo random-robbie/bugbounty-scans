@@ -1,0 +1,42 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html dir=""><head><script type="text/javascript">
+       // Check if we are already loaded inside the top window (since
+       // we are not allowed to be iframed due to click jacking defense, we can
+       // safely check the top window) and if yes then its a session expired.
+       if ('GSA_ADMIN_APP' in window.top) {
+         window.top.gsaSessionExpired();
+       }
+     </script>
+<title>Google Search Appliance</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="gwt:property" content="locale=en">
+</head>
+<body><script type="text/javascript" src="admin_compiled.js"></script>
+<noscript>JavaScript must be enabled in order for you to use administration console. However, it seems JavaScript is either disabled or not supported by your browser. To use administration console, enable JavaScript by changing your browser options, then <a href="">try again</a>.
+<style type="text/css">
+       #admin_main {display:none}
+     </style></noscript>
+<div id="admin_main"><div class="od-Fd-Gd">Loading...</div></div>
+<script type="text/javascript">
+     (function () {
+       if ('GSA_ADMIN_APP' in window.top) {
+         return;
+       }
+       // Currently this will be true when we logout from Help Center. In that
+       // case just reload once again to get rid off 'actionType=logout' query
+       // parameter.
+       if (window.location.href.indexOf('actionType=logout') > 0) {
+         window.location.replace('/EnterpriseController');
+       } else if (window.location.href.indexOf('?actionType') != -1) {
+         // We are coming from old admin console URL.
+         window.location.replace(
+             window.location.href.replace(/\?[^#]*/, ''));
+       } else {
+         startGsaAdmin(
+             1,
+             {'sysVersion': "7.6.50.G.30\n",
+              'applianceId': "T5-K8QUW8DCW9SBC"});
+       }
+     })();
+   </script></body></html>

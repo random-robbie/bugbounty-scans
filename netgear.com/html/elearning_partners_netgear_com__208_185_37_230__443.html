@@ -1,0 +1,106 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<script src="js/jquery.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 
+         elements and media queries -->
+<!--[if lt IE 9]>
+     	 <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+     	 <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+     	 <![endif]-->
+</head>
+<body>
+<!--HEADER START-->
+<header>
+ <div class="container-fluid">
+  <div class="row">
+   <div class="logo col-md-6 col-sm-6 col-xs-12"> <a href="#"><img src="images/logo.png" class="img-responsive"></a> </div>
+   <div class="corner-design col-md-6 col-xs-12"> <img src="images/top-corner-design.png" class="pull-right img-responsive"> </div>
+  </div>
+ </div>
+</header>
+<!--HEADER END--> 
+<!--FORM AREA START-->
+<section>
+ <div class="container">
+  <div class="row">
+   <div class="login-form">
+    <div class="form-bg">
+     <form role="form" class="form-horizontal" method="POST">
+<!--delete--> <p class="text-center login-title">Helpdesk - New</p><!--delete-->
+
+      <p class="text-center login-title">Login to continue...</p>
+	<div class="alert-login alert-danger" style="display:none">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Error:</strong> .
+	</div> 
+       <div class="form-group">
+       <label class="control-label col-md-3 col-sm-3"> User Name:</label>
+       <div class="field col-md-8 col-sm-8 col-xs-11 ">
+        <input type="text" id="email" name="email" required placeholder="Name" class="form-control" value="">
+       </div>
+      </div>
+      <div class="form-group">
+       <label class="control-label col-md-3 col-sm-3"> Password:</label>
+       <div class="field col-md-8 col-sm-8 col-xs-11">
+        <input type="password" id="password" autocomplete="off" name="password" required placeholder="Password" class="form-control" value="">
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="loginbtn align-center">
+        <button class="sub-btn" type="submit" name="submit" value="Login">Login</button>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="checkbox1">
+        <label>
+         <input type="checkbox" name="rememberme" value="1">
+         Remember me </label>
+       </div>
+	<h5 style="padding-left:10px"><b>NOTE:</b> Please sign in using your CTS username and password.</h5>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+<!--FORM AREA END//--> 
+<!--SCRIPT START-->
+<script>
+$( ".user_icon" ).click(function() {
+  $( ".profile_content" ).animate({
+    width: [ "toggle", "swing" ],
+    height: [ "toggle", "swing" ],
+    opacity: "toggle"
+  }, 500, "linear", function() {
+  });
+});
+$( ".cancel_txt" ).click(function(){
+	$( ".profile_content" ).animate({
+    width: [ "toggle", "swing" ],
+    height: [ "toggle", "swing" ],
+    opacity: "toggle"
+  }, 500, "linear", function() {
+  });
+});
+
+$(".close").click(function(){
+ $('.alert-login').hide();
+
+});
+
+
+</script>
+<!--SCRIPT END//-->
+</body>
+</html>
+

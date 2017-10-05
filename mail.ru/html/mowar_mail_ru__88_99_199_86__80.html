@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <title>Мастера войны</title>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            font: normal 13px Arial;
+            background: #000;
+            color: #b5b184;
+            /*overflow: hidden;*/
+        }
+
+        #navigator td {
+            border: 0px;
+            padding: 0px;
+        }
+
+        .centerDiv {
+            width: 1000px;
+            min-height: 598px;
+            margin-top: 0px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .leftPanel {
+            opacity: 0;
+            float: left;
+            display: inline-block;
+            top: 0px;
+            left: 0px;
+            width: 423px;
+            min-height: 1045px;
+            background: transparent url(mm/bgs_complete.png) no-repeat left top;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .labelDiv div {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+        }
+
+        .loginButtons {
+            padding-top: 430px;
+            padding-bottom: 5px;
+            margin: 0 auto;
+            width: 423px;
+            height: 230px;
+        }
+
+        .gallery {
+            padding-top: 0px;
+            padding-bottom: 40px;
+            margin: 0px auto;
+            width: 320px;
+        }
+
+        .gallery a {
+            position: relative;
+            display: block;
+            float: left;
+            margin: 10px 10px 10px 10px;
+            width: 138px;
+            height: 138px;
+        }
+
+        .gallery a .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .gallery a img {
+            vertical-align: middle;
+        }
+
+        .expandImg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 138px;
+            height: 138px;
+            background: transparent url(mm/expand_screenshot.png) no-repeat 5px;
+            visibility: hidden;
+        }
+
+        .gallery a:hover .expandImg {
+            visibility: visible;
+        }
+
+        .likesBlock table {
+            width: 100%;
+        }
+
+        #backgroundFlashContent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -10;
+        }
+
+        #flashButton {
+            position: relative;
+            margin: 0 auto;
+            width: 420px;
+            height: 290px;
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*left: 0;*/
+            z-index: 10;
+        }
+
+        .games-headline {
+            overflow: hidden;
+        }
+
+        #game-wrapper {
+            position: fixed;
+            top: 30px;
+            left: 0;
+            right: 0;
+            bottom: 0;;
+        }
+
+        .age16plus {
+            height: 55px;
+            right: 100px;
+            bottom: 50px;
+            position: absolute;
+            width: 55px;
+            background: url("mm/icon_16_plus.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+            z-index: -1;
+        }
+
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <script src="//games.mail.ru/js/game_headers/app723246.js" type="text/javascript"></script>
+    <script type="text/javascript"
+            src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/swfobject.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.lightbox-0.5.min.js"></script>
+    <script type="text/javascript" src="//connect.mail.ru/js/loader.js"></script>
+    <script type="text/javascript" src="js/igrui.js?4"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen"/>
+
+</head>
+<body>
+<div id="game-wrapper">
+    <div id="game"></div>
+</div>
+<div class="centerDiv">
+    <!-- Body -->
+    <div class="pageContentBlock">
+        <div id="backgroundAlternativeContent">
+            <a href="//www.adobe.com/go/getflashplayer">
+                <img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+                     alt="Get Adobe Flash player"/>
+            </a>
+        </div>
+        <div class="leftPanel">
+            <div class="loginButtons">
+                <div id="loginButton"></div>
+            </div>
+            <div class="gallery">
+                <a href="mm/screen_3.jpg"><span class="helper"></span><img src="mm/screen_3_sq.jpg"
+                                                                           alt=""/>
+
+                    <div class="expandImg"></div>
+                </a>
+                <a href="mm/screen_4.jpg"><span class="helper"></span><img src="mm/screen_4_sq.jpg"
+                                                                           alt=""/>
+
+                    <div class="expandImg"></div>
+                </a>
+                <a href="mm/screen_6.jpg"><span class="helper"></span><img src="mm/screen_6_sq.jpg"
+                                                                           alt=""/>
+
+                    <div class="expandImg"></div>
+                </a>
+                <a href="mm/screen_7.jpg"><span class="helper"></span><img src="mm/screen_7_sq.jpg"
+                                                                           alt=""/>
+
+                    <div class="expandImg"></div>
+                </a>
+            </div>
+            <div class="rightPanel">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="age16plus"></div>
+</body>
+<script type="text/javascript">
+    
+var mainSwfHash, staticListHash;
+mainSwfHash='e504a604507f414b3b6311361c7600a9', staticListHash='18344ff53937e3e509b879d96a5f0665';
+
+var config = {
+  project: 'igrui-spywars',
+  flash: {
+    width: 730,
+    height: 730
+  },
+  mainSwf: '//earth.igrui.com/spywars/client/main.swf' + '?if-hash=' + mainSwfHash,
+  clientUrl: '//earth.igrui.com/spywars/client',
+  staticListHash: staticListHash,
+  connectString: 'venus.igrui.com:4913:4911:4914',
+  authUrl: '//venus.igrui.com/spywars/auth',
+  feedbackUrl: '//venus.igrui.com/spywars/feedback/reports',
+
+  locales: ['ru_RU']
+}
+
+
+    var flashvars = {};
+    var params = {};
+    params.scale = "noborder";
+    params.wmode = "transparent";
+    params.allowScriptAccess = "always";
+    var attributes = {};
+    attributes.id = "backgroundFlashContent";
+    swfobject.embedSWF("mm/background.swf", "backgroundAlternativeContent", "100%", "100%", "10.3.0", false, flashvars, params, attributes);
+
+    var flashvarsBtn = {};
+    var paramsBtn = {};
+    paramsBtn.scale = "noScale";
+    paramsBtn.wmode = "transparent";
+    paramsBtn.allowScriptAccess = "always";
+    var attributesBtn = {};
+    attributesBtn.id = "flashButton";
+    swfobject.embedSWF("mm/button.swf", "loginButton", "100%", "100%", "10.3.0", false, flashvarsBtn, paramsBtn, attributesBtn);
+
+    mailru.loader.require('api', function () {
+        // инициализируем внутренние переменные
+        mailru.connect.init(723246, "77b61ea47122d256f9bcc511252bea47", true);
+        mailru.events.listen(mailru.connect.events.login, function (session) {
+            window.location.reload();
+        });
+        mailru.events.listen(mailru.connect.events.logout, function () {
+            window.location.reload();
+        });
+        mailru.connect.getLoginStatus(function (result) {
+            if (result.is_app_user != 1) {
+                //            // вешаем кнопку логина (пример для jquery)
+                //            $('#login-button').click(function () {
+                //                console.log("click!");
+                //                mailru.connect.login();
+                //            });
+
+            } else {
+                mailru.common.users.getInfo(function (result) {
+                    console.log("success");
+                    var mrc = "";
+                    for (var key in mailru.session) {
+                        if (mailru.session.hasOwnProperty(key)) {
+                            mrc = mrc + "&" + encodeURIComponent(key) + "=" + encodeURIComponent(mailru.session[key]);
+                        }
+                    }
+                    igrui.init($.extend(true, config, {
+                        sn: 'mm',
+                        apiId: 723246,
+                        flash: {
+                            width: '100%',
+                            height: '100%',
+                            getFlashVars: function () {
+                                return mrc + '&if-connect=' + igrui.connectString +
+                                        '&if-clientUrl=' + igrui.clientUrl +
+                                        '&if-authUrl=' + igrui.authUrl +
+                                        '&if-feedbackUrl=' + igrui.feedbackUrl +
+                                        '&if-staticListHash=' + igrui.staticListHash +
+                                        '&if-mm-external=1';
+                            }
+                        },
+                        locale: {
+                            langDetect: function () {
+                                return 'ru_RU';
+                            }
+                        }
+                    }));
+                    $(function () {
+                        igrui.loadswf();
+                        $('.centerDiv').hide();
+                    });
+                });
+            }
+        });
+    });
+
+    function mowarPlayClick() {
+        console.log("click");
+        mailru.connect.login();
+    }
+
+    function getCookie(name) {
+        var cookie = " " + document.cookie;
+        var search = " " + name + "=";
+        var setStr = null;
+        var offset = 0;
+        var end = 0;
+        if (cookie.length > 0) {
+            offset = cookie.indexOf(search);
+            if (offset != -1) {
+                offset += search.length;
+                end = cookie.indexOf(";", offset)
+                if (end == -1) {
+                    end = cookie.length;
+                }
+                setStr = unescape(cookie.substring(offset, end));
+            }
+        }
+        return (setStr);
+    }
+
+    $('.leftPanel').delay(1000).animate({"opacity": "1"}, 700);
+    $(function () {
+        $('.gallery a').lightBox();
+    });
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39147092-16', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</html>

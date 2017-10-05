@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Технопарк@Mail.ru"/>
+    <meta property="og:description" content="Проект МГТУ им. Н.Э. Баумана и Mail.Ru Group, направленный на подготовку квалифицированных специалистов для российского рынка веб-разработки"/>
+    <meta property="og:image" content="/static_gtp/core/pub/default/images/share_logo.png"/>
+    <meta name="cmsmagazine" content="6b918355ad4ec31e713e8eefe2a5b74c" />
+
+    <link rel="icon" href="/static_gtp/core/pub/park/images/favicon.ico">
+    <title>
+    Главная - Технопарк@Mail.ru
+</title>
+
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/park/css/style.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/park/css/style_override.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/park/css/jquery.notifier.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/park/fonts/font.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/park/css/style_handheld.css?v=5.27.0">
+    
+    
+
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.cookie.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.form.js?v=5.27.0"></script>
+    <script type="text/javascript"
+            src="/static_gtp/lib/js/jquery/jquery-ui/jquery-ui.min.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.notifier.js?v=5.27.0"></script>
+    <script type="text/javascript"
+            src="/static_gtp/lib/js/jquery.maskedinput/jquery.maskedinput.min.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/msg.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/park/js/f.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/park/js/f_override.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/park/js/main.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.tmpl.min.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/park/js/window_login.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/park/js/share.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/park/js/reminder.js?v=5.27.0"></script>
+
+    <script>
+            $(function() {
+               $('#logout_front').on('click', function(){
+                    $('#logout_front_form').submit();
+               });
+            });
+        </script>
+
+    
+    
+</head>
+
+    <body>
+
+    <div id="popup-login" class="popup popup-login popup-login-restore">
+    <span class="close" title="Закрыть"></span>
+    <input type="hidden" class="gtp-login-url" value="/gtp_login/">
+    <input type="hidden" class="gtp-mode" value="True">
+    <p class="heading">Войти</p>
+
+    
+        
+        <form action="/login/" method="POST" id="popup-login-form"
+              class="pl-login form-required no-disable">
+            <p class="error-message validate-error-hide validate-error-login"></p>
+            <input type='hidden' name='csrfmiddlewaretoken' value='nNwHja2gGw4uf02wmTTb71ZbHXxUOG4V' />
+
+            <div class="login-input">
+                <div class="login-loader"></div>
+                <p><input type="text" name="login" class="textInput required textInput-placeholder"
+                          value="Логин или почта" data-placeholder="Логин или почта"></p>
+
+                <p><input type="password" name="password" class="textInput textInput-placeholder" value="Пароль"
+                          data-placeholder="Пароль"></p>
+            </div>
+
+            <p class="save cf">
+                <label class="checkbox checkbox-checked"><input type="checkbox" name="remember" checked="checked">
+                    Запомнить меня
+                    <i></i></label>
+                <span id="passwd-restore" class="pseudo-link">Восстановление пароля</span><br>
+                
+                <a href="/registration/short/" class="login-registration-link">Регистрация</a>
+            </p>
+
+            <p class="submit">
+                
+                <button name="submit_login" type="submit" id="popup-login-form-submit"><span class="button">Войти<b></b></span>
+                </button>
+                
+            </p>
+        </form>
+
+            
+        <form action="/password_reset/" method="POST" id="popup-reminder-form"
+              class="pl-restore form-required">
+            <input type='hidden' name='csrfmiddlewaretoken' value='nNwHja2gGw4uf02wmTTb71ZbHXxUOG4V' />
+            <p class="error-message validate-error-hide validate-error-reminder"></p>
+
+
+            <script type="text/javascript">
+                $(function () {
+                    $('#popup-reminder-form').submit(function (event) {
+                        $('#popup-reminder-form-submit').addClass('disabled');
+                        $('#popup-reminder-form-submit').attr('disabled', 'disabled');
+                    });
+                });
+            </script>
+
+            <p class="password-reset-input">
+                <input type="text" class="textInput textInput-placeholder required required-email" name="mail"
+                       value="Ваш e-mail" data-placeholder="Ваш e-mail">
+            </p>
+
+            <p class="submit">
+                <button type="submit" name="submit_reminder" id="popup-reminder-form-submit" class="disabled"><span
+                        class="button">Восстановить пароль<b></b></span></button>
+            </p>
+        </form>
+
+        <div id="popup-reminder-form" class="pl-restored form-required">
+            <span class="close" title="Закрыть"></span>
+
+            <p id="mail_recovered_text"></p>
+
+            <p class="submit">
+                <button name="submit_reminder"><span class="button button_close">OK<b></b></span></button>
+            </p>
+        </div>
+    
+</div>
+
+
+
+
+
+
+    <div id="popup-bug-report" class="popup">
+
+    <span class="close" title="Закрыть"></span>
+    <p class="heading">Обратная связь</p>
+    <div class="popup-bug-report__content" style="min-height: 450px;"></div>
+
+</div>
+
+
+    
+
+    <div id="header" class="w">
+        <p class="video-links">
+            <div class="reg-button">
+                
+
+                <div class="reg-button" style="float: initial; padding-top: 10px;">
+                
+            </div>
+
+            </div>
+
+        </p>
+
+
+
+        <div id="logo">
+            
+            <a href="/">
+                <img src="/static_gtp/core/pub/park/img/logo.png?v=5.27.0" alt="">
+            </a>
+        </div>
+        
+            
+                <p class="login-button">
+                    <a href="#" class="button2 button3 button-login trigger-login">Вход для участников</a>
+                </p>
+            
+        
+    </div>
+
+    <div class="w">
+        <ul id="nav" class="sel-header-menu">
+            
+            <li class=" sel-about">
+                
+                    <a href="/pages/about/">О проекте</a>
+                
+            </li>
+
+            
+            <li class=" sel-howto">
+                
+                    <a href="/pages/forapplicants/">Как поступить</a>
+                
+            </li>
+
+            
+            <li class=" sel-program">
+                
+                    <a href="/curriculum/program/main/">Программа</a>
+                
+            </li>
+
+            
+            <li class=" sel-video">
+                
+                    <a href="/materials/video/">Видеозаписи</a>
+                
+            </li>
+
+            <li class="">
+                
+                    <a href="/videostreams/">Видеотрансляции</a>
+                
+            </li>
+
+            
+            <li class=" sel-schedule">
+                
+                    <a href="/schedule/front/">Расписание</a>
+                
+            </li>
+
+            
+            <li class=" sel-faq">
+                
+                    <a href="/faq/">Частые вопросы</a>
+                
+            </li>
+
+            
+            <li class=" sel-alumni">
+                
+                    <a href="/alumni/">Выпуски</a>
+                
+            </li>
+
+            
+            <li class=" sel-contacts">
+                
+                    <a href="/contacts/">Контакты</a>
+                
+            </li>
+        </ul>
+        
+        
+    </div>
+
+
+    
+
+    
+<div class="index tabs">
+    <div class="w">
+        <div class="tab-item tab-item-scheme index-scheme">
+            <h2 class="heading3" style="top: 13px; left: 281px;">Mail.Ru Group и МГТУ им. Н.Э. Баумана</h2>
+            <p style="top: 121px; left: 360px; width: 280px;">Цель проекта — готовить квалифицированных веб-разработчиков и&nbsp;системных архитекторов</p>
+            <p style="top: 288px; left: 70px; width: 210px;">Преподаватели — практики и&nbsp;эксперты из mail.ru и&nbsp;других известных интернет-компаний</p>
+            <p style="top: 288px; left: 385px; width: 220px;">21 дисциплина с&nbsp;уклоном в&nbsp;практику, спецкурсы и&nbsp;мастер-классы</p>
+            <p class="students" style="top:275px; left:705px; width:220px;">
+                <span>4 студента</span>
+                
+                <span>112 выпускников</span>
+                
+            </p>
+            <h2 class="heading3" style="top: 449px; left: 438px;">Технопарк</h2>
+        </div>
+        <div class="tab-item tab-item-video" style="display: none;">
+            <div class="ubox">
+                <div class="ubox-inner">
+                    <iframe src="https://www.youtube.com/embed/kuXWYdPEG4s?rel=0&amp;showinfo=0&amp;autohide=1&amp;color=white&amp;wmode=transparent"
+                            frameborder="0" width="690" height="388"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="tabs-switcher">
+            <span class="button2 button3 inv active" data-rel="scheme">О проекте</span> <span class="button2 button3 button-video inv" data-rel="video">Видео</span>
+        </div>
+    </div>
+</div>
+ 
+
+
+
+
+
+
+    <div class="w tpgives tabs">
+        <h2 class="heading1">Что &laquo;Технопарк&raquo; дает студентам?</h2>
+        <div class="tabs-switcher noselect cf"><span class="active" data-rel="aim"><em class="button" data-rel="aim">Цель<i></i></em></span>
+            <span data-rel="process"><em class="button" data-rel="process">Процесс<i></i></em></span> <span
+                    data-rel="result"><em class="button" data-rel="result">Итог<i></i></em></span></div>
+        <div class="tab-item tab-item-aim">
+            <div class="ubox ubox-b">
+                <div class="ubox-inner"><a href="https://it.mail.ru/files/25_3n.jpg" style="display: none;"></a>
+                    <ul class="cf">
+                        <li><span>1</span> Переквалифицироваться, получить дополнительную специальность, или попробовать
+                            себя в веб-разработке.
+                        </li>
+                        <li><span>2</span> Получить практический опыт разработки и проектирования, поработать над
+                            реальными проектами.
+                        </li>
+                        <li style="margin-left: -10px;"><span>3</span> Постоянное общение с преподавателями&nbsp;&mdash;&nbsp;известными
+                            и&nbsp;признанными&nbsp;экспертами.
+                        </li>
+                    </ul>
+                    <ul class="cf">
+                        <li><span>4</span> Получить солидный опыт для будущего резюме.</li>
+                        <li><span>5</span> Получить возможность стажировки в&nbsp;Mail.Ru Group.</li>
+                        <li style="margin-left: -10px;"><span>6</span> Стать частью проекта и реально влиять на проект.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="submit"><a class="button" href="/pages/about/">Узнать больше</a></p>
+        </div>
+        <div class="tab-item tab-item-process" style="display: none;">
+            <div class="ubox ubox-b">
+                <div class="ubox-inner">
+                    <ul class="cf">
+                        <li><span>1</span> Поступить может студент Бауманки любого курса, независимо от того, на каком
+                            факультете он учится, а также аспиранты.
+                        </li>
+                        <li><span>2</span> Обучение в виде лекций и семинаров<br/>2-3 раза в неделю, после основных
+                            занятий, прямо в университете.
+                        </li>
+                        <li><span>3</span> На лекциях разбирается теория, семинары проходят в форме групповой работы над
+                            реальным проектом.
+                        </li>
+                    </ul>
+                    <ul class="cf">
+                        <li><span>4</span> Есть другие формы работы: экскурсии, мероприятия, конкурсы, стажировки.</li>
+                        <li><span>5</span> Также помогает опубликовать научные статьи, связанные с веб-разработкой.</li>
+                        <li><span>6</span> Это бесплатно.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="submit"><a class="button" href="/pages/forapplicants/">Узнать больше</a></p>
+        </div>
+        <div class="tab-item tab-item-result" style="display: none;">
+            <div class="ubox ubox-b">
+                <div class="ubox-inner">
+                    <ul class="cf">
+                        <li><span>1</span> Сертификат Mail.Ru Group.</li>
+                        <li><span>2</span> Практические навыки и реальный опыт решения сложных задач.</li>
+                        <li><span>3</span> Больше возможностей успешного трудоустройства.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="submit"><a class="button" href="/curriculum/program/main">Узнать больше</a></p>
+        </div>
+    </div>
+    <div class="reviews trigger-slider" style="height: 425px;">
+        <div class="w">
+            <div class="item" style="background-image: url('/static_gtp/core/pub/park/img/review/grishin.png');">
+                <div class="item-wrapper">
+                    <p class="item-body">Такие проекты, как Технопарк, важны и для рынка в целом, и в первую
+                        очередь &mdash; для самих студентов. У молодых специалистов должна быть возможность общаться с
+                        экспертами отрасли, пробовать свои силы в реальных проектах, иметь перед глазами вдохновляющие
+                        примеры. Мы стремимся создавать площадки для этого: проводим конференции для it-разработчиков,
+                        организуем крупнейшую в России олимпиаду для программистов Russian Code Cup и другие
+                        международные чемпионаты.</p>
+                    <p class="item-author"><strong>Дмитрий Гришин</strong>Председатель совета директоров Mail.Ru Group</p>
+                </div>
+            </div>
+            <div class="item"
+                 style="display: none; opacity: 0; background-image: url('/static_gtp/core/pub/default/img/review/alexandrov.png');">
+                <div class="item-wrapper">
+                    <p class="item-body">Мы рады, что студенты МГТУ им. Н.Э. Баумана могут принять участие в проекте,
+                        который позволяет им решать реальные задачи, развивать свой потенциал и перенимать опыт лучших
+                        специалистов-практиков в области программирования, мобильных технологий, программной инженерии и
+                        управления проектами. Технопарк не только способствует повышению уровня профессиональных знаний
+                        наших студентов, но и привлекает внимание к технологиям и разработке в России.</p>
+                    <p class="item-author"><strong>Анатолий Александров</strong> ректор МГТУ им. Н. Э. Баумана</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <p>
+
+<!-- Video-stream block is stream item + subscription popup -->
+
+
+    <link rel="stylesheet" type="text/css" href="/static_gtp/pub/park/css/video_stream_block.css?v=">
+
+
+
+    <script src="/static_gtp/pub/park/js/video_stream_block.js?v=" type="text/javascript"></script>
+
+
+
+    <div class="w">
+        <h2>
+            <a href="/videostreams/7/">
+                
+                    Последняя
+                
+                    видеотрансляция
+            </a>
+        </h2>
+    </div>
+
+    
+
+
+<div class="w">
+    <div class="stream-info ">
+        <p class="stream-info__datetime">
+            21 Августа 2017 г. в 12:00
+
+            
+        </p>
+        <div class="stream-info__preview inline">
+            <div class="stream-info__preview__play-btn">
+                <!-- ?scroll=1 for scrolling to stream title at its page -->
+                <a href="/videostreams/7/">
+                    <div style="width: 100%; height: 100%"></div>
+                </a>
+            </div>
+            <div class="ubox ubox-b">
+                <div class="gray-enable">
+                    <a href="/videostreams/7/">
+                        <img src="/media_gtp/uploads/video_stream_previews/08/23/800.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="stream-info__info inline">
+            <div class="stream-info__info__title">
+                <h3 class="heading heading3">
+                    <a href="/videostreams/7/">
+                        Вебинар &quot;Поступление в образовательные проекты&quot;
+                    </a>
+                </h3>
+            </div>
+            <div class="stream-info__info__description">
+                <p>Расскажем все, что нужно знать для попадания в образовательные проекты Mail.Ru Group!</p>
+            </div>
+            <div class="stream-info__info__btns">
+                
+
+                <a href="/videostreams/7/" class="button2 button3">
+                    Подробнее
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+
+    <link rel="stylesheet" type="text/css" href="/static_gtp/pub/park/css/popup_subscription_stream.css?v=">
+
+
+<div id="popup-subscription-stream" class="popup popup-subscription-stream">
+    <span class="close" title="Закрыть"></span>
+
+    <p class="heading">Напомнить о видеотрансляции</p>
+
+    <div class="popup-subscription-stream__content">
+    </div>
+</div>
+
+
+</p>
+    
+    <p>
+
+
+
+    <div class="w">
+        
+        <h2><a href="/news/" class="sel-events">Новости проекта</a></h2>
+
+        <div class="news cf">
+            <div class="news-cols cf">
+                
+                    <div class="col col-0">
+                        
+                            
+                                
+
+
+
+
+<div class="item ubox ubox-b">
+    <div class="ubox-inner">
+        <p class="date">2 Октябрь 2017</p>
+        <h3 class="heading heading4"><a href="/news/9938/highload-cup-vyisokie-nagruzki-3/">HighLoad Cup. Высокие нагрузки</a></h3>
+        <div class="news-wrapper-div">
+            <p class="news-text-short gray-enable">
+                31 августа завершился тестовый чемпионат <a href="https://highloadcup.ru/" target="_blank">HighLoad Cup</a> - соревнование разработчиков высоконагруженных систем. Лучшим среди более чем 2000 программистов стал студент Технотрека Никита Уваров. В этой статье мы расскажем о чемпионате в целом, а через неделю опубликуем интервью с победителем - Никита расскажет о фишке своего решения и поведает, как ему удалось выиграть в условиях нехилой конкуренции со стороны опытных разработчиков, в том числе, ребят из Mail.Ru.<br><br><img src="https://track.mail.ru/media_gtp/uploads/track/topics/2017/10/b1bea264adc630c465dd2c4b0ca0d271a71b1b8e0676c75312df276b505b40bd.jpeg" title=""><br><strong><br>HighLoad Cup - это:<br></strong><br><ul>    <li>3 недели</li>    <li>2000 участников</li>    <li>50 финалистов</li>    <li>over 30 000 решений</li>    <li>over 8 языков (C++, Go, Java, Rust, Scala, Perl, PHP, Python…)</li></ul><br><strong>Условия</strong><br><br>Участвовать в чемпионате мог любой желающий. В рамках соревнования участникам было предложено создать автономное отзывчивое серверное приложение, собрать его в docker-контейнер и залить в хранилище, а затем обстрелять на выданных боевых данных.<br><br>В процессе решения можно было использовать любые языки и серверные технологии. Решения проверялись автоматически системой CodeHub-CodeRunner, разработанной сотрудниками лаборатории Технопарка Mail.Ru Group. Для победы в конкурсе необходимо было выдать за время чемпионата лучшее решение по подготовленной для чемпионата метрике.<br><br><strong>Призы</strong><br><br>Мы не оставили наших победителей без наград:<br><ul>    <li>Apple iPad Air 2 Cellular 16GB за первое место;</li>    <li>WD MyCloud 6TB за второе и третье места;</li>    <li>WD MyPassport Ultra 2TB за 4-6 места.</li></ul><br>Кроме того, 20 лучших участников получили наш традиционный приз - футболки с символикой чемпионата.<br><br><strong>Система обстрела</strong><br><br>Система проверки изначально создавалась для другого соревнования под названием <a href="http://russianaicup.ru/" target="_blank">Russian AI Cup</a> и была доработана для проведения Highload-соревнований. Внутри запускается yandex-танк с движком phantom, который ведет обстрел в несколько потоков с линейно растущим профилем нагрузки (специфично для задачи). Перед началом обстрела у пользовательского решения есть несколько минут (точное время зависит от задачи), чтобы обработать данные из полученного JSON-файла. Корректная работа с этими данными - необходимое условие победы. Обстрела два - короткими и длинными данными.<br><br>Ниже представлена схема серверных компонент.<br><br><img src="https://track.mail.ru/media_gtp/uploads/track/topics/2017/10/ab10cde3f4b319229a9cbd2fac7867bef9804ca303c3d7c1eee19e93ce8e6956.png" title=""><br><br>Чемпионат стартовал настолько успешно, что мы планируем повторить. Если ты хочешь попробовать свои силы в новом HighLoad Cup, пиши <a href="https://park.mail.ru/profile/i.styitsenko/">Илье Стыценко</a>. А в следующий понедельник читай интервью с победителем чемпионата - о том, что позволило топам вырваться вперед, как подготовиться к высоким нагрузкам и за счет чего вентилятор компьютера становится вертолетом.
+            </p>
+            <div class="news-gradient-div"></div>
+        </div>
+        
+    </div>
+</div>
+                            
+                        
+                            
+                        
+                            
+                        
+                    </div>
+                
+                    <div class="col col-1">
+                        
+                            
+                        
+                            
+                                
+
+
+
+
+<div class="item ubox ubox-b">
+    <div class="ubox-inner">
+        <p class="date">30 Август 2017</p>
+        <h3 class="heading heading4"><a href="/news/9550/otkryita-registratsiya-na-den-otkryityih-dverej-tehnoparka/">Открыта регистрация на День открытых дверей Технопарка!</a></h3>
+        <div class="news-wrapper-div">
+            <p class="news-text-short gray-enable">
+                Друзья,<br><br>приглашаем всех студентов МГТУ им. Н.Э. Баумана на День открытых дверей Технопарка, который состоится <strong>05 сентября в 395 ауд. ГЗ.</strong><br><br><strong>У вас есть возможность:</strong><br>• узнать все о поступлении в Технопарк и стажировке в Mail.Ru Group<br>• познакомиться с выпускниками и узнать их истории успеха<br>• пройти реальные задачи с отбора в тестовом режиме<br>
+            </p>
+            <div class="news-gradient-div"></div>
+        </div>
+        
+            
+
+<div class="activity-data"
+   data-topic-id="9550"
+   data-activity-title=""
+   data-activity-date-start="">
+
+    <p class="event-attend">
+        
+            <span class="label-done"><span>Завершено</span></span>
+        
+    </p>
+</div>
+        
+    </div>
+</div>
+                            
+                        
+                            
+                        
+                    </div>
+                
+                    <div class="col col-2">
+                        
+                            
+                        
+                            
+                        
+                            
+                                
+
+
+
+
+<div class="item ubox ubox-b">
+    <div class="ubox-inner">
+        <p class="date">19 Август 2017</p>
+        <h3 class="heading heading4"><a href="/news/9505/bonni-russkij-rekord-na-solyanom-ozere/">Бонни: русский рекорд на соляном озере!</a></h3>
+        <div class="news-wrapper-div">
+            <p class="news-text-short gray-enable">
+                Друзья,<br><br>не могу не написать об этом событии!<br><br>Все вы видели замечательные ролики наших образовательных проектов. И наверняка все оценили , как классно и профессионально они сняты!<br><br>Их авторами (и съемок и идей) являются Анастасия Ильина и Дмитрий Бобров.<br><br>Я горжусь знакомством с этими талантливыми ребятами.<br><br>Сегодня для них особенный день:<br>через 1,5 часа наступит самый долгожданный момент для их творческой команды - в 17:00 19 августа  на Discovery Channel выходит документальный фильм , который сняли ребята  "Бонни: русский рекорд на соляном озере". Накануне вышла статья в журнале MAXIM об их поездке и фильме. Кстати, во всех публикуемых статьях в 99% случаев используются фотографии, сделанные Дмитрием Бобровым: <a href="http://www.maximonline.ru/guide/auto/_article/bonneville/" target="_blank">http://www.maximonline.ru/guide/auto/_article/bonneville/</a><br><br><img src="https://park.mail.ru/media_gtp/uploads/park/topics/2017/8/601c1100100645457ce0f82e4ba23d88ece53afcda808dac1e2499644afa9751.jpeg" title="">
+            </p>
+            <div class="news-gradient-div"></div>
+        </div>
+        
+    </div>
+</div>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</p>
+    <div class="nonstudent">
+        <div class="w">
+            <h2>Если ты не студент &laquo;Технопарка&raquo;</h2>
+            <div class="ns-list cf">
+                <div class="item" style="min-height: 100px;">
+                    <h3 class="heading4"><a href="../../../../pages/forapplicants/"><img
+                            src="/static_gtp/core/pub/park/img/ic-master.png" alt="" width="57" height="56"/>Абитуриенту</a>
+                    </h3>
+                    <p>Не теряйте времени даром, ознакомьтесь с&nbsp;примерными заданиями всех этапов тестирования.</p>
+                </div>
+                <div class="item" style="min-height: 100px;">
+                    <h3 class="heading4"><a href="../../../../faq/"><img
+                            src="/static_gtp/core/pub/park/img/ic-questions.png" alt="" width="60" height="56"/>F.A.Q</a>
+                    </h3>
+                    <p>Все, что вы хотели узнать о проекте <br/>на одной странице</p>
+                </div>
+                <div class="item" style="min-height: 100px;">
+                    <h3 class="heading4"><a href="../../../../materials/video/" class="sel-faq"> <img
+                            src="/static_gtp/core/pub/park/img/ic-video.png" alt="" width="60" height="56"/> Посмотреть
+                        видео лекций </a></h3>
+                    <p>Записи лекций проекта в открытом доступе. Учитесь, не выходя из дома!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="footer" class="w">
+        <p class="footer-follow">
+            <strong>Присоединяйся:</strong>
+            <a target="_blank" href="http://vk.com/tpmailru" class="button2 button3 button-vk sel-vk" title="Наша группа ВКонтакте">Группа в
+                VK</a>
+        </p>
+
+        <div class="footer">
+            <div class="left">
+                <p class="copy">© Mail.Ru Group, 2011–2017</p>
+            </div>
+            <div class="center">
+                <a href="http://welovescience.ru/" target="_blank">Разработка
+                    бренда</a>&nbsp;—&nbsp;<strong>Science</strong>
+            </div>
+            <div class="right">
+                Разработчик сайта Лаборатория Технопарка
+                <a href="#" class="trigger-bug">Обратная связь</a>
+            </div>
+            <div class="version">
+                Версия портала - 5.27.0
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    
+        ga('create', 'UA-62753080-1', 'auto');
+    
+    ga('send', 'pageview');
+
+    var loginPopup = false;
+
+    $('.trigger-login').on('click', function (e) {
+        loginPopup = true;
+        ga('send', 'event', 'signup-popup', 'open');
+    });
+
+    $('#popup-login').on('click', '.close', function (e) {
+        if (loginPopup) {
+            loginPopup = false;
+            ga('send', 'event', 'signup-popup', 'close');
+        }
+    });
+
+    $('#passwd-restore').on('click', function () {
+        ga('send', 'event', 'signup-popup', 'open-restore');
+    });
+
+    $('#popup-reminder-form').submit(function (e) {
+        ga('send', 'event', 'signup-popup', 'send-restore');
+    });
+
+    $('.it-login-button').on('click', function (e) {
+        ga('send', 'event', 'signup-popup', 'signup-itmailru');
+    });
+
+    $('#short-registration-form').submit(function (e) {
+        ga('send', 'event', 'signup-form', 'sent');
+    });
+
+    $('#registration-step-1').submit(function (e) {
+        ga('send', 'event', 'signup-about-form', 'send-1screen');
+    });
+
+
+    $('.field_development_experience_add').on('click', function (e) {
+        ga('send', 'event', 'signup-about-form', ' add-tech-field');
+    });
+
+    $('#registration-step-2').submit(function (e) {
+        ga('send', 'event', 'signup-add-form', 'send-2screen');
+    });
+
+    $('#registration-step-3').submit(function (e) {
+        ga('send', 'event', 'signup-add-form', 'send-3screen');
+    });
+
+</script>
+
+<script type="text/javascript">
+    var _tmr = _tmr || [];
+    _tmr.push({id: "2652679", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w) {
+        var ts = d.createElement("script");
+        ts.type = "text/javascript";
+        ts.async = true;
+        ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+        var f = function () {
+            var s = d.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(ts, s);
+        };
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window);
+</script>
+<noscript>
+    <div style="position:absolute;left:-10000px;">
+        <img src="//top-fwz1.mail.ru/counter?id=2652679;js=na" style="border:0;" height="1" width="1"
+             alt="Рейтинг@Mail.ru"/>
+    </div>
+</noscript>
+
+<script type="text/javascript"> (function (d, w, c) {
+    (w[c] = w[c] || []).push(function () {
+        try {
+            w.yaCounter29019990 = new Ya.Metrika({
+                id: 29019990,
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true,
+                webvisor: true
+            });
+
+        } catch (e) {
+        }
+    });
+    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+        n.parentNode.insertBefore(s, n);
+    };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+        f();
+    }
+})(document, window, "yandex_metrika_callbacks");</script>
+<noscript>
+    <div><img src="//mc.yandex.ru/watch/29019990" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+
+
+    </body>
+
+</html>
