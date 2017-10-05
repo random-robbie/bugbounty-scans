@@ -4,6 +4,7 @@ aquatone results for sites with bug bountys
 Raise an issue if you want a fresh scan or a new domain to be checked
 
 
+<<<<<<< HEAD
 Yahoo Bug Bounty...
 -----
 
@@ -261,3 +262,5 @@ https://random-robbie.github.io/bugbounty-scans/twtrinc/report/report_page_0.htm
 <a href="https://random-robbie.github.io/bugbounty-scans/yahoo-inc.com/report/report_page_0.html>"https://random-robbie.github.io/bugbounty-scans/yahoo-inc.com/report/report_page_0.html</a>
 
 
+=======
+>>>>>>> b18582683cbee5fa628e061336947e6d67e447eb
