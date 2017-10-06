@@ -4,8 +4,11 @@ aquatone results for sites with bug bountys
 
 
 Raise an issue if you want a fresh scan or a new domain to be checked
+
+
+
 | Name     | Link |
-| ---      | ---       |
+| ---      | ---  |
 
 | t.co     |<a href="https://random-robbie.github.io/bugbounty-scans/t.co/report/report_page_0.html">Link</a>|
 
