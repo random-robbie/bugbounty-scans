@@ -87,9 +87,6 @@ Raise an issue if you want a fresh scan or a new domain to be checked
 | unikrn.com|<a href="https://random-robbie.github.io/bugbounty-scans/unikrn.com/report/report_page_0.html">Link</a> |
 
 
-| aquatone|<a href="https://random-robbie.github.io/bugbounty-scans/aquatone/report/report_page_0.html">Link</a> |
-
-
 | twitter.com|<a href="https://random-robbie.github.io/bugbounty-scans/twitter.com/report/report_page_0.html">Link</a> |
 
 
