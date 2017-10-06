@@ -1,0 +1,3191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="preconnect" href="https://fldc-lbptvhsdh0t6p.netdna-ssl.com">
+<link rel="preconnect" href="//sso.carrierzone.com">
+<link rel="prefetch" href="//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic&subset=latin,latin-ext">
+<link rel="preload" href="https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0">
+<title>Control Panel</title><link rel="shortcut icon" href="/portal/cache/websitesportal.att.com.root.images-favicon.ico?1507282460"/>
+<script type="text/javascript">
+    var LateLoader = {};
+    LateLoader.initial = true;
+    LateLoader.queue = [];
+    LateLoader.run = function() {
+        LateLoader.queue.forEach( function(item, x) {
+            item();
+            LateLoader.queue[x] = null;
+        });
+            LateLoader.initial = false;
+            return true;
+    };
+
+    LateLoader.Add = function(callback) {
+        if (LateLoader.initial) {
+            LateLoader.queue.push(callback);
+            return(LateLoader.queue);
+        } else {
+            callback();
+        }
+        return true;
+    };
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        LateLoader.run();
+    });
+</script>
+<script type="text/javascript">
+var brandingdata = {};
+brandingdata["HostName"] = "websitesportal.att.com";
+brandingdata["PortalName"] = "portal";
+brandingdata["DefaultLanguage"] = "en_US_FO";
+brandingdata["SupportedLanguages"] = "en_US_FO,es_MX_FO";
+brandingdata["Language"] = "en_US_FO";
+brandingdata["HID"] = "1111";
+brandingdata["Version"] = "0abedfb";
+brandingdata["Protocol"] = "https://";
+brandingdata["ThemeName"] = "navdesign";
+brandingdata["CustomName"] = "att2";
+brandingdata["CdnUrl"] = "https://fldc-lbptvhsdh0t6p.netdna-ssl.com";
+var RUN_ENV = "LIVE";
+var REVISION = "0abedfb";
+var miscdata = {};
+miscdata["portalCookieName"] = "portaldata";
+miscdata["ssoMarkerCookieName"] = "sso-redir";
+var PORTAL_SETTINGS = {"SettingID":"12","HostopianID":"1111","PortalDomain":"websitesportal.att.com","AROTreeName":"DEFAULT","AXOMainTreeName":"CP","ThemeName":"navdesign","CustomName":"att2","BrandingPackage":"B","AccountCentric":"YES","VISP":"NO","DefaultLanguageID":"1","LanguageCode":"en","LocaleCode":"US","SubLocaleCode":"FO","LegacyMapCode":"en","SSOEnabled":"0","TealiumURL":"\/\/tags.tiqcdn.com\/utag\/hostopia\/main\/prod\/utag.js?loc=prod_fl","CdnUrl":"https:\/\/fldc-lbptvhsdh0t6p.netdna-ssl.com","LiveChatDeploymentId":null,"SupportedLanguages":{"1":{"LanguageID":"1","LanguageCode":"en","LocaleCode":"US","SubLocaleCode":"FO","LegacyMapCode":"en"},"9":{"LanguageID":"9","LanguageCode":"es","LocaleCode":"MX","SubLocaleCode":"FO","LegacyMapCode":"esMX"}}};
+</script>
+<script type="text/javascript" src="https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/js/min/navdesign.min.0abedfb.js" defer></script><link type="text/css" rel="stylesheet" href="https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/css/navdesign.min.0abedfb.css" /></head><body>
+<input type="hidden" id="currentPage" value="home" />
+<div id="root">
+<div id="loading" class="border rad-3" style="display: none;">Loading, please wait...</div>
+<div id="loadingblocking" style="display: none;" class="fa-spinner"></div>
+
+<div id="overlay" style="display: none;" class="parentLocateChildrenToCenter row">
+    <div id="overlayContentContainer" class="childrenLocateCenter">
+        <div id="overlayCloseContainer">
+            <div id="overlayClose"></div>
+        </div>
+        <div id="overlayContent"></div>
+    </div>
+</div>
+
+<div id="dialog" class="parentLocateChildrenToCenter" style="display: none;">
+    <div id="dialogContent" class="childrenLocateCenter">
+        <div id="dialog_title"></div>
+        <div id="dialog_text"></div>
+        <div class="btn-box-right">
+            <div id="dialog_question" style="display: none;">Are you sure?</div>
+            <input class="btn btn-primary" type="button" id="dialog_button_ok" value="Ok"><input class="btn btn-primary" type="button" id="dialog_button_yes" value="Yes"><input class="btn btn-primary" type="button" id="dialog_button_no" value="No"></div>
+    </div>
+</div>
+
+<div id="mainTaskBar" class="container" style="display: none;">
+    <a id="mainTaskBarLogo">
+        <img role="topBarLogoImg" src="/portal/api/image?type=topBarLogo"></a>
+    <div id="mainTaskBarButtons" class="noTextSelect nowrapAfter"></div>
+    <div id="mainTaskBarUserInfo"></div>
+</div>
+
+<div id="portal-alert" class="container hidden-empty"></div>
+
+<div id="applet" class="container"></div>
+
+<div id="application" style="display: none;"></div>
+
+<div id="mainContent" class="container">
+    <div id="mainContentHome">
+        <!-- body for dynamically build applets -->
+    </div>
+</div>
+
+<div id="widget_footer" style="display: none;"></div>
+<style type="text/css">
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic&subset=latin,latin-ext);
+
+/* CSS Document */
+
+/*
+================================================================================
+|                                     SELECTORS                                |
+================================================================================
+*/
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #191919;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 18px;
+    background: #F2F2F2 no-repeat left top url(https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/background.png); /* Fallback for web browsers that doesn't support RGBa */
+    min-height: 100%;
+    position: relative;
+}
+
+bgshadetoggleoff {
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.08) 100%), no-repeat left top url(https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/background.png) #F2F2F2;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.08) 100%), no-repeat left top url(https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/background.png) #F2F2F2;
+}
+
+a,
+a:visited {
+    color: #0568AE;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+iframe {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 30px;
+    padding-bottom: 5px;
+    line-height: 30px;
+    color: #191919;
+}
+
+h2 {
+    font-size: 20px;
+    color: #191919;
+}
+
+h3 {
+    font-size: 18px;
+    color: #191919;
+}
+
+h4 {
+    font-size: 16px;
+    color: #191919;
+}
+
+h5 {
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+h6 {
+    font-size: 13px;
+    color: #191919;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 13px;
+    font-weight: normal;
+    padding: 0px;
+    margin: 0px;
+    line-height: 18px;
+}
+
+.loggedOutLogo {
+    max-width: 100%;
+    height: 60px;
+}
+
+.containerMessageBox {
+    min-height: 54px;
+    padding: 7px 0;
+    margin-bottom: 5px !important;
+}
+
+.containerMessageBox > div > div {
+    margin: 0;
+}
+
+#mainContent {
+    margin: 0 auto 40px;
+}
+
+.lato,
+.latoBefore::before,
+.latoAfter::after {
+    font-family: Lato;
+}
+
+/* =================================DIMMER================================== */
+#dimmer {
+    display: none;
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    z-index: 500;
+    opacity: 0.70;
+    filter: alpha(opacity = 70);
+}
+
+#dimmer.dimmerBlack {
+    background-color: #000000;
+}
+
+#dimmer.dimmerWhite {
+    background-color: #FFFFFF;
+}
+
+/* =================================OVERLAY================================== */
+#wsos {
+    height: 740px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#overlay {
+    z-index: 1000;
+}
+
+#overlayContentContainer {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#overlayContentContainer > div {
+    position: relative;
+}
+
+#overlayContent {
+    max-height: 780px;
+    overflow: auto;
+    overflow-y: auto;
+    height: auto;
+    border: 10px solid #ffffff;
+    border: 10px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+#overlayContent > * {
+    background-color: #fff;
+}
+
+#overlayContent iframe:not([id]) {
+    height: 100%;
+    width: 100%;
+}
+
+#overlayClose {
+    display: block;
+    background: url("https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/overlay_close.png") no-repeat transparent;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    top: -15px;
+    right: -15px;
+    position: absolute;
+    z-index: 1;
+}
+
+/*--------Modal Window--------------*/
+#overlayContent header {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#overlayContent header.createSite {
+    background-color: #faf4d2;
+}
+
+#overlayContent header.publishSite {
+    background-color: #d2fad5;
+}
+
+#overlayContent header h1 {
+    height: 70px;
+    line-height: 65px;
+    margin-bottom: 0;
+}
+
+#overlayContent header>h2 {
+    float: left;
+}
+
+#overlayContent header h4 {
+    background: -webkit-linear-gradient(bottom, #686868 0%, #777777 25%, #777777 75%, #686868 100%);
+    background: linear-gradient(to bottom, #686868 0%, #777777 25%, #777777 75%, #686868 100%);
+    color: #fff;
+    height: 36px;
+    margin-bottom: 0;
+    line-height: 35px;
+}
+
+#overlayContent header .extra {
+    color: #fff;
+    float: right;
+    font-size: 14px;
+    margin: -25px 40px 0 0;
+}
+
+#overlayContent .contentArea {
+    height: 380px;
+    background: -webkit-linear-gradient(top, #ffffff 38%, #f0f0f0 100%);
+    background: linear-gradient(to top, #ffffff 38%, #f0f0f0 100%);
+    text-align: center;
+    overflow: auto;
+}
+
+#overlayContent .contentArea .error,
+#overlayContent .contentArea .success,
+#overlayContent .contentArea .warning,
+#overlayContent .contentArea .info {
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+/* normal footer */
+#overlayContent footer {
+    background-color: #fff;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    height: 64px;
+    border-top: 1px solid #dcdcdc;
+}
+
+/** footer with grey background */
+#overlayContent footer.invert {
+    background-color: #F7F7F7;
+}
+
+#overlayContent footer .next {
+    margin: 0.8em 30px 0 0;
+}
+
+#overlayContent footer .next.notlast {
+    margin-right: 15px;
+}
+
+#overlayContent footer .cancel {
+    color: #0071bc;
+    line-height: 64px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+/* small text next to save button */
+#overlayContent footer .instructions {
+    line-height: 64px;
+    margin-right: 10px;
+}
+
+/* large text next to save button */
+#overlayContent footer .showcase {
+    line-height: 64px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+#overlayContent footer .next .instructions,
+#overlayContent footer .next .showcase {
+    line-height: 40px;
+}
+
+/**** END MODAL ****/
+
+/* =================================DIALOG================================== */
+#dialog {
+    z-index: 2000;
+}
+
+#dialogContent {
+    background-color: #ffffff;
+    margin: 0 auto;
+    width: 210px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#dialog_title {
+    padding: 10px 5px 10px 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    max-height: 48px;
+    overflow: hidden;
+    background: -webkit-linear-gradient(top, #009FDB 0%, #009FDB 100%);
+    background: linear-gradient(to top, #009FDB 0%, #009FDB 100%);
+}
+
+#dialog_text {
+    box-sizing: border-box;
+    min-height: 140px;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px 10px 0;
+}
+
+#dialog_question {
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+#dialog_title,
+#dialog_text,
+#dialog_question {
+    word-wrap: break-word;
+}
+
+#dialog .btn-box-right {
+    padding: 5px 10px 10px;
+}
+
+/*
+================================================================================
+|                                     MISC CORE                                |
+================================================================================
+*/
+.hidden {
+    display: none;
+}
+
+.hrClear {
+    color: transparent;
+    height: 1px;
+    clear: both;
+    visibility: hidden;
+}
+
+.hrLine {
+    border: none;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #fff;
+    height: 0px;
+    clear: both;
+    width: 100%;
+    padding: 0px;
+    margin: 10px 0px 10px 0px;
+}
+
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.align-top {
+    vertical-align: top;
+}
+
+.align-bottom {
+    vertical-align: bottom;
+}
+
+.align-middle,
+.align-center {
+    vertical-align: middle;
+}
+
+.btn-box-left,
+.btn-box-right {
+    margin-bottom: 15px;
+}
+
+.btn-box-left {
+    text-align: left;
+}
+
+.btn-box-right {
+    text-align: right;
+}
+
+.btn-box-left .btn {
+    margin-right: 15px;
+}
+
+.btn-box-right .btn {
+    margin-left: 15px;
+}
+
+/*
+================================================================================
+|                               COLUMN CONTAINERS & BOXES                       |
+================================================================================
+*/
+.baseBox {
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    background: #ffffff;
+}
+
+.baseBox .boxCopy {
+    padding: 20px;
+}
+
+.clearBox {
+}
+
+.clearColumnBox,
+.clearColumnBoxRight {
+    padding: 28px;
+}
+
+.clearColumnBox {
+}
+
+.clearColumnBox h2,
+.clearColumnBoxRight h2 {
+    padding-bottom: 10px;
+}
+
+.barBox {
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    background: #fff; /* Old browsers */
+    margin-bottom: 20px;
+}
+
+.barBox .boxCopy {
+    padding: 10px 20px;
+}
+
+.barBox > h5 {
+    min-height: 20px;
+    line-height: 20px;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 10px 20px;
+    background: -webkit-linear-gradient(top, #009FDB 0%, #009FDB 100%);
+    background: linear-gradient(to top, #009FDB 0%, #009FDB 100%);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/** ============================dataBox====================================== */
+.dataBox {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+/* last box row shouldn't have bottom margin, use for overlay content too */
+.dataBoxLast {
+    margin-bottom: 0px;
+}
+
+#overlayContent .dataBox {
+    border: none;
+}
+
+.dataBox .taskAction {
+    display: block;
+    float: right;
+    font-weight: bold;
+    max-width: 125px;
+}
+
+.dataBox .collapseTitle {
+    width: 160px;
+    float: left;
+}
+
+.dataBox .expandTitle {
+    padding: 0 0 12px;
+}
+
+.dataBox .boxCopy {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.dataBox .collapseInfo {
+    float: left;
+    width: 310px;
+}
+
+.dataBox .taskAction,
+.dataBox .collapseTitle,
+.dataBox .collapseInfo {
+    word-wrap: break-word;
+}
+
+.dataBox .dataBoxBody {
+    padding: 20px 0 0;
+}
+
+.dataBox .hrLine {
+    margin: 0 -15px;
+    width: 105.1%;
+}
+
+.dataBox .dataBoxLine {
+    padding-bottom: 20px;
+}
+
+.dataBox::before,
+.dataBox::after,
+.dataBoxLine::before,
+.dataBoxLine::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.dataBox .dataBoxTxtLine {
+    margin-bottom: 10px;
+}
+
+.dataBox .blockInput {
+    vertical-align: baseline !important;
+}
+
+input.error[type="text"] {
+    padding-right: 0 !important;
+}
+
+.dataBox .inputHint {
+    margin-top: 10px;
+}
+
+.blockTextRight {
+    display: inline-block;
+    text-align: right;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+/* =================================  PORTAL GRID ================================== */
+
+/*
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+
+/* `Container
+----------------------------------------------------------------------------------------------------*/
+
+.container_24 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+/* `Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12,
+.grid_13,
+.grid_14,
+.grid_15,
+.grid_16,
+.grid_17,
+.grid_18,
+.grid_19,
+.grid_20,
+.grid_21,
+.grid_22,
+.grid_23,
+.grid_24 {
+    display: inline;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.push_1,
+.pull_1,
+.push_2,
+.pull_2,
+.push_3,
+.pull_3,
+.push_4,
+.pull_4,
+.push_5,
+.pull_5,
+.push_6,
+.pull_6,
+.push_7,
+.pull_7,
+.push_8,
+.pull_8,
+.push_9,
+.pull_9,
+.push_10,
+.pull_10,
+.push_11,
+.pull_11,
+.push_12,
+.pull_12,
+.push_13,
+.pull_13,
+.push_14,
+.pull_14,
+.push_15,
+.pull_15,
+.push_16,
+.pull_16,
+.push_17,
+.pull_17,
+.push_18,
+.pull_18,
+.push_19,
+.pull_19,
+.push_20,
+.pull_20,
+.push_21,
+.pull_21,
+.push_22,
+.pull_22,
+.push_23,
+.pull_23 {
+    position: relative;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+.alpha {
+    margin-left: 0;
+}
+
+.omega {
+    margin-right: 0;
+}
+
+/* `Grid >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+.container_24 .grid_1 {
+    width: 30px;
+}
+
+.container_24 .grid_2 {
+    width: 70px;
+}
+
+.container_24 .grid_3 {
+    width: 110px;
+}
+
+.container_24 .grid_4 {
+    width: 150px;
+}
+
+.container_24 .grid_5,
+.blockTextRight {
+    width: 190px;
+}
+
+.container_24 .grid_6,
+.blockInput {
+    width: 230px;
+}
+
+.container_24 .grid_7 {
+    width: 270px;
+}
+
+.container_24 .grid_8 {
+    width: 310px;
+}
+
+.container_24 .grid_9 {
+    width: 350px;
+}
+
+.container_24 .grid_10 {
+    width: 390px;
+}
+
+.container_24 .grid_11 {
+    width: 430px;
+}
+
+.container_24 .grid_12 {
+    width: 470px;
+}
+
+.container_24 .grid_13 {
+    width: 510px;
+}
+
+.container_24 .grid_14 {
+    width: 550px;
+}
+
+.container_24 .grid_15 {
+    width: 590px;
+}
+
+.container_24 .grid_16 {
+    width: 630px;
+}
+
+.container_24 .grid_17 {
+    width: 670px;
+}
+
+.container_24 .grid_18 {
+    width: 710px;
+}
+
+.container_24 .grid_19 {
+    width: 750px;
+}
+
+.container_24 .grid_20 {
+    width: 790px;
+}
+
+.container_24 .grid_21 {
+    width: 830px;
+}
+
+.container_24 .grid_22 {
+    width: 870px;
+}
+
+.container_24 .grid_23 {
+    width: 910px;
+}
+
+.container_24 .grid_24 {
+    width: 950px;
+}
+
+/* `Prefix Extra Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+.container_24 .prefix_1 {
+    padding-left: 40px;
+}
+
+.container_24 .prefix_2 {
+    padding-left: 80px;
+}
+
+.container_24 .prefix_3 {
+    padding-left: 120px;
+}
+
+.container_24 .prefix_4 {
+    padding-left: 160px;
+}
+
+.container_24 .prefix_5 {
+    padding-left: 200px;
+}
+
+.container_24 .prefix_6 {
+    padding-left: 240px;
+}
+
+.container_24 .prefix_7 {
+    padding-left: 280px;
+}
+
+.container_24 .prefix_8 {
+    padding-left: 320px;
+}
+
+.container_24 .prefix_9 {
+    padding-left: 360px;
+}
+
+.container_24 .prefix_10 {
+    padding-left: 400px;
+}
+
+.container_24 .prefix_11 {
+    padding-left: 440px;
+}
+
+.container_24 .prefix_12 {
+    padding-left: 480px;
+}
+
+.container_24 .prefix_13 {
+    padding-left: 520px;
+}
+
+.container_24 .prefix_14 {
+    padding-left: 560px;
+}
+
+.container_24 .prefix_15 {
+    padding-left: 600px;
+}
+
+.container_24 .prefix_16 {
+    padding-left: 640px;
+}
+
+.container_24 .prefix_17 {
+    padding-left: 680px;
+}
+
+.container_24 .prefix_18 {
+    padding-left: 720px;
+}
+
+.container_24 .prefix_19 {
+    padding-left: 760px;
+}
+
+.container_24 .prefix_20 {
+    padding-left: 800px;
+}
+
+.container_24 .prefix_21 {
+    padding-left: 840px;
+}
+
+.container_24 .prefix_22 {
+    padding-left: 880px;
+}
+
+.container_24 .prefix_23 {
+    padding-left: 920px;
+}
+
+/* `Suffix Extra Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+.container_24 .suffix_1 {
+    padding-right: 40px;
+}
+
+.container_24 .suffix_2 {
+    padding-right: 80px;
+}
+
+.container_24 .suffix_3 {
+    padding-right: 120px;
+}
+
+.container_24 .suffix_4 {
+    padding-right: 160px;
+}
+
+.container_24 .suffix_5 {
+    padding-right: 200px;
+}
+
+.container_24 .suffix_6 {
+    padding-right: 240px;
+}
+
+.container_24 .suffix_7 {
+    padding-right: 280px;
+}
+
+.container_24 .suffix_8 {
+    padding-right: 320px;
+}
+
+.container_24 .suffix_9 {
+    padding-right: 360px;
+}
+
+.container_24 .suffix_10 {
+    padding-right: 400px;
+}
+
+.container_24 .suffix_11 {
+    padding-right: 440px;
+}
+
+.container_24 .suffix_12 {
+    padding-right: 480px;
+}
+
+.container_24 .suffix_13 {
+    padding-right: 520px;
+}
+
+.container_24 .suffix_14 {
+    padding-right: 560px;
+}
+
+.container_24 .suffix_15 {
+    padding-right: 600px;
+}
+
+.container_24 .suffix_16 {
+    padding-right: 640px;
+}
+
+.container_24 .suffix_17 {
+    padding-right: 680px;
+}
+
+.container_24 .suffix_18 {
+    padding-right: 720px;
+}
+
+.container_24 .suffix_19 {
+    padding-right: 760px;
+}
+
+.container_24 .suffix_20 {
+    padding-right: 800px;
+}
+
+.container_24 .suffix_21 {
+    padding-right: 840px;
+}
+
+.container_24 .suffix_22 {
+    padding-right: 880px;
+}
+
+.container_24 .suffix_23 {
+    padding-right: 920px;
+}
+
+/* `Push Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+.container_24 .push_1 {
+    left: 40px;
+}
+
+.container_24 .push_2 {
+    left: 80px;
+}
+
+.container_24 .push_3 {
+    left: 120px;
+}
+
+.container_24 .push_4 {
+    left: 160px;
+}
+
+.container_24 .push_5 {
+    left: 200px;
+}
+
+.container_24 .push_6 {
+    left: 240px;
+}
+
+.container_24 .push_7 {
+    left: 280px;
+}
+
+.container_24 .push_8 {
+    left: 320px;
+}
+
+.container_24 .push_9 {
+    left: 360px;
+}
+
+.container_24 .push_10 {
+    left: 400px;
+}
+
+.container_24 .push_11 {
+    left: 440px;
+}
+
+.container_24 .push_12 {
+    left: 480px;
+}
+
+.container_24 .push_13 {
+    left: 520px;
+}
+
+.container_24 .push_14 {
+    left: 560px;
+}
+
+.container_24 .push_15 {
+    left: 600px;
+}
+
+.container_24 .push_16 {
+    left: 640px;
+}
+
+.container_24 .push_17 {
+    left: 680px;
+}
+
+.container_24 .push_18 {
+    left: 720px;
+}
+
+.container_24 .push_19 {
+    left: 760px;
+}
+
+.container_24 .push_20 {
+    left: 800px;
+}
+
+.container_24 .push_21 {
+    left: 840px;
+}
+
+.container_24 .push_22 {
+    left: 880px;
+}
+
+.container_24 .push_23 {
+    left: 920px;
+}
+
+/* `Pull Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+.container_24 .pull_1 {
+    left: -40px;
+}
+
+.container_24 .pull_2 {
+    left: -80px;
+}
+
+.container_24 .pull_3 {
+    left: -120px;
+}
+
+.container_24 .pull_4 {
+    left: -160px;
+}
+
+.container_24 .pull_5 {
+    left: -200px;
+}
+
+.container_24 .pull_6 {
+    left: -240px;
+}
+
+.container_24 .pull_7 {
+    left: -280px;
+}
+
+.container_24 .pull_8 {
+    left: -320px;
+}
+
+.container_24 .pull_9 {
+    left: -360px;
+}
+
+.container_24 .pull_10 {
+    left: -400px;
+}
+
+.container_24 .pull_11 {
+    left: -440px;
+}
+
+.container_24 .pull_12 {
+    left: -480px;
+}
+
+.container_24 .pull_13 {
+    left: -520px;
+}
+
+.container_24 .pull_14 {
+    left: -560px;
+}
+
+.container_24 .pull_15 {
+    left: -600px;
+}
+
+.container_24 .pull_16 {
+    left: -640px;
+}
+
+.container_24 .pull_17 {
+    left: -680px;
+}
+
+.container_24 .pull_18 {
+    left: -720px;
+}
+
+.container_24 .pull_19 {
+    left: -760px;
+}
+
+.container_24 .pull_20 {
+    left: -800px;
+}
+
+.container_24 .pull_21 {
+    left: -840px;
+}
+
+.container_24 .pull_22 {
+    left: -880px;
+}
+
+.container_24 .pull_23 {
+    left: -920px;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+.clearfix::before,
+.clearfix::after,
+.container_24::before,
+.container_24::after {
+    content: '.';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+}
+
+.clearfix::after,
+.container_24::after {
+    clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+.clearfix,
+.container_24 {
+    zoom: 1;
+}
+
+/* use on and empty grid to have it take up space on the page */
+.showempty {
+    min-height: 1px;
+}
+
+/* =================================  PORTAL GRID ================================== */
+
+/* =================================  LABELS ================================== */
+
+.label_top {
+    padding-bottom: 10px;
+    text-align: left;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.label_left {
+    padding-right: 20px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: bold;
+    width: 200px;
+}
+
+/* =================================  LABELS ================================== */
+
+/* =================================  FLOATS ================================== */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* =================================  FLOATS ================================== */
+
+/* =================================  FORMS ================================== */
+input[type="text"],
+input[type="password"],
+textarea {
+    font-weight: normal;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: 1px solid #dcdcdc;
+    padding-left: 10px;
+}
+
+input[type="text"]:active,
+input[type="password"]:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="file"]:active,
+input[type="image"]:active {
+    border: 1px solid #D2D2D2;
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+}
+
+/* =================================  MESSAGE BOXES ================================== */
+.alert:last-child {
+    margin-bottom: 0;
+}
+
+.alert-success {
+    background-image: linear-gradient(to bottom, #C0DFAB 0%, #C0DFAB 100%);
+    border-color: #4CA90C;
+}
+
+.alert-info {
+    background-image: linear-gradient(to bottom, #BBE3F2 0%, #BBE3F2 100%);
+    border-color: #009FDB;
+}
+
+.alert-warning {
+    background-image: linear-gradient(to bottom, #F2E0B9 0%, #F2E0B9 100%);
+    border-color: #FFB81C;
+}
+
+.alert-danger {
+    background-image: linear-gradient(to bottom, #FEBEBE 0%, #FEBEBE 100%);
+    border-color: #CF2A2A;
+}
+
+/* =================================  MESSAGE BOXES ================================== */
+.error,
+.success,
+.warning,
+.info {
+    padding: 10px 7px;
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .25);
+}
+
+input.error,
+div.error,
+textarea.error {
+    background-color: #FEBEBE;
+    border: 1px solid #CF2A2A;
+}
+
+input.success,
+div.success,
+textarea.success {
+    background-color: #C0DFAB;
+    border: 1px solid #4CA90C;
+}
+
+input.warning,
+div.warning,
+textarea.warning {
+    background-color: #F2E0B9;
+    border: 1px solid #FFB81C;
+}
+
+input.info,
+div.info,
+textarea.info {
+    background-color: #BBE3F2;
+    border: 1px solid #009FDB;
+}
+
+/* =================================  MESSAGE BOXES ================================== */
+
+/*================================ form field tooltips ======================*/
+
+.ftip_info,
+.ftip_error {
+    display: inline-block;
+    float: right;
+    left: -7px;
+    margin-left: 18px;
+    position: relative;
+    top: 2px;
+}
+
+.ftip_msg {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 6px 10px;
+    line-height: 20px;
+    width: 150px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ftip_msg::before,
+.ftip_msg::after {
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    border-right-style: solid;
+    border-right-width: 6px;
+    content: "";
+    position: absolute;
+    top: 11px;
+}
+
+.ftip_msg::before {
+    left: -7px;
+}
+
+.ftip_msg::after {
+    left: -5px;
+}
+
+/* arrow colors */
+
+/* info */
+.ftip_info .ftip_msg {
+    border-color: #dcdcdc;
+    background-color: #ffffff;
+}
+
+.ftip_info .ftip_msg::before {
+    border-right-color: #dcdcdc; /* border color */
+}
+
+.ftip_info .ftip_msg::after {
+    border-right-color: #ffffff; /* background color */
+}
+
+/* error */
+.ftip_error .ftip_msg {
+    border-color: #d98882;
+    background-color: #fad5d2;
+}
+
+.ftip_error .ftip_msg::before {
+    border-right-color: #d98882; /* border color */
+}
+
+.ftip_error .ftip_msg::after {
+    border-right-color: #fad5d2; /* background color */
+}
+
+/* Remove clear field 'X' button in IE-11 */
+input::-ms-clear {
+    display: none;
+}
+
+/* Hide reveal button of an input type=password */
+input[type=password]::-ms-reveal {
+    display: none;
+}
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*================================================== NEW NAAVDESIGN PORTAL STYLE =================================================*/
+
+/*
+================================================================================
+|                                     SELECTORS                                |
+================================================================================
+*/
+
+/*============================= Footer ================================*/
+
+body {
+    min-height: 100%;
+    position: relative;
+}
+
+#root {
+    padding-bottom: 70px;
+}
+
+/*============================= Footer END ================================*/
+#appletContainer {
+    margin: 0 auto;
+}
+
+.parentLocateChildrenToCenter {
+    bottom: 0;
+    display: inline-block;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+
+.parentLocateChildrenToCenter::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.childrenLocateCenter {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#mainTaskBar {
+    background: -webkit-linear-gradient(bottom, #009FDB 0%, #009FDB 100%);
+    background: linear-gradient(to bottom, #009FDB 0%, #009FDB 100%);
+    margin: 0 auto;
+    position: relative;
+    height: 50px;
+    transition: width 1s ease 0s;
+}
+
+#mainTaskBar.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#mainTaskBar > * {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#mainTaskBar a {
+    text-decoration: none;
+}
+
+#mainTaskBar .taskBarButton {
+    color: #FFFFFF;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    padding: 0 5px;
+    border-bottom: 0 solid #FFFFFF;
+    transition: all 120ms ease-out;
+}
+
+#mainTaskBar .taskBarButton::before {
+    font-family: FontAwesome;
+    text-align: center;
+}
+
+#mainTaskBar .taskBarButton.pressed {
+    border-bottom-width: 5px;
+}
+
+#mainTaskBar .taskBarButton.pressed,
+#mainTaskBar .taskBarButton:hover {
+    background-color: #ffffff;
+    color: #009FDB;
+}
+
+#mainTaskBarLogo {
+    background: custom no-repeat scroll center 100px transparent;
+    padding: 0 20px;
+    position: relative;
+}
+
+#mainTaskBarLogo::after {
+    content: "";
+    display: inline-block;
+    height: 50px;
+    vertical-align: middle;
+}
+
+#mainTaskBarLogo img {
+    max-height: 32px;
+    max-width: 110px;
+}
+
+#mainTaskBarButtons .taskBarButton {
+    min-width: 100px;
+    max-width: 125px;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+#mainTaskBarButtons .taskBarButton::before {
+    display: block;
+    font-size: 19px;
+    margin-top: 7px;
+}
+
+#mainTaskBarUserInfo {
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+}
+
+#mainTaskBarUserInfo .taskBarButton {
+    margin-left: 7px;
+    line-height: 50px;
+    z-index: 999;
+}
+
+#mainTaskBarUserInfo .taskBarButton.only-icon,
+#mainTaskBarUserInfo .taskBarButton.localLink {
+    padding: 0 7px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.only-icon::before {
+    font-size: 18px;
+    line-height: normal;
+    vertical-align: -10%;
+}
+
+/* taskBarButton drop-down */
+#mainTaskBarUserInfo .taskBarButton.drop-down {
+    transition: none;
+    padding-right: 15px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down.drop-down-no-icon {
+    padding-right: 5px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down.drop-down-no-icon::after {
+    display: none;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down::before {
+    background-color: #ffffff;
+    bottom: -5px;
+    content: "";
+    display: none;
+    height: 10px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down::after {
+    font-family: FontAwesome;
+    line-height: 1;
+    content: "\f0d7";
+    position: absolute;
+    line-height: 50px;
+    top: 0px;
+    right: 3px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content {
+    background-color: #ffffff;
+    border-radius: 0 0 3px 3px;
+    border-top: 5px solid #FFFFFF;
+    box-shadow: 0 3px 5px 0 rgba(50, 50, 50, 0.75);
+    color: #000000;
+    padding-top: 5px;
+    position: absolute;
+    right: 0;
+    max-width: 980px;
+    min-width: 210px;
+    display: none;
+    border-right: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    border-left: 1px solid #e1e1e1;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .button {
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    color: #0568AE;
+    font-weight: bold;
+    display: block;
+    cursor: default;
+    height: 37px;
+    line-height: 35px;
+    padding: 0 8px;
+    position: relative;
+    text-align: left;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .button:last-child {
+    border-bottom: 1px solid transparent;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .button:hover {
+    background-color: #009aee;
+    border: 1px solid #007ceb;
+    color: #fff;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down:hover .content,
+#mainTaskBarUserInfo .taskBarButton.drop-down:hover::before {
+    display: block;
+}
+
+#mainTaskBarUserInfo .taskBarButton.localLink {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    width: auto;
+    max-width: 190px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.localLink:not(.pressed) {
+    color: #4799ea;
+}
+
+/* NOTIFICATION */
+#mainTaskBarUserInfo .taskBarButton [data-notification]:not([data-value])::after,
+#mainTaskBarUserInfo .taskBarButton [data-notification][data-value=""]::after,
+#mainTaskBarUserInfo .taskBarButton [data-notification][data-value="0"]::after {
+    display: none;
+}
+
+#mainTaskBarUserInfo .taskBarButton [data-notification]::after {
+    display: inline-block;
+    content: attr(data-value);
+    position: absolute;
+    line-height: normal;
+    background-color: #f00;
+    font-size: 10px;
+    top: 12px;
+    right: 10px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    color: #fff;
+    min-width: 18px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Lato;
+    z-index: 1;
+}
+
+#mainTaskBarUserInfo .taskBarButton .button[data-notification][data-value!=""][data-value!="0"] {
+    padding-right: 30px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down.drop-down-no-icon [data-notification]::after {
+    right: 2px;
+}
+/* END NOTIFICATION */
+
+
+#mainTaskBarUserInfo .taskBarButton.userInfo {
+    max-width: 170px;
+    min-width: 65px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.userInfo .username {
+    font-size: 14px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.userInfo .username:empty::before {
+    content: attr(title);
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .supportInfo {
+    display: table;
+    position: relative;
+    text-align: left;
+    line-height: 20px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .phones,
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .otherInfo {
+    padding: 0 24px 10px 15px;
+    display: table-cell;
+    min-width: 160px;
+    vertical-align: top;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content h4 {
+    margin: 10px 0 2px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .supportLinks {
+    margin-bottom: 10px;
+    white-space: normal;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .supportLinks strong {
+    display: block;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .supportLinks a:hover {
+    text-decoration: underline;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content [data-support-tour-container] {
+    text-align: center;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content [data-support-tour-container] .tourBtn {
+    height: 24px;
+    line-height: 0;
+    margin: 15px auto 0;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .button.notifications {
+    padding-right: 30px;
+}
+
+#mainTaskBarUserInfo .taskBarButton.drop-down .content .button.notifications::after {
+    background-color: #ff0000;
+    border-radius: 3px;
+    color: #ffffff;
+    max-width: 18px;
+    content: attr(data-notifications);
+    font-size: 11px;
+    line-height: 16px;
+    padding: 0 5px;
+    position: absolute;
+    right: 5px;
+    top: 9px;
+}
+
+/*============================= Fullscreen ===============================*/
+#widget_footer {
+    max-width: 1170px;
+}
+
+#root.fullscreen {
+    padding-bottom: 0;
+}
+
+#root.fullscreen #mainTaskBar {
+    width: 100%;
+}
+
+#root.fullscreen #widget_footer {
+    max-width: 100%;
+}
+
+#mainContent.fullscreen {
+    margin-top: 0px;
+}
+
+/*============================= END Fullscreen ===============================*/
+
+/*============================= Container ===============================*/
+.container_25 {
+    margin: 0 auto;
+    width: 1020px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/* ================================= HELPS BLOCKS ================================== */
+
+.last {
+    margin-right: 0 !important;
+}
+
+.border,
+.borderTop,
+.borderRight,
+.borderBottom,
+.borderLeft {
+    border-color: #dcdcdc;
+    border-style: solid;
+    border-width: 0;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.borderTop {
+    border-top-width: 1px;
+}
+
+.borderRight {
+    border-right-width: 1px;
+}
+
+.borderBottom {
+    border-bottom-width: 1px;
+}
+
+.borderLeft {
+    border-left-width: 1px;
+}
+
+.rad-2,
+.rad-3,
+.rad-4,
+.rad-5 {
+    overflow: hidden;
+}
+
+.rad-2 {
+    border-radius: 2px;
+}
+
+.rad-3 {
+    border-radius: 3px;
+}
+
+.rad-4 {
+    border-radius: 4px;
+}
+
+.rad-5 {
+    border-radius: 5px;
+}
+
+.noTextSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.textEllipsis,
+.textEllipsisBefore::before,
+.textEllipsisAfter::after {
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.textEllipsis *,
+.textEllipsis *::before,
+.textEllipsis *::after {
+    overflow: inherit;
+    text-overflow: inherit;
+}
+
+.nowrap,
+.nowrapBefore::before,
+.nowrapAfter::after {
+    white-space: nowrap;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.v-align-middle-before::before,
+.v-align-middle-after::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ================================= END HELPS BLOCKS ================================== */
+
+/* ================================= WSOS APPS BLOCKS ================================== */
+
+.wsos-app {
+    display: inline-block;
+    height: 120px;
+    margin: 0 15px 15px 0;
+    width: calc(100% / 3 - 15px + 7.5px);
+    position: relative;
+    background-color: #ffffff;
+}
+
+.wsos-app.no-app-img {
+    background-color: #dcdcdc;
+}
+
+.wsos-app:nth-child(3n) {
+    margin-right: 0;
+    width: calc(100% / 3 - 15px);
+}
+
+.wsos-app .btn {
+    display: inline-block;
+    height: 26px;
+    line-height: 0;
+    position: relative;
+    top: 24px;
+    width: 100%;
+}
+
+.wsos-app .run-block,
+.wsos-app .icon {
+    transition: top 300ms ease 0s;
+}
+
+.wsos-app .run-block {
+    background-color: #ffffff;
+    height: 60px;
+    padding: 0 10px;
+    position: absolute;
+    width: 100%;
+    top: 96px;
+    z-index: 1;
+}
+
+.wsos-app .run-block .app-title {
+    font-weight: bold;
+    line-height: normal;
+    left: 10px;
+    position: absolute;
+    top: 2px;
+    max-width: calc(100% - 20px);
+}
+
+.wsos-app .icon {
+    position: relative;
+    top: 14px;
+}
+
+.wsos-app:hover .run-block {
+    top: 60px;
+}
+
+.wsos-app:hover .icon {
+    top: -22px;
+}
+
+/*===================================================================*/
+
+/*                  Background colors and tiles images
+/*===================================================================*/
+
+/* Web Tools */
+.wsos-app[data-apptile="coppermine"],
+.wsos-app[data-apptile="trendzer"],
+.wsos-app[data-apptile="websitecreatormobile"],
+.wsos-app[data-apptile="websitecreator"],
+.wsos-app[data-apptile="cm4allcreatorold"],
+.wsos-app[data-apptile="cm4allcreator"],
+.wsos-app[data-apptile="esw"],
+.wsos-app[data-apptile="ebb"],
+.wsos-app[data-apptile="bkmanager"],
+.wsos-app[data-apptile="webstats"],
+.wsos-app[data-apptile="quickstart"],
+.wsos-app[data-apptile="mobilewebsite"],
+.wsos-app[data-apptile="wordpress"],
+.wsos-app[data-apptile="wordpressinstaller"],
+.wsos-app[data-apptile="photoalbum"],
+.wsos-app[data-apptile="easylivechat"],
+.wsos-app[data-apptile="joomla"],
+.wsos-app[data-apptile="mediawiki"],
+.wsos-app[data-apptile="phpbb"],
+.wsos-app[data-apptile="templateman"],
+.wsos-app[data-apptile="errorpages"],
+.wsos-app[data-apptile="analytics"],
+.wsos-app[data-apptile="filemanagerpro"],
+.wsos-app[data-apptile="filemanager"],
+.wsos-app[data-apptile="ftpmanager"],
+.wsos-app[data-apptile="pinnacle"],
+.wsos-app[data-apptile="esm"],
+.wsos-app[data-apptile="oscommerce"],
+.wsos-app[data-apptile="frontpage"],
+.wsos-app[data-apptile="redirecturl"],
+.wsos-app[data-apptile="epages"],
+.wsos-app[data-apptile="eshop"],
+.wsos-app[data-apptile="photos"],
+.wsos-app[data-apptile="easychat"],
+.wsos-app[data-apptile="apptsched"],
+.wsos-app[data-apptile="vmsmanager"],
+.wsos-app[data-apptile="mobile1page"],
+.wsos-app[data-apptile="htmleditor"],
+.wsos-app[data-apptile="trellix"] {
+    background-color: rgba(38, 152, 177, 0.7);
+    background-image: url("https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/appIcons/background_webtools.png");
+}
+
+/* Email */
+.wsos-app[data-apptile="emaillists"],
+.wsos-app[data-apptile="announcerpro"],
+.wsos-app[data-apptile="enterprisefax"],
+.wsos-app[data-apptile="easymail3"],
+.wsos-app[data-apptile="mailsetup"],
+.wsos-app[data-apptile="faxtoemail"] {
+    background-color: rgba(99, 35, 88, 0.7);
+    background-image: url("https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/appIcons/background_email.png");
+}
+
+/* Social & Promote */
+.wsos-app[data-apptile="socialmedia"],
+.wsos-app[data-apptile="rankingcoach"],
+.wsos-app[data-apptile="socialstream"],
+.wsos-app[data-apptile="seo"],
+.wsos-app[data-apptile="onelistpro"],
+.wsos-app[data-apptile="onelist"],
+.wsos-app[data-apptile="calltracking"],
+.wsos-app[data-apptile="coupons"],
+.wsos-app[data-apptile="ebizcardpro"] {
+    background-color: rgba(222, 74, 44, 0.7);
+    background-image: url("https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/appIcons/background_social.png");
+}
+
+/* Utilities */
+.wsos-app[data-apptile="urlpointing"],
+.wsos-app[data-apptile="domainforwarding"],
+.wsos-app[data-apptile="archivemanager"],
+.wsos-app[data-apptile="changewebsiteroot"],
+.wsos-app[data-apptile="addsubdomain"],
+.wsos-app[data-apptile="sslmanager"],
+.wsos-app[data-apptile="dnrmanager"],
+.wsos-app[data-apptile="domainguard"],
+.wsos-app[data-apptile="domainmonitor"],
+.wsos-app[data-apptile="webforward"],
+.wsos-app[data-apptile="dnsmanager"],
+.wsos-app[data-apptile="mysqlmanager"],
+.wsos-app[data-apptile="mssqlmanager"],
+.wsos-app[data-apptile="phpmyadmin"],
+.wsos-app[data-apptile="phpmanager"],
+.wsos-app[data-apptile="security"],
+.wsos-app[data-apptile="logmanager"],
+.wsos-app[data-apptile="managedsn"],
+.wsos-app[data-apptile="secureshell"],
+.wsos-app[data-apptile="winservices"],
+.wsos-app[data-apptile="sitelock"],
+.wsos-app[data-apptile="domainguardmanager"],
+.wsos-app[data-apptile="vpsmanager"],
+.wsos-app[data-apptile="changelog"],
+.wsos-app[data-apptile="sshmanager"],
+.wsos-app[data-apptile="domainmonitormanager"] {
+    background-color: rgba(129, 146, 41, 0.7);
+    background-image: url("https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-visual/navdesign/root/images/appIcons/background_utils.png");
+}
+
+/* ================================= END WSOS APPS BLOCKS ================================== */
+
+/* ================================= LOADING ================================== */
+
+#loading {
+    font-size: 14px;
+    height: 36px;
+    left: 50%;
+    line-height: 35px;
+    margin-left: -110px;
+    position: absolute;
+    text-align: center;
+    top: 6px;
+    width: 220px;
+    z-index: 1120;
+    background: -webkit-linear-gradient(top, #ffffff 0%, #efefef 100%);
+    background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
+}
+
+#loadingblocking {
+    display: block;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 2147483647;
+    text-align: center;
+    cursor: default;
+}
+
+#loadingblocking::before {
+    -webkit-animation: 1.7s linear 0s normal none infinite fa-spin;
+    -moz-animation: 1.7s linear 0s normal none infinite fa-spin;
+    animation: 1.7s linear 0s normal none infinite fa-spin;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 50px;
+    position: relative;
+    top: 50%;
+    cursor: default;
+}
+
+/* ================================= END LOADING ================================== */
+h3.title {
+    margin-bottom: 10px;
+}
+
+.portal-form {
+    color: #818181;
+}
+
+label.form-group {
+    display: block;
+}
+
+label.form-group > span {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control[readonly],
+fieldset[readonly] .form-control {
+    cursor: not-allowed;
+}
+
+.row > div[class*="col-"]:only-child .form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+/* margin padding helpers */
+.h-margin-bottom-0 {
+    margin-bottom: 0px;
+}
+
+.h-margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
+.h-margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.h-margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.h-margin-top-0 {
+    margin-top: 0px;
+}
+
+.h-margin-top-5 {
+    margin-top: 5px;
+}
+
+.h-margin-top-10 {
+    margin-top: 10px;
+}
+
+.h-margin-top-15 {
+    margin-top: 15px;
+}
+
+.h-padding-left-0 {
+    padding-left: 0px;
+}
+
+.h-padding-left-5 {
+    padding-left: 5px;
+}
+
+.h-padding-left-10 {
+    padding-left: 10px;
+}
+
+.h-padding-left-15 {
+    padding-left: 15px;
+}
+
+/* end margin padding helpers */
+
+.hidden-empty:empty {
+    display: none;
+}
+
+/* =================================  Dropdown lists ================================== */
+.portal-select {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+}
+
+.portal-select:focus {
+    outline: medium none !important;
+}
+
+.portal-select .visible-block {
+    padding: 0px 15px 0px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: default;
+}
+
+.portal-select:not([data-disabled]):focus .visible-block {
+    border-color: #66afe9;
+}
+
+.portal-select[data-disabled] .visible-block {
+    background-color: #dcdcdc;
+}
+
+.portal-select .scroll-block {
+    position: absolute;
+    display: none;
+    z-index: 50;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.portal-select .visible-block::after {
+    content: "\f0d7";
+    position: absolute;
+    right: 7px;
+    font-family: FontAwesome;
+    font-size: 14px;
+}
+
+.portal-select .visible-block,
+.portal-select .scroll-block {
+    width: 100%;
+    border: 1px solid #DCDCDC;
+    background-color: #ffffff;
+}
+
+.portal-select .visible-block,
+.portal-select .scroll-block > div {
+    line-height: 30px;
+}
+
+.portal-select .scroll-block > div {
+    padding-left: 10px;
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.portal-select .scroll-block > div:hover,
+.portal-select .scroll-block .option-hovered {
+    background-color: #009aee;
+    border-color: #007ceb;
+    color: #ffffff;
+}
+
+.portal-select[data-options~='wrap'] .scroll-block > div:hover,
+.portal-select[data-options~='wrap'] .scroll-block .option-hovered {
+    white-space: inherit !important;
+}
+
+.portal-select.error {
+    padding: 0;
+}
+
+.portal-select.error .visible-block {
+    background-color: #fad5d2;
+}
+
+[data-portal-select-replace] {
+    display: none;
+}
+
+/* ================================= END Dropdown lists ================================== */
+
+/* ================================= ONOFFSWITCH ================================== */
+.onoffswitch {
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+}
+
+.onoffswitch > .title,
+.onoffswitch > .icon {
+    display: block;
+}
+
+.onoffswitch > .icon {
+    line-height: 1;
+}
+
+.onoffswitch input {
+    display: none;
+}
+
+.onoffswitch input ~ .icon::before {
+    font-family: FontAwesome;
+    content: "\f204";
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.onoffswitch input:checked ~ .icon::before {
+    content: "\f205";
+    color: #4293E7;
+}
+
+.onoffswitch input ~ .title::before {
+    content: attr(data-title-off);
+}
+
+.onoffswitch input:checked ~ .title::before {
+    content: attr(data-title-on);
+}
+/* ================================= END ONOFFSWITCH ================================== */
+
+/* ================================= Bootstrap Theme ================================== */
+.btn-default {
+    background-image: -webkit-linear-gradient(bottom, #FAFAFA 0%, #E5E5E5 100%);
+    background-image: linear-gradient(to bottom, #FAFAFA 0%, #E5E5E5 100%);
+    background-repeat: repeat-x;
+    text-shadow: 0 1px 0 #fff;
+    border-color: #CCCCCC;
+    color: #444444;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: #E5E5E5;
+    background-position: 0 -15px;
+}
+
+.btn-default:active,
+.btn-default.active {
+    background-color: #E5E5E5;
+    border-color: #CCCCCC;
+}
+
+.btn-default:disabled,
+.btn-default[disabled] {
+    background-color: #E5E5E5;
+    background-image: none;
+}
+
+.btn-primary {
+    background-image: -webkit-linear-gradient(bottom, #009FDB 0%, #009FDB 100%);
+    background-image: linear-gradient(to bottom, #009FDB 0%, #009FDB 100%);
+    background-repeat: repeat-x;
+    border-color: #009FDB;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #009FDB;
+    background-position: 0 -15px;
+    color: #FFFFFF;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #009FDB;
+    border-color: #009FDB;
+}
+
+.btn-primary:disabled,
+.btn-primary[disabled] {
+    background-color: #009FDB;
+    background-image: none;
+}
+
+.btn-success {
+    background-image: -webkit-linear-gradient(bottom, #4CA90C 0%, #4CA90C 100%);
+    background-image: linear-gradient(to bottom, #4CA90C 0%, #4CA90C 100%);
+    background-repeat: repeat-x;
+    border-color: #4CA90C;
+    color: #FFFFFF;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background-color: #4CA90C;
+    background-position: 0 -15px;
+}
+
+.btn-success:active,
+.btn-success.active {
+    background-color: #4CA90C;
+    border-color: #4CA90C;
+}
+
+.btn-success:disabled,
+.btn-success[disabled] {
+    background-color: #4CA90C;
+    background-image: none;
+}
+
+.btn-info {
+    background-image: -webkit-linear-gradient(bottom, #71C5E8 0%, #71C5E8 100%);
+    background-image: linear-gradient(to bottom, #71C5E8 0%, #71C5E8 100%);
+    background-repeat: repeat-x;
+    border-color: #71C5E8;
+    color: #FFFFFF;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+    background-color: #71C5E8;
+    background-position: 0 -15px;
+}
+
+.btn-info:active,
+.btn-info.active {
+    background-color: #71C5E8;
+    border-color: #71C5E8;
+}
+
+.btn-info:disabled,
+.btn-info[disabled] {
+    background-color: #71C5E8;
+    background-image: none;
+}
+
+.btn-danger {
+    background-image: -webkit-linear-gradient(bottom, #CF2A2A 0%, #CF2A2A 100%);
+    background-image: linear-gradient(to bottom, #CF2A2A 0%, #CF2A2A 100%);
+    background-repeat: repeat-x;
+    border-color: #CF2A2A;
+    color: #FFFFFF;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: #CF2A2A;
+    background-position: 0 -15px;
+}
+
+.btn-danger:active,
+.btn-danger.active {
+    background-color: #CF2A2A;
+    border-color: #CF2A2A;
+}
+
+.btn-danger:disabled,
+.btn-danger[disabled] {
+    background-color: #CF2A2A;
+    background-image: none;
+}
+
+.col-no-pad {
+    padding: 0;
+}
+
+h1.component-title {
+    font-weight: inherit;
+    padding: 0px 15px 15px;
+}
+
+/* ================== Portal Styles for Bootstrap ================== */
+a:focus,
+a:active,
+.btn:focus,
+.btn:active,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    outline: medium none !important;
+}
+
+hr {
+    border-top: 1px solid #dddddd;
+    margin-top: 0;
+}
+
+.tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.8);
+    word-wrap: break-word;
+}
+
+.tooltip .tooltip-arrow {
+    border-top-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.form-control {
+    height: 30px;
+    border-radius: 2px;
+    padding-left: 15px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: inherit;
+}
+
+.container {
+    margin-top: 15px;
+}
+
+.panel {
+    box-shadow: inherit;
+}
+
+.panel > .panel-heading,
+.panel > .panel-footer {
+    background-image: none;
+    border: 0;
+}
+
+.panel > .panel-heading {
+    padding-bottom: 0;
+    font-weight: bold;
+}
+
+.panel-default > .panel-body {
+    background-color: #f5f5f5;
+}
+
+/* rewrite feedback */
+.form-control-feedback {
+    height: 30px;
+}
+
+.form-control-feedback .fa {
+    vertical-align: 1px;
+}
+
+.has-feedback label ~ .form-control-feedback {
+    top: 23px;
+}
+
+.has-feedback.checkbox .form-control-feedback,
+.has-feedback.radio .form-control-feedback {
+    height: 20px;
+}
+
+.has-feedback.checkbox .form-control-feedback .fa,
+.has-feedback.radio .form-control-feedback .fa {
+    vertical-align: 5px;
+}
+
+.has-feedback input ~ .form-control-feedback[data-original-title]:not([data-original-title=""]),
+.has-feedback input ~ .form-control-feedback[data-original-title]:not([data-original-title=""]) *,
+.has-feedback > .portal-select > .form-control-feedback[data-original-title]:not([data-original-title=""]),
+.has-feedback > .portal-select > .form-control-feedback[data-original-title]:not([data-original-title=""]) * {
+    cursor: help !important;
+    pointer-events: inherit;
+}
+
+.input-group .form-control-feedback {
+    display: table-cell;
+    line-height: 1;
+    vertical-align: middle;
+    position: relative;
+}
+
+.has-error .input-group-addon,
+.has-success .input-group-addon {
+    color: #818181;
+    background-color: #ffffff;
+}
+
+.input-group .input-group-addon,
+.input-group .form-control-feedback {
+    border-color: rgb(220, 220, 220);
+    background-color: #ffffff;
+}
+
+.input-group.has-error .form-control-feedback,
+.input-group.has-success .form-control-feedback {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+
+.has-error .input-group-addon,
+.input-group.has-error .form-control-feedback {
+    border-color: #CF2A2A;
+}
+
+.has-success .input-group-addon,
+.input-group.has-success .form-control-feedback {
+    border-color: #4CA90C;
+}
+
+.input-group.has-feedback .form-control {
+    padding-right: 10px;
+}
+
+.input-group-addon:not(:last-child),
+.input-group .form-control-feedback {
+    border-left: 0;
+    border-right: 0;
+    width: 28px;
+}
+
+.input-group-addon {
+    padding: 6px 8px;
+}
+
+.input-group-addon:last-child {
+    border-left: 0;
+    padding-right: 10px;
+}
+
+.input-group .form-control {
+    border-right-width: 0;
+}
+
+.input-group .form-control:focus {
+    border-right-width: 1px;
+}
+
+.input-group .form-control:first-child:focus {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+/* end rewrite feedback */
+
+
+
+
+.has-success .form-control,
+.has-error .form-control {
+    box-shadow: inherit;
+}
+
+.has-success .form-control,
+.has-success .portal-select .visible-block {
+    border-color: #4CA90C;
+}
+
+.has-success .form-control-feedback {
+    color: #4CA90C;
+}
+
+.has-error .form-control,
+.has-error .portal-select .visible-block {
+    border-color: #CF2A2A;
+}
+
+.has-error .form-control-feedback {
+    color: #CF2A2A;
+}
+
+.has-feedback .portal-select .visible-block {
+    padding-right: 50px;
+}
+
+.has-feedback .portal-select .form-control-feedback {
+    right: 15px;
+}
+
+/* ================================= END Bootstrap Theme ================================== */
+
+/* ================================= Bootbox Portal Theme ================================== */
+.bootbox-alert .modal-dialog,
+.bootbox-confirm .modal-dialog,
+.bootbox-prompt .modal-dialog,
+.bootbox-navdesign .modal-dialog {
+    margin: 52px auto;
+    width: 420px;
+}
+
+.bootbox-alert .modal-content,
+.bootbox-confirm .modal-content,
+.bootbox-prompt .modal-content,
+.bootbox-navdesign .modal-content {
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.5);
+}
+
+.bootbox-alert .modal-header .modal-title,
+.bootbox-confirm .modal-header .modal-title,
+.bootbox-prompt .modal-header .modal-title,
+.bootbox-alert .modal-content,
+.bootbox-confirm .modal-content,
+.bootbox-prompt .modal-content,
+.bootbox-navdesign .modal-header .modal-title,
+.bootbox-navdesign .modal-content {
+    color: #ffffff;
+}
+
+.bootbox-alert .modal-content,
+.bootbox-confirm .modal-content,
+.bootbox-prompt .modal-content,
+.bootbox-navdesign .modal-content {
+    background-color: rgba(62, 62, 62, 0.85);
+}
+
+.bootbox-alert .modal-header .modal-title,
+.bootbox-confirm .modal-header .modal-title,
+.bootbox-prompt .modal-header .modal-title,
+.bootbox-navdesign .modal-header .modal-title {
+    font-weight: normal;
+}
+
+.bootbox-alert .modal-header,
+.bootbox-confirm .modal-header,
+.bootbox-prompt .modal-header,
+.bootbox-navdesign .modal-header {
+    border-bottom: 0;
+    padding: 5px 12px;
+}
+
+.bootbox-alert .bootbox-close-button,
+.bootbox-confirm .bootbox-close-button,
+.bootbox-prompt .bootbox-close-button,
+.bootbox-alert .bootbox-close-button:hover,
+.bootbox-confirm .bootbox-close-button:hover,
+.bootbox-prompt .bootbox-close-button:hover,
+.bootbox-alert .bootbox-close-button:focus,
+.bootbox-confirm .bootbox-close-button:focus,
+.bootbox-prompt .bootbox-close-button:focus,
+.bootbox-navdesign .bootbox-close-button,
+.bootbox-navdesign .bootbox-close-button:hover,
+.bootbox-navdesign .bootbox-close-button:focus {
+    color: #ffffff;
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.bootbox-alert .modal-header + .modal-body,
+.bootbox-confirm .modal-header + .modal-body,
+.bootbox-prompt .modal-header + .modal-body,
+.bootbox-navdesign .modal-header + .modal-body {
+    padding: 0 12px;
+}
+
+.bootbox-alert .modal-footer,
+.bootbox-confirm .modal-footer,
+.bootbox-prompt .modal-footer,
+.bootbox-navdesign .modal-footer {
+    border-top: 0;
+}
+
+.bootbox-alert .modal-footer .btn,
+.bootbox-confirm .modal-footer .btn,
+.bootbox-prompt .modal-footer .btn,
+.bootbox-navdesign .modal-footer .btn {
+    padding: 3px 18px;
+    margin-left: 10px;
+}
+
+.bootbox-alert .modal-footer .btn-link:hover,
+.bootbox-confirm .modal-footer .btn-link:hover,
+.bootbox-prompt .modal-footer .btn-link:hover,
+.bootbox-alert .modal-footer .btn-link:focus,
+.bootbox-confirm .modal-footer .btn-link:focus,
+.bootbox-prompt .modal-footer .btn-link:focus,
+.bootbox-navdesign .modal-footer .btn-link:hover,
+.bootbox-navdesign .modal-footer .btn-link:focus {
+    color: #337ab7;
+}
+
+.bootbox-alert .modal-footer .btn-link,
+.bootbox-confirm .modal-footer .btn-link,
+.bootbox-prompt .modal-footer .btn-link,
+.bootbox-navdesign .modal-footer .btn-link {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bootbox-alert .modal-footer .btn-success,
+.bootbox-confirm .modal-footer .btn-success,
+.bootbox-prompt .modal-footer .btn-success,
+.bootbox-navdesign .modal-footer .btn-success {
+    min-width: 85px;
+}
+
+/* ================================= END Bootbox Portal Theme ================================== */
+
+#mainTaskBarUserInfo .taskBarButton.localLink:not(.pressed) {
+    color: #ffffff;
+}
+
+#mainTaskBarUserInfo .taskBarButton.localLink:hover {
+    color: #009fdb;
+}
+
+
+</style>
+<script type="text/javascript">
+	LateLoader.Add(function(){portal.Language.LangMap = $.extend(portal.Language.LangMap, {LANG_page_title:"Control Panel",LANG_page_header_title:"Control Panel",LANG_welcome:"Welcome",LANG_logout:"Logout",LANG_loading_wait:"Loading, please wait...",LANG_login:"Login",LANG_clear:"Clear",LANG_continue:"Continue",LANG_cancel:"Cancel",LANG_ok:"OK",LANG_save:"Save",LANG_close:"Close",LANG_delete:"Delete",LANG_edit:"Edit",LANG_create:"Create",LANG_add:"Add",LANG_tasks:"Tasks",LANG_services:"Services",LANG_view:"View",LANG_unlimited:"Unlimited",LANG_mb:"MB",LANG_gb:"GB",LANG_upgrade:"Upgrade",LANG_more_information:"More Information",LANG_account_upgrade:"Account Upgrade",LANG_currently_managing:"Currently Managing",LANG_next:"Next",LANG_back:"Back",LANG_search:"Search",LANG_transfer:"Transfer",LANG_each:"each",LANG_none:"None",LANG_top:"Top",LANG_finish:"Finish",LANG_notifications:"Notifications",LANG_submit:"Submit",LANG_currency_symbol:"$",LANG_launch_application:"Launch",LANG_learnmore:"Learn More",LANG_expand_all:"Expand all rows",LANG_collapse_all:"Collapse all rows",LANG_show_more:"Show more",LANG_show_less:"Show less",LANG_complete_order:"Complete Order",LANG_header_title_messages:"Webmail",LANG_header_title_fax:"Online Fax",LANG_upgrade_header_title:"Upgrade",LANG_my_account_header_title:"My Account",LANG_single:"Single",LANG_overview:"Overview",LANG_proceed:"Proceed",LANG_previous:"Previous",LANG_update:"Update",LANG_template_name:"Template name",LANG_preview:"Preview",LANG_apply:"Apply",LANG_label:"Label",LANG_value:"Value",LANG_caption:"Caption",LANG_remove:"Remove",LANG_please_select:"Please, select ...",LANG_language_en:"English",LANG_language_de:"Deutsch",LANG_language_fr:"Français",LANG_language_pt:"Português",LANG_language_es:"Español",LANG_language_it:"Italiano",LANG_language_ro:"Română",LANG_language_hu:"Magyar",LANG_language_el:"ελληνικά",LANG_language_bg:"Български",LANG_language_hr:"hrvatski",LANG_currency_euro_symbol:"&euro;",LANG_currency_euro_label:"EUR",LANG_mainmenu_logout:"Logout",LANG_DEFAULT_taskbar_admin:"Admin",LANG_DEFAULT_taskbar_controlpanel:"Control Panel",LANG_DEFAULT_taskbar_sites:"Websites",LANG_DEFAULT_taskbar_home:"Home",LANG_DEFAULT_taskbar_websites:"Websites",LANG_DEFAULT_taskbar_mybrand:"My brand",LANG_DEFAULT_taskbar_promotions:"Promotions",LANG_DEFAULT_taskbar_reporting:"reporting",LANG_DEFAULT_taskbar_shop:"Shop",LANG_DEFAULT_taskbar_demo:"Demo",LANG_DEFAULT_taskbar_campaigns:"Email Marketing",LANG_DEFAULT_taskbar_upgradeproduct:"Upgradeproduct",LANG_DEFAULT_taskbar_webmail:"Webmail",LANG_DEFAULT_taskbar_projectcenter:"Project Center",LANG_DEFAULT_taskbar_account:"My Account",LANG_DEFAULT_taskbar_websites_all:"All",LANG_DEFAULT_taskbar_websites_wceditor:"WcEditor",LANG_DEFAULT_taskbar_websites_wcdashboard:"WcDashboard",LANG_DEFAULT_taskbar_account_usermanager:"Users",LANG_DEFAULT_taskbar_apps:"Advanced Tools",LANG_DEFAULT_taskbar_account_apps:"Advanced Tools",LANG_DEFAULT_taskbar_account_accountdetails:"General",LANG_DEFAULT_taskbar_account_accountservices:"Services",LANG_DEFAULT_taskbar_account_accountpaymentmethod:"Payments",LANG_DEFAULT_taskbar_account_creditfeatures:"Credit Features",LANG_DEFAULT_taskbar_brandstore:"Brand Store",LANG_dialog_are_you_sure:"Are you sure?",LANG_dialog_ok:"Ok",LANG_dialog_yes:"Yes",LANG_dialog_no:"No",LANG_msg_processing:"Processing",LANG_msg_log:"Log",LANG_msg_help:"Help",LANG_msg_warning:"Warning",LANG_msg_error:"Error",LANG_msg_error_getting_iframe_url:"An error has occured obtaining the iframe url.",LANG_msg_error_saving:"Error saving.",LANG_msg_head_fields_error:"An error has occured.",LANG_msg_body_fields_error:"Please address the highlighted field(s).",LANG_msg_success:"Success",LANG_msg_success_delete:"Delete successful",LANG_msg_success_save:"Save successful",LANG_msg_success_save_changes:"Changes have been saved successfully",LANG_msg_success_update:"Update successful",LANG_data_error_1:"An error has occured obtaining the requested data.  Please try again.",LANG_data_error_2:"The operation has returned an error.  Please verify your data and try again.",LANG_data_error_title:"Data error",LANG_one_moment_please:"One moment please.",LANG_unauthorized_app:"Access Denied<br/>Your account does not have access to this application.",LANG_unauthorized_app_not_admin_mode:"Access Denied<br/>This account does not have access to this application.<br/>Return to administration mode to use this application.",LANG_expired_session:"Your session has expired.  Please login again.",LANG_save_failed:"An error occured while saving your data.  Please try again.",LANG_validation_failed:"An error occured while validating your data.",LANG_msg_error_required_fields:"Please complete all required fields",LANG_invalid_token:"Unfortunately, this temporary auto login link has expired. Please enter your email address and password.",LANG_invalid_field_username:"The Username field must be completed.",LANG_invalid_field_username_format:"The Username field may only contain letters, numbers, dashes and underscores.  It must be between 3 and 20 characters.",LANG_invalid_field_password:"The Password field must be completed.",LANG_invalid_field_passwordconfirm:"The Confirm password field must be completed.",LANG_invalid_field_passwordconfirm_only:"The Password field must be completed if changing your password.  Either complete the Password field or remove the Confirm password field value to keey your existing password.",LANG_invalid_field_passwords:"The Password and Confirm password fields must match.",LANG_invalid_field_passwordformat:"The Password fields must be at least 8 characters long.",LANG_invalid_field_passwordformat_creation:"The Password field must be %MinChars%-%MaxChars% characters long. It must contain at least %MinUpper% upper case character(s), %MinLower% lower case character(s), %MinDigits% digit(s) and %MinSpecial% special character(s) ~!@#*^<>-$%&()+=_?\/{}.",LANG_invalid_field_domainname:"The Domain name field must be completed.",LANG_invalid_field_domainname_format:"The Domain name field must contain a valid domain name.",LANG_ads_link_learn_more:"Learn More",LANG_ads_support_title:"Support",LANG_ads_support_text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor pretium libero, et pharetra nisl venenatis vel. Nulla facilisi.",LANG_login_title_domain:"Domain",LANG_login_title_username:"Username",LANG_login_title_ftpuser:"Username",LANG_login_box_title:"Login to your account",LANG_login_sus_box_title:"Login to your account or register a new account to proceed with checkout",LANG_login_field_user:"Username: ",LANG_login_password:"Password",LANG_login_field_language:"Language: ",LANG_login_rememberme:"Remember me",LANG_login_rememberuser:"Remember my username",LANG_login_rememberme_instructions:"This option is not recommended on public computers or computers used by multiple users.",LANG_login_invalid_username:"Please enter a valid username.",LANG_login_invalid_password:"Please enter a valid password.",LANG_login_userpass_empty:"Please enter username and password",LANG_login_failed:"Incorrect username or password.",LANG_login_forgot_pass:"Forgot Password?",LANG_login_forgot_field_username:"Username: ",LANG_login_forgot_field_email:"E-mail: ",LANG_login_forgot_pass_emailorusername:"Username",LANG_login_forgot_pass_question:"Forgot your password?</br>",LANG_login_forgot_pass_pwd_send:"Password sent</br>",LANG_login_forgot_pass_pwd_reset:"Password reset",LANG_login_forgot_pass_message_to_redirect:"You will be redirected to login page in a few seconds.",LANG_login_forgot_pass_we_help_you:"No worries, we will help you recover it.",LANG_login_notice_forgot_pass:"Please type your Username and Email Address.<br/>Your password will be emailed to you shortly.",LANG_login_notice_forgot_bottom:"This email address should be the same as the one in your contact information",LANG_login_forgot_mess_ok:"Password sent to your email address",LANG_login_forgot_mess_err:"You have entered an invalid Username / Email Address pair.",LANG_login_failed_portal_info:"Login failed.<br/> Can't get Portal Settings.",LANG_login_sign_up:"Sign Up",LANG_login_exixting_acc:"Login with Existing Account",LANG_login_dont_have_acc:"Don't have an account?",LANG_login_email_address:"Email address",LANG_login_bubble_account_centric_yes:"Please enter your email address (i.e. user@domain.com) to access your account",LANG_login_bubble_account_centric_no:"Please enter your domain (i.e. domain.com) to access your account",LANG_login_captcha_required:"Please complete the captcha.",LANG_forgot_pass_field:"Email address or username",LANG_forgot_pass:"Forgot Password",LANG_forgot_pass_desc:"To reset your password, please provide your username or the email <br/> address associated to your account. We will email you a link to reset <br/> your password.",LANG_forgot_pass_field_error:"Please enter correct Username",LANG_forgot_pass_email_send:"Thank you for submitting your username associated with your account. You will receive an email with a link to set or reset your password. You can also call Tech Support to have your password reset.",LANG_forgot_pass_not_found:"Error occurred. Please try again.",LANG_forgot_pass_limit_reached:"Access denied (Limit reached)",LANG_forgot_pass_resetpass:"Reset Password",LANG_forgot_pass_backtologin:"Back to Login",LANG_forgot_pass_messagebox:"Please enter your username to reset your password.",LANG_resetpass_messagebox:"Please create your new password",LANG_resetpass_newpass:"New password",LANG_resetpass_confirmpass:"Confirm password",LANG_resetpass_btn_createpass:"Save Password",LANG_resetpass_error_notequal:"The passwords are not equal",LANG_resetpass_error_minchars:"Password must contain at least %MinChars% characters",LANG_resetpass_error_maxchars:"Password must contain utmost %MaxChars% characters",LANG_resetpass_error_mindigits:"Password must contain at least %MinDigits% digit(s)",LANG_resetpass_error_minlower:"Password must contain at least %MinLower% lowercase alphabet(s)",LANG_resetpass_error_minupper:"Password must contain at least %MinUpper% uppercase alphabet(s)",LANG_resetpass_error_minspecial:"Password must contain at least %MinSpecial% special character(s)",LANG_resetpass_error_specialchars:"Password can contain only the following special characters: %SpecialChars%",LANG_resetpass_error_new_req:"New password is a required field",LANG_resetpass_error_pass_cant_change:"Error changing password. Please try again.",LANG_resetpass_gotologin:"Go to Login",LANG_resetpass_success:"Your new password was successfully created",LANG_resetpass_passpolicy_header:"Your password must:",LANG_resetpass_passpolicy_MinChars:"contain at least %MinChars% characters",LANG_resetpass_passpolicy_MaxChars:"contain utmost %MaxChars% characters",LANG_resetpass_passpolicy_MinDigits:"contain at least %MinDigits% digit(s)",LANG_resetpass_passpolicy_MinLower:"contain at least %MinLower% lowercase alphabet(s)",LANG_resetpass_passpolicy_MinUpper:"contain at least %MinUpper% uppercase alphabet(s)",LANG_resetpass_passpolicy_MinSpecial:"contain at least %MinSpecial% special character(s)",LANG_resetpass_passpolicy_SpecialChars:"contain only the following allowed special characters: %SpecialChars%",LANG_resetpass_pass_strength:"Password strength:",LANG_not_rated:"Not rated",LANG_bad:"Poor",LANG_weak:"Weak",LANG_moderate:"Moderate",LANG_strong:"Strong",LANG_eula_terms:"Terms & Conditions",LANG_eula_policy:"AT&T Acceptable Use Policy",LANG_eula_no_thanks:"No Thanks",LANG_eula_accept:"I agree",LANG_eula_read_and_agree:"I have read and agree to the",LANG_eula_please_read_and_accept:"Please read and accept Terms & Conditions",LANG_forced_language_language_prefs_changed:"Language Preference Changed",LANG_forced_language_selected_lang:"You have selected language",LANG_forced_language_preferenced_lang:"Your preference was set to",LANG_forced_language_use:"Use",LANG_forced_language_use_this_lang:"as your preferred language?",LANG_forced_language_cancel_link:"No, keep exsiting language",LANG_forced_language_yes_button:"Yes",LANG_please_refresh_your_view:"Alert! Changes have been made to the repository that are not reflected in this environment. Please &quot;Refresh&quot; your view.",LANG_support_box_title:"Support",LANG_create_support_ticket:"Create Support Ticket",LANG_create_support_ticket_text:"Issue with your hosting services?",LANG_submit_ticket:"Submit Ticket",LANG_sales_email:"Sales Email",LANG_support_email:"Support Email",LANG_billing_email:"Billing Email",LANG_write_to_us:"Write to us",LANG_email:"Email",LANG_email_text:"Have a question?",LANG_fax:"Fax",LANG_phone:"Phone",LANG_phone_first_letter:"T",LANG_email_first_letter:"E",LANG_fax_first_letter:"F",LANG_fag:"FAQ",LANG_sales_phone:"Sales Phone",LANG_support_phone:"Support Phone",LANG_billing_phone:"Billing Phone",LANG_phone_num:"1.888.WEBHOST (932.4678)",LANG_hours_of_operation:"Hours of Operation",LANG_general:"General:",LANG_sales:"Sales:",LANG_support:"Support:",LANG_billing:"Billing:",LANG_fax_2:"Fax:",LANG_sales_timezone:"Mon - Fri 7AM-7PM CST",LANG_billing_timezone:"Mon - Fri 7AM-7PM CST",LANG_technical_support:"Technical support:",LANG_technical_support_timezone:"Available 24/7",LANG_mon_fri:"Mon - Fri:",LANG_sat:"Sat:",LANG_sun:"Sun:",LANG_sat_sun:"Sat - Sun:",LANG_stat_hollydays:"State Holidays:",LANG_tech_support:"Tech Support:",LANG_time_zone:"Time Zone",LANG_VrStatus_message_box_h1:"Service is getting ready, please check in a few moments.",LANG_VrStatus_message_box_h2_textDescription:"Loading...",LANG_accdetails_pers_details:"Personal Details",LANG_accdetails_save:"Save changes",LANG_accdetails_username:"Username",LANG_accdetails_user_email:"Username / Email Address",LANG_accdetails_email:"Email",LANG_accdetails_security_help:"Your security code is the 3 digit code appearing on the back of your credit card.",LANG_accdetails_change_password:"Change your current account password",LANG_accdetails_change_language:"Change your language",LANG_accdetails_field_empty_error:"This field is required",LANG_accdetails_field_invalid_error:"This field has incorrect format",LANG_accdetails_field_incorrect_phone_format:"This field has incorrect format. Correct ex.: +43.12345678",LANG_accdetails_incorrect_email_format:"Email address has incorrect format",LANG_accdetails_email_desc:"Your email address serves as your username",LANG_accdetails_email_no_changes_error:"Username/Email matches with current one.",LANG_accdetails_password_title:"Password",LANG_accdetails_language_title:"Language",LANG_accdetails_username_changemsg:"Change my username to my email address",LANG_error_oldpass_empty:"Error updating password - old password cannot be empty",LANG_error_newpass_empty:"Error updating password - new password cannot be empty",LANG_error_oldpass_incorrect:"Error updating password - old password is incorrect",LANG_accdetails_phone_invalid_error:"Please enter your 10 digit phone number including your area code.",LANG_accdetails_name_invalid_error:"This field may contain letters, dashes and spaces. Length should be from 1 to 255.",LANG_accdetails_username_unique_invalid_error:"Username %email% already exists.",LANG_accdetails_old_user_password_incorrect:"Old password is incorrect!",LANG_accdetails_vms_logo_details:"Upload Logo",LANG_accdetails_vms_logo_help_message:"File formats supported: %ext%. File size: %max_filesize%MB.",LANG_accdetails_vms_logo_drop_text:"Drag &amp; Drop<br>to Add Image",LANG_accdetails_vms_logo_drop_text_small:"or click anywhere to choose file",LANG_accdetails_vms_logo_invalid_image_type:"Invalid VMS image type! Supported types: %ext%.",LANG_accdetails_vms_logo_invalid_image_file_size:"Invalid VMS image file size! Max file size: %max_filesize%MB.",LANG_accdetails_vms_logo_invalid_image_size:"Invalid VMS image file size! Max width: %max_width%px, max height: %max_height%px.",LANG_accdetails_vms_logo_invalid_image_max_files:"VMS logo image support only one file.",LANG_accdetails_vms_logo_invalid_image_upload:"Error uploading logo file.",LANG_accdetails_pers_details_success_updated:"Personal Details successfully updated!",LANG_accdetails_email_details_success_updated:"Email successfully updated!",LANG_accdetails_password_details_success_updated:"Password successfully updated!",LANG_accdetails_language_details_success_updated:"Language successfully updated!",LANG_change_pass_currentpass:"Current password",LANG_change_pass_newpass:"New password",LANG_change_pass_newpass2:"Re-enter password",LANG_change_pass_new_matches_current:"New password matches with current one",LANG_billing_incorrect_date:"Please select a valid credit card expiration month and year",LANG_accserv_web_plan:"Website Plans and Domains",LANG_accserv_add_plan:"Add a website plan",LANG_accserv_aservices_apps:"Services & Applications",LANG_accserv_add_services:"Add more services",LANG_accserv_webdesign:"Web Design",LANG_accserv_add_design_srv:"Add more design services",LANG_accserv_manage:"Manage",LANG_accserv_upgrade_plan:"Upgrade Plan",LANG_accserv_add_addons:"Purchase Add-ons",LANG_accserv_add_domain:"Purchase Domain",LANG_accserv_associate_domain:"Reassign Domain",LANG_accserv_associate_msg:"Select which hosting plan to assign <b>%domain%</b> to",LANG_accserv_usage:": <b>%domains_used%</b> of <b>%domain_limit%</b> domains used",LANG_accserv_collapse_all:"Collapse all rows",LANG_accserv_expand_all:"Expand all rows",LANG_accserv_back_to_services:"Back to Services",LANG_accserv_limit_reached:"Domain limit reached",LANG_accserv_current_plan:"Currently assigned",LANG_accserv_current_plan_upgrade:"You currently have <b>%plan_name%</b>. The following are your plan change options:",LANG_accserv_associate_aditional_options:"You can aslo assign your domain to the following additional options",LANG_accserv_associate_confirm:"Are you sure you would like to reassign <b>%domain%</b> to <b>%plan%</b>?",LANG_accserv_associated:" associated to ",LANG_accserv_associate_blocked:"Reassignment not available",LANG_accserv_associate_success_msg:"<b>%domain%</b> has been successfully reassigned to <b>%plan%</b>!",LANG_accserv_upgrade_downgrade_button:"Call to Downgrade",LANG_accserv_upgrade_current_plan_button:"Current Plan",LANG_accserv_upgrade_downgrade_plan_button:"Call to downgrade",LANG_accserv_upgrade_downgrade_text:"To cancel or downgrade an existing plan, please contact an AT&T customer service representative at 1-800-555-5555.",LANG_accserv_upgrade_dialog_text:"Are you sure you would like to upgrade your hosting plan from <b>%current_plan%</b> to <b>%new_plan%</b>?",LANG_accserv_upgrade_diy_plan:"DIY Plans",LANG_accserv_upgrade_difm_plan:"Professional Design Plans",LANG_accserv_upgrade_success_msg:"<b>%plan%</b> has been successfuly upgraded to <b>%newplan%</b>!",LANG_accserv_sbs_customer_msg:"Unfortunately your account is not permitted to complete this action. Please contact Sales Channel in order to perform billing operation",LANG_accpay_billing_method_and_address:"Billing Method / Billing Address",LANG_accpay_billing_method:"Billing Information",LANG_accpay_billmethod_cc:"Credit Card",LANG_accpay_billmethod_phone:"Billing Telephone Number",LANG_accpay_cc_name:"Card Name",LANG_accpay_cc_zip:"Zip Code",LANG_accpay_cc_type:"Card Type",LANG_accpay_cc_amex:"American Express",LANG_accpay_cc_visa:"VISA",LANG_accpay_cc_mc:"Mastercard",LANG_accpay_cc_discover:"Discover",LANG_accpay_cc_other:"Other",LANG_accpay_cc_number:"Card Number",LANG_accpay_cc_code:"Security Code",LANG_accpay_cc_exp_date:"Expiration Date",LANG_accpay_month:"Month",LANG_accpay_year:"Year",LANG_accpay_phone:"Billing Telephone Number",LANG_accpay_customer_code:"Customer Code",LANG_accpay_save:"Save Changes",LANG_accpay_billing_address:"Billing Address",LANG_accpay_expires:"Expires",LANG_accpay_card_details:"Card Details",LANG_appdesc_undefined:"Here will the description of this application.",LANG_app_lunch_button:"Learn more",LANG_ordersummary_edit_billing_mgs:"Please click Edit to update your payment information.",LANG_cartreview_empty_cart_error_msg:"In order to proceed to checkout you may have at least one item in the Shopping Cart.",LANG_month_january:"January",LANG_month_february:"February",LANG_month_march:"March",LANG_month_april:"April",LANG_month_may:"May",LANG_month_june:"June",LANG_month_july:"July",LANG_month_august:"August",LANG_month_september:"September",LANG_month_october:"October",LANG_month_november:"November",LANG_month_december:"December",LANG_country_US:"United States",LANG_country_CA:"Canada",LANG_country_not_selected:"--",LANG_country_AF:"Afghanistan",LANG_country_AL:"Albania",LANG_country_DZ:"Algeria",LANG_country_AS:"American Samoa",LANG_country_AD:"Andorra",LANG_country_AO:"Angola",LANG_country_AI:"Anguilla",LANG_country_AQ:"Antarctica",LANG_country_AG:"Antigua and Barbuda",LANG_country_AR:"Argentina",LANG_country_AM:"Armenia",LANG_country_AW:"Aruba",LANG_country_AU:"Australia",LANG_country_AT:"Austria",LANG_country_AZ:"Azerbaijan",LANG_country_BS:"Bahamas",LANG_country_BH:"Bahrain",LANG_country_BD:"Bangladesh",LANG_country_BB:"Barbados",LANG_country_BY:"Belarus",LANG_country_BE:"Belgium",LANG_country_BZ:"Belize",LANG_country_BJ:"Benin",LANG_country_BM:"Bermuda",LANG_country_BT:"Bhutan",LANG_country_BO:"Bolivia",LANG_country_BA:"Bosnia and Herzegovina",LANG_country_BW:"Botswana",LANG_country_BV:"Bouvet Island",LANG_country_BR:"Brazil",LANG_country_IO:"British Indian Ocean Territory",LANG_country_BN:"Brunei Darussalam",LANG_country_BG:"Bulgaria",LANG_country_BF:"Burkina Faso",LANG_country_BI:"Burundi",LANG_country_KH:"Cambodia",LANG_country_CM:"Cameroon",LANG_country_CV:"Cape Verde",LANG_country_KY:"Cayman Islands",LANG_country_CF:"Central African Republic",LANG_country_TD:"Chad",LANG_country_CL:"Chile",LANG_country_CN:"China",LANG_country_CX:"Christmas Island",LANG_country_CC:"Cocos (Keeling) Islands",LANG_country_CO:"Colombia",LANG_country_KM:"Comoros",LANG_country_CG:"Congo",LANG_country_CK:"Cook Islands",LANG_country_CR:"Costa Rica",LANG_country_CI:"Cote D&rsquo;Ivoire",LANG_country_HR:"Croatia",LANG_country_CU:"Cuba",LANG_country_CW:"Curacao",LANG_country_CY:"Cyprus",LANG_country_CZ:"Czech Republic",LANG_country_DK:"Denmark",LANG_country_DJ:"Djibouti",LANG_country_DM:"Dominica",LANG_country_DO:"Dominican Republic",LANG_country_TP:"East Timor",LANG_country_EC:"Ecuador",LANG_country_EG:"Egypt",LANG_country_SV:"El Salvador",LANG_country_GQ:"Equatorial Guinea",LANG_country_ER:"Eritrea",LANG_country_EE:"Estonia",LANG_country_ET:"Ethiopia",LANG_country_FK:"Falkland Islands",LANG_country_FO:"Faroe Islands",LANG_country_FJ:"Fiji",LANG_country_FI:"Finland",LANG_country_FR:"France",LANG_country_FX:"France, Metropolitan",LANG_country_GF:"French Guiana",LANG_country_PF:"French Polynesia",LANG_country_TF:"French Southern Territories",LANG_country_GA:"Gabon",LANG_country_GM:"Gambia",LANG_country_GE:"Georgia",LANG_country_DE:"Germany",LANG_country_GH:"Ghana",LANG_country_GI:"Gibraltar",LANG_country_GR:"Greece",LANG_country_GL:"Greenland",LANG_country_GD:"Grenada",LANG_country_GP:"Guadeloupe",LANG_country_GU:"Guam",LANG_country_GT:"Guatemala",LANG_country_GN:"Guinea",LANG_country_GW:"Guinea-Bissau",LANG_country_GY:"Guyana",LANG_country_HT:"Haiti",LANG_country_HM:"Heard and McDonald Islands",LANG_country_HN:"Honduras",LANG_country_HK:"Hong Kong",LANG_country_HU:"Hungary",LANG_country_IS:"Iceland",LANG_country_IN:"India",LANG_country_ID:"Indonesia",LANG_country_IR:"Iran",LANG_country_IQ:"Iraq",LANG_country_IE:"Ireland",LANG_country_IL:"Israel",LANG_country_IT:"Italy",LANG_country_JM:"Jamaica",LANG_country_JP:"Japan",LANG_country_JO:"Jordan",LANG_country_KZ:"Kazakhstan",LANG_country_KE:"Kenya",LANG_country_KI:"Kiribati",LANG_country_KP:"Korea, North",LANG_country_KR:"Korea, South",LANG_country_KW:"Kuwait",LANG_country_KG:"Kyrgyzstan",LANG_country_LA:"Lao People&rsquo;s Democratic Republic",LANG_country_LV:"Latvia",LANG_country_LB:"Lebanon",LANG_country_LS:"Lesotho",LANG_country_LR:"Liberia",LANG_country_LY:"Libyan Arab Jamahiriya",LANG_country_LI:"Liechtenstein",LANG_country_LT:"Lithuania",LANG_country_LU:"Luxembourg",LANG_country_MO:"Macau",LANG_country_MK:"Macedonia",LANG_country_MG:"Madagascar",LANG_country_MW:"Malawi",LANG_country_MY:"Malaysia",LANG_country_MV:"Maldives",LANG_country_ML:"Mali",LANG_country_MT:"Malta",LANG_country_MH:"Marshall Islands",LANG_country_MQ:"Martinique",LANG_country_MR:"Mauritania",LANG_country_MU:"Mauritius",LANG_country_YT:"Mayotte",LANG_country_MX:"Mexico",LANG_country_FM:"Micronesia, Federated States of",LANG_country_MD:"Moldova, Republic of",LANG_country_MC:"Monaco",LANG_country_MN:"Mongolia",LANG_country_MS:"Montserrat",LANG_country_MA:"Morocco",LANG_country_MZ:"Mozambique",LANG_country_MM:"Myanmar",LANG_country_NA:"Namibia",LANG_country_NR:"Nauru",LANG_country_NP:"Nepal",LANG_country_NL:"Netherlands",LANG_country_AN:"Netherlands Antilles",LANG_country_NC:"New Caledonia",LANG_country_NZ:"New Zealand",LANG_country_NI:"Nicaragua",LANG_country_NE:"Niger",LANG_country_NG:"Nigeria",LANG_country_NU:"Niue",LANG_country_NF:"Norfolk Island",LANG_country_MP:"Northern Mariana Islands",LANG_country_NO:"Norway",LANG_country_OM:"Oman",LANG_country_PK:"Pakistan",LANG_country_PW:"Palau",LANG_country_PA:"Panama",LANG_country_PG:"Papau New Guinea",LANG_country_PY:"Paraguay",LANG_country_PE:"Peru",LANG_country_PH:"Philippines",LANG_country_PN:"Pitcairn",LANG_country_PL:"Poland",LANG_country_PT:"Portugal",LANG_country_PR:"Puerto Rico",LANG_country_QA:"Qatar",LANG_country_RE:"Reunion",LANG_country_RO:"Romania",LANG_country_RU:"Russian Federation",LANG_country_RW:"Rwanda",LANG_country_KN:"Saint Kitts and Nevis",LANG_country_LC:"Saint Lucia",LANG_country_VC:"Saint Vincent and the Grenadines",LANG_country_WS:"Samoa",LANG_country_SM:"San Marino",LANG_country_ST:"Sao Tome and Principe",LANG_country_SA:"Saudi Arabia",LANG_country_SN:"Senegal",LANG_country_SC:"Seychelles",LANG_country_SL:"Sierra Leone",LANG_country_SG:"Singapore",LANG_country_SX:"Sint Maarten",LANG_country_SK:"Slovakia",LANG_country_SI:"Slovenia",LANG_country_SB:"Solomon Islands",LANG_country_SO:"Somalia",LANG_country_ZA:"South Africa",LANG_country_GS:"South Georgia and the South Sandwich Islands",LANG_country_ES:"Spain",LANG_country_LK:"Sri Lanka",LANG_country_SH:"St. Helena",LANG_country_PM:"St. Pierre and Miquelon",LANG_country_SD:"Sudan",LANG_country_SR:"Suriname",LANG_country_SJ:"Svalbard and Jan Mayen Islands",LANG_country_SZ:"Swaziland",LANG_country_SE:"Sweden",LANG_country_CH:"Switzerland",LANG_country_SY:"Syrian Arab Republic",LANG_country_TW:"Taiwan",LANG_country_TJ:"Tajikistan",LANG_country_TZ:"Tanzania",LANG_country_TH:"Thailand",LANG_country_TG:"Togo",LANG_country_TK:"Tokelau",LANG_country_TO:"Tonga",LANG_country_TT:"Trinidad and Tobago",LANG_country_TN:"Tunisia",LANG_country_TR:"Turkey",LANG_country_TM:"Turkmenistan",LANG_country_TC:"Turks and Caicos Islands",LANG_country_TV:"Tuvalu",LANG_country_UG:"Uganda",LANG_country_UA:"Ukraine",LANG_country_AE:"United Arab Emirates",LANG_country_GB:"United Kingdom",LANG_country_UY:"Uruguay",LANG_country_UZ:"Uzbekistan",LANG_country_VU:"Vanuatu",LANG_country_VA:"Vatican",LANG_country_VE:"Venezuela",LANG_country_VN:"Vietnam",LANG_country_VG:"Virgin Islands",LANG_country_VI:"Virgin Islands (US)",LANG_country_WF:"Wallis/Futuna Islands",LANG_country_EH:"Western Sahara",LANG_country_YE:"Yemen",LANG_country_YU:"Yugoslavia",LANG_country_ZR:"Zaire",LANG_country_ZM:"Zambia",LANG_country_ZW:"Zimbabwe",LANG_country_please_select:"Please select",LANG_state_AL:"Alabama",LANG_state_AK:"Alaska",LANG_state_AZ:"Arizona",LANG_state_AR:"Arkansas",LANG_state_CA:"California",LANG_state_CO:"Colorado",LANG_state_CT:"Connecticut",LANG_state_DE:"Delaware",LANG_state_DC:"District of Columbia",LANG_state_FL:"Florida",LANG_state_GA:"Georgia",LANG_state_HI:"Hawaii",LANG_state_ID:"Idaho",LANG_state_IL:"Illinois",LANG_state_IN:"Indiana",LANG_state_IA:"Iowa",LANG_state_KS:"Kansas",LANG_state_KY:"Kentucky",LANG_state_LA:"Louisiana",LANG_state_ME:"Maine",LANG_state_MD:"Maryland",LANG_state_MA:"Massachusetts",LANG_state_MI:"Michigan",LANG_state_MN:"Minnesota",LANG_state_MS:"Mississippi",LANG_state_MO:"Missouri",LANG_state_MT:"Montana",LANG_state_NE:"Nebraska",LANG_state_NV:"Nevada",LANG_state_NH:"New Hampshire",LANG_state_NJ:"New Jersey",LANG_state_NM:"New Mexico",LANG_state_NY:"New York",LANG_state_NC:"North Carolina",LANG_state_ND:"North Dakota",LANG_state_OH:"Ohio",LANG_state_OK:"Oklahoma",LANG_state_OR:"Oregon",LANG_state_PA:"Pennsylvania",LANG_state_RI:"Rhode Island",LANG_state_SC:"South Carolina",LANG_state_SD:"South Dakota",LANG_state_TN:"Tennessee",LANG_state_TX:"Texas",LANG_state_UT:"Utah",LANG_state_VT:"Vermont",LANG_state_VA:"Virginia",LANG_state_WA:"Washington",LANG_state_WV:"West Virginia",LANG_state_WI:"Wisconsin",LANG_state_WY:"Wyoming",LANG_province_AB:"Alberta",LANG_province_BC:"British Columbia",LANG_province_MB:"Manitoba",LANG_province_NB:"New Brunswick",LANG_province_NF:"Newfoundland and Labrador",LANG_province_NS:"Nova Scotia",LANG_province_NT:"Northwest Territories",LANG_province_NV:"Nunavut",LANG_province_ON:"Ontario",LANG_province_PE:"Prince Edward Island",LANG_province_QC:"Quebec",LANG_province_SK:"Saskatchewan",LANG_province_YK:"Yukon",LANG_w_passwordmeter_not_equal:"The passwords are not equal",LANG_w_passwordmeter_new_req:"New password is a required field",LANG_w_passwordmeter_length_chars:"Password must contain between 8 and 24 characters",LANG_w_passwordmeter_features:"Password must have Alphabetical letter(s), Capital letter(s), Number(s) and Special character(s).",LANG_w_passwordmeter_repeat_char:"Password must not contain three or more repeating characters",LANG_w_passwordmeter_chars_numbers:"Password must contain both numbers and letters",LANG_w_passwordmeter_symbols_limit:"Passwords are case sensitive, and may contain alphanumeric characters, hyphens (-) and underscores (_).",LANG_w_passwordmeter:"Change Password",LANG_w_passwordmeter_desc:"Create a new password",LANG_w_passwordmeter_currentpass:"Current password",LANG_w_passwordmeter_newpass:"New Password",LANG_w_passwordmeter_newpass2:"Confirm password",LANG_w_passwordmeter_hovertip_desc:"Password must be at least 6 characters long and no more than 24 characters. Password can contain letters, numbers, dashes (-) and underscores (_). Password can't contain space characters.",LANG_w_passwordmeter_confirmpass:"Re-enter password",LANG_w_passwordmeter_success:"Password successfully changed.",LANG_w_passwordmeter_cant_change:"Can't change password. Please, try again.",LANG_w_accountinfo_header:"Account Info",LANG_w_accountinfo_link_manageaccount:"Manage Account",LANG_w_ads_email_marketing_title:"Email marketing",LANG_w_ads_email_marketing_text:"Promote, market and drive sales with email marketing.",LANG_w_ads_mobile_website_title:"Mobile websites",LANG_w_ads_mobile_website_text:"Look professional on any handheld device.",LANG_w_ads_website_design_title:"Website design",LANG_w_ads_website_design_text:"Busy? Let us build your site. Website design service from $35/m.",LANG_w_need_hand:"Need a hand?",LANG_w_give_us_call:"Give us a call",LANG_w_need_hand_start_live_chat:"Start Live Chat",LANG_w_recentapps_header:"Recently Used Applications",LANG_w_domainstatistic_email:"Email",LANG_w_domainstatistic_bandwidth:"Bandwidth",LANG_w_domainstatistic_diskusage:"Disk Space",LANG_w_domainstatistic_currentLimitEmail:"{limit} boxes",LANG_w_domainstatistic_currentLimitBandwidth:"{limit}",LANG_w_domainstatistic_currentLimitDiskusage:"{limit}",LANG_w_domainstatistic_currentStatisticEmail:"{left} mailboxes left",LANG_w_domainstatistic_currentStatisticBandwidth:"{percentUsage}% ({left} left)",LANG_w_domainstatistic_currentStatisticDiskusage:"{percentUsage}% ({left} left)",LANG_w_domainstatistic_currentUnlimitedStatisticEmail:"mailboxes used",LANG_w_domainstatistic_currentUnlimitedStatisticBandwidth:"{unit} used",LANG_w_domainstatistic_currentUnlimitedStatisticDiskusage:"{unit} used",LANG_w_domainstatistic_otherStatisticEmail:"{left}/{limit} mailboxes left",LANG_w_domainstatistic_otherStatisticBandwidth:"{left}/{limit} left",LANG_w_domainstatistic_otherStatisticDiskusage:"{left}/{limit} left",LANG_w_domainstatistic_otherUnlimitedStatisticEmail:"{value} mailboxes used",LANG_w_domainstatistic_otherUnlimitedStatisticBandwidth:"{value} {unit} used",LANG_w_domainstatistic_otherUnlimitedStatisticDiskusage:"{value} {unit} used",LANG_w_domainstatistic_empty_block:"No stats available for this domain.",LANG_w_wsosapps_browse_all_apps:"Browse All Apps",LANG_w_wsosapps_viewing_domain:"You are managing:",LANG_w_wsosapps_current_domain:"Current Domain",LANG_w_wsosapps_popular:"Applications",LANG_w_wsosapps_no_apps_for_domain:"There are no applications available for the current domain",LANG_w_recommendedapps_header:"Popular",LANG_w_personalinfo_firstname:"First Name",LANG_w_personalinfo_lastname:"Last Name",LANG_w_personalinfo_company:"Company",LANG_w_personalinfo_address:"Address",LANG_w_personalinfo_street:"Street",LANG_w_personalinfo_country:"Country",LANG_w_personalinfo_state:"State",LANG_w_personalinfo_province:"Province",LANG_w_personalinfo_phone:"Phone Number",LANG_w_personalinfo_fax:"Fax Number",LANG_w_personalinfo_zip:"Zip/Postal Code",LANG_w_personalinfo_pass:"Passowrd",LANG_w_personalinfo_confpass:"Confirm Password",LANG_w_personalinfo_mail:"E-Mail",LANG_w_personalinfo_city:"City",LANG_w_personalinfo_state_province:"State/Province",LANG_w_personalinfo_change_pass_not_equal:"The entered passwords do not match",LANG_w_personalinfo_old_password:"Old password is incorrect!",LANG_w_tour_quick_access_title:"Quick Access",LANG_w_tour_quick_access_text:"Here you'll find all the tools you need to get started building and managing your website and its features.",LANG_w_tour_activity_title:"Activity",LANG_w_tour_activity_text:"All recent activity is displayed here, such as your last-opened applications.",LANG_w_tour_new_messages_title:"New Messages",LANG_w_tour_new_messages_text:"Notifications are displayed when there are new messages on your account.",LANG_w_tour_account_title:"Account Information",LANG_w_tour_account_text:"Allows you to view and manage your account settings and access Advanced Tools.",LANG_w_tour_curr_managing_title:"Service Management",LANG_w_tour_curr_managing_text:"Use the drop-down menu to switch between and manage your domains/websites.",LANG_w_tour_support_info_title:"Support",LANG_w_tour_support_info_text:"Provides easy access to support information, should you ever need to contact us.",LANG_w_tour_domain_info_title:"Website & Domain Information",LANG_w_tour_domain_info_text:"Provides a view into your service and usage details, along with receiving helpful tips and tricks.",LANG_w_tour_online_builder_title:"Online Presence Builder",LANG_w_tour_online_builder_text:"This is the place you want to be in order to get your online presence up and running quickly! Clicking on 'Get Started' walks you through two quick steps that will automatically create your website and allow you to customize it to your liking!",LANG_w_tour_websites_title:"Your Websites",LANG_w_tour_websites_text:"Once you have created your first website using the Online Presence Builder, you will be able to manage your sites from here. Select your domain from the drop-down window and click the 'Edit Site' button. You’ll be taken to the Online Presence Builder to start editing your website.",LANG_w_tour_applications_title:"Advanced Tools",LANG_w_tour_applications_text:"Here you will have access to your advanced web hosting applications.",LANG_w_tour_of:" of ",LANG_w_tour_tour:"Tour",LANG_w_tour_home:"Home",LANG_w_tour_services:"Services",LANG_w_tour_support:"Support",LANG_tour_tourmain_header:"Welcome to Your Online Presence Platform!",LANG_tour_tourmain_body:"Take the tour to understand the key areas that will help you build, manage and market your business online.",LANG_tour_tourmain_control_nothanks:"No Thanks",LANG_tour_tourmain_control_dontshow:"Don't show this again",LANG_tour_tourmain_control_starttour:"Take a Tour",LANG_tooltip_login_username:"Username",LANG_tooltip_login_username_description:"Manage account settings and any domains in your account.  Ex: youraccountname",LANG_wsosapps_category_title_all:"All",LANG_wsosapps_category_title_webtools:"Web Tools",LANG_wsosapps_category_title_email:"Email",LANG_wsosapps_category_title_social:"Social & Promote",LANG_wsosapps_category_title_utils:"Utilities",LANG_app_archivemanager:"Archive Manager",LANG_app_websitecreator:"Website Creator Pro",LANG_app_websitecreatormobile:"Mobile Websites",LANG_app_addservices:"Additional Services",LANG_app_addsubdomain:"Add Subdomain",LANG_app_admanager:"Ad Manager",LANG_app_advancedanalytics:"Advanced Analytics",LANG_app_advancedcounter:"Advanced Counter",LANG_app_analytics:"Web Analytics",LANG_app_announcer:"Announcer",LANG_app_announcerpro:"Email Marketing",LANG_app_announcersec:"Announcer Pro Special",LANG_app_apptsched:"Appointment Scheduler",LANG_app_bkmanager:"File Restore",LANG_app_blogger:"Easy Blog Builder",LANG_app_buynow:"Buy Now",LANG_app_calltracking:"Call Tracking",LANG_app_changewebsiteroot:"Change Website Root",LANG_app_chpass:"Change Password",LANG_app_cm4allcreator:"WebsiteCreator Pro",LANG_app_cm4allcreatorold:"Easy Site",LANG_app_conferences:"Conference Call",LANG_app_coppermine:"Coppermine Gallery Installer",LANG_app_counter:"Counter",LANG_app_customersurvey:"Customer Survey",LANG_app_dbmanager:"Database Manager",LANG_app_sitelock:"Sitelock",LANG_app_diskusage:"Disk Usage",LANG_app_dnrmanager:"Domain Manager",LANG_app_domainforwarding_nomad:"Domain Forwarding",LANG_app_domainguard_nomad:"Domain Guard",LANG_app_domainmonitor_nomad:"Domain Monitor",LANG_app_dnsmanager:"DNS Manager",LANG_app_enterprisefax:"Online Fax Multi-line",LANG_app_ebb:"Easy Blog Builder",LANG_app_easychat:"EasyLiveChat",LANG_app_easymail3:"EasyMail Setup",LANG_app_easymail:"Easymail Setup",LANG_app_ebizcard:"eBizCard",LANG_app_ebizcardpro:"eBizCard Pro",LANG_app_emaillists_nomad:"Email Lists",LANG_app_epages:"Eshop",LANG_app_errorpages:"Custom Error Pages",LANG_app_esm:"EasyStoreMaker",LANG_app_esmpro:"EasyStoreMaker PRO 3",LANG_app_esw:"EasySiteWizard Pro",LANG_app_faxtoemail:"Online Fax",LANG_app_filemanager:"File Manager",LANG_app_filemanagerpro:"File Manager Pro",LANG_app_formmail:"Form Mail",LANG_app_frontpage:"Frontpage&reg; Manager",LANG_app_ftpchpass:"Change FTP Password",LANG_app_ftpmanager:"FTP Manager",LANG_app_guestbook:"Guestbook",LANG_app_htmleditor:"HTML Editor",LANG_app_imageeditor:"Image Editor",LANG_app_ipblocker:"IP Blocker",LANG_app_joomla:"Joomla Installer",LANG_app_joomlalite:"BTJlite",LANG_app_leadform:"Inform Lead Capture",LANG_app_logmanager:"Log Manager",LANG_app_mailforward:"Mail Forwarding",LANG_app_managedsn:"DSN Manager",LANG_app_mimetypes:"MIME Types",LANG_app_mediawiki:"MediaWiki Installer",LANG_app_mivamanager:"Miva Manager",LANG_app_mobilewebsite:"Mobile Website",LANG_app_mssqlmanager:"MS SQL Manager",LANG_app_mypayments:"My Payments",LANG_app_myprofile:"My Profile",LANG_app_myprofilepro:"My Profile",LANG_app_mysqlmanager:"MySQL Manager",LANG_app_onelist:"OneList",LANG_app_onelist_nomad:"OneList Pro",LANG_app_onelistpro:"OneList",LANG_app_onlineforms:"Online Forms",LANG_app_oscommerce:"osCommerce Installer",LANG_app_pdf2web:"PDF2Web",LANG_app_photos:"Photo Album",LANG_app_phpbb:"phpBB Installer",LANG_app_phpmanager:"PHP Manager",LANG_app_phpmyadmin:"phpMyAdmin",LANG_app_plugins:"Plug-in Scripts",LANG_app_preferences:"WebsiteOS Preferences",LANG_app_pinnacle:"Store Creator",LANG_app_pinnacle_nomad:"Store Creator",LANG_app_quickstart:"EasySiteWizard",LANG_app_redirecturl:"Domain Forwarding",LANG_app_reputationmanager:"Reputation Manager",LANG_app_rserver:"VMS Manager",LANG_app_secureshell:"SSH Manager",LANG_app_security:"Website Security",LANG_app_seo:"EasySiteOptimizer",LANG_app_sitecheck:"Site Checker",LANG_app_sitemapbuilder:"Sitemap Builder",LANG_app_sitepromote:"Site Promoter",LANG_app_sitestudio:"SiteStudio",LANG_app_socialmedia:"SocialPageCreator",LANG_app_socialstream:"SocialStream",LANG_app_sslmanager:"SSL Manager",LANG_app_storemaker:"EasyStoreMaker",LANG_app_storemkpro:"EasyStoreMaker PRO",LANG_app_supportcenter:"Support Center",LANG_app_templateman:"Template Gallery",LANG_app_trendzer:"Trendzer",LANG_app_urlpointing_nomad:"URL Pointing",LANG_app_webforward:"Domain Pointing",LANG_app_websitesearchengine:"Website Search Engine",LANG_app_webstats:"Web Stats",LANG_app_webtools:"Webmaster Tools",LANG_app_winservices:"Windows Services",LANG_app_wordpress:"WordPress Installer",LANG_app_wordpressinstaller_nomad:"WordPress Installer",LANG_app_vmsmanager_nomad:"Multi-Site Manager",LANG_app_vpsmanager_nomad:"VPS Hosting",LANG_app_mailsetup_nomad:"Mail Manager",LANG_app_filemanager_nomad:"File Manager",LANG_app_mssqlmanager_nomad:"MS SQL Manager",LANG_app_rankingcoach_nomad:"rankingCoach",LANG_app_trellix_nomad:"Trellix",LANG_app_sshmanager_nomad:"SSH Manager",LANG_app_changelog_nomad:"Change Log",LANG_app_logmanager_nomad:"Log Manager",LANG_term_length_1:"Monthly",LANG_term_length_3:"Quarterly",LANG_term_length_12:"Yearly",LANG_term_length_short_desc_1:"mo",LANG_term_length_short_desc_12:"ye",LANG_setup:"Setup",LANG_years:" year(s)",LANG_free_domain_with_any_plan:"Free with websiteplan",LANG_free_domain_as_hosttransfer:"Free as HostTransfer",LANG_domain_as_regtransfer:"1 year registration as RegTransfer",LANG_product_or_planname:"Product or Plan Name",LANG_select_button:"Select",LANG_sitesetupcontact_publish:"Publish my Website!",LANG_email_validation_faild:"Please enter a valid email address.",LANG_validation_empty_fields:"All fields must be filled",LANG_websitecreator_dashboardStep_1:"Websites",LANG_websitecreator_editorRedirectStep_1:"Editor",LANG_websitecreator_editorStep:"Editor",LANG_websitecreator_db_your_websites:"Your Websites",LANG_websitecreator_db_choose_domain:"Choose domain",LANG_websitecreator_db_new_site:"Add Site",LANG_websitecreator_db_edit_site:"Edit Site",LANG_websitecreator_db_header_1:"Get Your Site Online In A Few Clicks!",LANG_websitecreator_db_header_2:"An intuitive online presence builder with beautiful designs will help take your business to the next level online. Not ready to give your website a refresh with our new tool?",LANG_websitecreator_db_header_3:"Then checkout the helpful tips on the right to edit your current website and tools.",LANG_websitecreator_db_get_started:"Get Started",LANG_websitecreator_db_theme_head:"Designs that leave a lasting impression for your visitors!",LANG_websitecreator_db_theme_text:"Add slideshows, galleries, product menus, sign-up forms and much more to capture your audience’s attention.",LANG_websitecreator_db_publish_head:"Your online presence will always look sharp and crisp on desktop, tablet and mobile devices!",LANG_websitecreator_db_publish_text:"Much of your audience views your site from a mobile device.  Be ready with our responsive designs.",LANG_websitecreator_db_share_head:"Easily connect your online presence with social media; get more visitors and customers interacting with your business!",LANG_websitecreator_db_share_text:"Extend your presence and reach more customers on popular platforms.",LANG_websitecreator_db_footer_text:"Find out what you can build with our app"});});
+</script>
+<script type="text/javascript">LateLoader.Add(function(){require(['https://fldc-lbptvhsdh0t6p.netdna-ssl.com/portal/default/theme-structure/navdesign/root/script.0abedfb.js'], function (root) { root && root.run && root.run(); });});</script>
+
+<script id="topBarItemTmpl" type="text/x-handlebars-template">
+    <a data-trackonclick="topbar_{{{text}}}" href="#{{href}}" class="taskBarButton nowrap textEllipsis{{#if className}} {{className}}{{/if}}">{{{text}}}</a>
+</script>
+
+<script id="topBarLinkTmpl" type="text/x-handlebars-template">
+    <a data-trackonclick="topbar_{{{text}}}" href="{{href}}" target="{{options.target}}" class="taskBarButton nowrap textEllipsis{{#if className}} {{className}}{{/if}}">{{{text}}}</a>
+</script>
+
+<script id="supportSectionTmpl" type="text/x-handlebars-template">
+    <div class="taskBarButton drop-down drop-down-no-icon" data-support="" title="{{lang 'LANG_DEFAULT_mainmenu_support'}}" style="display: none;">
+        <i class="fa fa-lg fa-question-circle"></i>
+        <div class="content" title="" data-trackonclick="topbar_support">
+            <div class="supportInfo nowrap">
+                <div class="phones" data-support-phones-container="" style="display: none;"></div>
+                <div class="otherInfo" style="display: none;">
+                    <div data-support-hours-container=""></div>
+                    <div data-support-links-container=""></div>
+                    <div data-support-tour-container=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="shopIcon" type="text/x-handlebars-template">
+    <a data-trackonclick="topbar_shop" class="taskBarButton localLink nowrap textEllipsis" href="#{{href}}" title="{{lang 'LANG_DEFAULT_taskbar_shop'}}">{{lang 'LANG_DEFAULT_taskbar_shop'}}</a>
+</script>
+
+<script id="messagesIcon" type="text/x-handlebars-template">
+    <a data-trackonclick="topbar_{{{titleName}}}" class="taskBarButton" href="{{href}}" target="_blank" title="{{{titleName}}}">
+        <i class="fa fa-lg {{className}}"></i>
+    </a>
+</script>
+
+<script id="faxIcon" type="text/x-handlebars-template">
+    <a data-trackonclick="topbar_{{{titleName}}}" class="taskBarButton" href="{{href}}" target="_blank" title="{{{titleName}}}">
+        <i class="fa fa-lg {{className}}"></i>
+    </a>
+</script>
+
+<script id="upgradeproductLink" type="text/x-handlebars-template">
+    <a data-trackonclick="topbar_upgradeproductLink" class="taskBarButton localLink nowrap textEllipsis" href="#{{href}}" title="{{lang 'LANG_upgrade_header_title'}}">{{lang 'LANG_upgrade_header_title'}}</a>
+</script>
+
+<script id="linkTmpl" type="text/x-handlebars-template">
+    <a href="#{{path}}"{{#if className}} class="{{className}}"{{/if}}>{{{name}}}</a>
+</script>
+
+<script id="imgTmpl" type="text/x-handlebars-template">
+    <img src="{{src}}"{{#if className}} class="{{className}}"{{/if}}>
+</script>
+
+<script id="inputTooltipTmpl" type="text/x-handlebars-template">
+    <div class="ftip_{{type}}">
+        <div class="ftip_msg">{{{message}}}</div>
+    </div>
+</script>
+
+<script id="supportPhonesInfoTmpl" type="text/x-handlebars-template">
+    {{~#if_or SupportPhone SupportEmail ~}}
+        <h4>{{lang 'LANG_technical_support'}}</h4>
+        <div>
+            {{#if SupportPhone}}
+                {{lang 'LANG_phone_first_letter'}}: {{SupportPhone}}<br>
+            {{/if}}
+            {{#if SupportEmail}}
+                {{lang 'LANG_email_first_letter'}}: {{SupportEmail}}
+            {{/if}}
+        </div>
+    {{~/if_or~}}
+
+    {{~#if_or BillingPhone BillingEmail ~}}
+        <h4>{{lang 'LANG_billing'}}</h4>
+        <div>
+            {{#if BillingPhone}}
+                {{lang 'LANG_phone_first_letter'}}: {{BillingPhone}}<br>
+            {{/if}}
+            {{#if BillingEmail}}
+                {{lang 'LANG_email_first_letter'}}: {{BillingEmail}}
+            {{/if}}
+        </div>
+    {{~/if_or~}}
+
+    {{~#if_or SalesPhone SalesEmail ~}}
+        <h4>{{lang 'LANG_sales'}}</h4>
+        <div>
+            {{#if SalesPhone}}
+                {{lang 'LANG_phone_first_letter'}}: {{SalesPhone}}<br>
+            {{/if}}
+            {{#if SalesEmail}}
+                {{lang 'LANG_email_first_letter'}}: {{SalesEmail}}
+            {{/if}}
+        </div>
+    {{~/if_or~}}
+
+    {{~#if_or Phone Email Fax ~}}
+        <h4>{{lang 'LANG_general'}}</h4>
+        <div>
+            {{#if Phone}}
+                {{lang 'LANG_phone_first_letter'}}: {{Phone}}<br>
+            {{/if}}
+            {{#if Email}}
+                {{lang 'LANG_email_first_letter'}}: {{Email}}<br>
+            {{/if}}
+            {{#if Fax}}
+                {{lang 'LANG_fax_first_letter'}}: {{Fax}}
+            {{/if}}
+        </div>
+    {{~/if_or~}}
+</script>
+
+<script id="operationHrsTmpl" type="text/x-handlebars-template">
+    {{~#if_or OperationHrs.[0] OperationHrs.[1] OperationHrs.[2] OperationHrs.[3] ~}}
+        <h4>{{lang 'LANG_hours_of_operation'}}</h4>
+        <div>
+            {{#if OperationHrs.[0]}}
+                {{lang 'LANG_mon_fri'}} {{{OperationHrs.[0]}}}<br>
+            {{/if}}
+            {{#if OperationHrs.[1]}}
+                {{lang 'LANG_sat'}} {{{OperationHrs.[1]}}}<br>
+            {{/if}}
+            {{#if OperationHrs.[2]}}
+                {{lang 'LANG_sun'}} {{{OperationHrs.[2]}}}<br>
+            {{/if}}
+            {{#if OperationHrs.[3]}}
+                {{lang 'LANG_stat_hollydays'}} {{{OperationHrs.[3]}}}
+            {{/if}}
+        </div>
+    {{~/if_or~}}
+</script>
+
+<script id="supportLinksTmpl" type="text/x-handlebars-template">
+    {{~#if supportLinks~}}
+        <h4>{{lang 'LANG_support_links'}}</h4>
+        {{~#each supportLinks~}}
+            <div class="supportLinks">
+                <strong>
+                    {{{Title}}}
+                </strong>
+                {{{Text}}}
+            </div>
+        {{~/each~}}
+    {{~/if~}}
+</script>
+
+<script id="resetTourButtonTmpl" type="text/x-handlebars-template">
+    <button class="btn btn-success textEllipsis tourBtn">{{lang 'LANG_tour_tourmain_control_starttour'}}</button>
+</script>
+
+<script id="accountMenu" type="text/x-handlebars-template">
+    <div class="taskBarButton userInfo drop-down">
+        <div class="title username nowrap textEllipsis" role="topbar-user-name" title="{{lang 'LANG_my_account_header_title'}}">
+            {{~#if true~}}
+                {{{userName}}}
+            {{~/if~}}
+        </div>
+        <div class="content nowrap textEllipsis">
+            {{~#each links~}}
+                <a data-trackonclick="topbar_am_{{{menuName}}}" href="#{{href}}" class="button">{{{menuName}}}</a>
+            {{~/each~}}
+            <a href="#" class="button" id="logoutLink">{{lang 'LANG_logout'}}</a>
+        </div>
+    </div>
+</script>
+
+<script id="tabContainerTmpl" type="text/x-handlebars-template">
+    <div id="{{id}}" class="clearfix{{#if className}} {{className}}{{/if}}" style="{{style}}"></div>
+</script>
+
+<script id="wsosAppBlockTmpl" type="text/x-handlebars-template">
+    {{~#wsosApps apps~}}
+        <div data-apptile="{{app_tile}}" class="wsos-app text-center border rad-2">
+            <img class="icon" src="{{cdn}}/{{portalname}}/{{version}}/theme-visual/{{themename}}/root/images/appIcons/{{app_icon}}.png"
+                onerror="this.src='{{cdn}}/{{portalname}}/{{version}}/theme-visual/{{themename}}/root/images/appIcons/undefined.png';
+                         this.parentNode.classList.add('no-app-img');">
+            <div class="run-block borderTop">
+                <label data-toggle-ellipsis="tooltip" class="app-title text-left nowrap textEllipsis">{{{title}}}</label>
+                <button class="btn btn-success" data-run-wsos-app="{{appid}}">{{lang 'LANG_launch_application'}}</button>
+            </div>
+        </div>
+    {{~/wsosApps~}}
+</script>
+
+<script id="forcedLanguageBootBoxTmpl" type="text/x-handlebars-template">
+    <div>{{lang 'LANG_forced_language_selected_lang'}}: <b>{{{selectedLang}}}</b></div>
+    <div>{{lang 'LANG_forced_language_preferenced_lang'}}: <b>{{{langInDataBase}}}</b></div>
+    </br>
+    <div>{{lang 'LANG_forced_language_use'}} <b>{{{selectedLang}}}</b> {{lang 'LANG_forced_language_use_this_lang'}}</div>
+</script>
+
+<script id="portalSelectTmpl" type="text/x-handlebars-template">
+    <div class="portal-select noTextSelect" tabindex="{{tabindex}}" data-portal-select="{{name}}" {{#if attrOptions}} data-attr-options="{{attrOptions}}" {{/if}}>
+        <div class="hidden">
+            <input role="hidden-value" type="text" name="{{name}}" value="">
+        </div>
+        <div role="visible-block" class="visible-block"></div>
+        <div role="scroll-block" class="scroll-block"></div>
+    </div>
+</script>
+
+<script id="portalAlertTmpl" type="text/x-handlebars-template">
+    <div class="alert alert-{{type}} {{#if withCloseButton}}alert-dismissible{{/if}}" data-message-id="{{messageId}}" role="alert">
+        {{#if withCloseButton}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        {{/if}}
+
+        {{#if title}}
+            <strong>{{{title}}}</strong>
+        {{/if}}
+
+        {{{message}}}
+    </div>
+</script>
+
+<script id="portalFormValidateIconTmpl" type="text/x-handlebars-template">
+    <span
+        {{#if message}}
+            data-toggle="tooltip"
+            title=""
+            data-original-title="{{message}}"
+        {{/if}}
+        class="form-control-feedback"
+        role="field-icon"
+        tabindex="-1"
+        >
+            <span class="fa fa-lg fa-{{className}}"></span>
+        </span>
+</script>
+
+<script id="portalOnOffSwitchTmpl" type="text/x-handlebars-template">
+    <label class="onoffswitch">
+        <input type="checkbox" name="{{name}}" {{#if checked}} checked=""{{/if}} />
+        <span class="title nowrap textEllipsis" data-title-on="{{lang 'LANG_enabled'}}" data-title-off="{{lang 'LANG_disabled'}}"></span>
+        <span class="icon"></span>
+    </label>
+</script>
+
+
+</div></body></html>

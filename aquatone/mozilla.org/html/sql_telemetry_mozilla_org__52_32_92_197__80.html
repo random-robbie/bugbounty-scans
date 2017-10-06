@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mozilla | Log in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body,html {
+        padding:0;
+        margin:0;
+      }
+      .alert {
+        padding: 18px 18px 18px 50px;
+        text-align: center;
+        display: none;
+        font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+      }
+      .alert-info {
+        background-color: #538195;
+        color: white;
+      }
+      .alert > img {
+        display: inline-block;
+        margin-right: 15px;
+      }
+      .btn-alert {
+        padding: 5px 10px;
+        background-color: #7499a9;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+      }
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        opacity: .8;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .closebtn:hover {
+        opacity: 1;
+      }
+      .table {
+        display:table;
+        position:absolute;
+        height:100%;
+        width:100%;
+        background:linear-gradient(rgba(255,255,255,.3),rgba(255,255,255,0));
+        background-color:#e8ebef;
+      }
+      .cell {
+        display:table-cell;
+        vertical-align:middle;
+      }
+      .content {
+        padding:25px 0;
+        margin-left:auto;
+        margin-right:auto;
+        width:280px;
+      }
+      #widget-container .auth0-lock-header-bg {
+        background: #fff;
+        display: none;
+      }
+      #widget-container .auth0-lock-header-logo {
+        margin: 29px 0 0 0;
+      }
+      .auth0-label-submit {
+        color:#4d4e53;
+        font-weight:600;
+      }
+      .auth0-lock-ldap-button.auth0-lock-ldap-big-button, .auth0-lock-passwordless-button.auth0-lock-passwordless-big-button {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+
+      #widget-container .auth0-lock-back {
+          overflow: hidden;
+      }
+
+      #widget-container .auth0-lock-back-button {
+          padding: 10px;
+          text-align: right;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #4d4e53;
+          position: static;
+          float: right;
+          width: unset;
+          border: none;
+          box-shadow: none;
+          height: 100%;
+      }
+
+      #widget-container .auth0-lock-ldap-button {
+          background-color: #000;
+      }
+
+      #widget-container .auth0-lock-passwordless-button {
+          background-color: #87d200;
+      }
+
+      .auth0-lock-social-button[data-provider^="google"] {
+          background-color: #82D1F5;
+      }
+
+      #widget-container .auth0-lock-ldap-button, #widget-container .auth0-lock-passwordless-button {
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        border-radius: 3px;
+        position: relative;
+        height: 40px;
+        text-align: center;
+        transition:background-color 0.3s;
+        -webkit-transition:background-color 0.3s;
+      }
+      .auth0-lock-passwordless-button:hover .auth0-lock-passwordless-button-text, .auth0-lock-passwordless-button:hover .auth0-lock-passwordless-button-text:focus, .auth0-lock-passwordless-button:hover .auth0-lock-passwordless-button-icon, .auth0-lock-passwordless-button:hover .auth0-lock-passwordless-button-icon:focus {
+        background-color:rgba(0,0,0,0.3);
+      }
+
+      .auth0-lock-ldap-button:hover .auth0-lock-ldap-button-text, .auth0-lock-ldap-button:hover .auth0-lock-ldap-button-text:focus {
+          background-color: #444;
+      }
+
+      .auth0-lock-ldap-button:hover .auth0-lock-ldap-button-icon, .auth0-lock-ldap-button:hover .auth0-lock-ldap-button-icon:focus {
+          background-color: #222;
+      }
+
+      .auth0-lock-ldap-button-icon {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTQyOC4yIDMxNGgyOS4xdjQ3LjVoLTkxLjdWMjM4LjRjMC0zNy44LTEyLjYtNTIuNC0zNy4zLTUyLjQtMzAuMSAwLTQyLjIgMjEuMy00Mi4yIDUxLjlWMzE0aDI5LjF2NDcuNWgtOTEuN1YyMzguNGMwLTM3LjgtMTIuNi01Mi40LTM3LjQtNTIuNC0zMC4xIDAtNDIuMiAyMS4zLTQyLjIgNTEuOVYzMTRoNDEuN3Y0Ny41SDUyLjNWMzE0aDI5LjFWMTkwLjNINTIuM3YtNDcuNUgxNDR2MzNjMTMuMS0yMy4zIDM1LjktMzcuMyA2Ni40LTM3LjMgMzEuNSAwIDYwLjYgMTUgNzEuMyA0NyAxMi4xLTI5LjEgMzYuOS00NyA3MS4zLTQ3IDM5LjMgMCA3NS4yIDIzLjggNzUuMiA3NS43VjMxNHoiLz48L3N2Zz4=");
+      }
+
+      .auth0-lock-passwordless-button-icon {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQuNTQxIiBoZWlnaHQ9Ijg1LjM3OCIgdmlld0JveD0iMCAwIDEwNC41NDExNSA4NS4zNzgxNTEiPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNODcuOSA4Ljc0TDQ4LjkwNyAzOS44M2MtLjY3My42NzItMS4zNDUgMS4wMDgtMi4xODUgMS4wMDgtLjg0IDAtMS41MTMtLjE2OC0yLjAxNy0uODRMNS44ODIgOC43NHY1OC40ODdjMCAxLjY4IDEuMzQ1IDIuODU3IDIuODU3IDIuODU3aDMxLjQyOHY1Ljg4MkgyLjg1OEMxLjE3NSA3NS45NjYgMCA3NC42MjIgMCA3My4xMVYyLjg1NmMwLS44NC4zMzYtMS41MTIuODQtMS44NS4xNjgtLjMzNS4xNjgtLjE2Ny4zMzYtLjMzNUMxLjY4LjMzNiAyLjE4NiAwIDIuNjkgMGg4OC4wNjVjMS44NSAwIDMuMDI3IDEuMzQ1IDMuMDI3IDIuODU3VjQ4Ljc0SDg3Ljl2LTQwek0xMS4wOSA1Ljg4bDM1LjYzIDI4LjU3MiAzNS42My0yOC41NzJoLTcxLjI2eiIvPjxwYXRoIGQ9Ik05MC40MiA1Ni45NzVoLS4xNjhjLTYuMzg2LjE2OC0xMS41OTcgNC41MzgtMTMuMjc3IDEwLjQybC0yMy4xOTMuMzM2Yy0xLjY4IDAtMy4wMjYgMS4zNDYtMy4wMjYgMy4wMjYgMCAxLjE3Ny42NzMgMi4xODUgMS44NSAyLjY5aC0uMTdsNS4yMSA1LjA0IDQuNzA3LTQuODczSDYwLjg0aDIuMDE3bDQuODc0IDQuNzA2IDQuNzA3LTQuODc1aC0xLjUxM2w1Ljg4My0uMTY4YzEuMDA4IDYuODkgNi44OSAxMi4xIDEzLjc4IDEyLjFoLjE3YzcuNzMtLjE2NyAxMy45NS02LjcyMiAxMy43OC0xNC40NTMtLjMzNS03LjczLTYuNTU0LTEzLjk1LTE0LjExNy0xMy45NXptMCAyMi41MmMtNC41MzggMC04LjA2Ny0zLjY5Ny04LjA2Ny04LjA2NiAwLTIuMTg2Ljg0LTQuMzcgMi4zNTMtNS44ODQgMS41MTItMS41MTIgMy41My0yLjM1MyA1LjU0Ni0yLjUyaC4xNjhjNC4zNyAwIDcuOSAzLjY5NyA3LjkgOC4wNjYgMCA0LjUzOC0zLjM2MiA4LjIzNi03LjkgOC40MDR6Ii8+PC9nPjwvc3ZnPgo=");
+      }
+      .auth0-lock-ldap-button-icon, .auth0-lock-passwordless-button-icon {
+        background-color: rgba(0,0,0,0.3);
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: background-color 0.3s;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+      }
+      .auth0-lock-ldap-button-text, .auth0-lock-passwordless-button-text {
+        box-sizing: border-box;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        padding-left: 54px;
+        padding-right: 15px;
+        line-height: 40px;
+        text-align: left;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+        color: #fff;
+        white-space: nowrap;
+        -webkit-transition: background 0.3s;
+      }
+      #widget-container .auth0-lock-passwordless-submit {
+        background-color: #B0B2E9;
+        border: 0;
+        padding: 14px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 70px;
+        overflow: hidden;
+        border-radius: 0 0 5px 5px;
+        transition: 0.2s ease-in-out;
+        color: #fff;
+        letter-spacing: 1px;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      #widget-container .auth0-lock-passwordless-submit:hover:not([disabled]) span {
+         -webkit-transform:scale(1.05);
+         transform:scale(1.05);
+      }
+
+      .auth0-lock-passwordless-confirmation {
+        text-align: center;
+        line-height: 2;
+        font-size: 14px;
+        color: #666;
+
+      }
+      .checkmark {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: block;
+        stroke-width: 2;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        margin: 0 auto;
+        box-shadow: inset 0 0 0 #7ac142;
+        -webkit-animation: fill .4s ease-in-out .7s forwards,scale .3s ease-in-out 1.1s both;
+        animation: fill .4s ease-in-out .7s forwards,scale .3s ease-in-out 1.1s both;
+      }
+  </style>
+  <script>
+    /*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-inputtypes-setclasses !*/
+    !function(e,t,n){function a(e,t){return typeof e===t}function s(){var e,t,n,s,i,o,c;for(var u in r)if(r.hasOwnProperty(u)){if(e=[],t=r[u],t.name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(s=a(t.fn,"function")?t.fn():t.fn,i=0;i<e.length;i++)o=e[i],c=o.split("."),1===c.length?Modernizr[c[0]]=s:(!Modernizr[c[0]]||Modernizr[c[0]]instanceof Boolean||(Modernizr[c[0]]=new Boolean(Modernizr[c[0]])),Modernizr[c[0]][c[1]]=s),l.push((s?"":"no-")+c.join("-"))}}function i(e){var t=u.className,n=Modernizr._config.classPrefix||"";if(f&&(t=t.baseVal),Modernizr._config.enableJSClass){var a=new RegExp("(^|\\s)"+n+"no-js(\\s|$)");t=t.replace(a,"$1"+n+"js$2")}Modernizr._config.enableClasses&&(t+=" "+n+e.join(" "+n),f?u.className.baseVal=t:u.className=t)}function o(){return"function"!=typeof t.createElement?t.createElement(arguments[0]):f?t.createElementNS.call(t,"http://www.w3.org/2000/svg",arguments[0]):t.createElement.apply(t,arguments)}var l=[],r=[],c={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,t){var n=this;setTimeout(function(){t(n[e])},0)},addTest:function(e,t,n){r.push({name:e,fn:t,options:n})},addAsyncTest:function(e){r.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=c,Modernizr=new Modernizr;var u=t.documentElement,f="svg"===u.nodeName.toLowerCase(),p=o("input"),d="search tel url email datetime date month week time datetime-local number range color".split(" "),m={};Modernizr.inputtypes=function(e){for(var a,s,i,o=e.length,l="1)",r=0;o>r;r++)p.setAttribute("type",a=e[r]),i="text"!==p.type&&"style"in p,i&&(p.value=l,p.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(a)&&p.style.WebkitAppearance!==n?(u.appendChild(p),s=t.defaultView,i=s.getComputedStyle&&"textfield"!==s.getComputedStyle(p,null).WebkitAppearance&&0!==p.offsetHeight,u.removeChild(p)):/^(search|tel)$/.test(a)||(i=/^(url|email)$/.test(a)?p.checkValidity&&p.checkValidity()===!1:p.value!=l)),m[e[r]]=!!i;return m}(d),s(),i(l),delete c.addTest,delete c.addAsyncTest;for(var h=0;h<Modernizr._q.length;h++)Modernizr._q[h]();e.Modernizr=Modernizr}(window,document);
+  </script>
+  <script>
+    function WebAnalytics() {
+      var _dntStatus = navigator.doNotTrack || navigator.msDoNotTrack;
+      var fxMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
+      var ie10Match = navigator.userAgent.match(/MSIE 10/i);
+      var w8Match = navigator.appVersion.match(/Windows NT 6.2/);
+      if (fxMatch && Number(fxMatch[1]) < 32) {
+        // Can't say for sure if it is 1 or 0, due to Fx bug 887703
+        _dntStatus = 'Unspecified';
+      } else if (ie10Match && w8Match) {
+        // IE10 on Windows 8 does not Enable based on user intention
+        _dntStatus = 'Unspecified';
+      } else {
+        _dntStatus = { '0': 'Disabled', '1': 'Enabled' }[_dntStatus] || 'Unspecified';
+      }
+      if (_dntStatus !== 'Enabled'){
+        /* Google Analytics */
+        (function(w,d,s,l,i){
+          w[l]=w[l]||[];w[l].push({
+              'gtm.start': new Date().getTime(), event:'gtm.js'
+          });
+          var f=d.getElementsByTagName(s)[0];
+          var j=d.createElement(s);
+          var dl=l!='dataLayer'?'&l='+l:'';
+          j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+          f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T2N2BRW');
+      }
+    }
+    WebAnalytics();
+  </script>
+  <!-- From https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet until HTTP headers are set -->
+  <style id="antiClickjack">body{display:none !important;}</style>
+  <script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+  </script>
+</head>
+<body>
+
+  <div class="alert alert-info" role="alert" id="fxalert">
+    <img style="width:20px;vertical-align:middle;" src="data:image/png;base64,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" alt="alert-info"><strong>Want to help test Firefox?</strong> Give Firefox Nightly a try!
+    <a href="https://nightly.mozilla.org/" class="btn-alert" target="_blank"><?xml version="1.0" encoding="UTF-8"?>
+      <svg width="14px" height="11px" viewBox="0 0 14 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs></defs>
+          <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="icons-/-arrow-right-white" fill="#FFFFFF">
+                  <path d="M9.4921875,0.5 L13.3984375,4.6015625 C13.6328137,4.83593867 13.75,5.13541484 13.75,5.5 C13.75,5.83854336 13.6328137,6.12499883 13.3984375,6.359375 L9.4921875,10.5 C9.25781133,10.7343762 8.97786621,10.8515625 8.65234375,10.8515625 C8.32682129,10.8515625 8.04687617,10.7343762 7.8125,10.5 C7.57812383,10.2656238 7.4609375,9.96614766 7.4609375,9.6015625 C7.4609375,9.23697734 7.57812383,8.93750117 7.8125,8.703125 L9.6875,6.75 L1.2109375,6.75 C0.872394141,6.75 0.585938672,6.62630332 0.3515625,6.37890625 C0.117186328,6.13150918 0,5.83854336 0,5.5 C0,5.16145664 0.117186328,4.86849082 0.3515625,4.62109375 C0.585938672,4.37369668 0.872394141,4.25 1.2109375,4.25 L9.6875,4.25 L7.7734375,2.296875 C7.53906133,2.06249883 7.421875,1.76302266 7.421875,1.3984375 C7.421875,1.03385234 7.53906133,0.734376172 7.7734375,0.5 C8.00781367,0.265623828 8.29426914,0.1484375 8.6328125,0.1484375 C8.97135586,0.1484375 9.25781133,0.265623828 9.4921875,0.5 Z" id="ion-arrow-right-c---Ionicons"></path>
+              </g>
+          </g>
+      </svg>
+      Download
+    </a>
+    <span class="closebtn"  onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+
+ <div class="table">
+   <div class="cell">
+     <div class="content">
+       <!-- WIDGET -->
+       <div id="widget-container"></div>
+       <!-- TOS -->
+       <p id="tos" style="padding-top:10px;visibility:hidden">
+         When using this website, you agree to the <a id="tosurl" href="https://example.com/link/to/specific/terms-of-service">terms of service</a><!-- This is a placeholder link until there is a specific ToS and site which requires it -->
+       </p>
+     </div>
+   </div>
+ </div>
+
+<script>
+    /* Nightly alert */
+    var isChrome = /Chrome/.test(navigator.userAgent);
+    if (isChrome == true && window.innerWidth > 770) {
+      var malert = document.getElementById("fxalert");
+      malert.style.display='block';
+    }
+</script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <!--[if IE 8]>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+ <![endif]-->
+
+ <!--[if lte IE 9]>
+ <script src="https://cdn.auth0.com/js/base64.js"></script>
+ <script src="https://cdn.auth0.com/js/es5-shim.min.js"></script>
+ <![endif]-->
+
+ <!-- This URL is to be manually updated -->
+ <script src="https://cdn.auth0.com/js/lock/10.5/lock.min.js"></script>
+ <script src="https://cdn.auth0.com/w2/auth0-7.4.min.js"></script>
+ <script>
+    var APPS_WITH_TOS = [['phonebook-dev', 'https://www.mozilla.org/en-US/privacy/']];
+    // See https://auth0.com/docs/libraries/lock/v10/api and https://auth0.com/docs/libraries/lock/v10/customization for setup
+    // Decode utf8 characters properly
+
+    // Get query parameters by name
+    function getParameterByName( name ){
+      var regexS = "[\\?&]"+name+"=([^&#]*)",
+      regex = new RegExp( regexS ),
+      results = regex.exec( window.location.search );
+      if( results == null ){
+        return "";
+      } else{
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+    }
+
+    function getConfig(string) {
+      var config;
+      // The compared string below is broken up to ensure auth0 doesn't replace it in the hosted page with the actual config
+      if (string == '@@' + 'config@@') {
+          config = {
+              "auth0Domain":"auth-dev.mozilla.auth0.com",
+              "callbackOnLocationHash":false,
+              "callbackURL":"http://example.com/",
+              "cdn":"https://rta-dev.mozilla.auth0.com/",
+              "clientID":"IxJG9EkWRwW9Zo2a7VoLwndTqrpN7Aln", // Default App
+              "dict":{"signin":{"title":"Default App"}},
+              "extraParams":{},
+              "internalOptions":{},
+              "prompt":false,
+              "widgetUrl":"https://cdn.auth0.com/w2/auth0-widget-5.2.min.js"
+          }
+      } else {
+          config = JSON.parse(decodeURIComponent(escape(window.atob(string))));
+      }
+      return config;
+    }
+    function sendEmail() {
+      var email = $("input[name=passwordlessEmail]").val();
+
+	  //in case of an empty input field, .val() returns "" (empty string)
+	  //re-enable the submit button because the auth0.requestMagicLink() won't execute normally with an empty string
+	  if (email == "") {
+	        if ($("button.auth0-lock-passwordless-submit").is(':disabled')) {
+	            $("button.auth0-lock-passwordless-submit").prop("disabled", false);
+	        }
+	    }
+
+      var authParams = { "state": getParameterByName("state"), "nonce": getParameterByName("nonce") };
+      auth0.requestMagicLink({ email: email , send: 'link', authParams: authParams}, function(err) {
+        var message;
+        var icon;
+        var backLink;
+        if (err) {
+        message = "We were unable to send the email. Please ensure you submitted a correctly formatted e-mail address.";
+
+        //  message = "We were unable to send the email : " + err.error_description;
+          icon = '  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><circle cx="225" cy="225" r="225" transform="matrix(.124 0 0 .124 0 .2)" fill="#c33"/><g fill="#fff" stroke="#fff" stroke-width="70"><path d="M13.236 13.85l29.328 29.328M13.236 43.178L42.564 13.85" stroke-width="8.68"/></g></svg>';
+          backLink = '<div class="auth0-lock-back">' +
+            '  <button class="auth0-lock-back-button" type="button">' +
+            '    <span class="">' +
+            '      <span>' +
+            '        <svg xmlns="http://www.w3.org/2000/svg" class="icon-text" height="12" viewBox="0 0 8 12" width="8"><path d="M6 0L0 6l6 6 1.4-1.4L2.8 6l4.6-4.6" fill="#4d4e53"/></svg>' +
+            '      </span>' +
+            '      Back' +
+            '    </span>' +
+            '  </button>' +
+            '</div>';
+          console.log(message + " / " + JSON.stringify(err));
+        } else {
+          message = "We sent you a link to sign in. Please check your e-mail and open the provided link in this web browser.";
+          icon = '  <svg width="56px" height="56px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="checkmark"> <circle cx="26" cy="26" r="25" fill="none" class="checkmark__circle"></circle> <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" class="checkmark__check"></path></svg>';
+          backLink = '';
+          $(".auth0-global-message").remove();
+        }
+        $(".auth0-lock-form").slideUp();
+        $(".auth0-lock-content").prepend(
+          '<div class="auth0-lock-passwordless-confirmation" style="display:none;">' +
+          icon +
+          '  <p>' + message + '</p>' +
+          backLink +
+          '</div>');
+        $(".auth0-lock-content > .auth0-lock-passwordless-confirmation").slideDown();
+        $("div.auth0-lock-submit-container").slideUp();
+        $(".auth0-lock-passwordless-confirmation > .auth0-lock-back > button.auth0-lock-back-button").click(function() {
+          $(".auth0-lock-form").slideDown();
+          $("div.auth0-lock-submit-container").slideDown();
+          $(".auth0-lock-content > .auth0-lock-passwordless-confirmation").slideUp(400, function() {
+            this.remove();
+          });
+
+        //allow the submit button to be clicked again, if previously disabled
+        if ($("button.auth0-lock-passwordless-submit").is(':disabled')) {
+          $("button.auth0-lock-passwordless-submit").prop("disabled", false);
+        }
+        });
+      });
+    }
+    function customizeSubmitButton() {
+      if ($("div.auth0-lock-submit-container").length == 0) {
+        $("button.auth0-lock-submit").wrap('<div class="auth0-lock-submit-container" style="display: none;"></div>');
+        $(".auth0-lock-submit-container").append(
+          '<button class="auth0-lock-passwordless-submit" style="display:none;" type="button">' +
+          '  <span class="auth0-label-submit">Send Email' +
+          '    <span>' +
+          '      <svg class="icon-text" height="12px" version="1.1" viewbox="0 0 8 12" width="8px" xmlns="http://www.w3.org/2000/svg">' +
+          '        <g fill="none" fill-rule="evenodd" id="Symbols" stroke="none" stroke-width="1">' +
+          '          <g fill="#FFFFFF" id="Web/Submit/Active" transform="translate(-148.000000, -32.000000)">' +
+          '            <polygon id="Shape" points="148 33.4 149.4 32 155.4 38 149.4 44 148 42.6 152.6 38"></polygon>' +
+          '          </g>' +
+          '        </g>' +
+          '      </svg>' +
+          '    </span>' +
+          '  </span>' +
+          '</button>');
+        if ($("div.auth0-lock-form > div > div.auth0-lock-input-block").length > 0) {
+          // LDAP Only because the LDAP input fields are in
+          // "div.auth0-lock-form > div" instead of "div.auth0-lock-form > div > div"
+          $("div.auth0-lock-submit-container").show();
+          $(".auth0-lock-input-username input").focus();
+        }
+        $("button.auth0-lock-passwordless-submit").on("click", function() {
+          //prevent the submit button from being clicked again until the sendEmail function re-enables it
+          $("button.auth0-lock-passwordless-submit").prop("disabled", true);
+          sendEmail();
+        });
+        $("input[name=passwordlessEmail]").keydown(function(event) {
+          if (event.keyCode == 13) {
+            event.preventDefault();
+            $("button.auth0-lock-passwordless-submit").focus();    //move focus from the input box to the submit button
+            $("button.auth0-lock-passwordless-submit").click();    //trigger a click on the submit button, activating the button disabling code
+            return false;
+          }
+        });
+      }
+    }
+    function customizeLDAPFields() {
+      $(".auth0-lock-form > div > div:not([class]) > div.auth0-lock-input-password input.auth0-lock-input ").attr("placeholder", "your LDAP password");
+      $(".auth0-lock-form > div > div:not([class])").prepend('<p>Note : To log in with an <span title="For example John Doe\'s alias might be merlin@mozilla.com as opposed to jdoe@mozilla.com" style="text-decoration: underline dotted;">LDAP email alias</span>, please click BACK and choose LOG IN WITH EMAIL.</p>');
+      $(".auth0-lock-form > div > div:not([class]) > div.auth0-lock-input-email input.auth0-lock-input ").attr("type", (Modernizr.inputtypes.email ? "email" : "text"));
+    }
+    function customizeLock() {
+      $(".auth0-lock-form > div > div:not([class])").hide();
+      $(".auth0-lock-form > div > div.auth0-lock-pane-separator").hide();
+      $(".auth0-lock-form > div").append(
+        '<button class="auth0-lock-passwordless-button auth0-lock-passwordless-big-button" style="display:none;" type="button">' +
+        '  <div class="auth0-lock-passwordless-button-icon"></div>' +
+        '  <div class="auth0-lock-passwordless-button-text">Log in with Email</div>' +
+        '</button>' +
+        '<div class="auth0-lock-passwordless-pane" style="display:none;">' +
+        '  <div class="auth0-lock-input-block auth0-lock-input-email">' +
+        '    <div class="auth0-lock-input-wrap auth0-lock-input-wrap-with-icon">' +
+        '      <span>' +
+        '        <svg class="auth0-lock-icon" height="13px" version="1.1" viewbox="0 0 32 26" width="14px" xmlns="http://www.w3.org/2000/svg">' +
+        '          <g fill="none" fill-rule="evenodd" id="Page-1" sketch:type="MSPage" stroke="none" stroke-width="1">' +
+        '            <g fill="#373A39" id="32px" sketch:type="MSLayerGroup" transform="translate(-2155.000000, -2317.000000)">' +
+        '              <g id="Group-856" sketch:type="MSShapeGroup" transform="translate(1.000000, 1.000000)">' +
+        '                <path d="M2184,2339 C2184,2339.55 2183.55,2340 2183,2340 L2157,2340 C2156.45,2340 2156,2339.55 2156,2339 L2156,2319 C2156,2318.45 2156.45,2318 2157,2318 L2183,2318 C2183.55,2318 2184,2318.45 2184,2319 L2184,2339 L2184,2339 Z M2184,2316 L2156,2316 C2154.89,2316 2154,2316.89 2154,2318 L2154,2340 C2154,2341.1 2154.89,2342 2156,2342 L2184,2342 C2185.1,2342 2186,2341.1 2186,2340 L2186,2318 C2186,2316.89 2185.1,2316 2184,2316 L2184,2316 Z M2176,2322 L2180,2322 L2180,2326 L2176,2326 L2176,2322 Z M2174,2328 L2182,2328 L2182,2320 L2174,2320 L2174,2328 Z M2158,2332 L2172,2332 L2172,2330 L2158,2330 L2158,2332 Z M2158,2336 L2172,2336 L2172,2334 L2158,2334 L2158,2336 Z" id="Fill-419"></path>' +
+        '              </g>' +
+        '            </g>' +
+        '          </g>' +
+        '        </svg>' +
+        '      </span>' +
+        '      <input autocomplete="off" class="auth0-lock-input" name="passwordlessEmail" placeholder="yourname@example.com" type="' + (Modernizr.inputtypes.email ? "email" : "text") + '" value="">' +
+        '    </div>' +
+        '  </div>' +
+        '</div>' +
+        '<button class="auth0-lock-ldap-button auth0-lock-ldap-big-button" type="button" style="display:none;">' +
+        '  <div class="auth0-lock-ldap-button-icon"></div><div class="auth0-lock-ldap-button-text">Log in with LDAP</div>' +
+        '</button>' +
+        '<div class="auth0-lock-back" style="display: none;">' +
+        '  <button class="auth0-lock-back-button" type="button">' +
+        '    <span class="">' +
+        '      <span>' +
+        '        <svg xmlns="http://www.w3.org/2000/svg" class="icon-text" height="12" viewBox="0 0 8 12" width="8"><path d="M6 0L0 6l6 6 1.4-1.4L2.8 6l4.6-4.6" fill="#4d4e53"/></svg>' +
+        '      </span>' +
+        '      Back' +
+        '    </span>' +
+        '  </button>' +
+        '</div>');
+      $(".auth0-lock-form > div > div:not([class]) > p ").remove();
+      if ($(".auth0-lock-form > div > div:not([class])").length != 0) {
+        $(".auth0-lock-ldap-button").show();
+      }
+      var updatePasswordlessButton = function() {
+        // show or hide the passwordless button based on the results of the
+        // auth0 getConnections call
+        if (isEmailConnectionEnabled) {
+          $(".auth0-lock-passwordless-button").show();
+        } else {
+          $(".auth0-lock-passwordless-button").remove();
+        }
+      };
+      if (typeof isEmailConnectionEnabled === 'undefined') {
+        // The auth0 getConnections call hasn't yet returned so wait
+        var connectionListReturned = function() {
+          if (typeof isEmailConnectionEnabled === 'undefined') {
+            window.requestAnimationFrame(connectionListReturned);
+          } else {
+            updatePasswordlessButton();
+          }
+        };
+        connectionListReturned();
+      } else {
+        updatePasswordlessButton();
+      }
+
+      $("button.auth0-lock-ldap-button").click(function() {
+        $("button.auth0-lock-submit").show();
+        $("button.auth0-lock-passwordless-submit").hide();
+        $(".auth0-lock-form > div > .auth0-lock-back").slideDown();
+        $(".auth0-lock-form > div > div:not([class])").slideDown();
+        $("div.auth0-lock-submit-container").slideDown();
+        $("button.auth0-lock-ldap-button").slideUp();
+        $(".auth-lock-social-buttons-pane").slideUp();
+        $("button.auth0-lock-passwordless-button").slideUp();
+        $("input[name=passwordlessEmail]").val('');    //starting the LDAP flow clears the passwordless e-mail input, preventing errors
+        $(".auth0-lock-input-email input").focus();
+      });
+      $("button.auth0-lock-passwordless-button").click(function() {
+        $("button.auth0-lock-passwordless-submit").show();
+        $("button.auth0-lock-submit").hide();
+        $(".auth0-lock-passwordless-pane").slideDown();
+        $("div.auth0-lock-submit-container").slideDown();
+        $(".auth0-lock-form > div > .auth0-lock-back").slideDown();
+        $("button.auth0-lock-ldap-button").slideUp();
+        $(".auth-lock-social-buttons-pane").slideUp();
+        $("button.auth0-lock-passwordless-button").slideUp();
+        $("input[name=passwordlessEmail]").focus();
+      });
+      $(".auth0-lock-form > div > .auth0-lock-back > button.auth0-lock-back-button").click(function() {
+        if ($(".auth0-lock-form > div > div:not([class])").length != 0) {
+          $(".auth0-lock-ldap-button").slideDown();
+        }
+        $("button.auth0-lock-passwordless-button").slideDown();
+        $(".auth-lock-social-buttons-pane").slideDown();
+        $("div.auth0-lock-submit-container").slideUp();
+        $(".auth0-lock-form > div > .auth0-lock-back").slideUp();
+        $(".auth0-lock-passwordless-pane").slideUp();
+        $(".auth0-lock-form > div > div:not([class])").slideUp();
+        $(".auth0-global-message").slideUp();
+      });
+    }
+
+    var config = getConfig('eyJhc3NldHNVcmwiOiJodHRwczovL3J0YS5tb3ppbGxhLmF1dGgwLmNvbS8iLCJhdXRoMERvbWFpbiI6ImF1dGgubW96aWxsYS5hdXRoMC5jb20iLCJjYWxsYmFja09uTG9jYXRpb25IYXNoIjpmYWxzZSwiY2FsbGJhY2tVUkwiOiJodHRwczovL3d3dy5nb29nbGUuY29tL2EvbW96aWxsYS5jb20vYWNzIiwiY2RuIjoiaHR0cHM6Ly9ydGEubW96aWxsYS5hdXRoMC5jb20vIiwiY2xpZW50SUQiOiJzbUtUanNWVnhVSkRFa2pJZnRPc1AwYm9wMk5XanlzYSIsImRpY3QiOnsic2lnbmluIjp7InRpdGxlIjoiR29vZ2xlIChtb3ppbGxhLmNvbSkifX0sImV4dHJhUGFyYW1zIjp7InByb3RvY29sIjoic2FtbHAiLCJTQU1MUmVxdWVzdCI6ImZWSk5UK013RUwwajdYK3dmTTlYa1Zoa05VRmRFTnBLTEVRMGNPRG1kYWFKaWUwcEhxY0ZmajF1Q2xyMkFFYy9QNytQOGN6UG5xMWhXL0NrMFpXOFNIUE93Q2xzdGV0S2Z0ZGNKcWY4clBweE5DZHB6VVlzeHRDN1czZ2FnUUtMTHgySjZhTGtvM2NDSldrU1Rsb2dFWlJZTGY1Y2lWbWFpNDNIZ0FvTlo4dUxra3M1Mk1HQ2t0ajNabWhWMTZNejJBNW9CMmZjMFBiUkhPMWp4OW45UjZ6WlB0YVNhSVNsb3lCZGlGQmUvRXlLUE1sUG12eFU1TWRpVmp4d1ZyODcvZEx1ME9DN1dIOFBKQksvbTZaTzZwdFZNd2xzZFF2K09ySkwzaUYyQmxLRmRtOWZTeUs5amZCYUdnTE9Ga1RnUXd4NGpvNUdDMzRGZnFzVjNOMWVsYndQWVVNaXkzYTdYZnBQSnBPWnhWZHRqRHljRlBGcUdxMlkydmxQTS8wK3Uvenc1dFZYNnZQc2szRDEvb0g3WHN1TEdvMVdMMnhoRE83T1BjZ1FTd1UveGs2WDZLME1YM3NYYVRFaHVrM1dFMVdNamphZzlGcER5MWxXSFZ6LzM1UzRQMjg9IiwiUmVsYXlTdGF0ZSI6Imh0dHBzOi8vYWNjb3VudHMuZ29vZ2xlLmNvbS9DaGVja0Nvb2tpZT9jb250aW51ZT1odHRwcyUzQSUyRiUyRmFjY291bnRzLmdvb2dsZS5jb20lMkZvJTJGb2F1dGgyJTJGdjIlMkZhdXRoJTNGaGQlM0Rtb3ppbGxhLmNvbSUyNmNsaWVudF9pZCUzRDg3MDAyNzk3ODIyNy1mNzZxMHNyZGoxMGYzaXRiN2NuZ3BmaDYzN3FhbGs2cS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSUyNmFzJTNEMjhjNzIyMTA4NGI5ZjhlNCUyNmRlc3RpbmF0aW9uJTNEaHR0cHMlMjUzQSUyNTJGJTI1MkZzcWwudGVsZW1ldHJ5Lm1vemlsbGEub3JnJTI2YXBwcm92YWxfc3RhdGUlM0QlMjUyMUNoUnZWMUJaUmpGNVlsVnRVa2hmVm5wQmMybFViUklmVlY4emVERlpaWE10VUhOaU1FRkNhRkJwTnpSdU1GOU5SRll3VERkNFZRJTI1RTIlMjU4OCUyNTk5QUh3N2RfY0FBQUFBV2RpS1NCaTlOakwzel82SEU5dzZ4ZDZHNEc0Ul9zX2YlMjZwYXNzaXZlJTNEMTIwOTYwMCUyNm9hdXRoJTNEMSUyNnNhcnAlM0QxJTI2eHNyZnNpZyUzREFIZ0lmRTlTSi1uZ0xubzgyTF9oeFl0RGFaX05qLThsY1Emc2FycD0xIiwic3RhdGUiOiJEd19DZkRyWVJhNFpHbkc3OFdhckc2U3g3cE9wWFJRcSIsIl9jc3JmIjoiODZ4UkNubDQteUktTDVGUzZSemtNSC0wOTVjUjdKdXVMalNjIn0sImludGVybmFsT3B0aW9ucyI6eyJwcm90b2NvbCI6InNhbWxwIiwiU0FNTFJlcXVlc3QiOiJmVkpOVCtNd0VMMGo3WCt3Zk05WGtWaGtOVUZkRU5wS0xFUTBjT0RtZGFhSmllMHBIcWNGZmoxdUNscjJBRWMvUDcrUDhjelBucTFoVy9DazBaVzhTSFBPd0Nsc3RldEtmdGRjSnFmOHJQcHhOQ2RwelVZc3h0QzdXM2dhZ1FLTEx4Mko2YUxrbzNjQ0pXa1NUbG9nRVpSWUxmNWNpVm1haTQzSGdBb05aOHVMa2tzNTJNR0NrdGozWm1oVjE2TXoyQTVvQjJmYzBQYlJITzFqeDluOVI2elpQdGFTYUlTbG95QmRpRkJlL0V5S1BNbFBtdnhVNU1kaVZqeHdWcjg3L2RMdTBPQzdXSDhQSkJLL202Wk82cHRWTXdsc2RRditPckpMM2lGMkJsS0ZkbTlmU3lLOWpmQmFHZ0xPRmtUZ1F3eDRqbzVHQzM0RmZxc1YzTjFlbGJ3UFlVTWl5M2E3WGZwUEpwT1p4VmR0akR5Y0ZQRnFHcTJZMnZsUE0vMCt1L3p3NXRWWDZ2UHNrM0QxL29IN1hzdUxHbzFXTDJ4aERPN09QY2dRU3dVL3hrNlg2SzBNWDNzWGFURWh1azNXRTFXTWpqYWc5RnBEeTFsV0hWei8zNVM0UDI4PSIsIlJlbGF5U3RhdGUiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vQ2hlY2tDb29raWU/Y29udGludWU9aHR0cHMlM0ElMkYlMkZhY2NvdW50cy5nb29nbGUuY29tJTJGbyUyRm9hdXRoMiUyRnYyJTJGYXV0aCUzRmhkJTNEbW96aWxsYS5jb20lMjZjbGllbnRfaWQlM0Q4NzAwMjc5NzgyMjctZjc2cTBzcmRqMTBmM2l0YjdjbmdwZmg2MzdxYWxrNnEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20lMjZhcyUzRDI4YzcyMjEwODRiOWY4ZTQlMjZkZXN0aW5hdGlvbiUzRGh0dHBzJTI1M0ElMjUyRiUyNTJGc3FsLnRlbGVtZXRyeS5tb3ppbGxhLm9yZyUyNmFwcHJvdmFsX3N0YXRlJTNEJTI1MjFDaFJ2VjFCWlJqRjVZbFZ0VWtoZlZucEJjMmxVYlJJZlZWOHplREZaWlhNdFVITmlNRUZDYUZCcE56UnVNRjlOUkZZd1REZDRWUSUyNUUyJTI1ODglMjU5OUFIdzdkX2NBQUFBQVdkaUtTQmk5TmpMM3pfNkhFOXc2eGQ2RzRHNFJfc19mJTI2cGFzc2l2ZSUzRDEyMDk2MDAlMjZvYXV0aCUzRDElMjZzYXJwJTNEMSUyNnhzcmZzaWclM0RBSGdJZkU5U0otbmdMbm84MkxfaHhZdERhWl9Oai04bGNRJnNhcnA9MSIsInN0YXRlIjoiRHdfQ2ZEcllSYTRaR25HNzhXYXJHNlN4N3BPcFhSUXEiLCJfY3NyZiI6Ijg2eFJDbmw0LXlJLUw1RlM2UnprTUgtMDk1Y1I3SnV1TGpTYyIsIl9pbnRzdGF0ZSI6dHJ1ZX0sInByb21wdCI6ZmFsc2UsIndpZGdldFVybCI6Imh0dHBzOi8vY2RuLmF1dGgwLmNvbS93Mi9hdXRoMC13aWRnZXQtNS4yLm1pbi5qcyIsImlzVGhpcmRQYXJ0eUNsaWVudCI6ZmFsc2UsImF1dGhvcml6YXRpb25TZXJ2ZXIiOnsidXJsIjoiaHR0cHM6Ly9hdXRoLm1vemlsbGEuYXV0aDAuY29tIn19');
+    var logo = '<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 102.8"><style>.st0{fill:#FFFFFF;}</style><path d="M0-.2h360v102.9H0z"/><path class="st0" d="M343.8 73.7c-.7.2-1.3.3-1.9.3-2.1 0-3.1-.9-3.1-3.5V51c0-10.3-8.2-15.3-17.9-15.3-7.4 0-11.4.9-19.3 4.1L300 50.2l10.3 1.1 1.5-5.1c2.1-1.1 4.2-1.3 6.9-1.3 7.3 0 7.4 5.5 7.4 10.1v1.5c-2.3-.3-4.9-.4-7.4-.4-10.3 0-21 2.6-21 13.7 0 9.4 7.4 12.9 13.9 12.9 7.3 0 11.9-4.4 14.5-9 .6 5.5 3.9 9 9.9 9 2.8 0 5.7-.8 8.1-2.1l-.3-6.9zm-27.6-.3c-3.9 0-5.3-2.3-5.3-5.2 0-4.9 4-6.2 8.6-6.2 2.1 0 4.4.3 6.5.6-.3 7.5-5.2 10.8-9.8 10.8zm-17.3-60.5l-19.5 68.7h-12.7l19.5-68.7h12.7zm-26.2 0l-19.5 68.7h-12.7L260 12.9h12.7zm-54 23.7h13.5v16.2h-13.5V36.6zm0 28.9h13.5v16.2h-13.5V65.5zm-19.7-.6l10.2 1-2.8 15.8h-39.3l-1.3-6.8 24.8-28.5h-14.1l-2 7-9.3-1 1.6-15.8h39.5l1 6.8-25 28.5h14.6l2.1-7zm-64.5-29.2c-16.2 0-24.2 10.9-24.2 24.1 0 14.4 9.6 22.9 23.5 22.9 14.4 0 24.8-9.1 24.8-23.5 0-12.6-7.9-23.5-24.1-23.5zm-.3 37c-7 0-10.6-6-10.6-13.8 0-8.5 4.1-13.4 10.7-13.4 6.1 0 11 4.1 11 13.2 0 8.7-4.4 14-11.1 14zm-35.5-.9h6v9.8H85.9V56.3c0-7.8-2.6-10.8-7.7-10.8-6.2 0-8.7 4.4-8.7 10.7v15.7h6v9.8H56.6V56.3c0-7.8-2.6-10.8-7.7-10.8-6.2 0-8.7 4.4-8.7 10.7v15.7h8.6v9.8H21.4v-9.8h6V46.4h-6v-9.8h18.9v6.8c2.7-4.8 7.4-7.7 13.7-7.7 6.5 0 12.5 3.1 14.7 9.7 2.5-6 7.6-9.7 14.7-9.7 8.1 0 15.5 4.9 15.5 15.6v20.5z"/></svg>';
+    var options = {
+      allowForgotPassword: false,
+      allowSignUp: false,
+      auth: {
+        redirectUrl: config.callbackURL,
+        responseType: config.callbackOnLocationHash ? 'token' : 'code',
+        params: config.internalOptions
+      },
+      assetsUrl: config.cdn.slice(0,-1),     // The next version of lock will deprecate this property
+      clientBaseUrl: config.cdn.slice(0,-1), // This doesn't work now but will in the next release of Lock
+      avatar: null,
+      container: 'widget-container',
+      rememberLastLogin: true,
+      connections: config.connection ? [config.connection] : null,
+      mustAcceptTerms: true,
+      languageDictionary: { // see https://github.com/auth0/lock/blob/master/src/i18n/en.js
+        emailInputPlaceholder: "jdoe@mozilla.com",
+        title: "",
+        error: {
+          login: {
+            "lock.invalid_email_password": "Wrong email or password. Did you use your primary Mozilla email and correct LDAP password?"
+          }
+        },
+        notYourAccountAction: "Use a different account?"
+      },
+      theme: {
+        logo: 'data:image/svg+xml;base64,' + window.btoa(logo),
+        primaryColor: "#B0B2E9"
+      },
+      closable: false
+    };
+
+    const auth0 = new Auth0({
+      clientID: config.clientID,
+      domain: config.auth0Domain,
+      callbackURL: config.callbackURL
+    });
+    var connections;
+    var activeConnections;
+    var connectionTypes;
+    auth0.getConnections(function(err, conn) {
+        // TODO : We need to change this for a management api v2 call
+        // https://github.com/auth0/auth0.js/issues/196
+        connections = conn;
+        activeConnections = connections.filter(function(obj){return obj['status']});
+        connectionTypes = activeConnections.map(function(obj){return obj['name']});
+        isEmailConnectionEnabled = $.inArray("email", connectionTypes) != -1;
+    });
+
+    // Example auth0.getConnections conn value
+    //[
+    //  {
+    //    "name":"Username-Password-Authentication",
+    //    "strategy":"auth0",
+    //    "status":false,
+    //    "showSignup":true,
+    //    "showForgot":true
+    //  },
+    //  {
+    //    "name":"auth0ldap-dev1",
+    //    "strategy":"ad",
+    //    "status":true,
+    //    "domain":null,
+    //    "domain_aliases":[
+    //
+    //    ]
+    //  },
+    //  {
+    //    "name":"email",
+    //    "strategy":"email",
+    //    "status":true
+    //  },
+    //  {
+    //    "name":"github",
+    //    "strategy":"github",
+    //    "status":true
+    //  },
+    //  {
+    //    "name":"google-oauth2",
+    //    "strategy":"google-oauth2",
+    //    "status":true
+    //  }
+    //]
+
+    auth0.getSSOData(true, function(err,sso) {
+      if (!err && sso.sso === true && sso.lastUsedConnection && sso.lastUsedConnection.strategy==="email") {
+        options['rememberLastLogin'] = false;
+      }
+      var lock = new Auth0Lock(config.clientID, config.auth0Domain, options);
+      lock.show();
+    });
+
+    var submitExistsYet = function() {
+      if ($("button.auth0-lock-submit").length == 0) {
+        window.requestAnimationFrame(submitExistsYet);
+      } else {
+        customizeLock();
+        customizeSubmitButton();
+        customizeLDAPFields();
+      }
+    };
+    submitExistsYet();
+
+    for (app in APPS_WITH_TOS) {
+      if (APPS_WITH_TOS[app][0] == config.dict.signin.title) {
+        tosurl.href=APPS_WITH_TOS[app][1];
+        tos.style.visibility="visible";
+      }
+    }
+</script>
+</body>
+</html>

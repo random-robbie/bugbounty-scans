@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sauron / UNIKRN</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="https://unikrn.com/123456789/assets/favicon.ico" type="image/x-icon">
+
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/topojson.v0.min.js"></script>
+
+  <script src="js/world.js"></script>
+  <script src="js/api.js"></script>
+
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,600" rel="stylesheet">
+</head>
+<body>
+
+  <div id="content">
+    <div class="loggedout">
+      <form action="javascript:login()">
+        <div id="error"></div>
+        <input type="text" name="username" placeholder="email address" required />
+        <input type="password" name="password" placeholder="password" required />
+        <input type="number" name="2fa" placeholder="google authenticator" />
+        <input type="submit" value="Log In"></input>
+      </form>
+    </div>
+    <div class="loggedin">
+      <div id="logo">
+        <img src="https://notbrony.bsolut.com/1482757494310/assets/unikrn_logo_dark.png" /><br>
+        <span class="name">SAURON<span class="ver"></span></span>
+      </div>
+      <div id="log">
+        <div class="empty">&hellip; waiting for response &hellip;</div>
+      </div>
+      <div id="map">
+        <div id="avgs"></div>
+        <div id="legend">
+          <div class="row">bet placed <span class="bet marker"></span></div>
+          <div class="row">raffle entered <span class="raffle marker"></span></div>
+          <div class="row">others <span class="others marker"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+
+
+<html class="no-js" lang="en">
+    <head>
+    
+    
+ 
+    
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interstitial page</title>       
+        <link rel="stylesheet" href="/commonLogin/igate_wam/staticContent/ipAuth/tsnr/css/styles.css"  />  
+        <script>
+            document.createElement('header');     
+            document.createElement('section');
+            document.createElement('article');    
+            document.createElement('footer');
+
+            function sf(type){
+            	var input = document.createElement("input");
+            	input.setAttribute("type", "hidden");
+            	input.setAttribute("name", "IPAUTH_OP");
+            	input.setAttribute("value", type);
+            	document.getElementById("form").appendChild(input); 
+            	document.getElementById("form").submit();
+            	return false;
+            }
+        </script>
+    </head>
+    <body>
+        <header class="attheader">
+            <a href="https://www.att.com/shop/apps/myATT.html" class="logoATT" data-transition="slide"><span class="hidden-cato">AT&amp;T</span></a>
+            <a href="https://www.att.com/shop/apps/myATT.html" class="logoHeader"><span class="hidden-cato">AT&amp;T</span></a>
+            <span> In-home validation </span>
+        </header>
+        <article class="modal">
+    
+            <header class="modal-header">
+                 Welcome to AT&amp;T!
+            </header>
+            <section class="modal-body">
+                <form id="form" name="form"  action="controller.do" method="post"> 
+                <h3> 
+                    <span class="ellipsis">Hi qay1506_108632286@att.net </span> 
+                    <span class="exclamation-mark">!</span>
+                </h3>
+                <p> From now on, whenever we identify that you are visiting on 
+                your AT&T Home Network, we will sign you in automatically.
+                </p>
+                <hr />
+					<input type="hidden" id="targetURL" name="targetURL" value='https://cgate.stage.att.com/IPAuthTokenService/nxsATS/WATokenService?returnURL=https://ufix-deviv.att.com/portal/index.html?tGseq=validate__nav_home__ref_&isPassive=true&appID=m85336' />
+					<input type="hidden" id="style" name="style" value='m85336' />	
+           		    <input type="button" class="btn btn-primary fullwidth" value="Continue" onClick="javascript:sf('Continue')"  /> 
+                   <input type="checkbox" name="rememberIP" id="dont-again" value="on" checked/>
+                    <label class="checkbox" for="dont-again">           
+                        <span class="checkbox-text">Don't tell me again</span>
+                    </label>
+                </form>
+            </section>
+            <footer class="modal-footer desktop">          
+            	<form id="opt-out"  action="controller.do" method="post"> 
+					<input type="hidden" name="IPAUTH_OP" value='OPT-OUT' />
+					<input type="hidden" name="targetURL" value='https://cgate.stage.att.com/IPAuthTokenService/nxsATS/WATokenService?returnURL=https://ufix-deviv.att.com/portal/index.html?tGseq=validate__nav_home__ref_&isPassive=true&appID=m85336' />
+					<input type="hidden" name="style" value='m85336' />
+					<span class="no-thanks">
+                    No thanks, 
+                    <a href="javascript:{}" onclick="document.getElementById('opt-out').submit(); return false;"> opt out</a>
+              		</span>
+				</form> 
+
+				<form id="pwd-auth"  action="controller.do" method="post"> 
+					<input type="hidden" name="IPAUTH_OP" value='PASSWD-AUTH' />
+					<input type="hidden" name="targetURL" value='https://cgate.stage.att.com/IPAuthTokenService/nxsATS/WATokenService?returnURL=https://ufix-deviv.att.com/portal/index.html?tGseq=validate__nav_home__ref_&isPassive=true&appID=m85336' />
+					<input type="hidden" name="style" value='m85336' />	
+					<span class="not-you">
+                    Not you? 
+                    <a href="javascript:{}" onclick="document.getElementById('pwd-auth').submit(); return false;"> Use a different ID </a>
+               		 </span>
+				</form>	
+            </footer>
+            <footer class="modal-footer mobile">
+            	<form id="opt-out"  action="controller.do" method="post"> 
+					<input type="hidden" name="IPAUTH_OP" value='OPT-OUT' />
+					<input type="hidden" name="targetURL" value='https://cgate.stage.att.com/IPAuthTokenService/nxsATS/WATokenService?returnURL=https://ufix-deviv.att.com/portal/index.html?tGseq=validate__nav_home__ref_&isPassive=true&appID=m85336' />
+					<input type="hidden" name="style" value='m85336' />
+					<a href="javascript:{}" onclick="document.getElementById('opt-out').submit(); return false;">No thanks, opt out</a>
+				</form> 
+				<form id="pwd-auth"  action="controller.do" method="post"> 
+					<input type="hidden" name="IPAUTH_OP" value='PASSWD-AUTH' />
+					<input type="hidden" name="targetURL" value='https://cgate.stage.att.com/IPAuthTokenService/nxsATS/WATokenService?returnURL=https://ufix-deviv.att.com/portal/index.html?tGseq=validate__nav_home__ref_&isPassive=true&appID=m85336' />
+					<input type="hidden" name="style" value='m85336' />	
+					 <a href="javascript:{}" onclick="document.getElementById('pwd-auth').submit(); return false;">Not you? Use a different ID </a>						
+				</form>	
+            </footer>
+        </article>
+    </body>
+
+<script type="text/javascript">_satellite.pageBottom();</script>
+</html>
+<SCRIPT type="text/javascript">
+/*<![CDATA[*/ 
+document.cookie = "IV_JCT=%2FcommonLogin; path=/";
+/*]]>*/ 
+</SCRIPT>

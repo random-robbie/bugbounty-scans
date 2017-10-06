@@ -1,0 +1,118 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<title>OPUS Get Host Name</title>
+<script type="text/javascript" src="/opus/newgui/opus.js"></script>
+<script language="JavaScript" type="text/javascript">
+
+
+  function doLookup() 
+  {  
+	  
+     var loginApplet = getLoginApplet();   
+    if(isValidObject(loginApplet))
+    { 
+     try{ 
+       
+	  var hostname = loginApplet.getHostName();
+      var ipaddress = loginApplet.getIpAddress();
+      var powershellts = loginApplet.getPowerShellTS();
+      var appinstallts = loginApplet.getAppInstallTS();
+      var fraudcheckstatus = loginApplet.isLdFraudCheckEnabled();
+      var clientjreversion = loginApplet.getClientJreVersionInUse();
+
+      document.loginForm.elements["hostName"].value = hostname;
+      document.loginForm.elements["ipAddress"].value = ipaddress;
+      document.loginForm.elements["powerShellTS"].value = powershellts;
+      document.loginForm.elements["appInstallTS"].value = appinstallts;
+      document.loginForm.elements["ldFraudCheckEnabled"].value = fraudcheckstatus;
+      document.loginForm.elements["clientJREVersions"].value = clientjreversion;
+      var windowOS = loginApplet.getWindowsOS();
+      var  Bit64Vsbit32 = loginApplet.getBit64Vsbit32();
+      document.loginForm.elements["windowsOS"].value = windowOS;
+      document.loginForm.elements["bit64Vsbit32"].value = Bit64Vsbit32;
+      
+      document.loginForm.submit(); 
+      }catch(e){ 	
+
+			document.loginForm.choice.value = "nohostname";
+			//document.loginForm.elements["JREAvailable"].value = false;
+			document.loginForm.submit(); 
+	   	
+ 		}
+      }
+    else{
+    	document.loginForm.choice.value = "nohostname";
+		//document.loginForm.elements["JREAvailable"].value = false;
+		document.loginForm.submit(); 
+   	}
+
+     
+ 
+
+}
+
+</script>
+</head>
+<body onload="javascript:doLookup()">
+	
+	<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="0" height="0"
+		mayscript="true" id="LoginAppletOuter">
+		<param name="code" value="poslite.applet.login.LoginApplet" />
+		<param name="archive" value="LoginApplet-CASigned.jar" />
+		<param name="codebase" value="/opus/applet" />
+		<param name="registryKeycheck" value="Y" />
+		<param name="fraudCheckFlag" value="N" />
+		<param name="java_version" value="1.6+">
+	</object>
+
+
+	<form name="loginForm" method="post" action="/opus/security/login.do">
+		<input type="hidden" name="hostName" value="default">
+		<input type="hidden" name="ipAddress" value="192.168.0.1">
+		<input type="hidden" name="powerShellTS" value="">
+		<input type="hidden" name="appInstallTS" value="">
+		<input type="hidden" name="ldFraudCheckEnabled" value="">
+		<input type="hidden" name="choice" value="">
+		<input type="hidden" name="JREAvailable" value="true">
+		<input type="hidden" name="clientJREVersions" value="">
+		<input type="hidden" name="JREfound" value="false">
+		<input type="hidden" name="windowsOS" value="">
+		<input type="hidden" name="bit64Vsbit32" value="">
+		
+		<div id="loginappletdiv"></div>
+		
+	</form>
+
+</body>
+</html>
+

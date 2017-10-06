@@ -1,0 +1,1615 @@
+
+    
+
+
+    
+
+
+<head>
+</head>
+   	
+<body>
+<script type="text/javascript">
+
+	var csrfHeaderName = 'X-CSRF-TOKEN';
+	var csrfToken = '044acb9e-c35b-4d4e-bddc-c56e6a40f79a';
+	var csrfFormParamName = '_csrf'; 
+</script>
+</body>
+
+    
+    
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>VidyoReplay Login</title>
+
+
+
+
+    
+
+
+
+<link rel="stylesheet" type="text/css" href="js/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="themes/grey/vidyo.css">
+<link rel="stylesheet" type="text/css" href="themes/vidyo/vidyo.css">
+
+
+
+
+<style>
+textarea {
+   overflow:auto;
+}
+
+
+.styledCheckbox
+   {
+   	height:13px;
+    width:13px;
+   	filter:alpha(opacity=0.0);
+   	opacity:0.0;
+	outline:0
+   }
+.styledCheckbox:hover{
+   cursor:pointer;
+}
+.styledCheckboxWrap
+{
+	position:relative;
+	float:left;
+	background:url("images/checkbox.gif") no-repeat top left;
+	width:13px;
+	height:13px;
+	margin:3px;
+}
+.wrapChecked{background-position: 0px -13px}
+.checkboxLabel{
+	float:left;
+	cursor:pointer
+}
+
+
+.styledFatCheckbox
+   {
+   	height:17px;
+    width:17px;
+   	filter:alpha(opacity=0.0);
+   	opacity:0.0;
+	outline:0
+   }
+.styledFatCheckbox:hover{
+   cursor:pointer;
+}
+
+.styledFatCheckboxWrap
+{
+	position:relative;
+	float:left;
+	background:url("images/check_button.gif") no-repeat top left;
+	width:17px;
+	height:17px;
+	margin:0px;
+}
+.wrapFatChecked{background-position: 0px -17px}
+
+
+
+
+
+.styledRadio
+{
+   	height:17px;
+    	width:17px;
+   	filter:alpha(opacity=0.0);
+   	opacity:0.0;
+	outline:0
+}
+
+.styledRadioWrap
+{
+	position:relative;
+	float:left;
+	background:url("images/radio_button2.gif") no-repeat top left;
+	width:17px;
+	height:17px;
+	margin:0px;
+	
+}
+
+.wrapRadioChecked{
+    background-position: 0px -17px;
+}
+
+.styledSmallRadioWrap
+{
+	position:relative;
+	float:left;
+	background:url("images/radio_button.gif") no-repeat top left;
+	width:17px;
+	height:17px;
+	margin:0px;
+}
+
+.styledSmallRadioWrapChecked
+{
+	position:relative;
+	float:left;
+	background:url("images/radio_button.gif") no-repeat top left;
+	width:17px;
+	height:17px;
+	margin:0px;
+	background-position: 0px -17px;
+}
+
+
+
+</style>
+
+
+
+    
+
+
+
+<link rel="SHORTCUT ICON" href="themes/vidyo/i/themeicons/vidyo.ico"/>
+
+<script type="text/javascript" src="js/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="js/ext-all.js"></script>
+<script type="text/javascript" src="js/ext-basex.js"></script>
+<script type="text/javascript" src="js/resources/locale/ext-lang-en.js"></script>
+<script type="text/javascript" src="js/AC_OETags.js"></script>
+<script type="text/javascript" src="swfobject.js"></script>
+
+
+
+<head>
+</head>
+   	
+<body>
+<script type="text/javascript">
+
+	var csrfHeaderName = 'X-CSRF-TOKEN';
+	var csrfToken = '044acb9e-c35b-4d4e-bddc-c56e6a40f79a';
+	var csrfFormParamName = '_csrf'; 
+</script>
+</body>
+
+
+
+
+
+<script type="text/javascript">
+var searchFocused = false;
+
+function setSearchFocused(sf){
+	searchFocused = sf;
+}
+
+var watchFocused = false;
+
+function setWatchFocused(wf){
+	watchFocused = wf;
+}
+
+var watchExternalFocused = false;
+function setWatchExternalFocused(wf){
+	watchExternalFocused = wf;
+}
+
+
+Ext.onReady(function(){
+
+	
+
+    
+    var hasReqestedVersion = DetectFlashVer(9, 0, 0);
+
+    
+    
+    document.getElementById('logoPicDIV').innerHTML = "<img src='images/vidyo_logo.gif' border=0>";
+	
+	
+	
+
+
+
+
+
+	var map = new Ext.KeyMap(document, {
+	    key: [10,13], // or Ext.EventObject.ENTER
+	    fn: function(){
+           if(document.getElementById("searchFilterInput")){
+        	   if(searchFocused){
+            	   searchFilter();
+        	   }
+           }
+           if(document.getElementById("pinRequestInput")){
+        	   if(watchFocused){
+        		   showRecording();
+        	   }
+           }
+
+           if(document.getElementById("pinRequestExternalInput")){
+        	   if(watchExternalFocused){
+        		   showRecordingSubmit();
+        	   }
+           }
+
+
+	    }
+	});
+	if(document.getElementById("pinRequestInput")){
+		document.getElementById("pinRequestInput").focus();
+	}
+
+    Ext.lib.Ajax.onStatus([403,401], function(statusCode, transaction, response, callback, isAbort) {
+        if (statusCode == 401) {
+            window.location='login.html';
+        }
+        if (statusCode == 403) {
+            window.location='login.html';
+        }
+    },
+    this);
+    setTimeout('startAnimationListener()', 5000);
+
+});
+
+function startAnimationListener(){
+	animateWebcastItems();
+	setTimeout('startAnimationListener1()', 5000);
+}
+
+function startAnimationListener1(){
+	animateWebcastItems();
+	setTimeout('startAnimationListener()', 5000);
+}
+
+
+function detectPlatform(){
+	var platform = "";
+	if(Ext.isWindows){
+		platform = "windows";
+	} else if(Ext.isMac){
+		platform = "mac";
+	} else if(Ext.isLinux){
+		platform = "linux";
+	} else {
+		platform = "other";
+	}
+	return platform
+}
+
+
+
+function detectBrowser(){
+	var br = "";
+	if(Ext.isIE){
+		br = "ie";
+	} else if(Ext.isGecko){
+		br = "firefox";
+	} else if(Ext.isOpera){
+		br = "opera";
+	} else if(Ext.isChrome){
+		br = "chrome";
+	} else if(Ext.isSafari){
+		br = "safari";
+	} else if(Ext.isWebKit){
+		br = "webkit";
+	} else {
+		br = "other";
+	}
+	return br;
+}
+
+function isAndroid() {
+    var ua =  navigator.userAgent.toLowerCase();
+    return (ua.match(/android/) != null);
+}
+
+</script>
+
+
+<script type="text/javascript">
+
+var deleteItemId = 0;
+var itemsCount   = 0;
+var stopped = false;
+var started = false;
+
+function setCheckboxDisplay(el){
+	var objWrap;
+	objWrap = document.getElementById(el.id+"Wrap");
+	if(el) {
+	    if(el.checked) objWrap.className = "styledCheckboxWrap wrapChecked";
+	    else  objWrap.className = "styledCheckboxWrap";
+	}
+
+}
+
+
+function setFatCheckboxDisplay(el){
+	var objWrap;
+	objWrap = document.getElementById(el.id+"Wrap");
+	if(el) {
+	    if(el.checked) objWrap.className = "styledFatCheckboxWrap wrapFatChecked";
+	    else  objWrap.className = "styledFatCheckboxWrap";
+	}
+
+}
+
+
+
+function setRadioDisplay(elId,cc){
+	for(var i=0; i < cc; i++){
+	   var objWrap = document.getElementById(elId+"Wrap"+i);
+       var el = document.getElementById(elId+i);
+       if(el.checked){
+    	   objWrap.className = "styledRadioWrap wrapRadioChecked";
+		} else {
+			objWrap.className = "styledRadioWrap";
+		}
+           
+	   
+	}
+
+}
+
+function setSmallRadioDisplay(elId,cc){
+	for(var i=0; i < cc; i++){
+	   var objWrap = document.getElementById(elId+"Wrap"+i);
+       var el = document.getElementById(elId+i);
+       if(el.checked){
+    	   objWrap.className = "styledSmallRadioWrapChecked";
+		} else {
+			objWrap.className = "styledSmallRadioWrap";
+		}
+           
+	}
+
+}
+
+function showLogin(){
+    
+   var dhtml = "<form name='loginForm' method='post' action='recordings_security_check' autocomplete='off'> " +
+	           "<table cellspacing=0 cellpadding=0 border=0>" +
+               "<tr>" +
+               "<td class='textLabelsWhite'>Username:</td>" +
+               "<td width=5><img src='themes/vidyo/i/s.gif' border=0></td>" +
+               "<td width=120><input class='textInputsWhite' style='width:110px;' type='text' name='username'></td>" +
+               "<td width=10><img src='themes/vidyo/i/s.gif' border=0></td>" +
+               "<td class='textLabelsWhite'>Password:</td>" +
+               "<td width=5><img src='themes/vidyo/i/s.gif' border=0></td>" +
+               "<td width=120><input  class='textInputsWhite' style='width:110px;' autocomplete='off' type='password' name='password'></td>" +
+               "<td width=10><img src='themes/vidyo/i/s.gif' border=0></td>" +
+               "<td width=110 align=right><input class='loginButtonBlue1' type='submit' name='Login' value='Login'></td>" +
+               "</tr>" + 
+	           "</table>" +
+	           "</form>"; 
+	           
+   document.getElementById("loginDIV").innerHTML = dhtml;
+   
+}
+
+function sortBy(sb){
+	document.getElementById("sortBy").value = sb;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function viewCount(vc){
+	document.getElementById("currentPage").value = "1";
+	document.getElementById("viewCount").value = vc;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function goToPage(p){
+	document.getElementById("currentPage").value = p;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function groupBy(gb){
+	document.getElementById("groupBy").value = gb;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function myVydiosSwitch(opt){
+	document.getElementById("adminManager").value = "0";
+	myVydios(opt);
+}
+function myVydios(opt){
+	document.getElementById("webCast").value = "0";
+	document.getElementById("currentPage").value = "1";
+	document.getElementById("usernameFilter").value     = "";
+	document.getElementById("usernameFullFilter").value = "";
+	document.getElementById("roomFilter").value         = "";
+	document.getElementById("searchFilter").value       = "";
+	document.getElementById("myManager").value          = opt;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+
+function adminVydios(opt){
+	document.getElementById("adminManager").value = "1";
+	myVydios(opt);
+}
+
+
+
+
+
+function extractDigits(str){
+	var accum = "";
+	for(var k=0; k < str.length;k++){
+       var s = str.charAt(k);
+       if((s == '0')||(s == '1')||(s == '2')||(s == '3')||(s == '4')||(s == '5')||(s == '6')||(s == '7')||(s == '8')||(s == '9')){
+    	   accum += s;
+       }
+	}
+	if(accum == "") { accum = "0";}
+	return accum;
+}
+
+
+function itemEditShow(id){
+	document.getElementById("commandForm").action = "showRecordEdit.html";
+	document.getElementById("recId").value = id;
+	processCommandFormSubmit();
+}
+
+function itemEdit(id){
+	var conn = new Ext.data.Connection();
+	var param = {
+	        "id": id
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'recordEditHandler.ajax',
+	    method: 'POST',
+	    params: param,
+	    success: function(responseObject) {
+	    	document.getElementById("viewBodyDIV").innerHTML = responseObject.responseText;
+
+	    	recURL = document.getElementById('recordURL').value;
+
+	    	setRadioDisplay('vidyoStatus',3);
+	    	var el1 = document.getElementById("setPinCode");
+	    	setFatCheckboxDisplay(el1);
+	    	vidyoPlayerLoad();
+	    	onPlayerLoaded();
+	    },
+	     failure: function() {
+	    	document.getElementById("viewBodyDIV").innerHTML = "<H2>Sorry, an error occured while retrieving data.</H2>";
+	     }
+	});
+}
+function itemEditReset(){
+	document.getElementById("recordEditForm").reset();
+	setRadioDisplay('vidyoStatus',3);
+	var el1 = document.getElementById("setPinCode");
+	setFatCheckboxDisplay(el1);
+}
+function itemEditSubmit(){
+	var id       = document.getElementById("recordID").value;
+	var title    = document.getElementById("vidyoTitle").value;
+	var comments = document.getElementById("vidyoComments").value;
+	var tags     = document.getElementById("vidyoTags").value;
+	tags = tags.substring(0,251);
+	comments = comments.substring(0,351);
+    var status = 0;
+    for(var i=0; i < 3; i++){
+    	var el = document.getElementById('vidyoStatus'+i);
+        if(el.checked){
+            status = el.value;
+        }
+    }
+    var setPinCode = 0;
+    var pinCode    = document.getElementById("setPinCodeInput").value;
+    if(document.getElementById("setPinCode").checked){
+        setPinCode = 1;
+    }
+
+    if((setPinCode == 1)&&(pinCode == '')){
+    	document.getElementById("setPinCodeInput").focus();
+    	alert("Please provide a PIN.");
+    	return;
+    } 
+    
+
+    if(status == 0){
+        alert("Please select a publishing option.");
+    	return;
+    }
+    if(title == ''){
+    	document.getElementById("vidyoTitle").focus();
+        alert("Please provide a title.");
+        return;
+    }
+
+    
+	var conn = new Ext.data.Connection();
+	var param = {
+	        "operation" : 'update',
+	        "id"        : id,
+	        "title"     : title,
+	        "comments"  : comments,
+	        "tags"      : tags,
+	        "status"    : status,
+	        "setPinCode": setPinCode,
+	        "pinCode"   : pinCode 
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'recordHandler.ajax',
+	    method: 'POST',
+	    params: param,
+	    success: function(responseObject) {
+	    	var respObject = eval('(' + responseObject.responseText + ')');
+	    	
+	    	if(respObject.status == "OK"){
+	    		document.getElementById("editFatTitleDIV").innerHTML = title;
+	    		showErrorEditMessage("Your updates have been saved.");
+	    	} else {
+	    		showErrorEditMessage(respObject.error);
+	    	}
+	    	
+	    },
+	     failure: function() {
+	    	showErrorEditMessage("<H2>Sorry, an error occured while updating data.</H2>");
+	     }
+	});	
+
+	
+	
+}
+function showErrorEditMessage(mess){
+	document.getElementById("errorEditMessage").innerHTML = mess;
+	document.getElementById("errorEditMessage").style.visibility = "visible";
+	document.getElementById("errorEditMessage").style.opacity = "1.0";
+	document.getElementById("errorEditMessage").style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+	Ext.get("errorEditMessage").pause(4).fadeOut();
+}
+
+function imposeMaxLength(Object, MaxLen)
+{
+	var objValue = Object.value;
+	var len = Object.value.length;
+	if(len > (MaxLen -1)){
+		Object.value = objValue.substring(0,MaxLen-1);
+	}
+}
+
+function getFlvFileLink(start){
+	var id       = "";
+	var webcast  = "";
+	var retrrr = "";
+	
+	
+	var conn = new Ext.data.Connection();
+	var param = {
+	        "id"        : id,
+	        "start"     : start 
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'generatePlayerLink.ajax',
+	    method: 'POST',
+	    async: false,
+	    params: param,
+	    success: function(responseObject) {
+	    	var respObject = eval('(' + responseObject.responseText + ')');
+	    	retrrr = respObject.fileURL;
+	    	
+	    	
+	    },
+	     failure: function() {
+	    	showErrorMessage("<H2>Sorry, an error occured while starting the player.</H2>");
+	     }
+	});	
+	return retrrr;
+}
+
+function doWebcastIOS8Redirect(start){
+    var id       = "";
+    window.location.href = 'webcastShowIOS8.html?id=' + id;
+}
+
+
+function showErrorMessage(mess){
+	document.getElementById("errorMessage").innerHTML = mess;
+	document.getElementById("errorMessage").style.visibility = "visible";
+	document.getElementById("errorMessage").style.opacity = "1.0";
+	document.getElementById("errorMessage").style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+	Ext.get("errorMessage").pause(4).fadeOut();
+}
+
+function showErrorMessage1(mess){
+	document.getElementById("errorMessage1").innerHTML = mess;
+	document.getElementById("errorMessage1").style.visibility = "visible";
+	document.getElementById("errorMessage1").style.opacity = "1.0";
+	document.getElementById("errorMessage1").style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+	Ext.get("errorMessage1").pause(4).fadeOut();
+}
+
+function itemDownload(id){
+    window.open("download.html?id=" + id, 'Download');
+}
+
+function itemDelete(id, idx, count){
+
+    var locked = document.getElementById("vidyoItemLocked_" + idx).value;
+    if(locked == 1){
+        return;
+    }
+	
+	deleteItemId = id;
+	hideDeletePopups(count);
+	var elemID = "elementDIV_" + idx;
+	if(document.getElementById(elemID)){
+		var el = document.getElementById(elemID);
+		document.getElementById("elementDIV_" + idx).className = "elementSetTransparency vidyoElementDIV";
+		var posX = findPositionX(el);
+	    var posY = findPositionY(el);
+	    posX += 5;
+	    posY += 20;
+	    document.getElementById("delPopupDIV_Message").innerHTML = "Are you sure you want to delete this item?";
+	    document.getElementById("delPopupDIV").style.left = posX + "px";
+	    document.getElementById("delPopupDIV").style.top  = posY + "px";
+	    document.getElementById("delPopupDIV").style.visibility = "visible";
+	}
+    
+}
+
+function myWebcast(){
+	document.getElementById("webCast").value = "1";
+	document.getElementById("currentPage").value = "1";
+	document.getElementById("errorMessage").innerHTML = "";
+	document.getElementById("usernameFilter").value = "";
+	document.getElementById("usernameFullFilter").value = "";
+	document.getElementById("roomFilter").value     = "";
+	document.getElementById("searchFilter").value = "";
+	document.getElementById("myManager").value          = "0";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+
+
+function animateWebcastItems(){
+	
+	
+	
+	
+	
+}
+function updateWebcastsCounter(count){
+    var wcastManager = "";
+    if(document.getElementById("webcastsLinkItemDIV")){
+    	var wcast = "";
+        if(count == 0){
+        	document.getElementById("webcastsLinkItemDIV").innerHTML = '<span class="smallTextLabel" style="color:#A0A0A0;">' + 
+        	                                                                           wcastManager + 
+        	                                                                           ' (offline)</span>';
+        } else {
+            if(wcast == "true"){
+            	document.getElementById("webcastsLinkItemDIV").innerHTML = '<span class="smallFatTextLabel">' +
+            	                                                      wcastManager + 
+            	                                                      ' (' + count + ')</span>';
+            } else {
+            	document.getElementById("webcastsLinkItemDIV").innerHTML = '<a class="smallTextLink" href="javascript:myWebcast();">' +
+            	                                                      wcastManager +
+            	                                                      ' (' + count + ')</a>';
+            }
+        }
+    }
+
+	
+}
+function checkForWebcast(accum){
+	var ret;
+	var adminManager = document.getElementById("adminManager").value;
+	var conn = new Ext.data.Connection();
+	var param = {
+		       "records": accum,
+		       "adminManager": adminManager
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'checkForWebcast.ajax',
+	    method: 'POST',
+	    async: false,
+	    params: param,
+	    success: function(responseObject) {
+	    	var wcastRespObject = eval('(' + responseObject.responseText + ')');
+	    	ret = wcastRespObject;
+	    	updateWebcastsCounter(wcastRespObject.wcastCount);
+	    },
+	     failure: function() {
+	     }
+	});	
+	return ret;
+}
+function checkWebcastKey(key){
+	var ret;
+	var conn = new Ext.data.Connection();
+	var param = {
+		       "key": key
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'checkWebcastKey.ajax',
+	    method: 'POST',
+	    async: false,
+	    params: param,
+	    success: function(responseObject) {
+	    	var wcastRespObject = eval('(' + responseObject.responseText + ')');
+	    	ret = wcastRespObject.recordId;
+	    },
+	     failure: function() {
+		    ret = -2;
+	     }
+	});	
+	return ret;
+}
+
+function deleteSelected(count){
+	deleteItemId = 0;
+	itemsCount   = count;
+	var selectedFound = false;
+	for(i=0; i < count; i++){
+		if(document.getElementById("delElement_" + i)){
+			if(document.getElementById("delElement_" + i).checked){
+				document.getElementById("elementDIV_" + i).className = "elementSetTransparency vidyoElementDIV";
+				selectedFound = true;
+			}
+		}
+	}
+    if(selectedFound){
+    	var el = document.getElementById("deleteSelected");
+    	var posX = findPositionX(el);
+	    var posY = findPositionY(el);
+	    posX = posX - 165;
+	    posY = posY - 50;
+	    document.getElementById("delPopupDIV_Message").innerHTML = "Are you sure you want to delete the selected items?";
+	    document.getElementById("delPopupDIV").style.left = posX + "px";
+	    document.getElementById("delPopupDIV").style.top  = posY + "px";
+	    document.getElementById("delPopupDIV").style.visibility = "visible";
+    	
+    }
+	
+}
+
+
+function itemDeleteConfirm(id){
+    
+	if(id == 0){
+		itemDeleteBulk();
+	} else if(id > 0){
+		itemDeleteSingle(id);
+	}
+	setTimeout('renderViewBody()', 100);
+	
+}
+
+
+function itemDeleteSingle(id){
+	var conn = new Ext.data.Connection();
+	var param = {
+		       "operation": 'delete',
+		        "id": id
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'recordHandler.ajax',
+	    method: 'POST',
+	    params: param,
+	    success: function(responseObject) {
+	    	var respObject = eval('(' + responseObject.responseText + ')');
+	    	document.getElementById("errorMessage").innerHTML = respObject.error;
+	    	
+	    },
+	     failure: function() {
+	    	document.getElementById("errorMessage").innerHTML = "<H2>Sorry, an error occured while deleting data.</H2>";
+	     }
+	});	
+}
+
+function itemDeleteBulk(){
+	
+	for(i=0; i < itemsCount; i++){
+		if(document.getElementById("delElement_" + i)){
+			if(document.getElementById("delElement_" + i).checked){
+				var id = document.getElementById("delElement_" + i).value;
+				itemDeleteSingle(id);
+			}
+		}
+	}
+	
+}
+
+
+
+function findPositionX(obj){
+    var left = 0;
+    if(obj.offsetParent)
+    {
+        while(1) 
+        {
+          left += obj.offsetLeft;
+          if(!obj.offsetParent)
+            break;
+          obj = obj.offsetParent;
+        }
+    }
+    else if(obj.x)
+    {
+        left += obj.x;
+    }
+    return left;
+}
+
+function findPositionY(obj){
+    var top = 0;
+    if(obj.offsetParent)
+    {
+        while(1)
+        {
+          top += obj.offsetTop;
+          if(!obj.offsetParent)
+            break;
+          obj = obj.offsetParent;
+        }
+    }
+    else if(obj.y)
+    {
+        top += obj.y;
+    }
+    return top;
+}
+
+
+
+
+
+function hideDeletePopups(count){
+	for(i=0; i < count; i++){
+		if(document.getElementById("elementDIV_" + i)){
+			document.getElementById("elementDIV_" + i).className = "elementRemoveTransparency vidyoElementDIV";
+		}
+		
+		document.getElementById("delPopupDIV").style.visibility = "hidden";
+		
+	}
+}
+
+function selectDeselect(count){
+	if(document.getElementById("selAll_").checked){
+		deselectAll(count);
+	} else {
+        selectAll(count);
+	}
+}
+
+function selectAllHandler(count){
+	setCheckboxDisplay(document.getElementById("selAll_"));
+	var checked = false;
+	if(document.getElementById("selAll_").checked){
+		checked = true;
+		document.getElementById("selectDeselect").innerHTML = "Deselect All";
+	} else {
+		checked = false;
+		document.getElementById("selectDeselect").innerHTML = "Select All";
+	}
+	
+	for(i=0; i < count; i++){
+		if(document.getElementById("delElement_" + i) != null){
+			var locked = document.getElementById("vidyoItemLocked_" + i).value;
+		    if(locked == "0"){
+			    document.getElementById("delElement_" + i).checked = checked;
+			    setCheckboxDisplay(document.getElementById("delElement_" + i));
+		    }
+		}
+	}
+	
+}
+
+function selectAll(count){
+	
+	for(i=0; i < count; i++){
+		if(document.getElementById("delElement_" + i) != null){
+			
+			var locked = document.getElementById("vidyoItemLocked_" + i).value;
+		    if(locked == "0"){
+		    
+			    document.getElementById("delElement_" + i).checked = true;
+			    setCheckboxDisplay(document.getElementById("delElement_" + i));
+
+		    }
+		    
+		}
+	}
+	document.getElementById("selAll_").checked = true;
+	setCheckboxDisplay(document.getElementById("selAll_"));
+	document.getElementById("selectDeselect").innerHTML = "Deselect All";
+
+	
+}
+function deselectAll(count){
+	
+	for(i=0; i < count; i++){
+		if(document.getElementById("delElement_" + i) != null){
+			document.getElementById("delElement_" + i).checked = false;
+			setCheckboxDisplay(document.getElementById("delElement_" + i));
+		}
+	}
+	document.getElementById("selAll_").checked = false;
+	setCheckboxDisplay(document.getElementById("selAll_"));
+	document.getElementById("selectDeselect").innerHTML = "Select All";
+
+	
+}
+
+
+
+function renderViewBody(){
+	var sortBy      = document.getElementById("sortBy").value;
+	var viewCount   = document.getElementById("viewCount").value;
+	var currentPage = document.getElementById("currentPage").value;
+	var groupBy     = document.getElementById("groupBy").value;
+	var roomFilter  = document.getElementById("roomFilter").value;
+	var userFilter  = document.getElementById("usernameFilter").value;
+	var userFullFilter  = document.getElementById("usernameFullFilter").value;
+	var searchFilter = document.getElementById("searchFilter").value;
+	var myManager   = document.getElementById("myManager").value;
+	var adminManager = document.getElementById("adminManager").value;
+	var webCast     = document.getElementById("webCast").value;
+	var lang        = document.getElementById("lang").value;
+	var tenantFilter  = document.getElementById("tenantFilter").value;
+
+	var searchFilter  = document.getElementById("searchFilterInput").value;
+	document.getElementById("searchFilter").value = searchFilter;
+	
+	var conn = new Ext.data.Connection();
+	var param = {
+		       "sortBy": sortBy,
+		        "viewCount": viewCount,
+		        "groupBy": groupBy,
+		        "currentPage": currentPage,
+		        "roomFilter" : roomFilter,
+		        "searchFilter" : searchFilter,
+		        "usernameFilter":userFilter,
+		        "usernameFullFilter":userFullFilter,
+		        "searchFilter":searchFilter,
+		        "myManager":myManager,
+		        "adminManager":adminManager,
+		        "webCast":webCast,
+		        "lang":lang,
+		        "tenantFilter":tenantFilter
+        };
+	param[csrfFormParamName]= csrfToken;
+	conn.request({
+	    url: 'viewBody.ajax',
+	    method: 'GET',
+	    params: param,
+	    success: function(responseObject) {
+	    	document.getElementById("viewBodyDIV").innerHTML = responseObject.responseText;
+	    },
+	     failure: function() {
+	    	document.getElementById("viewBodyDIV").innerHTML = "<H2>Sorry, an error occured while retrieving data.</H2>";
+	     }
+	});
+	
+}
+function getRecordDetails(id){
+	document.getElementById("commandForm").action = "showRecordDetails.html";
+	document.getElementById("recId").value = id;
+	processCommandFormSubmit();
+}
+
+function showRecording(id){
+	
+	var conn = new Ext.data.Connection();
+
+	var pin = "";
+	if(document.getElementById("pinRequestInput"))  {
+        pin = document.getElementById("pinRequestInput").value;
+	}
+
+    var pinEncoded = "";
+    if(pin == ''){
+        pinEncoded = "";
+    } else {
+        pinEncoded = MD5(pin);
+    }
+    
+	var param = {
+	        "id" : id,
+	        "pin": pinEncoded
+        };
+	param[csrfFormParamName]= csrfToken;
+
+	
+	conn.request({
+	    url: 'recordDetailsHandler.ajax',
+	    method: 'POST',
+	    params: param,
+	    success: function(responseObject) {
+	    	document.getElementById("viewBodyDIV").innerHTML = responseObject.responseText;
+
+	    	recURL = document.getElementById('recordURL').value;
+	    	setTimeout("setPinRequestInputFocus()",500);
+	    	vidyoPlayerLoad();
+	    	onPlayerLoaded();
+	    },
+	     failure: function() {
+	    	document.getElementById("viewBodyDIV").innerHTML = "<H2>Sorry, an error occured while retrieving data.</H2>";
+	     }
+	});
+	
+	
+}
+
+function setPinRequestInputFocus(){
+	if(document.getElementById("pinRequestInput")){
+	    document.getElementById("pinRequestInput").focus();
+	}
+}
+
+
+
+function backFromRecording(){
+	vidyoTracer = null;
+	vidyoPlayer = null;
+
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+
+	
+}
+
+function clearFilters(){
+	document.getElementById("webCast").value = "0";
+	document.getElementById("usernameFilter").value = "";
+	document.getElementById("usernameFullFilter").value = "";
+	document.getElementById("roomFilter").value     = "";
+	document.getElementById("myManager").value     = "-1";
+	document.getElementById("errorMessage").innerHTML = "";
+	document.getElementById("searchFilter").value = "";
+	document.getElementById("tenantFilter").value = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function usernameFilter(userName,userFullName){
+	document.getElementById("usernameFilter").value = userName;
+	document.getElementById("usernameFullFilter").value = userFullName;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function roomFilter(roomName){
+	document.getElementById("roomFilter").value = roomName;
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+function searchFilter(){
+	var searchFilter  = document.getElementById("searchFilterInput").value;
+	document.getElementById("searchFilter").value = searchFilter;
+	
+	
+    
+    document.getElementById("commandForm").action = "login.html";
+    
+	
+	processCommandFormSubmit();
+}
+
+function emailValidation(email){
+	var em = email.replace(/\//g, "");
+    em =     em.replace(/#/g, "");
+    em =     em.replace(/\*/g, "");
+    em =     em.replace(/\|/g, "");
+    em =     em.replace(/>/g, "");
+    em =     em.replace(/</g, "");
+    em =     em.replace(/\?/g, "");
+    em =     em.replace(/'/g, "");
+    em =     em.replace(/\"/g, "");
+    em =     em.replace(/ /g, "");
+
+    var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var status = new Object();
+    status.email = em;
+    status.valid = filter.test(em);
+    
+	return status;
+}
+
+
+
+function showAboutUs(){
+	document.getElementById("myManager").value          = "-1";
+	document.getElementById("commandForm").action = "aboutUs.html";
+	processCommandFormSubmit();
+}
+
+function showContactUs(){
+	document.getElementById("myManager").value          = "-1";
+	document.getElementById("commandForm").action = "contactUs.html";
+	processCommandFormSubmit();
+}
+function showTermsOfServices(){
+	document.getElementById("myManager").value          = "-1";
+	document.getElementById("commandForm").action = "termsOfServices.html";
+	processCommandFormSubmit();
+}
+
+function copyLinkToClipboard(){
+	var text = document.getElementById('emailGeneratedLink').innerHTML;
+	selectText('emailGeneratedLink');
+	copy_to_clipboard(text);
+}
+
+function copy_to_clipboard(text){  
+    if(window.clipboardData){  
+        window.clipboardData.setData('text',text);  
+    }  
+    else{  
+        var clipboarddiv=document.getElementById('divclipboardswf');  
+        if(clipboarddiv==null){  
+            clipboarddiv=document.createElement('div');  
+            clipboarddiv.setAttribute("name", "divclipboardswf");  
+            clipboarddiv.setAttribute("id", "divclipboardswf");  
+            document.body.appendChild(clipboarddiv);  
+         }  
+         clipboarddiv.innerHTML='<embed src="clipboard.swf" FlashVars="clipboard='+  
+         encodeURIComponent(text)+'" width="0" height="0" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed>';  
+    }  
+}  
+
+function selectText(divid){
+    if (document.selection){
+        var div = document.body.createTextRange();
+        div.moveToElementText(document.getElementById(divid));
+        div.select();
+    }
+    else{
+        var div = document.createRange();
+        div.setStartBefore(document.getElementById(divid));
+        div.setEndAfter(document.getElementById(divid)) ;
+
+        
+        window.getSelection().addRange(div);
+    }
+
+}
+
+function showToolTip(elemID, text){
+	var el = document.getElementById(elemID);
+	var posX = findPositionX(el);
+    var posY = findPositionY(el);
+    posY += 8;
+    posY += 20;
+    document.getElementById("toolTipDIV").innerHTML = text;
+    document.getElementById("toolTipDIV").style.left = posX + "px";
+    document.getElementById("toolTipDIV").style.top  = posY + "px";
+    document.getElementById("toolTipDIV").style.visibility = "visible";
+
+	
+}
+function hideToolTip(elemID){
+	document.getElementById("toolTipDIV").style.visibility = "hidden";
+}
+
+function changeLanguage(){
+	var ind = document.getElementById("langSelector").selectedIndex;
+	var lang = document.getElementById("langSelector").options[ind].value;
+
+	
+	
+	    document.getElementById("commandForm").action = "login.html";
+	    document.getElementById("lang").value = lang;
+	    document.getElementById("langChanged").value = "1";
+	    processCommandFormSubmit();
+	
+	
+	
+
+	
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+	
+}
+
+
+
+
+function apiDownloadManagerLogin(){
+	document.getElementById("apiDownloadManagerCommand").value = "startLogin";
+	document.getElementById("apiDownloadManagerForm").submit();
+}
+
+
+
+
+
+function processCommandFormSubmit() {
+
+    // copy to actual
+    document.getElementById("actual_commandForm").action = document.getElementById("commandForm").action;
+    document.getElementById("a_sortBy").value = document.getElementById("sortBy").value;
+    document.getElementById("a_viewCount").value = document.getElementById("viewCount").value;
+    document.getElementById("a_currentPage").value = document.getElementById("currentPage").value;
+    document.getElementById("a_groupBy").value = document.getElementById("groupBy").value;
+    document.getElementById("a_roomFilter").value = document.getElementById("roomFilter").value;
+    document.getElementById("a_usernameFilter").value = document.getElementById("usernameFilter").value;
+    document.getElementById("a_searchFilter").value = document.getElementById("searchFilter").value;
+    document.getElementById("a_usernameFullFilter").value = document.getElementById("usernameFullFilter").value;
+    document.getElementById("a_myManager").value = document.getElementById("myManager").value;
+    document.getElementById("a_adminManager").value = document.getElementById("adminManager").value;
+    document.getElementById("a_webCast").value = document.getElementById("webCast").value;
+    document.getElementById("a_command").value = document.getElementById("command").value;
+    document.getElementById("a_recId").value = document.getElementById("recId").value;
+    document.getElementById("a_auxMessage").value = document.getElementById("auxMessage").value;
+    document.getElementById("a_auxMessage1").value = document.getElementById("auxMessage1").value;
+    document.getElementById("a_lang").value = document.getElementById("lang").value;
+    document.getElementById("a_langChanged").value = document.getElementById("langChanged").value;
+    document.getElementById("a_tenantFilter").value = document.getElementById("tenantFilter").value;
+    document.getElementById("a_securityTab").value = document.getElementById("securityTab").value;
+
+    // copy back original
+    document.getElementById("commandForm").action = document.getElementById("original_commandForm").action;
+    document.getElementById("sortBy").value = document.getElementById("original_sortBy").value;
+    document.getElementById("viewCount").value = document.getElementById("original_viewCount").value;
+    document.getElementById("currentPage").value = document.getElementById("original_currentPage").value;
+    document.getElementById("groupBy").value = document.getElementById("original_groupBy").value;
+    document.getElementById("roomFilter").value = document.getElementById("original_roomFilter").value;
+    document.getElementById("usernameFilter").value = document.getElementById("original_usernameFilter").value;
+    document.getElementById("searchFilter").value = document.getElementById("original_searchFilter").value;
+    document.getElementById("usernameFullFilter").value = document.getElementById("original_usernameFullFilter").value;
+    document.getElementById("myManager").value = document.getElementById("original_myManager").value;
+    document.getElementById("adminManager").value = document.getElementById("original_adminManager").value;
+    document.getElementById("webCast").value = document.getElementById("original_webCast").value;
+    document.getElementById("command").value = document.getElementById("original_command").value;
+    document.getElementById("recId").value = document.getElementById("original_recId").value;
+    document.getElementById("auxMessage").value = document.getElementById("original_auxMessage").value;
+    document.getElementById("auxMessage1").value = document.getElementById("original_auxMessage1").value;
+    document.getElementById("lang").value = document.getElementById("original_lang").value;
+    document.getElementById("langChanged").value = document.getElementById("original_langChanged").value;
+    document.getElementById("tenantFilter").value = document.getElementById("original_tenantFilter").value;
+    document.getElementById("securityTab").value = document.getElementById("original_securityTab").value;
+
+    // submit actual
+    document.getElementById("actual_commandForm").submit();
+    return false;
+}
+
+</script>
+
+
+
+
+
+</head>
+<body>
+   
+    
+
+
+   <form name="commandForm" id="commandForm" action="login.html" method="get">
+       <input type="hidden" name="sortBy"             id="sortBy" value="date">
+       <input type="hidden" name="viewCount"          id="viewCount" value="1">
+       <input type="hidden" name="currentPage"        id="currentPage" value="1">
+       <input type="hidden" name="groupBy"            id="groupBy" value="combo">
+       <input type="hidden" name="roomFilter"         id="roomFilter" value="">
+       <input type="hidden" name="usernameFilter"     id="usernameFilter" value="">
+       <input type="hidden" name="searchFilter"       id="searchFilter" value="">
+       <input type="hidden" name="usernameFullFilter" id="usernameFullFilter" value="">
+       <input type="hidden" name="myManager"          id="myManager" value="-1">
+       <input type="hidden" name="adminManager"       id="adminManager" value="0">
+       <input type="hidden" name="webCast"            id="webCast" value="0">
+       <input type="hidden" name="command"            id="command" value="">
+       <input type="hidden" name="recId"              id="recId" value="">
+       <input type="hidden" name="auxMessage"         id="auxMessage" value="">
+       <input type="hidden" name="auxMessage1"        id="auxMessage1" value="">
+       <input type="hidden" name="lang"               id="lang" value="en">
+       <input type="hidden" name="langChanged"        id="langChanged" value="">
+       <input type="hidden" name="tenantFilter"       id="tenantFilter" value="">
+       <input type="hidden" name="securityTab"        id="securityTab" value="">
+   </form>
+
+<form name="original_commandForm" id="original_commandForm" method="get">
+    <input type="hidden" name="sortBy"             id="original_sortBy" value="date">
+    <input type="hidden" name="viewCount"          id="original_viewCount" value="1">
+    <input type="hidden" name="currentPage"        id="original_currentPage" value="1">
+    <input type="hidden" name="groupBy"            id="original_groupBy" value="combo">
+    <input type="hidden" name="roomFilter"         id="original_roomFilter" value="">
+    <input type="hidden" name="usernameFilter"     id="original_usernameFilter" value="">
+    <input type="hidden" name="searchFilter"       id="original_searchFilter" value="">
+    <input type="hidden" name="usernameFullFilter" id="original_usernameFullFilter" value="">
+    <input type="hidden" name="myManager"          id="original_myManager" value="-1">
+    <input type="hidden" name="adminManager"       id="original_adminManager" value="0">
+    <input type="hidden" name="webCast"            id="original_webCast" value="0">
+    <input type="hidden" name="command"            id="original_command" value="">
+    <input type="hidden" name="recId"              id="original_recId" value="">
+    <input type="hidden" name="auxMessage"         id="original_auxMessage" value="">
+    <input type="hidden" name="auxMessage1"        id="original_auxMessage1" value="">
+    <input type="hidden" name="lang"               id="original_lang" value="en">
+    <input type="hidden" name="langChanged"        id="original_langChanged" value="">
+    <input type="hidden" name="tenantFilter"       id="original_tenantFilter" value="">
+    <input type="hidden" name="securityTab"        id="original_securityTab" value="">
+</form>
+
+<form name="actual_commandForm" id="actual_commandForm" action="login.html" method="get">
+    <input type="hidden" name="sortBy"             id="a_sortBy" value="date">
+    <input type="hidden" name="viewCount"          id="a_viewCount" value="1">
+    <input type="hidden" name="currentPage"        id="a_currentPage" value="1">
+    <input type="hidden" name="groupBy"            id="a_groupBy" value="combo">
+    <input type="hidden" name="roomFilter"         id="a_roomFilter" value="">
+    <input type="hidden" name="usernameFilter"     id="a_usernameFilter" value="">
+    <input type="hidden" name="searchFilter"       id="a_searchFilter" value="">
+    <input type="hidden" name="usernameFullFilter" id="a_usernameFullFilter" value="">
+    <input type="hidden" name="myManager"          id="a_myManager" value="-1">
+    <input type="hidden" name="adminManager"       id="a_adminManager" value="0">
+    <input type="hidden" name="webCast"            id="a_webCast" value="0">
+    <input type="hidden" name="command"            id="a_command" value="">
+    <input type="hidden" name="recId"              id="a_recId" value="">
+    <input type="hidden" name="auxMessage"         id="a_auxMessage" value="">
+    <input type="hidden" name="auxMessage1"        id="a_auxMessage1" value="">
+    <input type="hidden" name="lang"               id="a_lang" value="en">
+    <input type="hidden" name="langChanged"        id="a_langChanged" value="">
+    <input type="hidden" name="tenantFilter"       id="a_tenantFilter" value="">
+    <input type="hidden" name="securityTab"        id="a_securityTab" value="">
+</form>
+
+   
+   <table width="1024" cellspacing=0 cellpadding=0 border=0>
+       <tr>
+           <td width="210" style="background-color: black;">
+               <div id="logoPicDIV" style="width:140px; height:50px;"></div>
+           </td>
+           <td width="814" class="headerRowBackground" style="background-color: black;"><img src="themes/vidyo/i/s.gif" border=0></td>
+       </tr>
+       
+       
+       <tr>
+           <td height=30 colspan=2>
+               <table width="310" cellspacing=0 cellpadding=0 border=0>
+                   <tr>
+                       
+                       <td width="310">
+                           
+    
+
+
+
+<select id="langSelector" class="textInputSearch" style="width:95px;" onChange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="fr"  >Français</option>
+    <option value="ja"  >日本語</option>
+    <option value="zh_CN"  >简体中文</option>
+    <option value="zh_TW"  >繁體中文</option>
+    <option value="es" >Español</option>
+    <option value="it"  >Italiano</option>
+    <option value="de"  >Deutsch</option>
+    <option value="ko"  >한국어</option>
+    <option value="pt"  >Português</option>
+    <option value="fi"  >Suomi</option>
+    <option value="pl"  >Polski</option>
+    <option value="ru"  >Pусский</option>
+    <option value="th"  >ภาษาไทย</option>
+    <option value="tr"  >Türkçe</option>
+</select>
+                       </td>
+                   
+                       
+                   </tr>
+                   
+               </table>
+               
+           </td>
+       </tr>
+       
+       
+       
+       <tr>
+           <td height="140" colspan="2">&nbsp;</td>
+       </tr>
+       <tr>
+           <td colspan=2 align="center" class="smallTextLabel">
+               Please enter your login information.
+           </td>
+       </tr>
+       
+       
+       <tr>
+           <td colspan=2 align="center">
+              <form name="loginForm" method="post" action="recordings_security_check" autocomplete='off'>
+               <table cellspacing=0 cellpadding=0 border=0>
+                  
+                  <tr>
+                      <td colspan=2 height=5 ><img src="themes/vidyo/i/s.gif" border=0></td>
+                  </tr>
+                  <tr>
+                      <td ><div class="textLabels">Username</div></td>
+                      <td><input class="textInputs" style="width:163px;" type="text" name="username"></td>
+                  </tr>
+                  <tr>
+                      <td colspan=2 height=5 ><img src="themes/vidyo/i/s.gif" border=0></td>
+                  </tr>
+                  <tr>
+                      <td ><div class="textLabels">Password</div></td>
+                      <td><input  class="textInputs" style="width:163px;" autocomplete='off' type="password" name="password"></td>
+                  </tr>
+                  <tr>
+                      <td colspan=2 height=5 ><img src="themes/vidyo/i/s.gif" border=0></td>
+                  </tr>
+                  <tr>
+                      <td colspan=2 height=10><img src="themes/vidyo/i/s.gif" border=0></td>
+                  </tr>
+                  <tr>
+                      <td colspan=2 align=right><input class="loginButtonBlue" type="submit" name="Login" value="Login"></td>
+                  </tr>                  
+               </table>
+				<input type="hidden" name="_csrf" value="044acb9e-c35b-4d4e-bddc-c56e6a40f79a"/>               
+               </form>
+           </td>
+       </tr>
+       <tr>
+           <td height=140 colspan=2><img src="themes/vidyo/i/s.gif" border=0></td>
+       </tr>
+       <tr>
+           <td colspan=2>
+               
+
+
+
+<table width="100%" cellpadding=0 cellspacing=0 border=0>
+    <tr>
+        <td align="right">
+            <table cellpadding=0 cellspacing=0 border=0>
+                <tr>
+                           
+                           
+                           
+                    <td width="auto"><a class="smallTextLink" href="javascript:showAboutUs();">About Us</a></td>
+                           
+                           
+                    <td width=10><img src="themes/vidyo/i/s.gif" border=0></td>
+                    <td width="1" class="smallLinkSeparator"><img src="themes/vidyo/i/s.gif" border=0></td>
+                    <td width=10><img src="themes/vidyo/i/s.gif" border=0></td>
+                           
+                           
+                           
+                    <td width="auto"><a class="smallTextLink" href="javascript:showContactUs();">Support</a></td>
+                           
+                           
+                    <td width=10><img src="themes/vidyo/i/s.gif" border=0></td>       
+                    <td width="1" class="smallLinkSeparator"><img src="themes/vidyo/i/s.gif" border=0></td>
+                    <td width=10><img src="themes/vidyo/i/s.gif" border=0></td>
+                           
+                           
+                           
+                    <td width="auto"><a class="smallTextLink" href="javascript:showTermsOfServices();">Terms Of Services</a></td>
+                           
+                           
+                    
+                    
+                    
+                </tr>
+                <tr>
+                    <td colspan=9 align="right" class="smallTextLabel">&copy;2008-2016 Vidyo<!--spring:message code="footer.all.rights.reserved"/--></td>
+                </tr>
+                 
+            </table>
+        </td>
+    </tr>
+</table>
+
+    
+   
+
+           </td>
+       </tr>
+       <tr>
+           <td height=50 colspan=2><img src="themes/vidyo/i/s.gif" border=0></td>
+       </tr>
+   
+   
+   
+   </table>
+       
+           
+           <div id="main" style="padding-top: 150px;padding-left:300px;">
+                <div id="login1" style="width:450px;">&nbsp;</div>
+
+	       </div>
+
+
+
+
+   <script type = "text/javascript">
+       if (top.frames.length!=0) {
+           top.location=self.document.location;
+       }
+   </script>
+
+</body>
+</html>

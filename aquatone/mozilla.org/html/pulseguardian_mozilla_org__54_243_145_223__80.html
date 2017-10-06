@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pulse Guardian</title>
+        <meta name="description" content="Pulse Guardian">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/jquery.dataTables.min.css">
+        
+        
+    </head>
+
+    <body>
+        <div class="header">
+
+  <div class="container">
+    <a href="/">
+      <h1 class="sitename">
+        <span class="glyphicon glyphicon-tower icon"></span>
+        PulseGuardian
+      </h1>
+    </a>
+
+    
+      <span class="right-link">
+        <a href="/profile">
+          <button id="signin-link" class="btn btn-info">
+            <span class="glyphicon glyphicon-user login-icon"></span>Sign in</span>
+          </button>
+        </a>
+      </span>
+    
+
+    
+  </div>
+
+</div>
+
+        
+
+
+<div class="modal fade modal-delete-queue">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Delete queue <span class="queue-name"></span>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary delete-queue-ok">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade modal-delete-pulse-user">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Delete Pulse user <span class="pulse-user-name"></span>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary delete-pulse-user-ok">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        
+
+        <div class="menu">
+  <div class="container">
+    <h4><a class="menuitem" href="/whats_pulse">What's Pulse?</a></h4>
+    
+  </div>
+</div>
+
+        <div class="container">
+            <div id="error-bar" class="alert alert-danger">
+            </div>
+
+            
+<div class="col-md-8">
+  <h2>What's Pulse?</h2>
+
+  <p>
+    Mozilla currently has a ton of different systems that are
+    interconnected via polling, screen scraping, email, and other
+    brittle methods. To make their lives easier community members
+    often build tools on top of this house of cards, adding yet
+    another level of scraping and polling. Many systems don't even
+    export important data for others to scrape and use, preventing
+    better tools from being written.
+  </p>
+
+  <p>
+    Mozilla Pulse is a message broker / event system system. The
+    goal is to eliminate polling and add visibility into all aspects
+    of Mozilla and its systems. This allows more robust, dynamic,
+    and informative tools.
+  </p>
+
+  <p>
+    Pulse isn't any one thing. At its heart, it is a RabbitMQ
+    system with a particular configuration and a set of conventions
+    for using it. Pulse follows the pub-sub pattern, in which
+    publishers send messages to topic exchanges, and consumers
+    create queues bound to these exchanges in order to subscribe to
+    the publishers' messages. The
+    <a href="https://pypi.python.org/pypi/MozillaPulse">mozillapulse</a>
+    Python package provides classes for existing publishers, consumers, and
+    messages so you can quickly build Pulse applications.
+  </p>
+
+  <p>
+    <strong>
+      For more information on Pulse, please visit the
+      <a href="https://wiki.mozilla.org/Auto-tools/Projects/Pulse"
+        target="_blank">Wiki</a>.
+    </strong>
+  </p>
+
+  <h2>Technology used</h2>
+  <ul>
+    <li>The message broker used
+      is <a href="http://www.rabbitmq.com/">RabbitMQ</a></li>
+    <li>Protocol used to talk to the broker
+      is <a href="http://www.amqp.org/about/what">AMQP</a></li>
+    <li>Messages are in JSON</li>
+    <li>For Python, the underlying library used to talk AMQP
+      is <a href="http://kombu.readthedocs.org/">kombu</a></li>
+  </ul>
+</div>
+
+<div class="col-md-4">
+  <h2>What is this website made for?</h2>
+
+  <p>
+    Use this website to sign-up for a Pulse consumer account, monitor
+    your open queues or get information about the Pulse system.
+  </p>
+</div>
+
+        </div>
+
+        <!-- Internal JS files -->
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+
+        
+        
+    </body>
+
+</html>

@@ -1,0 +1,70 @@
+
+
+
+
+<HTML>
+<head>
+<LINK rel="STYLESHEET" HREF="/HTML/emap.css" MEDIA="screen" TYPE="text/css">
+<title>AT&T Business Direct Map log out</title>
+<script language="javascript">
+	var reload = true;
+	//dosubmit function
+	function dosubmit(){
+		document.forms[0].target = "_top";
+		document.forms[0].submit();
+	}
+
+	function checkparent(){
+		if ( top.opener && !reload ) {
+			top.opener.top.location = "/JSP/logout.jsp?reload=Y&loginUrl=null";
+			window.close();
+			top.window.close(); //added to close new CP. Window with frames.
+		}
+		else {
+			if ( top.parent && !reload ){ 
+				top.parent.top.location = "/JSP/logout.jsp?reload=Y&loginUrl=null";
+			}
+		}
+	}
+</script>
+</head>
+
+<BODY onload="checkparent()">
+
+<div align=center>
+<br>
+
+<table border=0 cellpadding=4 cellspacing=0>
+
+
+<tr>
+  <td CLASS="contentText2">
+	
+        <FORM ACTION="/JSP/EmapLogin.jsp" METHOD="POST" TARGET="_top">
+	 
+
+                Your session expired or you have successfully logged off AT&T Business Direct Map. Please click on the button below to log into AT&T Business Direct Map again.
+
+        <center>
+	<br>
+        <INPUT TYPE="button" VALUE=" Sign in " onclick="dosubmit()"> 
+        </center>
+        </FORM>
+    </td>
+</tr>
+
+</table>
+
+</div>
+</BODY>
+
+<hr noshade align="left" size="1" width="100">
+<div class="terms" align="left">
+<font size="1">
+<a target="_top" href="http://www.att.com/terms.html">Terms and Conditions</a>.
+<a target="_top" href="http://www.att.com/privacy/">Privacy Policy</a>
+<br>
+Copyright &#169; 2002 AT&amp;T.  All rights reserved.
+
+</font>
+</div>

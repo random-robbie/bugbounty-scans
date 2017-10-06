@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<title>AT&T ConnecTech</title>		
+		<meta name="keywords" content="AT&T, ConnecTech,Remote" />
+		<meta name="description" content="AT&T ConnecTech">
+		<meta http-equiv="X-Frame-Options" content="SAMEORGIN"/>
+		<meta http-equiv="X-Xss-Protection" content="'1;mode=block' always"/>
+		<meta http-equiv="X-Content-Type-Options" content="'nosniff' always"/>
+
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Web Fonts  -->
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		
+		
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="css/theme.css">
+		
+	
+		<link rel="stylesheet" href="css/default.css">
+       
+        <script src="../js/jquery.js" type="text/javascript"></script>
+     
+        <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+
+
+	 <script type="text/javascript">
+        function pullQueryString() {
+            var error = window.location.search;
+            if (error.substring(0, 1) == "?") {
+                error = error.substring(1);
+            }
+            return error;
+        }
+    </script>
+	</head>
+	<body>
+		 <form name="logmeinsupport" action="https://secure.logmeinrescue.com/Customer/Code.aspx"
+          method="post" id="logmeinsupport">
+ 
+		 <div id="wrapper">
+      <div id="main-page">
+        <div class="navigation home-page">
+          <div class="container">
+            <div class="homepageheader" style="margin:0px 0 0 0;"> <a data-pagesection="top nav" data-navelement="intel security logo" class="logo" target="_self"> <img src="img/att_logo.png"> </a> </div>
+           
+          </div>
+        </div>
+        <div id="main">
+          
+      <div class="blueheader">
+        	<div class="container">
+            	<h3>Secure Connection</h3>
+             </div>
+        </div>
+          
+        
+            <div class="multicolumncomponent section">
+             
+			<div class="terms">
+				<div class="container">
+					<div class="row col-md-12">
+                    	
+
+						
+                         <div class="feedback-form" style="text-align:center;">
+											<h3>Enter the 6-digit pin provided by your AT&T ConnecTech Technician</h3>
+											
+											  <input type="text" name="Code" id="Code" class="form-control" maxlength="6"
+                                       onkeypress="return onlyNos(event,this);"  style="margin-bottom:10px; margin-top:20px;"  />
+										</div>
+                                        
+                                        <div style="text-align:center;">
+											<div style=" margin-top:10px;">
+											  <input type="submit" value="Connect to Technician" class="btn btn-md btn-primary" />
+											</div>
+                                            <div class="row" style="padding:10px 0 0 0; float:right;">
+                                            	<!--<img class="img-responsive" src="img/secure.png"/>-->
+												 <input type="hidden" name="companyvalidation" value="1B51AC104E0D49AD6C10FBF2353F5C3DC1D35B791530913E241AE7B6AC827040" />
+                        <input type="hidden" name="tracking0" maxlength="64" /> <!-- optional -->
+                        <input type="hidden" name="language" maxlength="5" /> <!-- optional -->
+                        <input type="hidden" name="hostederrorhandling" value="1" /> <!-- optional -->
+                                            </div>
+											
+										
+                                            </div>
+											
+											<div class="col-md-12 row" >
+												 <div style="text-align:center;">
+                    <b>
+                        <font color="red">
+                            <script type="text/javascript">
+                              
+                                var response = pullQueryString();
+                                response = response.substring(22);
+
+                                if (response.toLowerCase() == "pincode_missing") {
+                                    document.write("The PIN code you have entered is invalid." + "<br />");
+                                }
+                                else if (response.toLowerCase() == "pincode_invalid") {
+                                    document.write("The PIN code you have entered is invalid." + "<br />");
+                                }
+                                else if (response.toLowerCase() == "pincode_expired") {
+                                    document.write("The PIN code you have entered is expired." + "<br />");
+                                }
+                                else if (response.toLowerCase() == "pincode_error") {
+                                    document.write("The PIN code you have entered is invalid." + "<br />");
+                                }
+                                else if (response.toLowerCase() == "pincode_alreadyused") {
+                                    document.write("The PIN code you have entered has already been used."
+                 + "<br />");
+                                }
+                                else {
+                                    //document.write(response) + "<br />";
+                                }
+                            </script>
+                        </font>
+                    </b>
+
+                </div>
+				</div>
+									
+                        
+                        </div>
+                     </div>
+                  </div>
+                        
+                  
+ </div>
+            
+  </div>
+			
+		 </div>
+		  </div>
+            
+           </form>
+		
+
+    <script language="javascript" type="text/javascript">
+
+
+
+        function onlyNos(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+
+
+
+
+    var navBarHelpOverrideKey = "wssmain";
+
+    var varphonenum, varfldname;
+
+    function fncNumeric(e) {
+
+        var Key
+        if (window.event) {
+            Key = window.event.keyCode; //IE 
+        }
+        else if (e.which) {
+            Key = e.which; //firefox
+        }
+        else {
+            Key = e.charCode; //Other browser
+        }
+
+
+        if (Key >= 48 && Key <= 57 || Key == 8 || Key == 0)
+            return true;
+        return false;
+    }
+
+    function Allownumeric(ctrlCode, objevent) {
+
+        retflag = false;
+        varfldname = ctrlCode.name;
+        varphonenum = ctrlCode.value;
+
+        if (objevent.which != null) {
+            kc = objevent.which;
+        }
+        else if (objevent.keyCode != null) {
+            kc = objevent.keyCode;
+        }
+        else if (objevent.charCode != null) {
+            kc = objevent.charCode;
+        }
+
+        if ((kc == 0) || (kc == 8) || (kc >= 48 && kc <= 57) || kc == 13) {
+            retflag = true;
+        }
+        else {
+            retflag = false;
+        }
+        if (retflag == false) {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                event.which = null;
+                event.charCode = null;
+                event.keyCode = null;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    function CheckNumeric() {
+        if (isNaN($("#Code").val())) {
+            $("#Code").val("");
+            $("#Code").focus();
+            return false;
+        }
+    }
+
+
+    
+
+   $("#logmeinsupport").validate({
+        rules: {
+            Code: {
+                required: true,
+                minlength: 6			
+               
+            }
+        },
+        messages: {
+            Code: {
+                required: "Please enter your session ID",
+                minlength: "Please enter a 6 digit session ID"
+            }
+        }
+    });
+
+    jQuery.validator.addMethod("AllowNumeric", function (value, element) {
+        if (isNaN(value))
+            return false;
+        else
+            return true;
+    }, "Please enter a 6 digit session ID");
+
+    function CheckForms() {
+       
+        if ($("#Code").val() == "") {
+            alert("Please enter your session ID.");
+            $("#txtCode").focus();
+            return false;
+        }
+        else if (isNaN($("#Code").val())) {
+            alert("Please enter a 6 digit session ID");
+            $("#txtCode").focus();
+            return false;
+        }
+        else if ($("#Code").val().length != 6) {
+            alert("Please enter a 6 digit session ID");
+            $("#txtCode").focus();
+            return false;
+        }
+       
+        
+        return true;
+    }
+
+ 
+</script>
+	
+     
+	</body>
+
+</html>

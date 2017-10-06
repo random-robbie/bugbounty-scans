@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="DCSext.wtPN" content="ATT Mobile Home Pg">
+<meta name="DCSext.wtFlowCode" content="ATT_Mobile"/>
+<meta name="description" content="AT&T is a leader in telecommunication services, including cell phones, wireless, U-verse, digital TV, high speed internet, & bundled services."/>
+<meta name="keywords" content=" at&t, cell phones, wireless, u-verse, high speed internet, digital tv, dsl internet, home phone service, bundles, 4g, at&t, at&t wireless "/>
+<link rel="canonical" href="http://www.att.com"/>
+<link rel="stylesheet" href="HSN/Mobile/styles/interimMobileThemes.m.css"/>
+<link rel="stylesheet" href="HSN/Mobile/styles/flexslider.css"/>
+<link rel="apple-touch-icon" href="HSN/Mobile/images/apple-touch-icon-precomposed.png"/>
+<script type="text/javascript" src="HSN/Mobile/scripts/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="HSN/Mobile/scripts/jquery.mobile-1.0.1.min.js"></script>
+<script type="text/javascript" src="HSN/Mobile/scripts/mHR.js"></script>
+<script type="text/javascript" src="HSN/Mobile/scripts/jquery.flexslider.js"></script>
+<script type="text/javascript">
+    var currOrientaion = 'portrait';
+    jQuery(document).ready(function($) {
+        // Stuff to do as soon as the DOM is ready. Use $() w/o colliding with other libs;
+        detectPhone();
+        function orientationChangeStatic() {
+            if (phone !== 'iPhone') {
+                if (phone === 'Android') {
+                    if (currOrientaion === 'portrait') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "212px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "212px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttPortriat.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "212px"});
+                        $('#topMarq').css({'height': '212px'});
+                    } else if (currOrientaion === 'landscape') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "200px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "200px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttLand.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "200px"});
+                        $('#topMarq').css({'height': '200px'});
+                    }
+                } else if (phone === 'Win') {
+                    if (window.innerHeight > window.innerWidth) {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttPortriat.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                    } else if (window.innerWidth > window.innerHeight) {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttLand.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                    }
+                } else if (phone === 'BB') {
+                    if (currOrientaion === 'portrait') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttPortriat.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                    } else if (currOrientaion === 'landscape') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttLand.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                    }
+                } else {
+                    if (currOrientaion === 'portrait') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttPortriat.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                    } else if (currOrientaion === 'landscape') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttLand.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                    }
+                }
+            } else {
+                if (currOrientaion === 'portrait') {
+                        $('.animationHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marquee-network-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-portrait.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttPortriat.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "189px"});
+                    } else if (currOrientaion === 'landscape') {
+                        $('.animationHolder').html('<img style="margin:0px; width:100%;" class="promoImage" src="HSN/Mobile/images/marquee-network-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.iphoneHolder').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/mrq-iPhone5-available-landscape.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                        $('.myAtt').html('<img style="margin:0px;" class="promoImage" src="HSN/Mobile/images/marqueeMyAttLand.jpg" alt="AT&T. The Nation\'s Largest 4G Network.">').css({
+                            "height": "150px"});
+                    }
+            }
+        }
+        // Initial execution
+        doOnOrientationChange();
+        orientationChangeStatic();
+        var p_timeOut, 
+            didTimeOut = false;
+        $('.flexslider').flexslider({
+            animation: "slide",
+            animationSpeed: 300,
+            useCSS: true,
+            controlNav: false,
+            directionNav: false,
+            pauseOnAction: false,
+            slideshowSpeed: 4000,
+            pauseOnHover: false,
+            manualPause: false,
+            pausePlay: false,
+            after: function(slider){
+                if (!slider.playing) {
+                    p_timeOut = setTimeout(function(){
+                        $('.flexslider').flexslider("pause");
+                        $('.flexslider').flexslider("play");
+                        didTimeOut = true;
+                    }, 2500);
+                } else {
+                    clearTimeout(p_timeOut);
+                }
+            }
+        });
+        function doOnOrientationChange() {
+            switch (window.orientation) {
+            case -90:
+            case 90:
+                currOrientaion = 'landscape';
+                $('#topMarq').css({'height': '150px'});
+                break;
+            default:
+                currOrientaion = 'portrait';
+                $('#topMarq').css({'height': '189px'});
+                break;
+            }
+            try {
+                $('.flexslider').flexslider("pause");
+                $('.flexslider').flexslider("play");
+            } catch (err) {
+            }
+        }
+        window.onorientationchange = function() {
+            doOnOrientationChange();
+            orientationChangeStatic();
+        };
+    });
+</script>
+<style type="text/css">
+</style>
+<title>AT&amp;T Cell Phones, U-verse, Digital TV, Internet, &amp; Phone Service</title>
+</head>
+<body onunload="">
+<div data-role="page">
+	<!-- BEGIN Web Header -->
+	<header id="mainHeader" data-role="header" data-backbtn="false">
+		<div id="logoHolder">
+			<a href="/" class="logo" data-ajax="false">[at&amp;t home]</a>
+			<a href="/" class="logoHeader" data-ajax="flase">
+			<h1>[at&amp;t]</h1>
+			</a>
+		</div>
+	</header>
+	<div id="footerNav" data-role="navbar" data-theme="d">
+		<div class="ui-grid-b">
+			<div class="ui-block-a footerTab1">
+				<p>
+					<a href="http://www.att.net" data-ajax="false" target="_blank" onclick="dcsMultiTrack('DCS.dcsuri','/','DCS.dcsref','http://m.att.com/','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ATTNet_Link_Clicked','DCSext.wtLinkName','Attnet','DCSext.wtLinkLoc','ATT Mobile Home Pg|Header','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','AttNet Home Pg','DCSext.wtFlowCode','ATT_Mobile');">ATT.NET</a>
+				</p>
+			</div>
+			<div class="ui-block-b footerTab2">
+				<p>
+					<a href="http://www.att.com/Common/storefront/mobile/mobile_11627.html" data-ajax="false" target="_blank" onclick="dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/Common/storefront/mobile/mobile_11627.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_Business_Link_Clicked','DCSext.wtLinkName','Business','DCSext.wtLinkLoc','ATT Mobile Home Pg|Header','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','Att Business Home Pg','DCSext.wtFlowCode','ATT_Mobile');">BUSINESS</a>
+				</p>
+			</div>
+			<div class="ui-block-c footerTab3">
+				<p>
+					<a href="http://www.att.com/gen/landing-pages?pid=3309" data-ajax="false" target="_blank" onclick="dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/gen/landing-pages?pid=3309','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_About_Link_Clicked','DCSext.wtLinkName','about','DCSext.wtLinkLoc','ATT Mobile Home Pg|Header','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','About Att Pg','DCSext.wtFlowCode','ATT_Mobile');">ABOUT AT&amp;T</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Web Header -->
+	<div id="topMarq" class="marquee" style="height:189px;">
+		<div class="flexslider carousel" id="carHldr">
+			<ul class="slides">
+				<li class="myAtt" onclick="dcsMultiTrack('DCS.dcsref','http://www.att.com/','DCS.dcsuri','/att/myATT','DCSext.wtEvent','Mbl-ATTHome_MyAtt_Link_Clicked','DCSext.wtLinkName','MyAtt','DCSext.wtLinkLoc','ATT Mobile Home Pg|Header','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtPN','ATT Mobile MyAtt Pg','DCSext.wtFlowCode','ATT_Mobile','AttMbl_MyAtt');window.open('http://www.att.com/att/myATT?source=IAPUms00010000MYO','_blank');">
+				</li>
+				<li class="iphoneHolder" onclick="dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/wireless/iphone/index.m.html','DCSext.wtEvent','Mbl-ATTHome_iPhone5_Link_Clicked','DCSext.wtLinkName','iPhone5MobilePage','DCSext.wtLinkLoc','ATT Mobile Home Pg|Header','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtPN','ATT Mobile iPhone5 Pg','DCSext.wtFlowCode','ATT_Mobile','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_iPhone5');window.location='http://www.att.com/wireless/iphone/index.m.html';">
+				</li>
+				<li class="animationHolder" onclick="dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/4g-lte.m.html','DCSext.wtEvent','Mbl-ATTHome_Our4GLTENetwork_Link_Clicked','DCSext.wtLinkName','Our4GLTENetwork','DCSext.wtLinkLoc','ATT Mobile Home Pg|Header','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtPN','ATT Mobile Our 4G LTE Network Pg','DCSext.wtFlowCode','ATT_Mobile');window.location='4g-lte.m.html';">
+				</li>
+			</ul>
+		</div>
+	</div>
+	<ul id="homeNav" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+		<li>
+		<a id="storesFindStoreLink" href="#" data-ajax="false">
+		<div class="pinIcon ">
+			 Find a store
+		</div>
+		<div class="iconNavCopy">
+			 Find a store
+		</div>
+		</a>
+		</li>
+		<li>
+		<a id="storesMyAtt" href="http://m.att.com/myatt" data-ajax="false" onclick="dcsMultiTrack('DCS.dcssip','m.att.com','DCS.dcsuri','/myatt','DCS.dcsref','http://m.att.com/','DCSext.wtEvent','Mbl-ATTHome_MyATT_Link_Clicked','DCSext.wtLinkName','LoginToMyATT','DCSext.wtLinkLoc','ATT Mobile Home Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','myATT Mobile Home Pg','DCSext.wtFlowCode','ATT_Mobile');">
+		<div class="userIcon">
+			 View/pay bill or check usage
+		</div>
+		<div class="iconNavCopy">
+			 Pay bill and check usage
+		</div>
+		</a>
+		</li>
+		<li>
+		<a data-transition="slidedown" data-rel="dialog" id="storesShopLink" href="#nav" onclick="dcsMultiTrack('DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_Shop_Link_Clicked','DCSext.wtLinkName','Shop','DCSext.wtLinkLoc','ATT Mobile Home Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtPN','ATT Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">
+		<div class="tagsIcon">
+			 Shop icon
+		</div>
+		<div class="iconNavCopy">
+			 Shop
+		</div>
+		<div class="iconNavCopy2">
+			 (full site)
+		</div>
+		</a>
+		</li>
+		<li>
+		<a id="storesSupportLink" href="http://www.att.com/esupport/index.jsp" data-ajax="false" onclick="dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/esupport/index.jsp','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_GetSupport_Link_Clicked','DCSext.wtLinkName','GetSupport','DCSext.wtLinkLoc','ATT Mobile Home Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','IC1S006490000000L','DCSext.wtExtndSource','AttMbl_GetSupport','DCSext.wtPN','ATT Home Pg','DCSext.wtFlowCode','ATT_Mobile');">
+		<div class="helpIcon">
+			 Support icon
+		</div>
+		<div class="iconNavCopy">
+			 Get support
+		</div>
+		</a>
+		</li>
+	</ul>
+	<ul id="storesSubNav" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+		<li id="storesGetApp">
+		<a id="storesGetAppLink" href="javascript:void(0);" data-ajax="false">Get the myAT&amp;T app</a>
+        </li>
+		<li id="storesNetwork">
+		<a id="storesNetworkLink" href="4g-lte.m.html" data-ajax="false" onclick="dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/4g-lte.m.html','DCSext.wtEvent','Mbl-ATTHome_Our4GLTENetwork_Link_Clicked','DCSext.wtLinkName','Our4GLTENetwork','DCSext.wtLinkLoc','ATT Mobile Home Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtPN','ATT Mobile Our 4G LTE Network Pg','DCSext.wtFlowCode','ATT_Mobile');">AT&amp;T's 4G Network</a>
+		</li>
+	</ul>
+	<!-- Footer Start -->
+	<footer>
+		<div id="footerBtm">
+			<ul>
+				<li><a class="fullSite" href="#" data-ajax="false" onclick="dcsMultiTrack('DCS.dcsuri','/','DCS.dcsref','http://m.att.com/','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATT_FullSite_Link_Clicked','DCSext.wtLinkName','attnet','DCSext.wtLinkLoc','ATT Mobile Home Pg|Footer','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtFlowCode','ATT_Mobile','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_FullSite','DCSext.wtPN','ATT Home Pg');">FULL SITE</a></li>
+				<li><a href="http://www.att.com/gen/privacy-policy?pid=2506" data-ajax="false" target="_blank" onclick="dcsMultiTrack('DCS.dcsuri','/gen/privacy-policy?pid=2506','DCS.dcsref','http://m.att.com/','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_Privacy_Link_Clicked','DCSext.wtLinkName','Privacy','DCSext.wtLinkLoc','ATT Mobile Home Pg|Footer','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','Att Privacy Pg','DCSext.wtFlowCode','ATT_Mobile');">PRIVACY</a></li>
+				<li><a href="http://www.att.com/gen/general?pid=11561" data-ajax="false" target="_blank" onclick="dcsMultiTrack('DCS.dcsuri','/gen/general?pid=11561','DCS.dcsref','http://m.att.com/','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_Terms_Link_Clicked','DCSext.wtLinkName','Terms','DCSext.wtLinkLoc','ATT Mobile Home Pg|Footer','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','Att Terms Pg','DCSext.wtFlowCode','ATT_Mobile');">TERMS OF USE</a></li>
+				<li><a id="contactUsLink" href="#" data-ajax="false" onclick="dcsMultiTrack('DCS.dcsuri','/contact.m.html','DCS.dcsref','http://m.att.com/','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_Contact_Link_Clicked','DCSext.wtLinkName','Contact','DCSext.wtLinkLoc','ATT Mobile Home Pg|Footer','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtPN','Contact Att Pg','DCSext.wtFlowCode','ATT_Mobile');">CONTACT US</a></li>
+			</ul>
+			<p>
+				<a href="http://www.att.com/gen/privacy-policy?pid=2587" data-ajax="false" target="_blank" onclick="dcsMultiTrack('DCS.dcsuri','/gen/privacy-policy?pid=2587','DCS.dcsref','http://m.att.com/','DCSext.wtEvent','Mbl-ATTHome_ATT_IP_Link_Clicked','DCSext.wtLinkName','ATT_IP','DCSext.wtLinkLoc','ATT Mobile Home Pg|Footer','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','DCSext.wtPN','Att IP Pg','DCSext.wtFlowCode','ATT_Mobile');">&copy; 2013 AT&amp;T Intellectual Property.</a> All rights reserved.
+			</p>
+		</div>
+	</footer>
+	<!-- Footer End -->
+</div>
+<div id="nav" class="dialog" data-role="dialog">
+	<!--BEGIN menuIconDiv-->
+	<nav id="menuIconDiv" class="menuToggled" data-role="sub-header" data-backbtn="false">
+		<div class="heading">
+			<h2>What are you looking for?</h2>
+		</div>
+		<!--<div class="mobileSprite pageDivider"></div>-->
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li data-icon="false"><a href="http://www.att.com/?mobile=false" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopAttcom_SUB','DCSext.wtLinkName','att.com Home Page','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_Attcom','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">att.com homepage</a></li>
+			<li data-icon="false"><a href="http://www.att.com/shop/wireless.html" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/shop/wireless.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopWireless_SUB','DCSext.wtLinkName','Wireless','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_Wireless','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">Wireless</a></li>
+			<li data-icon="false"><a href="http://www.att.com/shop/bundles.html" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/shop/bundles.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopBundles_SUB','DCSext.wtLinkName','Bundles','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_Bundles','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">Bundles</a></li>
+			<li data-icon="false"><a href="http://www.att.com/shop/tv.html" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/shop/tv.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopDTV_SUB','DCSext.wtLinkName','Digital TV','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_DTV','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">Digital TV</a></li>
+			<li data-icon="false"><a href="http://www.att.com/shop/internet.html" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/shop/internet.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopInternet_SUB','DCSext.wtLinkName','Internet','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_Internet','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">Internet</a></li>
+			<li data-icon="false"><a href="http://www.att.com/shop/home-phone.html" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/shop/home-phone.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopHomePhone_SUB','DCSext.wtLinkName','Home Phone','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_HomePhone','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">Home Phone</a></li>
+			<li data-icon="false"><a href="http://www.att.com/shop/u-verse.html" data-ajax="false" target="_blank" onclick="window.location.hash='';dcsMultiTrack('DCS.dcsref','http://m.att.com/','DCS.dcsuri','/shop/u-verse.html','DCS.dcssip','m.att.com','DCSext.wtEvent','Mbl-ATTHome_ShopUverse_SUB','DCSext.wtLinkName','U-verse','DCSext.wtLinkLoc','ATT Mobile Home Popup Pg|Body','DCSext.wtSuccessFlag','1','DCSext.wtStatusCode','0','DCSext.wtNoHit','1','WT.mc_id','EC1S000010000000L','DCSext.wtExtndSource','AttMbl_Uverse','DCSext.wtPN','ATT Mobile Home Popup Pg','DCSext.wtFlowCode','ATT_Mobile');">U-verse</a></li>
+		</ul>
+		<div class="padContent15">
+			<a class="menuClose" href="#" data-rel="back" data-role="button" data-theme="d" data-inline="true">Close</a>
+		</div>
+		<div class="dottedBottom">
+		</div>
+	</nav>
+	<!--END menuIconDiv-->
+</div>
+<script type="text/javascript">
+	detectPhone();
+    if (phone !== 'iPhone' && phone !== 'Android' && phone !== 'Win') {
+        $('#storesGetApp').hide();
+    }
+    localStorage.clear();
+    primaryURL = 'find-a-store-results.m.html';
+    altURL = 'find-a-store.m.html';
+    $(function() {
+        $('.ui-loader').hide();
+    });
+    if ((/iphone|ipod|ipad.*os 5/gi).test(navigator.appVersion)) {
+        window.onpageshow = function(evt) {
+            // If persisted then it is in the page cache, force a reload of the page.
+            if (evt.persisted) {
+            document.body.style.display = "none";
+            location.reload();
+            }
+        };
+    }
+    // Detect if private browsing is enabled...
+    // Keep at the end of the page just to make sure all script are loaded anyways
+    var testKey = 'qeTest',
+        storage = window.sessionStorage;
+    try {
+        // Try and catch quota exceeded errors
+        storage.setItem(testKey, '1');
+        storage.removeItem(testKey);
+    } catch(error) {
+        if(error.code === DOMException.QUOTA_EXCEEDED_ERR && storage.length === 0) alert('To experience the full set of\rfeatures of our mobile site,\rplease go to Settings > Safari\rand turn Private Browsing off.');
+        else throw error;
+    }
+</script>
+<script src="//www.wireless.att.com/webtrends/scripts/dcs_tag.js" type="text/javascript"></script>
+</body>
+</html>

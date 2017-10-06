@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html xmlns:ng="http://angularjs.org" lang="en" id="ng-app" class="no-js" data-ng-app="buyPowerCardApp" data-ng-controller="MainController as ctrl">
+    <head >
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="fragment" content="!">
+        <meta name="description" id="ngapp" content="{{ metaDescription }}">
+        <!-- google and bing validation BuyPower Card -->
+        <meta data-ng-if="$root.domainName === 'buypowercard'" name="google-site-verification" content="nFORui6ftms9JCtGZf9NlGW_GjJ4PxL3KzczoQFn-os" />
+        <meta data-ng-if="$root.domainName === 'buypowercard'" name="msvalidate.01" content="C1118DFEE44A5B9490CF0139344BAF7A" />
+        <!-- google and bing validation GM Card -->
+        <meta data-ng-if="$root.domainName === 'gmcard'" name="google-site-verification" content="vnDWliHjgHPVB5NPezARgRS0zlPGQoATocQWnoCYtn0" />
+        <meta data-ng-if="$root.domainName === 'gmcard'" name="msvalidate.01" content="C1118DFEE44A5B9490CF0139344BAF7A" />
+
+        
+        <meta name="keywords" content="">
+
+        <title data-ng-bind="pageTitle"></title>
+        <base id="baseName" href="/" />
+
+        <meta ng-if="ogUrl" property="og:url" content="{{ogUrl}}" />
+        <meta ng-if="ogCanonical" property="og:canonical" content="{{ogCanonical}}" />
+        <meta ng-if="ogType" property="og:type" content="{{ogType}}" />
+        <meta ng-if="ogTitle" property="og:title" content="{{ogTitle}}" />
+        <meta ng-if="ogDescription" property="og:description" content="{{ogDescription}}" />
+        <meta ng-if="ogImage" property="og:image" content="{{ogImage}}" />
+
+
+
+        <link rel="icon" href="/images/BP_Favicon.gif">
+        <link rel="canonical" data-ng-href="{{ canonical }}">
+        <!-- build:css /css/main.min.css -->
+        <link rel="stylesheet" data-ng-href="/css/main.css">
+        <!-- endbuild -->
+        <link rel="stylesheet" type="text/css" href="//cloud.typography.com/650614/754828/css/fonts.css" />
+        <!-- [if IE]>
+            <script src="/js/vendor/html5shiv.js"></script>
+            <script>
+                document.createElement("header");
+                document.createElement("nav");
+                document.createElement("section");
+                document.createElement("footer");
+                document.createElement("ng-include");
+                document.createElement("ng-view");
+                document.createElement("data-ng-if");
+                document.createElement("ui-sref");
+
+            </script>
+        <![endif]-->
+
+
+<!--
+<script>
+if($('html').hasClass('lte9')) { $('option').prop('disabled', true); }
+</script> -->
+
+
+        <script src="//ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+        <!-- build:js js/main.min.js -->
+        <script src="/js/main.js"></script>
+        <!-- endbuild -->
+        <!-- Dev environment header code for DTM -->
+        <script src="//assets.adobedtm.com/81e75e0d225e65a4860f48466627a6b696b9fc66/satelliteLib-b56fbce775cc3e55f7f46c0caa57eec049a64785-staging.js"></script>
+
+    </head>
+
+    <body id="BPapp" data-ng-class="{mobile: small === true, tablet: medium === true, desktop: large === true, efc: isEFC === true, business: isBusiness === true, stickybodymobile: stickyNavMobile === true && small === true, gallery: !!vehicleGallery === true}">
+
+        <!--[if IE 9 || if lte IE 9]>
+               <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- GLOBAL HEADER -->
+        <header id="global-header" class="header" data-ng-if="!$root.isAuth && !emRegister && !isBonus || $state.current.name=='dealerpowervideo'" data-ng-class="{stickyheadermobile: stickyNavMobile === true && small === true}" data-ng-class="{stickyheadermobile: stickyNavMobile === true && small === true}" data-ng-include="'/html/partials/header.html'"></header>
+        <header id="global-header" class="header" data-ng-if="$root.isAuth && !emRegister && !isBonus" data-ng-include="'/html/partials/header-logged.html'" data-ng-controller="HeaderController"></header>
+        <header id="em-register-header" class="header" data-ng-if="emRegister && !isBonus && $state.current.name!='dealer-apr' && $state.current.name!='application-process' && $state.current.name!='dealerpowervideo'" data-ng-include="'/html/partials/em-register-header.html'" data-ng-controller="HeaderController"></header>
+        <header id="bonusheader" class="header" data-ng-if="isBonus" data-ng-include="'/html/partials/header.html'" data-ng-controller="HeaderController"></header>
+        <header id="dealeraprheader" class="header" data-ng-if="dealerapr || $state.current.name=='application-process'" data-ng-include="'/html/partials/header.html'" data-ng-controller="HeaderController"></header>
+
+        <nav  class="global-nav" data-ng-include="'/html/partials/global-nav.html'" data-ng-if="!small && !$root.isAuth && ($root.domainName !== 'gmcard') && !limitedNav" ng-class="{'isBonus': isBonus}"></nav>
+
+        <div data-ui-view class="wrapper" data-ng-class="$state.current.name">
+        </div>
+
+        <div class="{{classHide}}" data-modal-dialog></div>
+
+        <nav data-ng-if="small">
+            <div data-ng-include="'/html/partials/mobile-menu.html'"></div>
+        </nav>
+
+        <!-- mobile nav injected here -->
+        <nav data-ng-if="(small) && !$state.includes('index') && !$root.isAuth && !$root.isGMCard && !$root.isGlobal" class="nav-mobile section-component">
+            <div id="sticky-nav" class="stickynav" data-ng-if="!$state.includes('contact-us-form') && !$state.includes('faq-tabs')" data-ng-class="{slideUpSticky:showStickyDiv === true, slideInDownSticky:showStickyDiv === false}" data-ng-include="'/html/partials/sticky-nav.html'"></div>
+            <div id="sticky-nav-contactus" class="stickynav" data-ng-if="$state.includes('contact-us-form')" data-ng-class="{slideUpSticky:showStickyDiv === true, slideInDownSticky:showStickyDiv === false}" data-ng-include="'/html/partials/sticky-nav-contactus.html'"></div>
+        </nav>
+        <div data-ng-if="small" data-ng-show="showFadeDiv" data-ng-controller="MenuControllerFull" class="fade" data-ng-click="ShowFadeMenu()"></div>
+        <!-- FOOTER -->
+        <footer id="footer" class="footer {{$state.current.name}}" data-ng-class="{'isBonus':isBonus}" data-ng-include="'/html/partials/footer.html'"></footer>
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.3.0/css/font-awesome.min.css">
+        <!-- build:css css/style.min.css -->
+        <link rel="stylesheet" data-ng-href="/css/style.css">
+        <!-- endbuild -->
+        <!--[if IE 9 || if lte IE 9]>
+            <script src="/js/vendor/es5-shim.min.js"></script>
+            <script src="/js/vendor/es5-sham.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/css/ie-styles.min.css"> 
+        <![endif]-->
+        <script src="//sadmin.brightcove.com/js/BrightcoveExperiences.js"></script>
+        <!-- <script src="//sadmin.brightcove.com/js/APIModules_all.js"></script> -->
+        <!-- <script src="//sadmin.brightcove.com/js/api/SmartPlayerAPI.js"></script> -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-route.js"></script>
+        <script src="/js/vendor/angular-ui-router.min.js"></script>
+        <script src="/js/vendor/angular-socialshare.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-sanitize.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-touch.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-aria.min.js"></script>
+
+        <script src="/js/vendor/angularUtilsPagination/angularUtils.js"></script>
+        <script src="/js/vendor/angularUtilsPagination/dirPagination.js"></script>
+        
+        <!-- <script src="/js/vendor/angular-resource.min.js"></script> -->
+
+        <!-- <script src="/js/vendor/angular-mocks.js"></script> -->
+        <script src="/js/vendor/flow/ng-flow-standalone.min.js"></script>
+        <script src="/js/vendor/exif/exif.js"></script>
+
+        <!-- build:js js/buypowercard.min.js -->
+        <script src="/js/buypowercard.js"></script>
+        <!-- endbuild -->
+        
+        <script src="/js/vendor/s_code.min.js"></script>
+        <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBM6UxEUAAZoNPHh_u71_TgC8xcB_9Kaxg"></script>
+        <script src="/js/vendor/angular-google-maps.js"></script>
+
+        <script src="/js/vendor/angulartics.js"></script>
+
+        <script type="text/javascript">
+         (function () {
+         var tagjs = document.createElement("script");
+         var s = document.getElementsByTagName("script")[0];
+         tagjs.async = true;
+         tagjs.src = "//s.btstatic.com/tag.js#site=9sLDeEW";
+         s.parentNode.insertBefore(tagjs, s);
+         }());
+        </script>
+
+        <noscript>
+         <iframe src="//s.thebrighttag.com/iframe?c=9sLDeEW" width="1" height="1"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </noscript>
+
+        <!-- Start of DoubleClick Floodlight Tag: Please do not remove -->
+        <div dart-tag card-type="cardType" page-id="pageID" width="1" height="1" title="analytics" alt="analytics" class="visuallyhidden"></div>
+        <!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+        <script samba-tv-tag page-state-name="$state.current.name"></script>
+
+        <!-- Footer code for DTM -->
+        <script type="text/javascript">_satellite.pageBottom();</script>
+        <script src="//players.brightcove.net/3113179986001/Vyrbivmtx_default/index.min.js"></script>
+
+        <img data-ng-if="$root.authPixeltrack" data-ng-src="http://mpp.vindicosuite.com/mpp/?y=2&t=i&tp=1&clid=6809&pixid=99103902&rnd=" width="1" height="1" border="0"/>
+
+    </body>
+</html>

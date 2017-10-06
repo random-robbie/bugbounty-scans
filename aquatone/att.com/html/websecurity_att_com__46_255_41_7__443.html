@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+<html>
+<head>
+<title>AT&amp;T Login</title>
+<style type="text/css">
+#recaptcha_image img {
+	height: 70px;
+	width: 250px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#recaptcha_container {
+	margin: 0px;
+	padding: 0px;
+	width: 300px;
+}
+</style>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<link rel="stylesheet" type="text/css" media="all" href="/portal/static/login/att/css/general.css"/>
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="/portal/static/login/att/css/general_ie6.css"/><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="/portal/static/login/att/css/general_ie7.css"/><![endif]-->
+
+</head>
+
+<body id="login">
+		
+		<div id="frame">
+		<div id="framepad">
+
+			<div id="frametop">
+				<span class="mainbox_ul"></span>
+				<span class="mainbox_ur"></span>
+			</div>
+			
+
+			<div id="login_header" class="clearfix">
+				<div id="login_logo" title="AT&amp;T logo"></div>
+				<div id="login_logo2" title="AT&amp;T logo"></div>
+			</div>
+			
+			
+			
+
+
+
+
+
+<script type="text/javascript"  src="../static/js/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+var RecaptchaOptions = {
+        theme: 'custom',
+        lang: 'en',
+        custom_theme_widget: 'recaptcha_widget'
+        };
+</script>
+
+<script type="text/javascript">
+    var $ = jQuery;
+    function showRecaptcha() {
+        Recaptcha.create("null",
+                'recaptcha_widget', {
+                    callback : Recaptcha.focus_response_field
+                });
+    }
+    function changeStyles() {
+        $("div[id='frame']").prop("id","frame_captcha");
+        $("div[class='login-middle']").attr("class","login-middle-captcha");
+    }
+</script>
+
+<div id="login_top" class="section_top">
+		<span class="section_ul"></span>
+		<span class="section_ur"></span>
+		<h1>Login</h1>
+</div>
+
+<div id="login_main" class="section_body">		     
+ 			<p>From here you will be able to update your settings and monitor the performance of the service.</p> 
+	<form id="LoginForm" action="/portal/login/login.controller" method="POST">
+		
+             <input type="hidden" name="resellerLoginForward" value="attlogin">
+		<fieldset id="fieldset_01">
+			<legend>Please enter Username and Password</legend>
+			<div class="clearfix" id="fieldset_01_div_01">
+				<label for="username">Email/Username</label>
+				<input type="text" class="field" name="j_username" autocomplete="off" />
+			</div>
+			<div class="clearfix last" id="fieldset_01_div_02">
+				<label for="username">Password</label>
+				<input type="password" class="field" name="j_password" autocomplete="off" />
+			</div>
+		</fieldset>
+
+		 
+ 
+ 		
+
+		 <!--Do not remove the below break statement, as it breaks the login screens with captcha on IE7 -->
+		<br />
+		<div id="mainformbuttons" class="clearfix">
+			
+				
+					<a id="forgotpassword" href="/portal/login/forgottenPassword.controller">Forgotten your password?</a>
+				
+				
+			
+			<input id="submit" value="SUBMIT" name="submit" class="submitbutton" type="submit"/>
+		</div>
+	 <input type="hidden" name="_csrf" value="57aeb0eb-dc83-4347-b9e6-d6026a0ea4fc" />
+</form>
+<script type="text/javascript" src="../static/js/jquery/jquery.cancelButtonScript.js"></script>
+<script>
+var $j = jQuery;
+$j( "#cancelId" ).cancelButtonScript();
+</script>
+</div>
+			
+			<div class="section_bottom">
+					<span class="section_dl"></span>
+					<span class="section_dr"></span>
+			</div>
+			
+		<div id="framebottom">
+			<span class="mainbox_dl"></span>
+			<span class="mainbox_dr"></span>
+		</div>
+		
+		</div>
+		</div>
+
+	</body>
+
+
+</html>

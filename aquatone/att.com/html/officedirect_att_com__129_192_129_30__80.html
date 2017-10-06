@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+ 
+
+<html>
+<head>
+<title>Mobile Assistant</title>
+<link rel="stylesheet" href="/web/css/ma.css" type="text/css" />
+<link rel="stylesheet" href="/web/css/ma_layout.css" type="text/css" />
+
+<script type="text/javascript">
+
+function _init() {
+	showMe();
+}
+function showMe(){
+	// Put focus into first edit field
+	var tags = document.getElementsByTagName('input');
+	for (var i=0; i<tags.length; i++) {
+		var tag = tags[i];
+		if ((tag.type == 'text') || (tag.type == 'password')) {
+			tag.focus();
+			break;
+		}
+	}
+}
+</script>
+
+<!-- page specific head stuff -->
+<script type="text/javascript" src="/web/js/balloontip.js"></script>
+<script type="text/javascript" src="/web/js/generalcookie.js"></script>
+
+<script type="text/javascript">
+function initPage()
+{
+
+	loginid=get_cookie('loginid')
+	password=get_cookie('password')
+	var remberme = document.getElementById('rememberme');
+	if ((loginid!= null && loginid!="") && (password!= null && password!="")) {
+		document.getElementById("loginname").value=loginid;
+		document.getElementById("loginpasswd").value=password;
+		if(remberme )
+           remberme.checked=true;
+	}
+	else {
+		if(remberme)
+           remberme.checked=false;
+		document.getElementById("loginpasswd").value='';
+	}
+
+
+	var domain=get_cookie('domain')
+	if (domain)
+		document.getElementById("logindomain").value=domain;
+
+}
+
+function onSubmit()
+{
+
+	var domainName  = document.getElementById('logindomain').value;
+	if (domainName) set_cookie('domain',domainName,365)
+
+    var rembme = document.getElementById('rememberme');
+    if (rembme) {
+        if(rembme.checked) rememberMe(); else forgetMe();
+    }
+}
+
+function rememberMe() {
+	var loginid = document.getElementById('loginname').value;
+	var password  = document.getElementById('loginpasswd').value;
+	if ((loginid!= null && loginid!="") && (password!= null && password!="")) {
+		set_cookie('loginid',loginid,365)
+		set_cookie('password',password,365)
+	}
+}
+
+function onClear() {
+	forgetMe();
+	return true;
+}
+
+function forgetMe() {
+	 var rembme = document.getElementById('rememberme');
+     if(rembme)
+        rembme.checked=false;
+
+     delete_cookie('loginid')
+     delete_cookie('password')
+     return true;
+}
+
+</script>
+
+<body class="normal" onload="_init();initPage()">
+<!-- Add SSO Web Bug here -->
+
+  
+
+
+	<div id=layout>
+		<table cellspacing="0" cellpadding="0" class="logodiv">
+			<tr>
+				<td class="logo">
+					<img src="/web/images/tango_logo.png" alt="" id="logo" />
+				</td>
+				<td class="maintitle">Mobile Assistant</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="subbar">
+				<td colspan="2" class="hello">
+
+				&nbsp;</td>
+				<td colspan="1" class="date">
+					Friday, October 6, 2017
+				</td>
+			</tr>
+		</table>
+
+        <div id="otherside">&nbsp;</div>
+        <div id="sidebar">&nbsp;</div>
+
+        <div id="contentwrapper">
+            <div id="content">
+<div id=main> <!-- beginning of main content -->
+
+<div id=pgtitle>Mobile Assistant Provisioning</div>
+
+
+
+
+
+<form method="post" action="/login">
+<div>
+<table class="vedit" cellspacing=0 cellpadding=0>
+	<tr>
+		<td class="label">User ID</td>
+		<td>&nbsp;</td>
+
+		<td class="label">Domain (e.g. mycompany.com)</td>
+
+		<!--
+		<td><a rel="h_0"><img src="/web/images/tangohelp.png" alt=""/></a></td>
+		-->
+	</tr>
+	<tr>
+		<td class="value"><input type="text" name="loginname" id="loginname" maxlength="50" size="25" /></td>
+		<td class="label">@</td>
+
+		<td class="value"><input type="text" name="logindomain" id="logindomain" maxlength="100" size="25" value="" /></td>
+
+	</tr>
+	<tr>
+		<td class="label" colspan="4">Password</td>
+    </tr>
+    <tr>
+        <td class="value" colspan="4"><input type="password" name="loginpasswd" id ="loginpasswd" value="" maxlength="20" size=25/></td>
+    </tr>		
+    
+    				
+
+	
+</table>		
+</div>
+<br/>
+<div class="btnrow">
+	<input type="submit" name="bSubmit" value="Submit" onClick="return onSubmit()"/>
+	<input type="submit" name="bSubmit" value="Clear" onClick="return onClear()"/>
+</div>
+
+</form>
+<p>&nbsp;</p>
+<p><strong>Access to this system is for authorized users only. All actions, including logon attempts, are subject to monitoring.</strong></p>
+</div> <!-- end of main content -->
+
+<!-- HELP CONTENT -->
+<div class="tooltip" id="h_0">
+	<div><span class=label>Attribute: </span><span class=desc>User ID</span></div><div><span class=label>Description: </span><div class=desc>The User Id should be either your mobile number, desk number, alias, or SIP Address.</div></div><div><span class=label>Example: </span><span class=desc>4698319003</span></div>
+</div>
+            </div>
+        </div>
+
+    </div>
+        <div id=footer>
+		</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+   

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<!-- compiled: Fri Oct 06 2017 09:05:20 GMT+0000 (UTC) -->
+<meta charset="utf-8">
+<title>IRCCloud: Mozilla</title>
+
+
+<script>
+window.addEventListener('error', function (e) {
+    // Workaround for cached 404s
+    if (e.target.className != 'retried') {
+        if (e.target.nodeName == 'LINK' && e.target.rel == 'stylesheet') {
+            var link = e.target;
+            link.className = 'retried';
+            link.href = e.target.href + '?' + Date.now();
+        } else if (e.target.nodeName == 'SCRIPT' && e.target.src) {
+            var script = document.createElement('script');
+            script.className = 'retried';
+            script.src = e.target.src + '?' + Date.now();
+            document.head.appendChild(script);
+        }
+    }
+}, true);
+</script>
+
+
+
+<link rel="stylesheet" href="/build/app-f41d86fd.css" type="text/css" media="screen">
+
+<!-- TODO, enterprise.css should be packaged and rev'ed using gulp, for a -version filename -->
+<link rel="stylesheet" href="/static/enterprise.css" type="text/css" media="screen">
+
+<style type="text/css" media="print">
+.dontprint { display: none; }
+body { font-family: 'Helvetica',sans-serif ; }
+</style>
+
+
+<link rel="manifest" href="/static/webapp.json">
+<link rel="mask-icon" href="/static/apple-pinned-tab.svg" color="#000000">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="256x256">
+<link rel="fluid-icon" type="image/png" href="/apple-touch-icon-precomposed.png">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+<meta name="description" content="IRCCloud is a modern IRC client that keeps you connected, with none of the baggage. Stay synced and notified wherever you are with our web and mobile apps.">
+
+<meta name="twitter:widgets:new-embed-design" content="on">
+<meta name="twitter:widgets:theme" content="" id="twitterMetaTheme">
+<meta name="twitter:widgets:link-color" content="" id="twitterMetaLinkColor">
+<meta name="twitter:card" content="app">
+<meta name="twitter:site:id" content="171845650">
+<meta name="twitter:description" content="IRCCloud is a modern IRC client that keeps you connected, with none of the baggage. Stay synced and notified wherever you are with our web and mobile apps.">
+<meta name="twitter:app:name:iphone" content="IRCCloud">
+<meta name="twitter:app:id:iphone" content="848235358">
+<!-- <meta name="twitter:app:url:iphone" content="irccloud://twitter-card/iphone"> -->
+<meta name="twitter:app:name:ipad" content="IRCCloud">
+<meta name="twitter:app:id:ipad" content="848235358">
+<!-- <meta name="twitter:app:url:ipad" content="irccloud://twitter-card/ipad"> -->
+<meta name="twitter:app:name:googleplay" content="IRCCloud">
+<meta name="twitter:app:id:googleplay" content="com.irccloud.android.enterprise">
+<!-- <meta name="twitter:app:url:googleplay" content="irccloud://twitter-card/android"> -->
+
+
+
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    // Prevent persistent 3rd party window.open URL control.
+    window.opener = null;
+    // Prevent framing
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+<noscript><style>body{display:block !important;}</style></noscript>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-itunes-app" content="app-id=848235358">
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200i,300,300i,600,400i,600i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,vietnamese,latin-ext' rel='stylesheet' type='text/css'>
+<!-- https://github.com/chrissimpkins/hack#user-content-web-font-usage -->
+<link href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body  class="irccloud landing enterprise">
+
+
+
+<div id="enterpriseLandingContainer">
+    <div id="enterpriseLanding">
+        <h1 id="logo">
+            <a href="/" tabindex="-1">
+                IRC<span class="cloud">Cloud</span>
+            </a>
+            |
+            <span class="entName">Mozilla</span>
+        </h1>
+
+        
+        
+        <div class="authForm">
+            <p>
+                <button type="button" class="signup samlLogin"><span>Login with Auth0</span></button>
+            </p>
+        </div>
+        
+    </div>
+
+    <div id="landingFooter">
+    <div class="landingContainer">
+        
+        <p>
+            <a href="https://itunes.apple.com/app/irccloud-enterprise/id848235358" target="_blank"><img src="/static/landing/store/apple.svg" width="152" height="45"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.irccloud.android.enterprise" target="_blank"><img src="/static/landing/store/google.png" width="129" height="45"></a>
+        </p>
+        <p>
+            © 2017 IRCCloud Ltd.
+        </p>
+    </div>
+</div>
+
+<div id="forgotPasswordContainer" class="mainOverlay">
+    <div id="forgotPasswordContent" class="mainOverlayContent">
+        <h2><label for="forgotEmail">Enter your email to request a password reset</label></h2>
+        
+        <form action="" method="post" novalidate>
+            <p class="form">
+                <input id="forgotEmail" type="email" name="email" class="input" placeholder="Email">
+            </p>
+            <p class="form">
+                <button type="submit"><span>Request reset</span></button>
+                <button type="button" class="close"><span>Done</span></button>
+            </p>
+            
+            <p class="userError" tabindex="-1"></p>
+            <p class="userSuccess">We’ve sent you a password reset link. Check your email and follow the instructions to sign in.</p>
+        </form>
+    </div>
+</div>
+
+</div>
+
+
+
+<!-- pre_js -->
+
+
+
+
+<script>
+if (window.entrypoint === undefined) window.entrypoint = "landing";
+
+window.WS_SOCKET_HOST = "irccloud.mozilla.com";
+window.WS_SOCKET_PATH = "\/websocket\/1";
+window.API_HOST = "https:\/\/irccloud.mozilla.com";
+
+window.GOOGLE_PUBLIC_KEY = "AIzaSyDiEWkDjzmnF0Esi7OyVbx76JYfAhmsKkk";
+window.Enterprise = {"unixname":"mozilla","fullname":"Mozilla"};
+window.IRCConfig = {
+    file_uri_template: "https:\/\/irccloud.mozilla.com\/file{\/modifiers,id,name}",
+    file_json_uri_template: "https:\/\/irccloud.mozilla.com\/file\/json{\/id}",
+    pastebin_uri_template: "https:\/\/irccloud.mozilla.com\/pastebin{\/type,id,name}",
+    nickColors: 27,
+    appName: 'app-f41d86fd.js',
+    shard: 1
+};
+
+
+
+</script>
+
+
+
+
+<!-- dep PROD -->
+<script src="/dep/jquery-2.2.4.min.js"></script>
+<script src="/dep/underscore-1.8.3-min.js"></script>
+<script src="/dep/backbone-1.3.3-min.js"></script>
+<script src="/dep/ace-src-min-noconflict/ace.js"></script>
+<script src="/dep/ace-src-min-noconflict/ext-modelist.js"></script>
+<script src="/dep/ace-src-min-noconflict/theme-chrome.js"></script>
+
+
+
+<!-- lib/*.js bundle -->
+<script src="/build/libs-a05dcac1db.js"></script>
+
+
+<!-- conf PROD -->
+<script src="/static/conf.prod.js"></script>
+
+
+
+<!-- main app entry point bundle -->
+<script src="/build/app-f41d86fd.js"></script>
+
+
+
+
+<!-- post_js -->
+
+
+
+</body>
+
+</html>

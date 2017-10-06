@@ -1,0 +1,4074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head><meta property="og:type" content="website">
+<meta property="og:image" content="https://bugzilla.mozilla.org/extensions/OpenGraph/web/moz-social-bw-rgb-1200x1200.png">
+<meta property="og:title" content="947665 - Still more webRTC stats">
+<meta property="og:url" content="https://bugzilla.mozilla.org/show_bug.cgi?id=947665">
+
+    <meta name="bugzilla-global" content="dummy"
+        id="bugzilla-global" data-bugzilla="{&quot;api_token&quot;:&quot;&quot;,&quot;string&quot;:{&quot;short_desc_required&quot;:&quot;You must enter a Summary for this bug&quot;,&quot;description_required&quot;:&quot;You must enter a Description for this bug&quot;,&quot;version_required&quot;:&quot;You must select a Version for this bug&quot;,&quot;component_required&quot;:&quot;You must select a Component for this bug&quot;,&quot;attach_desc_required&quot;:&quot;You must enter a Description for this attachment.&quot;},&quot;constant&quot;:{&quot;COMMENT_COLS&quot;:80},&quot;param&quot;:{&quot;maxusermatches&quot;:&quot;50&quot;,&quot;cookiepath&quot;:&quot;/&quot;}}">
+    <title>947665 - Still more webRTC stats</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <meta name="robots" content="noindex" />
+<link rel="Top" href="https://bugzilla.mozilla.org/">
+
+  
+
+
+  
+    <link rel="Show" title="Dependency Tree"
+          href="showdependencytree.cgi?id=947665&amp;hide_resolved=1">
+      <link rel="Show" title="Dependency Graph"
+            href="showdependencygraph.cgi?id=947665">
+
+      <link rel="Show" title="Bug Activity"
+            href="show_activity.cgi?id=947665">
+      <link rel="Show" title="Printer-Friendly Version"
+            href="show_bug.cgi?format=multiple&amp;id=947665">
+
+<link href="data/assets/6e2950a6b430e66beb45b46958cb75b7.css?1507037554" rel="stylesheet" type="text/css">
+
+
+
+    
+<script nonce="114AqTxOpBlqM8MseSrovjbPSvqREjVuQ0i7ov1TGX2asw44" type="text/javascript" src="data/assets/f0d8f806b435d5c1c42cd109e6626548.js?1507037554"></script>
+
+      <script nonce="114AqTxOpBlqM8MseSrovjbPSvqREjVuQ0i7ov1TGX2asw44">
+          YAHOO.namespace('bugzilla');
+          if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+              YAHOO.util.Event._simpleRemove(window, "unload",
+                                             YAHOO.util.Event._unload);
+          }BUGZILLA.value_descs = JSON.parse('{\"bug_status\":{},\"resolution\":{\"\":\"---\"}}');
+
+  
+    var tracking_flags_str = "{\"types\":[\"blocking\",\"tracking\"],\"flags\":{\"blocking\":{\"cf_backlog\":\"---\"},\"tracking\":{\"cf_blocking_fennec\":\"---\",\"cf_status_firefox_esr52\":\"---\",\"cf_tracking_firefox57\":\"---\",\"cf_blocking_fx\":\"---\",\"cf_status_firefox58\":\"---\",\"cf_status_firefox57\":\"---\",\"cf_tracking_firefox_esr52\":\"---\",\"cf_tracking_thunderbird_esr52\":\"---\",\"cf_status_thunderbird_esr52\":\"---\",\"cf_tracking_firefox58\":\"---\",\"cf_tracking_firefox_relnote\":\"---\",\"cf_tracking_firefox56\":\"---\",\"cf_platform_rel\":\"---\",\"cf_status_firefox56\":\"---\"}},\"comments\":{\"cf_tracking_firefox58\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox57\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_relnote\":{\"?\":\"Release Note Request (optional, but appreciated)\\n[Why is this notable]:\\n[Affects Firefox for Android]:\\n[Suggested wording]:\\n[Links (documentation, blog post, etc)]:\"},\"cf_tracking_firefox56\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_esr52\":{\"?\":\"[Tracking Requested - why for this release]:\"}}}";
+    var TrackingFlags = $.parseJSON(tracking_flags_str);
+
+  
+
+  
+  BUGZILLA.bug_id = 947665;
+  BUGZILLA.bug_title = '947665 - Still more webRTC stats';
+  BUGZILLA.user = {
+    id: 0,
+    login: '',
+    is_insider: false,
+    is_timetracker: false,
+    can_tag: false,
+    settings: {
+      quote_replies: 'quoted_reply',
+      zoom_textareas: true,
+      remember_collapsed: true,
+      autosize_comments: false
+    }
+  };
+
+  BUGZILLA.bug_secure = false;
+      </script>
+<script nonce="114AqTxOpBlqM8MseSrovjbPSvqREjVuQ0i7ov1TGX2asw44" type="text/javascript" src="data/assets/f45fcff1319be4ab156441393c02d012.js?1507037554"></script>
+
+    
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+                       title="Bugzilla@Mozilla" href="./search_plugin.cgi">
+    <meta name="referrer" content="origin-when-crossorigin"><link rel="shortcut icon" href="extensions/BMO/web/images/favicon.ico">
+<link id="shorturl" rev="canonical" href="https://bugzil.la/947665"><meta name="robots" content="noarchive">
+  </head>
+
+
+
+  <body
+        class="bugzilla-mozilla-org
+               skin-standard bug_modal yui-skin-sam">
+
+
+
+<div id="header">
+
+  <div class="wrapper">
+    <table border="0" cellspacing="0" cellpadding="0" id="titles">
+    <tr>
+      <td id="title">
+        <a href="./" title="Home">Bugzilla@Mozilla</a>
+      </td>
+      <td>
+      </td>
+      <td id="moz_login">
+          <ul class="login-links">
+              <li id="moz_new_account_container_top"><a href="createaccount.cgi">New&nbsp;Account</a>
+              </li>
+
+                <li id="mini_login_container_top">
+  <span class="separator">| </span>
+  <a id="login_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=947665&amp;GoAheadAndLogIn=1"
+     class='show_mini_login_form' data-qs-suffix="_top">Log In</a>
+<span id="github_mini_login_top" class="bz_default_hidden mini_login_top">
+    <form method="post" action="https://bugzilla.mozilla.org/github.cgi">
+      <input type="hidden" name="github_secret" value="RBPaE01Eb8kowbEd">
+      <input type="hidden" name="target_uri" value="https://bugzilla.mozilla.org/show_bug.cgi?id=947665">
+      <input type="image" src="extensions/GitHubAuth/web/images/sign_in.png" height="22" width="75" align="absmiddle"
+             alt="Sign in with GitHub"
+             title="Sign in with GitHub"> or
+    </form>
+  </span>
+  
+  <form action="https://bugzilla.mozilla.org/show_bug.cgi?id=947665" method="POST" 
+        class="mini_login bz_default_hidden "
+        id="mini_login_top"
+        data-qs-suffix="_top"
+  >
+    
+    <input id="Bugzilla_login_top" 
+           class="bz_login"
+           name="Bugzilla_login"
+           title="Login"
+           placeholder="email address"
+           type="email"
+           required
+    >
+    <input class="bz_password"
+           id="Bugzilla_password_top" 
+           name="Bugzilla_password"
+           type="password"
+           title="Password"
+           required
+    >
+    <input class="bz_password bz_default_hidden bz_mini_login_help" type="text" 
+           id="Bugzilla_password_dummy_top" value="password"
+           title="Password"
+    >
+      <input type="checkbox" id="Bugzilla_remember_top" 
+             name="Bugzilla_remember" value="on" class="bz_remember"
+                 checked>
+      <label for="Bugzilla_remember_top">Remember</label>
+    <input type="hidden" name="Bugzilla_login_token"
+           value="1507276892-ce8c0c3a1658c03496fe4f2bd2eaa5c5">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in"
+           class="check_mini_login_fields"
+            id="log_in_top">
+    <a href="#" id="hide_mini_login_top" 
+       class="hide_mini_login_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+<li id="forgot_container_top">
+  <span class="separator">| </span>
+  <a id="forgot_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=947665&amp;GoAheadAndLogIn=1#forgot"
+     class='show_forgot_form'
+     data-qs-suffix="_top">Forgot Password</a>
+  <form action="token.cgi" method="post" id="forgot_form_top"
+        class="mini_forgot bz_default_hidden">
+    <label for="login_top">Login:</label>
+    <input type="text" name="loginname" size="20" id="login_top">
+    <input id="forgot_button_top" value="Reset Password" 
+           type="submit">
+    <input type="hidden" name="a" value="reqpw">
+    <input type="hidden" id="token_top" name="token" value="1507276892-39908a2b68d88bc29cd24c0c90dbe91a">
+    <a href="#" class="hide_forgot_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+          </ul>
+      </td>
+      <td id="moz_tab">
+        <a href="https://www.mozilla.org/" title="Mozilla - Home of the Mozilla Project">
+          <img src="images/tabzilla.png" border="0" height="42" width="154"></a>
+      </td>
+    </tr>
+    </table>
+
+    
+<ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_top" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_top"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+
+  </div>
+</div> 
+
+<div id="bugzilla-body">
+
+
+<div id="message">If you think a bug might affect users in the 57 release, please <a href="https://wiki.mozilla.org/Bugmasters/Marking_bugs_for_the_Firefox_57_release">set the correct tracking and status flags for Release Management</a>.</div><div id="xhr-error" style="display:none"></div>
+<div id="floating-message" style="display:none">
+  <div id="floating-message-text"></div>
+</div>
+<section class="module"
+>
+  <div class="module-content"
+  >
+  <div id="summary-container">
+    <div class="field indent"
+>
+
+  
+    <div class=" container">
+      <div id="field-value-bug_id">
+        <a id="this-bug" href="show_bug.cgi?id=947665">Bug 947665</a>
+      </div>
+    </div>
+
+  
+</div><div class="field indent edit-hide"
+>
+
+  
+    <div class=" container">
+      <h1 id="field-value-short_desc">Still more webRTC stats</h1>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-alias" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#alias" id="alias-help-link" class="help">Alias:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-alias">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-short_desc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#short_desc" id="short_desc-help-link" class="help">Summary:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-short_desc">
+            Still more webRTC stats
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field indent edit-hide" id="field-status_summary"
+>
+
+  
+    <div class="value">
+        <span id="field-value-status_summary">
+      <b>RESOLVED
+        FIXED
+      </b>
+        in mozilla29
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+
+  
+
+  <div id="mode-container">
+    <div>
+    </div>
+    <div class="button-row">
+      <div class="dropdown">
+        <button type="button" id="action-menu-btn" aria-haspopup="true" aria-label="Actions Menu"
+          aria-expanded="false" aria-controls="action-menu" class="dropdown-button minor">&#9662;</button>
+        <ul class="dropdown-content" id="action-menu" role="menu" style="display:none;">
+          <li role="presentation">
+            <a id="action-reset" role="menuitem" tabindex="-1">Reset Sections</a>
+          </li>
+          <li role="presentation">
+            <a id="action-expand-all" role="menuitem" tabindex="-1">Expand All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-collapse-all" role="menuitem" tabindex="-1">Collapse All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-last-comment" role="menuitem" tabindex="-1">Last Comment</a>
+          </li>
+          <li role="presentation">
+            <a id="action-history" role="menuitem" tabindex="-1">History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="user-guide">
+      <a title="User guide for Bugzilla" href="https://wiki.mozilla.org/BMO/UserGuide">Get help with this page</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-status"
+>
+    <header id="module-status-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Status section"
+           data-label-collapsed="Expand Status section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-status-content"
+             aria-expanded="true"
+             aria-labeledby="module-status-title"
+             aria-describedby="module-status-subtitle"></div>
+        <h2 class="module-title" id="module-status-title">Status</h2>
+          <h3 class="module-subtitle" id="module-status-subtitle">
+            (<span id="readable-bug-status" data-readable-bug-status="{&quot;cf_blocking_fennec&quot;:&quot;---&quot;,&quot;priority&quot;:&quot;--&quot;,&quot;cf_tracking_firefox57&quot;:&quot;---&quot;,&quot;status&quot;:&quot;RESOLVED&quot;,&quot;cf_status_firefox58&quot;:&quot;---&quot;,&quot;cf_status_thunderbird_esr52&quot;:&quot;---&quot;,&quot;keywords&quot;:[],&quot;id&quot;:&quot;947665&quot;,&quot;cf_status_firefox56&quot;:&quot;---&quot;,&quot;flags&quot;:[{&quot;status&quot;:&quot;+&quot;,&quot;name&quot;:&quot;in-testsuite&quot;}],&quot;cf_status_firefox_esr52&quot;:&quot;---&quot;,&quot;dupe_of&quot;:null,&quot;cf_blocking_fx&quot;:&quot;---&quot;,&quot;cf_status_firefox57&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_thunderbird_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_firefox58&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_relnote&quot;:&quot;---&quot;,&quot;resolution&quot;:&quot;FIXED&quot;,&quot;target_milestone&quot;:&quot;mozilla29&quot;,&quot;cf_tracking_firefox56&quot;:&quot;---&quot;,&quot;cf_backlog&quot;:&quot;---&quot;,&quot;cf_platform_rel&quot;:&quot;---&quot;}"></span>)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-status-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-product"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core" id="product-help-link" class="help">Product:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-product">
+      <span aria-owns="product-name product-latch">
+        <span role="button" aria-label="show product information" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="product-latch" data-latch="product" data-for="product">&#9656;</span>
+        <div title="show product information" tabindex="0" class="spin-toggle"
+             id="product-name" data-latch="product" data-for="product">Core
+        </div>
+        <div id="product-info" style="display:none">Shared components used by Firefox and other Mozilla software, including handling of Web content; Gecko, HTML, CSS, layout, DOM, scripts, images, networking, etc. Issues with web page layout probably go here, while Firefox user interface issues belong in the <a href="https://bugzilla.mozilla.org/editproducts.cgi?action=edit&amp;product=Firefox">Firefox</a> product. (<a href="https://wiki.mozilla.org/Modules/All#Core">More info</a>)
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-component"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core&component=WebRTC#WebRTC" id="component-help-link" class="help">Component:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-component">
+      <span aria-owns="component-name component-latch">
+        <span role="button" aria-label="show component description" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="component-latch" data-latch="component" data-for="component">&#9656;</span>
+        <div title="show component information" tabindex="0" class="spin-toggle" id="component-name"
+             data-latch="#component-latch" data-for="component">WebRTC
+        </div>
+        <div id="component-info" style="display:none">
+          <div>General bugs associated with WebRTC</div>
+          <a href="buglist.cgi?component=WebRTC&amp;product=Core&amp;bug_status=__open__" target="_blank">Other Bugs</a>
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#priority" id="-help-link" class="help">
+        <label for="priority">Importance:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-priority"
+>
+
+  
+    <div class="value">
+        <span id="field-value-priority">
+            --
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-bug_severity"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_severity">
+            normal
+
+        </span>
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-hide" id="field-status-view"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-view-help-link" class="help">
+        <label for="bug_status">Status:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-view">RESOLVED
+        FIXED
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-creation_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#creation_ts" id="creation_ts-help-link" class="help">Reported:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-creation_ts"><span class="rel-time" title="2013-12-07 17:45 PST" data-time="1386467124">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-delta_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#delta_ts" id="delta_ts-help-link" class="help">Modified:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-delta_ts"><span class="rel-time" title="2014-03-27 10:46 PDT" data-time="1395942373">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-status-edit" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-edit-help-link" class="help">Status:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-edit"><div class="field inline" id="field-bug_status"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_status">
+            RESOLVED
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-resolution"
+>
+
+  
+    <div class="value">
+        <span id="field-value-resolution">
+            FIXED
+
+        </span>
+    </div>
+
+  
+</div>
+    <div id="assigned-container" style="display:none">
+      <button type="button" class="minor" id="mark-as-assigned-btn">
+        Mark as Assigned
+      </button>
+    </div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-people"
+>
+    <header id="module-people-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse People section"
+           data-label-collapsed="Expand People section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-people-content"
+             aria-expanded="false"
+             aria-labeledby="module-people-title"
+             aria-describedby="module-people-subtitle"></div>
+        <h2 class="module-title" id="module-people-title">People</h2>
+          <h3 class="module-subtitle" id="module-people-subtitle">
+            (Reporter: jib, Assigned: jib)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-people-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field edit-hide" id="field-assigned_to"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-assigned_to" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-assignee" name="set_default_assignee" class="set-default"
+          value="1" data-for="assigned_to">
+        <label for="set-default-assignee">Reset Assignee to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-bug_mentors" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_mentor" id="bug_mentors-help-link" class="help">Mentors:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_mentors">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-qa_contact" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#qa_contact" id="qa_contact-help-link" class="help">QA Contact:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-qa_contact">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-qa-contact" name="set_default_qa_contact" class="set-default"
+          value="1" data-for="qa_contact">
+        <label for="set-default-qa-contact">Reset QA Contact to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-reporter"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#reporter" id="reporter-help-link" class="help">Reporter:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-reporter">
+            <div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-triage_owner"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#triage_owner" id="triage_owner-help-link" class="help">Triage Owner:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-triage_owner">
+            <div class="vcard vcard_489581" ><a class="email " href="user_profile?user_id=489581" > <span class="fna">Nils Ohlmeier [:drno]</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#cc" id="-help-link" class="help">CC:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+
+
+        <span aria-owns="cc-summary cc-latch">
+          <span role="button" tabindex="0" id="cc-summary" data-count="2">2 people
+          </span>
+        </span>
+
+
+        <div id="cc-list" style="display:none"></div>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+<section class="module" id="module-tracking"
+>
+    <header id="module-tracking-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Tracking section"
+           data-label-collapsed="Expand Tracking section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-tracking-content"
+             aria-expanded="true"
+             aria-labeledby="module-tracking-title"
+             aria-describedby="module-tracking-subtitle"></div>
+        <h2 class="module-title" id="module-tracking-title">Tracking</h2>
+          <h3 class="module-subtitle" id="module-tracking-subtitle">
+            (Blocks: 1 bug)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-tracking-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-version"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#version" id="version-help-link" class="help">Version:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-version">
+            Trunk
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-target_milestone"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#target_milestone" id="target_milestone-help-link" class="help">Target:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-target_milestone">
+            mozilla29
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#rep_platform" id="-help-link" class="help">
+        <label for="rep_platform">Platform:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-rep_platform"
+>
+
+  
+    <div class="value">
+        <span id="field-value-rep_platform">
+            All
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-op_sys"
+>
+
+  
+    <div class="value">
+        <span id="field-value-op_sys">
+            All
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline"
+>
+
+  
+    <div class=" container">
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-keywords" style="display:none"
+>
+    <div class="name">
+        <a href="describekeywords.cgi" id="keywords-help-link" class="help">Keywords:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-keywords">---
+        </span>
+    </div>
+
+  
+</div>
+<div class="field edit-show" id="field-cf_fx_iteration" style="display:none"
+>
+    <div class="name">Iteration:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_iteration">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+<div class="field" id="field-cf_fx_points"
+>
+    <div class="name">Points:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_points">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-dependson"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#dependson" id="dependson-help-link" class="help">Depends on:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-dependson">
+            <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Provide the webRTC stats RTP packets/bytes-sent/received"
+   href="show_bug.cgi?id=908695">908695</a>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-blocked"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#blocks" id="blocked-help-link" class="help">Blocks:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-blocked">
+            <a class="bz_bug_link 
+          bz_status_NEW "
+   title="NEW - [meta] WebRTC statistics API additions/improvements"
+   href="show_bug.cgi?id=964161">964161</a>
+
+        </span>
+    </div>
+
+  
+</div>
+<div class="field edit-hide"
+>
+    <div class="name">
+    </div>
+
+  
+    <div class=" container">
+        Dependency <a href="showdependencytree.cgi?id=947665&amp;hide_resolved=1">tree</a>
+        / <a href="showdependencygraph.cgi?id=947665">graph</a>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field" id="field-bug_flags"
+>
+    <div class="name">Bug Flags:
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-bug_flags"><div id="bug-flags" class="flags">
+  <table class="layout-table">
+          <tbody class="edit-hide"><tr>
+    <td class="flag-setter"><div class="vcard vcard_75935" ><a class="email " href="user_profile?user_id=75935" > <span class="fna">RyanVM</span></a>
+</div>
+    </td>
+
+    <td class="flag-name">
+        <a href="#c31"
+            class="rel-time-title activity-ref"
+            title="4 years ago"
+        data-time="1390600653"
+      >in-testsuite</a>
+    </td>
+
+    <td class="flag-value">+
+    </td>
+
+  </tr>
+          </tbody>
+          <tbody class="edit-show" style="display:none"><tr>
+    <td class="flag-setter"><div class="vcard vcard_75935" ><a class="email " href="user_profile?user_id=75935" > <span class="fna">RyanVM</span></a>
+</div>
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag-795266">in&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag-795266-dirty">
+      <select id="flag-795266" name="flag-795266"
+        title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" selected>+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr>
+          </tbody>
+    <tbody class="edit-show" style="display:none"><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature." for="flag_type-835">a11y&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-835-dirty">
+      <select id="flag_type-835" name="flag_type-835"
+        title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue." for="flag_type-916">webcompat</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-916-dirty">
+      <select id="flag_type-916" name="flag_type-916"
+        title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag tracking inclusion in the desktop Firefox product backlog." for="flag_type-846">firefox&#8209;backlog</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-846-dirty">
+      <select id="flag_type-846" name="flag_type-846"
+        title="Flag tracking inclusion in the desktop Firefox product backlog."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Used to ask the security team to look over a feature or bug." for="flag_type-791">sec&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-791-dirty">
+      <select id="flag_type-791" name="flag_type-791"
+        title="Used to ask the security team to look over a feature or bug."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-791-container" style="display:none"><input
+    name="requestee_type-791"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-791" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug." for="flag_type-803">sec&#8209;bounty</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-803-dirty">
+      <select id="flag_type-803" name="flag_type-803"
+        title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame." for="flag_type-913">sec&#8209;bounty&#8209;hof</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-913-dirty">
+      <select id="flag_type-913" name="flag_type-913"
+        title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-787">in&#8209;qa&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-787-dirty">
+      <select id="flag_type-787" name="flag_type-787"
+        title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-787-container" style="display:none"><input
+    name="requestee_type-787"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-787" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="QA verification tracking." for="flag_type-864">qe&#8209;verify</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-864-dirty">
+      <select id="flag_type-864" name="flag_type-864"
+        title="QA verification tracking."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr>
+    </tbody>
+  </table>
+</div>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+  
+<section class="module" id="module-firefox-tracking-flags"
+>
+    <header id="module-firefox-tracking-flags-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Firefox Tracking Flags section"
+           data-label-collapsed="Expand Firefox Tracking Flags section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-firefox-tracking-flags-content"
+             aria-expanded="false"
+             aria-labeledby="module-firefox-tracking-flags-title"
+             aria-describedby="module-firefox-tracking-flags-subtitle"></div>
+        <h2 class="module-title" id="module-firefox-tracking-flags-title">Firefox Tracking Flags</h2>
+          <h3 class="module-subtitle" id="module-firefox-tracking-flags-subtitle">
+            (Not tracked)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-firefox-tracking-flags-content" style="display:none"
+  ><div class="fields-lhs">
+
+        <p class="edit-hide">
+          This bug is not currently tracked.
+        </p>
+
+        <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide#Tracking_Flags" id="-help-link" class="help">Tracking Flags:
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <th></th>
+        <th>Tracking</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">platform-rel</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_platform_rel-dirty">
+  <select id="cf_platform_rel" name="cf_platform_rel">
+        <option value="---"
+          id="v2875_cf_platform_rel" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">blocking-fx</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_blocking_fx-dirty">
+  <select id="cf_blocking_fx" name="cf_blocking_fx">
+        <option value="---"
+          id="v505_cf_blocking_fx" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">relnote-firefox</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_tracking_firefox_relnote-dirty">
+  <select id="cf_tracking_firefox_relnote" name="cf_tracking_firefox_relnote">
+        <option value="---"
+          id="v539_cf_tracking_firefox_relnote" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">fennec</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_blocking_fennec-dirty">
+  <select id="cf_blocking_fennec" name="cf_blocking_fennec">
+        <option value="---"
+          id="v655_cf_blocking_fennec" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">thunderbird_esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_thunderbird_esr52-dirty">
+  <select id="cf_tracking_thunderbird_esr52" name="cf_tracking_thunderbird_esr52">
+        <option value="---"
+          id="v3065_cf_tracking_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_thunderbird_esr52-dirty">
+  <select id="cf_status_thunderbird_esr52" name="cf_status_thunderbird_esr52">
+        <option value="---"
+          id="v3087_cf_status_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox_esr52-dirty">
+  <select id="cf_tracking_firefox_esr52" name="cf_tracking_firefox_esr52">
+        <option value="---"
+          id="v3103_cf_tracking_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr52-dirty">
+  <select id="cf_status_firefox_esr52" name="cf_status_firefox_esr52">
+        <option value="---"
+          id="v3132_cf_status_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox56</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox56-dirty">
+  <select id="cf_tracking_firefox56" name="cf_tracking_firefox56">
+        <option value="---"
+          id="v3271_cf_tracking_firefox56" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox56-dirty">
+  <select id="cf_status_firefox56" name="cf_status_firefox56">
+        <option value="---"
+          id="v3276_cf_status_firefox56" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox57</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox57-dirty">
+  <select id="cf_tracking_firefox57" name="cf_tracking_firefox57">
+        <option value="---"
+          id="v3286_cf_tracking_firefox57" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox57-dirty">
+  <select id="cf_status_firefox57" name="cf_status_firefox57">
+        <option value="---"
+          id="v3291_cf_status_firefox57" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox58</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox58-dirty">
+  <select id="cf_tracking_firefox58" name="cf_tracking_firefox58">
+        <option value="---"
+          id="v3451_cf_tracking_firefox58" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox58-dirty">
+  <select id="cf_status_firefox58" name="cf_status_firefox58">
+        <option value="---"
+          id="v3441_cf_status_firefox58" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+        <div class="field edit-show" style="display:none"
+>
+    <div class="name">Blocking Flags:
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <td class="tracking-flag-name">backlog</td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_backlog-dirty">
+  <select id="cf_backlog" name="cf_backlog">
+        <option value="---"
+          id="v1591_cf_backlog" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-details"
+>
+    <header id="module-details-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Details section"
+           data-label-collapsed="Expand Details section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-details-content"
+             aria-expanded="false"
+             aria-labeledby="module-details-title"
+             aria-describedby="module-details-subtitle"></div>
+        <h2 class="module-title" id="module-details-title">Details</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-details-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-status_whiteboard"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/Whiteboard" id="status_whiteboard-help-link" class="help">Whiteboard:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-status_whiteboard">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#votes" id="-help-link" class="help">Votes:
+        </a>
+    </div>
+
+  
+    <div class=" container">0
+        votes
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-cf_qa_whiteboard" style="display:none"
+>
+    <div class="name">QA Whiteboard:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_qa_whiteboard">
+        ---
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_regression_range" style="display:none"
+>
+    <div class="name">Has Regression Range:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_regression_range">
+            ---
+
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_str" style="display:none"
+>
+    <div class="name">Has STR:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_str">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field edit-show" id="field-bug_file_loc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_file_loc" id="bug_file_loc-help-link" class="help">URL:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_file_loc"><a href="" target="_blank"
+     rel="noreferrer" title=""
+     class="bug-url" data-safe="0"
+  ></a>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-see_also" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#see_also" id="see_also-help-link" class="help">See Also:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-see_also">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-cf_crash_signature" style="display:none"
+>
+    <div class="name">Crash Signature:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_crash_signature">
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-security"
+>
+    <header id="module-security-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Security section"
+           data-label-collapsed="Expand Security section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-security-content"
+             aria-expanded="false"
+             aria-labeledby="module-security-title"
+             aria-describedby="module-security-subtitle"></div>
+        <h2 class="module-title" id="module-security-title">Security</h2>
+          <h3 class="module-subtitle" id="module-security-subtitle">
+            (public)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-security-content" style="display:none"
+  ><div class="groups edit-hide">
+    This bug is publicly visible.
+</div>
+
+<div class="groups edit-show" style="display:none">
+
+
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-user-story" data-non-stick="1"
+>
+    <header id="module-user-story-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse User Story section"
+           data-label-collapsed="Expand User Story section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-user-story-content"
+             aria-expanded="false"
+             aria-labeledby="module-user-story-title"
+             aria-describedby="module-user-story-subtitle"></div>
+        <h2 class="module-title" id="module-user-story-title">User Story</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-user-story-content" style="display:none"
+  >
+    <pre id="user-story"></pre>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="module" id="module-attachments"
+>
+    <header id="module-attachments-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Attachments section"
+           data-label-collapsed="Expand Attachments section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-attachments-content"
+             aria-expanded="true"
+             aria-labeledby="module-attachments-title"
+             aria-describedby="module-attachments-subtitle"></div>
+        <h2 class="module-title" id="module-attachments-title">Attachments</h2>
+          <h3 class="module-subtitle" id="module-attachments-subtitle">
+            (5 attachments, 13 obsolete attachments)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-attachments-content"
+  ><table role="table" class="layout-table" id="attachments">
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8359877">SSRC stats</a>
+        </div>
+        <div>
+            <a href="#c1" class="attach-time activity-ref"><span class="rel-time" title="2014-01-14 09:52 PST" data-time="1389721927">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">10.61 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_241693" ><span class="fn">abr</span>
+</div>:
+              <a href="#c3"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1389721927"
+            >
+              review-</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8359877&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8359877&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8359877">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8359878">specstats.html - stats test page</a>
+        </div>
+        <div>
+            <a href="#c2" class="attach-time activity-ref"><span class="rel-time" title="2014-01-14 09:54 PST" data-time="1389722086">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">13.85 KB,
+          text/html        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8359878&amp;action=edit">Details</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360051">SSRC stats (2)</a>
+        </div>
+        <div>
+            <a href="#c6" class="attach-time activity-ref"><span class="rel-time" title="2014-01-14 14:35 PST" data-time="1389738948">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">11.03 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_241693" ><span class="fn">abr</span>
+</div>:
+              <a href="#c9"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1389738948"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360051&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8360051&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8360051">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360064">Jitter stat</a>
+        </div>
+        <div>
+            <a href="#c7" class="attach-time activity-ref"><span class="rel-time" title="2014-01-14 14:50 PST" data-time="1389739837">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">6.17 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360064&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8360064&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8360064">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360065">specstats.html - stats test page (2)</a>
+        </div>
+        <div>
+            <a href="#c8" class="attach-time activity-ref"><span class="rel-time" title="2014-01-14 14:51 PST" data-time="1389739918">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">13.94 KB,
+          text/html        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360065&amp;action=edit">Details</a>
+    </tr>
+    <tr class=" attach-patch
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360412">SSRC stats (3) r=abr</a>
+        </div>
+        <div>
+            <a href="#c10" class="attach-time activity-ref"><span class="rel-time" title="2014-01-15 06:18 PST" data-time="1389795530">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">11.08 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_456498" ><span class="fn">jib</span>
+</div>:
+              <a href="#c10"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1389795530"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360412&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8360412&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8360412">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360530">Jitter stat (2)</a>
+        </div>
+        <div>
+            <a href="#c11" class="attach-time activity-ref"><span class="rel-time" title="2014-01-15 10:41 PST" data-time="1389811296">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">6.51 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360530&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8360530&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8360530">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360538">specstats.html - stats test page (3)</a>
+        </div>
+        <div>
+            <a href="#c12" class="attach-time activity-ref"><span class="rel-time" title="2014-01-15 10:53 PST" data-time="1389812013">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">14.06 KB,
+          text/html        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360538&amp;action=edit">Details</a>
+    </tr>
+    <tr class=" attach-patch
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8360664">Jitter stat (3)</a>
+        </div>
+        <div>
+            <a href="#c15" class="attach-time activity-ref"><span class="rel-time" title="2014-01-15 14:31 PST" data-time="1389825117">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">6.15 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_241693" ><span class="fn">abr</span>
+</div>:
+              <a href="#c16"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1389825117"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8360664&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8360664&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8360664">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8361869">RTCP stats (WIP)</a>
+        </div>
+        <div>
+            <a href="#c19" class="attach-time activity-ref"><span class="rel-time" title="2014-01-17 12:05 PST" data-time="1389989138">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">13.12 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8361869&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8361869&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8361869">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8362331">RTCP stats in getStats and on the about:webrtc page</a>
+        </div>
+        <div>
+            <a href="#c20" class="attach-time activity-ref"><span class="rel-time" title="2014-01-19 19:02 PST" data-time="1390186965">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">48.75 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8362331&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8362331&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8362331">Splinter Review</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8362332">specstats.html - stats test page (3)</a>
+        </div>
+        <div>
+            <a href="#c21" class="attach-time activity-ref"><span class="rel-time" title="2014-01-19 19:04 PST" data-time="1390187040">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">14.69 KB,
+          text/html        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8362332&amp;action=edit">Details</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8362335">RTCP stats in getStats and on the about:webrtc page (2)</a>
+        </div>
+        <div>
+            <a href="#c22" class="attach-time activity-ref"><span class="rel-time" title="2014-01-19 19:12 PST" data-time="1390187557">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">46.75 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8362335&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8362335&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8362335">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8362339">RTCP stats in getStats and on the about:webrtc page (3)</a>
+        </div>
+        <div>
+            <a href="#c23" class="attach-time activity-ref"><span class="rel-time" title="2014-01-19 19:34 PST" data-time="1390188867">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">48.01 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_11539" ><span class="fn">jesup</span>
+</div>:
+              <a href="#c24"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1390188867"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8362339&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8362339&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8362339">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8363039">RTCP stats in getStats and on the about:webrtc page (4) r=jesup</a>
+        </div>
+        <div>
+            <a href="#c25" class="attach-time activity-ref"><span class="rel-time" title="2014-01-21 09:04 PST" data-time="1390323881">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">48.02 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_456498" ><span class="fn">jib</span>
+</div>:
+              <a href="#c25"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1390323881"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8363039&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8363039&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8363039">Splinter Review</a>
+    </tr>
+    <tr class=" attach-patch
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8363114">RTCP stats in getStats and about:webrtc (5) r=jesup</a>
+        </div>
+        <div>
+            <a href="#c26" class="attach-time activity-ref"><span class="rel-time" title="2014-01-21 11:03 PST" data-time="1390331009">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">48.03 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_456498" ><span class="fn">jib</span>
+</div>:
+              <a href="#c26"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1390331009"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8363114&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8363114&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=947665&attachment=8363114">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8397943">chromestats.html - modified to use  spec-constraints</a>
+        </div>
+        <div>
+            <a href="#c32" class="attach-time activity-ref"><span class="rel-time" title="2014-03-27 10:26 PDT" data-time="1395941193">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">14.10 KB,
+          text/html        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8397943&amp;action=edit">Details</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8397955">chromestats.html - modified to use spec-constraints (2)</a>
+        </div>
+        <div>
+            <a href="#c33" class="attach-time activity-ref"><span class="rel-time" title="2014-03-27 10:46 PDT" data-time="1395942373">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">20.34 KB,
+          text/html        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8397955&amp;action=edit">Details</a>
+    </tr>
+</table>
+
+<div id="attachments-actions">
+    <button type="button" id="attachments-obsolete-btn" class="minor">Show Obsolete Attachments</button>
+</div>
+  </div>
+</section>
+
+
+
+<script nonce="114AqTxOpBlqM8MseSrovjbPSvqREjVuQ0i7ov1TGX2asw44">
+  init_module_visibility();
+</script>
+
+
+
+
+
+
+<div id="comment-actions">
+    <button type="button" id="bottom-btn" class="minor">Bottom &darr;</button>
+  <div class="dropdown">
+    <button type="button" id="comment-tags-btn" arai-haspopup="true" aria-label="Tags Menu"
+      aria-expanded="false" aria-controls="comment-tags-menu" class="dropdown-button minor">Tags &#9662;</button>
+    <ul id="comment-tags-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a role="menuitem" tabindex="-1" data-comment-tag="">Reset</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button type="button" id="view-menu-btn" arai-haspopup="true" aria-label="View Menu"
+      aria-expanded="false" aria-controls="view-menu" class="dropdown-button minor">View &#9662;</button>
+    <ul id="view-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-reset" role="menuitem" tabindex="-1">Reset</a>
+      </li>
+      <li role="presentation">
+        <a id="view-collapse-all" role="menuitem" tabindex="-1">Collapse All</a>
+      </li>
+      <li role="presentation">
+        <a id="view-expand-all" role="menuitem" tabindex="-1">Expand All</a>
+      </li>
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-comments-only" role="menuitem" tabindex="-1">Comments Only</a>
+      </li>
+      <li role="presentation">
+        <a id="view-toggle-cc" role="menuitem" tabindex="-1">Show CC Changes</a>
+      </li>
+    </ul>
+   </div>
+</div>
+<div class="change-set" id="c0"><div class="comment" data-id="8169768" data-no="0">
+    
+    <table class="layout-table change-head assignee" id="ch-0">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-0">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-0" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c0">Description</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-12-07 17:45 PST" data-time="1386467124">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-0">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-0">Make more. Followup to <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Provide the webRTC stats RTP packets/bytes-sent/received"
+   href="show_bug.cgi?id=908695">Bug 908695</a>.</pre></div><div class="change-set" id="c1"><div class="comment" data-id="8288759" data-no="1">
+    
+    <table class="layout-table change-head assignee" id="ch-1">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-1">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-1" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c1">Comment 1</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 09:52 PST" data-time="1389721927">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-1">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-1">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8359877" name="attach_8359877" title="SSRC stats">attachment 8359877</a> <a href="attachment.cgi?id=8359877&amp;action=edit" title="SSRC stats">[details]</a> <a href="attachment.cgi?id=8359877&amp;action=diff" title="SSRC stats">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8359877'>[review]</a>
+SSRC stats</pre><div class="activity"><div class="change cc-only" style="display:none">CC: adam</div><div class="change">
+        <a href="attachment.cgi?id=8359877&amp;action=edit"
+           title="SSRC stats"
+           class=""
+        >Attachment #8359877</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c2"><div class="comment" data-id="8288775" data-no="2">
+    
+    <table class="layout-table change-head assignee" id="ch-2">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-2">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-2" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c2">Comment 2</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 09:54 PST" data-time="1389722086">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-2">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-2">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8359878" name="attach_8359878" title="specstats.html - stats test page">attachment 8359878</a> <a href="attachment.cgi?id=8359878&amp;action=edit" title="specstats.html - stats test page">[details]</a></span>
+specstats.html - stats test page</pre></div><div class="change-set" id="c3"><div class="comment" data-id="8289861" data-no="3">
+    
+    <table class="layout-table change-head " id="ch-3">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_241693" ><img src="https://secure.gravatar.com/avatar/e8bebce30304eb8c33c1f8b26fd4326a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_241693" ><a class="email " href="user_profile?user_id=241693" > <span class="fna">Adam Roach [:abr]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-3">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-3" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c3">Comment 3</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 13:43 PST" data-time="1389735839">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-3">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-3">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8359877" name="attach_8359877" title="SSRC stats">attachment 8359877</a> <a href="attachment.cgi?id=8359877&amp;action=edit" title="SSRC stats">[details]</a> <a href="attachment.cgi?id=8359877&amp;action=diff" title="SSRC stats">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8359877'>[review]</a>
+SSRC stats
+
+Review of <span class="bz_obsolete"><a href="attachment.cgi?id=8359877" name="attach_8359877" title="SSRC stats">attachment 8359877</a> <a href="attachment.cgi?id=8359877&amp;action=edit" title="SSRC stats">[details]</a> <a href="attachment.cgi?id=8359877&amp;action=diff" title="SSRC stats">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8359877'>[review]</a>:
+-----------------------------------------------------------------
+
+This is kind of the right idea, but the cast to down to WebRTC classes completely defeats the Conduit class hierarchy design. You need to refactor this so that PCImpl's calls look like &quot;mp.Conduit()-&gt;GetRemoteSSRC(&amp;remoteSsrc)&quot;.
+
+::: media/webrtc/signaling/src/media-conduit/AudioConduit.cpp
+&#64;&#64; +232,5 &#64;&#64;
+<span class="quote">&gt;      CSFLogError(logTag, &quot;%s Unable to initialize VoEVideoSync&quot;, __FUNCTION__);
+&gt;      return kMediaConduitSessionNotInited;
+&gt;    }
+&gt;  
+&gt; +  if( !(mPtrRTP = webrtc::VoERTP_RTCP::GetInterface(mVoiceEngine)))</span >
+
+fix spacing: &quot;if (!(...&quot;
+
+&#64;&#64; +234,5 &#64;&#64;
+<span class="quote">&gt;    }
+&gt;  
+&gt; +  if( !(mPtrRTP = webrtc::VoERTP_RTCP::GetInterface(mVoiceEngine)))
+&gt; +  {
+&gt; +    CSFLogError(logTag, &quot;%s Unable to get audio RTCP interface &quot;, __FUNCTION__);</span >
+
+&quot;RTP/RTCP interface&quot;
+
+::: media/webrtc/signaling/src/media-conduit/VideoConduit.h
+&#64;&#64; +207,5 &#64;&#64;
+<span class="quote">&gt;    MediaConduitErrorCode Init(WebrtcVideoConduit *other);
+&gt;  
+&gt;    int GetChannel() { return mChannel; }
+&gt;    webrtc::VideoEngine* GetVideoEngine() { return mVideoEngine; }
+&gt; +  int GetLocalSSRC(unsigned int* ssrc);</span >
+
+bool? I don't thing we need to propagate ViE's 0/-1 response model up to our code.
+
+::: media/webrtc/signaling/src/peerconnection/PeerConnectionImpl.cpp
+&#64;&#64; +1968,5 &#64;&#64;
+<span class="quote">&gt; +    switch (mp.Conduit()-&gt;type()) {
+&gt; +      case MediaSessionConduit::VIDEO: {
+&gt; +        idstr = NS_LITERAL_STRING(&quot;video_&quot;);
+&gt; +        WebrtcVideoConduit *conduit =
+&gt; +            static_cast&lt;WebrtcVideoConduit*&gt;(mp.Conduit());</span >
+
+We *really* shouldn't see Webrtc constructs here. The whole point of the class abstraction of the conduits is that we can have multiple, different implementations without having to retool all the code that uses them.
+
+What you really need to do is add virtual &quot;Get{Local,Remote}SSRC&quot; methods to MediaSessionConduit, and then plumb these down to Webrtc{Video,Audio}Conduit.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8359877&amp;action=edit"
+           title="SSRC stats"
+           class=""
+        >Attachment #8359877</a> -
+        Flags: review?(adam) &rarr; review-</div></div></div><div class="change-set" id="c4"><div class="comment" data-id="8289934" data-no="4">
+    
+    <table class="layout-table change-head assignee" id="ch-4">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-4">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-4" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c4">Comment 4</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 14:04 PST" data-time="1389737087">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-4">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-4">(In reply to Adam Roach [:abr] from <a href="show_bug.cgi?id=947665#c3">comment #3</a>)
+<span class="quote">&gt; This is kind of the right idea, but the cast to down to WebRTC classes
+&gt; completely defeats the Conduit class hierarchy design. You need to refactor
+&gt; this so that PCImpl's calls look like
+&gt; &quot;mp.Conduit()-&gt;GetRemoteSSRC(&amp;remoteSsrc)&quot;.</span >
+
+Will do.
+
+<span class="quote">&gt; ::: media/webrtc/signaling/src/media-conduit/AudioConduit.cpp
+&gt; &#64;&#64; +232,5 &#64;&#64;
+&gt; &gt;      CSFLogError(logTag, &quot;%s Unable to initialize VoEVideoSync&quot;, __FUNCTION__);
+&gt; &gt;      return kMediaConduitSessionNotInited;
+&gt; &gt;    }
+&gt; &gt;  
+&gt; &gt; +  if( !(mPtrRTP = webrtc::VoERTP_RTCP::GetInterface(mVoiceEngine)))
+&gt; 
+&gt; fix spacing: &quot;if (!(...&quot;</span >
+
+Right. Funny, I cut'n'pasted it from <a rel="nofollow" href="http://mxr.mozilla.org/mozilla-central/source/media/webrtc/signaling/src/media-conduit/VideoConduit.cpp#222">http://mxr.mozilla.org/mozilla-central/source/media/webrtc/signaling/src/media-conduit/VideoConduit.cpp#222</a>
+
+<span class="quote">&gt; &#64;&#64; +234,5 &#64;&#64;
+&gt; &gt;    }
+&gt; &gt;  
+&gt; &gt; +  if( !(mPtrRTP = webrtc::VoERTP_RTCP::GetInterface(mVoiceEngine)))
+&gt; &gt; +  {
+&gt; &gt; +    CSFLogError(logTag, &quot;%s Unable to get audio RTCP interface &quot;, __FUNCTION__);
+&gt; 
+&gt; &quot;RTP/RTCP interface&quot;</span >
+
+Want me to touch <a rel="nofollow" href="http://mxr.mozilla.org/mozilla-central/source/media/webrtc/signaling/src/media-conduit/VideoConduit.cpp#224">http://mxr.mozilla.org/mozilla-central/source/media/webrtc/signaling/src/media-conduit/VideoConduit.cpp#224</a> as well?
+
+<span class="quote">&gt; ::: media/webrtc/signaling/src/media-conduit/VideoConduit.h
+&gt; &#64;&#64; +207,5 &#64;&#64;
+&gt; &gt;    MediaConduitErrorCode Init(WebrtcVideoConduit *other);
+&gt; &gt;  
+&gt; &gt;    int GetChannel() { return mChannel; }
+&gt; &gt;    webrtc::VideoEngine* GetVideoEngine() { return mVideoEngine; }
+&gt; &gt; +  int GetLocalSSRC(unsigned int* ssrc);
+&gt; 
+&gt; bool? I don't thing we need to propagate ViE's 0/-1 response model up to our
+&gt; code.</span >
+
+Thank goodness.
+
+<span class="quote">&gt; ::: media/webrtc/signaling/src/peerconnection/PeerConnectionImpl.cpp
+&gt; &#64;&#64; +1968,5 &#64;&#64;
+&gt; &gt; +    switch (mp.Conduit()-&gt;type()) {
+&gt; &gt; +      case MediaSessionConduit::VIDEO: {
+&gt; &gt; +        idstr = NS_LITERAL_STRING(&quot;video_&quot;);
+&gt; &gt; +        WebrtcVideoConduit *conduit =
+&gt; &gt; +            static_cast&lt;WebrtcVideoConduit*&gt;(mp.Conduit());
+&gt; 
+&gt; We *really* shouldn't see Webrtc constructs here. The whole point of the
+&gt; class abstraction of the conduits is that we can have multiple, different
+&gt; implementations without having to retool all the code that uses them.
+&gt; 
+&gt; What you really need to do is add virtual &quot;Get{Local,Remote}SSRC&quot; methods to
+&gt; MediaSessionConduit, and then plumb these down to Webrtc{Video,Audio}Conduit.</span >
+
+I'll do that.</pre></div><div class="change-set" id="c5"><div class="comment" data-id="8289981" data-no="5">
+    
+    <table class="layout-table change-head " id="ch-5">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_241693" ><img src="https://secure.gravatar.com/avatar/e8bebce30304eb8c33c1f8b26fd4326a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_241693" ><a class="email " href="user_profile?user_id=241693" > <span class="fna">Adam Roach [:abr]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-5">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-5" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c5">Comment 5</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 14:15 PST" data-time="1389737746">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-5">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-5">(In reply to Jan-Ivar Bruaroey [:jib] from <a href="show_bug.cgi?id=947665#c4">comment #4</a>)
+<span class="quote">&gt; Want me to touch
+&gt; <a rel="nofollow" href="http://mxr.mozilla.org/mozilla-central/source/media/webrtc/signaling/src/">http://mxr.mozilla.org/mozilla-central/source/media/webrtc/signaling/src/</a>
+&gt; <a href="https://github.com/media-conduit/VideoConduit.cpp/issues/224">media-conduit/VideoConduit.cpp#224</a> as well?</span >
+
+Since you'll be opening that file as well, it's probably worthwhile.</pre></div><div class="change-set" id="c6"><div class="comment" data-id="8290076" data-no="6">
+    
+    <table class="layout-table change-head assignee" id="ch-6">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-6">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-6" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c6">Comment 6</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 14:35 PST" data-time="1389738948">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-6">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-6">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8360051" name="attach_8360051" title="SSRC stats (2)">attachment 8360051</a> <a href="attachment.cgi?id=8360051&amp;action=edit" title="SSRC stats (2)">[details]</a> <a href="attachment.cgi?id=8360051&amp;action=diff" title="SSRC stats (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360051'>[review]</a>
+SSRC stats (2)
+
+Feedback incorporated.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8359877&amp;action=edit"
+           title="SSRC stats"
+           class=""
+        >Attachment #8359877</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8360051&amp;action=edit"
+           title="SSRC stats (2)"
+           class=""
+        >Attachment #8360051</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c7"><div class="comment" data-id="8290139" data-no="7">
+    
+    <table class="layout-table change-head assignee" id="ch-7">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-7">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-7" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c7">Comment 7</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 14:50 PST" data-time="1389739837">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-7">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-7">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8360064" name="attach_8360064" title="Jitter stat">attachment 8360064</a> <a href="attachment.cgi?id=8360064&amp;action=edit" title="Jitter stat">[details]</a> <a href="attachment.cgi?id=8360064&amp;action=diff" title="Jitter stat">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360064'>[review]</a>
+Jitter stat</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360064&amp;action=edit"
+           title="Jitter stat"
+           class=""
+        >Attachment #8360064</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c8"><div class="comment" data-id="8290145" data-no="8">
+    
+    <table class="layout-table change-head assignee" id="ch-8">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-8">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-8" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c8">Comment 8</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 14:51 PST" data-time="1389739918">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-8">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-8">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8360065" name="attach_8360065" title="specstats.html - stats test page (2)">attachment 8360065</a> <a href="attachment.cgi?id=8360065&amp;action=edit" title="specstats.html - stats test page (2)">[details]</a></span>
+specstats.html - stats test page (2)
+
+Displays jitter.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8359878&amp;action=edit"
+           title="specstats.html - stats test page"
+           class=""
+        >Attachment #8359878</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c9"><div class="comment" data-id="8290152" data-no="9">
+    
+    <table class="layout-table change-head " id="ch-9">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_241693" ><img src="https://secure.gravatar.com/avatar/e8bebce30304eb8c33c1f8b26fd4326a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_241693" ><a class="email " href="user_profile?user_id=241693" > <span class="fna">Adam Roach [:abr]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-9">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-9" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c9">Comment 9</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-14 14:53 PST" data-time="1389740032">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-9">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-9">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8360051" name="attach_8360051" title="SSRC stats (2)">attachment 8360051</a> <a href="attachment.cgi?id=8360051&amp;action=edit" title="SSRC stats (2)">[details]</a> <a href="attachment.cgi?id=8360051&amp;action=diff" title="SSRC stats (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360051'>[review]</a>
+SSRC stats (2)
+
+Review of <span class="bz_obsolete"><a href="attachment.cgi?id=8360051" name="attach_8360051" title="SSRC stats (2)">attachment 8360051</a> <a href="attachment.cgi?id=8360051&amp;action=edit" title="SSRC stats (2)">[details]</a> <a href="attachment.cgi?id=8360051&amp;action=diff" title="SSRC stats (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360051'>[review]</a>:
+-----------------------------------------------------------------
+
+Thanks; much cleaner. r+ conditional on fixing the itoa potential collision.
+
+::: media/webrtc/signaling/src/media-conduit/AudioConduit.cpp
+&#64;&#64; +232,5 &#64;&#64;
+<span class="quote">&gt;      CSFLogError(logTag, &quot;%s Unable to initialize VoEVideoSync&quot;, __FUNCTION__);
+&gt;      return kMediaConduitSessionNotInited;
+&gt;    }
+&gt;  
+&gt; +  if(!(mPtrRTP = webrtc::VoERTP_RTCP::GetInterface(mVoiceEngine)))</span >
+
+Space between &quot;if&quot; and parenthesis.
+
+::: media/webrtc/signaling/src/peerconnection/PeerConnectionImpl.cpp
+&#64;&#64; +1944,5 &#64;&#64;
+<span class="quote">&gt;    return NS_OK;
+&gt;  }
+&gt;  
+&gt;  #ifdef MOZILLA_INTERNAL_API
+&gt; +static nsString itoa(unsigned int i) {</span >
+
+I'm afraid that this will collide with the platform-provided &quot;itoa&quot; in some build environments. If you really think there's value in extracting this into its own function, please name it something less likely to cause conflicts.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360051&amp;action=edit"
+           title="SSRC stats (2)"
+           class=""
+        >Attachment #8360051</a> -
+        Flags: review?(adam) &rarr; review+</div></div></div><div class="change-set" id="c10"><div class="comment" data-id="8292527" data-no="10">
+    
+    <table class="layout-table change-head assignee" id="ch-10">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" ><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" ><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-10">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-10" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c10">Comment 10</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 06:18 PST" data-time="1389795530">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-10">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-10">Created <span class=""><a href="attachment.cgi?id=8360412" name="attach_8360412" title="SSRC stats (3) r=abr">attachment 8360412</a> <a href="attachment.cgi?id=8360412&amp;action=edit" title="SSRC stats (3) r=abr">[details]</a> <a href="attachment.cgi?id=8360412&amp;action=diff" title="SSRC stats (3) r=abr">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360412'>[review]</a>
+SSRC stats (3) r=abr
+
+Fixed nits. Carrying forward r+ from Adam.
+
+Try: <a rel="nofollow" href="https://tbpl.mozilla.org/?tree=Try&amp;rev=6f4f1973f9c8">https://tbpl.mozilla.org/?tree=Try&amp;rev=6f4f1973f9c8</a></pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360051&amp;action=edit"
+           title="SSRC stats (2)"
+           class=""
+        >Attachment #8360051</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8360412&amp;action=edit"
+           title="SSRC stats (3) r=abr"
+           class=""
+        >Attachment #8360412</a> -
+        Flags: review+</div></div></div><div class="change-set" id="a3328427_456498"><div class="change" id="aa3328427_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3328427_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a3328427_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3328427_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3328427_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a3328427_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 06:19 PST" data-time="1389795551">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360412&amp;action=edit"
+           title="SSRC stats (3) r=abr"
+           class=""
+        >Attachment #8360412</a> -
+        Attachment description: SSRC stats (2) r=abr &rarr; SSRC stats (3) r=abr</div></div></div><div class="change-set" id="c11"><div class="comment" data-id="8293980" data-no="11">
+    
+    <table class="layout-table change-head assignee" id="ch-11">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3328427_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3328427_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-11">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-11" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c11">Comment 11</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 10:41 PST" data-time="1389811296">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-11">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-11">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8360530" name="attach_8360530" title="Jitter stat (2)">attachment 8360530</a> <a href="attachment.cgi?id=8360530&amp;action=edit" title="Jitter stat (2)">[details]</a> <a href="attachment.cgi?id=8360530&amp;action=diff" title="Jitter stat (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360530'>[review]</a>
+Jitter stat (2)
+
+Incorporated verbal feedback from reviewer.
+- Refactored ontop of ssrc patch
+- Now returns correct jitter for audio (received rather than sent)
+- Renamed new methods with more appropriate names.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360064&amp;action=edit"
+           title="Jitter stat"
+           class=""
+        >Attachment #8360064</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8360064&amp;action=edit"
+           title="Jitter stat"
+           class=""
+        >Attachment #8360064</a> -
+        Flags: <span class="activity-deleted">review?(adam)</span></div><div class="change">
+        <a href="attachment.cgi?id=8360530&amp;action=edit"
+           title="Jitter stat (2)"
+           class=""
+        >Attachment #8360530</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c12"><div class="comment" data-id="8294049" data-no="12">
+    
+    <table class="layout-table change-head assignee" id="ch-12">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3328427_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3328427_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-12">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-12" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c12">Comment 12</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 10:53 PST" data-time="1389812013">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-12">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-12">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8360538" name="attach_8360538" title="specstats.html - stats test page (3)">attachment 8360538</a> <a href="attachment.cgi?id=8360538&amp;action=edit" title="specstats.html - stats test page (3)">[details]</a></span>
+specstats.html - stats test page (3)
+
+I think I've uncovered a bug: a new specstats.html is needed to get audio jitter reports.
+
+It appears we don't receive RTCP sender reports (w/audio jitter) unless a stream is added to BOTH peerConnections involved. I've filed <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - Not receiving audio RTCP Sender Reports unless streams are added in both directions"
+   href="show_bug.cgi?id=960177">Bug 960177</a> for this.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360065&amp;action=edit"
+           title="specstats.html - stats test page (2)"
+           class=""
+        >Attachment #8360065</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c13"><div class="comment" data-id="8294148" data-no="13">
+    
+    <table class="layout-table change-head assignee" id="ch-13">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3328427_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3328427_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-13">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-13" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c13">Comment 13</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 11:09 PST" data-time="1389812960">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-13">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-13">Hmm, not sure why it takes a second for audio jitter reports to appear when video jitter appears instantaneously. Seems suspicious.</pre></div><div class="change-set" id="a3348819_456498"><div class="change" id="aa3348819_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3348819_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a3348819_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3348819_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3348819_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a3348819_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 11:59 PST" data-time="1389815943">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Keywords: checkin-needed</div><div class="change">Whiteboard: [leave-open]</div></div></div><div class="change-set" id="c14"><div class="comment" data-id="8294924" data-no="14">
+    
+    <table class="layout-table change-head " id="ch-14">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_241693" id="a3348819_456498"><img src="https://secure.gravatar.com/avatar/e8bebce30304eb8c33c1f8b26fd4326a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_241693" id="a3348819_456498"><a class="email " href="user_profile?user_id=241693" > <span class="fna">Adam Roach [:abr]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-14">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-14" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c14">Comment 14</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 13:36 PST" data-time="1389821774">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-14">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-14">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8360530" name="attach_8360530" title="Jitter stat (2)">attachment 8360530</a> <a href="attachment.cgi?id=8360530&amp;action=edit" title="Jitter stat (2)">[details]</a> <a href="attachment.cgi?id=8360530&amp;action=diff" title="Jitter stat (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360530'>[review]</a>
+Jitter stat (2)
+
+Review of <span class="bz_obsolete"><a href="attachment.cgi?id=8360530" name="attach_8360530" title="Jitter stat (2)">attachment 8360530</a> <a href="attachment.cgi?id=8360530&amp;action=edit" title="Jitter stat (2)">[details]</a> <a href="attachment.cgi?id=8360530&amp;action=diff" title="Jitter stat (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360530'>[review]</a>:
+-----------------------------------------------------------------
+
+Looks good except where I confused you (sorry!). I really wish the ViERTP_RTCP and VoERTP_RTCP interfaces didn't have capricious differences between them. Sigh.
+
+::: media/webrtc/signaling/src/media-conduit/AudioConduit.cpp
+&#64;&#64; +153,5 &#64;&#64;
+<span class="quote">&gt; +  unsigned int timestamp;
+&gt; +  unsigned int playoutTimestamp;
+&gt; +  unsigned short fractionLost;
+&gt; +
+&gt; +  return !mPtrRTP-&gt;GetRemoteRTCPData(mChannel,</span >
+
+After digging into the API a bit more, I think I may have led you astray in our IRC conversation. I think your original formulation was actually correct, in that GetRTPStatistics() reports the jitter that we have calculated based on the timing of RTP packets arriving.</pre></div><div class="change-set" id="c15"><div class="comment" data-id="8295223" data-no="15">
+    
+    <table class="layout-table change-head assignee" id="ch-15">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3348819_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3348819_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-15">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-15" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c15">Comment 15</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 14:31 PST" data-time="1389825117">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-15">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-15">Created <span class=""><a href="attachment.cgi?id=8360664" name="attach_8360664" title="Jitter stat (3)">attachment 8360664</a> <a href="attachment.cgi?id=8360664&amp;action=edit" title="Jitter stat (3)">[details]</a> <a href="attachment.cgi?id=8360664&amp;action=diff" title="Jitter stat (3)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360664'>[review]</a>
+Jitter stat (3)
+
+Reverted to use GetRTPStatistics() as noted.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360530&amp;action=edit"
+           title="Jitter stat (2)"
+           class=""
+        >Attachment #8360530</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8360530&amp;action=edit"
+           title="Jitter stat (2)"
+           class=""
+        >Attachment #8360530</a> -
+        Flags: <span class="activity-deleted">review?(adam)</span></div><div class="change">
+        <a href="attachment.cgi?id=8360664&amp;action=edit"
+           title="Jitter stat (3)"
+           class=""
+        >Attachment #8360664</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c16"><div class="comment" data-id="8295306" data-no="16">
+    
+    <table class="layout-table change-head " id="ch-16">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_241693" id="a3348819_456498"><img src="https://secure.gravatar.com/avatar/e8bebce30304eb8c33c1f8b26fd4326a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_241693" id="a3348819_456498"><a class="email " href="user_profile?user_id=241693" > <span class="fna">Adam Roach [:abr]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-16">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-16" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c16">Comment 16</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 14:46 PST" data-time="1389825975">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-16">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-16">Comment on <span class=""><a href="attachment.cgi?id=8360664" name="attach_8360664" title="Jitter stat (3)">attachment 8360664</a> <a href="attachment.cgi?id=8360664&amp;action=edit" title="Jitter stat (3)">[details]</a> <a href="attachment.cgi?id=8360664&amp;action=diff" title="Jitter stat (3)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360664'>[review]</a>
+Jitter stat (3)
+
+Review of <span class=""><a href="attachment.cgi?id=8360664" name="attach_8360664" title="Jitter stat (3)">attachment 8360664</a> <a href="attachment.cgi?id=8360664&amp;action=edit" title="Jitter stat (3)">[details]</a> <a href="attachment.cgi?id=8360664&amp;action=diff" title="Jitter stat (3)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8360664'>[review]</a>:
+-----------------------------------------------------------------
+
+Looks good. Thanks.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360664&amp;action=edit"
+           title="Jitter stat (3)"
+           class=""
+        >Attachment #8360664</a> -
+        Flags: review?(adam) &rarr; review+</div></div></div><div class="change-set" id="a3359249_456498"><div class="change" id="aa3359249_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3359249_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a3359249_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3359249_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3359249_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a3359249_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 14:52 PST" data-time="1389826373">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360065&amp;action=edit"
+           title="specstats.html - stats test page (2)"
+           class=""
+        >Attachment #8360065</a> -
+        Attachment is obsolete: false</div></div></div><div class="change-set" id="a3359266_456498"><div class="change" id="aa3359266_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3359266_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a3359266_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3359266_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3359266_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a3359266_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-15 14:53 PST" data-time="1389826390">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360538&amp;action=edit"
+           title="specstats.html - stats test page (3)"
+           class=""
+        >Attachment #8360538</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c17"><div class="comment" data-id="8297771" data-no="17">
+    
+    <table class="layout-table change-head " id="ch-17">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_75935" id="a3359266_456498"><img src="https://secure.gravatar.com/avatar/a10f7f199c75a9a5a1eb347730524a7a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_75935" id="a3359266_456498"><a class="email " href="user_profile?user_id=75935" > <span class="fna">Ryan VanderMeulen [:RyanVM]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-17">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-17" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c17">Comment 17</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-16 05:31 PST" data-time="1389879083">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-17">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-17"><a rel="nofollow" href="https://hg.mozilla.org/integration/mozilla-inbound/rev/6fa6159af7e5">https://hg.mozilla.org/integration/mozilla-inbound/rev/6fa6159af7e5</a>
+<a rel="nofollow" href="https://hg.mozilla.org/integration/mozilla-inbound/rev/abe44fd348b6">https://hg.mozilla.org/integration/mozilla-inbound/rev/abe44fd348b6</a></pre><div class="activity"><div class="change">Keywords: <span class="activity-deleted">checkin-needed</span></div></div></div><div class="change-set" id="c18"><div class="comment" data-id="8299703" data-no="18">
+    
+    <table class="layout-table change-head " id="ch-18">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_75935" id="a3359266_456498"><img src="https://secure.gravatar.com/avatar/a10f7f199c75a9a5a1eb347730524a7a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_75935" id="a3359266_456498"><a class="email " href="user_profile?user_id=75935" > <span class="fna">Ryan VanderMeulen [:RyanVM]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-18">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-18" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c18">Comment 18</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-16 12:14 PST" data-time="1389903296">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-18">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-18"><a rel="nofollow" href="https://hg.mozilla.org/mozilla-central/rev/6fa6159af7e5">https://hg.mozilla.org/mozilla-central/rev/6fa6159af7e5</a>
+<a rel="nofollow" href="https://hg.mozilla.org/mozilla-central/rev/abe44fd348b6">https://hg.mozilla.org/mozilla-central/rev/abe44fd348b6</a></pre></div><div class="change-set" id="c19"><div class="comment" data-id="8304885" data-no="19">
+    
+    <table class="layout-table change-head assignee" id="ch-19">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3359266_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3359266_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-19">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-19" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c19">Comment 19</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-17 12:05 PST" data-time="1389989138">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-19">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-19">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8361869" name="attach_8361869" title="RTCP stats (WIP)">attachment 8361869</a> <a href="attachment.cgi?id=8361869&amp;action=edit" title="RTCP stats (WIP)">[details]</a> <a href="attachment.cgi?id=8361869&amp;action=diff" title="RTCP stats (WIP)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8361869'>[review]</a>
+RTCP stats (WIP)
+
+Realized I was missing RTCP stats. Only for inbound audio at the moment.</pre></div><div class="change-set" id="c20"><div class="comment" data-id="8308509" data-no="20">
+    
+    <table class="layout-table change-head assignee" id="ch-20">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3359266_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3359266_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-20">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-20" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c20">Comment 20</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-19 19:02 PST" data-time="1390186965">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-20">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-20">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8362331" name="attach_8362331" title="RTCP stats in getStats and on the about:webrtc page">attachment 8362331</a> <a href="attachment.cgi?id=8362331&amp;action=edit" title="RTCP stats in getStats and on the about:webrtc page">[details]</a> <a href="attachment.cgi?id=8362331&amp;action=diff" title="RTCP stats in getStats and on the about:webrtc page">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8362331'>[review]</a>
+RTCP stats in getStats and on the about:webrtc page
+
+A bit last minute, but I'll take the first review that lands me on 29. ;-)
+
+- Includes remoteId cross-linked RTCP information in getStats, per spec.
+- about:webrtc: now groups RTP + RTCP stats together.
+
+Try: <a rel="nofollow" href="https://tbpl.mozilla.org/?tree=Try&amp;rev=c5408e448688">https://tbpl.mozilla.org/?tree=Try&amp;rev=c5408e448688</a></pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8361869&amp;action=edit"
+           title="RTCP stats (WIP)"
+           class=""
+        >Attachment #8361869</a> -
+        Attachment is obsolete: true</div><div class="change cc-only" style="display:none">CC: rjesup</div><div class="change">
+        <a href="attachment.cgi?id=8362331&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page"
+           class=""
+        >Attachment #8362331</a> -
+        Flags: review?(rjesup)</div><div class="change">
+        <a href="attachment.cgi?id=8362331&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page"
+           class=""
+        >Attachment #8362331</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c21"><div class="comment" data-id="8308514" data-no="21">
+    
+    <table class="layout-table change-head assignee" id="ch-21">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3359266_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3359266_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-21">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-21" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c21">Comment 21</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-19 19:04 PST" data-time="1390187040">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-21">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-21">Created <span class=""><a href="attachment.cgi?id=8362332" name="attach_8362332" title="specstats.html - stats test page (3)">attachment 8362332</a> <a href="attachment.cgi?id=8362332&amp;action=edit" title="specstats.html - stats test page (3)">[details]</a></span>
+specstats.html - stats test page (3)</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8360065&amp;action=edit"
+           title="specstats.html - stats test page (2)"
+           class=""
+        >Attachment #8360065</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="a3719954_456498"><div class="change" id="aa3719954_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3719954_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a3719954_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3719954_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3719954_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a3719954_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-19 19:04 PST" data-time="1390187078">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Whiteboard: <span class="activity-deleted">[leave-open]</span></div></div></div><div class="change-set" id="c22"><div class="comment" data-id="8308526" data-no="22">
+    
+    <table class="layout-table change-head assignee" id="ch-22">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3719954_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3719954_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-22">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-22" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c22">Comment 22</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-19 19:12 PST" data-time="1390187557">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-22">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-22">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8362335" name="attach_8362335" title="RTCP stats in getStats and on the about:webrtc page (2)">attachment 8362335</a> <a href="attachment.cgi?id=8362335&amp;action=edit" title="RTCP stats in getStats and on the about:webrtc page (2)">[details]</a> <a href="attachment.cgi?id=8362335&amp;action=diff" title="RTCP stats in getStats and on the about:webrtc page (2)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8362335'>[review]</a>
+RTCP stats in getStats and on the about:webrtc page (2)
+
+Removed commented-out code I left by accident.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8362331&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page"
+           class=""
+        >Attachment #8362331</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8362331&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page"
+           class=""
+        >Attachment #8362331</a> -
+        Flags: <span class="activity-deleted">review?(rjesup)</span></div><div class="change">
+        <a href="attachment.cgi?id=8362331&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page"
+           class=""
+        >Attachment #8362331</a> -
+        Flags: <span class="activity-deleted">review?(adam)</span></div><div class="change">
+        <a href="attachment.cgi?id=8362335&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (2)"
+           class=""
+        >Attachment #8362335</a> -
+        Flags: review?(rjesup)</div><div class="change">
+        <a href="attachment.cgi?id=8362335&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (2)"
+           class=""
+        >Attachment #8362335</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c23"><div class="comment" data-id="8308546" data-no="23">
+    
+    <table class="layout-table change-head assignee" id="ch-23">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3719954_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3719954_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-23">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-23" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c23">Comment 23</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-19 19:34 PST" data-time="1390188867">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-23">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-23">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8362339" name="attach_8362339" title="RTCP stats in getStats and on the about:webrtc page (3)">attachment 8362339</a> <a href="attachment.cgi?id=8362339&amp;action=edit" title="RTCP stats in getStats and on the about:webrtc page (3)">[details]</a> <a href="attachment.cgi?id=8362339&amp;action=diff" title="RTCP stats in getStats and on the about:webrtc page (3)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8362339'>[review]</a>
+RTCP stats in getStats and on the about:webrtc page (3)
+
+Fixed mochitest/pc.js to not count remote inbound/outbound stats.
+
+Try: <a rel="nofollow" href="https://tbpl.mozilla.org/?tree=Try&amp;rev=f7e158507e4c">https://tbpl.mozilla.org/?tree=Try&amp;rev=f7e158507e4c</a></pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8362335&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (2)"
+           class=""
+        >Attachment #8362335</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8362335&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (2)"
+           class=""
+        >Attachment #8362335</a> -
+        Flags: <span class="activity-deleted">review?(rjesup)</span></div><div class="change">
+        <a href="attachment.cgi?id=8362335&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (2)"
+           class=""
+        >Attachment #8362335</a> -
+        Flags: <span class="activity-deleted">review?(adam)</span></div><div class="change">
+        <a href="attachment.cgi?id=8362339&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (3)"
+           class=""
+        >Attachment #8362339</a> -
+        Flags: review?(rjesup)</div><div class="change">
+        <a href="attachment.cgi?id=8362339&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (3)"
+           class=""
+        >Attachment #8362339</a> -
+        Flags: review?(adam)</div></div></div><div class="change-set" id="c24"><div class="comment" data-id="8312478" data-no="24">
+    
+    <table class="layout-table change-head " id="ch-24">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_11539" id="a3719954_456498"><img src="https://secure.gravatar.com/avatar/ae002109ba1cfbb7f5ad990cc5d9fbaf?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_11539" id="a3719954_456498"><a class="email " href="user_profile?user_id=11539" > <span class="fna">Randell Jesup [:jesup]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-24">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-24" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c24">Comment 24</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-20 23:29 PST" data-time="1390289387">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-24">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-24">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8362339" name="attach_8362339" title="RTCP stats in getStats and on the about:webrtc page (3)">attachment 8362339</a> <a href="attachment.cgi?id=8362339&amp;action=edit" title="RTCP stats in getStats and on the about:webrtc page (3)">[details]</a> <a href="attachment.cgi?id=8362339&amp;action=diff" title="RTCP stats in getStats and on the about:webrtc page (3)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8362339'>[review]</a>
+RTCP stats in getStats and on the about:webrtc page (3)
+
+Review of <span class="bz_obsolete"><a href="attachment.cgi?id=8362339" name="attach_8362339" title="RTCP stats in getStats and on the about:webrtc page (3)">attachment 8362339</a> <a href="attachment.cgi?id=8362339&amp;action=edit" title="RTCP stats in getStats and on the about:webrtc page (3)">[details]</a> <a href="attachment.cgi?id=8362339&amp;action=diff" title="RTCP stats in getStats and on the about:webrtc page (3)">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8362339'>[review]</a>:
+-----------------------------------------------------------------
+
+r+ with nit fix
+
+::: media/webrtc/signaling/src/media-conduit/AudioConduit.cpp
+&#64;&#64; +178,5 &#64;&#64;
+<span class="quote">&gt; +    *timestamp = NTPtoDOMHighResTimeStamp(ntpHigh, ntpLow);
+&gt; +    *packetsReceived = (packetsSent &gt;= cumulativeLost) ?
+&gt; +                       (packetsSent - cumulativeLost) : 0;
+&gt; +    *bytesReceived = packetsSent ?
+&gt; +                     (bytesSent32 / packetsSent * (*packetsReceived)) : 0;</span >
+
+Will this will blow up if *packetsReceived is 0?  Depends on operator precedence.... Add parens instead of relying on order-of-operation
+
+::: media/webrtc/signaling/src/media-conduit/VideoConduit.cpp
+&#64;&#64; +184,5 &#64;&#64;
+<span class="quote">&gt; +    *timestamp = NTPtoDOMHighResTimeStamp(ntpHigh, ntpLow);
+&gt; +    *packetsReceived = (packetsSent &gt;= cumulativeLost) ?
+&gt; +                       (packetsSent - cumulativeLost) : 0;
+&gt; +    *bytesReceived = packetsSent ?
+&gt; +                     (bytesSent32 / packetsSent * (*packetsReceived)) : 0;</span >
+
+Ditto
+
+::: media/webrtc/trunk/webrtc/video_engine/include/vie_rtp_rtcp.h
+&#64;&#64; +266,5 &#64;&#64;
+<span class="quote">&gt;        const int video_channel,
+&gt; +      unsigned int&amp; ntpHigh,
+&gt; +      unsigned int&amp; ntpLow,
+&gt; +      unsigned int&amp; bytes_sent,
+&gt; +      unsigned int&amp; packets_sent,</span >
+
+Note: please create an bug for upstreaming these changes to media/webrtc/trunk/webrtc, and create a bug at webrtc.org, and link to the webrtc_updates bug.  Also double-check that this hasn't been changed in webrtc.org trunk</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8362339&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (3)"
+           class=""
+        >Attachment #8362339</a> -
+        Flags: review?(rjesup) &rarr; review+</div></div></div><div class="change-set" id="c25"><div class="comment" data-id="8314181" data-no="25">
+    
+    <table class="layout-table change-head assignee" id="ch-25">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3719954_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3719954_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-25">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-25" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c25">Comment 25</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-21 09:04 PST" data-time="1390323881">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-25">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-25">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8363039" name="attach_8363039" title="RTCP stats in getStats and on the about:webrtc page (4) r=jesup">attachment 8363039</a> <a href="attachment.cgi?id=8363039&amp;action=edit" title="RTCP stats in getStats and on the about:webrtc page (4) r=jesup">[details]</a> <a href="attachment.cgi?id=8363039&amp;action=diff" title="RTCP stats in getStats and on the about:webrtc page (4) r=jesup">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8363039'>[review]</a>
+RTCP stats in getStats and on the about:webrtc page (4) r=jesup
+
+Updated with nits. Taking r+ from jesup.
+
+(In reply to Randell Jesup [:jesup] from <a href="show_bug.cgi?id=947665#c24">comment #24</a>)
+<span class="quote">&gt; &gt; +    *bytesReceived = packetsSent ?
+&gt; &gt; +                     (bytesSent32 / packetsSent * (*packetsReceived)) : 0;
+&gt; 
+&gt; Will this will blow up if *packetsReceived is 0?  Depends on operator
+&gt; precedence.... Add parens instead of relying on order-of-operation</span >
+
+It wont blow up, but I've added parens as suggested.
+
+<span class="quote">&gt; ::: media/webrtc/trunk/webrtc/video_engine/include/vie_rtp_rtcp.h
+&gt; &#64;&#64; +266,5 &#64;&#64;
+&gt; &gt;        const int video_channel,
+&gt; &gt; +      unsigned int&amp; ntpHigh,
+&gt; &gt; +      unsigned int&amp; ntpLow,
+&gt; &gt; +      unsigned int&amp; bytes_sent,
+&gt; &gt; +      unsigned int&amp; packets_sent,
+&gt; 
+&gt; Note: please create an bug for upstreaming these changes to
+&gt; media/webrtc/trunk/webrtc, and create a bug at webrtc.org, and link to the
+&gt; webrtc_updates bug.  Also double-check that this hasn't been changed in
+&gt; webrtc.org trunk</span >
+
+I should have checked there first. Turns out this has already been addressed upstream. <a rel="nofollow" href="https://code.google.com/p/webrtc/issues/detail?id=2589">https://code.google.com/p/webrtc/issues/detail?id=2589</a>
+
+Their code revamps the GetSent/ReceivedRtcpStatistics API beyond what I did, lifting out a new RtcpStatistics struct: <a rel="nofollow" href="https://code.google.com/p/webrtc/source/browse/trunk/webrtc/video_engine/vie_rtp_rtcp_impl.h?spec=svn5142&amp;r=5142#92">https://code.google.com/p/webrtc/source/browse/trunk/webrtc/video_engine/vie_rtp_rtcp_impl.h?spec=svn5142&amp;r=5142#92</a>
+
+We can still land and fix this next time we merge, or we can land and I can file a followup bug here to mirror the upstream API, or I can look into what it would take to mirror it more closely now, or I can hold off. Let me know your preference.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8362339&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (3)"
+           class=""
+        >Attachment #8362339</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8362339&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (3)"
+           class=""
+        >Attachment #8362339</a> -
+        Flags: <span class="activity-deleted">review?(adam)</span></div><div class="change">
+        <a href="attachment.cgi?id=8363039&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (4) r=jesup"
+           class=""
+        >Attachment #8363039</a> -
+        Flags: review+</div><div class="change">Flags: needinfo?(rjesup)</div></div></div><div class="change-set" id="a3856780_456498"><div class="change" id="aa3856780_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a3856780_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3856780_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3856780_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a3856780_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-21 09:05 PST" data-time="1390323904">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8363039&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (4) r=jesup"
+           class=""
+        >Attachment #8363039</a> -
+        Attachment description: RTCP stats in getStats and on the about:webrtc page (4) &rarr; RTCP stats in getStats and on the about:webrtc page (4) r=jesup</div></div></div><div class="change-set" id="c26"><div class="comment" data-id="8314920" data-no="26">
+    
+    <table class="layout-table change-head assignee" id="ch-26">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3856780_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-26">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-26" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c26">Comment 26</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-21 11:03 PST" data-time="1390331009">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-26">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-26">Created <span class=""><a href="attachment.cgi?id=8363114" name="attach_8363114" title="RTCP stats in getStats and about:webrtc (5) r=jesup">attachment 8363114</a> <a href="attachment.cgi?id=8363114&amp;action=edit" title="RTCP stats in getStats and about:webrtc (5) r=jesup">[details]</a> <a href="attachment.cgi?id=8363114&amp;action=diff" title="RTCP stats in getStats and about:webrtc (5) r=jesup">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=947665&amp;attachment=8363114'>[review]</a>
+RTCP stats in getStats and about:webrtc (5) r=jesup
+
+Wrong bug# in commit msg. Carrying forward r+ from jesup.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8363039&amp;action=edit"
+           title="RTCP stats in getStats and on the about:webrtc page (4) r=jesup"
+           class=""
+        >Attachment #8363039</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8363114&amp;action=edit"
+           title="RTCP stats in getStats and about:webrtc (5) r=jesup"
+           class=""
+        >Attachment #8363114</a> -
+        Flags: review+</div></div></div><div class="change-set" id="c27"><div class="comment" data-id="8314930" data-no="27">
+    
+    <table class="layout-table change-head assignee" id="ch-27">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3856780_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-27">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-27" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c27">Comment 27</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-21 11:04 PST" data-time="1390331066">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-27">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-27">Try - <a rel="nofollow" href="https://tbpl.mozilla.org/?tree=Try&amp;rev=25f9a71bba35">https://tbpl.mozilla.org/?tree=Try&amp;rev=25f9a71bba35</a></pre></div><div class="change-set" id="c28"><div class="comment" data-id="8327466" data-no="28">
+    
+    <table class="layout-table change-head " id="ch-28">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_11539" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/ae002109ba1cfbb7f5ad990cc5d9fbaf?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_11539" id="a3856780_456498"><a class="email " href="user_profile?user_id=11539" > <span class="fna">Randell Jesup [:jesup]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-28">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-28" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c28">Comment 28</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-23 13:02 PST" data-time="1390510952">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-28">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-28">Let's land.  Remind me to back you out locally before merging and you can prepare an updated patch.</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(rjesup)</span></div></div></div><div class="change-set" id="c29"><div class="comment" data-id="8328209" data-no="29">
+    
+    <table class="layout-table change-head assignee" id="ch-29">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a3856780_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-29">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-29" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c29">Comment 29</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-23 15:53 PST" data-time="1390521190">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-29">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-29">OK will do.</pre><div class="activity"><div class="change">Keywords: checkin-needed</div></div></div><div class="change-set" id="c30"><div class="comment" data-id="8330185" data-no="30">
+    
+    <table class="layout-table change-head " id="ch-30">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_75935" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/a10f7f199c75a9a5a1eb347730524a7a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_75935" id="a3856780_456498"><a class="email " href="user_profile?user_id=75935" > <span class="fna">Ryan VanderMeulen [:RyanVM]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-30">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-30" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c30">Comment 30</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-24 05:34 PST" data-time="1390570465">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-30">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-30"><a rel="nofollow" href="https://hg.mozilla.org/integration/mozilla-inbound/rev/b21f20e9f9e8">https://hg.mozilla.org/integration/mozilla-inbound/rev/b21f20e9f9e8</a></pre><div class="activity"><div class="change">Keywords: <span class="activity-deleted">checkin-needed</span></div></div></div><div class="change-set" id="c31"><div class="comment" data-id="8332460" data-no="31">
+    
+    <table class="layout-table change-head " id="ch-31">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_75935" id="a3856780_456498"><img src="https://secure.gravatar.com/avatar/a10f7f199c75a9a5a1eb347730524a7a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_75935" id="a3856780_456498"><a class="email " href="user_profile?user_id=75935" > <span class="fna">Ryan VanderMeulen [:RyanVM]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-31">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-31" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c31">Comment 31</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-24 13:57 PST" data-time="1390600653">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-31">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-31"><a rel="nofollow" href="https://hg.mozilla.org/mozilla-central/rev/b21f20e9f9e8">https://hg.mozilla.org/mozilla-central/rev/b21f20e9f9e8</a></pre><div class="activity"><div class="change">Status: NEW &rarr; RESOLVED</div><div class="change">Last Resolved: <span class="rel-time" title="2014-01-24 05:57 PST" data-time="1390571853">4 years ago</span></div><div class="change">Flags: in-testsuite+</div><div class="change">Resolution: --- &rarr; FIXED</div><div class="change">Target Milestone: --- &rarr; mozilla29</div></div></div><div class="change-set" id="a4365165_456498"><div class="change" id="aa4365165_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a4365165_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a4365165_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a4365165_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a4365165_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a4365165_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-01-27 06:18 PST" data-time="1390832289">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Blocks: <a class="bz_bug_link 
+          bz_status_NEW "
+   title="NEW - [meta] WebRTC statistics API additions/improvements"
+   href="show_bug.cgi?id=964161">964161</a></div></div></div><div class="change-set" id="c32"><div class="comment" data-id="8587802" data-no="32">
+    
+    <table class="layout-table change-head assignee" id="ch-32">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a4365165_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a4365165_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-32">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-32" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c32">Comment 32</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-27 10:26 PDT" data-time="1395941193">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-32">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-32">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8397943" name="attach_8397943" title="chromestats.html - modified to use  spec-constraints">attachment 8397943</a> <a href="attachment.cgi?id=8397943&amp;action=edit" title="chromestats.html - modified to use  spec-constraints">[details]</a></span>
+chromestats.html - modified to use  spec-constraints
+
+For discussion, please ignore.</pre></div><div class="change-set" id="a9474304_456498"><div class="change" id="aa9474304_456498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a9474304_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_456498" id="a9474304_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a9474304_456498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a9474304_456498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#a9474304_456498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-27 10:30 PDT" data-time="1395941428">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8397943&amp;action=edit"
+           title="chromestats.html - modified to use  spec-constraints"
+           class=""
+        >Attachment #8397943</a> -
+        Attachment description: chromestats.html - for comparison (not spec) &rarr; chromestats.html - modified to use  spec-constraints</div></div></div><div class="change-set" id="c33"><div class="comment" data-id="8587940" data-no="33">
+    
+    <table class="layout-table change-head assignee" id="ch-33">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_456498" id="a9474304_456498"><img src="https://secure.gravatar.com/avatar/9362a14d9b87a3935eb16cfc834ed51f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_456498" id="a9474304_456498"><a class="email " href="user_profile?user_id=456498" > <span class="fna">Jan-Ivar Bruaroey [:jib] (needinfo? me)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-33">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-33" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=947665#c33">Comment 33</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-27 10:46 PDT" data-time="1395942373">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-33">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-33">Created <span class=""><a href="attachment.cgi?id=8397955" name="attach_8397955" title="chromestats.html - modified to use spec-constraints (2)">attachment 8397955</a> <a href="attachment.cgi?id=8397955&amp;action=edit" title="chromestats.html - modified to use spec-constraints (2)">[details]</a></span>
+chromestats.html - modified to use spec-constraints (2)</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8397943&amp;action=edit"
+           title="chromestats.html - modified to use  spec-constraints"
+           class=""
+        >Attachment #8397943</a> -
+        Attachment is obsolete: true</div></div></div><div id="new-comment-notice">
+          You need to <a href="show_bug.cgi?id=947665&amp;GoAheadAndLogIn=1">log in</a>
+          before you can comment on or make changes to this bug.
+        </div>
+
+
+
+<div id="bottom-actions">
+  <div id="bottom-right-actions">
+    <button type="button" id="top-btn" class="minor">Top &uarr;</button>
+    <div class="dropdown">
+      <button type="button" id="format-btn" aria-haspopup="true" aria-label="Format Bug Menu"
+        aria-expanded="false" aria-controls="format-menu" class="dropdown-button minor">Format Bug &#9652;</button>
+      <ul class="dropdown-content menu-up" id="format-menu" role="menu" style="display:none;">
+        <li role="presentation">
+          <a href="show_bug.cgi?format=multiple&amp;id=947665" role="menuitem" tabindex="-1">For Printing</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?ctype=xml&amp;id=947665" role="menuitem" tabindex="-1">XML</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?format=default&amp;id=947665" role="menuitem" tabindex="-1">Legacy</a>
+        </li>
+          <li role="presentation">
+            <a href="rest/bug/947665" role="menuitem" tabindex="-1">JSON</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+
+
+<div id="footer">
+  <div class="intro"></div>
+
+
+
+
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_bottom" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_bottom"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+  </li>
+
+  
+    
+
+  
+
+
+  
+</ul>
+
+  <div class="outro"><div id="policy_links">
+  <ul>
+    <li id="privacy_notice">
+      <a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Notice</a> |
+    </li>
+    <li id="legal_terms">
+      <a href="https://www.mozilla.org/about/legal/terms/mozilla" target="_blank">Legal Terms</a>
+    </li>
+  </ul>
+</div></div>
+</div>
+
+
+</body>
+</html>

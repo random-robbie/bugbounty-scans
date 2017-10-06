@@ -1,0 +1,135 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta content="NoCache" http-equiv="PRAGMA" /><title>
+	Netgear Web Transfer Client
+</title>
+
+    <script language="javascript" type="text/javascript"> 
+    function readCookie(cookies)
+    {
+        var txtuname= document.getElementById('txtUsername');
+        var txtpass= document.getElementById('txtPassword');
+        if (document.cookie.length>0 && txtuname.value.length>0 )
+        {
+            // check the index of the username that is entered by user in Username text box 
+            var c_start=document.cookie.indexOf(txtuname.value);            
+            if (c_start!=-1)
+            { 
+                var c_end=document.cookie.indexOf(";",c_start);
+                if (c_end==-1) 
+                {
+                    c_end=document.cookie.length;
+                }
+                var value= unescape(document.cookie.substring(c_start,c_end)); 
+                             
+                var userName = value.substring(0, value.indexOf("=",0));
+                var passWord = value.substring(value.indexOf("=", 0)+1, value.length);               
+                // if only 0ne equal sign is present that is default one 
+                if(userName==txtuname.value && passWord.length >2)
+                {
+                    txtpass.value=passWord;
+                    var decrypt= document.getElementById('decrypt');
+                    decrypt.value="T";                    
+                }                
+            }
+          }          
+    } 
+    function onLoad()
+    {
+         document.getElementById("txtUsername").focus();
+         timezoneoffset = document.getElementById("timezoneoffset");
+         var timerightnow = new Date();
+         timezoneoffset.value = ""+(timerightnow.getTimezoneOffset() * -1);
+         window.history.forward(-1);
+    }
+
+    function onenter() 
+    {
+        if(window.event && window.event.keyCode == 13)
+        {
+            document.getElementById("btnLogin").click();
+        }
+    }
+    
+    </script>
+
+    <link href="App_Themes/base.css" rel="stylesheet" type="text/css" /><link rel="shortcut icon" href="Images/favicon.ico" /><link href="App_Themes/NetgearTheme/Default.css" type="text/css" rel="stylesheet" /></head>
+<body onload="return onLoad();">
+    <form name="formLogin" method="post" action="login.aspx" id="formLogin" onkeypress="return onenter()">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMDUzMDU0MTEPZBYCAgMPZBYEAgEPDxYCHgdWaXNpYmxlZ2QWBgIJDw8WAh4JTWF4TGVuZ3RoAjIWAh4Hb25rZXl1cAU5amF2YXNjcmlwdDpyZWFkQ29va2llKCdTeXN0ZW0uV2ViLkh0dHBDb29raWVDb2xsZWN0aW9uJyk7ZAINDw8WAh8BAjJkZAIRDxAPFgYeDURhdGFUZXh0RmllbGQFDExhbmd1YWdlTmFtZR4ORGF0YVZhbHVlRmllbGQFEExhbmd1YWdlTmFtZUNvZGUeC18hRGF0YUJvdW5kZ2QQFQIHRW5nbGlzaAdEZXV0c2NoFQIFZW4tVVMFZGUtREUUKwMCZ2cWAWZkAgMPDxYCHwBoZBYCAgEPZBYWAgMPDxYCHgRUZXh0BQ9DSEFOR0UgUEFTU1dPUkRkZAIFDw8WAh8GBQhVc2VybmFtZWRkAgkPDxYCHwYFDE9sZCBQYXNzd29yZGRkAg0PDxYCHgxFcnJvck1lc3NhZ2UFGlBsZWFzZSBlbnRlciB0aGUgUGFzc3dvcmQuZGQCDw8PFgIfBgUMTmV3IFBhc3N3b3JkZGQCEw8PFgIfBwUaUGxlYXNlIGVudGVyIHRoZSBQYXNzd29yZC5kZAIVDw8WAh8GBRVSZS1lbnRlciBuZXcgUGFzc3dvcmRkZAIZDw8WAh8HBRpQbGVhc2UgZW50ZXIgdGhlIFBhc3N3b3JkLmRkAh0PDxYEHwYFAk9LHgdUb29sVGlwBRxDaGFuZ2UgeW91ciBjdXJyZW50IHBhc3N3b3JkZGQCHw8PFgQfBgUGQ0FOQ0VMHwgFDkNsb3NlIHRoZSBwYWdlZGQCIQ8WBh4FdmFsdWUFBEhFTFAeB29uY2xpY2sFa2phdmFzY3JpcHQ6d2luZG93Lm9wZW4oJ2hlbHAvZW4tVVMvQ2hhbmdlUGFzc3dvcmQuaHRtJywnSGVscFdpbmRvdycsJ3Njcm9sbGJhcnM9eWVzLHdpZHRoPTUwMCxoZWlnaHQ9MzUwJyk7HgVUaXRsZQUSSGVscCBmb3IgdGhpcyBwYWdlZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUTY2hrUmVtZW1iZXJQYXNzd29yZG6SiQeCo1TFBM0dEHDNJjZkCOqh" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['formLogin'];
+if (!theForm) {
+    theForm = document.formLogin;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/ThinClient/WebResource.axd?d=AfIzDLiEIRgwP2IDiD8EQL6RZVWV-ytB3zYjUMY1LYzb_GtM9dftotlrMf0ppHtRvjzcWxoZzwSjaG-rsxqsKU2Ll_w1&amp;t=635588330575142005" type="text/javascript"></script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5B2A54C6" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCgKFicDxAQKmmpW0BQKqy5QuAqXVsrgJArWptJELAvn6+RsC5Iz21QgCt42+9AUCyaDy2gQCgtyHhgwJ95S4QqVWmH5Du+38WRsf6zrENw==" />
+</div>
+        <div id="pnlLogin">
+	
+            <input type="hidden" name="decrypt" id="decrypt" value="F" />
+            <input type="hidden" name="timezoneoffset" id="timezoneoffset" />
+            <div align="center">
+                
+            </div>
+            <table cellspacing="0" cellpadding="0" class="LoginTable" align="center">
+                <tr>
+                    <td style="padding-left: 60px; padding-top: 100px;">
+                        <table cellpadding="3" cellspacing="0" border="0">
+                            <tr>
+                                <td width="85"><span id="lblUsername" class="LoginText">Username</span></td>
+                                <td width="221"><input name="txtUsername" type="text" maxlength="50" id="txtUsername" tabindex="1" onkeyup="javascript:readCookie('System.Web.HttpCookieCollection');" style="width:215px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><span id="lblPassword" class="LoginText">Password</span></td>
+                                <td><input name="txtPassword" type="password" maxlength="50" id="txtPassword" tabindex="2" style="width:215px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><span id="lblLangauge" class="LoginText">Language</span></td>
+                                <td><select name="ddlLanguage" onchange="javascript:setTimeout('__doPostBack(\'ddlLanguage\',\'\')', 0)" id="ddlLanguage" tabindex="3" style="width:220px;">
+		<option selected="selected" value="en-US">English</option>
+		<option value="de-DE">Deutsch</option>
+
+	</select></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input id="chkRememberPassword" type="checkbox" name="chkRememberPassword" tabindex="4" /> <span id="lblRememberPassword" class="LoginText">Remember my password</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td align="right"><input type="submit" name="btnLogin" value="Login" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnLogin&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnLogin" tabindex="5" title="Log in to your account on the server" class="LoginButton" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        
+</div>
+        
+    </form>
+</body>
+</html>

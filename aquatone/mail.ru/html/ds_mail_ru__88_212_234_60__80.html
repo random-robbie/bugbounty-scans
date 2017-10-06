@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>Demon Slayer 3: New Era</title>
+        <!--<link href='//ds-id.101xp.com/cdn/gmr/favicon.ico' rel='shortcut icon' type='image/x-icon'>-->
+        <!--<script src="//code.jquery.com/jquery-1.9.1.js"></script>-->
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+        <script type="text/javascript" src="/js/swfobject.js"></script>
+        <script type="text/javascript" src="//connect.mail.ru/js/loader.js"></script>
+        <script type="text/javascript" src="//games.mail.ru/js/game_headers/app718236.js"></script>
+<!--<script src="http://ad.mail.ru/adj/3090"></script>
+--><script type="text/javascript">
+    var portal_games_headline_transparent = false;
+    var portal_age_limit = 16;
+    var portal_games_headline_forum_url = "http://my.mail.ru/community/demon_slayer/";
+    var portal_games_headline_fixed = false;
+</script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                // этот вызов обязателен, он осуществляет непосредственную загрузку
+                // кода библиотеки; рекомендуем всю работу с API вести внутри callback'а
+                mailru.loader.require('api', function() {
+                    // инициализируем внутренние переменные
+                    // не забудьте поменять на ваши значения app_id и private_key
+                    mailru.connect.init("718236", "574465e6b52184bae44bf4d4b6149ea5", true);
+                    // регистрируем обработчики событий,
+                    // которые будут вызываться при логине и логауте
+                    mailru.events.listen(mailru.connect.events.login, function(session){
+                        window.location.reload();
+                    });
+                    mailru.events.listen(mailru.connect.events.logout, function(){
+                        window.location.reload();
+                    });
+                    // проверка статуса логина, в result callback'a приходит
+                    // вся информация о сессии (см. следующий раздел)
+                    mailru.connect.getLoginStatus(function(result) {
+                        if (result.is_app_user != 1) {
+                            // пользователь не залогинен, надо показать ему кнопку логина
+                        } else {
+                            // все ок, можно работать
+                            // получаем полную информацию о текущем пользователе
+                            mailru.common.users.getInfo(function(result){ console.log(result[0].uid) });
+                            window.location.reload();
+                        }
+                    });
+                });
+            });
+
+            function login() {
+    //                console.log('login');
+                mailru.connect.login();
+            }
+
+        </script>
+        <style type="text/css">
+            *, *:before, *:after, html {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            html,
+            body{
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                min-height: 100%;
+            }
+            body {
+                background: url("//ds-id.101xp.com/cdn/gmr/landing/ds3/ds3-bg.jpg?v=2") no-repeat center top #000000;
+            }
+
+            .all {
+                display: inline-block;
+                width: 100%;
+            }
+            #content {
+                text-align: center;
+                width: 564px;
+                margin: 0 auto;
+                position: relative;
+                left: 300px;
+            }
+            #content .logo {
+                display: block;
+                margin: 0 auto;
+                position: relative;
+                left: -24px;
+            }
+            #content .login {
+                display: block;
+                cursor: pointer;
+                background: url("//ds-id.101xp.com/cdn/gmr/landing/ds3/play-btn.png?v=2") no-repeat 0 0;
+                position: relative;
+                margin: -50px auto 0;
+                width: 408px;
+                height: 111px;
+                z-index: 3;
+            }
+            #content .login:hover {
+                background-position: 0 -111px;
+            }
+            #content .login:active {
+                background-position: 0 -222px;
+            }
+
+            .rating {
+                position:fixed;
+                left: 10px;
+                bottom: 10px;
+                z-index: 2;
+            }
+            .info_links {
+                font-family: Trebuchet, Tahoma, Arial, sans-serif;
+                color: #fedc60;
+                font-size: 13px;
+                margin: 30px auto 10px;
+                text-shadow: 0 0 1px #000000, 0 0 1px #000000, 0 0 1px #000000;
+            }
+            .info_links a {
+                color: #ffffff;
+            }
+            .info_links a:hover {
+                color: gold;
+            }
+            #logo101 {
+                display: inline-block;
+            }
+            #shadow {
+                display: none;
+
+                background: #000000;
+                background: -webkit-linear-gradient(bottom, #000000 20%, transparent 90%);
+                background: -moz-linear-gradient(bottom, #000000 20%, transparent 90%);
+                background: -o-linear-gradient(bottom, #000000 20%, transparent 90%);
+                background: -ms-linear-gradient(bottom, #000000 20%, transparent 90%);
+                background: linear-gradient(bottom, #000000 20%, transparent 90%);
+                height: 100px;
+                position: fixed;
+                z-index: 1;
+                width: 100%;
+                bottom: 0;
+            }
+            @media all and (min-height: 1081px) {
+                #shadow {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="all">
+            <div id="content">
+                <div class="logo"><img src="//ds-id.101xp.com/cdn/gmr/landing/ds3/logo-ds3.png?v=2" alt=""></div>
+                <div class="login" onclick="login();"></div>
+
+                <div class="info_links">
+                    Нажимая кнопку «Играть», вы подтверждаете, что принимаете условия<br /> <a target="_blank" href="//101xp.com/pages/eula">Пользовательского Соглашения</a> и <a target="_blank" href="//101xp.com/pages/policy">Политики Приватности</a>.
+                </div>
+                <a id="logo101" href="//101xp.com/" target="_blank"><img src="//sc-portal.101xp.com/static/logo_101xp-light--shadow.png" alt=""> </a>
+            </div>
+            <div class="rating">
+                <img src="//ds-id.101xp.com/cdn/gmr/landing/ds3/rating.png?v=2" />
+            </div>
+        </div>
+        <div id="shadow"></div>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8befe7bc8d","applicationID":"28808083","transactionName":"M1BRYRBWWhUCBU0IXwoaZkcLGF0IBwNBT0AMRQ==","queueTime":0,"applicationTime":34,"atts":"HxdSF1hMSRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

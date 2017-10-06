@@ -1,0 +1,670 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+
+AT&T TeleConference Services Development
+
+-->
+
+<HTML lang="en">
+<HEAD>
+<TITLE>AT&T Connect Meeting Login</TITLE>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'; child-src 'self';">
+<META HTTP-EQUIV="Pragma" CONTENT="cache">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+<!-- AWMlogin.js - JavaScript: hide this script tag from old browsers
+
+
+/*
+ * - strip out: leading 1, -, " ", (, ), +, .
+ * - check for a length of 10 if domestic or 21 if international.
+ */
+function checkMeetingNumber(phoneField) 
+{
+var numStr="0123456789";
+var thisChar;
+var i = 0;
+var j = 0;
+var n = 0;
+var cnt = 0;
+var phoneLen = phoneField.length;
+
+    strpdPhone = new MakeArray(phoneLen + 1);
+ 
+    if ( phoneLen < 1 )
+        return true;
+
+    /* Eliminate leading "1" if present */
+    if ( phoneField.substring(0,1) == "1")
+        n = 1;
+
+    for ( ; n < phoneLen; n++) 
+    {
+        ch = phoneField.substring(n, n + 1);
+
+        if ( (ch != "(") && 
+             (ch != ")") &&
+             (ch != " ") &&
+             (ch != "-") )
+            strpdPhone[j++] = ch;
+    }
+
+    for (i = 0; i < j; i++ )
+    {
+        if ( numStr.indexOf(strpdPhone[i], 0) != -1 )
+            cnt++;
+
+    }
+
+    if ( cnt != j )
+        return false;
+
+    return true;
+
+}
+
+function MakeArray(n) 
+{
+   this.length = n;
+   for (var i = 1; i <= n; i++) {
+		this[i] = '';
+	}
+	return this;
+}
+
+
+function checkCode(code) 
+{
+var charAllowed="1234567890";
+var thisChar;
+var cnt = 0;
+
+	if (code.length < 4 )
+	{
+ 		 return false;
+	}
+  	else 
+	{
+  		for (var i = 0; i < code.length; i++) {
+   		 	thisChar = code.substring(i, i+1);
+   		    if ( charAllowed.indexOf(thisChar) != -1 )
+      			cnt++;
+    	}
+	    if ( cnt != code.length ) 
+		{
+			return false;
+		}
+		else if (code.length < 4)
+		{
+			 return false;
+		}
+  	}
+  return true;
+}
+
+function checkEmail(str) 
+{ 
+           return (str.indexOf(".") > 0) && (str.indexOf("@") > 0); 
+} 
+
+
+function checkName(userName) 
+{
+var charAllowed="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$^&*()-+={[}]|.,;:<>? ";
+var thisChar;
+var cnt = 0;
+
+	if ( userName.length < 1 )
+	{
+ 		 return false;
+	}
+  	else 
+	{ 
+  		for (var i = 0; i < userName.length; i++) {
+   		 	thisChar = userName.substring(i, i+1);
+   		    if ( charAllowed.indexOf(thisChar) != -1 )
+      			cnt++;
+    	}
+	    if ( cnt != userName.length ) 
+		{
+			return false;
+		}
+  	}
+  return true;
+}
+
+function hrefrunSubmit()
+{
+  	var noError = true;
+  	if ( document.numberForm.meetingNumber.value.length == 0 ) 
+	{
+   		 alert("Meeting Number is a required field.  Please enter this information."); 
+	    noError = false;
+   	 	document.numberForm.meetingNumber.focus(); 
+	}
+	else if ( !checkMeetingNumber(document.numberForm.meetingNumber.value)) 
+	{
+		alert("Meeting Number error. Please try again using the Meeting Number. \n For example: 5551231234 or 555-123-1234 or (555)123-1234.");
+   	 	document.numberForm.meetingNumber.focus(); 
+        document.numberForm.meetingNumber.value = ""; 
+        noError = false;
+  	} 
+
+	if ( document.codeForm.code.value.length == 0 ) 
+	{
+   		 alert("Code is a required field.  Please enter this information. ");
+		 if (noError) {
+		     document.codeForm.code.focus(); 
+		 }
+   		 noError = false;
+  	}
+	else if ( !checkCode(document.codeForm.code.value)) 
+	{
+		alert("Code must be 4 - 10 digits.  Please correct this error and resubmit." );
+		if (noError) {
+		    document.codeForm.code.focus(); 
+		}
+        document.codeForm.code.value = ""; 
+        noError = false;
+  	} 
+
+  	if ( document.emailForm.email.value.length == 0 ) 
+	{
+   		 alert("Email is a required field.  Please enter this information."); 
+	    noError = false;
+   	 	document.emailForm.email.focus(); 
+	}
+	else if ( document.emailForm.email.value.length > 49 ) 
+	{
+		alert("Invalid Email. Email must be a valid email that is less than 50 characters. Please try again.");
+        document.emailForm.email.value = ""; 
+	   	document.emailForm.email.focus(); 
+        noError = false;
+  	} 
+	else if ( !checkEmail(document.emailForm.email.value)) 
+	{
+		alert("Invalid Email. Please try again.");
+        document.emailForm.email.value = ""; 
+	   	document.emailForm.email.focus(); 
+        noError = false;
+  	} 
+
+  	if ( document.fnameForm.fName.value.length == 0 ) 
+	{
+   		 alert("First Name is a required field.  Please enter this information."); 
+		if (noError) {
+	   	 	document.fnameForm.fName.focus(); 
+		}
+	    noError = false;
+	}
+	else if ( !checkName(document.fnameForm.fName.value)) 
+	{
+        alert("The following characters are not allowed in the First Name field: tilde [~], accent [`], at sign [@], percent sign [%], underscore [_], forward slash [/], quotation mark [\"], apostrophe ['] and backslash [\\]. The data you have entered is formatted incorrectly. Please correct this error and resubmit." );
+
+		if (noError) {
+	   	 	document.fnameForm.fName.focus(); 
+		}
+        document.fnameForm.fName.value = ""; 
+        noError = false;
+  	} 
+ 	document.numberForm.meetingNumber.value = document.numberForm.meetingNumber.value; 
+
+  	if ( document.lnameForm.lName.value.length == 0 ) 
+	{
+   		 alert("Last Name is a required field.  Please enter this information."); 
+		if (noError) {
+	   	 	document.lnameForm.lName.focus(); 
+		}
+	    noError = false;
+	}
+	else if ( !checkName(document.lnameForm.lName.value)) 
+	{
+        alert("The following characters are not allowed in the Last Name field: tilde [~], accent [`], at sign [@], percent sign [%], underscore [_], forward slash [/], quotation mark [\"], apostrophe ['] and backslash [\\]. The data you have entered is formatted incorrectly. Please correct this error and resubmit." );
+
+		if (noError) {
+	   	 	document.lnameForm.lName.focus(); 
+		}
+        document.lnameForm.lName.value = ""; 
+        noError = false;
+  	} 
+ 	document.numberForm.meetingNumber.value = document.numberForm.meetingNumber.value; 
+ 	document.numberForm.code.value = document.codeForm.code.value; 
+  	document.numberForm.firstName.value = document.fnameForm.fName.value; 
+  	document.numberForm.lastName.value = document.lnameForm.lName.value; 
+  	document.numberForm.email.value = document.emailForm.email.value; 
+
+    if (noError) {
+   		 document.numberForm.submit();
+    	 return;
+  	}
+	return;
+}
+
+function runSubmit()
+{
+  	var noError = true;
+  	if ( document.numberForm.meetingNumber.value.length == 0 ) 
+	{
+   		 alert("Meeting Number is a required field.  Please enter this information."); 
+	    noError = false;
+   	 	document.numberForm.meetingNumber.focus(); 
+	}
+	else if ( !checkMeetingNumber(document.numberForm.meetingNumber.value)) 
+	{
+		alert("Meeting Number error. Please try again using the Meeting Number. \n For example: 5551231234 or 555-123-1234 or (555)123-1234.");
+        document.numberForm.meetingNumber.value = ""; 
+	   	document.numberForm.meetingNumber.focus(); 
+        noError = false;
+  	} 
+
+	if ( document.codeForm.code.value.length == 0 ) 
+	{
+   		 alert("Code is a required field.  Please enter this information. ");
+		 if (noError) {
+		     document.codeForm.code.focus(); 
+		 }
+   		 noError = false;
+  	}
+	else if ( !checkCode(document.codeForm.code.value)) 
+	{
+		alert("Code must be 4 - 10 digits.  Please correct this error and resubmit." );
+        document.codeForm.code.value = ""; 
+	
+		if (noError) {
+		    document.codeForm.code.focus(); 
+		}
+        noError = false;
+  	} 
+
+  	if ( document.emailForm.email.value.length == 0 ) 
+	{
+   		 alert("Email is a required field.  Please enter this information."); 
+	    noError = false;
+   	 	document.emailForm.email.focus(); 
+	}
+	else if ( document.emailForm.email.value.length > 49 ) 
+	{
+		alert("Invalid Email. Email must be a valid email that is less than 50 characters. Please try again.");
+        document.emailForm.email.value = ""; 
+	   	document.emailForm.email.focus(); 
+        noError = false;
+  	} 
+	else if ( !checkEmail(document.emailForm.email.value)) 
+	{
+		alert("Invalid Email. Please correct this error and try again.");
+        document.emailForm.email.value = ""; 
+	   	document.emailForm.email.focus(); 
+        noError = false;
+  	} 
+
+  	if ( document.fnameForm.fName.value.length == 0 ) 
+	{
+   		 alert("First Name is a required field.  Please enter this information."); 
+		if (noError) {
+	   	 	document.fnameForm.fName.focus(); 
+		}
+	    noError = false;
+	}
+	else if ( !checkName(document.fnameForm.fName.value)) 
+	{
+        alert("The following characters are not allowed in the First Name field: tilde [~], accent [`], at sign [@], percent sign [%], underscore [_], forward slash [/], quotation mark [\"], apostrophe ['] and backslash [\\]. The data you have entered is formatted incorrectly. Please correct this error and resubmit." );
+
+		if (noError) {
+	   	 	document.fnameForm.fName.focus(); 
+		}
+        document.fnameForm.fName.value = ""; 
+        noError = false;
+  	} 
+ 	document.numberForm.meetingNumber.value = document.numberForm.meetingNumber.value; 
+
+  	if ( document.lnameForm.lName.value.length == 0 ) 
+	{
+   		 alert("Last Name is a required field.  Please enter this information."); 
+		if (noError) {
+	   	 	document.lnameForm.lName.focus(); 
+		}
+	    noError = false;
+	}
+	else if ( !checkName(document.lnameForm.lName.value)) 
+	{
+        alert("The following characters are not allowed in the Last Name field: tilde [~], accent [`], at sign [@], percent sign [%], underscore [_], forward slash [/], quotation mark [\"], apostrophe ['] and backslash [\\]. The data you have entered is formatted incorrectly. Please correct this error and resubmit." );
+
+		if (noError) {
+	   	 	document.lnameForm.lName.focus(); 
+		}
+        document.lnameForm.lName.value = ""; 
+        noError = false;
+  	} 
+
+
+    if (noError) {
+	 	document.numberForm.meetingNumber.value = document.numberForm.meetingNumber.value; 
+  		document.numberForm.code.value = document.codeForm.code.value; 
+  		document.numberForm.firstName.value = document.fnameForm.fName.value; 
+  		document.numberForm.lastName.value = document.lnameForm.lName.value; 
+  		document.numberForm.email.value = document.emailForm.email.value; 
+
+  		document.numberForm.submit();
+    	return false;
+  	}
+	return false;
+}
+<!-- done hide from old browsers -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" charset="UTF-8">
+var ua = window.navigator.userAgent;
+var msie = ua.indexOf ( "MSIE" );
+if ( msie > 0 )
+  document.write("<LINK HREF='/resv/global.css' TYPE='text/css' REL='stylesheet'>");
+else
+  document.write("<LINK HREF='/resv/global-ns.css' TYPE='text/css' REL='stylesheet'>");
+</SCRIPT>
+</HEAD>
+<BODY alink="red" bgcolor="#ffffff" link="blue" vlink="blue" onload="document.numberForm.meetingNumber.focus()">
+<!--printTopOfPage()-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR>
+  <TD noWrap align=right bgColor="#6c6c6c" class="topOfPage">&nbsp;</TD>
+</TR>
+<TR bgColor="#ffffff">
+  <TD><IMG height=1 alt="" src="/images/pixel_trans.gif" width=760 border=0></TD>
+</TR>
+</TBODY>
+</TABLE>
+<!--/printTopOfPage()-->
+<!--printBrandHeader()-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR bgcolor="#ffffff">
+  <TD VALIGN=middle ALIGN=left NOWRAP WIDTH="50%" HEIGHT=90>
+<A HREF="javascript:var r=window.open('https://www.att.com/','');" onmouseover="window.status='AT&amp;T';return true"><IMG HEIGHT=79 WIDTH=150 ALT="AT&amp;T" SRC="/images/logo_homepage2.gif" BORDER=0></A>
+  </TD>
+  <TD VALIGN=middle ALIGN=right WIDTH="50%" HEIGHT=90>&nbsp;</TD>
+</TR>
+</TBODY>
+</TABLE>
+<!--/printBrandHeader()-->
+<TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
+<TBODY>
+<TR>
+  <TD bgColor=#336699>
+  <P class="nav-primary">
+	 <SPAN CLASS="nav-primary-selected">&gt;AT&T Connect Meeting Login</SPAN> | 
+  <A  HREF="javascript:var r=window.open('/resv/ATTClogin.html');" ONMOUSEOVER="window.status='Topic_Help'"></font><font color=white> Topic Help</font></A>
+  </P>
+  </TD>
+</TR>
+</TBODY>
+</TABLE>
+<!--printPageHeaderImage()-->
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" BORDER=0>
+<TBODY>
+<TR>
+  <TD BGCOLOR="#ffffff" WIDTH="100%" NOWRAP>
+    <IMG ALT="TeleConference Services - It's Never Been Easier to Call a Meeting"
+    SRC="/images/attbanner.gif" width=760 height=90 border=0></TD>
+</TR>
+</TBODY>
+</TABLE>
+<!--/printPageHeaderImage()-->
+<!--startPage()-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR VALIGN=top>
+<!--/startPage()-->
+		<!--<gutter1()-->
+		<TD width=5><IMG height=1 alt=""
+			src="/images/pixel_trans.gif" width=5 border=0></TD>
+		<!--/gutter1()-->
+		<!--startSecNavMenu()-->
+		<TD width=155>
+		<!--/startSecNavMenu()-->
+     <!--secNavHeader()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR BGCOLOR="#336699">
+     	<TD VALIGN=middle CLASS=head-blue>&nbsp;</TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavHeader()-->
+     <!--printSecNavItem()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR valign=top>
+        <TD WIDTH=16>
+          <A HREF="javascript:var r=window.open('https://www.corp.att.com/attconnectsupport/')">
+          <IMG SRC="/images/arrow_green.gif" WIDTH=14 HEIGHT=11 BORDER=0 ALT="Support"></A></TD>
+        <TD WIDTH=139 ALIGN=left>
+          <A HREF="javascript:var r=window.open('https://www.corp.att.com/attconnectsupport/')">
+          <SPAN CLASS="nav-secondary-item">Support</SPAN></A></TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavItem()-->
+     <!--secNavGraySeperator()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR>
+        <TD colspan=2><img src="/images/pixel_gray.gif" width=150 height=1 alt=""></TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavGraySeperator()-->
+     <!--printSecNavItem()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR valign=top>
+        <TD WIDTH=16>
+          <A HREF="javascript:var r=window.open('https://www.corp.att.com/attconnectsupport/downloads/pa/')">
+          <IMG SRC="/images/arrow_green.gif" WIDTH=14 HEIGHT=11 BORDER=0 ALT="Downloads"></A></TD>
+        <TD WIDTH=139 ALIGN=left>
+          <A HREF="javascript:var r=window.open('https://www.corp.att.com/attconnectsupport/downloads/pa/')">
+          <SPAN CLASS="nav-secondary-item">Downloads</SPAN></A></TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavItem()-->
+     <!--secNavGraySeperator()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR>
+        <TD colspan=2><img src="/images/pixel_gray.gif" width=150 height=1 alt=""></TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavGraySeperator()-->
+     <!--printSecNavItem()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR valign=top>
+        <TD WIDTH=16>
+          <A HREF="javascript:var r=window.open('dcfeedback?senddcfeedback=4','Feedback')">
+          <IMG SRC="/images/arrow_green.gif" WIDTH=14 HEIGHT=11 BORDER=0 ALT="Feedback"></A></TD>
+        <TD WIDTH=139 ALIGN=left>
+          <A HREF="javascript:var r=window.open('dcfeedback?senddcfeedback=4','Feedback')">
+          <SPAN CLASS="nav-secondary-item">Feedback</SPAN></A></TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavItem()-->
+     <!--secNavGraySeperator()-->
+			<TABLE CELLSPACING=0 CELLPADDING=4 WIDTH=155 BORDER=0>
+			<TBODY>
+     <TR>
+        <TD colspan=2><img src="/images/pixel_gray.gif" width=150 height=1 alt=""></TD>
+     </TR>
+			</TBODY>
+			</TABLE>
+     <!--/secNavGraySeperator()-->
+			<!--endSecNavMenu()-->
+			</TD>
+     <!--/endSecNavMenu()-->
+     <!--gutter2-->
+   	<TD WIDTH=5><IMG HEIGHT=1 ALT=""
+      SRC="/images/pixel_trans.gif"
+      WIDTH=5 border=0></TD>
+     <!--vertGrayBar-->
+    	<TD WIDTH=1 BGCOLOR="#cccccc"><IMG HEIGHT=1 alt=""
+      SRC="/images/pixel_trans.gif"
+      WIDTH=1 BORDER=0></TD>
+     <!--gutter3-->
+    	<TD WIDTH=9><IMG HEIGHT=1 ALT=""
+      SRC="/images/pixel_trans.gif"
+      WIDTH=9 BORDER=0></TD>
+			<!--/endSecNavMenu()-->
+  <TD width="47%" valign=top>
+			<!--printPageHeader()-->
+			<TABLE WIDTH="100%" BORDER=0 CELLSPACING=0 CELLPADDING=4>
+			<TBODY>
+           <TR BGCOLOR="#336699">
+             <TD ALIGN=left ><h1 CLASS="head-blue" style="padding: 0px; margin: 0px;"><strong>Login to your AT&T Connect Meeting</strong></h1></TD>
+           </TR>
+			</TBODY>
+           </TABLE>
+			<!--/printPageHeader()-->
+<TABLE WIDTH="100%" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+<TBODY>
+<TR>
+  <TD>&nbsp;</TD>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">Meeting Number</TD>
+</TR>
+<TR>
+  <FORM NAME="numberForm" ACTION="/servlet/ATTClogin" onSubmit="return runSubmit()" METHOD="post">
+  <TD align=left valign=top>
+  <INPUT NAME="meetingNumber" TABINDEX=1
+   SIZE=25 MAXLENGTH=21>&nbsp;
+  </TD>
+  <INPUT TYPE=HIDDEN NAME=process value=1>
+  <INPUT TYPE=HIDDEN NAME=code>
+  <INPUT TYPE=HIDDEN NAME=firstName>
+  <INPUT TYPE=HIDDEN NAME=lastName>
+  <INPUT TYPE=HIDDEN NAME=email>
+  <INPUT TYPE=HIDDEN NAME=brand VALUE=att>
+  </TD>
+  </FORM>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">&nbsp;</TD>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">Code</TD>
+</TR>
+<TR>
+  <FORM NAME="codeForm" ACTION="/servlet/ATTClogin" onSubmit="return runSubmit()" METHOD="post">
+  <TD align=left valign=top>
+  <INPUT TYPE=password NAME="code" TABINDEX=2
+   size=25 maxlength=10>&nbsp;&nbsp;&nbsp;
+  </TD>
+  </FORM>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">&nbsp;</TD>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">Email Address</TD>
+</TR>
+<TR>
+  <FORM NAME="emailForm" ACTION="/servlet/ATTClogin" onSubmit="return runSubmit()" METHOD="post">
+  <TD align=left valign=top>
+  <INPUT NAME="email" TABINDEX=3
+   size=25 maxlength=50>&nbsp;
+  </TD>
+  </FORM>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">&nbsp;</TD>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">First Name</TD>
+</TR>
+<TR>
+  <FORM NAME="fnameForm" ACTION="/servlet/ATTClogin" onSubmit="return runSubmit()" METHOD="post">
+  <TD align=left valign=top>
+  <INPUT NAME="fName" TABINDEX=3
+   size=25 maxlength=50>&nbsp;&nbsp;&nbsp
+  </TD>
+  </FORM>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">&nbsp;</TD>
+</TR>
+<TR>
+  <TD align=left valign=bottom class="caption">Last Name</TD>
+</TR>
+<TR>
+  <FORM NAME="lnameForm" ACTION="/servlet/ATTClogin" onSubmit="return runSubmit()" METHOD="post">
+  <TD align=left valign=top>
+  <INPUT NAME="lName" TABINDEX=3
+   size=25 maxlength=50>&nbsp;&nbsp;&nbsp
+   <A TABINDEX=4 href="javascript:hrefrunSubmit()"
+    onMouseOver="window.status='Submit Form'; return true">
+   <img src="/images/btn_submit.gif" border=0></A>
+  </TD>
+  </FORM>
+</TR>
+</TBODY>
+</TABLE>
+  </TD>
+<TD width=5><IMG height=1 alt="" src="/images/pixel_trans.gif" width=5 border=0></TD>
+<TD width=1 bgColor=#cccccc><IMG height=1 alt="" src="/images/pixel_trans.gif" width=1 border=0></TD>
+<TD width=9><IMG height=1 alt="" src="/images/pixel_trans.gif" width=9 border=0></TD>
+<TD WIDTH="47%">
+<TABLE WIDTH="100%" BORDER=0 CELLSPACING=0 CELLPADDING=4>
+<TBODY>
+<TR BGCOLOR=#cccccc>
+  <TD ALIGN=left CLASS=head-gray>Additional Information...</TD>
+</TR>
+</TBODY>
+</TABLE>
+<table cellpadding=0 cellspacing=0 border=0><tr><td><IMG SRC="/images/pixel_trans.gif" HEIGHT=8 alt=""></td></tr></table>
+<table cellpadding=0 cellspacing=0 border=0><tr><td><IMG SRC="/images/pixel_trans.gif" HEIGHT=8 alt=""></td></tr></table>
+<TABLE WIDTH="100%" CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TBODY>
+<TR>
+<TD CLASS="body-text">AT&T Connect Service is an interactive 
+  presentation and collaborative tool which combines audio 
+  conferencing and data-sharing through the power of the internet. 
+  Now when you need to present documents, diagrams, and 
+  illustrations to your employees, vendors, and customers, you 
+  can do so easily and effectively.  AT&T Connect Service 
+  is designed to facilitate the presentation of documents 
+  from remote locations in combination with AT&T Audio 
+  Teleconference Services. 
+  Your browser must be Microsoft ® Internet Explorer Version 6.0 SP1, 
+  or Netscape ® Communicator Version 7.2. 
+<table cellpadding=0 cellspacing=0 border=0><tr><td><IMG SRC="/images/pixel_trans.gif" HEIGHT=8 alt=""></td></tr></table>
+</TR>
+</TBODY>
+</TABLE>
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+<!--ATT-FOOTER-->
+<!-- FOOTER CODE MAY NOT BE ALTERED -->
+<br clear="all">
+<table cellpadding="3" cellspacing="0" border="0">
+<tr>
+<td valign="top">
+
+<hr noshade align="left" size="1" width="100%">
+<div class="terms" align="left" style="font-family: sans-serif;">
+<font size="1" face="sans-serif">
+<a target="_new" href="https://www.att.com/terms/" style="font-size: 8pt;">Terms and Conditions</a>.
+<a target="_new" href="https://www.att.com/privacy/" style="font-size: 8pt;">Privacy Policy</a>.
+<br>
+<span class="copyright" style="font-size: 8pt;">
+Copyright &#169; 2017 AT&amp;T.  All rights reserved.
+</span>
+</font>
+</div>
+</td>
+</tr>
+</table>
+<!--/ATT-FOOTER--><!--/printATTFooter()-->
+</BODY></HTML>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/../lib/bootstrap/bootstrap-stuff.min.css?1507048842" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/../lib/jquery/jquery-stuff.min.css?1507048842" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.min.css?1507048842" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/app-details/app-details.min.css?1507048843" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/common/common.min.css?1507048843" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/groups/groups.min.css?1507048843" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/settings/settings.min.css?1507048843" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/users/users.min.css?1507048843" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap_integration_fix.css?1473230415" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css?1507048703" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="NOINDEX, NOFOLLOW" />
+
+    <title>
+        EASE Portal    </title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+
+    <script type="text/javascript">//<![CDATA[
+
+        var appBaseUrl = '/',
+            appButtonStateMsg = 'still in progress...',
+            appPythonWebServicesBaseUrl = 'https://attws.attmam.com',
+            appIsAuthenticated = false,
+            vanity_url_org_psk = "",
+            appUserOrgPsk = null;
+
+                var ap_googleanalytics_property_id = 'UA-33760763-5';
+        var ap_googleanalytics_organization = '';
+                ap_googleanalytics_organization = '';
+
+                //]]>
+    </script>
+
+    
+    <script type="text/javascript">//<![CDATA[
+var email_addr = 0;
+//]]></script>
+<script type="text/javascript" src="/js/i18n/en_US.js?1507048836"></script>
+<script type="text/javascript" src="/js/EASEAdminApperianEnvConfig.js?1507123422"></script>
+<script type="text/javascript" src="/js/build/main.min.js?1507048852"></script>
+<script type="text/javascript" src="/js/APGoogleAnalyticsTrack.js?1473230415"></script>
+<script type="text/javascript" src="/js/loginForm.js?1473230415"></script>
+
+</head>
+<body>
+    <script id="common-datatable-template" type="text/x-handlebars-template">
+        <div class="row">
+
+    {{!-- The Search Box --}}
+    {{#if generalOptions.hasTopRightWidgets}}
+        <div class="col-xs-3">
+    {{else}}
+        <div class="col-xs-12">
+    {{/if}}
+        {{#if dataTableOptions.searching}}
+            <div class="input-group input-group-xs">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </span>
+                <input type="text" class="form-control"
+                       placeholder="{{messagesOptions.searchPlaceholder}}"
+                       id="common-datatable-search">
+                {{#if messagesOptions.searchTooltip}}
+                    <span class="input-group-addon">
+                        <span data-toggle="tooltip"  data-html="true" data-placement="right"
+                              data-trigger="hover" data-container="body"
+                              title="{{messagesOptions.searchTooltip}}">
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        </span>
+                    </span>
+                {{/if}}
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="col-xs-2">
+        {{#if generalOptions.showNumberOfResults}}
+            <div id="total-results-outlet"></div>
+        {{/if}}
+    </div>
+
+    {{! "Show/Hide Columns, "Page Size Selection", and "Select None/All" }}
+
+    {{!--Change the component width depending on the options selected before to correctly show the Show/Hide Columns--}}
+    <div class="col-xs-7">
+
+        {{!-- "Show/Hide Columns" and "Page Size" dropdowns --}}
+        <div class="row">
+            <div class="col-xs-7 pull-right text-right">
+
+                {{! Show/Hide Columns Dropdown }}
+                {{#if generalOptions.toggleColumns}}
+                    <!-- display columns toggle options -->
+                    <div class="btn-group btn-group-sm text-left">
+                        <button type="button" class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{messagesOptions.toggleColumns}}
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            {{#each dataTableOptions.columns}}
+                                {{#if title}}
+                                    {{#unless alwaysVisible}}
+                                        <li class="common-datatable-togglecolumn">
+                                            <a href="#">
+                                                <input type="checkbox"
+                                                        class="common-datatable-toggle-column-checkbox"
+                                                        data-togglecolumn="{{title}}"
+                                                       {{#if visible}} checked="checked"{{/if}}>
+                                                <span> {{title}}</span>
+                                            </a>
+                                       </li>
+                                    {{/unless}}
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if generalOptions.selectNoneAll}}
+<div class="select-all-none-outlet"></div>
+{{/if}}
+{{!-- The Actual Table --}}
+<div class="row">
+    <div class="col-xs-12">
+        <!--due to the lack of a better alternative, added table-bordered class to deal with the flimsy border-->
+        <table id="common-datatable" class="table table-condensed table-bordered">
+        </table>
+    </div>
+</div>
+
+    </script>
+    <script id="total-results-template" type="text/x-handlebars-template">
+        {{#if showTotalResults}}
+    <div id="common-datatable-results-found"> 
+        {{message}}
+    </div>
+{{/if}}    </script>
+    <script id="common-datatable-select-all-none-template" type="text/x-handlebars-template">
+        {{#if hasTopRightWidgets}}
+    <div class="col-xs-3">
+{{else}}
+    <div class="col-xs-12">
+{{/if}}
+
+
+    <div class="row">
+        <div class="selection-buttons-nav-bellow-searchbox">
+            <span class="selection-buttons-nav">
+                {{#if generalOptions.showAssignedButton}}
+                    <a class="toggle-assigned-button" href="">
+                    {{#if assigned}}
+                        {{i18n "groups_templateimportgroupssuccess_show_all_users_text"}}
+                    {{else}}
+                        {{i18n "groups_templateimportgroupssuccess_show_only_selected_users_text"}}
+                    {{/if}}
+                    </a>
+                    &nbsp;
+                {{/if}}
+                <a id="select_all_button" href="">{{i18n "global_purpose_select_all"}}</a>
+                &nbsp;
+                <a id="select_none_button" href="">{{i18n "global_purpose_select_none"}}</a>
+            </span>
+        </div>
+    </div>
+<div>    </script>
+    <script id="common-tabs-template" type="text/x-handlebars-template">
+        <div class="ease_common_tab">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        {{#each tabs}}
+            <li role="presentation"
+                {{#if defaultSelected}}class="active"{{/if}} >
+                <a href="#tab_content_{{name}}" aria-controls="{{name}}" role="tab" data-toggle="tab">
+                    {{title}}
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        {{#each tabs}}
+            <div role="tabpanel"
+                 class="tab-pane {{#if defaultSelected}}active{{/if}}"
+                 id="tab_content_{{name}}">
+            </div>
+        {{/each}}
+    </div>
+</div>    </script>
+    <script id="push-notification-template" type="text/x-handlebars-template">
+        {{#if showPushNotificationDialog}}
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable" tabindex="-1" role="dialog"
+        aria-labelledby="ui-dialog-title-notificationMsgSection" id="push-notification-container">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="display: none;">
+            <span class="ui-dialog-title" id="ui-dialog-title-notificationMsgSection"></span>
+            <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button">
+                <span class="ui-icon ui-icon-closethick">{{i18n 'global_purpose_close'}}</span>
+            </a>
+        </div>
+        <div id="notificationMsgSection push-notification-inner-container"
+            class="ui-widget ui-dialog-content ui-widget-content" name="msgNotification" scrolltop="0" scrollleft="0">
+            <p class="instructions">
+                {{i18n 'group_templateshowsuccess_send_group_message_instructions'}}
+            </p>
+            <label id="notificationMsgLabel" for="SendMessage">{{i18n 'global_purpose_message'}}</label>
+            <span id="countdownDisplay" style="{{messageColour}}"
+                  class="Appscript_Text_Countdown Appscript_Text_Remainder_Plenty">
+                {{#equals characterCountdown 0}}
+                    {{i18n 'notify_messages_text_limit_reached'}}:
+                    {{maxCharacters}}
+                    {{i18n 'global_purpose_characters'}}
+                {{/equals}}
+                {{#notEquals characterCountdown 0}}
+                    {{characterCountdown}}
+                {{/notEquals}}
+            </span>
+            <textarea id="notificationMsgText" rows="5" maxlength="130"
+                      name="notificationMsgText" autocomplete="off">{{currentMessage}}</textarea>
+            <div id="buttons-container">
+                <input id="messageSendBtn" class="{{allowSendPushNotification}}"
+                    type="button" value="{{i18n 'global_purpose_send'}}" title="" autocomplete="off">
+                <input id="messageCancelBtn" class="buttonActive"
+                    type="button" value="{{i18n 'global_purpose_cancel'}}" title="" autocomplete="off">
+            </div>
+        </div>
+    </div>
+{{/if}}    </script>
+    <script id="autocomplete-template" type="text/x-handlebars-template">
+        <input type="text" id="autocomplete_input" class="form-control"/>    </script>
+    <script id="autocomplete-no-found-template" type="text/x-handlebars-template">
+        <div class="col-xs-12 text-center">{{i18n.global_purpose_no_matches_found}}</div>    </script>
+    <script id="autocomplete-pending-template" type="text/x-handlebars-template">
+        <div class="col-xs-12 text-center">{{i18n 'global_purpose_searching'}}</div>    </script>
+    <script id="autocomplete-footer-template" type="text/x-handlebars-template">
+        {{#greaterThan total limit }}
+    <div class="col-xs-12 text-center"><small>{{i18n 'global_purpose_search_many_results'}}</small></div>
+{{/greaterThan}}    </script>
+    <script id="import-items-template" type="text/x-handlebars-template">
+        {{!-- Title --}}
+<h1 class="import-items-title">{{options.messages.title}}</h1>
+
+<div class="col-xs-12 import-items-page-row">
+    <div id="import-items-select-file-outlet" class="col-xs-12"></div>
+</div>
+
+<div class="col-xs-12 import-items-page-row">
+    <div id="import-items-messages-outlet" class="col-xs-12"></div>
+</div>
+
+<div class="col-xs-12 import-items-page-row">
+    <div id="import-items-table-outlet" class="col-xs-12"></div>
+</div>
+
+<div id="import-items-buttons-outlet" class="col-xs-12"></div>    </script>
+    <script id="import-items-row-template" type="text/x-handlebars-template">
+        {{!-- Cell displaying the number of row --}}
+<td class="csv-display-col-data csv-row-number-col">{{item.displayIndex}}</td>
+{{#each item}}
+    {{#isInArray ../fieldNames @key}}
+        {{#isInArray ../../skipColumns @key}}
+            <td class="csv-display-col-data csv-display-col active">
+                <i>{{i18n "csv_import_select_column_manually"}} {{@key}}</i>
+            </td>
+        {{else}}
+            <td class="csv-display-col-data csv-display-col" data-column="{{@key}}">
+                {{!--
+                    If the item is alredy on the org we do not show any other message
+                    for this row, only display the value
+                --}}
+                {{#if ../../../item.isItemAlreadyInOrg}}
+
+                    {{!--
+                        Check if the field is in
+                        the list of the fields that
+                        can have multiple values
+                    --}}
+                    {{#isTypeOf this 'array'}}
+                        {{#isInArray ../../../../../multipleValueFieldNames @key}}
+                            {{#each this}}
+                                {{this}}<br>
+                            {{/each}}
+                        {{/isInArray}}
+                    {{else}}
+                        {{this}}
+                    {{/isTypeOf}}
+                {{else}}
+
+                    {{!--
+                        Check if there is any item already in the CSV with
+                        the same unique values
+                    --}}
+                    {{#if ../../../../item.isItemDuplicated}}
+
+                        {{!--
+                            If the item property meets the requirements,
+                            we show a blue-highlighted input
+                        --}}
+                        {{#isTypeOf this 'array'}}
+                            {{#isInArray ../../../../../../multipleValueFieldNames @key}}
+                                {{#if (fieldMeetsRequirements ../../../../../../item.meetsRequirements @key this)}}
+                                    {{#each this}}
+                                        <input type="text" class="duplicated-value-cell" value="{{this}}" />
+                                    {{/each}}
+                                {{else}}
+                                    {{#each this}}
+                                        <input type="text" class="invalid-value-cell" value="{{this}}" />
+                                    {{/each}}
+                                {{/if}}
+                            {{/isInArray}}
+
+                        {{else}}
+                            {{#if (fieldMeetsRequirements ../../../../../../item.meetsRequirements @key this)}}
+                                <input type="text" class="duplicated-value-cell" value="{{this}}" />
+
+                            {{!--
+                                If the item property does not meet the requirements,
+                                we show a red-highlighted input
+                            --}}
+                            {{else}}
+                                <input type="text" class="invalid-value-cell" value="{{this}}" />
+                            {{/if}}
+
+                        {{/isTypeOf}}
+
+                    {{else}}
+
+                        {{#isTypeOf this 'array'}}
+                            {{#isInArray ../../../../../../multipleValueFieldNames @key}}
+                                {{#if (fieldMeetsRequirements ../../../../../../item.meetsRequirements @key this)}}
+                                    {{#each this}}
+                                        {{!--
+                                            If the item property meets the requirements,
+                                            we display the value
+                                        --}}
+                                        {{this}}<br>
+                                    {{/each}}
+
+                                    {{!--
+                                        If the item property does not meet the requirements,
+                                        we show a red-highlighted input
+                                    --}}
+                                {{else}}
+                                    {{#each this}}
+                                        {{#if (multiFieldValueMeetsRequirements
+                                               ../../../../../../../../../item.meetsRequirements @key @index)}}
+                                            <div class="valid-value">{{this}}</div>
+                                        {{else}}
+                                            <input type="text" class="invalid-value-cell" value="{{this}}" />
+                                        {{/if}}
+                                    {{/each}}
+                                {{/if}}
+                            {{/isInArray}}
+                        {{else}}
+                            {{!--
+                                If the item property meets the requirements,
+                                we display the value
+                            --}}
+                            {{#if (fieldMeetsRequirements ../../../../../../item.meetsRequirements @key this)}}
+                                {{this}}
+
+                            {{!--
+                                If the item property does not meet the requirements,
+                                we show a red-highlighted input
+                            --}}
+                            {{else}}
+                                <input type="text" class="invalid-value-cell" value="{{this}}" />
+                            {{/if}}
+                        {{/isTypeOf}}
+
+                    {{/if}}
+
+                {{/if}}
+            </td>
+        {{/isInArray}}
+    {{/isInArray}}
+{{/each}}
+    </script>
+    <script id="import-items-select-file-template" type="text/x-handlebars-template">
+        <div class="panel panel-default import-items-row">
+    <div class="panel-heading">
+        <span class="glyphicon
+              glyphicon-chevron-{{#if isSectionVisible}}down{{else}}right{{/if}}
+              show-hide-upload-section" data-section="upload"></span>
+        <span class="section-title">{{i18n 'global_purpose_file_upload'}}</span>
+
+        {{#unless isSectionVisible}}{{#if userUploadedFile}}
+            <div class="file-name-section-display"> Uploaded file: {{fileName}}</div>
+        {{/if}} {{/unless}}
+
+    </div>
+
+    <div class="panel-body {{#unless isSectionVisible}}hidden{{/unless}}">
+
+        <div class="upload-file-input-container
+                    {{#if customViews}}
+                        col-xs-3
+                    {{else}}
+                        col-xs-5
+                    {{/if}}">
+
+            {{!-- Subtitle --}}
+            <span class="csv-subtitle-text">{{options.messages.subtitle}}</span>
+            <br>
+            <br>
+
+            {{!-- Help URL --}}
+            <span>
+                <a href="{{options.urls.helpURL}}" target="_blank">
+                    {{options.messages.clickHereText}}
+                </a>
+                {{options.messages.helpLabel}}
+            </span>
+            <br>
+        </div>
+
+        <div class="{{#if customViews}}
+                        col-xs-2
+                    {{else}}
+                        col-xs-7
+                    {{/if}}">
+            <div id="csv-file-subcontainer">
+                {{!-- CSV name display --}}
+                <div id="csv-file-name-display" class="csv-subcontainer-item">
+                    {{fileName}}
+                </div>
+                {{!-- Hidden file input --}}
+                <input class="hidden" type="file" id="csv-file-input" accept=".csv"/>
+            </div>
+
+            {{!-- Choose file button --}}
+            <div class="btn btn-primary" id="csv-file-button">
+                {{i18n 'global_purpose_choosefile'}}
+            </div>
+
+            {{!-- Loading message --}}
+            {{#if showLoadingMessage}}
+                <div class="loading-text">
+                    {{messageProcessingText}}
+                </div>
+            {{/if}}
+        </div>
+
+        {{#if customViews}}
+            <div class="col-xs-7">
+                {{!-- Custom parameters view --}}
+                <div id="custom-widgets-outlet"></div>
+            </div>
+        {{/if}}
+    </div>
+</div>
+    </script>
+    <script id="import-items-table-template" type="text/x-handlebars-template">
+        <div class="panel panel-default import-items-table-container" id="table-panel-container">
+
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-chevron-down show-hide-table-section"
+              id="table-icon-title" data-section="table"></span>
+        <span class="section-title">
+            {{options.messages.panelTitle}}
+        </span>
+    </div>
+
+    <div class="panel-body table-container" id="table-panel-body">
+        {{#if isTableDataSet}}
+            <table class="table csv-display-table">
+                <thead>
+                    <tr>
+                        <th class="csv-display-col-header csv-row-number-col">#</td>
+
+                        {{!-- Table headers AKA CSV file headers --}}
+                        {{#each tableHeaders}}
+                            <th class="csv-display-col-header csv-display-col">
+                                {{this}}
+                            </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody id="table-data-container"></tbody>
+            </table>
+
+        {{else}}
+            {{!-- If there is no CSV file, show a message --}}
+            <div class="no-data-message-container">
+                {{i18n 'csv_file_not_uploaded_yet_text'}}
+            </div>
+        {{/if}}
+    </div>
+</div>
+    </script>
+    <script id="import-items-buttons-template" type="text/x-handlebars-template">
+        <div class="ok-cancel-button-container">
+    {{!-- OK button --}}
+    <a id="ok-button" class="btn btn-primary"
+    {{#unless canFileBeUploaded}}
+        disabled="disabled"
+    {{/unless}}>
+        {{i18n 'global_purpose_ok'}}
+    </a>
+
+    {{!-- Cancel button --}}
+    <button id="cancel-button" type="button" class="btn btn-secondary">
+        {{i18n 'global_purpose_cancel'}}
+    </button>
+</div>    </script>
+    <script id="import-items-messages-template" type="text/x-handlebars-template">
+        {{#unless isCSVFileValid}}
+    <div class="csv-error-message col-xs-3">
+        <div class="csv-message-item csv-message-icon glyphicon glyphicon-exclamation-sign"></div>
+        <div class="csv-message-item">
+            <div class="csv-message-title">{{i18n 'global_purpose_error'}}</div>
+            <div class="csv-message-text">{{options.messages.notValidCSVrequiredFields}}</div>
+        </div>
+    </div>
+{{/unless}}
+
+{{#if anyItemOnOrg}}
+    <div class="csv-warning-message col-xs-3">
+        <div class="csv-message-item csv-message-icon glyphicon glyphicon glyphicon-warning-sign"></div>
+        <div class="csv-message-item">
+            <div class="csv-message-title">{{i18n 'global_purpose_warning'}}</div>
+            <div class="csv-message-text">{{options.messages.itemsAlreadyOnOrg}}</div>
+        </div>
+    </div>
+{{/if}}
+
+{{#notEquals itemsNotMeetingRequirementsCount 0}}
+    <div class="csv-warning-message col-xs-3">
+        <div class="csv-message-item csv-message-icon glyphicon glyphicon glyphicon-warning-sign"></div>
+        <div class="csv-message-item">
+            <div class="csv-message-title">{{i18n 'global_purpose_warning'}}</div>
+            <div class="csv-message-text">
+                {{formatPlural itemsNotMeetingRequirementsCount
+                            options.messages.notMeetingRequirementsSingular
+                            options.messages.notMeetingRequirementsPlural
+                }}
+            </div>
+        </div>
+    </div>
+{{/notEquals}}
+
+{{#notEquals duplicatedItemCount 0}}
+    <div class="csv-warning-message col-xs-3">
+        <div class="csv-message-item csv-message-icon glyphicon glyphicon glyphicon-warning-sign"></div>
+        <div class="csv-message-item">
+            <div class="csv-message-title">{{i18n 'global_purpose_warning'}}</div>
+            <div class="csv-message-text">
+                {{formatPlural duplicatedItemCount
+                            options.messages.duplicatedSingular
+                            options.messages.duplicatedPlural
+                }}
+            </div>
+        </div>
+    </div>
+{{/notEquals}}
+
+    </script>
+<!-- Start Cage -->
+<div id="cage">
+    <div id="global_results_message" style="display: none;">&nbsp;</div>
+
+    <!-- Start Global Header -->
+    <div>
+        <table id="logo-layout">
+            <tr>
+                <td id="logo-home-left">&nbsp;</td>
+                <td id="logo-home-right">&nbsp;</td>
+            </tr>
+        </table>
+
+        <!-- Start Main -->
+        <div id="main">
+            <!-- Start Content -->
+            <div id="content-dropdown-languages" class="dropdown">
+     Language: <form id="dropdown-languages">
+        <select name="langSel" onchange="window.location.href=this.form.langSel.options[this.form.langSel.selectedIndex].value">
+          <option selected="selected" value="/index.php/changeLanguage/en_US">English</option>
+              <option value="/index.php/changeLanguage/es_ES">Español</option>
+              <option value="/index.php/changeLanguage/fr_FR">Français</option>
+              <option value="/index.php/changeLanguage/de_DE">Deutsch</option>
+            </select>
+    </form>
+</div>
+
+<div id="box">
+    <div class="pad">
+        <!-- <h1>Welcome to EASE</h1>-->
+        <h1>
+
+        Welcome to EASE</h1>
+
+        <p>
+        Please sign in using your user ID and password.        </p>
+
+        <div id="envelope">
+            <div id="form">
+                <div id="hdr">
+                    <h4>EASE Portal Login</h4>
+                </div>
+
+                <form action="/index.php/user/login/action"
+                    method="post">
+
+                    
+                    <label>User ID:</label>
+                    <!-- EASE-26499 disable autocomplete -->
+                    <input type="text" name="login[email]" autocomplete="off" id="login_email" />
+                    <label>Password:</label>
+                    <input type="password" name="login[password]" autocomplete="off" id="login_password" />
+                                            <br/>
+                        <input type="checkbox" name="login[remember]" id="login_remember" /> <label for="login_remember" style="display: inline ! important;">Stay Signed in</label>
+                        <br/><br/>
+                    
+                    <input type="hidden" name="login[_csrf_token]" value="c01069eaa19a6b9921e82120cec69594" id="login__csrf_token" />                    <div class="button"><input type="submit" value="Login" /></div>
+                    <br/><br/>
+                    <div class="links">
+                        <small>
+                            <a title="Reset password" href="/index.php/forgotpassword">Reset password</a>&nbsp; &nbsp;
+                                                            <a href="http://www.wireless.att.com/businesscenter/msites/mobile-marketing/contact-us.jsp?interests=MobileApplicationManagement">Need an account? Register Now</a>
+                                                    </small>
+                    </div>
+                </form>
+            </div>
+
+            
+            <div style="clear: both">
+            </div>
+        </div>
+
+    </div>
+</div>
+            <!-- End Content -->
+        </div>
+        <!-- End Clear -->
+
+        <div id="cap">
+            
+<div style="padding-left:10px;float:left;">
+    <a href ="http://www.apperian.com"
+       title=" Apperian Home">
+         Apperian Home    </a>
+
+    &nbsp;&nbsp;
+
+    <a href ="http://www.apperian.com/company/privacypolicy"
+       title="Privacy Policy">
+        Privacy Policy    </a>
+</div>
+
+<div style="padding-right:10px;float:right;">
+Copyright © 2010 - 2017, Apperian, Inc. All Rights Reserved </div>
+        </div>
+        <!-- End Application Frame -->
+    </div>
+    <!-- End Main -->
+</div>
+<!-- End Cage -->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="../../../lib/html5shiv.js"></script>
+<script src="../../../lib/respond.min.js"></script>
+<script src="../../../lib/excanvas.js"></script>
+<![endif]-->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"f301dcabec","applicationID":"327025","transactionName":"YFxUN0IAXkdYBRBfXVkWdwBECF9aFhMXU0AYVVkEWQ8=","queueTime":0,"applicationTime":25,"atts":"TBtXQQoaTUk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

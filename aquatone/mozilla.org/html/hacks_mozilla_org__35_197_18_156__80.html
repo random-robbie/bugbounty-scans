@@ -1,0 +1,385 @@
+
+<!doctype html>
+<html lang="en-US">
+<head data-template-path="https://hacks.mozilla.org/wp-content/themes/Hax">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Metadata for Facebook -->
+  <meta property="og:site_name" content="Mozilla Hacks &#8211; the Web developer blog">
+  <meta property="og:url" content="https://hacks.mozilla.org/">
+  <meta property="og:title" content="Home">
+  <meta property="og:description" content="Mozilla Hacks is written for web developers, designers and everyone who builds for the Web. Hacks is produced by Mozilla's Developer Relations team and features ...">
+
+  <!-- Metadata for Twitter -->
+  <meta property="twitter:title" content="Home">
+  <meta property="twitter:description" content="Mozilla Hacks is written for web developers, designers and everyone who builds for the Web. Hacks is produced by Mozilla's Developer Relations team and features ...">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@mozhacks">
+
+  <link rel="alternate" type="application/rss+xml" title="Mozilla Hacks &#8211; the Web developer blog RSS Feed" href="https://hacks.mozilla.org/feed/">
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href="//addons.cdn.mozilla.net/static/css/tabzilla/tabzilla.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/style.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6.0/styles/solarized_light.min.css">
+
+  <title>    Mozilla Hacks &#8211; the Web developer blog  </title>
+
+  <script type="text/javascript">
+    window.hacks = {};
+    // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+    var removeUtms  =   function(){
+        var l = window.location;
+        if( l.hash.indexOf( "utm" ) != -1 ){
+            var anchor = l.hash.match(/#(?!utm)[^&]+/);
+            anchor  =   anchor? anchor[0]: '';
+            if(!anchor && window.history.replaceState){
+                history.replaceState({},'', l.pathname + l.search);
+            } else {
+                l.hash = anchor;
+            }
+        };
+    };
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35433268-8'],
+              ['_setAllowAnchor', true]);
+    _gaq.push (['_gat._anonymizeIp']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push( removeUtms );
+    (function(d, k) {
+      var ga = d.createElement(k); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = 'https://ssl.google-analytics.com/ga.js';
+      var s = d.getElementsByTagName(k)[0]; s.parentNode.insertBefore(ga, s);
+    })(document, 'script');
+  </script>
+
+  <link rel='dns-prefetch' href='//blog.mozilla.org' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='stcr-plugin-style-css'  href='https://blog.mozilla.org/hacks/wp-content/plugins/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://blog.mozilla.org/hacks/wp-content/plugins/subscribe-to-comments-reloaded/includes/js/stcr-plugin.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/js/analytics.js?ver=4.8.2'></script>
+<link rel='https://api.w.org/' href='https://hacks.mozilla.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://hacks.mozilla.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://hacks.mozilla.org/wp-includes/wlwmanifest.xml" /> 
+<link rel="canonical" href="https://hacks.mozilla.org/" />
+<link rel='shortlink' href='https://hacks.mozilla.org/' />
+<link rel="alternate" type="application/json+oembed" href="https://hacks.mozilla.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhacks.mozilla.org%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://hacks.mozilla.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhacks.mozilla.org%2F&#038;format=xml" />
+            <script type="text/javascript">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-36116321-4', 'auto');
+                ga('set', 'dimension1', 'Mozilla Hacks - the Web developer blog');
+                ga('send', 'pageview');
+            </script><link rel="shortcut icon" type="image/x-icon" href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/favicon.ico" /><style>#wpadminbar #wp-admin-bar-site-name>.ab-item:before { content: none !important;}li#wp-admin-bar-site-name a { background: url( "https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/favicon.ico" ) left center/20px no-repeat !important; padding-left: 21px !important; background-size: 20px !important; } li#wp-admin-bar-site-name { margin-left: 5px !important; } li#wp-admin-bar-site-name {} #wp-admin-bar-site-name div a { background: none !important; }
+</style></head>
+<body>
+  <div class="outer-wrapper">
+    <header class="section section--fullwidth header">
+      <div class="masthead row">
+        <div id="tabzilla">
+          <a href="https://www.mozilla.org/">Mozilla</a>
+        </div>
+        <div class="branding block block--3">
+          <h1><a href="https://hacks.mozilla.org"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/img/mdn-logo-mono.svg" alt="Mozilla"><span>Hac<span class="logo-askew">k</span>s</span></a></h1>
+        </div>
+        <div class="search block block--2">
+          <form class="search__form" method="get" action="https://hacks.mozilla.org/">
+            <input type="search" name="s" class="search__input" placeholder="Search Mozilla Hacks" value="">
+            <i class="fa fa-search search__badge"></i>
+          </form>
+        </div>
+        <nav class="social">
+          <a class="social__link youtube" href="http://www.youtube.com/user/mozhacks" title="YouTube"><i class="fa fa-youtube"></i><span>Hacks on YouTube</span></a>
+          <a class="social__link twitter" href="https://twitter.com/mozhacks" title="Twitter"><i class="fa fa-twitter"></i><span>@mozhacks on Twitter</span></a>
+          <a class="social__link rss" href="https://hacks.mozilla.org/feed/" title="RSS Feed"><i class="fa fa-rss"></i><span>Hacks RSS Feed</span></a>
+        </nav>
+      </div>
+    </header>
+
+<section
+  class="feature section section--fullwidth"
+   >
+  <div class="feature__pane">
+    <h1><a class="feature__link" href="https://hacks.mozilla.org/2017/10/firefox-56-last-stop-before-quantum/">Firefox 56: Last Stop before Quantum&nbsp;&rarr;</a></h1>
+    <h2 class="feature__label">Featured Article</h2>
+  </div>
+</section>
+
+<section class="recent content section">
+  <div class="row">
+    <div class="block block--3">
+      <h2 class="heading">Recent Articles</h2>
+      <ul class="article-list">
+        <li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/a2746e0bf42c3245bfd80dea9b3efb32?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/a2746e0bf42c3245bfd80dea9b3efb32?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/10/firefox-56-last-stop-before-quantum/">Firefox 56: Last Stop before Quantum</a>
+    </h3>
+    <p class="post__tease">Here at Mozilla, we’re extremely excited about next month’s release of Firefox Quantum, with massive speed improvements, a brand new UI, and many Developer Tools upgrades -- available now in Developer Edition. But last week's general release of Firefox 56 features good news for developers now - including "headless mode" across all OSes, our modern new debugger, and much more. </p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-10-04T09:02:55-07:00">
+        October 4, 2017      </abbr>
+    </div>
+  </div>
+</li>
+      </ul>
+    </div>
+    <form id="newsletterForm" name="newsletter-form" class="newsletter block block--1 block--polite" action="https://www.mozilla.org/en-US/newsletter/" method="post">
+  <h2 class="heading">Learn the best of web development</h2>
+  <p class="newsletter__description">Sign up for our newsletter:</p>
+  <input id="fmt" name="fmt" value="H" type="hidden">
+  <input id="newsletterNewslettersInput" name="newsletters" value="app-dev" type="hidden">
+
+  <div id="newsletterErrors" class="newsletter__errors"></div>
+
+  <div id="newsletterEmail" class="form__row">
+    <label for="newsletterEmailInput" class="offscreen">E-mail</label>
+    <input id="newsletterEmailInput" name="email" class="newsletter__input" required="" placeholder="you@example.com" size="30" type="email">
+  </div>
+
+  <div id="newsletterPrivacy" class="form__row form__fineprint">
+    <input id="newsletterPrivacyInput" name="privacy" required="" type="checkbox">
+    <label for="newsletterPrivacyInput">
+      I'm okay with Mozilla handling my info as explained in this <a href="https://www.mozilla.org/privacy/">Privacy Policy</a>.
+    </label>
+  </div>
+  <button id="newsletter-submit" type="submit" class="button positive">Sign up now</button>
+</form>
+<div id="newsletterThanks" class="newsletter newsletter--thanks block block--1 block--polite hidden">
+  <h2 class="heading">Thanks! Please check your inbox to confirm your subscription.</h2>
+  <p>If you haven’t previously confirmed a subscription to a Mozilla-related newsletter you may have to do so. Please check your inbox or your spam filter for an email from us.
+  </p>
+</div>
+  </div>
+  <div class="row">
+    <div class="block block--2">
+      <ul class="article-list">
+        <li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/4e860b3c530d4dea12329e0251d68b37?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/4e860b3c530d4dea12329e0251d68b37?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/10/containers-for-add-on-developers/">An overview of Containers for add-on developers</a>
+    </h3>
+    <p class="post__tease">Containers work by giving users the ability to place barriers on the flow of data across sites by isolating cookies, indexedDB, localStorage, and caches within discrete browsing contexts.  This in-depth introduction to Containers and Container extensions explores the capabilities of Containers and contextual identity for developers. </p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-10-03T08:03:09-07:00">
+        October 3, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/51e4f6459f94a04520ee141daeed3af0?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/51e4f6459f94a04520ee141daeed3af0?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/10/multi-user-experiences-with-a-frame/">Multi-user experiences with A-Frame</a>
+    </h3>
+    <p class="post__tease">Salva de la Puente describes the <code>sharedspace</code> component he's built, which brings the power of WebRTC to A-Frame users. The component provides a collaboration model where participants can join or leave a named space, share audio and state, and send JSON-serializable objects to other peers. Check it out!</p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-10-02T10:26:34-07:00">
+        October 2, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/020aff182fc2a6fb1fac18fddedaefc4?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/020aff182fc2a6fb1fac18fddedaefc4?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/rnnoise-deep-learning-noise-suppression/">RNNoise: Using Deep Learning for Noise Suppression</a>
+    </h3>
+    <p class="post__tease">The Mozilla Research RRNoise project shows how to apply deep learning to noise suppression. It combines classic signal processing with deep learning, but it’s small and <strong>fast</strong>. And you can help! Find out how to <em>donate your noise to science</em>. </p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-28T07:49:37-07:00">
+        September 28, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/a2746e0bf42c3245bfd80dea9b3efb32?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/a2746e0bf42c3245bfd80dea9b3efb32?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/firefox-quantum-developer-edition-fastest-firefox-ever/">Firefox Quantum Developer Edition: the fastest Firefox ever with Photon UI and better tooling</a>
+    </h3>
+    <p class="post__tease">Firefox Quantum is now available in Developer Edition, and this Firefox is <i>fast</i>. Today’s release is a major milestone towards our next-generation browser, and includes Quantum CSS, Firefox's new CSS rendering engine; Photon, a major UI refresh; and lots more speed and features you've requested. </p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-26T07:05:33-07:00">
+        September 26, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/60dd86ccfd9c63b53e9f2a34b2f48442?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/60dd86ccfd9c63b53e9f2a34b2f48442?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/developer-edition-devtools-update-now-with-photon-ui/">Developer Edition Devtools Update: Now with Photon UI</a>
+    </h3>
+    <p class="post__tease">An update on all the changes and improvements to Firefox Dev Tools available now in the Firefox Quantum Developer Edition release. Beginning with the brand-new logo and new Photon UI, the DevTools suite is faster and more responsive to developer needs - including improvements to the Inspector, Console, Debugger, and Network Monitor. </p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-26T07:05:18-07:00">
+        September 26, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/5481d2a340d45c788bb772bc65ddf954?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/5481d2a340d45c788bb772bc65ddf954?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/always-right-a-webextension-migration-story/">Always Right &#8211; An Extension Migration Story</a>
+    </h3>
+    <p class="post__tease">A veteran Firefox add-on developer describes how he migrated Always Right, one of his personal <em>must-have</em> browser extensions, to the new WebExtensions API.</p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-21T07:58:46-07:00">
+        September 21, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/73aca9df10726dfe88a926a8413ea351?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/73aca9df10726dfe88a926a8413ea351?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/">Building the DOM faster: speculative parsing, async, defer and preload</a>
+    </h3>
+    <p class="post__tease">In 2017, the toolbox for making sure your web page loads fast includes everything from minification and asset optimization to caching, CDNs, code splitting and tree shaking. Understanding what goes on inside a browser is still the most powerful tool for every web developer. This article breaks down how <code>defer</code> and <code>async</code> work and how you can leverage the new keyword <code>preload</code>. </p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-14T07:54:53-07:00">
+        September 14, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/a2746e0bf42c3245bfd80dea9b3efb32?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/a2746e0bf42c3245bfd80dea9b3efb32?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/bootcamps-webassembly-and-computer-vision/">Experimenting with WebAssembly and Computer Vision</a>
+    </h3>
+    <p class="post__tease">This past summer, four students at a coding bootcamp in Los Angeles began experimenting with WebAssembly. The result, after six weeks of exploration, was WebSight: a real-time face detection demo based on OpenCV.</p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-12T08:17:39-07:00">
+        September 12, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/b3ca4ba51e765179b4687fc145d4c9d3?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/b3ca4ba51e765179b4687fc145d4c9d3?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/meta-2-ar-headset-with-firefox/">Meta 2 AR Headset with Firefox</a>
+    </h3>
+    <p class="post__tease">One of the biggest challenges in developing immersive WebVR experiences today is that immersion takes you away from your developer tools. With Meta's new augmented reality headset, you can work on and experience WebVR content today without ever taking a headset on or off, or connecting developer tools to a remote device.</p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-08T08:00:41-07:00">
+        September 8, 2017      </abbr>
+    </div>
+  </div>
+</li>
+<li class="list-item row listing">
+    <img alt='' src='https://secure.gravatar.com/avatar/bdad48010ce27b1165cb9579b036c8b4?s=72&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/bdad48010ce27b1165cb9579b036c8b4?s=144&amp;d=mm&amp;r=g 2x' class='avatar avatar-72 photo' height='72' width='72' />  <div class="block block--1">
+    <h3 class="post__title">
+      <a href="https://hacks.mozilla.org/2017/09/i-built-something-with-a-frame-in-2-days-and-you-can-too/">I built something with A-Frame in 2 days (and you can too)</a>
+    </h3>
+    <p class="post__tease">A few months ago, I had the opportunity to try out several WebVR experiences for the first time, and I was blown away by the possibilities. Using just a headset and my Firefox browser, I was able to play games, explore worlds, paint, create music and so much more. All through the open web. I [&hellip;]</p>
+    <div class="post__meta">
+      Posted on
+      <abbr class="published" title="2017-09-06T08:03:24-07:00">
+        September 6, 2017      </abbr>
+    </div>
+  </div>
+</li>
+      </ul>
+      <h3 class="read-more"><a href="https://hacks.mozilla.org/articles/page/2/">Browse All Articles &rarr;</a></h3>
+    </div>
+    <div class="block block--1 block--minor">
+      <h2 class="heading">Categories</h2>
+      <ul class="category-list" role="navigation">
+                                        <li class="category-list__link"><a href="https://hacks.mozilla.org/category/add-ons/">Add-ons</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/javascript/animations/">Animations</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/apps/">Apps</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/canvas/">Canvas</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/css/">CSS</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/developer-tools/">Developer Tools</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/firefox/">Firefox</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/firefox-os/">Firefox OS</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/games/">Games</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/html5/">HTML5</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/javascript/">JavaScript</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/mobile/">Mobile</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/performance/">Performance</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/security/">Security</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/svg/">SVG</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/video/">Video</a></li>
+                                                  <li class="category-list__link"><a href="https://hacks.mozilla.org/category/webgl/">WebGL</a></li>
+                        </ul>
+    </div>
+  </div>
+</section>
+
+    <footer class="footer section section--fullwidth">
+      <div class="row">
+        <p class="block block--1">
+          Except where otherwise noted, content on this site is licensed
+          under the
+          <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license external">Creative Commons Attribution Share-Alike License v3.0</a>
+          or any later version.
+        </p>
+        <img class="footer__logo" alt="the Mozilla dino logo" src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/img/dino.svg">
+      </div>
+    </footer>
+  </div>
+  <link rel='stylesheet' id='hljstheme-css'  href='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/plugins/wp-code-highlightjs/styles/default.css?ver=0.6.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/plugins/wp-syntax/js/wp-syntax.js?ver=1.1'></script>
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/plugins/wp-code-highlightjs/highlight.common.pack.js?ver=0.6.2'></script>
+<script type='text/javascript' src='https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/plugins/wp-code-highlightjs/highlight.custom.pack.js?ver=0.6.2'></script>
+    <style>pre.hljs {padding: 5px;}
+pre.hljs code {}</style>
+    <script type="text/javascript">
+    (function($, window) {
+        var init_fn_flag = false;
+        var init_fn = (function() {
+            if (init_fn_flag)
+                return;
+            init_fn_flag = true;
+             hljs.configure({"tabReplace":"    "});
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+        $(document).ready(init_fn);
+        $(window).on("load", init_fn);
+    })(jQuery, window);
+    </script>
+  <script>
+    // External links should open in a new tab.
+    (function () {
+      var postLinks = document.querySelectorAll('#content-main a');
+
+      var origin = location.origin;
+
+      for (var i = 0; i < postLinks.length; i++) {
+        var link = postLinks[i];
+        if (link.origin !== origin && !link.getAttribute('target')) {
+          link.setAttribute('target', '_blank');
+        }
+      }
+    })();
+
+    window.addEventListener('load', function () {
+      if (document.querySelector('#newsletterForm')) {
+        var script = document.createElement('script');
+        var path = document.head.getAttribute('data-template-path');
+        script.setAttribute('src', path + '/js/newsletter.js');
+        document.head.appendChild(script);
+      }
+    });
+  </script>
+</body>
+</html>

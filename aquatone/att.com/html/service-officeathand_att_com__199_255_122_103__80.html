@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+
+    <!--
+            Webkit's fix for NO_MODIFICATION_ALLOWED_ERR: DOM Exception 7
+            @see http://www.karthikeyanc.com/blog/index.php/2010/06/chrome-error-no_modification_allowed_err-dom-exception-7/
+    -->
+
+    <title></title>
+    <script type="text/javascript" src="/RCLibX/RCLibX.min.js?v=9.02.2c8b41379c2ef44bb5e9259e423e5acff68b56ec"></script>
+    <script type="text/javascript">
+        var version = '9.02.2c8b41379c2ef44bb5e9259e423e5acff68b56ec';
+    </script>
+    <script type="text/javascript" src="/node_modules/requirejs/require.js?v=9.02.2c8b41379c2ef44bb5e9259e423e5acff68b56ec"></script>
+    <script type="text/javascript" src="/requireConfig.js?v=9.02.2c8b41379c2ef44bb5e9259e423e5acff68b56ec"></script>
+
+    <script type="text/javascript">
+        var centralPanelId = null;
+        var entryToken = null;
+
+        var locale = RC.utils.Lang.getLocaleFromCookie();
+        var brandId = Cookie.read('RCBRAND') || '1210';
+
+        var forcedBrandId = getQueryStringParameterByName('s');
+        if (forcedBrandId) {
+            Cookie.write('RCBRAND', forcedBrandId, {path: '/'});
+            brandId = forcedBrandId;
+            locale = undefined; // flush locale after forced brand change
+        }
+
+        var visitor = Cookie.read('VISITOR');
+        var days = 365;
+        var currentDomain = document.domain;
+        var domain = '.ringcentral.com';
+        if (currentDomain == 'service.ringcentral.co.uk') {
+            domain = '.ringcentral.co.uk';
+        }
+        if (visitor) {
+            Cookie.write('VISITOR', parseInt(visitor, 10) + 1, {duration: days, domain: domain});
+            Cookie.write('VISITOR', parseInt(visitor, 10) + 1)
+        } else {
+            Cookie.write('VISITOR', 1, {duration: days, domain: domain});
+            Cookie.write('VISITOR', 1)
+        }
+
+        load();
+
+        function load() {
+            var brandAndLocale = null;
+            var localeLogin = RC.utils.Lang.getLoginLocaleFromCookie(),
+                    forcedLocale = getQueryStringParameterByName('localeId') || localeLogin,
+                    $do = new RC.data.AsyncContext(),
+                    availableLanguages = [];
+
+            $do(getAvailableLocales);
+            $do.$if(!locale || forcedLocale)(setTargetLocale);
+            $do(loadBrandResources);
+            $do(ready);
+
+            function getAvailableLocales(cb) {
+                RC.utils.Lang.getAvailableLocales(brandId, function(languages) {
+                    availableLanguages = languages;
+                    cb();
+                });
+            }
+
+            function setTargetLocale(cb) {
+                var isLocaleAvailable = availableLanguages.some(function(language) {
+                    return language.localeCode == forcedLocale;
+                });
+
+                if(forcedLocale && isLocaleAvailable) {
+                    locale = forcedLocale;
+                    RC.utils.Lang.setLocaleInCookie(forcedLocale);
+                    Cookie.write('RCLANG_FROMUI', true);
+                } else if (!locale) {
+                    setDefaultBrandLocale();
+                }
+
+                cb();
+
+                function setDefaultBrandLocale() {
+                    var defaultLocale;
+                    availableLanguages.some(function(tempLang) {
+                        if (tempLang['default']) {
+                            defaultLocale = tempLang.localeCode;
+                            return true;
+                        }
+                    });
+
+                    defaultLocale = defaultLocale || (availableLanguages[0] && availableLanguages[0].localeCode) || 'en_US';
+
+                    locale = defaultLocale;
+                    RC.utils.Lang.setLocaleInCookie(defaultLocale);
+                }
+            }
+
+            function loadBrandResources(cb) {
+                brandAndLocale = brandId;
+
+                RC.Configure({
+                    componentsDir: '/desktop/',
+                    langDir: '/desktop/common/',
+                    cssDir: '/RCLibX/css/',
+                    brandId: brandId,
+                    locale: locale,
+                    version: version
+                });
+
+                // Asset.favicon
+                (function (){
+                    var source = RC.getSkinnedSSImageUrl('img/logos/favicon.ico'),
+                            link = new Element('link', {
+                                rel: 'shortcut icon',
+                                type: 'image/vnd.microsoft.icon',
+                                href: source
+                            });
+                    link.inject(document.head);
+                })();
+
+                Asset.css('/desktop/elements-' + brandAndLocale + '.css?v=' + version);
+
+                cb();
+            }
+
+            function ready(cb) {
+                RC.onReady(function() {
+                    bootstrap(cb);
+                });
+            }
+
+            function bootstrap(cb) {
+                document.title = RC.Lang.Common.LOADING;
+                if(isLoginPage()) {
+                    showSignUpHint();
+                    sessionStorage.removeItem("skipGoogleTaggedPrompt");
+                }
+
+                var bootstrap = new RC.Bootstrap({
+                    enableSessionTimeout: false,
+                    setUIMode: false,
+                    loadWizards: false,
+                    loadPageComponents: true,
+                    loadPageComponentMenu: false,
+                    loadPageComponentFCC: false,
+                    loadPageComponentDND: false,
+                    loadPageComponentFaxOut: false,
+                    loadPageComponentRingOut: false,
+                    loadPageComponentAppearance: false,
+                    loadPageComponentFooter: true,
+                    loadPageComponentHelpLink: false,
+                    isLoginSkeleton: true,
+                    loadHelpers: false,
+                    loadTrackUtils: true
+                });
+                bootstrap.onCompleted(function () {
+                    var isNewLoginEnabled = !isSSOLoginFailurePage() && RC.Config.isNewLoginUI;
+                    var showLangSelector = availableLanguages.length > 1;
+                    if (isNewLoginEnabled) {
+                        $('login-wrapper').addClass('x-hidden');
+                    } else {
+                        Asset.css('/desktop/login/elements-' + brandAndLocale + '.css?v=' + version);
+
+                        document.getElementById('loginPageHeader').innerHTML = RC.Lang.Common.LOADING;
+                        if (showLangSelector) {
+                            showLanguageSelector();
+                        }
+
+                        RC.panel.Manager.onFirstDisplay(function() {
+                            $('login-container').removeClass('login-container-loading');
+                        });
+
+                        // for the position of popup
+                        $('login-wrapper').removeClass('x-visibility-hidden');
+                    }
+                    $('new-login-wrapper').toggleClass('x-hidden', !isNewLoginEnabled);
+
+                    // load banner image
+                    if (isNewLoginEnabled) {
+                        createBannerImageIframe(brandId, locale, true, '350px', '550px', 'wider-banner');
+                    } else {
+                        createBannerImageIframe(brandId, locale, false, '300px', '250px', 'banner');
+                    }
+
+                    cb && cb();
+                });
+
+                function isLoginPage() {
+                    return window.location.pathname == '/' ||
+                            window.location.pathname == '/login/' ||
+                            window.location.pathname.indexOf('enter.html') > 0 ||
+                            window.location.pathname.indexOf('error.html') > 0 ||
+                            window.location.pathname.indexOf('logout.html') > 0
+                }
+
+                // in some cases (ui_options=old_ui), we have to render legacy page even though isEmailAsLoginIdEnabled is true.
+                // TODO remove it in near future release
+                function isSSOLoginFailurePage() {
+                    return window.location.pathname == '/login/ssoLoginFailure.html';
+                }
+
+                function showSignUpHint() {
+                    var div = $('login-header');
+                    var link = RC.UI.Message('<a href="" id="{0}">{1}</a>', 'login-signup-link', RC.Lang.Common.SIGN_UP_HERE);
+                    new Element('div', {
+                        'html': '<span id = "login-signup-text">' + RC.Lang.Common.DONT_HAVE_AN_ACCOUNT + '</span>' + link,
+                        'id':'login-signup'
+                    }).inject(div);
+                }
+
+                function showLanguageSelector() {
+                    var langSelectorWrapper = new Element('div', {
+                                id: 'login-language-selector',
+                                'class': 'login-language-selector'
+                            }),
+                            parentNode = isLoginPage() ? $('login-signup') : $('login-header');
+                    parentNode.adopt(langSelectorWrapper);
+                }
+            }
+
+            function createBannerImageIframe(brandId, localeId, isWider, width, height, containerId) {
+                new Element('iframe', {
+                    styles: {
+                        border: 'none'
+                    },
+                    src: '/login/banner.html?brandId=' + brandId + '&localeId=' + localeId + '&isNewUI=' + isWider,
+                    frameborder: 0,
+                    scrolling: 'no',
+                    height: height,
+                    width: width
+                }).inject(document.getElementById(containerId));
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="login-wrapper" class="x-visibility-hidden">
+
+    <div class="login-container-loading" id="login-container">
+
+        <div id="login-header">
+            <a href="/"><span id="headerLogo" class="logotype"></span></a>
+        </div>
+
+        <h1 class="PageHeader" id="loginPageHeader"></h1>
+
+        <div id="PageContent"></div>
+
+        <div id="legal"></div>
+
+
+
+    </div>
+
+</div>
+
+<div class="bootstrap-rc">
+    <div id="popup-container"></div>
+</div>
+
+<div id="new-login-wrapper" class="rc-frame-layout bootstrap-rc x-hidden">
+</div>
+
+<!-- this guarantees that banner will not flash while CSS is loading -->
+<!-- banner has to be loaded in SYNC mode from the initial page due to document.write expression in it -->
+<div id="banner-wrap" style="display: none">
+    <div id="banner">
+    </div>
+</div>
+
+<div id="wider-banner-wrap" style="display: none">
+    <div id="wider-banner">
+    </div>
+</div>
+
+<form id="history-form" class="x-hidden">
+    <input type="hidden" id="x-history-field" />
+    <iframe id="x-history-frame"></iframe>
+</form>
+
+<!-- fake form for browser's native autocomplete -->
+<form action="/login/main.asp" method="POST" target="_top" style="display: none">
+    <div><input type="text" name="LoginName" id="fakeLoginName" /></div>
+    <div><input type="password" name="Password" id="fakePassword" /></div>
+    <div><input type="text" name="PIN" id="fakePIN" /></div>
+    <div><button type="submit">Submit</button></div>
+</form>
+
+</body>
+</html>

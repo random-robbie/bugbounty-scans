@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/Default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<META NAME="Googlebot" CONTENT="nofollow" />
+
+<META http-equiv="CACHE-CONTROL" content="no-store, no-cache, must-revalidate" />
+<META http-equiv="CACHE-CONTROL" content="post-check=0, pre-check=0" />
+<META http-equiv="Pragma" content="no-cache" />
+<META http-equiv="Expires" content="-1" />
+<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/CondoStyle.css">
+<script language="javascript" type="text/javascript" src="/SpryAssets/SpryData.js"></script>
+<script src="/SpryAssets/xpath.js" type="text/javascript"></script>
+<script src="/SpryAssets/SpryJSONDataSet.js"></script>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>All For Less Login</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="/SpryAssets/SpryValidationPassword.js" type="text/javascript"></script>
+<script src="/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="/SpryAssets/SpryValidationConfirm.js" type="text/javascript"></script>
+<link href="/SpryAssets/SpryValidationPassword.css" rel="stylesheet" type="text/css">
+<link href="/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
+<link href="/SpryAssets/SpryValidationConfirm.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#errorConsole').hide() ;
+		$('form[name=login_menu]').submit(function() {
+			$('#errorConsole').slideUp() ;
+			$.post('/AJAXCheckLogin.a4l', {email: $('[name=Email]').val(),
+					password: $('[name=Password]').val()},
+				function(data) {
+					var UserID = parseInt(data.userid) ;
+					var LoginTrys = parseInt(data.logintrys) ;
+					if(UserID > 0)
+					{
+					//	alert('Valid UserID = ' + UserID) ;
+					//	return true ;
+					//	alert('Name = ' + $('[name=Email]').val()) ;
+					//	alert('Password = ' + $('[name=Password]').val()) ;
+						document.login_menu.submit(); ;
+					}
+					else
+					{
+					//	alert('Invalid UserID = ' + UserID) ;
+					    var ErrCondition = 0 ;
+					    if(LoginTrys > 0) {ErrCondition = 1}
+					    if(LoginTrys > 4) {ErrCondition = 2}
+					    switch(ErrCondition)
+					    {
+					    case 1:
+					        var ErrorMessage = 'The maximum number of login attempts is five (5).  If the maximum number of login attempts is reached, your User ID will be locked for 2 hours, at which time you can attempt to login again.' ;
+					        break ;
+					    case 2:
+					        var ErrorMessage = 'The maximum number of login attempts has been met.  You may attempt to login after 2 hours has passed from receiving this message.' ;
+					        break ;
+					    default:
+					        var ErrorMessage = 'Invalid Login Credentials' ;
+					    }
+						$('#errorConsole').html(ErrorMessage).slideDown() ;
+					//	return false ;
+					}
+				}, 'json') ;
+			 return false ;
+	}) ;
+}) ;
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+</script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="150"><img src="/Images/logo_homepage2.gif" width="150" height="79"></td>
+    <td align="center"><h1><!-- InstanceBeginEditable name="PageTitle" --> AFL  Order Forms<!-- InstanceEndEditable --></h1></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#336699">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- InstanceBeginEditable name="Body" -->
+<form name="login_menu" method="post" action="/a4LLogin.a4l" id="login_menu">
+<h1 class="TitleRow" id='errorConsole'></h1>
+  <table width="300" border="0" align="center">
+    <tr>
+      <td colspan="2" class="TitleRow">Existing User Logon</td>
+    </tr>
+    <tr>
+      <td width="26%" nowrap class="LabelLeft">Email Address</td>
+      <td width="74%"><label for="Email"></label>
+        <span id="sprytextfield1">
+        <input type="text" name="Email" id="Email">
+      <span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span></td>
+    </tr>
+    <tr>
+      <td nowrap class="LabelLeft">Password</td>
+      <td><span id="sprypassword1">
+        <label for="Password"></label>
+        <input type="password" name="Password" id="Password">
+      <span class="passwordRequiredMsg">A value is required.</span></span></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input name="OK" type="submit" id="OK" value="" style="background-image:url(Images/btn_login.png) background-repeat:no-repeat"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><a href="SendPass.a4l" target="_self">Forgot your Password?</a></td>
+    </tr>
+  </table>
+  <p class="NewsTitleRow"></p>
+</form><form action="/a4LLogin.a4l" method="post" name="NewUserForm" id="NewUserForm">
+<table width="300" border="0" align="center">
+  <tr>
+    <td colspan="2" class="TitleRow">New User Logon</td>
+  </tr>
+  <tr>
+    <td width="26%" nowrap class="LabelLeft">Email Address</td>
+    <td width="74%"><label for="NewEmail"></label>
+      <span id="sprytextfield2">
+      <input type="text" name="NewEmail" id="NewEmail">
+      <span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span><span class="textfieldMaxCharsMsg">Exceeded maximum number of characters.</span></span></td>
+</tr>
+  <tr>
+    <td nowrap class="LabelLeft">Confirm Email Address</td>
+    <td><span id="spryconfirm1">
+      <label for="EmailConfirm"></label>
+      <input type="text" name="EmailConfirm" id="EmailConfirm">
+      <span class="confirmRequiredMsg">A value is required.</span><span class="confirmInvalidMsg">The values don't match.</span></span></td>
+  </tr>
+  <tr>
+    <td nowrap class="LabelLeft">Password</td>
+    <td><span id="sprypassword2">
+    <label for="NewPassword"></label>
+    <input type="password" name="NewPassword" id="NewPassword">
+    <span class="passwordRequiredMsg">A value is required.</span><span class="passwordMinCharsMsg">Minimum number of characters not met.</span><span class="passwordMaxCharsMsg">Exceeded maximum number of characters.</span><span class="passwordInvalidStrengthMsg">The password doesn't meet the specified strength.</span></span></td>
+</tr>
+  <tr>
+    <td nowrap class="LabelLeft">Confirm Password</td>
+    <td><span id="spryconfirm2">
+      <input type="password" name="PassConfirm" id="PassConfirm">
+      <span class="confirmRequiredMsg">A value is required.</span><span class="confirmInvalidMsg">The values don't match.</span></span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input name="OK2" type="submit" id="OK2" value="" style="background-image:url(Images/btn_login.png) background-repeat:no-repeat"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Password must be at least 8 characters in length and must include numbers and letters.</td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+var sprypassword1 = new Spry.Widget.ValidationPassword("sprypassword1");
+var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "email");
+var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "email", {maxChars:40});
+var sprypassword2 = new Spry.Widget.ValidationPassword("sprypassword2", {minChars:8, maxChars:40, minAlphaChars:1, minNumbers:1});
+var spryconfirm1 = new Spry.Widget.ValidationConfirm("spryconfirm1", "NewEmail");
+var spryconfirm2 = new Spry.Widget.ValidationConfirm("spryconfirm2", "NewPassword");
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

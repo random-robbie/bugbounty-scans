@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="thirdparty/toast/toast.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="thirdparty/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="thirdparty/bzjs/bz-0.4.3.js"></script>
+    <script type="text/javascript" src="js/Utils.js"></script>
+    <script type="text/javascript" src="js/Config.js"></script>
+    <script type="text/javascript" src="js/Step.js"></script>
+    <script type="text/javascript" src="js/UI.js"></script>
+    <script type="text/javascript" src="js/DebugUI.js"></script>
+    <script type="text/javascript" src="js/ViewerController.js"></script>
+    <script type="text/javascript" src="js/Viewer.js"></script>
+    <script type="text/javascript" src="js/Summary.js"></script>
+    <script type="text/javascript" src="js/PushData.js"></script>
+    <script type="text/javascript" src="js/FlagLoader.js"></script>
+    <script type="text/javascript" src="js/ConfigurationData.js"></script>
+    <script type="text/javascript" src="js/BugData.js"></script>
+    <script type="text/javascript" src="js/Remapper.js"></script>
+    <script type="text/javascript" src="js/bugherder.js"></script>
+    <title>Bugherder</title>
+  </head>
+  <body>
+    <div class="hideAll" id="opaque"></div>
+    <div id="wrapper">
+      <div class="ctr">
+        <h1 id="title">Bugherder</h1>
+        <h4>A tool to help with post-merge Bugzilla administrivia. <a href="http://www.graememcc.co.uk/tag/m-cmerge/">Learn more.</a></h4>
+        <div class="hiddenContent hideAll" id="errors">
+          <span id="errorText"></span>
+        </div>
+
+        <div class="hiddenContent hideAll" id="loading"></div>
+
+        <div class="hiddenContent hideAll" id="getCset">
+          <p id="formText">
+            Please enter the URL or hex changeset ID of a changeset from the merge:
+          </p>
+          <form id="csetForm">
+            <input type="text" id="changeset" autofocus />
+            <input type="submit" value="Submit" id="revSubmit" />
+          </form>
+        </div>
+
+        <div class="hiddenContent hideAll" id="detail"></div>
+
+      </div>
+
+      <div class="wrap">
+        <div class="grids">
+          <div class="hiddenContent hideAll" id="viewerOutput"></div>
+          <div class="hiddenContent hideAll" id="pushes"></div>
+        </div>
+      </div>
+
+      <div class="modal hideAll" id="loadingModal">
+        <div id="lmTitle" class="modalTitle">Loading...</div>
+        <div id="lmContent" class="modalContent">
+          Please wait
+        </div>
+      </div>
+
+      <div class="modal hideAll" id="progressModal">
+        <div id="pmTitle" class="modalTitle">Working...</div>
+        <div id="pmContent" class="modalContent">
+          <div class="ctr"><span id="progressText">0</span>% complete</div>
+          <progress max="100" value="0" id="progressBar">
+          </progress>
+        </div>
+      </div>
+
+      <div class="modal modalForm hideAll" id="addBugModal">
+        <div id="abTitle" class="modalTitle">Add bug</div>
+        <div id="abContent" class="modalContent">
+          <form id="addBugForm">
+            <p>
+             Enter the bug number you wish to add:<br />
+            <input type="text" name="Bug number" id="loadBug" />
+            </p>
+            <div class="divRight">
+              <input type="submit" value="Add"/>
+              <button id="abCancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modalForm hideAll" id="changeBugModal">
+        <div id="cbTitle" class="modalTitle">Change bug</div>
+        <div id="cbContent" class="modalContent">
+          <form id="changeBugForm">
+            <p>
+             Enter a new bug number:<br />
+            <input type="text" name="Bug number" id="changeBug" />
+            </p>
+            <div class="divRight">
+              <input type="submit" value="Change"/>
+              <button id="cbCancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modalForm hideAll" id="explanationModal">
+        <div id="exTitle" class="modalTitle">Add explanation for backout</div>
+        <div id="exContent" class="modalContent">
+          <form id="explanationForm">
+            <p>
+             Enter explanatory text for this backout:<br />
+            <textarea name="Bug number" id="explanation"></textarea><br />
+            <label for="useForAll">
+              <input type="checkbox" id="useForAll" checked="checked" />
+              Prepend this text to all remaining backout comments
+            </label>
+            </p>
+            <div class="divRight">
+              <input type="submit" value="OK"/>
+              <button id="exCancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modalForm hideAll" id="credentialsModal">
+        <div id="crTitle" class="modalTitle">Enter your Bugzilla credentials</div>
+        <div id="crContent" class="modalContent">
+          <form id="credentialsForm">
+            <p>Please provide a bugzilla api key:</p>
+            <div>
+              <label id="apikeylabel" for="apikey">
+                <a href="https://bugzilla.mozilla.org/userprefs.cgi?tab=apikey" target="_blank"
+                   title="Generate an API key here, then copy it over">API Key</a>:
+              </label>
+              <input type="password" name="apikey" id="apikey" />
+            </div>
+            <div class="divRight">
+              <a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Tree%20Management&component=Bugherder&short_desc=Bring%20back%20Username%20Logins!" title="User/pass login has been removed in favor of bugzilla API keys. If you still need user/pass logins for whatever reason, please click this link and file a bug" target="_blank">Looking for user/pass login?</a>
+              <input type="submit" value="Submit"/>
+              <button id="crCancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modalForm hideAll" id="messageModal">
+        <div id="mmTitle" class="modalTitle">Whoops!</div>
+        <div id="mmContent" class="modalContent">
+            <p id="mmText">
+            </p>
+            <div class="divRight">
+              <button id="mmOK">OK</button>
+            </div>
+        </div>
+      </div>
+
+      <noscript>
+        You need Javascript to proceed.
+      </noscript>
+
+      <footer>
+        <div id="source-link">
+          <a href="https://github.com/mozilla/Bugherder">Bugherder Source</a>
+        </div>
+        <div id="bugherder-revision">
+          <a href="deploy.txt">Deployed revision</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

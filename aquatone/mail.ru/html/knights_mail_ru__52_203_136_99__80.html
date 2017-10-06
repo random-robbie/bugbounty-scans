@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+<head> 
+	<title>Рыцари: Битва героев</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+	<meta http-equiv="Expires" content="-1" /> 
+	<meta http-equiv="Cache-control" content="no-cache" /> 
+	<meta http-equiv="pragma" content="no-cache" /> 
+	<link rel="stylesheet" href="/current/iframe/css/style.css" type="text/css"/> 
+    <link rel="shortcut icon" href="/current/iframe/images/kc_app_icons_16x16.png" type="image/x-icon"/>
+    <script type="text/javascript" src="/current/iframe/scripts/config.js"></script>
+	<script type="text/javascript" src="//connect.mail.ru/js/loader.js"></script> 
+	<script type="text/javascript" src="/current/iframe/scripts/swfobject.js?ver=chrome56"></script>
+    <script type="text/javascript" src="/current/iframe/scripts/jquery.min.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <style type="text/css">
+    /* <![CDATA[ */
+    html, body {
+        height: 100%;
+        margin:0px;
+    }
+    .fit {
+        width: 100%;
+        min-height: 640px;
+        height: -moz-calc(100% - 70px);
+        height: -webkit-calc(100% - 70px);
+        height: -o-calc(100% - 70px);
+        height: calc(100% - 70px);
+        overflow: hidden;
+        border-top: 1px solid #888;
+        border-bottom: 1px solid #888;
+    }
+    #mailru {
+        width: 100%;
+        height: 33px;
+        background-color: #eee;
+    }
+    #app, #footer {
+        display: none;
+    }
+    /* ]]> */
+    </style>
+    
+	<script type="text/javascript">
+		// common lib include
+        var docProtocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+
+        var sapi = {
+		    userId:-1,
+		    params:null,
+		    sourceId:function () {        
+		    }
+	    };
+	    var pkot = {
+		    platform:{},
+		    api:sapi,
+		    arguments:{}
+	    };
+
+	    var ev = {};
+
+	    (function () {
+		    pkot.script_load = function (script_url, a_const, callback) {
+			    var ga = document.createElement('script');
+			    ga.type = 'text/javascript';
+			    ga.async = true;
+			    ga.src = docProtocol + script_url.replace('http://', '');
+			    var s = document.getElementsByTagName('script')[0];
+			    s.parentNode.insertBefore(ga, s);
+			    if (a_const) {
+				    pkot.wait_load_const(a_const, callback);
+			    }
+		    }
+		    pkot.wait_load_const = function (a_const, callback, tries) {
+			    var max_wait_time = 60000, // ms
+				    try_every = 100;       // ms
+			    if (window[a_const]) {
+				    callback();
+			    } else {
+				    tries = tries || 0;
+				    if (tries < max_wait_time / try_every) {
+					    setTimeout(function () {
+						    pkot.wait_load_const(a_const, callback, tries || 1);
+					    }, try_every);
+				    }
+			    }
+		    }		
+	    })();
+	</script>
+
+    <style type="text/css">
+        #flash-app {
+            background: #000;
+        }
+        #noflash {
+            background: url("/current/iframe/images/loadingthegame.jpg") top center no-repeat;
+            display: none;
+        }
+        #no_flash_txt {
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            padding: 15px 20px;
+            color: #fff;
+            border: 1px solid #333333;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: url('/current/iframe/images/popup_bg1.png') repeat-x;
+            font: 1.0em 'lucida grande', tahoma, verdana, arial, sans-serif;
+            -webkit-box-shadow: 0px 0px 12px 0px rgba(200,200,200,1);
+            -moz-box-shadow: 0px 0px 12px 0px rgba(200,200,200,1);
+            box-shadow: 0px 0px 12px 0px rgba(200,200,200,1);
+            padding-bottom: 25px;
+        }
+    </style>
+
+</head> 
+
+<body>
+
+<script src="//games.mail.ru/js/game_headers/app743244.js" type="text/javascript"></script>
+<div id="mailru">&nbsp;</div>
+
+<div id="app" class="fit">
+
+    <div id="flash-app">
+
+        <div id="noflash">
+            <table height="740" width="100%">
+                <tr>
+                    <td style="text-align: center;">
+                        <div id="no_flash_txt">
+                            <img src="/current/iframe/images/icon_flash.png" style="padding-top: 10px;">
+                            <br/>Вероятно, у вас устарел или не установлен Flash Player.
+                            <br/><div style="margin: 15px auto 10px; font-weight: bold; font-size: 1.2em;">Проверить по ссылке ниже:</div>
+                            <a href="http://get.adobe.com/flashplayer/" id="flashUpdate" target="_blank" >
+                                <img src="/current/iframe/images/icon_flash_player.jpg" alt="Download Adobe Flash Player" longdesc="http://get.adobe.com/flashplayer/">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+    function setInnerHTML(elementId,value){
+        var obj = document.getElementById(elementId);
+        if (obj) obj.innerHTML+=value;
+    }
+
+    function getUrlParams (query) {
+        console.log(query);
+        var match,
+                pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=#]+)=?([^&#]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); };
+
+        var urlParams = {};
+        while (match = search.exec(query))
+            urlParams[decode(match[1])] = decode(match[2]);
+        return urlParams;
+        console.log(urlParams);
+    };
+
+    function getFlashVars() {
+        var flashVars = {};
+        if (window.location.search && window.location.search.length > 1) {
+            var urlParams = getUrlParams(window.location.search.substr(1));
+            var search = [];
+            for(key in urlParams) {
+                search.push(key+'='+urlParams[key]);
+            }
+            flashVars["search"] = search.join('&');
+
+        }
+        flashVars["userAgent"] = navigator.userAgent;
+        flashVars["server"] = docProtocol + "knights.mail.ru/current/";
+        flashVars["defLang"] = "Russian";
+        flashVars["appUrl"] = docProtocol + "knights.mail.ru";
+        return flashVars;
+    }
+
+    var noCache = new Date().getTime();
+
+    pkot.argsObj = function () { var p = window.location.search; return (p&&p.length>1)?pkot.hash2Obj(p.substr(1)):{};}
+    pkot.hash2Obj = function (h) {var p = {}; try {if(h&&h.length>0){var pm=h.split('&'); for(var i=0;i<pm.length;++i){try{var v=pm[i].split('=',2); if(v&&v.length>1) p[v[0]]=decodeURIComponent(v[1]);}catch(e){}}}}catch(e){} return p; }
+    pkot.arguments = pkot.argsObj();
+    sapi.params = pkot.arguments;
+    function getPkotSource() {
+        var mm_sources = {"hs": 1, "lmnu": 2, "lmnu_hit": 3 }
+
+        function _isSource(name) {
+            if (sapi.params.hasOwnProperty(name)) return true;
+            if (sapi.params.hasOwnProperty('ref') && sapi.params.from == name) return true;
+            return false;
+        }
+
+        if (sapi.params.hasOwnProperty('source')) { return sapi.params.source; }
+        if (sapi.params.hasOwnProperty('from_ad')) { return sapi.params.from_ad; }
+
+        for (var p in mm_sources) {
+            if (_isSource(p)) return mm_sources[p];
+        }
+
+        return 255;
+    }
+
+
+    insertSWF = function (params) {
+        var noCache = new Date().getTime();
+        var version = swfobject.getFlashPlayerVersion();
+        console.log("version", version);
+        if (version.major == 0 && version.minor == 0 && version.release == 0) {
+            document.getElementById('noflash').style.display = 'block';
+        }  else {
+            swfobject.embedSWF(docProtocol+"knights.akamaized.net/mailru/content/loader.swf?nocache" + noCache, "flash-app", "100%", "100%", "11.4.0", "${expressInstallSwf}", null, {wmode:'gpu', allowfullscreen:'true', allownetworking:'all', scale: "exactfit", allowscriptaccess:'always', flashvars: $.param(params)});
+        }
+    }
+
+    //<![CDATA[
+    // этот вызов обязателен, он осуществляет непосредственную загрузку
+    // кода библиотеки; рекомендуем всю работу с API вести внутри callback'а
+    document.domain = window.connect_config.domain;
+
+    mailru.loader.require('api', function() {
+
+        mailru.connect.init(window.connect_config.app_id, window.connect_config.private_key);
+        mailru.plugin.init();
+        mailru.events.listen(mailru.connect.events.login, function(session){
+            window.location.reload();
+        });
+        mailru.events.listen(mailru.connect.events.logout, function(){
+            window.location.href = docProtocol + "knights.mail.ru/start.php";
+        });
+
+        mailru.connect.getLoginStatus(function(loginResult) {
+
+            var mailruParams = [];
+            for (key in loginResult) {
+                mailruParams.push(key+'='+loginResult[key]);
+            };
+
+            if (loginResult.is_app_user != 1) {
+                window.location.href = docProtocol + "knights.mail.ru/start.php";
+
+            } else {
+
+                // получаем полную информацию о текущем пользователе
+                mailru.common.users.getInfo(function(result){
+
+                    if (result[0] && result[0]['uid']) {
+
+                        $("#info").css('display', 'none');
+                        $("#app").css('display', 'block');
+                        $("#footer").css('display', 'block');
+
+                        var userId = result[0]['uid'];
+                        setInnerHTML('social_user_id', 'ID: ' + userId);
+
+                        $.ajax({
+                            url: '/current/track_visit.php',
+                            type: "GET",
+                            data: {
+                                'platformPlayerId': userId,
+                                'step' : 1,
+                                'source': getPkotSource(),
+                                'sign' : Math.floor(Math.random()*100000)
+                            },
+                            dataType: "json"
+                        });
+
+                        // зендеск
+                        var supportLevel = 0;
+                        var refHelp = 'https://playkot.zendesk.com/hc/ru/categories/200011102?pkpid='+userId+'&pkgm=knights&pkplt=mailru&pktp=';
+                        $.ajax({
+                            url: '/current/get_support_info.php',
+                            type: "GET",
+                            data: {'player_id': userId},
+                            dataType: "json",
+                            success: function (response) {
+                                if (response.support) supportLevel = response.support;
+                                $('a#refHelp').attr("href", refHelp+supportLevel);
+                            },
+                            error: function (xhr, status) {
+                                $('a#refHelp').attr("href", refHelp+supportLevel);
+                            }
+                        });
+
+                        // Игра
+                        flashVars = getFlashVars();
+                        flashVars["userID"] = userId;
+                        flashVars["loginParams"] = mailruParams.join('&');
+                        insertSWF(flashVars);
+
+
+                    } else {
+                        window.location.href = docProtocol + "knights.mail.ru/start.php";
+                    }
+
+                });
+            }
+        });
+    });
+
+    function checkFlash() {
+        var flashinstalled = false;
+        if (navigator.plugins) {
+            if (navigator.plugins["Shockwave Flash"]) {
+                flashinstalled = true;
+            }
+            else if (navigator.plugins["Shockwave Flash 2.0"]) {
+                flashinstalled = true;
+            }
+        }
+        else if (navigator.mimeTypes) {
+            var x = navigator.mimeTypes['application/x-shockwave-flash'];
+            if (x && x.enabledPlugin) {
+                flashinstalled = true;
+            }
+        }
+        else {
+            // на всякий случай возвращаем true в случае некоторых экзотических браузеров
+            flashinstalled = true;
+        }
+        return flashinstalled;
+    }
+
+    //]]>
+</script>
+
+
+<div id="footer">
+		<a href="http://my.mail.ru/community/knightsgamegroup/" target="_blank">Официальная группа</a>
+        &middot; <a id="refHelp" href="#" target="_blank">Помощь</a>	
+       &nbsp; &middot; <span id="social_user_id" class="copy"></span>
+       &nbsp; &middot; © 2016 Playkot. All Rights Reserved.  
+       &nbsp; &middot; © 2016 Mail.Ru Games. All Rights Reserved. Powered by Mail.Ru  
+</div>
+
+</body>
+</html>

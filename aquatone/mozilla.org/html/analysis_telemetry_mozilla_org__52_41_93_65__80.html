@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Telemetry Analysis Service - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/public/favicon.ef39c8cfff8c.ico">
+    <link rel="stylesheet" href="/static/npm/bootstrap/dist/css/bootstrap.min.5c7070ef655a.css">
+    <link rel="stylesheet" href="/static/npm/bootstrap-datetime-picker/css/bootstrap-datetimepicker.min.5addeac883dd.css">
+    <link href="/static/css/base.c5df236956c8.css" rel="stylesheet" />
+    <link href="/static/css/fileinput.792a6b17451a.css" rel="stylesheet" />
+    
+    <link href="/static/css/login.7f58922c8068.css" rel="stylesheet" />
+
+  </head>
+  <body role="document"  data-sentry-public-dsn="https://009df8a84b534c33be452f16071e853d@sentry.prod.mozaws.net/170">
+    <nav class="navbar-dev navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <i class="glyphicon glyphicon-menu-down"></i>
+          </button>
+          <a class="navbar-brand" href="/">Telemetry Analysis Service</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/" class="navbar-link">Dashboard</a></li>
+            <li><a href="/keys/" class="navbar-link">SSH Keys</a></li>
+            
+          </ul>
+          <p class="navbar-text navbar-right">
+          
+            <a href="/accounts/google/login/?next=%2F" class="navbar-link">Login</a>
+          
+          </p>
+        </div>
+      </div>
+    </nav>
+    <div class="container" id="content-container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="alert alert-info alert-dismissible hidden" id="modified-date-alert" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4>Page modified</h4>
+            This page contains elements that have been updated on the server.
+            <b><a href="https://analysis.telemetry.mozilla.org/accounts/login/?next=/">Please refresh</a></b> this page to see the latest version.
+          </div>
+          
+
+<div class="alert alert-warning alert-dragons" role="alert">
+  <h4>Experimental EMR 5.8.0 added</h4>
+  
+    <p>We've enabled a new experimental <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html">EMR release 5.8.0</a>, which brings a few updates such as Spark 2.2.0 and Zeppelin 0.7.2. For more details see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew.html">EMR release notes</a>.</p>
+
+  
+</div>
+
+
+          
+        </div>
+      </div>
+      
+<div class="row">
+  <div class="col-sm-14">
+    <div class="jumbotron">
+      <h2>Telemetry Analysis Service</h2>
+      <p>To get started, log in with your <code>@mozilla.com</code> Google account</p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="/accounts/google/login/?next=%2F">Login with Google</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">What is this?</h2>
+      </div>
+      <div class="panel-body">
+        <p>The Telemetry Analysis Service gives direct access to Mozilla Telemetry data:</p>
+        <ul>
+          <li>Perform interactive analyses with <a href="http://spark.apache.org/">Apache Spark</a> and <a href="http://jupyter.org/">Jupyter</a>.</li>
+          <li>Run custom map-reduce analyses with the <a href="https://github.com/mozilla/telemetry-server/blob/master/docs/MapReduce.md">Telemetry MapReduce framework</a>.</li>
+          <li>Schedule these analyses so they run on a regular basis, publishing output to <a href="https://aws.amazon.com/s3/">Amason S3</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Links &amp; resources</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li>The <a href="https://telemetry.mozilla.org/">Telemetry Dashboards</a> cover the most common use cases for Telemetry data.</li>
+          <li>The <a href="https://github.com/mozilla/telemetry-analysis-service">source code</a> for this service.</li>
+          <li>Information about <a href="http://robertovitillo.com/2015/01/16/next-gen-data-analysis-framework-for-telemetry/">how to use custom analyses</a>.</li>
+          <li>An overview of all the <a href="http://anthony-zhang.me/blog/telemetry-demystified/">Telemetry-related services</a> offered by Mozilla.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="modal" id="whatsnew-modal" tabindex="-1" role="dialog" aria-labelledby="whatsnew-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="whatsnew-label">
+              What's new?
+              <small>Notable changes and updates you should be aware of.</small>
+            </h4>
+          </div>
+          <div class="modal-body">Loading&hellip;</div>
+          <div class="modal-footer">
+            Not all code changes are listed here. More details in the
+            <a href="https://github.com/mozilla/telemetry-analysis-service/blob/master/CHANGELOG.md">changelog</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#footer" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <i class="glyphicon glyphicon-menu-up"></i>
+          </button>
+        </div>
+        <div id="footer" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://wiki.mozilla.org/Telemetry">Docs</a></li>
+            <li><a href="https://docs.telemetry.mozilla.org/tools/spark.html">Tutorial</a></li>
+            <li><a href="https://github.com/mozilla/telemetry-analysis-service/issues">Bugs</a></li>
+            <li><a href="https://github.com/mozilla/telemetry-analysis-service">Code</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden">
+              <a href="/news/list/" data-popover="popover" title="Current version" data-content="2017.8.1" data-toggle="modal" data-trigger="hover" data-placement="top" data-remote="false" data-target="#whatsnew-modal" class="navbar-link" >
+              What's new?
+              <span class="label label-success hidden" id="whatsnew-check" data-url="/news/check/">NEW</span></a>
+            </li>
+            <li><a data-popover="popover" data-trigger="hover" data-placement="top" id="time" title="Current time">All times in UTC</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <script type="text/javascript" src="/static/npm/jquery/dist/jquery.min.c9f5aeeca3ad.js"></script>
+    <script type="text/javascript" src="/static/npm/bootstrap/dist/js/bootstrap.min.5869c96cc8f1.js"></script>
+    <script type="text/javascript" src="/static/npm/bootstrap-confirmation2/bootstrap-confirmation.min.c9eda412b9cb.js"></script>
+    <script type="text/javascript" src="/static/npm/moment/min/moment.min.fb0c8ee9d2ae.js"></script>
+    <script type="text/javascript" src="/static/npm/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.133134d91c22.js"></script>
+    <script type="text/javascript" src="/static/npm/parsleyjs/dist/parsley.min.a7cc5610adc9.js"></script>
+    <script type="text/javascript" src="/static/npm/clipboard/dist/clipboard.min.e77a83c01eb8.js"></script>
+    <script type="text/javascript" src="/static/js/base.ef299b366a1b.js"></script>
+    <script type="text/javascript" src="/static/js/fileinput.cc4455963631.js"></script>
+    <script type="text/javascript" src="/static/js/forms.aa67ea7fcf60.js"></script>
+    
+    <script type="text/javascript" src="/static/npm/raven-js/dist/raven.min.73ce92104dc4.js"></script>
+    <script type="text/javascript" src="/static/js/raven.2a26c81ef1d4.js"></script>
+    
+    
+    
+  </body>
+</html>

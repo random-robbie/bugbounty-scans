@@ -1,0 +1,4176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head><meta property="og:type" content="website">
+<meta property="og:image" content="https://bugzilla.mozilla.org/extensions/OpenGraph/web/moz-social-bw-rgb-1200x1200.png">
+<meta property="og:title" content="901365 - Firefox 0-day found on Tor .onion service (reported on Reddit)">
+<meta property="og:url" content="https://bugzilla.mozilla.org/show_bug.cgi?id=901365">
+
+    <meta name="bugzilla-global" content="dummy"
+        id="bugzilla-global" data-bugzilla="{&quot;api_token&quot;:&quot;&quot;,&quot;string&quot;:{&quot;short_desc_required&quot;:&quot;You must enter a Summary for this bug&quot;,&quot;description_required&quot;:&quot;You must enter a Description for this bug&quot;,&quot;version_required&quot;:&quot;You must select a Version for this bug&quot;,&quot;component_required&quot;:&quot;You must select a Component for this bug&quot;,&quot;attach_desc_required&quot;:&quot;You must enter a Description for this attachment.&quot;},&quot;constant&quot;:{&quot;COMMENT_COLS&quot;:80},&quot;param&quot;:{&quot;maxusermatches&quot;:&quot;50&quot;,&quot;cookiepath&quot;:&quot;/&quot;}}">
+    <title>901365 - Firefox 0-day found on Tor .onion service (reported on Reddit)</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <meta name="robots" content="noindex" />
+<link rel="Top" href="https://bugzilla.mozilla.org/">
+
+  
+
+
+  
+    <link rel="Show" title="Dependency Tree"
+          href="showdependencytree.cgi?id=901365&amp;hide_resolved=1">
+      <link rel="Show" title="Dependency Graph"
+            href="showdependencygraph.cgi?id=901365">
+
+      <link rel="Show" title="Bug Activity"
+            href="show_activity.cgi?id=901365">
+      <link rel="Show" title="Printer-Friendly Version"
+            href="show_bug.cgi?format=multiple&amp;id=901365">
+
+<link href="data/assets/6e2950a6b430e66beb45b46958cb75b7.css?1507037554" rel="stylesheet" type="text/css">
+
+
+
+    
+<script nonce="TI5FOaVg4wNCB05Pk5Ddio9YK4fhXqbgt8CN5CfUD5ZfBnpz" type="text/javascript" src="data/assets/f0d8f806b435d5c1c42cd109e6626548.js?1507037554"></script>
+
+      <script nonce="TI5FOaVg4wNCB05Pk5Ddio9YK4fhXqbgt8CN5CfUD5ZfBnpz">
+          YAHOO.namespace('bugzilla');
+          if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+              YAHOO.util.Event._simpleRemove(window, "unload",
+                                             YAHOO.util.Event._unload);
+          }BUGZILLA.value_descs = JSON.parse('{\"bug_status\":{},\"resolution\":{\"\":\"---\"}}');
+
+  
+    var tracking_flags_str = "{\"types\":[\"tracking\"],\"flags\":{\"tracking\":{\"cf_blocking_fennec\":\"---\",\"cf_status_b2g18\":\"fixed\",\"cf_status_firefox_esr24\":\"fixed\",\"cf_tracking_firefox57\":\"---\",\"cf_status_b2g_1_2\":\"fixed\",\"cf_status_firefox58\":\"---\",\"cf_status_thunderbird_esr52\":\"---\",\"cf_tracking_firefox_esr17\":\"22+\",\"cf_status_firefox56\":\"---\",\"cf_status_b2g_1_1_hd\":\"fixed\",\"cf_status_b2g18_1_0_1\":\"wontfix\",\"cf_status_firefox_esr52\":\"---\",\"cf_blocking_fx\":\"---\",\"cf_status_firefox57\":\"---\",\"cf_tracking_firefox_esr52\":\"---\",\"cf_tracking_thunderbird_esr52\":\"---\",\"cf_tracking_firefox58\":\"---\",\"cf_tracking_firefox_relnote\":\"---\",\"cf_status_firefox_esr17\":\"fixed\",\"cf_tracking_firefox56\":\"---\",\"cf_tracking_b2g18\":\"22+\",\"cf_platform_rel\":\"---\"}},\"comments\":{\"cf_tracking_firefox58\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox57\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_relnote\":{\"?\":\"Release Note Request (optional, but appreciated)\\n[Why is this notable]:\\n[Affects Firefox for Android]:\\n[Suggested wording]:\\n[Links (documentation, blog post, etc)]:\"},\"cf_tracking_firefox56\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_esr52\":{\"?\":\"[Tracking Requested - why for this release]:\"}}}";
+    var TrackingFlags = $.parseJSON(tracking_flags_str);
+
+  
+
+  
+  BUGZILLA.bug_id = 901365;
+  BUGZILLA.bug_title = '901365 - Firefox 0-day found on Tor .onion service (reported on Reddit)';
+  BUGZILLA.user = {
+    id: 0,
+    login: '',
+    is_insider: false,
+    is_timetracker: false,
+    can_tag: false,
+    settings: {
+      quote_replies: 'quoted_reply',
+      zoom_textareas: true,
+      remember_collapsed: true,
+      autosize_comments: false
+    }
+  };
+
+  BUGZILLA.bug_secure = false;
+      </script>
+<script nonce="TI5FOaVg4wNCB05Pk5Ddio9YK4fhXqbgt8CN5CfUD5ZfBnpz" type="text/javascript" src="data/assets/f45fcff1319be4ab156441393c02d012.js?1507037554"></script>
+
+    
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+                       title="Bugzilla@Mozilla" href="./search_plugin.cgi">
+    <meta name="referrer" content="origin-when-crossorigin"><link rel="shortcut icon" href="extensions/BMO/web/images/favicon.ico">
+<link id="shorturl" rev="canonical" href="https://bugzil.la/901365"><meta name="robots" content="noarchive">
+  </head>
+
+
+
+  <body
+        class="bugzilla-mozilla-org
+               skin-standard bug_modal yui-skin-sam">
+
+
+
+<div id="header">
+
+  <div class="wrapper">
+    <table border="0" cellspacing="0" cellpadding="0" id="titles">
+    <tr>
+      <td id="title">
+        <a href="./" title="Home">Bugzilla@Mozilla</a>
+      </td>
+      <td>
+      </td>
+      <td id="moz_login">
+          <ul class="login-links">
+              <li id="moz_new_account_container_top"><a href="createaccount.cgi">New&nbsp;Account</a>
+              </li>
+
+                <li id="mini_login_container_top">
+  <span class="separator">| </span>
+  <a id="login_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=901365&amp;GoAheadAndLogIn=1"
+     class='show_mini_login_form' data-qs-suffix="_top">Log In</a>
+<span id="github_mini_login_top" class="bz_default_hidden mini_login_top">
+    <form method="post" action="https://bugzilla.mozilla.org/github.cgi">
+      <input type="hidden" name="github_secret" value="hb5SXTRHPujEFlxz">
+      <input type="hidden" name="target_uri" value="https://bugzilla.mozilla.org/show_bug.cgi?id=901365">
+      <input type="image" src="extensions/GitHubAuth/web/images/sign_in.png" height="22" width="75" align="absmiddle"
+             alt="Sign in with GitHub"
+             title="Sign in with GitHub"> or
+    </form>
+  </span>
+  
+  <form action="https://bugzilla.mozilla.org/show_bug.cgi?id=901365" method="POST" 
+        class="mini_login bz_default_hidden "
+        id="mini_login_top"
+        data-qs-suffix="_top"
+  >
+    
+    <input id="Bugzilla_login_top" 
+           class="bz_login"
+           name="Bugzilla_login"
+           title="Login"
+           placeholder="email address"
+           type="email"
+           required
+    >
+    <input class="bz_password"
+           id="Bugzilla_password_top" 
+           name="Bugzilla_password"
+           type="password"
+           title="Password"
+           required
+    >
+    <input class="bz_password bz_default_hidden bz_mini_login_help" type="text" 
+           id="Bugzilla_password_dummy_top" value="password"
+           title="Password"
+    >
+      <input type="checkbox" id="Bugzilla_remember_top" 
+             name="Bugzilla_remember" value="on" class="bz_remember"
+                 checked>
+      <label for="Bugzilla_remember_top">Remember</label>
+    <input type="hidden" name="Bugzilla_login_token"
+           value="1507276848-f3934f47ca6d6eb3c48fb480e4b65d0b">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in"
+           class="check_mini_login_fields"
+            id="log_in_top">
+    <a href="#" id="hide_mini_login_top" 
+       class="hide_mini_login_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+<li id="forgot_container_top">
+  <span class="separator">| </span>
+  <a id="forgot_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=901365&amp;GoAheadAndLogIn=1#forgot"
+     class='show_forgot_form'
+     data-qs-suffix="_top">Forgot Password</a>
+  <form action="token.cgi" method="post" id="forgot_form_top"
+        class="mini_forgot bz_default_hidden">
+    <label for="login_top">Login:</label>
+    <input type="text" name="loginname" size="20" id="login_top">
+    <input id="forgot_button_top" value="Reset Password" 
+           type="submit">
+    <input type="hidden" name="a" value="reqpw">
+    <input type="hidden" id="token_top" name="token" value="1507276848-b6ffde1211e2907be553db6ac7a96672">
+    <a href="#" class="hide_forgot_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+          </ul>
+      </td>
+      <td id="moz_tab">
+        <a href="https://www.mozilla.org/" title="Mozilla - Home of the Mozilla Project">
+          <img src="images/tabzilla.png" border="0" height="42" width="154"></a>
+      </td>
+    </tr>
+    </table>
+
+    
+<ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_top" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_top"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+
+  </div>
+</div> 
+
+<div id="bugzilla-body">
+
+
+<div id="message">If you think a bug might affect users in the 57 release, please <a href="https://wiki.mozilla.org/Bugmasters/Marking_bugs_for_the_Firefox_57_release">set the correct tracking and status flags for Release Management</a>.</div><div id="xhr-error" style="display:none"></div>
+<div id="floating-message" style="display:none">
+  <div id="floating-message-text"></div>
+</div>
+<section class="module"
+>
+  <div class="module-content"
+  >
+  <div id="summary-container">
+    <div class="field indent"
+>
+
+  
+    <div class=" container">
+      <div id="field-value-bug_id">
+        <a id="this-bug" href="show_bug.cgi?id=901365">Bug 901365</a>
+      </div>
+    </div>
+
+  
+</div><div class="field indent edit-hide"
+>
+
+  
+    <div class=" container">
+      <h1 id="field-value-short_desc">Firefox 0-day found on Tor .onion service (reported on Reddit)</h1>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-alias" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#alias" id="alias-help-link" class="help">Alias:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-alias">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-short_desc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#short_desc" id="short_desc-help-link" class="help">Summary:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-short_desc">
+            Firefox 0-day found on Tor .onion service (reported on Reddit)
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field indent edit-hide" id="field-status_summary"
+>
+
+  
+    <div class="value">
+        <span id="field-value-status_summary">
+      <b>RESOLVED
+        FIXED
+      </b>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+
+  
+
+  <div id="mode-container">
+    <div>
+    </div>
+    <div class="button-row">
+      <div class="dropdown">
+        <button type="button" id="action-menu-btn" aria-haspopup="true" aria-label="Actions Menu"
+          aria-expanded="false" aria-controls="action-menu" class="dropdown-button minor">&#9662;</button>
+        <ul class="dropdown-content" id="action-menu" role="menu" style="display:none;">
+          <li role="presentation">
+            <a id="action-reset" role="menuitem" tabindex="-1">Reset Sections</a>
+          </li>
+          <li role="presentation">
+            <a id="action-expand-all" role="menuitem" tabindex="-1">Expand All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-collapse-all" role="menuitem" tabindex="-1">Collapse All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-last-comment" role="menuitem" tabindex="-1">Last Comment</a>
+          </li>
+          <li role="presentation">
+            <a id="action-history" role="menuitem" tabindex="-1">History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="user-guide">
+      <a title="User guide for Bugzilla" href="https://wiki.mozilla.org/BMO/UserGuide">Get help with this page</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-status"
+>
+    <header id="module-status-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Status section"
+           data-label-collapsed="Expand Status section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-status-content"
+             aria-expanded="true"
+             aria-labeledby="module-status-title"
+             aria-describedby="module-status-subtitle"></div>
+        <h2 class="module-title" id="module-status-title">Status</h2>
+          <h3 class="module-subtitle" id="module-status-subtitle">
+            (<span id="readable-bug-status" data-readable-bug-status="{&quot;cf_blocking_fennec&quot;:&quot;---&quot;,&quot;priority&quot;:&quot;--&quot;,&quot;cf_status_b2g18&quot;:&quot;fixed&quot;,&quot;cf_status_firefox_esr24&quot;:&quot;fixed&quot;,&quot;cf_tracking_firefox57&quot;:&quot;---&quot;,&quot;cf_status_b2g_1_2&quot;:&quot;fixed&quot;,&quot;status&quot;:&quot;RESOLVED&quot;,&quot;cf_status_firefox58&quot;:&quot;---&quot;,&quot;cf_status_thunderbird_esr52&quot;:&quot;---&quot;,&quot;keywords&quot;:[&quot;sec-critical&quot;],&quot;cf_tracking_firefox_esr17&quot;:&quot;22+&quot;,&quot;id&quot;:&quot;901365&quot;,&quot;cf_status_firefox56&quot;:&quot;---&quot;,&quot;cf_status_b2g_1_1_hd&quot;:&quot;fixed&quot;,&quot;cf_status_firefox_esr52&quot;:&quot;---&quot;,&quot;flags&quot;:[],&quot;cf_status_b2g18_1_0_1&quot;:&quot;wontfix&quot;,&quot;dupe_of&quot;:null,&quot;cf_blocking_fx&quot;:&quot;---&quot;,&quot;cf_status_firefox57&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_thunderbird_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_firefox58&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_relnote&quot;:&quot;---&quot;,&quot;resolution&quot;:&quot;FIXED&quot;,&quot;target_milestone&quot;:&quot;---&quot;,&quot;cf_status_firefox_esr17&quot;:&quot;fixed&quot;,&quot;cf_tracking_firefox56&quot;:&quot;---&quot;,&quot;cf_tracking_b2g18&quot;:&quot;22+&quot;,&quot;cf_platform_rel&quot;:&quot;---&quot;}"></span>)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-status-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-product"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core" id="product-help-link" class="help">Product:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-product">
+      <span aria-owns="product-name product-latch">
+        <span role="button" aria-label="show product information" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="product-latch" data-latch="product" data-for="product">&#9656;</span>
+        <div title="show product information" tabindex="0" class="spin-toggle"
+             id="product-name" data-latch="product" data-for="product">Core
+        </div>
+        <div id="product-info" style="display:none">Shared components used by Firefox and other Mozilla software, including handling of Web content; Gecko, HTML, CSS, layout, DOM, scripts, images, networking, etc. Issues with web page layout probably go here, while Firefox user interface issues belong in the <a href="https://bugzilla.mozilla.org/editproducts.cgi?action=edit&amp;product=Firefox">Firefox</a> product. (<a href="https://wiki.mozilla.org/Modules/All#Core">More info</a>)
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-component"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core&component=Security#Security" id="component-help-link" class="help">Component:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-component">
+      <span aria-owns="component-name component-latch">
+        <span role="button" aria-label="show component description" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="component-latch" data-latch="component" data-for="component">&#9656;</span>
+        <div title="show component information" tabindex="0" class="spin-toggle" id="component-name"
+             data-latch="#component-latch" data-for="component">Security
+        </div>
+        <div id="component-info" style="display:none">
+          <div>For non-crypto security bugs.  Or use this general component if you know you have a Browser security bug, but not sure what component to use.  Bug will be reviewed for proper component.</div>
+          <a href="buglist.cgi?component=Security&amp;product=Core&amp;bug_status=__open__" target="_blank">Other Bugs</a>
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#priority" id="-help-link" class="help">
+        <label for="priority">Importance:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-priority"
+>
+
+  
+    <div class="value">
+        <span id="field-value-priority">
+            --
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-bug_severity"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_severity">
+            normal
+
+        </span>
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-hide" id="field-status-view"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-view-help-link" class="help">
+        <label for="bug_status">Status:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-view">RESOLVED
+        FIXED
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-creation_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#creation_ts" id="creation_ts-help-link" class="help">Reported:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-creation_ts"><span class="rel-time" title="2013-08-04 11:57 PDT" data-time="1375642657">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-delta_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#delta_ts" id="delta_ts-help-link" class="help">Modified:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-delta_ts"><span class="rel-time" title="2014-02-21 09:50 PST" data-time="1393005008">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-status-edit" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-edit-help-link" class="help">Status:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-edit"><div class="field inline" id="field-bug_status"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_status">
+            RESOLVED
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-resolution"
+>
+
+  
+    <div class="value">
+        <span id="field-value-resolution">
+            FIXED
+
+        </span>
+    </div>
+
+  
+</div>
+    <div id="assigned-container" style="display:none">
+      <button type="button" class="minor" id="mark-as-assigned-btn">
+        Mark as Assigned
+      </button>
+    </div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-people"
+>
+    <header id="module-people-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse People section"
+           data-label-collapsed="Expand People section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-people-content"
+             aria-expanded="false"
+             aria-labeledby="module-people-title"
+             aria-describedby="module-people-subtitle"></div>
+        <h2 class="module-title" id="module-people-title">People</h2>
+          <h3 class="module-subtitle" id="module-people-subtitle">
+            (Reporter: dveditz, Unassigned)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-people-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field edit-hide" id="field-assigned_to"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+        <i>Unassigned</i>
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-assigned_to" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-assignee" name="set_default_assignee" class="set-default"
+          value="1" data-for="assigned_to">
+        <label for="set-default-assignee">Reset Assignee to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-bug_mentors" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_mentor" id="bug_mentors-help-link" class="help">Mentors:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_mentors">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-qa_contact" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#qa_contact" id="qa_contact-help-link" class="help">QA Contact:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-qa_contact">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-qa-contact" name="set_default_qa_contact" class="set-default"
+          value="1" data-for="qa_contact">
+        <label for="set-default-qa-contact">Reset QA Contact to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-reporter"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#reporter" id="reporter-help-link" class="help">Reporter:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-reporter">
+            <div class="vcard vcard_1689" ><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-triage_owner"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#triage_owner" id="triage_owner-help-link" class="help">Triage Owner:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-triage_owner">
+            <div class="vcard vcard_590996" ><a class="email " href="user_profile?user_id=590996" > <span class="fna">Wennie</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#cc" id="-help-link" class="help">CC:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+
+
+        <span aria-owns="cc-summary cc-latch">
+          <span role="button" tabindex="0" id="cc-summary" data-count="50">50 people
+          </span>
+        </span>
+
+
+        <div id="cc-list" style="display:none"></div>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+<section class="module" id="module-tracking"
+>
+    <header id="module-tracking-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Tracking section"
+           data-label-collapsed="Expand Tracking section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-tracking-content"
+             aria-expanded="true"
+             aria-labeledby="module-tracking-title"
+             aria-describedby="module-tracking-subtitle"></div>
+        <h2 class="module-title" id="module-tracking-title">Tracking</h2>
+          <h3 class="module-subtitle" id="module-tracking-subtitle">
+            ({sec-critical})
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-tracking-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-version"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#version" id="version-help-link" class="help">Version:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-version">
+            Trunk
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-target_milestone"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#target_milestone" id="target_milestone-help-link" class="help">Target:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-target_milestone">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#rep_platform" id="-help-link" class="help">
+        <label for="rep_platform">Platform:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-rep_platform"
+>
+
+  
+    <div class="value">
+        <span id="field-value-rep_platform">
+            x86_64
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-op_sys"
+>
+
+  
+    <div class="value">
+        <span id="field-value-op_sys">
+            Windows 7
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline"
+>
+
+  
+    <div class=" container">
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-keywords"
+>
+    <div class="name">
+        <a href="describekeywords.cgi" id="keywords-help-link" class="help">Keywords:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-keywords">sec-critical
+        </span>
+    </div>
+
+  
+</div>
+<div class="field edit-show" id="field-cf_fx_iteration" style="display:none"
+>
+    <div class="name">Iteration:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_iteration">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+<div class="field" id="field-cf_fx_points"
+>
+    <div class="name">Points:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_points">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-dependson"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#dependson" id="dependson-help-link" class="help">Depends on:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-dependson">
+            <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">CVE-2013-1690</a>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-blocked" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#blocks" id="blocked-help-link" class="help">Blocks:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-blocked">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+
+    
+
+    <div class="field edit-show" id="field-bug_flags" style="display:none"
+>
+    <div class="name">Bug Flags:
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-bug_flags"><div id="bug-flags" class="flags">
+  <table class="layout-table">
+    <tbody class="edit-show" style="display:none"><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature." for="flag_type-835">a11y&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-835-dirty">
+      <select id="flag_type-835" name="flag_type-835"
+        title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue." for="flag_type-916">webcompat</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-916-dirty">
+      <select id="flag_type-916" name="flag_type-916"
+        title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag tracking inclusion in the desktop Firefox product backlog." for="flag_type-846">firefox&#8209;backlog</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-846-dirty">
+      <select id="flag_type-846" name="flag_type-846"
+        title="Flag tracking inclusion in the desktop Firefox product backlog."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Used to ask the security team to look over a feature or bug." for="flag_type-791">sec&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-791-dirty">
+      <select id="flag_type-791" name="flag_type-791"
+        title="Used to ask the security team to look over a feature or bug."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-791-container" style="display:none"><input
+    name="requestee_type-791"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-791" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug." for="flag_type-803">sec&#8209;bounty</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-803-dirty">
+      <select id="flag_type-803" name="flag_type-803"
+        title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame." for="flag_type-913">sec&#8209;bounty&#8209;hof</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-913-dirty">
+      <select id="flag_type-913" name="flag_type-913"
+        title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-787">in&#8209;qa&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-787-dirty">
+      <select id="flag_type-787" name="flag_type-787"
+        title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-787-container" style="display:none"><input
+    name="requestee_type-787"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-787" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-37">in&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-37-dirty">
+      <select id="flag_type-37" name="flag_type-37"
+        title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="QA verification tracking." for="flag_type-864">qe&#8209;verify</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-864-dirty">
+      <select id="flag_type-864" name="flag_type-864"
+        title="QA verification tracking."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr>
+    </tbody>
+  </table>
+</div>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+  
+<section class="module" id="module-firefox-tracking-flags"
+>
+    <header id="module-firefox-tracking-flags-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Firefox Tracking Flags section"
+           data-label-collapsed="Expand Firefox Tracking Flags section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-firefox-tracking-flags-content"
+             aria-expanded="false"
+             aria-labeledby="module-firefox-tracking-flags-title"
+             aria-describedby="module-firefox-tracking-flags-subtitle"></div>
+        <h2 class="module-title" id="module-firefox-tracking-flags-title">Firefox Tracking Flags</h2>
+          <h3 class="module-subtitle" id="module-firefox-tracking-flags-subtitle">
+            (firefox-esr1722+ fixed, firefox-esr24 fixed, b2g1822+ fixed, b2g18-v1.0.1 wontfix, b2g-v1.1hd fixed, b2g-v1.2 fixed)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-firefox-tracking-flags-content" style="display:none"
+  ><div class="fields-lhs">
+
+
+        <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide#Tracking_Flags" id="-help-link" class="help">Tracking Flags:
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-hide">
+    <table class="layout-table tracking-flags">
+        <tr>
+          <th></th>
+          <th>Tracking</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td class="tracking-flag-name">firefox-esr17</td>
+            <td class="tracking-flag-tracking">22+</td>
+          <td class="tracking-flag-status">fixed</td>
+        </tr>
+        <tr>
+          <td class="tracking-flag-name">firefox-esr24</td>
+            <td class="tracking-flag-tracking">---</td>
+          <td class="tracking-flag-status">fixed</td>
+        </tr>
+        <tr>
+          <td class="tracking-flag-name">b2g18</td>
+            <td class="tracking-flag-tracking">22+</td>
+          <td class="tracking-flag-status">fixed</td>
+        </tr>
+        <tr>
+          <td class="tracking-flag-name">b2g18-v1.0.1</td>
+            <td class="tracking-flag-tracking">---</td>
+          <td class="tracking-flag-status">wontfix</td>
+        </tr>
+        <tr>
+          <td class="tracking-flag-name">b2g-v1.1hd</td>
+            <td class="tracking-flag-tracking">---</td>
+          <td class="tracking-flag-status">fixed</td>
+        </tr>
+        <tr>
+          <td class="tracking-flag-name">b2g-v1.2</td>
+            <td class="tracking-flag-tracking">---</td>
+          <td class="tracking-flag-status">fixed</td>
+        </tr>
+    </table>
+  </div>
+
+
+<div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <th></th>
+        <th>Tracking</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">platform-rel</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_platform_rel-dirty">
+  <select id="cf_platform_rel" name="cf_platform_rel">
+        <option value="---"
+          id="v2875_cf_platform_rel" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr17</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox_esr17-dirty">
+  <select id="cf_tracking_firefox_esr17" name="cf_tracking_firefox_esr17">
+        <option value="22+"
+          id="v407_cf_tracking_firefox_esr17" selected
+        >22+
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr17-dirty">
+  <select id="cf_status_firefox_esr17" name="cf_status_firefox_esr17">
+        <option value="fixed"
+          id="v418_cf_status_firefox_esr17" selected
+        >fixed
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr24</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr24-dirty">
+  <select id="cf_status_firefox_esr24" name="cf_status_firefox_esr24">
+        <option value="fixed"
+          id="v440_cf_status_firefox_esr24" selected
+        >fixed
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">b2g18</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_b2g18-dirty">
+  <select id="cf_tracking_b2g18" name="cf_tracking_b2g18">
+        <option value="22+"
+          id="v453_cf_tracking_b2g18" selected
+        >22+
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_b2g18-dirty">
+  <select id="cf_status_b2g18" name="cf_status_b2g18">
+        <option value="fixed"
+          id="v464_cf_status_b2g18" selected
+        >fixed
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">b2g18-v1.0.1</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_b2g18_1_0_1-dirty">
+  <select id="cf_status_b2g18_1_0_1" name="cf_status_b2g18_1_0_1">
+        <option value="wontfix"
+          id="v483_cf_status_b2g18_1_0_1" selected
+        >wontfix
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">b2g-v1.1hd</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_b2g_1_1_hd-dirty">
+  <select id="cf_status_b2g_1_1_hd" name="cf_status_b2g_1_1_hd">
+        <option value="fixed"
+          id="v491_cf_status_b2g_1_1_hd" selected
+        >fixed
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">b2g-v1.2</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_b2g_1_2-dirty">
+  <select id="cf_status_b2g_1_2" name="cf_status_b2g_1_2">
+        <option value="fixed"
+          id="v500_cf_status_b2g_1_2" selected
+        >fixed
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">blocking-fx</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_blocking_fx-dirty">
+  <select id="cf_blocking_fx" name="cf_blocking_fx">
+        <option value="---"
+          id="v505_cf_blocking_fx" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">relnote-firefox</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_tracking_firefox_relnote-dirty">
+  <select id="cf_tracking_firefox_relnote" name="cf_tracking_firefox_relnote">
+        <option value="---"
+          id="v539_cf_tracking_firefox_relnote" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">fennec</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_blocking_fennec-dirty">
+  <select id="cf_blocking_fennec" name="cf_blocking_fennec">
+        <option value="---"
+          id="v655_cf_blocking_fennec" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">thunderbird_esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_thunderbird_esr52-dirty">
+  <select id="cf_tracking_thunderbird_esr52" name="cf_tracking_thunderbird_esr52">
+        <option value="---"
+          id="v3065_cf_tracking_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_thunderbird_esr52-dirty">
+  <select id="cf_status_thunderbird_esr52" name="cf_status_thunderbird_esr52">
+        <option value="---"
+          id="v3087_cf_status_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox_esr52-dirty">
+  <select id="cf_tracking_firefox_esr52" name="cf_tracking_firefox_esr52">
+        <option value="---"
+          id="v3103_cf_tracking_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr52-dirty">
+  <select id="cf_status_firefox_esr52" name="cf_status_firefox_esr52">
+        <option value="---"
+          id="v3132_cf_status_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox56</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox56-dirty">
+  <select id="cf_tracking_firefox56" name="cf_tracking_firefox56">
+        <option value="---"
+          id="v3271_cf_tracking_firefox56" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox56-dirty">
+  <select id="cf_status_firefox56" name="cf_status_firefox56">
+        <option value="---"
+          id="v3276_cf_status_firefox56" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox57</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox57-dirty">
+  <select id="cf_tracking_firefox57" name="cf_tracking_firefox57">
+        <option value="---"
+          id="v3286_cf_tracking_firefox57" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox57-dirty">
+  <select id="cf_status_firefox57" name="cf_status_firefox57">
+        <option value="---"
+          id="v3291_cf_status_firefox57" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox58</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox58-dirty">
+  <select id="cf_tracking_firefox58" name="cf_tracking_firefox58">
+        <option value="---"
+          id="v3451_cf_tracking_firefox58" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox58-dirty">
+  <select id="cf_status_firefox58" name="cf_status_firefox58">
+        <option value="---"
+          id="v3441_cf_status_firefox58" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-details"
+>
+    <header id="module-details-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Details section"
+           data-label-collapsed="Expand Details section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-details-content"
+             aria-expanded="false"
+             aria-labeledby="module-details-title"
+             aria-describedby="module-details-subtitle"></div>
+        <h2 class="module-title" id="module-details-title">Details</h2>
+          <h3 class="module-subtitle" id="module-details-subtitle">
+            (Whiteboard: fixed by June 25, 2013 releases in bug 857883, crash signature, <a href="http://www.reddit.com/r/onions/comments/1jmrta/founder_of_the_freedom_hosting_arrested_held/" target="_blank"
+     rel="noreferrer" title="http://www.reddit.com/r/onions/comments/1jmrta/founder_of_the_freedom_hosting_arrested_held/"
+     class="bug-url" data-safe="1"
+  >URL</a>)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-details-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-status_whiteboard"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/Whiteboard" id="status_whiteboard-help-link" class="help">Whiteboard:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-status_whiteboard">fixed by June 25, 2013 releases in bug 857883
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#votes" id="-help-link" class="help">Votes:
+        </a>
+    </div>
+
+  
+    <div class=" container">3
+        votes
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-cf_qa_whiteboard" style="display:none"
+>
+    <div class="name">QA Whiteboard:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_qa_whiteboard">
+        ---
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_regression_range" style="display:none"
+>
+    <div class="name">Has Regression Range:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_regression_range">
+            ---
+
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_str" style="display:none"
+>
+    <div class="name">Has STR:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_str">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-bug_file_loc"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_file_loc" id="bug_file_loc-help-link" class="help">URL:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_file_loc"><a href="http://www.reddit.com/r/onions/comments/1jmrta/founder_of_the_freedom_hosting_arrested_held/" target="_blank"
+     rel="noreferrer" title="http://www.reddit.com/r/onions/comments/1jmrta/founder_of_the_freedom_hosting_arrested_held/"
+     class="bug-url" data-safe="1"
+  >http://www.reddit.com/r/onions/commen...</a>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-see_also" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#see_also" id="see_also-help-link" class="help">See Also:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-see_also">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field" id="field-cf_crash_signature"
+>
+    <div class="name">Crash Signature:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_crash_signature"><div>
+          <a href="https://crash-stats.mozilla.com/signature/?signature=nsPresContext%3A%3ASetImageAnimationModeInternal(unsigned%20short)" target="_blank">
+            [@ nsPresContext::SetImageAnimationModeInternal(unsigned short) ]
+          </a></div><div>
+          <a href="https://crash-stats.mozilla.com/signature/?signature=nsPresContext%3A%3ASetImageAnimationModeInternal" target="_blank">
+            [@ nsPresContext::SetImageAnimationModeInternal ]
+          </a></div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-security"
+>
+    <header id="module-security-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Security section"
+           data-label-collapsed="Expand Security section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-security-content"
+             aria-expanded="false"
+             aria-labeledby="module-security-title"
+             aria-describedby="module-security-subtitle"></div>
+        <h2 class="module-title" id="module-security-title">Security</h2>
+          <h3 class="module-subtitle" id="module-security-subtitle">
+            (public)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-security-content" style="display:none"
+  ><div class="groups edit-hide">
+    This bug is publicly visible.
+</div>
+
+<div class="groups edit-show" style="display:none">
+
+
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-user-story" data-non-stick="1"
+>
+    <header id="module-user-story-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse User Story section"
+           data-label-collapsed="Expand User Story section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-user-story-content"
+             aria-expanded="false"
+             aria-labeledby="module-user-story-title"
+             aria-describedby="module-user-story-subtitle"></div>
+        <h2 class="module-title" id="module-user-story-title">User Story</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-user-story-content" style="display:none"
+  >
+    <pre id="user-story"></pre>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="module" id="module-attachments"
+>
+    <header id="module-attachments-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Attachments section"
+           data-label-collapsed="Expand Attachments section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-attachments-content"
+             aria-expanded="true"
+             aria-labeledby="module-attachments-title"
+             aria-describedby="module-attachments-subtitle"></div>
+        <h2 class="module-title" id="module-attachments-title">Attachments</h2>
+          <h3 class="module-subtitle" id="module-attachments-subtitle">
+            (5 attachments)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-attachments-content"
+  ><table role="table" class="layout-table" id="attachments">
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=785529">pastebin-pmGEj9bV.txt</a>
+        </div>
+        <div>
+            <a href="#c5" class="attach-time activity-ref"><span class="rel-time" title="2013-08-04 12:12 PDT" data-time="1375643575">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_455983" ><a class="email " href="user_profile?user_id=455983" > <span class="fna">bugzilla</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">1.54 KB,
+          text/plain        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=785529&amp;action=edit">Details</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=785530">mozillapastebin-2776374.txt</a>
+        </div>
+        <div>
+            <a href="#c6" class="attach-time activity-ref"><span class="rel-time" title="2013-08-04 12:13 PDT" data-time="1375643615">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_455983" ><a class="email " href="user_profile?user_id=455983" > <span class="fna">bugzilla</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">18.35 KB,
+          text/plain        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=785530&amp;action=edit">Details</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=785531">pastebin-K61QZpzb.txt</a>
+        </div>
+        <div>
+            <a href="#c7" class="attach-time activity-ref"><span class="rel-time" title="2013-08-04 12:18 PDT" data-time="1375643886">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_388264" ><a class="email " href="user_profile?user_id=388264" > <span class="fna">Stefan Arentz [:st3fan]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">1.55 KB,
+          text/plain        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=785531&amp;action=edit">Details</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=785532">mozillapastebin-2777139.txt</a>
+        </div>
+        <div>
+            <a href="#c8" class="attach-time activity-ref"><span class="rel-time" title="2013-08-04 12:19 PDT" data-time="1375643977">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_388264" ><a class="email " href="user_profile?user_id=388264" > <span class="fna">Stefan Arentz [:st3fan]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">40.58 KB,
+          text/plain        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=785532&amp;action=edit">Details</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=785556">self-contained exploit w/neutered (hopefully) shellcode</a>
+        </div>
+        <div>
+            <a href="#c22" class="attach-time activity-ref"><span class="rel-time" title="2013-08-04 16:06 PDT" data-time="1375657610">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_1689" ><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">6.93 KB,
+          application/java-archive        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=785556&amp;action=edit">Details</a>
+    </tr>
+</table>
+
+<div id="attachments-actions">
+</div>
+  </div>
+</section>
+
+
+
+<script nonce="TI5FOaVg4wNCB05Pk5Ddio9YK4fhXqbgt8CN5CfUD5ZfBnpz">
+  init_module_visibility();
+</script>
+
+
+
+
+
+
+<div id="comment-actions">
+    <button type="button" id="bottom-btn" class="minor">Bottom &darr;</button>
+  <div class="dropdown">
+    <button type="button" id="comment-tags-btn" arai-haspopup="true" aria-label="Tags Menu"
+      aria-expanded="false" aria-controls="comment-tags-menu" class="dropdown-button minor">Tags &#9662;</button>
+    <ul id="comment-tags-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a role="menuitem" tabindex="-1" data-comment-tag="">Reset</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button type="button" id="view-menu-btn" arai-haspopup="true" aria-label="View Menu"
+      aria-expanded="false" aria-controls="view-menu" class="dropdown-button minor">View &#9662;</button>
+    <ul id="view-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-reset" role="menuitem" tabindex="-1">Reset</a>
+      </li>
+      <li role="presentation">
+        <a id="view-collapse-all" role="menuitem" tabindex="-1">Collapse All</a>
+      </li>
+      <li role="presentation">
+        <a id="view-expand-all" role="menuitem" tabindex="-1">Expand All</a>
+      </li>
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-comments-only" role="menuitem" tabindex="-1">Comments Only</a>
+      </li>
+      <li role="presentation">
+        <a id="view-toggle-cc" role="menuitem" tabindex="-1">Show CC Changes</a>
+      </li>
+    </ul>
+   </div>
+</div>
+<div class="change-set" id="c0"><div class="comment" data-id="7710432" data-no="0">
+    
+    <table class="layout-table change-head reporter" id="ch-0">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" ><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" ><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-0">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-0" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c0">Description</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 11:57 PDT" data-time="1375642657">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-0">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-0">Reddit is reporting a Firefox 0-day that has been injected on some .onion sites (Tor hidden services).
+
+<a rel="nofollow" href="http://www.reddit.com/r/onions/comments/1jmrta/founder_of_the_freedom_hosting_arrested_held/">http://www.reddit.com/r/onions/comments/1jmrta/founder_of_the_freedom_hosting_arrested_held/</a>
+
+The most complete link I've seen appears to be
+<a rel="nofollow" href="http://pastebin.mozilla.org/2777139">http://pastebin.mozilla.org/2777139</a> (and copied to
+<a rel="nofollow" href="http://pastebin.mozilla.org/2781408">http://pastebin.mozilla.org/2781408</a> in case the first link is ephemeral)
+
+I've also seen
+<a rel="nofollow" href="http://pastebin.com/pmGEj9bV">http://pastebin.com/pmGEj9bV</a>
+<a rel="nofollow" href="http://pastebin.com/K61QZpzb">http://pastebin.com/K61QZpzb</a>
+<a rel="nofollow" href="http://pastebin.mozilla.org/2776374">http://pastebin.mozilla.org/2776374</a>
+
+and I'm not sure where they're all from or how they're related (look duplicative).
+
+No point in hiding the bug at this point, this is all over the twitters and will just collect dupes.</pre></div><div class="change-set cc-only" id="a572_129968" style="display:none"><div class="change" id="aa572_129968">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_129968" id="a572_129968"><img src="https://secure.gravatar.com/avatar/37daa44eb670b2e9f0cd46ae75f485a1?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_129968" id="a572_129968"><a class="email " href="user_profile?user_id=129968" > <span class="fna">Justin Wood (:Callek)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a572_129968">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a572_129968">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a572_129968">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:07 PDT" data-time="1375643229">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: bugspam.Callek</div></div></div><div class="change-set" id="c1"><div class="comment" data-id="7710436" data-no="1">
+    
+    <table class="layout-table change-head " id="ch-1">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_313730" id="a572_129968"><img src="https://secure.gravatar.com/avatar/2e167fece696fd8b934773e3b2d2c3b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_313730" id="a572_129968"><a class="email " href="user_profile?user_id=313730" > <span class="fna">Bobby Holley (:bholley) (busy with Stylo)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-1">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-1" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c1">Comment 1</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:07 PDT" data-time="1375643278">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-1">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-1">This appears to be the exploit, linked by reddit:
+
+<a rel="nofollow" href="http://pastebin.mozilla.org/2776374">http://pastebin.mozilla.org/2776374</a></pre><div class="activity cc-only" style="display:none"><div class="change">CC: bobbyholley+bmo</div></div></div><div class="change-set cc-only" id="a641_241497" style="display:none"><div class="change" id="aa641_241497">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_241497" id="a641_241497"><img src="https://secure.gravatar.com/avatar/b13611d1950fd03a3e1d44195fa6f532?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_241497" id="a641_241497"><a class="email " href="user_profile?user_id=241497" > <span class="fna">Josh Matthews [:jdm]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a641_241497">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a641_241497">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a641_241497">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:08 PDT" data-time="1375643298">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: josh</div></div></div><div class="change-set" id="c2"><div class="comment" data-id="7710437" data-no="2">
+    
+    <table class="layout-table change-head " id="ch-2">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_313730" id="a641_241497"><img src="https://secure.gravatar.com/avatar/2e167fece696fd8b934773e3b2d2c3b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_313730" id="a641_241497"><a class="email " href="user_profile?user_id=313730" > <span class="fna">Bobby Holley (:bholley) (busy with Stylo)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-2">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-2" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c2">Comment 2</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:08 PDT" data-time="1375643300">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-2">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-2">(In reply to Bobby Holley (:bholley) from <a href="show_bug.cgi?id=901365#c1">comment #1</a>)
+<span class="quote">&gt; This appears to be the exploit, linked by reddit:
+&gt; 
+&gt; <a rel="nofollow" href="http://pastebin.mozilla.org/2776374">http://pastebin.mozilla.org/2776374</a></span >
+
+oh, ignore me. dveditz already linked to it in <a href="show_bug.cgi?id=901365#c0">comment 0</a>.</pre></div><div class="change-set cc-only" id="a705_455983" style="display:none"><div class="change" id="aa705_455983">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_455983" id="a705_455983"><img src="https://secure.gravatar.com/avatar/5a256bf280710f9568ad6ca467e7876a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_455983" id="a705_455983"><a class="email " href="user_profile?user_id=455983" > <span class="fna">bugzilla</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a705_455983">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a705_455983">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a705_455983">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:09 PDT" data-time="1375643362">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: bugzilla</div></div></div><div class="change-set" id="c3"><div class="comment" data-id="7710442" data-no="3">
+    
+    <table class="layout-table change-head " id="ch-3">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_313730" id="a705_455983"><img src="https://secure.gravatar.com/avatar/2e167fece696fd8b934773e3b2d2c3b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_313730" id="a705_455983"><a class="email " href="user_profile?user_id=313730" > <span class="fna">Bobby Holley (:bholley) (busy with Stylo)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-3">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-3" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c3">Comment 3</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:11 PDT" data-time="1375643507">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-3">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-3">Can someone with a windows build run this thing in an ASAN debug build and see where we first fall over?</pre></div><div class="change-set" id="c4"><div class="comment" data-id="7710443" data-no="4">
+    
+    <table class="layout-table change-head " id="ch-4">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_310943" id="a705_455983"><img src="https://secure.gravatar.com/avatar/86d014603512abf3c5966ea995551a53?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_310943" id="a705_455983"><a class="email " href="user_profile?user_id=310943" > <span class="fna">Andreas Gal :gal</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-4">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-4" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c4">Comment 4</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:12 PDT" data-time="1375643551">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-4">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-4">Can you make this crash on non-windows?</pre><div class="activity cc-only" style="display:none"><div class="change">CC: gal</div></div></div><div class="change-set" id="c5"><div class="comment" data-id="7710444" data-no="5">
+    
+    <table class="layout-table change-head " id="ch-5">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_455983" id="a705_455983"><img src="https://secure.gravatar.com/avatar/5a256bf280710f9568ad6ca467e7876a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_455983" id="a705_455983"><a class="email " href="user_profile?user_id=455983" > <span class="fna">bugzilla</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-5">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-5" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c5">Comment 5</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:12 PDT" data-time="1375643575">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-5">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-5">Created <span class=""><a href="attachment.cgi?id=785529" name="attach_785529" title="pastebin-pmGEj9bV.txt">attachment 785529</a> <a href="attachment.cgi?id=785529&amp;action=edit" title="pastebin-pmGEj9bV.txt">[details]</a></span>
+pastebin-pmGEj9bV.txt</pre></div><div class="change-set" id="c6"><div class="comment" data-id="7710447" data-no="6">
+    
+    <table class="layout-table change-head " id="ch-6">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_455983" id="a705_455983"><img src="https://secure.gravatar.com/avatar/5a256bf280710f9568ad6ca467e7876a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_455983" id="a705_455983"><a class="email " href="user_profile?user_id=455983" > <span class="fna">bugzilla</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-6">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-6" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c6">Comment 6</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:13 PDT" data-time="1375643615">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-6">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-6">Created <span class=""><a href="attachment.cgi?id=785530" name="attach_785530" title="mozillapastebin-2776374.txt">attachment 785530</a> <a href="attachment.cgi?id=785530&amp;action=edit" title="mozillapastebin-2776374.txt">[details]</a></span>
+mozillapastebin-2776374.txt</pre></div><div class="change-set cc-only" id="a978_103593" style="display:none"><div class="change" id="aa978_103593">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_103593" id="a978_103593"><img src="https://secure.gravatar.com/avatar/08de945228403cb0598d5906e2407a7d?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_103593" id="a978_103593"><a class="email " href="user_profile?user_id=103593" > <span class="fna">:Gavin Sharp [email: gavin&#64;gavinsharp.com]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a978_103593">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a978_103593">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a978_103593">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:13 PDT" data-time="1375643635">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: gavin.sharp</div></div></div><div class="change-set cc-only" id="a1067_101070" style="display:none"><div class="change" id="aa1067_101070">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_101070" id="a1067_101070"><img src="https://secure.gravatar.com/avatar/dc606a9be7561247917310c85abe3c72?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_101070" id="a1067_101070"><a class="email " href="user_profile?user_id=101070" > <span class="fna">Cameron Kaiser [:spectre]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a1067_101070">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a1067_101070">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a1067_101070">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:15 PDT" data-time="1375643724">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: spectre</div></div></div><div class="change-set cc-only" id="a1195_388264" style="display:none"><div class="change" id="aa1195_388264">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_388264" id="a1195_388264"><img src="https://secure.gravatar.com/avatar/73072cf44258fa9cb3ae3ed4f47b9939?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_388264" id="a1195_388264"><a class="email " href="user_profile?user_id=388264" > <span class="fna">Stefan Arentz [:st3fan]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a1195_388264">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a1195_388264">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a1195_388264">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:17 PDT" data-time="1375643852">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: sarentz</div></div></div><div class="change-set" id="c7"><div class="comment" data-id="7710450" data-no="7">
+    
+    <table class="layout-table change-head " id="ch-7">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_388264" id="a1195_388264"><img src="https://secure.gravatar.com/avatar/73072cf44258fa9cb3ae3ed4f47b9939?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_388264" id="a1195_388264"><a class="email " href="user_profile?user_id=388264" > <span class="fna">Stefan Arentz [:st3fan]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-7">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-7" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c7">Comment 7</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:18 PDT" data-time="1375643886">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-7">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-7">Created <span class=""><a href="attachment.cgi?id=785531" name="attach_785531" title="pastebin-K61QZpzb.txt">attachment 785531</a> <a href="attachment.cgi?id=785531&amp;action=edit" title="pastebin-K61QZpzb.txt">[details]</a></span>
+pastebin-K61QZpzb.txt</pre></div><div class="change-set" id="c8"><div class="comment" data-id="7710451" data-no="8">
+    
+    <table class="layout-table change-head " id="ch-8">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_388264" id="a1195_388264"><img src="https://secure.gravatar.com/avatar/73072cf44258fa9cb3ae3ed4f47b9939?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_388264" id="a1195_388264"><a class="email " href="user_profile?user_id=388264" > <span class="fna">Stefan Arentz [:st3fan]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-8">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-8" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c8">Comment 8</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:19 PDT" data-time="1375643977">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-8">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-8">Created <span class=""><a href="attachment.cgi?id=785532" name="attach_785532" title="mozillapastebin-2777139.txt">attachment 785532</a> <a href="attachment.cgi?id=785532&amp;action=edit" title="mozillapastebin-2777139.txt">[details]</a></span>
+mozillapastebin-2777139.txt
+
+Cleaned up.</pre></div><div class="change-set cc-only" id="a1484_420453" style="display:none"><div class="change" id="aa1484_420453">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_420453" id="a1484_420453"><img src="https://secure.gravatar.com/avatar/16d4d4a441724e006b342ac12507caef?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_420453" id="a1484_420453"><a class="email " href="user_profile?user_id=420453" > <span class="fna">Marco Castelluccio [:marco]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a1484_420453">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a1484_420453">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a1484_420453">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:22 PDT" data-time="1375644141">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: mcastelluccio</div></div></div><div class="change-set" id="c9"><div class="comment" data-id="7710454" data-no="9">
+    
+    <table class="layout-table change-head reporter" id="ch-9">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a1484_420453"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" id="a1484_420453"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-9">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-9" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c9">Comment 9</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:26 PDT" data-time="1375644418">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-9">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-9">This has now been posted to Hacker News. Here's the URL to help catch dupes
+<a rel="nofollow" href="https://news.ycombinator.com/item?id=6154246">https://news.ycombinator.com/item?id=6154246</a></pre></div><div class="change-set" id="a1833_1689"><div class="change" id="aa1833_1689">
+    <table class="layout-table change-head reporter">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a1833_1689"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_1689" id="a1833_1689"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a1833_1689">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a1833_1689">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a1833_1689">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:28 PDT" data-time="1375644490">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Summary: Onion service Firefox 0-day (reported on Reddit) &rarr; Firefox 0-day found on Tor .onion service (reported on Reddit)</div><div class="change">Whiteboard: Possibly ESR-17 only</div></div></div><div class="change-set" id="c10"><div class="comment" data-id="7710456" data-no="10">
+    
+    <table class="layout-table change-head " id="ch-10">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_310943" id="a1833_1689"><img src="https://secure.gravatar.com/avatar/86d014603512abf3c5966ea995551a53?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_310943" id="a1833_1689"><a class="email " href="user_profile?user_id=310943" > <span class="fna">Andreas Gal :gal</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-10">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-10" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c10">Comment 10</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:30 PDT" data-time="1375644634">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-10">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-10">Until content_2.html is loaded it looks like mere heap ordering. I can't get nightly to crash with it. Will look at content_2.html next.</pre></div><div class="change-set" id="c11"><div class="comment" data-id="7710459" data-no="11">
+    
+    <table class="layout-table change-head " id="ch-11">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_313730" id="a1833_1689"><img src="https://secure.gravatar.com/avatar/2e167fece696fd8b934773e3b2d2c3b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_313730" id="a1833_1689"><a class="email " href="user_profile?user_id=313730" > <span class="fna">Bobby Holley (:bholley) (busy with Stylo)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-11">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-11" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c11">Comment 11</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:36 PDT" data-time="1375644968">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-11">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-11">content_2.html seems to trigger over-recursion on linux.</pre></div><div class="change-set" id="c12"><div class="comment" data-id="7710461" data-no="12">
+    
+    <table class="layout-table change-head " id="ch-12">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_313730" id="a1833_1689"><img src="https://secure.gravatar.com/avatar/2e167fece696fd8b934773e3b2d2c3b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_313730" id="a1833_1689"><a class="email " href="user_profile?user_id=313730" > <span class="fna">Bobby Holley (:bholley) (busy with Stylo)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-12">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-12" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c12">Comment 12</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:38 PDT" data-time="1375645110">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-12">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-12">(In reply to Bobby Holley (:bholley) from <a href="show_bug.cgi?id=901365#c11">comment #11</a>)
+<span class="quote">&gt; content_2.html seems to trigger over-recursion on linux.</span >
+
+Oh, nevermind. That only happens when you don't load the iframes in the proper hierarchy, because the parent structure isn't what the code expects.</pre></div><div class="change-set cc-only" id="a2527_23402" style="display:none"><div class="change" id="aa2527_23402">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_23402" id="a2527_23402"><img src="https://secure.gravatar.com/avatar/ee4c7c6351b45c4655e16993a29979b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_23402" id="a2527_23402"><a class="email " href="user_profile?user_id=23402" > <span class="fna">Bob Clary [:bc:]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a2527_23402">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a2527_23402">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a2527_23402">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:39 PDT" data-time="1375645184">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: bclary</div></div></div><div class="change-set cc-only" id="a2904_412465" style="display:none"><div class="change" id="aa2904_412465">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_412465" id="a2904_412465"><img src="https://secure.gravatar.com/avatar/fcdec38955bc2908a762b9ec2a0f3342?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_412465" id="a2904_412465"><a class="email " href="user_profile?user_id=412465" > <span class="fna">mjh563</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a2904_412465">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a2904_412465">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a2904_412465">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:46 PDT" data-time="1375645561">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: mjh563</div></div></div><div class="change-set" id="c13"><div class="comment" data-id="7710476" data-no="13">
+    
+    <table class="layout-table change-head " id="ch-13">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_313730" id="a2904_412465"><img src="https://secure.gravatar.com/avatar/2e167fece696fd8b934773e3b2d2c3b0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_313730" id="a2904_412465"><a class="email " href="user_profile?user_id=313730" > <span class="fna">Bobby Holley (:bholley) (busy with Stylo)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-13">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-13" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c13">Comment 13</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:48 PDT" data-time="1375645722">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-13">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-13">I have to go, but some notes on making the testcase actually do something:
+
+If the version check fails, the main frame is redirected to content_1.html, which appears to be the bailout page. Depending on your platform, it may be necessary to early-return |17| from |function al()| in the main exploit.
+
+The exploit appears to try to wait for onload before executing, but fails, because the event listener at the bottom is |u()| rather than |u|, so it effectively evaluates the whole exploit when it adds the event handler. This means that the iframe needs to have the bizarre pre-positioning it has in the exploit. Don't try to re-order it.</pre></div><div class="change-set cc-only" id="a3153_132034" style="display:none"><div class="change" id="aa3153_132034">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_132034" id="a3153_132034"><img src="extensions/Gravatar/web/default.jpg" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_132034" id="a3153_132034"><a class="email " href="user_profile?user_id=132034" > <span class="fna">Gary Kwong [:gkw] [:nth10sd]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3153_132034">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3153_132034">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a3153_132034">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:50 PDT" data-time="1375645810">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: gary</div></div></div><div class="change-set cc-only" id="a3372_310943" style="display:none"><div class="change" id="aa3372_310943">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_310943" id="a3372_310943"><img src="https://secure.gravatar.com/avatar/86d014603512abf3c5966ea995551a53?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_310943" id="a3372_310943"><a class="email " href="user_profile?user_id=310943" > <span class="fna">Andreas Gal :gal</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3372_310943">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3372_310943">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a3372_310943">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 12:53 PDT" data-time="1375646029">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: dvander</div></div></div><div class="change-set cc-only" id="a3989_69426" style="display:none"><div class="change" id="aa3989_69426">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_69426" id="a3989_69426"><img src="https://secure.gravatar.com/avatar/e8b14112e767601340d32d282a5f9288?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_69426" id="a3989_69426"><a class="email " href="user_profile?user_id=69426" > <span class="fna">Blake Kaplan (:mrbkap)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3989_69426">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3989_69426">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a3989_69426">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:04 PDT" data-time="1375646646">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: mrbkap</div></div></div><div class="change-set cc-only" id="a3992_335003" style="display:none"><div class="change" id="aa3992_335003">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_335003" id="a3992_335003"><img src="https://secure.gravatar.com/avatar/e0d0639d9f1854b5edb3d9d857e82e71?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_335003" id="a3992_335003"><a class="email " href="user_profile?user_id=335003" > <span class="fna">David Dahl :ddahl</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a3992_335003">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a3992_335003">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a3992_335003">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:04 PDT" data-time="1375646649">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: ddahl</div></div></div><div class="change-set cc-only" id="a4437_5189" style="display:none"><div class="change" id="aa4437_5189">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_5189" id="a4437_5189"><img src="extensions/Gravatar/web/default.jpg" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_5189" id="a4437_5189"><a class="email " href="user_profile?user_id=5189" > <span class="fna">Robert Kaiser</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a4437_5189">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a4437_5189">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a4437_5189">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:11 PDT" data-time="1375647094">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: kairo</div></div></div><div class="change-set" id="c14"><div class="comment" data-id="7710495" data-no="14">
+    
+    <table class="layout-table change-head " id="ch-14">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_388264" id="a4437_5189"><img src="https://secure.gravatar.com/avatar/73072cf44258fa9cb3ae3ed4f47b9939?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_388264" id="a4437_5189"><a class="email " href="user_profile?user_id=388264" > <span class="fna">Stefan Arentz [:st3fan]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-14">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-14" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c14">Comment 14</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:15 PDT" data-time="1375647328">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-14">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-14">Disassembly of the 'magneto' shell code: <a rel="nofollow" href="http://www.onlinedisassembler.com/odaweb/HeZjTV">http://www.onlinedisassembler.com/odaweb/HeZjTV</a></pre></div><div class="change-set cc-only" id="a5199_159758" style="display:none"><div class="change" id="aa5199_159758">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_159758" id="a5199_159758"><img src="https://secure.gravatar.com/avatar/a061fe6bd3e9018e6837fba4e1d09206?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_159758" id="a5199_159758"><a class="email " href="user_profile?user_id=159758" > <span class="fna">Reed Loden [:reed] (use needinfo?)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a5199_159758">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a5199_159758">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a5199_159758">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:24 PDT" data-time="1375647856">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: reed</div></div></div><div class="change-set cc-only" id="a6099_391526" style="display:none"><div class="change" id="aa6099_391526">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_391526" id="a6099_391526"><img src="https://secure.gravatar.com/avatar/976ca8b7a91d63e10764ef2c0675e592?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_391526" id="a6099_391526"><a class="email " href="user_profile?user_id=391526" > <span class="fna">:Benjamin Peterson</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a6099_391526">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a6099_391526">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a6099_391526">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:39 PDT" data-time="1375648756">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: benjamin</div></div></div><div class="change-set cc-only" id="a6162_393835" style="display:none"><div class="change" id="aa6162_393835">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_393835" id="a6162_393835"><img src="https://secure.gravatar.com/avatar/6bb31f7207fc068158047b9c8ad4592d?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_393835" id="a6162_393835"><a class="email " href="user_profile?user_id=393835" > <span class="fna">Tom Schuster [:evilpie]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a6162_393835">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a6162_393835">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a6162_393835">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:40 PDT" data-time="1375648819">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: evilpies</div></div></div><div class="change-set cc-only" id="a6338_336670" style="display:none"><div class="change" id="aa6338_336670">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_336670" id="a6338_336670"><img src="https://secure.gravatar.com/avatar/d8bebbee32670ee5755ce1bc535cd251?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_336670" id="a6338_336670"><a class="email " href="user_profile?user_id=336670" > <span class="fna">Kyle Huey [:khuey] (Exited; not receiving bugmail, email if necessary)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a6338_336670">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a6338_336670">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a6338_336670">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:43 PDT" data-time="1375648995">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: khuey</div></div></div><div class="change-set cc-only" id="a6470_349244" style="display:none"><div class="change" id="aa6470_349244">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_349244" id="a6470_349244"><img src="https://secure.gravatar.com/avatar/72636a193847f1a9c45521d07eb0dc6e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_349244" id="a6470_349244"><a class="email " href="user_profile?user_id=349244" > <span class="fna">David Keeler [:keeler] (use needinfo?)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a6470_349244">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a6470_349244">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a6470_349244">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:45 PDT" data-time="1375649127">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: dkeeler</div></div></div><div class="change-set cc-only" id="a6916_455420" style="display:none"><div class="change" id="aa6916_455420">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_455420" id="a6916_455420"><img src="https://secure.gravatar.com/avatar/a3816888b988417fdf5bc1e7dfb47c6d?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_455420" id="a6916_455420"><a class="email " href="user_profile?user_id=455420" > <span class="fna">Wesley Chalmers</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a6916_455420">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a6916_455420">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a6916_455420">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:52 PDT" data-time="1375649573">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: wwchalme</div></div></div><div class="change-set cc-only" id="a7182_389993" style="display:none"><div class="change" id="aa7182_389993">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_389993" id="a7182_389993"><img src="https://secure.gravatar.com/avatar/46b06948fda429c09289c27f38b5d427?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_389993" id="a7182_389993"><a class="email " href="user_profile?user_id=389993" > <span class="fna">Bill McCloskey (:billm)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a7182_389993">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a7182_389993">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a7182_389993">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 13:57 PDT" data-time="1375649839">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: wmccloskey</div></div></div><div class="change-set cc-only" id="a7723_1214" style="display:none"><div class="change" id="aa7723_1214">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1214" id="a7723_1214"><img src="https://secure.gravatar.com/avatar/c936d5fc7ef09504480b9d8aafb7e8a0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_1214" id="a7723_1214"><a class="email " href="user_profile?user_id=1214" > <span class="fna">Brendan Eich [:brendan]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a7723_1214">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a7723_1214">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a7723_1214">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:06 PDT" data-time="1375650380">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: brendan</div></div></div><div class="change-set" id="c15"><div class="comment" data-id="7710536" data-no="15">
+    
+    <table class="layout-table change-head " id="ch-15">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_3881" id="a7723_1214"><img src="https://secure.gravatar.com/avatar/0a32391d55cfa63276f87eb9819dfbd0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_3881" id="a7723_1214"><a class="email " href="user_profile?user_id=3881" > <span class="fna">David Baron :dbaron: ⌚️UTC-7</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-15">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-15" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c15">Comment 15</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:07 PDT" data-time="1375650472">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-15">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-15">Using the testcase in:
+<a rel="nofollow" href="https://hg.mozilla.org/users/dbaron_mozilla.com/bug901365-testcase/">https://hg.mozilla.org/users/dbaron_mozilla.com/bug901365-testcase/</a>
+I crash in Firefox 17.0, 17.0.4esr, and 17.0.6esr but NOT 17.0.7esr at:
+<a href="https://crash-stats.mozilla.com/report/index/3534f587-63b8-43cf-9891-5dad22130804">bp-3534f587-63b8-43cf-9891-5dad22130804</a>
+<a href="https://crash-stats.mozilla.com/report/index/f4517677-20f6-4a09-aaed-ab5082130804">bp-f4517677-20f6-4a09-aaed-ab5082130804</a>
+<a href="https://crash-stats.mozilla.com/report/index/82eaa8cd-83e3-49a0-ad8a-e7cd12130804">bp-82eaa8cd-83e3-49a0-ad8a-e7cd12130804</a></pre></div><div class="change-set cc-only" id="a7870_406194" style="display:none"><div class="change" id="aa7870_406194">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_406194" id="a7870_406194"><img src="https://secure.gravatar.com/avatar/0a70c84cd33dba0151fe15f2f8773137?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_406194" id="a7870_406194"><a class="email " href="user_profile?user_id=406194" > <span class="fna">Andrew McCreight (PTO-ish Oct 1 - 12) [:mccr8]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a7870_406194">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a7870_406194">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a7870_406194">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:08 PDT" data-time="1375650527">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: continuation</div></div></div><div class="change-set" id="c16"><div class="comment" data-id="7710539" data-no="16">
+    
+    <table class="layout-table change-head " id="ch-16">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_3881" id="a7870_406194"><img src="https://secure.gravatar.com/avatar/0a32391d55cfa63276f87eb9819dfbd0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_3881" id="a7870_406194"><a class="email " href="user_profile?user_id=3881" > <span class="fna">David Baron :dbaron: ⌚️UTC-7</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-16">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-16" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c16">Comment 16</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:14 PDT" data-time="1375650847">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-16">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-16">smaug points out both the crash stack and fix range seem consistent with <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">bug 857883</a>.  (At least for the crash I'm seeing; possible others see something else!)</pre></div><div class="change-set" id="a8406_336670"><div class="change" id="aa8406_336670">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_336670" id="a8406_336670"><img src="https://secure.gravatar.com/avatar/d8bebbee32670ee5755ce1bc535cd251?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_336670" id="a8406_336670"><a class="email " href="user_profile?user_id=336670" > <span class="fna">Kyle Huey [:khuey] (Exited; not receiving bugmail, email if necessary)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a8406_336670">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a8406_336670">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a8406_336670">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:17 PDT" data-time="1375651063">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Depends on: <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">857883</a></div></div></div><div class="change-set" id="c17"><div class="comment" data-id="7710545" data-no="17">
+    
+    <table class="layout-table change-head " id="ch-17">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_3881" id="a8406_336670"><img src="https://secure.gravatar.com/avatar/0a32391d55cfa63276f87eb9819dfbd0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_3881" id="a8406_336670"><a class="email " href="user_profile?user_id=3881" > <span class="fna">David Baron :dbaron: ⌚️UTC-7</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-17">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-17" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c17">Comment 17</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:22 PDT" data-time="1375651374">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-17">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-17">And to be clear:  I'm testing on Linux.  Somebody should definitely check on Windows.</pre></div><div class="change-set cc-only" id="a8783_289006" style="display:none"><div class="change" id="aa8783_289006">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_289006" id="a8783_289006"><img src="https://secure.gravatar.com/avatar/c37c61f14da188305487ef23a0154c21?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_289006" id="a8783_289006"><a class="email " href="user_profile?user_id=289006" > <span class="fna">Laura Thomson :laura</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a8783_289006">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a8783_289006">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a8783_289006">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:24 PDT" data-time="1375651440">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: laura</div></div></div><div class="change-set" id="c18"><div class="comment" data-id="7710549" data-no="18">
+    
+    <table class="layout-table change-head " id="ch-18">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_289006" id="a8783_289006"><img src="https://secure.gravatar.com/avatar/c37c61f14da188305487ef23a0154c21?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_289006" id="a8783_289006"><a class="email " href="user_profile?user_id=289006" > <span class="fna">Laura Thomson :laura</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-18">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-18" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c18">Comment 18</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 14:31 PDT" data-time="1375651873">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-18">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-18">As a side note, these crashes cause the exploitability analyzer in crash-stats to error out. Filed <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED INVALID"
+   href="show_bug.cgi?id=901372">bug 901372</a> for that.</pre></div><div class="change-set" id="c19"><div class="comment" data-id="7710568" data-no="19">
+    
+    <table class="layout-table change-head " id="ch-19">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_279345" id="a8783_289006"><img src="https://secure.gravatar.com/avatar/50586ec6155feeff07c0c494909c399b?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_279345" id="a8783_289006"><a class="email " href="user_profile?user_id=279345" > <span class="fna">John O'Duinn [:joduinn] (please use &quot;needinfo?&quot; flag)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-19">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-19" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c19">Comment 19</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 15:06 PDT" data-time="1375653985">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-19">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-19">(In reply to Daniel Veditz [:dveditz] from <a href="show_bug.cgi?id=901365#c0">comment #0</a>)
+<span class="quote">&gt; Reddit is reporting a Firefox 0-day that has been injected on some .onion
+&gt; sites (Tor hidden services).
+&gt; 
+&gt; <a rel="nofollow" href="http://www.reddit.com/r/onions/comments/1jmrta/">http://www.reddit.com/r/onions/comments/1jmrta/</a>
+&gt; founder_of_the_freedom_hosting_arrested_held/
+&gt; </span >
+...
+
+
+(In reply to David Baron [:dbaron] (don't cc:, use needinfo? instead) from <a href="show_bug.cgi?id=901365#c15">comment #15</a>)
+<span class="quote">&gt; Using the testcase in:
+&gt; <a rel="nofollow" href="https://hg.mozilla.org/users/dbaron_mozilla.com/bug901365-testcase/">https://hg.mozilla.org/users/dbaron_mozilla.com/bug901365-testcase/</a>
+&gt; I crash in Firefox 17.0, 17.0.4esr, and 17.0.6esr but NOT 17.0.7esr at:
+&gt; <a href="https://crash-stats.mozilla.com/report/index/3534f587-63b8-43cf-9891-5dad22130804">bp-3534f587-63b8-43cf-9891-5dad22130804</a>
+&gt; <a href="https://crash-stats.mozilla.com/report/index/f4517677-20f6-4a09-aaed-ab5082130804">bp-f4517677-20f6-4a09-aaed-ab5082130804</a>
+&gt; <a href="https://crash-stats.mozilla.com/report/index/82eaa8cd-83e3-49a0-ad8a-e7cd12130804">bp-82eaa8cd-83e3-49a0-ad8a-e7cd12130804</a></span >
+
+
+
+Is this an issue with Thunderbird 17 esr?</pre><div class="activity cc-only" style="display:none"><div class="change">CC: joduinn</div></div></div><div class="change-set cc-only" id="a12583_376659" style="display:none"><div class="change" id="aa12583_376659">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_376659" id="a12583_376659"><img src="https://secure.gravatar.com/avatar/64f90aef36d5d977690b969f38f3721b?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_376659" id="a12583_376659"><a class="email disabled" href="user_profile?user_id=376659" > <span class="fna">Michael Coates [:mcoates] (acct no longer active)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a12583_376659">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a12583_376659">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a12583_376659">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 15:27 PDT" data-time="1375655240">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: mcoates</div></div></div><div class="change-set" id="c20"><div class="comment" data-id="7710588" data-no="20">
+    
+    <table class="layout-table change-head reporter" id="ch-20">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a12583_376659"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" id="a12583_376659"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-20">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-20" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c20">Comment 20</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 15:32 PDT" data-time="1375655571">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-20">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-20">(from <a href="show_bug.cgi?id=901365#c16">comment #16</a>)
+<span class="quote">&gt; smaug points out both the crash stack and fix range seem consistent with
+&gt; <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">bug 857883</a>.</span >
+
+That would be <a rel="nofollow" href="http://www.mozilla.org/security/announce/2013/mfsa2013-53.html">http://www.mozilla.org/security/announce/2013/mfsa2013-53.html</a> if so.</pre></div><div class="change-set cc-only" id="a13776_39966" style="display:none"><div class="change" id="aa13776_39966">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_39966" id="a13776_39966"><img src="https://secure.gravatar.com/avatar/7ba0f00f24191ccef0d14185bd7ca4ca?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_39966" id="a13776_39966"><a class="email " href="user_profile?user_id=39966" > <span class="fna">Olli Pettay [:smaug]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a13776_39966">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a13776_39966">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a13776_39966">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 15:47 PDT" data-time="1375656433">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: bugs</div></div></div><div class="change-set cc-only" id="a13864_422187" style="display:none"><div class="change" id="aa13864_422187">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_422187" id="a13864_422187"><img src="https://secure.gravatar.com/avatar/f78625fe5901300b4689355a8e507ea2?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_422187" id="a13864_422187"><a class="email " href="user_profile?user_id=422187" > <span class="fna">Nicolas B. Pierron [:nbp]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a13864_422187">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a13864_422187">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a13864_422187">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 15:48 PDT" data-time="1375656521">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: nicolas.b.pierron</div></div></div><div class="change-set" id="c22"><div class="comment" data-id="7710616" data-no="22">
+    
+    <table class="layout-table change-head reporter" id="ch-22">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a13864_422187"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" id="a13864_422187"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-22">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-22" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c22">Comment 22</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 16:06 PDT" data-time="1375657610">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-22">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-22">Created <span class=""><a href="attachment.cgi?id=785556" name="attach_785556" title="self-contained exploit w/neutered (hopefully) shellcode">attachment 785556</a> <a href="attachment.cgi?id=785556&amp;action=edit" title="self-contained exploit w/neutered (hopefully) shellcode">[details]</a></span>
+self-contained exploit w/neutered (hopefully) shellcode
+
+Open start.html to begin. Doesn't always crash, sometimes I had to reload or shift-reload it a few times.</pre></div><div class="change-set" id="a15104_1689"><div class="change" id="aa15104_1689">
+    <table class="layout-table change-head reporter">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a15104_1689"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_1689" id="a15104_1689"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a15104_1689">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a15104_1689">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a15104_1689">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 16:09 PDT" data-time="1375657761">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Crash Signature: [&#64; nsPresContext::SetImageAnimationModeInternal(unsigned short) ]
+[&#64; nsPresContext::SetImageAnimationModeInternal ]</div></div></div><div class="change-set cc-only" id="a16587_336785" style="display:none"><div class="change" id="aa16587_336785">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_336785" id="a16587_336785"><img src="https://secure.gravatar.com/avatar/b535900d4d649c41a0aef7d70aa83c43?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_336785" id="a16587_336785"><a class="email " href="user_profile?user_id=336785" > <span class="fna">Tanner Filip [:tanner]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a16587_336785">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a16587_336785">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a16587_336785">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 16:34 PDT" data-time="1375659244">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: tanner.sumo.bugs</div></div></div><div class="change-set" id="c23"><div class="comment" data-id="7710632" data-no="23">
+    
+    <table class="layout-table change-head reporter" id="ch-23">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a16587_336785"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" id="a16587_336785"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-23">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-23" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c23">Comment 23</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 16:34 PDT" data-time="1375659289">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-23">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-23">So far I've reproduced the crash using <span class=""><a href="attachment.cgi?id=785556" name="attach_785556" title="self-contained exploit w/neutered (hopefully) shellcode">attachment 785556</a> <a href="attachment.cgi?id=785556&amp;action=edit" title="self-contained exploit w/neutered (hopefully) shellcode">[details]</a></span> in
+<a rel="nofollow" href="https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2013/05/2013-05-05-03-45-01-mozilla-esr17/">https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2013/05/2013-05-05-03-45-01-mozilla-esr17/</a>
+
+But not with
+<a rel="nofollow" href="https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2013/05/2013-05-17-03-45-04-mozilla-esr17/">https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2013/05/2013-05-17-03-45-04-mozilla-esr17/</a>
+
+I couldn't find any builds in between, I think we only build ESR on demand. The only fixes in that range are three bugs fixed by Olli, <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">bug 857883</a> (the suspected fix), <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - &quot;ASSERTION: Trying to compute style without PresShell&quot; with editor, cross-document selection"
+   href="show_bug.cgi?id=862309">bug 862309</a> (related to contenteditable), and <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Do not send data XHR HEAD request"
+   href="show_bug.cgi?id=866915">bug 866915</a> (related to XHR)
+
+<a rel="nofollow" href="http://hg.mozilla.org/releases/mozilla-esr17/pushloghtml?startdate=2013-05-05&amp;enddate=2013-05-17">http://hg.mozilla.org/releases/mozilla-esr17/pushloghtml?startdate=2013-05-05&amp;enddate=2013-05-17</a></pre></div><div class="change-set cc-only" id="a16702_83595" style="display:none"><div class="change" id="aa16702_83595">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_83595" id="a16702_83595"><img src="https://secure.gravatar.com/avatar/37229e30ac1a6382dcd68ecda7434322?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_83595" id="a16702_83595"><a class="email " href="user_profile?user_id=83595" > <span class="fna">Jeff Walden [:Waldo] (I'm baaaaaaack...)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a16702_83595">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a16702_83595">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a16702_83595">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 16:35 PDT" data-time="1375659359">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: jwalden+bmo</div></div></div><div class="change-set" id="c24"><div class="comment" data-id="7710646" data-no="24">
+    
+    <table class="layout-table change-head reporter" id="ch-24">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a16702_83595"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" id="a16702_83595"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-24">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-24" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c24">Comment 24</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 16:56 PDT" data-time="1375660578">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-24">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-24">I've also confirmed that mozilla-central 2013-05-15 nightlies crash and 2013-05-16 nightlies don't. That also aligns with <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">bug 857883</a></pre></div><div class="change-set cc-only" id="a22606_469880" style="display:none"><div class="change" id="aa22606_469880">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469880" id="a22606_469880"><img src="https://secure.gravatar.com/avatar/e6bf3b7e2e2d4f4fae124dd733feba8e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_469880" id="a22606_469880"><a class="email " href="user_profile?user_id=469880" > <span class="fna">formerly wakaflocka</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a22606_469880">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a22606_469880">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a22606_469880">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 18:14 PDT" data-time="1375665263">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: kdurant35rules</div></div></div><div class="change-set cc-only" id="a23958_378359" style="display:none"><div class="change" id="aa23958_378359">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_378359" id="a23958_378359"><img src="https://secure.gravatar.com/avatar/e2a53107d979ba1664095aa67435359e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_378359" id="a23958_378359"><a class="email " href="user_profile?user_id=378359" > <span class="fna">Sankha Narayan Guria [:sankha]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a23958_378359">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a23958_378359">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a23958_378359">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 18:36 PDT" data-time="1375666615">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: sankha93</div></div></div><div class="change-set cc-only" id="a24815_476991" style="display:none"><div class="change" id="aa24815_476991">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_476991" id="a24815_476991"><img src="https://secure.gravatar.com/avatar/337045d6a4ae6d2769078b6c59d2c281?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_476991" id="a24815_476991"><a class="email " href="user_profile?user_id=476991" > <span class="fna">phoul</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a24815_476991">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a24815_476991">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a24815_476991">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 18:51 PDT" data-time="1375667472">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: phoul</div></div></div><div class="change-set" id="c25"><div class="comment" data-id="7710745" data-no="25">
+    
+    <table class="layout-table change-head reporter" id="ch-25">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a24815_476991"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_1689" id="a24815_476991"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-25">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-25" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c25">Comment 25</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 19:06 PDT" data-time="1375668375">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-25">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-25">I've been told <a href="show_bug.cgi?id=901365#c23">comment 23</a> and 24 can be cryptic for those who aren't up on our archive nomenclature. All of these were &quot;nightly&quot; developer/testing builds. The first build in <a href="show_bug.cgi?id=901365#c23">comment 23</a> is a more-or-less stock ESR 17.0.6 built May 5, 2013 and the second contained only Olli's patches and was built on May 17, 2013. The &quot;pushloghtml&quot; link shows the ESR code changes in that date range.
+
+In <a href="show_bug.cgi?id=901365#c24">comment 24</a> I was talking about May nightlies of &quot;mozilla-central&quot;, which was Firefox 24 at the time. The patch for <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">bug 857883</a> was also applied to the Fx23 &quot;Aurora&quot; branch and the Fx22 &quot;Beta&quot; branch.
+
+Firefox 22 and Firefox ESR 17.0.7 were released on June 25, 2013 and contained the patch for <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - Crash with onreadystatechange and reload"
+   href="show_bug.cgi?id=857883">bug 857883</a> and are not affected by the exploit samples that we have received related to this issue.</pre></div><div class="change-set cc-only" id="a25955_314734" style="display:none"><div class="change" id="aa25955_314734">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_314734" id="a25955_314734"><img src="https://secure.gravatar.com/avatar/1ab9ae817c429c697626739e4d222c88?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_314734" id="a25955_314734"><a class="email " href="user_profile?user_id=314734" > <span class="fna">Gregor Wagner [:gwagner]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a25955_314734">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a25955_314734">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a25955_314734">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 19:10 PDT" data-time="1375668612">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: anygregor</div></div></div><div class="change-set cc-only" id="a31244_331752" style="display:none"><div class="change" id="aa31244_331752">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_331752" id="a31244_331752"><img src="https://secure.gravatar.com/avatar/0906041fcade715bfd1cb25f1d12cb8d?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_331752" id="a31244_331752"><a class="email " href="user_profile?user_id=331752" > <span class="fna">Huzaifa Sidhpurwala</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a31244_331752">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a31244_331752">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a31244_331752">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 20:38 PDT" data-time="1375673901">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: huzaifas</div></div></div><div class="change-set cc-only" id="a34028_255010" style="display:none"><div class="change" id="aa34028_255010">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_255010" id="a34028_255010"><img src="https://secure.gravatar.com/avatar/0646a42110a02dd585f200f270716852?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_255010" id="a34028_255010"><a class="email " href="user_profile?user_id=255010" > <span class="fna">Timothy Nikkel (:tnikkel)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a34028_255010">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a34028_255010">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a34028_255010">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-04 21:24 PDT" data-time="1375676685">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: tnikkel</div></div></div><div class="change-set cc-only" id="a53866_365126" style="display:none"><div class="change" id="aa53866_365126">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_365126" id="a53866_365126"><img src="https://secure.gravatar.com/avatar/b9b113093c351a599f86e0647c43add1?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_365126" id="a53866_365126"><a class="email " href="user_profile?user_id=365126" > <span class="fna">David Bruant</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a53866_365126">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a53866_365126">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a53866_365126">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-05 02:55 PDT" data-time="1375696523">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: bruant.d</div></div></div><div class="change-set" id="c26"><div class="comment" data-id="7713384" data-no="26">
+    
+    <table class="layout-table change-head " id="ch-26">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_39966" id="a53866_365126"><img src="https://secure.gravatar.com/avatar/7ba0f00f24191ccef0d14185bd7ca4ca?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_39966" id="a53866_365126"><a class="email " href="user_profile?user_id=39966" > <span class="fna">Olli Pettay [:smaug]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-26">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-26" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c26">Comment 26</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-05 12:04 PDT" data-time="1375729477">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-26">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-26">Should we close this bug?</pre></div><div class="change-set cc-only" id="a91610_346231" style="display:none"><div class="change" id="aa91610_346231">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_346231" id="a91610_346231"><img src="https://secure.gravatar.com/avatar/764aa0af2fda6f02fb17dc9771bb18d9?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_346231" id="a91610_346231"><a class="email " href="user_profile?user_id=346231" > <span class="fna">Brian Hackett (:bhackett)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a91610_346231">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a91610_346231">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a91610_346231">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-05 13:24 PDT" data-time="1375734267">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: bhackett1024</div></div></div><div class="change-set" id="a126216_462836"><div class="change" id="aa126216_462836">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_462836" id="a126216_462836"><img src="https://secure.gravatar.com/avatar/0e698ba5145076e93cadb50d6e22edcf?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_462836" id="a126216_462836"><a class="email " href="user_profile?user_id=462836" > <span class="fna">Jed Davis [:jld] (⏰UTC-6)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a126216_462836">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a126216_462836">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a126216_462836">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-05 23:01 PDT" data-time="1375768873">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change cc-only" style="display:none">CC: jld</div><div class="change">status-b2g18-v1.0.1: --- &rarr; affected</div></div></div><div class="change-set cc-only" id="a139216_362030" style="display:none"><div class="change" id="aa139216_362030">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_362030" id="a139216_362030"><img src="extensions/Gravatar/web/default.jpg" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_362030" id="a139216_362030"><a class="email " href="user_profile?user_id=362030" > <span class="fna">Ekanan Ketunuti</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a139216_362030">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a139216_362030">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a139216_362030">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-06 02:37 PDT" data-time="1375781873">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: ananuti</div></div></div><div class="change-set cc-only" id="a165695_422187" style="display:none"><div class="change" id="aa165695_422187">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_422187" id="a165695_422187"><img src="https://secure.gravatar.com/avatar/f78625fe5901300b4689355a8e507ea2?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_422187" id="a165695_422187"><a class="email " href="user_profile?user_id=422187" > <span class="fna">Nicolas B. Pierron [:nbp]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a165695_422187">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a165695_422187">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a165695_422187">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-06 09:59 PDT" data-time="1375808352">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: akeybl</div></div></div><div class="change-set cc-only" id="a166482_152868" style="display:none"><div class="change" id="aa166482_152868">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_152868" id="a166482_152868"><img src="https://secure.gravatar.com/avatar/d306c2d94128ba9f5f1830321f99e9c2?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_152868" id="a166482_152868"><a class="email " href="user_profile?user_id=152868" > <span class="fna">David Bolter [:davidb] (NeedInfo me for attention)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a166482_152868">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a166482_152868">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a166482_152868">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-06 10:12 PDT" data-time="1375809139">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: dbolter</div></div></div><div class="change-set cc-only" id="a168095_432443" style="display:none"><div class="change" id="aa168095_432443">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_432443" id="a168095_432443"><img src="https://secure.gravatar.com/avatar/fba16ea71cd5ef27991fcea651e8cd56?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_432443" id="a168095_432443"><a class="email disabled" href="user_profile?user_id=432443" > <span class="fna">Jason Smith [:jsmith]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a168095_432443">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a168095_432443">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a168095_432443">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-06 10:39 PDT" data-time="1375810752">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: jsmith</div></div></div><div class="change-set" id="a333093_1689"><div class="change" id="aa333093_1689">
+    <table class="layout-table change-head reporter">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a333093_1689"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_1689" id="a333093_1689"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a333093_1689">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a333093_1689">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a333093_1689">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-08-08 08:29 PDT" data-time="1375975750">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Status: NEW &rarr; RESOLVED</div><div class="change">Last Resolved: <span class="rel-time" title="2013-08-08 01:29 PDT" data-time="1375950550">4 years ago</span></div><div class="change">Resolution: --- &rarr; FIXED</div><div class="change">Whiteboard: Possibly ESR-17 only &rarr; fixed by June 25, 2013 releases in bug 857883</div></div></div><div class="change-set cc-only" id="a4949246_30451" style="display:none"><div class="change" id="aa4949246_30451">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_30451" id="a4949246_30451"><img src="https://secure.gravatar.com/avatar/66974ed16b5ad5293bac2d23005ff9a9?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_30451" id="a4949246_30451"><a class="email " href="user_profile?user_id=30451" > <span class="fna">Jesus Cea</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a4949246_30451">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a4949246_30451">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a4949246_30451">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-09-30 18:45 PDT" data-time="1380591903">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: jcea</div></div></div><div class="change-set" id="c30"><div class="comment" data-id="7982431" data-no="30">
+    
+    <table class="layout-table change-head " id="ch-30">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_485755" id="a4949246_30451"><img src="https://secure.gravatar.com/avatar/39079e2e2a5beb8ebe54f07ab5243e8a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_485755" id="a4949246_30451"><a class="email " href="user_profile?user_id=485755" > <span class="fna">1989600235</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-30">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-30" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#c30">Comment 30</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-10-20 19:54 PDT" data-time="1382324088">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-30">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-30">Hey, guys, would you please give a detailed description of attachment &quot;self-contained exploit w/neutered (hopefully) shellcode (6.93 KB, application/java-archive)&quot; by &quot;2013-08-04 16:06 PDT, Daniel Veditz [:dveditz]&quot;? I just could not understand much about the process of triggering and exploiting. Please contact <a href="mailto:1989600235&#64;qq.com">1989600235&#64;qq.com</a> if you are willing to offer a help.Thank you so much!</pre><div class="activity cc-only" style="display:none"><div class="change">CC: 1989600235</div></div></div><div class="change-set" id="a8309599_280903"><div class="change" id="aa8309599_280903">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_280903" id="a8309599_280903"><img src="https://secure.gravatar.com/avatar/59eb615338adae529ebe54960f87cd0c?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_280903" id="a8309599_280903"><a class="email " href="user_profile?user_id=280903" > <span class="fna">[PTO until 10/7]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a8309599_280903">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a8309599_280903">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a8309599_280903">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-11-08 15:10 PST" data-time="1383952256">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change cc-only" style="display:none">CC: abillings</div><div class="change">status-b2g-v1.1hd: --- &rarr; affected</div><div class="change">status-b2g-v1.2: --- &rarr; fixed</div></div></div><div class="change-set" id="a8313242_1689"><div class="change" id="aa8313242_1689">
+    <table class="layout-table change-head reporter">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_1689" id="a8313242_1689"><img src="https://secure.gravatar.com/avatar/da6b54ad3fdb36ba7656df9adfe65d12?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_1689" id="a8313242_1689"><a class="email " href="user_profile?user_id=1689" > <span class="fna">Daniel Veditz [:dveditz]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a8313242_1689">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a8313242_1689">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a8313242_1689">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2013-11-08 16:11 PST" data-time="1383955899">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">status-b2g18: --- &rarr; fixed</div><div class="change">status-b2g18-v1.0.1: affected &rarr; wontfix</div><div class="change">status-b2g-v1.1hd: affected &rarr; fixed</div><div class="change">status-firefox-esr17: --- &rarr; fixed</div><div class="change">status-firefox-esr24: --- &rarr; fixed</div><div class="change">tracking-b2g18: --- &rarr; 22+</div><div class="change">tracking-firefox-esr17: --- &rarr; 22+</div></div></div><div class="change-set cc-only" id="a17359403_499102" style="display:none"><div class="change" id="aa17359403_499102">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_499102" id="a17359403_499102"><img src="https://secure.gravatar.com/avatar/50713c2e39c7dd4c60681bc4ef3ae806?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_499102" id="a17359403_499102"><a class="email disabled" href="user_profile?user_id=499102" > <span class="fna">ErgoProxie1</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a17359403_499102">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a17359403_499102">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a17359403_499102">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-21 09:01 PST" data-time="1393002060">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: k1iwg4</div></div></div><div class="change-set cc-only" id="a17359699_251051" style="display:none"><div class="change" id="aa17359699_251051">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_251051" id="a17359699_251051"><img src="https://secure.gravatar.com/avatar/51f5959a949c13324ec164cc72b5e98a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_251051" id="a17359699_251051"><a class="email " href="user_profile?user_id=251051" > <span class="fna">:Ehsan Akhgari (needinfo please, extremely long backlog)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a17359699_251051">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a17359699_251051">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=901365#a17359699_251051">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-21 09:05 PST" data-time="1393002356">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: ehsan</div></div></div><div id="new-comment-notice">
+          You need to <a href="show_bug.cgi?id=901365&amp;GoAheadAndLogIn=1">log in</a>
+          before you can comment on or make changes to this bug.
+        </div>
+
+
+
+<div id="bottom-actions">
+  <div id="bottom-right-actions">
+    <button type="button" id="top-btn" class="minor">Top &uarr;</button>
+    <div class="dropdown">
+      <button type="button" id="format-btn" aria-haspopup="true" aria-label="Format Bug Menu"
+        aria-expanded="false" aria-controls="format-menu" class="dropdown-button minor">Format Bug &#9652;</button>
+      <ul class="dropdown-content menu-up" id="format-menu" role="menu" style="display:none;">
+        <li role="presentation">
+          <a href="show_bug.cgi?format=multiple&amp;id=901365" role="menuitem" tabindex="-1">For Printing</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?ctype=xml&amp;id=901365" role="menuitem" tabindex="-1">XML</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?format=default&amp;id=901365" role="menuitem" tabindex="-1">Legacy</a>
+        </li>
+          <li role="presentation">
+            <a href="rest/bug/901365" role="menuitem" tabindex="-1">JSON</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+
+
+<div id="footer">
+  <div class="intro"></div>
+
+
+
+
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_bottom" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_bottom"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+  </li>
+
+  
+    
+
+  
+
+
+  
+</ul>
+
+  <div class="outro"><div id="policy_links">
+  <ul>
+    <li id="privacy_notice">
+      <a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Notice</a> |
+    </li>
+    <li id="legal_terms">
+      <a href="https://www.mozilla.org/about/legal/terms/mozilla" target="_blank">Legal Terms</a>
+    </li>
+  </ul>
+</div></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en-US" id="mozilla-blog">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- For Facebook -->
+  <meta property="og:site_name" content="Connected Devices">
+  <meta property="og:title" content="Connected Devices">
+  <meta property="og:url" content="https://connected.mozilla.org">
+  <meta property="og:description" content="Applying our guiding principles to the Internet of Things">
+  <meta property="og:image" content="https://connected.mozilla.org/wp-content/themes/OneMozilla/img/mozilla-wordmark.png">
+
+
+  <meta name="title" content="Connected Devices">
+  <meta name="description" content="Applying our guiding principles to the Internet of Things">
+
+  <meta name="Rating" content="General">
+  <!--[if IE]>
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script src="https://connected.mozilla.org/wp-content/themes/OneMozilla/js/html5.js"></script>
+  <![endif]-->
+
+  <link rel="copyright" href="#colophon">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="shortcut icon" type="image/ico" href="https://connected.mozilla.org/wp-content/themes/OneMozilla/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://connected.mozilla.org/wp-content/themes/OneMozilla/style.css">
+  <link rel="stylesheet" type="text/css" media="print" href="https://connected.mozilla.org/wp-content/themes/OneMozilla/css/print.css">
+  <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="https://connected.mozilla.org/wp-content/themes/OneMozilla/css/ie7.css"><![endif]-->
+
+  <link rel="alternate" type="application/rss+xml" title="Connected Devices RSS Feed" href="https://connected.mozilla.org/feed/">
+  <link rel="pingback" href="https://connected.mozilla.org/xmlrpc.php">
+
+  <title>Connected Devices | Applying our guiding principles to the Internet of Things</title>
+
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/connected.mozilla.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='ce_responsive-css'  href='https://connected.mozilla.org/wp-content/plugins/simple-embed-code/css/video-container.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='stone-css'  href='https://connected.mozilla.org/wp-content/themes/OneMozilla/colors/stone/stone.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://connected.mozilla.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://connected.mozilla.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://connected.mozilla.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://connected.mozilla.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://connected.mozilla.org/wp-includes/wlwmanifest.xml" /> 
+            <script type="text/javascript">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-36116321-4', 'auto');
+                ga('set', 'dimension1', 'Connected Devices');
+                ga('send', 'pageview');
+            </script></head>
+
+<body class="home blog stone">
+<div id="page"><div class="wrap">
+  <nav id="nav-access">
+    <ul>
+      <li><a href="#content-main" tabindex="1">Skip to main content</a></li>
+      <li><a href="#content-sub" tabindex="2">Skip to sidebar</a></li>
+          <li><a href="#search" tabindex="3">Skip to blog search</a></li>
+        </ul>
+  </nav>
+
+    <header id="masthead" >
+    <hgroup>
+          <h1 id="site-title">Connected Devices</h1>
+              <h2 id="site-description">Applying our guiding principles to the Internet of Things</h2>
+        </hgroup>
+
+    <span id="tabzilla">
+      <a href="https://www.mozilla.org/">Mozilla</a>
+    </span>
+
+    
+  </header><!-- #masthead -->
+
+  
+  <main id="content">
+
+  <div id="content-main" class="main" role="main">
+
+    
+  
+        
+      <article id="post-211" class="post-211 post type-post status-publish format-standard hentry category-general tag-ux show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2017/01/27/a-year-of-doing-something-different/" title="Permanent link to “UX Stories: A year of doing something different”" rel="bookmark">
+        UX Stories: A year of doing something different      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2017-01-27T09:00:12+00:00" datetime="2017-01-27T09:00:12+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2017/01/" title="See all posts from January, 2017">
+            Jan          </a>
+          <span class="posted-date">
+            27          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2017/" title="See all posts from 2017">
+            2017          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/tshakespearemozilla-com/" title="See all posts by Tiffanie Shakespeare">
+              Tiffanie Shakespeare <img alt='' src='https://secure.gravatar.com/avatar/2acdaf7b84a2837e09e51834ddef86bf?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2acdaf7b84a2837e09e51834ddef86bf?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2017/01/27/a-year-of-doing-something-different/#respond">No responses yet</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><i><span style="font-weight: 400;">This is the first of in a series of personal posts from members of the Connected Devices UX team. If you want to follow Tiffanie directly, she’s on twitter as </span></i><a href="https://twitter.com/lime124"><i><span style="font-weight: 400;">@lime124</span></i></a><i><span style="font-weight: 400;">.</span></i></p>
+<p><span style="font-weight: 400;">2016 was an interesting year. I started last January as an Interaction Designer for a mobile platform and ended December having grown and developed skills I hadn’t used in a number of years. One of those skills was remembering how to be a researcher.</span></p>
+<p><span style="font-weight: 400;"><img class="alignnone size-large wp-image-213" src="https://connected.mozilla.org/files/2017/01/Magnet_-_UR__2_-_Findings_-_Google_Slides-600x336.png" alt="Magnet_-_UR__2_-_Findings_-_Google_Slides" width="600" height="336" srcset="https://connected.mozilla.org/files/2017/01/Magnet_-_UR__2_-_Findings_-_Google_Slides-600x336.png 600w, https://connected.mozilla.org/files/2017/01/Magnet_-_UR__2_-_Findings_-_Google_Slides-250x140.png 250w, https://connected.mozilla.org/files/2017/01/Magnet_-_UR__2_-_Findings_-_Google_Slides-768x430.png 768w" sizes="(max-width: 600px) 100vw, 600px" /></span></p>
+<p><span style="font-weight: 400;">I used to do research for medical devices, testing how fast medics could administer shocks using AEDs or learning about the difficulties of carrying medical equipment into combat. It was totally fascinating. But since I became an expert in mobile interaction design, I hadn’t really used my research skills all that much. This year I began to dust them off and try it out again.</span></p>
+<p><span style="font-weight: 400;">“</span><a href="https://connected.mozilla.org/category/project/magnet/"><span style="font-weight: 400;">Project Magnet</span></a><span style="font-weight: 400;">” was the first project I exercised these skills on and, looking back, I see places where I succeeded and failed. I think our initial research went really well and we gained some good insights. The </span><a href="https://connected.mozilla.org/2016/06/27/connected-devices-mozlondon/"><span style="font-weight: 400;">London experiments</span></a><span style="font-weight: 400;"> went less well and we didn’t learn nearly as much. I think there were many factors that resulted in less than insightful insights. Some of it was time and doing too many experiments at once, making it hard to isolate feedback. Some of it involved a high barrier for participation and low motivation to overcome it. I also think in our excitement to run experiments, we lost sight of who our target audience was (our audience was definitely not a bunch of Mozillians at a work week!). But even these failures were a success, because  they were learning experiences, something I think we need to value and speak about more often.</span></p>
+<p><span style="font-weight: 400;">Later in the year, I also got involved with “Busy Family” research led by Rina Jensen and Mihaela Zahariev. I was very excited to go down to the Bay Area and visit people in their homes. It was amazing to get out of the office and talk to real people and hear perspectives I could identify with, even ones that were very different from my own. It’s a great way to develop empathy for a wider range of people. This is extremely important, because it helps to diversify our ideas and thinking. Otherwise everything I’d make would be for busy moms at the airport!</span></p>
+<p><span style="font-weight: 400;">Thinking back on all the research efforts I participated in over last year, it’s  fair to say that I reawakened and strengthened my core skill as a researcher, which strengthens me as a designer, and in turn strengthens my UX team and Mozilla.</span></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/ux/" rel="tag">ux</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/general/" rel="category tag">general</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-195" class="post-195 post type-post status-publish format-standard hentry category-project category-sensorweb tag-news tag-platform show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/12/22/project-sensorweb-dev-boards-arrive-today/" title="Permanent link to “Project SensorWeb Dev Boards Arrive Today”" rel="bookmark">
+        Project SensorWeb Dev Boards Arrive Today      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-12-22T22:46:19+00:00" datetime="2016-12-22T22:46:19+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/12/" title="See all posts from December, 2016">
+            Dec          </a>
+          <span class="posted-date">
+            22          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/planderosmozilla-com/" title="See all posts by Porfirio Landeros">
+              Porfirio Landeros <img alt='' src='https://secure.gravatar.com/avatar/1d1cb488ba36a8de35f075b5938b5d2d?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/1d1cb488ba36a8de35f075b5938b5d2d?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/12/22/project-sensorweb-dev-boards-arrive-today/#comments">4 responses</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <blockquote class="twitter-tweet" data-lang="en">
+<p dir="ltr" lang="en">Behind the scenes: our very own developer IOT board arrived today. Check out the latest Project SensorWeb IOT work: <a href="https://t.co/9Bn54ucTc8">https://t.co/9Bn54ucTc8</a> <a href="https://t.co/EqWP5ETsj7">pic.twitter.com/EqWP5ETsj7</a></p>
+<p>— Mozilla (@mozilla) <a href="https://twitter.com/mozilla/status/812065178149756928">December 22, 2016</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/news/" rel="tag">News</a>, <a href="https://connected.mozilla.org/tag/platform/" rel="tag">platform</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/project/" rel="category tag">project</a>, <a href="https://connected.mozilla.org/category/project/sensorweb/" rel="category tag">sensorweb</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-187" class="post-187 post type-post status-publish format-standard hentry category-general tag-mozaloha tag-ux show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/12/16/ux-activities-at-hawaii-work-week/" title="Permanent link to “UX Activities at Hawaii Work Week”" rel="bookmark">
+        UX Activities at Hawaii Work Week      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-12-16T19:25:19+00:00" datetime="2016-12-16T19:25:19+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/12/" title="See all posts from December, 2016">
+            Dec          </a>
+          <span class="posted-date">
+            16          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/tshakespearemozilla-com/" title="See all posts by Tiffanie Shakespeare">
+              Tiffanie Shakespeare <img alt='' src='https://secure.gravatar.com/avatar/2acdaf7b84a2837e09e51834ddef86bf?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2acdaf7b84a2837e09e51834ddef86bf?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/12/16/ux-activities-at-hawaii-work-week/#respond">No responses yet</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><em>Here&#8217;s a wrap up post for the UX activities hosted at the Mozilla work week, originally posted by <a href="https://medium.com/@lime124/ux-activities-at-hawaii-work-week-b9c876de07d9#.jmwsuf358" target="_blank">Tiffanie Shakespeare on Medium</a>&#8230;</em></p>
+<p><img class="alignnone size-large wp-image-188" src="https://connected.mozilla.org/files/2016/12/hawaii-cd-ux-stickers-600x447.jpg" alt="hawaii-cd-ux-stickers" width="600" height="447" srcset="https://connected.mozilla.org/files/2016/12/hawaii-cd-ux-stickers.jpg 600w, https://connected.mozilla.org/files/2016/12/hawaii-cd-ux-stickers-250x186.jpg 250w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p>This past work week in Hawaii (aka <a href="https://twitter.com/search?q=%23mozaloha&amp;src=typd" target="_blank">#mozAloha</a>), the Connected Devices UX team put together the following two activities.</p>
+<p><em><strong>Drink-O-Vate</strong></em><br />
+The first was Drink-O-Vate hosted on Thursday after the electives. Using a UX methodology called <a href="http://www.thankyoucreativity.com/daily-creativity/mash-up-innovation/" target="_blank">Mash Ups</a>, people created new and whacky product ideas. For our session, we used the format “what if [a company] created [an object] for [an audience]?” I think one of the harder ones was “what if Polaroid created a dishwasher for people with arachnophobia?” The results can be hilarious, but the method can also be incredibly useful to break out of a brainstorming slump.</p>
+<p>Drink-O-Vate was a huge success and everyone who attended our session had a lot of fun. It was fantastic to see so many people from all over Mozilla come out and participate.</p>
+<div id="attachment_191" style="width: 610px" class="wp-caption alignnone"><img class="wp-image-191 size-large" src="https://connected.mozilla.org/files/2016/12/drink-o-vate-mozilla-600x463.png" alt="drink-o-vate-mozilla" width="600" height="463" srcset="https://connected.mozilla.org/files/2016/12/drink-o-vate-mozilla-600x463.png 600w, https://connected.mozilla.org/files/2016/12/drink-o-vate-mozilla-250x193.png 250w, https://connected.mozilla.org/files/2016/12/drink-o-vate-mozilla-768x593.png 768w, https://connected.mozilla.org/files/2016/12/drink-o-vate-mozilla.png 799w" sizes="(max-width: 600px) 100vw, 600px" /><p class="wp-caption-text">An example Mozilla idea from Drink-O-Vate</p></div>
+<p><em><br />
+<strong>MyrderHouse</strong></em><br />
+The other activity was MyrderHouse located in the CD Homeroom (Kona 5). This ended up being a collaboration between MoCo and MoFo and was a lot of fun to set up. We provided a dollhouse and props for people to create a short film about their very own IoT murder scenario (basically IoT going sideways). While it was clear that our filmmakers had fun, the location of the activity really hurt participation.</p>
+<blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-version="7">
+<div style="padding: 8px;">
+<div style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 100%;"></div>
+<p style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;"><a style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none;" href="https://www.instagram.com/p/BNxvgXGjZx6/" target="_blank">A video posted by CD UX &#8211; Tiffanie Shakespeare (@myrderhouse)</a> on <time style="font-family: Arial,sans-serif; font-size: 14px; line-height: 17px;" datetime="2016-12-09T01:02:16+00:00">Dec 8, 2016 at 5:02pm PST</time></p>
+</div>
+</blockquote>
+<p><script async defer src="//platform.instagram.com/en_US/embeds.js"></script><br />
+You can find the Myrder House films on Instagram: <a href="https://www.instagram.com/myrderhouse/" target="_blank">https://www.instagram.com/myrderhouse/</a></p>
+<p>Many thanks to our Drink-O-Vate idea generators, MyrderHouse filmmakers, MoFo collaborators (Kevin Fann, Jordan Gushwa, and Natalie Worth), Emily Dunham, and the CD UX team.</p>
+<p>Hopefully you were able to participate in one of our activities and we’ll see you in SF!</p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/mozaloha/" rel="tag">MozAloha</a>, <a href="https://connected.mozilla.org/tag/ux/" rel="tag">ux</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/general/" rel="category tag">general</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-165" class="post-165 post type-post status-publish format-standard hentry category-general category-lighthouse category-vaani tag-events tag-mozaloha tag-platform tag-security tag-web-of-things tag-webrtc show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/12/09/iot-lightning-talks-mozaloha/" title="Permanent link to “IoT Lightning Talks at the Hawaii All Hands”" rel="bookmark">
+        IoT Lightning Talks at the Hawaii All Hands      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-12-09T01:47:48+00:00" datetime="2016-12-09T01:47:48+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/12/" title="See all posts from December, 2016">
+            Dec          </a>
+          <span class="posted-date">
+            9          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/rakhavanmozilla-com/" title="See all posts by Reza Akhavan">
+              Reza Akhavan <img alt='' src='https://secure.gravatar.com/avatar/692e5484ba83498566afbe8ef85e2166?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/692e5484ba83498566afbe8ef85e2166?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/12/09/iot-lightning-talks-mozaloha/#comments">1 response</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p>We hosted an exciting batch of IoT talks at the Mozilla All Hands in Hawaii and are happy to share the details with you here.</p>
+<p><img class="alignleft wp-image-166 size-large" src="https://connected.mozilla.org/files/2016/12/CDLightningTalksHawaii-600x338.png" alt="cdlightningtalkshawaii" width="600" height="338" srcset="https://connected.mozilla.org/files/2016/12/CDLightningTalksHawaii-600x338.png 600w, https://connected.mozilla.org/files/2016/12/CDLightningTalksHawaii-250x141.png 250w, https://connected.mozilla.org/files/2016/12/CDLightningTalksHawaii-768x432.png 768w, https://connected.mozilla.org/files/2016/12/CDLightningTalksHawaii.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1tGSZvek0jBRbm9toF8WGitzHoiQ1UgI6RF6qd3EIF3g/edit#slide=id.p" target="_blank"><img class="size-medium wp-image-167 alignright" src="https://connected.mozilla.org/files/2016/12/SandipVoiceBank-250x141.png" alt="sandipvoicebank" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/SandipVoiceBank-250x141.png 250w, https://connected.mozilla.org/files/2016/12/SandipVoiceBank-768x432.png 768w, https://connected.mozilla.org/files/2016/12/SandipVoiceBank-600x338.png 600w, https://connected.mozilla.org/files/2016/12/SandipVoiceBank.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Sandip Kamat talked to us about VoiceBank.</p>
+<p><a href="https://docs.google.com/presentation/d/1tGSZvek0jBRbm9toF8WGitzHoiQ1UgI6RF6qd3EIF3g/edit#slide=id.p" target="_blank">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1Ifb6S0W-jP9u5r3Hm0E5HsUaYa4KV18ZjCjOd75eA90/edit?ts=58488c44#slide=id.gf18e91c87_0_25"><img class="size-medium wp-image-168 alignright" src="https://connected.mozilla.org/files/2016/12/BenWoT-250x141.png" alt="benwot" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/BenWoT-250x141.png 250w, https://connected.mozilla.org/files/2016/12/BenWoT-768x432.png 768w, https://connected.mozilla.org/files/2016/12/BenWoT-600x338.png 600w, https://connected.mozilla.org/files/2016/12/BenWoT.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Ben Francis talked to us about the Web of Things.</p>
+<p><a href="https://docs.google.com/presentation/d/1Ifb6S0W-jP9u5r3Hm0E5HsUaYa4KV18ZjCjOd75eA90/edit?ts=58488c44#slide=id.gf18e91c87_0_25">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1cm0ycD7MCDj-08_2WOkF9lZS2Fw7tF13Ooi17MVG-pg/edit"><img class="size-medium wp-image-169 alignright" src="https://connected.mozilla.org/files/2016/12/Emma-250x141.png" alt="emma" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Emma-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Emma-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Emma-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Emma.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Emma Humphries talked to us about the obsolete Gopher protocal and IoT.</p>
+<p><a href="https://docs.google.com/presentation/d/1cm0ycD7MCDj-08_2WOkF9lZS2Fw7tF13Ooi17MVG-pg/edit">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1_lt182I9dbPK6-w46YMij2tzQtT9Cq1hd7gZXXu34I4/edit#slide=id.p"><img class="size-medium wp-image-170 alignright" src="https://connected.mozilla.org/files/2016/12/David-250x141.png" alt="david" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/David-250x141.png 250w, https://connected.mozilla.org/files/2016/12/David-768x432.png 768w, https://connected.mozilla.org/files/2016/12/David-600x338.png 600w, https://connected.mozilla.org/files/2016/12/David.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>David Flanagan talked to us about Computational Inquiry and Inquisitive Programming.</p>
+<p><a href="https://docs.google.com/presentation/d/1_lt182I9dbPK6-w46YMij2tzQtT9Cq1hd7gZXXu34I4/edit#slide=id.p">Slides</a></p>
+<hr />
+<p><a href="https://www.dropbox.com/s/k7y9nn0xmpeobhc/Mozilla%20Voice%20of%20IoT%20Developers%20v%203%20dot%200.pdf?dl=0"><img class="size-medium wp-image-171 alignright" src="https://connected.mozilla.org/files/2016/12/Dietrich-250x141.png" alt="dietrich" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Dietrich-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Dietrich-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Dietrich-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Dietrich.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Dietrich Ayala talked to us about the results of an IoT developer research project.</p>
+<p><a href="https://www.dropbox.com/s/k7y9nn0xmpeobhc/Mozilla%20Voice%20of%20IoT%20Developers%20v%203%20dot%200.pdf?dl=0">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1I-jfeXOHulEhljMq-ZZ8y9NWvX5gclZ9io043j9Whl8/edit"><img class="size-medium wp-image-172 alignright" src="https://connected.mozilla.org/files/2016/12/Francisco-250x141.png" alt="francisco" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Francisco-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Francisco-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Francisco-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Francisco.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Francisco Jordano talked to us about his project to decentralize personal media storage.</p>
+<p><a href="https://docs.google.com/presentation/d/1I-jfeXOHulEhljMq-ZZ8y9NWvX5gclZ9io043j9Whl8/edit">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1kIBDydegqgYKEpD3dXQeVHHoaKa-d8MQ29j6ceh1ioo/edit"><img class="size-medium wp-image-173 alignright" src="https://connected.mozilla.org/files/2016/12/Katie-250x141.png" alt="katie" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Katie-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Katie-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Katie-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Katie.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Katie Hendrix talked to us about smart cities and community based innovation.</p>
+<p><a href="https://docs.google.com/presentation/d/1kIBDydegqgYKEpD3dXQeVHHoaKa-d8MQ29j6ceh1ioo/edit">Slides</a></p>
+<hr />
+<p><a href="https://yoric.github.io/mozAloha/redox.html#1"><img class="size-medium wp-image-174 alignright" src="https://connected.mozilla.org/files/2016/12/DavidTeller1-250x141.png" alt="davidteller1" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/DavidTeller1-250x141.png 250w, https://connected.mozilla.org/files/2016/12/DavidTeller1-768x432.png 768w, https://connected.mozilla.org/files/2016/12/DavidTeller1-600x338.png 600w, https://connected.mozilla.org/files/2016/12/DavidTeller1.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>David Teller talked to us about ramping up security for the age of IoT with Redox OS.</p>
+<p><a href="https://yoric.github.io/mozAloha/redox.html#1">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1bPxr9MgsXtXdMOOZ79DFcuea6t2SWXTkljY3U1qFECY/edit"><img class="size-medium wp-image-175 alignright" src="https://connected.mozilla.org/files/2016/12/Michelle-250x141.png" alt="michelle" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Michelle-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Michelle-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Michelle-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Michelle.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Michelle Thorne talking about Mozilla&#8217;s Open IoT Studio.</p>
+<p><a href="https://docs.google.com/presentation/d/1bPxr9MgsXtXdMOOZ79DFcuea6t2SWXTkljY3U1qFECY/edit">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1USokDp8qoZ8fa-XLcZjDqGVGKe5RMUsVI5qpnk2qHBE/edit#slide=id.g19fe11c680_0_61"><img class="size-medium wp-image-176 alignright" src="https://connected.mozilla.org/files/2016/12/JonRogers-250x141.png" alt="jonrogers" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/JonRogers-250x141.png 250w, https://connected.mozilla.org/files/2016/12/JonRogers-768x432.png 768w, https://connected.mozilla.org/files/2016/12/JonRogers-600x338.png 600w, https://connected.mozilla.org/files/2016/12/JonRogers.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Jon Rogers talked to us about an Internet connected mirror.</p>
+<p><a href="https://docs.google.com/presentation/d/1USokDp8qoZ8fa-XLcZjDqGVGKe5RMUsVI5qpnk2qHBE/edit#slide=id.g19fe11c680_0_61">Slides</a></p>
+<hr />
+<p><a href="https://yoric.github.io/mozAloha/lighthouse.html#1"><img class="size-medium wp-image-177 alignright" src="https://connected.mozilla.org/files/2016/12/DavidTeller2-250x141.png" alt="davidteller2" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/DavidTeller2-250x141.png 250w, https://connected.mozilla.org/files/2016/12/DavidTeller2-768x432.png 768w, https://connected.mozilla.org/files/2016/12/DavidTeller2-600x338.png 600w, https://connected.mozilla.org/files/2016/12/DavidTeller2.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>David Teller also talked to us about Mozilla&#8217;s Project Lighthouse.</p>
+<p><a href="https://yoric.github.io/mozAloha/lighthouse.html#1">Slides</a></p>
+<hr />
+<p><a href="https://dl.dropboxusercontent.com/u/1719101/share/hawaii-2016-anonymous-things-sfoster.pdf"><img class="size-medium wp-image-178 alignright" src="https://connected.mozilla.org/files/2016/12/SamFoster-250x141.png" alt="samfoster" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/SamFoster-250x141.png 250w, https://connected.mozilla.org/files/2016/12/SamFoster-768x432.png 768w, https://connected.mozilla.org/files/2016/12/SamFoster-600x338.png 600w, https://connected.mozilla.org/files/2016/12/SamFoster.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Sam Foster talked to us about using WebRTC for private and secure P2P communications.</p>
+<p>Slides</p>
+<hr />
+<p><a href="http://slides.com/flaki/play-ruhrjs#/"><img class="size-medium wp-image-179 alignright" src="https://connected.mozilla.org/files/2016/12/Flaki-250x141.png" alt="flaki" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Flaki-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Flaki-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Flaki-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Flaki.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Istvan Szmozsanszky talked to us about teaching JS via HTML5 games on microcontrollers.</p>
+<p><a href="http://slides.com/flaki/play-ruhrjs#/">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1bPx5LRJJfc1fVla1rwgpIJBeMe9eBHxt-BA1w206gF8/edit"><img class="size-medium wp-image-185 alignright" src="https://connected.mozilla.org/files/2016/12/Kelly-1-250x141.png" alt="kelly" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Kelly-1-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Kelly-1-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Kelly-1-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Kelly-1.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Kelly Davis talked to us about the internals behind Project Vaani, Mozilla&#8217;s speech recognition engine.</p>
+<p><a href="https://docs.google.com/presentation/d/1bPx5LRJJfc1fVla1rwgpIJBeMe9eBHxt-BA1w206gF8/edit">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1kvr5BOkLsAvYNIRh99uT5kfD_XuxQ9LpselZ8pWqW8Q/edit"><img class="size-medium wp-image-181 alignright" src="https://connected.mozilla.org/files/2016/12/Gervase-250x141.png" alt="gervase" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Gervase-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Gervase-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Gervase-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Gervase.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Gervase Markham talked to us about a vision for IoT security.</p>
+<p><a href="https://docs.google.com/presentation/d/1kvr5BOkLsAvYNIRh99uT5kfD_XuxQ9LpselZ8pWqW8Q/edit">Slides</a></p>
+<hr />
+<p><a href="https://docs.google.com/presentation/d/1RBkNrW0_eOkf9a5CuT0P0hmK5uLziN5Ey0Ql-GMHR8U/edit#slide=id.p"><img class="size-medium wp-image-182 alignright" src="https://connected.mozilla.org/files/2016/12/Guillaume-250x141.png" alt="guillaume" width="250" height="141" srcset="https://connected.mozilla.org/files/2016/12/Guillaume-250x141.png 250w, https://connected.mozilla.org/files/2016/12/Guillaume-768x432.png 768w, https://connected.mozilla.org/files/2016/12/Guillaume-600x338.png 600w, https://connected.mozilla.org/files/2016/12/Guillaume.png 960w" sizes="(max-width: 250px) 100vw, 250px" /></a>Guillaume Marty talked to us about VR and immersion into local content.</p>
+<p><a href="https://docs.google.com/presentation/d/1RBkNrW0_eOkf9a5CuT0P0hmK5uLziN5Ey0Ql-GMHR8U/edit#slide=id.p">Slides</a></p>
+<hr />
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/events/" rel="tag">Events</a>, <a href="https://connected.mozilla.org/tag/mozaloha/" rel="tag">MozAloha</a>, <a href="https://connected.mozilla.org/tag/platform/" rel="tag">platform</a>, <a href="https://connected.mozilla.org/tag/security/" rel="tag">security</a>, <a href="https://connected.mozilla.org/tag/web-of-things/" rel="tag">web of things</a>, <a href="https://connected.mozilla.org/tag/webrtc/" rel="tag">webRTC</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/general/" rel="category tag">general</a>, <a href="https://connected.mozilla.org/category/project/lighthouse/" rel="category tag">lighthouse</a>, <a href="https://connected.mozilla.org/category/project/vaani/" rel="category tag">vaani</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-157" class="post-157 post type-post status-publish format-standard hentry category-project category-vaani tag-platform show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/11/28/the-next-phase-for-project-vaani/" title="Permanent link to “The Next Phase for Project Vaani”" rel="bookmark">
+        The Next Phase for Project Vaani      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-11-28T18:33:12+00:00" datetime="2016-11-28T18:33:12+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/11/" title="See all posts from November, 2016">
+            Nov          </a>
+          <span class="posted-date">
+            28          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/skamatmozilla-com/" title="See all posts by Sandip Kamat">
+              Sandip Kamat <img alt='' src='https://secure.gravatar.com/avatar/305e7759e39908741019235c0b4a3500?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/305e7759e39908741019235c0b4a3500?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/11/28/the-next-phase-for-project-vaani/#comments">4 responses</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><img src="https://connected.mozilla.org/files/2016/11/project-vaani-voice-update-600x600.png" alt="Project Vaani voice update" width="600" height="600" class="alignnone size-large wp-image-161" srcset="https://connected.mozilla.org/files/2016/11/project-vaani-voice-update-600x600.png 600w, https://connected.mozilla.org/files/2016/11/project-vaani-voice-update-160x160.png 160w, https://connected.mozilla.org/files/2016/11/project-vaani-voice-update-250x250.png 250w, https://connected.mozilla.org/files/2016/11/project-vaani-voice-update-768x768.png 768w, https://connected.mozilla.org/files/2016/11/project-vaani-voice-update.png 780w" sizes="(max-width: 600px) 100vw, 600px" />Earlier this year, we moved Project Vaani into a <a href="https://connected.mozilla.org/2016/08/03/project-vaani-prototyping/">prototyping phase with user trials</a>. We collected valuable feedback around product concept and design, as well as validated our assumption that a voice interface would help create a faster, easier and unconstrained way of doing things. This solution was designed and built around the users’ lives, as opposed to the service providers’ business interests. With that validation, we decided to focus on implementing the core voice technology components that everyone (Mozilla, as well as partners and the community) could use in their projects.</p>
+<p>We also found that current market solutions offer speech recognition by using cloud based solutions which lead to privacy concerns. Such solutions also need investments in cloud infrastructure. We believe creating an offline solution that can be embedded in other applications and low-footprint devices would be essential to avoid these issues.</p>
+<p style="margin-bottom:0;">With that, the next steps identified are as follows:</p>
+<ol style="margin-top:0;padding-top:0;">
+<li>We are starting with an online solution to order to create trained models first. We will then compress these models so that they can be used offline on small footprint devices.</li>
+<li>We will also create a public corpora of voices which will help with creating inclusive technologies for both speech-to-text recognition and text-to-speech synthesis.</li>
+</ol>
+<p> <a href="https://connected.mozilla.org/2016/11/28/the-next-phase-for-project-vaani/#more-157" class="more-link">Continue reading &hellip;</a></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/platform/" rel="tag">platform</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/project/" rel="category tag">project</a>, <a href="https://connected.mozilla.org/category/project/vaani/" rel="category tag">vaani</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-150" class="post-150 post type-post status-publish format-standard hentry category-homeweb category-project tag-experiments show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/11/17/project-homeweb-home-monitoring-less-the-middleman/" title="Permanent link to “Project HomeWeb tests home monitoring concept, less the middleman.”" rel="bookmark">
+        Project HomeWeb tests home monitoring concept, less the middleman.      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-11-17T17:37:17+00:00" datetime="2016-11-17T17:37:17+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/11/" title="See all posts from November, 2016">
+            Nov          </a>
+          <span class="posted-date">
+            17          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/planderosmozilla-com/" title="See all posts by Porfirio Landeros">
+              Porfirio Landeros <img alt='' src='https://secure.gravatar.com/avatar/1d1cb488ba36a8de35f075b5938b5d2d?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/1d1cb488ba36a8de35f075b5938b5d2d?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/11/17/project-homeweb-home-monitoring-less-the-middleman/#comments">1 response</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><img class="alignnone size-large wp-image-155" src="https://connected.mozilla.org/files/2016/11/homeweb_108889664-600x400.jpg" alt="homeweb_108889664" width="600" height="400" srcset="https://connected.mozilla.org/files/2016/11/homeweb_108889664-600x400.jpg 600w, https://connected.mozilla.org/files/2016/11/homeweb_108889664-250x167.jpg 250w, https://connected.mozilla.org/files/2016/11/homeweb_108889664-768x512.jpg 768w" sizes="(max-width: 600px) 100vw, 600px" />As we continue to look at problems people experience where they live (e.g. smart home and smart cities), home monitoring seemed like a great area to explore, so in October, we kicked things off with <em><a href="https://wiki.mozilla.org/Connected_Devices/Projects/HomeWeb" target="_blank">Project HomeWeb</a></em>. The team evaluated products and services currently on the market, as well as looked at research that showed how people believe some of these solutions are coming up short. After conducting some research of our own, we landed on our first <a href="https://wiki.mozilla.org/Connected_Devices_Weekly_Update/2016-11-10#homeweb" target="_blank">value proposition test</a>, and are using Twitter ads and a product landing page to acquire reference customers to give us even more feedback, to help us define a potential offering that could be powered by Mozilla.</p>
+<p> <a href="https://connected.mozilla.org/2016/11/17/project-homeweb-home-monitoring-less-the-middleman/#more-150" class="more-link">Continue reading &hellip;</a></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/experiments/" rel="tag">experiments</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/project/homeweb/" rel="category tag">homeweb</a>, <a href="https://connected.mozilla.org/category/project/" rel="category tag">project</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-144" class="post-144 post type-post status-publish format-standard hentry category-abigail category-project tag-experiments show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/10/26/the-project-abigail-concept-test/" title="Permanent link to “The Project Abigail Concept Test”" rel="bookmark">
+        The Project Abigail Concept Test      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-10-26T00:15:34+00:00" datetime="2016-10-26T00:15:34+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/10/" title="See all posts from October, 2016">
+            Oct          </a>
+          <span class="posted-date">
+            26          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/psankethmozilla-com/" title="See all posts by Preeti Sanketh">
+              Preeti Sanketh <img alt='' src='https://secure.gravatar.com/avatar/bdc6dffcb0759118a9afc23f9dddd2f4?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/bdc6dffcb0759118a9afc23f9dddd2f4?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/10/26/the-project-abigail-concept-test/#respond">No responses yet</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><img class="alignnone size-large wp-image-145" src="https://connected.mozilla.org/files/2016/10/abigail-help-1200x768_261869786-600x384.jpg" alt="abigail-help-1200x768_261869786" width="600" height="384" srcset="https://connected.mozilla.org/files/2016/10/abigail-help-1200x768_261869786-600x384.jpg 600w, https://connected.mozilla.org/files/2016/10/abigail-help-1200x768_261869786-250x160.jpg 250w, https://connected.mozilla.org/files/2016/10/abigail-help-1200x768_261869786-768x492.jpg 768w, https://connected.mozilla.org/files/2016/10/abigail-help-1200x768_261869786.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />Many of us within the connected devices group here at Mozilla couldn’t help but take a look at our own lives and experiences and wonder if there was a way we could help our busy families with the IoT. We have also challenged ourselves to pursue solutions that do more than provide a minor convenience. We want to have a deep and significant impact on our users’ lives.</p>
+<p>What we’ve seen is busy families juggling schedules, tasks and lists, with much of the stress falling on working parents. How can we help them? We definitely don’t want to replace the role of mom or dad with a device, and we certainly couldn’t rely on technology to do that anyway. What if we could create a system that empowers everyone in the family to do their fair share, and give parents peace of mind, and more importantly, a less stressful day for everyone?</p>
+<p>Enter <a href="https://wiki.mozilla.org/Connected_Devices/Projects/Abigail" target="_blank"><em>Project Abigail</em></a>, which for now we’re describing as a set of smart buttons that talk and listen to your family, so you can feel less busy and get more done. This concept is based on the premise that everyone already tries to share what they’re doing and what they need, for the most part, but much gets lost or overlooked, despite the piles of sticky notes and incomplete lists laying around the car, office and kitchen.</p>
+<p> <a href="https://connected.mozilla.org/2016/10/26/the-project-abigail-concept-test/#more-144" class="more-link">Continue reading &hellip;</a></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/experiments/" rel="tag">experiments</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/project/abigail/" rel="category tag">abigail</a>, <a href="https://connected.mozilla.org/category/project/" rel="category tag">project</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-134" class="post-134 post type-post status-publish format-standard hentry category-haiku category-project tag-prototypes show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/10/17/project-haiku-stationary-object-for-the-home/" title="Permanent link to “Project Haiku pivot: From a Wearable to a Stationary Object for the Home!”" rel="bookmark">
+        Project Haiku pivot: From a Wearable to a Stationary Object for the Home!      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-10-17T20:34:36+00:00" datetime="2016-10-17T20:34:36+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/10/" title="See all posts from October, 2016">
+            Oct          </a>
+          <span class="posted-date">
+            17          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/ehuntmozilla-com/" title="See all posts by ehunt">
+              ehunt <img alt='' src='https://secure.gravatar.com/avatar/0cfde1eaaddf2be676541943bc36a119?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/0cfde1eaaddf2be676541943bc36a119?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/10/17/project-haiku-stationary-object-for-the-home/#respond">No responses yet</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p>Previously <a href="https://wiki.mozilla.org/Connected_Devices/Projects/Project_Haiku" target="_blank">Project Haiku</a> focused on a wearable that would connect 12-15 year old girls with the people they loved. At the same time, the <a href="https://wiki.mozilla.org/Connected_Devices/Projects/Smart_Displays" target="_blank">Smart Displays project</a> was exploring the space of human connection, arriving at a product opportunity for a stationary object that connects family members who live apart from one another.</p>
+<p>Because these two projects overlapped in a similar space, we&#8217;ve decided to merge our efforts under the Project Haiku name. So, Project Haiku is transitioning from a wearable to a stationary object that resides inside the home, and we&#8217;re using the Smart Display work as the jumping point for this pivot.</p>
+<p><img class="alignnone size-full wp-image-140" src="https://connected.mozilla.org/files/2016/10/project-haiku-lo-fi-send.gif" alt="Project Haiku lo-fi prototype for testing" width="600" height="331" />Our latest product concept focuses on connecting grandparents and school-age grandchildren (6-10 years old) without the help of parents. We want grandparents and grandchildren to feel like they’re together, even when they’re apart.</p>
+<p> <a href="https://connected.mozilla.org/2016/10/17/project-haiku-stationary-object-for-the-home/#more-134" class="more-link">Continue reading &hellip;</a></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/prototypes/" rel="tag">prototypes</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/project/haiku/" rel="category tag">haiku</a>, <a href="https://connected.mozilla.org/category/project/" rel="category tag">project</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-131" class="post-131 post type-post status-publish format-standard hentry category-project category-sensorweb tag-experiments tag-prototypes show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/09/22/a-crowdsourced-air-quality-monitor/" title="Permanent link to “Do People Want a Crowdsourced Air Quality Monitor?”" rel="bookmark">
+        Do People Want a Crowdsourced Air Quality Monitor?      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-09-22T05:03:30+00:00" datetime="2016-09-22T05:03:30+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/09/" title="See all posts from September, 2016">
+            Sep          </a>
+          <span class="posted-date">
+            22          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/chsiangmozilla-com/" title="See all posts by Cindy Hsiang">
+              Cindy Hsiang <img alt='' src='https://secure.gravatar.com/avatar/f60f697a763cae393d5f73507d6020b8?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/f60f697a763cae393d5f73507d6020b8?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/09/22/a-crowdsourced-air-quality-monitor/#respond">No responses yet</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><a href="https://connected.mozilla.org/2016/09/22/a-crowdsourced-air-quality-monitor/"><img class="alignnone size-large wp-image-132" src="https://connected.mozilla.org/files/2016/09/smartphone-sensorweb-600x708.png" alt="Test of Project SensorWeb in Taipei" width="600" height="708" srcset="https://connected.mozilla.org/files/2016/09/smartphone-sensorweb-600x708.png 600w, https://connected.mozilla.org/files/2016/09/smartphone-sensorweb-250x295.png 250w, https://connected.mozilla.org/files/2016/09/smartphone-sensorweb-768x907.png 768w, https://connected.mozilla.org/files/2016/09/smartphone-sensorweb.png 1084w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p>In our last update on Project SensorWeb, we shared the results of a <a href="https://connected.mozilla.org/2016/08/26/the-project-sensorweb-poster-experiment/">small poster test in Taipei</a>, where we were trying to gauge consumer interest in hyper-local air quality information, specifically, particulate matter of 2.5 micrometers or less (PM2.5). Since then, the team wanted to understand what percentage of consumers of this data would actually like to contribute to the network. So, we set out to design the following test, which is now running to a small group of users in Taipei.</p>
+<p> <a href="https://connected.mozilla.org/2016/09/22/a-crowdsourced-air-quality-monitor/#more-131" class="more-link">Continue reading &hellip;</a></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/experiments/" rel="tag">experiments</a>, <a href="https://connected.mozilla.org/tag/prototypes/" rel="tag">prototypes</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/project/" rel="category tag">project</a>, <a href="https://connected.mozilla.org/category/project/sensorweb/" rel="category tag">sensorweb</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+      <article id="post-128" class="post-128 post type-post status-publish format-standard hentry category-general tag-mozlondon tag-news tag-outreachy show-author show-comments">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="https://connected.mozilla.org/2016/09/20/manel-rhaiem-connected-devices-outreach-intern/" title="Permanent link to “Manel Rhaiem: Connected Devices Outreach Intern”" rel="bookmark">
+        Manel Rhaiem: Connected Devices Outreach Intern      </a>
+    </h2>
+
+          <p class="entry-posted">
+        <time class="published" title="2016-09-20T23:07:28+00:00" datetime="2016-09-20T23:07:28+00:00">
+          <a class="posted-month" href="https://connected.mozilla.org/2016/09/" title="See all posts from September, 2016">
+            Sep          </a>
+          <span class="posted-date">
+            20          </span>
+          <a class="posted-year" href="https://connected.mozilla.org/2016/" title="See all posts from 2016">
+            2016          </a>
+        </time>
+      </p>
+    
+      <div class="entry-info">
+    
+              <address class="vcard">
+          <cite class="author fn">
+            <a class="url" href="https://connected.mozilla.org/author/kglazkomozilla-com/" title="See all posts by kglazko">
+              kglazko <img alt='' src='https://secure.gravatar.com/avatar/c25495919220033fe30e0f95d5c1edc6?s=24&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/c25495919220033fe30e0f95d5c1edc6?s=48&amp;d=mm&amp;r=g 2x' class='avatar avatar-24 photo' height='24' width='24' />            </a>
+          </cite>
+        </address>
+      
+    
+          <p class="entry-comments">
+        <a href="https://connected.mozilla.org/2016/09/20/manel-rhaiem-connected-devices-outreach-intern/#comments">2 responses</a>      </p>
+      </div>
+      </header>
+
+  <div class="entry-content">
+    
+    <p><strong>The Project Haiku and CD Metrics Team would like to thank Manel Rhaeim for her contributions over the past summer.</strong></p>
+<div id="attachment_129" style="width: 610px" class="wp-caption alignnone"><img class="size-large wp-image-129" src="https://connected.mozilla.org/files/2016/09/24170062581_6e05742659_o1-600x400.jpg" alt="Manel worked with a variety of technologies in Project Haiku, including SQL,Google BigQuery, Periscope/Re:Dash, HTML/CSS/JavaScript, and programming libraries for devices such as the Particle." width="600" height="400" srcset="https://connected.mozilla.org/files/2016/09/24170062581_6e05742659_o1-600x400.jpg 600w, https://connected.mozilla.org/files/2016/09/24170062581_6e05742659_o1-250x167.jpg 250w, https://connected.mozilla.org/files/2016/09/24170062581_6e05742659_o1-768x512.jpg 768w" sizes="(max-width: 600px) 100vw, 600px" /><p class="wp-caption-text">Manel Rhaiem has been involved with the Mozilla project since 2012.</p></div>
+<p>Manel Rhaiem was an Outreachy intern in Summer 2016 who worked on Connected Devices. During Manel’s internship, she made contributions to both the Project Haiku team and the CD Metrics team. In Project Haiku, she worked on doing data analysis for our second user research experiment. She also made contributions to a web-based prototype for the ongoing user testing and experiments.</p>
+<p><a href="https://techcraftie.com/2016/09/06/manel-rhaiem-cd-outreach-intern/" target="_blank">Continue reading&#8230;</a></p>
+      </div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+          <p class="meta"><b>Tags:</b> <a href="https://connected.mozilla.org/tag/mozlondon/" rel="tag">MozLondon</a>, <a href="https://connected.mozilla.org/tag/news/" rel="tag">News</a>, <a href="https://connected.mozilla.org/tag/outreachy/" rel="tag">outreachy</a></p>
+          <p class="meta"><b>Categories:</b> <a href="https://connected.mozilla.org/category/general/" rel="category tag">general</a></p>
+    </footer>
+  
+</article><!-- #post -->
+
+    
+        <nav class="nav-paging">
+      <ul>
+        <li class="prev"><a href="https://connected.mozilla.org/page/2/" >Older posts</a></li>              </ul>
+    </nav>
+    
+  
+  </div><!-- #content-main -->
+
+<div id="content-sub" class="sub sidebar widgets" role="complementary">
+
+
+  
+  <aside id="search-2" class="widget widget_search"><form id="search" class="fm-search" method="get" action="https://connected.mozilla.org/">
+  <fieldset>
+    <p><input type="search" value="" name="s" id="s"></p>
+  </fieldset>
+</form>
+</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Updates</h3>		<ul>
+	<li class="cat-item cat-item-121"><a href="https://connected.mozilla.org/category/general/" >general</a>
+</li>
+	<li class="cat-item cat-item-13029"><a href="https://connected.mozilla.org/category/project/" title="These projects are currently making their way through Mozilla&#039;s Connected Devices innovation process. Contact us if you&#039;d like to participate as a developer or early tester.">project</a>
+<ul class='children'>
+	<li class="cat-item cat-item-291910"><a href="https://connected.mozilla.org/category/project/abigail/" title="Project Abigail is seeing if a personalized “magic button” can ensure families can stay peaceful and relaxed throughout their day knowing that their homes, loved ones and schedules are in good hands.">abigail</a>
+</li>
+	<li class="cat-item cat-item-287731"><a href="https://connected.mozilla.org/category/project/haiku/" title="Project Haiku (formerly Project Smart Home) began as a project to offer a middle ground between &quot;in a box&quot; solutions like Apple Homekit and DIY solutions like Raspberry Pi. Currently, we&#039;re exploring themes around connecting people and non-intrusive communication.">haiku</a>
+</li>
+	<li class="cat-item cat-item-287738"><a href="https://connected.mozilla.org/category/project/homeweb/" >homeweb</a>
+</li>
+	<li class="cat-item cat-item-291915"><a href="https://connected.mozilla.org/category/project/lighthouse/" >lighthouse</a>
+</li>
+	<li class="cat-item cat-item-285822"><a href="https://connected.mozilla.org/category/project/magnet/" title="Project Magnet is your own, personal user agent for the content that is around you. Instead of getting a list of URLs and you having to browse each link to understand how you can interact with the content, Project Magnet will enable you to have an interactive and friction less experience. The experience will always be fully customizable by you, so you can use it for your maximum enjoyment.">magnet</a>
+</li>
+	<li class="cat-item cat-item-284808"><a href="https://connected.mozilla.org/category/project/sensorweb/" title="SensorWeb wants to advance Mozilla’s mission to promote the open web when it evolves to the physical world. It aims to find the easiest path from sensors to open data so contributors can collaboratively use sensors to get great detail of understanding their living environment. We are launching a pilot project to build a crowdsourcing pm2.5 sensor network. ">sensorweb</a>
+</li>
+	<li class="cat-item cat-item-287732"><a href="https://connected.mozilla.org/category/project/smartkitchen/" title="Project SmartKitchen plans to explore what it would be like if you knew exactly what was in your fridge in real time, with little to no effort. Even better, we’d love to help you leverage this information and take your available ingredients to suggest new healthy recipes to try. Our vision is to help everyone with the question, “What’s for dinner?”, so you never have to come up blank again.">smartkitchen</a>
+</li>
+	<li class="cat-item cat-item-284481"><a href="https://connected.mozilla.org/category/project/vaani/" title="Vaani aims to bring a voice to the Internet of Things (IoT) using open, Mozilla-backed technologies. We believe a voice interface is the most natural way to interact with connected devices, but currently, there are no open solutions available at scale. With Vaani, we plan to offer an &quot;IoT enabler package&quot; to developers, device makers, and end users who want to add a voice interface to their devices in a flexible and customizable way, while avoiding the need to “lock-in” with one of the major commercial players. Initially, Vaani will target smart homes, but will eventually expand to voice-enable a wider range of applications of IoT. ">vaani</a>
+</li>
+</ul>
+</li>
+		</ul>
+</aside><aside id="text-2" class="widget widget_text"><h3 class="widget-title">Topics</h3>			<div class="textwidget"><ul>
+<li class="cat-item"><a href="https://connected.mozilla.org/tag/news/">News</a></li>
+<li class="cat-item"><a href="https://connected.mozilla.org/tag/events/">Events</a></li>
+<li class="cat-item"><a href="https://connected.mozilla.org/category/project/">Projects</a></li>
+</ul></div>
+		</aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='https://connected.mozilla.org/2017/01/'>January 2017</a></li>
+	<li><a href='https://connected.mozilla.org/2016/12/'>December 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/11/'>November 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/10/'>October 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/09/'>September 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/08/'>August 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/07/'>July 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/06/'>June 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/04/'>April 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/03/'>March 2016</a></li>
+	<li><a href='https://connected.mozilla.org/2016/02/'>February 2016</a></li>
+		</ul>
+		</aside><aside id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widget-title">Newsletter</h3><div class="menu-newsletter-container"><ul id="menu-newsletter" class="menu"><li id="menu-item-52" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="https://connected.mozilla.org/newsletter/">Sign up</a></li>
+</ul></div></aside>
+</div><!-- #content-sub -->
+
+  </main><!-- #content -->
+</div></div><!-- /.wrap /#page -->
+
+<footer id="site-info">
+  <div class="wrap">
+    <p id="foot-logo">
+      <a class="top" href="#page">Return to top</a>
+      <a class="logo" href="https://www.mozilla.org/" rel="external">Mozilla</a>
+    </p>
+
+    <p id="colophon">
+      Except where otherwise <a href="https://www.mozilla.org/about/legal.html" rel="external">noted</a>, content on this site is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="external license">Creative Commons Attribution Share-Alike License v3.0</a> or any later version.    </p>
+
+    <nav id="nav-meta">
+      <ul>
+        <li><a href="https://www.mozilla.org/contact/" rel="external">Contact Us</a></li>
+        <li><a href="https://www.mozilla.org/privacy/" rel="external">Privacy Policy</a></li>
+        <li><a href="https://www.mozilla.org/about/" rel="external">Legal Notices</a></li>
+        <li><a href="https://www.mozilla.org/legal/fraud-report/" rel="external">Report Trademark Abuse</a></li>
+        <li><a href="https://github.com/mozilla/One-Mozilla-blog/" rel="external">Theme Code </a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type='text/javascript' src='https://connected.mozilla.org/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+
+</body>
+</html>

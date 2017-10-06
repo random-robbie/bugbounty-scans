@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"><head>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta name="viewport" content="width=device-width,initial-scale=1" />
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>GM Live Chat</title>
+			<link type="text/css" rel="stylesheet" media="screen" href="/css/default.css" />
+			<script language="javascript" type="text/javascript">
+		
+				var gsdUrl="";	
+				var monthsOfTheYear = ["January",
+							"February",
+							"March",
+							"April",
+							"May",
+							"June",
+							"July",
+							"August",
+							"September",
+							"October",
+							"November",
+							"December"];
+							
+				var daysOfTheWeek = ["Sunday", 
+							"Monday",
+							"Tuesday",
+							"Wednesday", 
+							"Thursday", 
+							"Friday",
+							"Saturday"];
+			
+				var tenant = ""; 
+				var messageOutOfHours = "Closed";
+				var phonePlaceholder = "xxx-xxx-xxxx";
+				var emailPlaceholder = "your_email@domain.com";
+				var questionList = null;
+				var languageString = "en_US";
+				var queueBackendText = "";
+				var channelIsFirstNameEnabled = false;
+				var channelIsLastNameEnabled = false;
+				var channelIsEmailEnabled = false;
+				var channelIsPhoneEnabled = false;
+				var channelIsFirstNameRequired = false;
+				var channelIsLastNameRequired = false;
+				var channelIsEmailRequired = false;
+				var channelIsPhoneRequired = false;
+				var channelId = -1;
+				var referer = "";
+				var isDealer = false;
+				
+			</script>
+			
+			<script src="/js/prechat.js" type="text/javascript" defer="defer"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<script>
+			$(document).ready(function() {$('input, select, textarea').on('focus blur', function(event)
+			{
+				$('meta[name=viewport]').attr('content', 'width=device-width,initial-scale=1,maximum-scale=' + (event.type == 'blur' ? 10 : 1));
+  			});
+  			});
+			</script><script type="text/javascript" src="/javax.faces.resource/jsf.js.xhtml?ln=javax.faces"></script></head><body onload="questionListCheck()">
+<form id="form" name="form" method="post" action="/prechat.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="form" value="form" />
+<span id="form:header">
+
+			<table>
+				<tr>
+					<td class="headerText"> Currently we are experiencing technical difficulties. Please try back later.</td>
+				</tr>
+			</table></span><span id="form:operationHours" style="display:none">
+ 				<table style="display:block; width:100%; max-width: 400px;">
+ 					<br />
+ 					<tr><span id="form:holidayMessage" style="display:none">We are currently closed for HOLIDAY_NAME, but will reopen NEXT_WORKING_DAY.  Please try again during our normal business hours:</span><span id="form:hoursMessage" style="display:none">Our chat queues are currently closed.  Please try again during our normal business hours:</span>
+		 			</tr>
+		 			<br />
+		 			<tr>
+		 				<td class="hourBold"><span id="form:monLabel">Monday: </span></td>
+		 				<td class="hour"><span id="form:monHoursStart"></span></td>
+		 				<td class="hour"><span id="form:monHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:monHoursEnd"></span></td>
+		 			</tr>
+		 			<tr id="tueHours">
+		 				<td class="hourBold"><span id="form:tueLabel">Tuesday: </span></td>
+		 				<td class="hour"><span id="form:tueHoursStart"></span></td>
+		 				<td class="hour"><span id="form:tueHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:tueHoursEnd"></span></td>
+		 			</tr>
+		 			<tr id="wedHours">
+		 				<td class="hourBold"><span id="form:wedLabel">Wednesday: </span></td>
+		 				<td class="hour"><span id="form:wedHoursStart"></span></td>
+		 				<td class="hour"><span id="form:wedHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:wedHoursEnd"></span></td>
+		 			</tr>
+		 			<tr id="thuHours">
+		 				<td class="hourBold"><span id="form:thuLabel">Thursday: </span></td>
+		 				<td class="hour"><span id="form:thuHoursStart"></span></td>
+		 				<td class="hour"><span id="form:thuHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:thuHoursEnd"></span></td>
+		 			</tr>
+		 			<tr id="friHours">
+		 				<td class="hourBold"><span id="form:friLabel">Friday: </span></td>
+		 				<td class="hour"><span id="form:friHoursStart"></span></td>
+		 				<td class="hour"><span id="form:friHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:friHoursEnd"></span></td>
+		 			</tr>
+		 			<tr>
+		 				<td class="hourBold">Saturday: </td>
+		 				<td class="hour"><span id="form:satHoursStart"></span></td>
+		 				<td class="hour"><span id="form:satHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:satHoursEnd"></span></td>
+		 			</tr>
+		 			<tr>
+		 				<td class="hourBold">Sunday: </td>
+		 				<td class="hour"><span id="form:sunHoursStart"></span></td>
+		 				<td class="hour"><span id="form:sunHoursSpace"> - </span></td>
+		 				<td class="hour"><span id="form:sunHoursEnd"></span></td>
+		 			</tr>
+	 			</table>
+	 			<br />
+	 			<div>* <span id="form:timeZoneMessage" style="display:none">All hours are in TIMEZONE.</span></div></span><span id="form:errorMessage" style="display:none">
+ 				<br />We apologize for the inconvenience, but we are currently experiencing technical difficulties.  Please try again later.</span><span id="form:maintMessage" style="display:none">
+ 				<br />This chat service is currently unavailable.  Please try again later.</span><input id="form:customerId" type="hidden" name="form:customerId" /><input id="form:sourceUrl" type="hidden" name="form:sourceUrl" /><input id="form:brandingStyle" type="hidden" name="form:brandingStyle" value="GM" /><input id="form:userIpAddress" type="hidden" name="form:userIpAddress" /><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="stateless" autocomplete="off" />
+</form>
+<form id="hiddenForm" name="hiddenForm" method="post" action="/prechat.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="hiddenForm" value="hiddenForm" />
+<input id="hiddenForm:queueIdToCheck" type="hidden" name="hiddenForm:queueIdToCheck" /><input id="hiddenForm:queueOperationStatus" type="hidden" name="hiddenForm:queueOperationStatus" /><input id="hiddenForm:questionAskedText" type="hidden" name="hiddenForm:questionAskedText" /><input id="hiddenForm:questionAskedName" type="hidden" name="hiddenForm:questionAskedName" /><input id="hiddenForm:checkOpen" type="submit" name="hiddenForm:checkOpen" value="check" style="display:none" onclick="mojarra.ab(this,event,'click','hiddenForm:queueIdToCheck hiddenForm:questionAskedText hiddenForm:questionAskedName','hiddenForm:queueOperationStatus',{'onevent':callback});return false" /><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="stateless" autocomplete="off" />
+</form>
+ 		
+ 			<script type="text/javascript">
+			  (function () {
+			    var sigSiteID;
+			    var gmBrand = document.getElementById("form:brandingStyle").value;
+			    switch (gmBrand) {
+			        case 'Chevrolet':
+			            sigSiteID = '3xLRJdY';
+			            break;
+			        case 'Buick':
+			            sigSiteID = 'Dj6OAC6';
+			            break;
+			        case 'Cadillac':
+			            sigSiteID = 'MKAlTBl';
+			            break;
+			        case 'GMC':
+			            sigSiteID = 'jcKEE3C';
+			            break;
+			        default:
+			            sigSiteID = '9sLDeEW';
+			            break;   
+			    }
+			    var tagjs = document.createElement("script");
+			    var s = document.getElementsByTagName("script")[0];
+			    tagjs.async = true;
+			    tagjs.src = "//s.btstatic.com/tag.js#site="+sigSiteID;
+			    s.parentNode.insertBefore(tagjs, s);
+			  }());
+			</script>
+			<noscript>
+				<iframe src="//s.thebrighttag.com/iframe?c=3xLRJdY" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+			</noscript></body>
+		
+</HTML>

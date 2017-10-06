@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In to MobileIron Cloud</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="resources/whitelabel/mobileiron/img/favicon.ico" />
+    <link rel="stylesheet" href="resources/common/css/polarisui.min.css"/>
+        <style type="text/css">
+    * {border: 0 none; margin: 0; padding: 0;}
+    html, body {width: 100%; height: 100%; background-color: #ECEEEF; font-family: Arial, "Helvetica Neue", Verdana, Helvetica, sans-serif; font-size: 13px; line-height: 18px;}
+    a, a:link {text-decoration: none;}
+    p {margin: 0 0 18px 0;}
+    </style>
+
+     <link rel="stylesheet" href="resources/whitelabel/mobileiron/css/master.css"/>
+    <!-- start Mixpanel -->
+        <script type="text/javascript">
+            /*
+ * Mixpanel JavaScript library
+ * The snippet provides a global variable named mixpanel that you can use to send data to the Mixpanel API.
+ * https://mixpanel.com/help/reference/javascript
+ */
+(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+
+            mixpanel.init("2aa0b050749e1409cbab77d6771bd543", {'ip': false});
+            mixpanel.register({'Event Source':'Admin', 'Page Type': 'Sign In'});
+        </script>
+        <!-- end Mixpanel -->
+    </head>
+
+<body>
+    <div id="loginForm" style="width: 50%; height: 100%; float:left;">
+        <div class="login-wrapper loginWrapper">
+            <div class="loginVert">
+                <div class="loginBox">
+                    <div class="login-inner">
+                        <div class="brand mbl"></div>
+
+                        <form action="
+                            login.do" method="post" autocomplete="off" id="admin-login-form">
+
+                            <div id="checkYourEmail" class="alert alert-success mbm" style="display:none; width: 345px">
+                                <b>Check your Email</b>
+                                <p>Check the email associated with your Username for instructions on resetting your password.</p>
+                            </div>
+                            <div id="forgotPassword" class="forgot-password mbl ptm pbl" style="display:none;">
+                                <p>
+                                    <label>Username</label>
+                                    <input class="text-input" type="email" name="forgot_password_email" id="forgot_password_email" autocomplete="off" />
+                                </p>
+                                <button class="btn" id="forgot_password_btn" disabled="disabled" onclick="doSendPasswordResetEmail();" type="button">Send Email</button>
+                                <div class="sign-in-return mts">
+                                    <a class="container" href="#" id="forgotPasswordSignIn"><small>Sign In</small></a>
+                                </div>
+                            </div>
+
+                            <div id="login" class="login-options ptm pbs">
+                                <p>
+                                    <label>Username</label>
+                                    <input class="text-input" type="text" id="login_username" name="login_username" autocomplete="off" value=""/>
+                                </p>
+                                <p>
+                                    <label>Password</label>
+                                    <input class="text-input" type="password" id="login_password" name="login_password" autocomplete="off" />
+                                </p>
+                                <div class="forgot mbm">
+                                    <a id="forgotPasswordLink" href="#"><small>Forgot password?</small></a>
+                                </div>
+                                <button class="btn" type="submit">Sign In</button>
+                            </div>
+                            </form>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <a href="http://www.mobileiron.com/" target="_blank"></a> <a href="http://www.mobileiron.com/en/support" target="_blank" style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Support</a>
+                    Copyright © 2013-2017 MobileIron, Inc. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 50%; height: 100%; float:left;">
+            <iframe src="https://www.mobileiron.com/promo.html" width="100%" height="100%"></iframe>
+        </div>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function showLoginForm() {
+            document.getElementById('browserSupportedDivId').style.display='none';
+            document.getElementById('loginForm').style.display='';
+            document.getElementById('loginForm').style.width='100%';
+        }
+
+        function buildCurrentWindowUrl() {
+             return location.protocol + "//" + location.host + location.pathname;
+        }
+
+        function trackEvent(eventConfig) {
+            if(window.mixpanel && eventConfig) {
+                if(eventConfig.action) {
+                    var currentUrl = buildCurrentWindowUrl();
+                    eventConfig.properties = eventConfig.properties || {};
+                    eventConfig.properties.$current_url = currentUrl;
+                    window.mixpanel.track(eventConfig.action, eventConfig.properties);
+                }
+            }
+        }
+
+        function onChromeDownloadClick() {
+            window.open('https://www.google.com/intl/en/chrome/browser/', '_blank');
+        }
+
+        function onFirefoxDownloadClick() {
+            window.open('http://www.mozilla.org/en-US/firefox/new/', '_blank');
+        }
+
+        function onAppleSafariDownloadClick() {
+            window.open('http://support.apple.com/downloads/#safari/', '_blank');
+        }
+
+        $('#admin-login-form').submit(function(){
+            var form = this;
+            trackEvent({action:'Sign In'});
+            setTimeout(function(){
+                form.submit();
+            }, 200);
+            return false;
+        });
+
+        function updateForgotPasswordButton(username) {
+            if (isEmailValid(username)) {
+                $("#forgot_password_btn").removeAttr("disabled");
+            } else {
+                $("#forgot_password_btn").attr("disabled", "disabled");
+            }
+        }
+
+        $('#forgotPasswordLink').click(function(){
+            var username = $('#login_username').val();
+            $("#login").toggle(function() {$('#login').animate({}, 100);});
+            $('#forgotPassword').toggle();
+            $('#forgot_password_email').val(username);
+            updateForgotPasswordButton(username);
+            $('#logoutSuccess').hide();
+            $('#errorContainer').hide();
+            trackEvent({action:'Forgot Password?'});
+        });
+
+        $('#forgotPasswordSignIn').click(function(){
+            $("#login").toggle(function() {$('#login').animate({}, 100);});
+            $('#forgotPassword').toggle();
+            $('#logoutSuccess').hide();
+            $('#errorContainer').hide();
+            trackEvent({action:'Forgot Password?', properties: {'Action Type': 'Sign In'}});
+        });
+
+        $("#forgot_password_email").bind("keyup focus input", function() {
+            updateForgotPasswordButton($(this).val());
+        });
+
+        function isEmailValid(email) {
+            if ($.trim(email) == '') {
+                return false;
+            }
+            return /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))+|\[(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}\]|\[(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))\])$/.test(email);
+        };
+
+        function doSendPasswordResetEmail() {
+            $.ajax({
+                url: "api/v1/account/reset/password",
+                type: 'GET',
+                data: {
+                    username: $("#forgot_password_email").val(),
+                    source: 'portal'
+                },
+                dataType: 'json',
+                success: function(data, status) {
+                    if (data.result) {
+                        $('#forgotPassword').hide();
+                        $('#checkYourEmail').show();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert("An error occurred requesting user's password reset.");
+                }
+            });
+            trackEvent({action:'Forgot Password?', properties: {'Action Type': 'Send Email'}});
+        };
+
+        $(document).ready(function() {
+            // Cursor should automatically be placed in the Password box if username is set
+            $($('#login_username').val() ? '#login_password': '#login_username').focus();
+        });
+
+    </script>
+</body>
+</html>

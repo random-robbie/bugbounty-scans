@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" ng-app>
+
+<head>
+    <title dl-page-title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-itunes-app" content="app-id=580630991">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <link rel="apple-touch-icon" href="img/icon.png"/>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="css/lib.css?v=69df83b54bf360539e057425b596a48e97a82f61" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/style.css?v=69df83b54bf360539e057425b596a48e97a82f61" />
+
+    <!--[if IE 9]>
+        <link rel="stylesheet" type="text/css" media="all" href="css/ie9.css?v=69df83b54bf360539e057425b596a48e97a82f61" />
+    <![endif]-->
+
+</head>
+
+<body dl-ping class="state-{{$state.current.name}} {{bodyClasses}}">
+    <div class="page-loader" ng-show="loading">
+        <div class="loader-wrap">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <div ng-class="{'app-background': header.navigation}" ng-controller="HeaderCtrl as header">
+        <div ng-class="{'app-screen': header.navigation}">
+            <div class="side-menu {{header.class}}" ng-include="'app/common/views/side-menu.html'" ng-if="header.navigation" dl-side-menu></div>
+
+            <div ng-class="{'app-content': header.navigation}" dl-app-content dl-close-menu>
+                <header class="main-header container-fluid"
+                    ng-include="'app/common/views/header.html'" ng-if="!hideHeader"></header>
+
+                <section class="main-content container" ui-view="main"></section>
+
+                <footer class="main-footer" ng-controller="FooterCtrl as footer" ng-include="'app/common/views/footer.html'"></footer>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="libs/browserCheck.js"></script>
+    <script type="text/javascript">var appVersion = "1.7.10";</script>
+    <script src="js/wall-e.min.js?v=69df83b54bf360539e057425b596a48e97a82f61"></script>
+    <!--[if !IE]> --><!-- <![endif]-->
+    <script>
+        if (window.unsupportedIE === true) {
+            document.write('<scr'+'ipt type="text/javascript" src="libs/browserCheck.js"></sc'+'ript>');
+        }
+    </script>
+</body>
+
+</html>

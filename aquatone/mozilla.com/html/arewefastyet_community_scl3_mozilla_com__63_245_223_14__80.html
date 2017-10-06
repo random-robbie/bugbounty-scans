@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ <meta http-equiv="content-language" content="en">
+ <title>ARE WE FAST YET?</title>
+ <link rel="stylesheet" title="Default Stylesheet" type="text/css" href="style.css">
+ <link rel="shortcut icon" href="//www.arewefastyet.com/awfy_favicon.png">
+<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+ <script type="text/javascript" src="jquery/jquery-1.8.3.min.js"></script>
+ <script type="text/javascript" src="jquery/jquery.ba-hashchange.min.js"></script>
+ <script type="text/javascript" src="flot/jquery.flot.js"></script>
+ <script type="text/javascript" src="flot/jquery.flot.selection.js"></script>
+ <script type="text/javascript" src="data.php?file=master.js"></script>
+ <script type="text/javascript" src="awfy.js"></script>
+ <script type="text/javascript" src="frontpage.js"></script>
+ <script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body>
+<!--[if IE 6]><body class="ie ie6"><![endif]-->
+<!--[if IE 7]><body class="ie ie7"><![endif]-->
+<!--[if IE 8]><body class="ie ie8"><![endif]-->
+<!--[if IE 9]><body class="ie ie9"><![endif]-->
+<!--[if gt IE 9]><body class="ie"><![endif]-->
+<!--[if !IE ]><!-->
+<body>
+<!--<![endif]-->
+  <script type="text/javascript">
+    $(document).ready(function () {
+	AWFY.startup();
+    });
+  </script>
+<header>
+  <div class='container'>
+    <h1><a href='#'>AreWeFastYet</a></h1>
+    <div class='rightSide'>
+	  <div><a href="http://blog.mozilla.org/javascript"><span>Blog</span></a></div>
+	  <div><a href="/overview"><span>Overview</span></a></div>
+	  <div><a href="/schedule.php"><span>Schedule</span></a></div>
+<!--
+	  <div><a href="/regressions"><span>Regressions</span></a></div>
+      <div class='userMenu'>
+        <a href="javascript:doPersonaLogin()" ng-if="!currentUser"><span>Login</span></a>
+        <a href="javascript:doPersonaLogout()" ng-if='currentUser'><span>Logout</span></a>
+      </div>
+-->
+    </div>
+  </div>
+</header>
+
+<div class='content'>
+  <div id="navcontainer">
+    <ul id="legend"></ul>
+    <br><br>
+    <ul class="menu">
+      <li id="machinehook"><a href="#" id="machinedrop">Machines</a> &#187;
+        <ul id="machinelist"></ul>
+      </li>
+      <li id="breakdownhook"><a href="#" id="bkdrop">Breakdown</a> &#187;
+        <ul id="breakdownlist"></ul>
+      </li>
+      <li><a href='#' id="aboutdrop">About</a> &#187;</li>
+    </ul>
+  </div>
+ <div class="graph-row">
+  <div id="message"></div>
+  <div class="graph-container">
+    <div id="kraken-label">kraken time</div>
+    <div class="graph" id="kraken-graph"><h2>Loading...</h2></div>
+  </div>
+  <div class="graph-container">
+    <div id="sunspider-label">sunspider time</div>
+    <div class="graph" id="ss-graph"><h2>Loading...</h2></div>
+  </div>
+ </div>
+ <div>
+  <div class="graph-row">
+   <div class="graph-container">
+     <div id="octane-label">octane score</div>
+     <div class="graph" id="octane-graph"><h2>Loading...</h2></div>
+   </div>
+  </div>
+ </div>
+ <div id="breakdown">
+ </div>
+ <div id="about">
+  <h2>AreWeFastYet: tracking performance of popular JavaScript engines</h2>
+  <strong>Basic usage:</strong>
+  <ul>
+   <li>The x-axis is the date we ran tests, and the y-axis is the score of the benchmark.</li>
+   <li>The front page displays a hybrid of historical data, as well as the most recent samples.</li>
+   <li>You can click on a datapoint to see a tooltip with more information.</li>
+   <li>Tooltips will either give you the revision range used to condense a point, or the changelog that occurred in between two points.</li>
+   <li>Tooltips can be dragged around, for easier comparison.</li>
+   <li>Some benchmarks use time (lower is better), and some use points (higher is better). We orient all graphs so lower is better, visually.</li>
+   <li>Use the "machine" menu to see different computers' benchmark results.</li>
+   <li>Use the "Breakdown" menu to drill down into individual benchmarks.</li>
+   <li>You can click and highlight any area of any graph to zoom in. It might pause to download data.</li>
+   <li>You can unzoom by double-clicking inside a graph.</li>
+   <li>A graph will refresh every 5 minutes if it is not zoomed in and has no attached tooltips.</li>
+  </ul>
+  <strong>FAQ:</strong><br />
+  <ul>
+   <li><a href="https://github.com/mozilla/arewefastyet/wiki/FAQ">https://github.com/mozilla/arewefastyet/wiki/FAQ</a></li>
+  </ul>
+ <br>
+</div>
+
+<!-- Piwik -->
+<script async defer type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setCookieDomain", "*.arewefastyet.com"]);
+  _paq.push(["setDomains", ["*.arewefastyet.com"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//1984.delire.party/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '9']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//1984.delire.party/piwik.php?idsite=9&rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+</body>
+</html>
+

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AT&amp;T Small Business</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico?v=1">
+    <link href="/Content/css?v=X7uhSy2tHWLFeNk43ssArNQyCyyV1QpnjZKreflr_4o1" rel="stylesheet"/>
+
+    <!--[if !IE 9]> <link rel="stylesheet" href="css/ie.css"> <![endif]-->
+    <script>
+    // Console-polyfill. MIT license.
+    // https://github.com/paulmillr/console-polyfill
+    // Make it safe to do console.log() always.
+    (function (global) {
+        'use strict';
+        global.console = global.console || {};
+        var con = global.console;
+        var prop, method;
+        var empty = {};
+        var dummy = function () { };
+        var properties = 'memory'.split(',');
+        var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+                      'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+                      'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+        while (prop = properties.pop()) if (!con[prop]) con[prop] = empty;
+        while (method = methods.pop()) if (!con[method]) con[method] = dummy;
+    })(typeof window === 'undefined' ? this : window);
+    </script>
+    <script src="/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+
+    <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
+
+    <!--    <script src="/bundles/services?v=64STbRJUsqx4i-sb52yU1eg3QPIwi99rLvFFiTPwN981"></script>
+ -->
+    <script>
+        // Global object for setting config options used by js app
+        var attNBLConfig = {};
+        attNBLConfig.baseServiceURI = "/api/v1/";
+        attNBLConfig.region = "acq";
+        attNBLConfig.ua = "UA-10593755-34";
+    </script>
+</head>
+<body>
+
+    <!-- Save Progress Form -->
+    <div class="modal-container progress-form-container js-progress-form">
+        <div class="modal-content">
+            <div class="save-progress-form">
+                <h3 class="delta">Solutions for Small Businesses</h3>
+                <p>We’ll email your results so you can review them whenever you want and save time when you set up your service.</p>
+                <p class="success-message">Your results have been sent.</p>
+                <p class="error-message">We're sorry there has been an error. Please try again.</p>
+                <form class="clearfix js-simple-form-progress">
+                    <div class="form-input half">
+                        <label>First Name *</label><br>
+                        <input type="text" name="firstname" value="" class="input-text">
+                    </div>
+                    <div class="form-input half">
+                        <label>Last Name *</label><br>
+                        <input type="text" name="lastname" value="" class="input-text">
+                    </div>
+                    <div class="form-input full">
+                        <label>Email Address *</label><br>
+                        <input type="text" name="emailaddress" value="" class="input-text">
+                    </div>
+                    <div class="form-checkbox full">
+                        <label><input type="checkbox" name="optin" value="true" class="input-checkbox">Please send me additional news, information and resources from AT&T.</label>
+                    </div>
+                    <input type="submit" value="Submit" class="button button-orange-grey milli track-save-progress-submit" />
+                </form>
+            </div>
+        </div>
+        <div class="close-button js-modal-toggle-button">
+            <span class="icon-close gamma-delta"></span>
+        </div>
+    </div>
+
+    <!-- Email Us Form -->
+    <div class="modal-container email-form-container js-email-signup-form">
+        <div class="modal-content">
+            <div class="email-signup-form">
+                <h3 class="delta">Email us</h3>
+                <p>Have a question? Need more info? Just send us a note below.</p>
+                <p class="success-message">Thank you. We will be in touch shortly.</p>
+                <p class="error-message">We're sorry there has been an error. Please try again.</p>
+                <form class="clearfix js-simple-form-email">
+                    <div class="form-input full">
+                        <label>Full Name *</label><br>
+                        <input type="text" name="name" value="" class="input-text">
+                    </div>
+                    <div class="form-input full">
+                        <label>Email Address *</label><br>
+                        <input type="text" name="emailaddress" value="" class="input-text">
+                    </div>
+                    <div class="form-textarea full">
+                        <label>Message *</label><br>
+                        <textarea rows="4" name="message" class="input-textarea"></textarea>
+                    </div>
+                    <input type="submit" value="Submit" class="button button-orange-grey milli track-email-submit" />
+                </form>
+            </div>
+        </div>
+        <div class="close-button js-modal-toggle-button">
+            <span class="icon-close gamma-delta"></span>
+        </div>
+    </div>
+
+    <!-- Newsletter Sign Up Form -->
+    <div class="modal-container newsletter-form-container js-newsletter-signup-form">
+        <div class="modal-content">
+            <div class="slide-content">
+                <div class="newsletter-signup-form">
+                    <h3 class="delta">Newsletter Sign Up</h3>
+                    <p>Sign up to receive a host of great information every month on how to grow your business.</p>
+                    <p class="success-message">Thank you for your interest. We’ve added you to our newsletter recipient list.</p>
+                    <p class="error-message">We're sorry there has been an error. Please try again.</p>
+                    <form class="clearfix js-simple-form-newsletter">
+                        <div class="form-input half">
+                            <label>First Name *</label><br>
+                            <input type="text" name="firstname" value="" class="input-text">
+                        </div>
+                        <div class="form-input half">
+                            <label>Last Name *</label><br>
+                            <input type="text" name="lastname" value="" class="input-text">
+                        </div>
+                        <div class="form-input full">
+                            <label>Email Address *</label><br>
+                            <input type="text" name="emailaddress" value="" class="input-text">
+                        </div>
+                        <div class="form-input full">
+                            <label>Business Phone</label><br>
+                            <input type="text" name="businessphone" value="" class="input-text">
+                        </div>
+                        <input type="submit" value="Submit" class="button button-orange-grey milli track-newsletter-submit" />
+                    </form>
+                </div>
+                <a href="#" class="newsletter-side-tab hidden-xs js-newsletter-toggle-button track-newsletter">
+                    <p>Newsletter Sign Up</p><span class="icon-email"></span>
+                </a>
+                <div class="close-button js-modal-toggle-button">
+                    <span class="icon-close gamma-delta"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+         
+    <div class="modal-overlay">
+        <!--             <div class="close-button js-modal-toggle-button">
+                        <span class="icon-close gamma"></span>
+                    </div> -->
+    </div>
+
+    <div id="main">
+
+        <div class="sidebar-pusher">
+                <a href="#" class="sidebar-open-button hidden-xs js-sidebar-toggle-button"><span class="icon icon-menu beta-gamma"></span></a>
+                <div class="sidebar js-sidebar-menu">
+
+                    <div class="sidebar-content">
+                        <div class="close-button hidden-xs js-sidebar-toggle-button">
+                            <span class="icon-close gamma-delta"></span>
+                        </div>
+
+                        <!-- mobile only buttons -->
+                        <ul class="sidebar-mobile-menu visible-xs-block">
+                            <li>
+                                <a class="button button-white clearfix js-sidebar-close-button" href="#" target="_blank">
+                                    <p>Close</p><span class="icon icon-close"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="button button-white clearfix" href="tel:888.422.1024">
+                                    <p>888.422.1024</p><span class="icon icon-phone"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="button button-white clearfix track-find-store" href="https://www.att.com/maps/store-locator.html" target="_blank">
+                                    <p>Find a store</p><span class="icon icon-location"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="button button-white clearfix js-email-toggle-button track-email-us" href="#">
+                                    <p>Email us</p><span class="icon icon-email"></span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="business-profile js-business-profile-panel">
+                            <!-- content rendered with #business-profile-template based on user selections -->
+                        </div>
+
+                        <script id="business-profile-template" type="x-tmpl-mustache">
+                        <h3 class="profile-title">My Business Profile</h3>
+                        <ul class="profile-select-sections">
+                            <li class="js-section-list-toggle" data-section="business-select">
+                                <div class="profile-select-title">
+                                    <span class="list-icon"></span>Business Type
+                                    <div class="toggle-icon closed visible-xs-block">
+                                        <span class="icon-plus"></span>
+                                        <span class="icon-minus"></span>
+                                    </div>
+                                </div>
+                                <div class="toggle-container">
+                                    <ul class="profile-selections toggle-target">
+                                        <li>{{businessTitle}}</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="js-section-list-toggle" data-section="challenge-select">
+                                <div class="profile-select-title">
+                                    <span class="list-icon"></span>Opportunities
+                                    <div class="toggle-icon closed visible-xs-block">
+                                        <span class="icon-plus"></span>
+                                        <span class="icon-minus"></span>
+                                    </div>
+                                </div>
+                                <div class="toggle-container">
+                                    <ul class="profile-selections toggle-target">
+                                        {{#challenges}}
+                                        <li>{{title}}</li>
+                                        {{/challenges}}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="js-section-list-toggle" data-section="needs-select">
+                                <div class="profile-select-title">
+                                    <span class="list-icon"></span>Business Goals
+                                    <div class="toggle-icon closed visible-xs-block">
+                                        <span class="icon-plus"></span>
+                                        <span class="icon-minus"></span>
+                                    </div>
+                                </div>
+                                <div class="toggle-container">
+                                    <ul class="profile-selections toggle-target">
+                                        {{#needs}}
+                                        <li>{{title}}</li>
+                                        {{/needs}}
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </script>
+
+                        <div class="button clearfix js-view-all-button">
+                            <p>View All Products</p><span class="icon icon-blue icon-arrow-right"></span></div>
+                        <div class="button clearfix js-restart-button">
+                            <p>Start Over</p><span class="icon icon-blue icon-refresh"></span></div>
+                        <div class="button clearfix visible-xs-block js-newsletter-toggle-button track-newsletter">
+                            <p>Newsletter sign up</p><span class="icon icon-blue icon-manage"></span></div>
+                    </div>
+
+                    <div class="sidebar-shadow visible-xs-block"></div>
+                </div>
+                <!-- div.sidebar -->
+            
+            <header class="js-header-menu clearfix">
+
+                <a href="#" class="header-branding-container clearfix js-header-logo">
+                    <div class="header-logo-container">
+                        <img src="images/att-logo.png">
+                    </div>
+
+                    <div class="header-tagline-container">
+                        <p>Solutions for Small Businesses</p>
+                    </div>
+                </a>
+
+                <div class="header-links-container hidden-xs">
+                    <ul class="clearfix">
+                        <li style="text-align: center;">
+                            <a href="tel:888.422.1024">
+								<span class="icon-phone"></span><p>888.422.1024</p>
+                            </a>
+                        </li>
+                        <li style="text-align: center;">
+                            <a href="https://www.att.com/maps/store-locator.html" class="track-find-store" target="_blank">
+                                <span class="icon-location"></span><p>Find a store</p>
+                            </a>
+                        </li>
+                        <li style="text-align: center;">
+                            <a href="#" class="js-email-toggle-button track-email-us">
+                                <span class="icon-email"></span><p>Email us</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#" class="mobile-menu-button visible-xs-block js-sidebar-toggle-button">
+                    <span class="icon icon-menu gamma"></span>
+                </a>
+
+            </header>
+
+            
+
+<div class="content">
+
+    <div class="progress-container">
+        <div class="component-progress js-progress-nav">
+            <div class="component-progress-bar"></div>
+            <ul class="component-progress-dots">
+                <li class="step-1 active nav-active" data-section="business-select"></li>
+                <li class="step-2" data-section="challenge-select"></li>
+                <li class="step-3" data-section="needs-select"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="js-select-section-background"></div>
+
+    <div class="component-views slide-section-container">
+
+        <div class="slide-section business-select">
+
+            <div class="component-view js-business-select" data-section="business-select">
+                <h3 class="headline business-select-headline">Small business demands more than one-size solutions.</h3>
+                <h4 class="sub-headline epsilon">Find the right tools by choosing which category best describes your business.</h4>
+
+                <div class="circle-selects js-business-select-nav">
+
+                    <div class="circle-select-container js-business-select-nav-item" data-business-type="brick-and-mortar">
+                        <div class="circle-select-content">
+                            <a href="#" class="circle-select">
+                                <div class="circle-select-face circle-select-front brick">
+                                    <p class="delta">Brick & Mortar</p>
+                                </div>
+
+                                <div class="circle-select-face circle-select-back">
+                                    <div class="circle-select-info">
+                                        <p class="gamma circle-select-icon"><span class="icon-lightbulb"></span></p>
+                                        <p class="centi circle-select-desc">Most of my customers come to me at a physical location.</p>
+                                        <p class="gamma-delta circle-select-title">Brick & Mortar</p>
+                                        <p class="centi">(Retail, Salons, Restaurants, Auto Shops)</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="circle-select-button">
+                                <span class="icon-info gamma"></span>
+                                <span class="icon-close gamma"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="circle-select-container js-business-select-nav-item" data-business-type="on-the-go">
+                        <div class="circle-select-content">
+                            <a href="#" class="circle-select">
+                                <div class="circle-select-front circle-select-face on-the-go">
+                                    <p class="delta">On the go</p>
+                                </div>
+
+                                <div class="circle-select-back circle-select-face">
+                                    <div class="circle-select-info">
+                                        <p class="gamma circle-select-icon"><span class="icon-lightbulb"></span></p>
+                                        <p class="centi circle-select-desc">My business typically travels to my customers.</p>
+                                        <p class="gamma-delta circle-select-title">On the go</p>
+                                        <p class="centi">(HVAC, Plumbing, Landscaping, Consultants)</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="circle-select-button">
+                                <span class="icon-info gamma"></span>
+                                <span class="icon-close gamma"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="circle-select-container js-business-select-nav-item" data-business-type="online">
+                        <div class="circle-select-content">
+                            <a href="#" class="circle-select">
+                                <div class="circle-select-front circle-select-face online">
+                                    <p class="delta">Online</p>
+                                </div>
+
+                                <div class="circle-select-back circle-select-face">
+                                    <div class="circle-select-info">
+                                        <p class="gamma circle-select-icon"><span class="icon-lightbulb"></span></p>
+                                        <p class="centi circle-select-desc">Nearly all of my work is done remotely.</p>
+                                        <p class="gamma-delta circle-select-title">Online</p>
+                                        <p class="centi">(Call centers, Home-based Business, Online Shops)</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="circle-select-button">
+                                <span class="icon-info gamma"></span>
+                                <span class="icon-close gamma"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="start-here-container">
+                    <a href="#" class="js-start-here-button">
+                        <div class="start-here-button">
+                            <p class="down-icon-button"><span class="icon-arrow-down gamma"></span></p>
+                            <p class="zeta">Already know what you need?</p>
+                            <p class="epsilon">Start here</p>
+                        </div>
+                    </a>
+                </div>
+            </div> <!-- div.js-business-select -->
+        </div>
+
+        <div class="slide-section challenge-select">
+            <div class="xsm-background visible-xsm-block">
+                <img class="brick-and-mortar" src="images/backgrounds/challenge-select/brick-and-mortar-xsm.jpg" alt="">
+                <img class="on-the-go" src="images/backgrounds/challenge-select/on-the-go-xsm.jpg" alt="">
+                <img class="online" src="images/backgrounds/challenge-select/online-xsm.jpg" alt="">
+            </div>
+            <div class="white-overlay visible-xsm-block"><div class="overlay-fill"></div></div>
+
+            <div class="component-view js-challenge-select" data-section="challenge-select">
+                <h3 class="headline alt beta">Opportunities</h3>
+                <h4 class="sub-headline alt epsilon">What areas would you most like to improve?</h4>
+
+                <div class="challenge-selects js-challenge-select-nav">
+
+                    <a href="#" class="challenge-select-container js-challenge-select-nav-item" data-challenge-type="start">
+                        <div class="challenge-select-info v-center-container">
+                            <div class="v-center-content">
+                                <div class="xsm-left">
+                                    <p class="gamma"><span class="icon-establish"></span></p>
+                                    <p class="epsilon challenge-headline">Establishing</p>
+                                    <p class="zeta challenge-sub-headline">my business</p>
+                                </div>
+
+                                <div class="challenge-checkbox beta-gamma">
+                                    <div class="icon-container"><span class="icon icon-checkbox-checked"></span></div>
+                                    <span class="icon icon-checkbox"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="challenge-select-container js-challenge-select-nav-item" data-challenge-type="build">
+                        <div class="challenge-select-info v-center-container">
+                            <div class="v-center-content">
+                                <div class="xsm-left">
+                                    <p class="gamma"><span class="icon-grow"></span></p>
+                                    <p class="epsilon challenge-headline">Growing</p>
+                                    <p class="zeta challenge-sub-headline">my business</p>
+                                </div>
+
+                                <div class="challenge-checkbox beta-gamma">
+                                    <div class="icon-container"><span class="icon icon-checkbox-checked"></span></div>
+                                    <span class="icon icon-checkbox"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="challenge-select-container js-challenge-select-nav-item" data-challenge-type="manage">
+                        <div class="challenge-select-info v-center-container">
+                            <div class="v-center-content">
+                                <div class="xsm-left">
+                                    <p class="gamma"><span class="icon-manage"></span></p>
+                                    <p class="epsilon challenge-headline">Managing</p>
+                                    <p class="zeta challenge-sub-headline">my business</p>
+                                </div>
+
+                                <div class="challenge-checkbox beta-gamma">
+                                    <div class="icon-container"><span class="icon icon-checkbox-checked"></span></div>
+                                    <span class="icon icon-checkbox"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="challenge-select-container js-challenge-select-nav-item" data-challenge-type="satisfy">
+                        <div class="challenge-select-info v-center-container">
+                            <div class="v-center-content">
+                                <div class="xsm-left">
+                                    <p class="gamma"><span class="icon-satisfy"></span></p>
+                                    <p class="epsilon challenge-headline">Satisfying</p>
+                                    <p class="zeta challenge-sub-headline">my customers</p>
+                                </div>
+
+                                <div class="challenge-checkbox beta-gamma">
+                                    <div class="icon-container"><span class="icon icon-checkbox-checked"></span></div>
+                                    <span class="icon icon-checkbox"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="challenge-select-container js-challenge-select-nav-item" data-challenge-type="protect">
+                        <div class="challenge-select-info v-center-container">
+                            <div class="v-center-content">
+                                <div class="xsm-left">
+                                    <p class="gamma"><span class="icon-protect"></span></p>
+                                    <p class="epsilon challenge-headline">Protecting</p>
+                                    <p class="zeta challenge-sub-headline">my business</p>
+                                </div>
+
+                                <div class="challenge-checkbox beta-gamma">
+                                    <div class="icon-container"><span class="icon icon-checkbox-checked"></span></div>
+                                    <span class="icon icon-checkbox"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="cta-container">
+                    <a href="#" class="button js-challenge-select-back">
+                        <p class="zeta">Back</p>
+                    </a>
+                    <a href="#" class="button button-orange js-challenge-select-next">
+                        <p class="zeta">Next</p>
+                    </a>
+                </div>
+            </div> <!-- div.js-challenge-select -->
+        </div>
+
+        <div class="slide-section needs-select">
+            <div class="xsm-background visible-xsm-block">
+                <img class="brick-and-mortar" src="images/backgrounds/needs-select/brick-and-mortar-xsm.jpg" alt="">
+                <img class="on-the-go" src="images/backgrounds/needs-select/on-the-go-xsm.jpg" alt="">
+                <img class="online" src="images/backgrounds/needs-select/online-xsm.jpg" alt="">
+            </div>
+            <div class="white-overlay visible-xsm-block"><div class="overlay-fill"></div></div>
+
+            <div class="component-view js-needs-select" data-section="needs-select">
+                <h3 class="headline alt beta">Business goals</h3>
+                <h4 class="sub-headline alt epsilon">Select which outcomes you’d like to focus on.</h4>
+
+                <div class="needs-selects js-needs-select-nav">
+
+                    <script id="needs-select-nav-template" type="x-tmpl-mustache">
+                        {{#challenges}}
+                        <div class="needs-select-container js-needs-select-category-item" data-group-id="{{type}}">
+
+                            <a href="#" class="needs-select-header js-needs-select-header">
+                                <p><span class="icon-{{type}}"></span></p>
+                                <p>{{title}}</p>
+                                <p class="beta-gamma needs-expand">
+                                    <span class="icon-minus"></span>
+                                    <span class="icon-plus"></span>
+                                </p>
+                            </a>
+
+                            <div class="js-needs-group-expander">
+                                <div class="needs-select-items clearfix">
+
+                                    {{#needs}}
+                                    <a href="#" class="needs-select-item js-needs-select-item" data-need-id="{{id}}" data-tracking-label="{{trackinglabel}}" ->
+                                        <p class="needs-label centi">{{title}}</p>
+                                        <p class="beta-gamma needs-checkbox">
+                                            <span class="icon-checkbox-checked"></span>
+                                            <span class="icon-checkbox"></span>
+                                        </p>
+                                    </a>
+                                    {{/needs}}
+
+                                </div>
+                            </div>
+                        </div>
+                        {{/challenges}}
+                    </script>
+
+                </div>
+
+                <div class="cta-container">
+                    <a href="#" class="button js-needs-select-back">
+                        <p class="zeta">Back</p>
+                    </a>
+                    <a href="#" class="button button-orange js-needs-select-results">
+                        <p class="zeta">View results</p>
+                    </a>
+                </div>
+            </div> <!-- div.js-needs-select -->
+        </div>
+
+    </div> <!-- div.component-views -->
+
+    <div class="results-container js-results">
+        <div class="results-expand">
+            <div class="results-header online">
+                <h1 class="beta">
+                    <span class="default">Your solutions</span>
+                    <span class="view-all">All solutions</span>
+                </h1>
+            </div>
+
+            <div class="results-content-container">
+                <div class="results-content clearfix">
+                    <h3 class="delta">
+                        <span class="default">Recommended products and services</span>
+                        <span class="view-all">All products and services</span>
+                    </h3>
+
+                    <div class="results-left-col">
+
+                        <div class="results-product-list"></div>
+
+                        <script id="results-product-list-template" type="x-tmpl-mustache">
+                            {{#products}}
+                            <div class="results-product">
+                                <h4 class="epsilon-zeta">{{{title}}}</h4>
+                                <p class="epsilon">{{description.text}}</p>
+                                {{#description.list}}
+                                <ul>
+                                    {{#items}}
+                                    <li>{{.}}</li>
+                                    {{/items}}
+                                </ul>
+                                {{/description.list}}
+                                <a href="{{link}}" class="shop-now-button" target="_blank" data-track="{{title}}">Shop Now <span class="icon icon-arrow-right gamma-delta"></span></a>
+                            </div>
+                            {{/products}}
+                        </script>
+
+                        <a href="http://www.att.com/smallbusiness/content/solutions.page" class="button button-orange-grey compact track-browse-more">
+                            <p class="milli">Browse more products</p>
+                        </a>
+
+                    </div>
+
+                    <div class="results-right-col">
+                        <div class="results-progress-container">
+                            <p><span class="icon icon-progress gamma-delta"></span></p>
+                            <h4>Save your progress</h4>
+                            <p>We’ll email your results so you can review them whenever you want and save time when you set up your service.</p>
+                            <a href="#" class="button medium-grey compact js-progress-button track-save-progress">
+                                <p class="milli">Email my results</p>
+                            </a>
+                        </div>
+                        <h3 class="delta">Special offers</h3>
+                        <div class="results-offers-container">
+                            <h4>Every business is different.</h4>
+                            <p><img src="images/special-offer-fpo.png"></p>
+			    <p>That's why AT&T lets you design a</p>
+                            <h4 class="orange">Mobile Share Advantage℠ Plan</h4>
+                            <p>that fits your businesses&#8217; talk, text and data needs.</p>
+                            <a href="https://www.wireless.att.com/businesscenter/plans/mobile-share.jsp" target="_blank" class="button medium-grey compact track-learn-more">
+                                <p class="milli">Learn more</p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- div.results-content-container -->
+
+            <div class="results-related-container">
+                <div class="results-related-content clearfix">
+                    <h3 class="delta">Related content</h3>
+                    <div class="results-related-item">
+                        <img src="images/related-content-bg-1.jpg" class="related-content-bg">
+                        <div class="related-content-content">
+                            <img src="images/related-content-disc-1.png" class="related-content-disc">
+                            <h1>Hammer & Hand</h1>
+                            <p>Antiquity powered by technology</p>
+                            <a href="https://bizcircle.att.com/real-stories/antiquity-powered-by-technology/#fbid=wFPY0K9JHLy" target="_blank" class="button button-blue compact track-view-story">
+                                <p class="milli">View story</p>
+                            </a>
+                        </div>
+                        <img src="images/related-content-tab-1.png" class="related-content-tab">
+                    </div>
+                    <div class="results-related-item">
+                        <img src="images/related-content-bg-2.jpg" class="related-content-bg">
+                        <div class="related-content-content">
+                            <img src="images/related-content-disc-2.png" class="related-content-disc">
+                            <h1>Droga Chocolates</h1>
+                            <p>A virtual storefront</p>
+                            <a href="https://bizcircle.att.com/real-stories/taking-a-leap-of-faith/#fbid=wFPY0K9JHLy" target="_blank" class="button button-blue compact track-view-story">
+                                <p class="milli">View story</p>
+                            </a>
+                        </div>
+                        <img src="images/related-content-tab-1.png" class="related-content-tab">
+                    </div>
+                    <div class="results-related-item alt">
+                        <img src="images/related-content-bg-3.jpg" class="related-content-bg">
+                        <div class="related-content-content">
+                            <h1>Maximize your investment in mobile</h1>
+                            <p>Smartphones, tablets, and apps deliver clear benefits to many small businesses. More than 8 in 10 companies...</p>
+                            <a href="https://bizcircle.att.com/articles/whats-your-mobility-ability/#fbid=wFPY0K9JHLy" target="_blank" class="shop-now-button-alt track-view-story">Read more <span class="icon icon-arrow-right delta"></span></a>
+                        </div>
+                        <img src="images/related-content-tab-2.png" class="related-content-tab">
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- div.results-expand -->
+
+    </div> <!-- div.results-container -->
+
+</div><!-- div.content -->
+
+
+            <footer class="js-footer clearfix">
+                <ul class="footer-social-links">
+                    <li><a href="http://www.facebook.com/ATTSmallBiz?fref=ts" target="_blank" class="facebook track-social"><span class="icon icon-facebook"></span></a></li>
+                    <li><a href="https://twitter.com/ATTSmallBiz" target="_blank" class="twitter track-social"><span class="icon icon-twitter"></span></a></li>
+                    <li><a href="https://www.linkedin.com/company/at&tsmallbusiness" target="_blank" class="linkedin track-social"><span class="icon icon-linkedin"></span></a></li>
+                    <li><a href="http://www.youtube.com/user/ATTEnterprise/Explore" target="_blank" class="youtube track-social"><span class="icon icon-youtube"></span></a></li>
+                    <li><a href="https://bizcircle.att.com" target="_blank" class="share track-social"><span class="icon icon-share"></span></a></li>
+                </ul>
+                <ul class="footer-legal-links">
+                    <li><a href="http://www.att.com/gen/general?pid=11561" target="_blank">Terms and Conditions</a></li>
+                    <li>|</li>
+                    <li><a href="http://www.att.com/gen/privacy-policy?pid=2506" target="_blank">Privacy Policy</a></li>
+                    <li>|</li>
+                    <li><a href="http://www.att.com/gen/landing-pages?pid=3309" target="_blank">About Us</a></li>
+                </ul>
+                <p class="footer-col-legal">©2017 AT&T Intellectual Property. All rights reserved. AT&T and Globe logo are registered trademarks of AT&T Intellectual Property. All other marks are the property of their respective owners.</p>
+            </footer>
+
+        </div> <!-- div.sidebar-pusher -->
+
+    </div><!-- div#main -->
+    
+    <script src="/Scripts/common.js"></script>
+
+    <script src="/Scripts/debug.js"></script>
+
+    <script src="/Scripts/main.js"></script>
+
+
+</body>
+</html>

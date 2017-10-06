@@ -1,0 +1,100 @@
+
+
+
+<html >
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>GME VC Data Entry</title>
+        <link rel="stylesheet" type="text/css" href="/dataentry/htmls/gm.css" />
+        <meta http-equiv="imagetoolbar" content="no" />
+        <link rel="stylesheet" type="text/css" href="/dataentry/css/bootstrap.min.css" />
+        <script type="text/javascript">
+                function doLogin(){
+                                var form=document.forms["home"];
+                form.elements.username.value = '';
+                form.elements.password.value = '';
+                form.submit();
+            }
+            if ('' != '') {
+                window.setTimeout("doLogin()", 1000);
+            }
+
+            function turnOffAutoComplete() {
+                document.all.home.autocomplete = "off";
+                document.all.home_username.autocomplete = "off";
+                document.all.home_password.autocomplete = "off";
+            }
+            
+        </script>
+        <head>
+        
+      <script src="/dataentry/htmls/html5shiv.js"></script>
+      <script src="/dataentry/htmls/respond.min.js"></script>
+    
+</head>
+        </head>
+
+    <body  onLoad="turnOffAutoComplete();">
+        <br>   <br>   <br>
+        <div class="container-fluid" style="width: 90%">
+            <div class="panel panel-default" style="background-color:#339966;">
+                <div class="panel-heading" align="center">
+                    <div id="logo" style="float: left"><img src="/dataentry/htmls/logo_GM.jpg" border="0"></div>
+                    <h4><b><font color="black" >GME VC Data Entry Tool</font> </b></h4>
+                </div>
+                <div class="panel-body"align="center" >
+                    <div class="container " style="margin-top: 10%; margin-bottom: 10%;">
+
+                        <div class="panel panel-default" style="max-width: 40%; min-width: 30%;" align="center">
+                            <div class="panel-heading form-group">
+                                <b><font color="black">
+                                    Please enter username and password to log in</font> </b>
+                            </div>
+                            <div class="panel-body" >
+
+                                <div id="error" style="color: red">
+                                    
+                                </div>
+                                
+                                <div class="form-group" >
+                                    <form id="home" name="home" action="/dataentry/home.html" method="post">
+<table class="wwFormTable">
+
+                                        <input class="form-group" type="hidden" name="loginAttempt" value="true" id="home_loginAttempt" autocomplete="off"/>
+                                        <table class="wwFormTable">
+                                            <tr>
+    <td class="tdLabel"><label for="home_username" class="label">Username:</label></td>
+    <td
+><input type="text" name="username" value="" id="home_username" class="form-control "/></td>
+</tr>
+
+<p></p>
+                                            <tr>
+    <td class="tdLabel"><label for="home_password" class="label">Password:</label></td>
+    <td
+><input type="password" name="password" id="home_password" class="form-control "/></td>
+</tr>
+
+
+                                            <tr>
+    <td colspan="2"><div align="right"><input type="submit" value="Login" id="home_0" class="btn btn-success btn-block"/>
+</div></td>
+</tr>
+
+
+                                        </table>
+                                    </table></form>
+
+
+
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

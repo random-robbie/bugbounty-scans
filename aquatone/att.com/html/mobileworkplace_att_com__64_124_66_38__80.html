@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login | AT&T Mobile Workplace</title>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" />
+<!--[if IE]><![endif]-->
+<link href='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;a83d6e703f595b35d0a0f329a3ebfd883b513a74' rel='stylesheet' type='text/css' />
+<link href='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;6ca36f2051a2103ce3af1650f3597e5c18000c80' rel='stylesheet' type='text/css' />
+<link href='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;90576de93c688cad89cb6f4e5da93a2bad1c1471' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;13cdba557993a6db25c5afaab848d113d8824761"></script>
+<script type="text/javascript">CsrfGuard.startGuard('XRHBSW\x5f1b', 'H3BF\x2dKNIA\x2dGEMS\x2d9MYP\x2dB59J', false, 'mobileworkplace\x2eatt\x2ecom', false);</script>
+<script src='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;e187721fe29f4130258a718b37c0acb5a84c9e1a' type='text/javascript'></script>
+<script type="text/javascript" src="/1b/genfiles/gen?id=1507283334839.c32c945edab4ac015bb1a16df1e128deec361e41"></script>
+<script src='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;372fcd0d68991b739ed62300563d77cdc117e1db' type='text/javascript'></script>
+<link rel="shortcut icon" href="&#x2f;partner&#x2f;amw&#x2f;images&#x2f;web&#x2f;base&#x2f;misc&#x2f;favicon&#x2e;ico">
+<!-- Font Awesome - http://fortawesome.github.com/Font-Awesome -->
+<link href='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;f4f8c40d74ad94c475542fb966e6da6ee670e801' rel='stylesheet' type='text/css' />
+<script src='&#x2f;1b&#x2f;genfiles&#x2f;gen&#x3f;id&#x3d;1507283334839&#x2e;5e1cb2c722a2d611536f290834ef12292c780c33' type='text/javascript'></script>
+</head>
+<body id="loginBody">
+<div id="forgotPwdOverlay"></div>
+<div id="forgotPwdPopupTop">
+<a href="javascript:void(0);"><img src="/images/global/closePopupButton.png" /></a>
+<iframe id="forgotPwdFrame" src="/web/new/remotedesk/empty.html" width="400" height="200" frameborder="no" scrolling="no"></iframe>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery("#forgotPwdPopupTop a").click(function() {
+PasswordRecovery.hideForgotPassword();
+});
+jQuery("#forgotPwdPopupTop iframe").unbind("load");
+jQuery("#forgotPwdPopupTop iframe").load(function() {
+PasswordRecovery.resizeIframe();
+});
+});
+var PasswordRecovery = {};
+PasswordRecovery.resizeIframe = function() {
+jQuery("#forgotPwdPopupTop iframe").each(function() {
+this.style.display = "block";
+if (this.contentDocument && this.contentDocument.body.offsetHeight) {
+var h = this.contentDocument.body.offsetHeight;
+if (this.contentDocument.body.offsetHeight && this.contentDocument.body.scrollHeight) {
+h = Math.max(this.contentDocument.body.offsetHeight, this.contentDocument.body.scrollHeight);
+}
+this.height = h;
+} else if (this.Document && this.Document.body.scrollHeight) {
+var h = this.Document.body.scrollHeight;
+if (this.Document.body.scrollHeight && this.Document.body.offsetHeight) {
+h = Math.max(this.Document.body.scrollHeight, this.Document.body.offsetHeight);
+}
+this.height = h;
+}
+});
+}
+PasswordRecovery.forgotpassword = function() {
+var w = jQuery(window);
+var b = jQuery("body");
+var newH = Math.max(w.height(), b.height() + 20);
+jQuery("#forgotPwdOverlay").width(b.width()).height(newH).show();
+var url = "/forms/new/account/forgotpw.jsp";
+if (typeof CsrfGuard != 'undefined') {
+url = CsrfGuard.injectTokenToURI(url);
+}
+jQuery("#forgotPwdPopupTop iframe").attr("src", url);
+var left = (w.width() / 2) - 220;
+var top = w.height() * 0.15;
+jQuery("#forgotPwdPopupTop").fadeIn().css("left", left+"px").css("top", top+"px");
+};
+PasswordRecovery.hideForgotPassword = function() {
+jQuery("#forgotPwdOverlay").hide();
+jQuery("#forgotPwdPopupTop").fadeOut("fast", function() {
+jQuery("#forgotPwdPopupTop iframe").attr("src", "/web/new/remotedesk/empty.html");
+});
+};
+PasswordRecovery.forgotPasswordVisible = function() {
+return jQuery("#forgotPwdPopupTop").is(":visible");
+};
+</script>
+<style type="text/css">
+#forgotPwdPopupTop {
+z-index: 1100;
+position: absolute;
+width: 440px;
+top: 0;
+text-align: center;
+background-color: white;
+border: 1px solid #D1D1D1;
+display: none;
+}
+#forgotPwdPopupTop a {
+position: absolute;
+top: -14px;
+left: -14px;
+}
+#forgotPwdPopupTop iframe {
+padding: 10px;
+overflow: hidden;
+margin: 0 auto;
+}
+#forgotPwdOverlay {
+display: none;
+background: url('/images/clear.gif');
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1010;
+background-color: black;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+opacity: 0.7;
+}
+</style>
+<div id="toppane">
+<a href="http://attmobileworkplace.att.com/home/">
+<div id="logo" class="amwLogin-headerlogo texttoimage">AT&T Mobile Workplace</div>
+</a>
+<img id="att_logo" src="/images/clear.gif" class="amwLogin-headerlogo2" />
+<div id="navigation">
+<a href="http://attmobileworkplace.att.com/home/">Mobile Workplace</a>
+<img src="/images/clear.gif" class="amwLogin-navsepar" />
+<a href="http://tech360.att.com/ATT/home/index.asp">Other Services</a>
+<img src="/images/clear.gif" class="amwLogin-navsepar" />
+<a href="http://attmobileworkplace.att.com/contact/">Customer Support</a>
+</div>
+<div style="overflow: hidden;">
+<img src="/images/clear.gif" style="margin: 85px 0 0 32px; float: left;" class="amwLogin-artwork-1" />
+<div class="amwLogin&#x2d;loginbox">
+<div class="inner">
+<form method="post" action="/login" autocomplete="off">
+<input type="hidden" name="action" value="login" />
+<input type="hidden" name="autolinkid" value="" />
+<input type="hidden" name="pubShareKey" value="">
+<input type="hidden" name="forward" value="">
+<div class="amwLogin-fieldbkg">
+<label for="eml">Email Address</label>
+<input id="eml" type="text" name="userName" value="" />
+</div>
+<div class="amwLogin-fieldbkg">
+<label for="pwd">Password</label>
+<input id="pwd" type="password" name="password" />
+</div>
+<div id="forgotpwd"><a href="javascript:PasswordRecovery.forgotpassword();">Forgot your password?</a></div>
+<div class="clearer">&nbsp;</div>
+<div class="infoBox" id="rememberMeExplanation">You will remain logged in until you manually log out.</div>
+<input type="image" src="/images/clear.gif" class="amwLogin-loginbtn" />
+</form>
+</div>
+</div>
+</div>
+<div class="clear: both;"></div>
+<div id="footer">
+<a href="http://localization.att.com/loc/controller?cdvn=landinglocalization&pid=1080&cookieResetted=true&ltype=contactus">Contact AT&T</a> <span>|</span> <a href="http://www.att.com/gen/privacy-policy?pid=2506">Privacy Policy</a> <span>|</span> <a href="https://tech360.att.com/ATT/terms/index.asp">Terms of Service</a> <span>|</span> <a href="http://www.att.com/">AT&T.com</a>
+<span class="copy">
+©2015 AT&T Intellectual Property. All rights reserved. AT&T, the AT&T logo and all other AT&T marks contained herein are trademarks of AT&T Intellectual Property and/or AT&T affiliated companies. AT&T 36USC220506</span>
+</div>
+</div>
+</body>
+</html>

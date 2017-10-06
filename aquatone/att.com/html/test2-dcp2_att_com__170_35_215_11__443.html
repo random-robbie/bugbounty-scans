@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+<!--[if IE 7]>         <html class="no-js msie ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js msie ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js msie ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
+		<title>Login</title>
+		<!-- Inserting HtmlHead -->
+	  	
+
+
+
+
+
+
+
+
+
+	<meta content="width=device-width, user-scalable=0, initial-scale=1.0" name="viewport" />
+	<!--[if lt IE 9]> 
+ 	<script src="/sbd/js/html5shiv.js"></script> 
+ 	<![endif]-->
+	<script>
+		var deviceType = 'UNKNOWN'
+	</script>
+	 <link href="/sbd/css/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="/sbd/msdropdown/dd.css" rel="stylesheet" type="text/css"/>
+	<link href="/sbd/css/bubbleTooltip.css" rel="stylesheet" type="text/css" />
+	
+    
+		<link rel="stylesheet" type="text/css" href="/sbd/css/one.css?1001" />
+	
+ 	
+	<script src="/sbd/js/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script	src="/sbd/js/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script src="/sbd/msdropdown/js/jquery.dd.js"></script>
+	<script src="/sbd/js/jquery.uniform.min.js"></script>
+	
+	
+<script type="text/javascript">
+function setFocusOnElement(){
+	focusOnElement('')
+}
+</script> 	
+ 		<script type="text/javascript">
+		  	window.history.forward();
+		  	function preventBack(){window.history.forward();}
+		    setTimeout("preventBack()", 0);
+		    window.onunload=function(){null};
+	  	</script>
+ <script src="/sbd/js/common.js"></script>
+	</head>
+	<body class="tundra ondev-landing" onload="setFocusOnElement()">
+		<div id="container0">
+			<div id="container1">
+				<!-- Inserting AppHeader -->
+				
+
+
+
+<script>
+$(function() {
+	$("#ProcessOrderProcess_submit").click(function(e) {
+		e.preventDefault();
+		
+		if (document.getElementById("termsAccepted").checked==false){
+			$('#offlineMsgWrapper').show();
+			$('#error').html('To submit your request, you must first accept AT&Ts Terms of Service.');
+			$('#tncStyle').addClass('error-inline');
+			
+			$('html, body').animate({
+				scrollTop: $("#error").offset().top + 'px'
+			}, 'fast');
+		} else {
+			$('#offlineMsgWrapper').hide();
+			$('#termsAccepted').val('true');
+			$('#tncStyle').removeClass('error-inline');
+			var actionName = '/Common/ProcessOrderProcess.action';
+			document.getElementById("ProcessOrderProcess").action =  '/sbd'+actionName;
+			document.getElementById("ProcessOrderProcess").submit();
+		}
+	});
+});
+	   
+function validateConnectionError() {
+		var timerId = 0;
+		timerId = setInterval(function() {
+			validateResponseError("ShowOrderProcess.action");
+		}, 2000);
+	}
+
+function pingServerThenCallAction(actionName){
+	jQuery.ajaxSetup({async:false});
+	$.ajax({
+		  type: 'POST',
+		  url: '/sbd/images/ping.png',
+		  success: function(response){
+			  if(document.getElementById("offlineMsgWrapper")!=null){
+	 				document.getElementById("offlineMsgWrapper").style.display = "none";
+	 			}
+	 			if(document.getElementById("ProcessOrderProcess")!=null){
+				document.getElementById("ProcessOrderProcess").action =  '/sbd'+actionName;
+				document.getElementById("ProcessOrderProcess").submit();
+	 			}else{
+	 				var href = actionName;
+	 	            window.location = href;
+	 	            return true;
+	 			}
+				return true;
+		  },
+		  error: function(){
+			  document.getElementById("offlineMsgWrapper").style.display="block";
+				document.getElementById("offlineMsgWrapper").innerHTML = "Connectivity lost";
+				document.getElementById("error").innerHTML = "Connectivity lost";
+				window.scrollTo(0,0);
+				return false;
+		  }
+		});
+	
+	
+}
+
+
+function showResponseError(errorCode) {
+	if (errorCode == 404) {
+		document.getElementById("offlineMsgWrapper").style.display = "block";
+		document.getElementById("error").innerHTML = "Resource not found!!";
+	} else if (errorCode == 500) {
+		document.getElementById("offlineMsgWrapper").style.display = "block";
+		document.getElementById("error").innerHTML = "Internal server error!!";
+	} else if (errorCode == 0 || errorCode == 12029) {
+		/*document.getElementById("offlineMsgWrapper").style.display = "block";*/
+		/*document.getElementById("error").innerHTML = "Connectivity lost";*/
+	} else {
+		/*document.getElementById("offlineMsgWrapper").style.display = "block";*/
+		/*document.getElementById("error").innerHTML = "Connectivity lost";*/
+	}
+}
+
+function validateResponseError(action) {
+	jQuery.ajaxSetup({async:false});
+	$.ajax({
+		  type: 'POST',
+		  url: 'pingServer.action',
+		  success: function(response){
+		    if(response.indexOf("failure") != -1){
+				callAction('ProcessOrderProcess.action');
+				}
+		    if(response.indexOf("success") != -1){
+		    	callAction(action);
+				}
+		  },
+		  error: function(){
+			  showResponseError(xmlhttp.status);
+		  }
+		});
+	
+}
+
+function callAction(action) {
+	jQuery.ajaxSetup({async:false});
+	$.ajax({
+		  type: 'POST',
+		  url: action,
+		  success: function(response){
+			  document.getElementById("offlineMsgWrapper").style.display = "none";
+				display(response);
+		  },
+		  error: function(){
+			  showResponseError(xmlhttp.status);
+		  }
+		});
+}
+
+function display(result) {
+	document.open();
+	document.write(result);
+	clearInterval(timerId);
+	document.close();
+}
+
+
+/*start US162113:TA307862,Pike-Connectivity Lost when Cancel Account */
+
+
+function submitFormAjax(formId,action,errorMessage){
+	
+	jQuery.ajaxSetup({async:false});
+	$.ajax({
+		  type: 'POST',
+		  url: '/sbd/images/ping.png',
+		  success: function(response){
+			  var url = action; // the script where you handle the form input.
+	 			validateConnectionError1(errorMessage);
+	 			$.ajax({
+	 		           type: "POST",
+	 		           url: url,
+	 		           data: $("#"+formId).serialize(), // serializes the form's elements.
+	 		           success: function(data)
+	 		           {
+	 		        	   display(data); // show response from.
+	 		           }
+	 		         });
+		  },
+		  error: function(){
+			  	document.getElementById("offlineMsgWrapper").style.display="block";
+				document.getElementById("offlineMsgWrapper").innerHTML = "Connectivity lost";
+				window.scrollTo(0,0);
+				clearInterval(timerId1);
+				return false;
+		  }
+		});
+	
+}
+
+
+function validateConnectionError1(errorMessage) {
+	timerId1 = setInterval(function() {
+		pingServer(errorMessage);
+	}, 2000);
+}
+
+
+function pingServer(errorMessage){
+	jQuery.ajaxSetup({async:false});
+	$.ajax({
+		  type: 'POST',
+		  url: '"/sbd/images/ping.png',
+		  success: function(response){
+			  return false;
+		  },
+		  error: function(){
+			  	document.getElementById("offlineMsgWrapper").style.display="block";
+				document.getElementById("offlineMsgWrapper").innerHTML = errorMessage;
+				window.scrollTo(0,0);
+				clearInterval(timerId1);
+				return false;
+		  }
+		});
+	
+}
+
+/*end*/
+</script>
+<!--header-->
+<div id="header">
+	<ul class="loginHeader">
+		
+	
+		<li><div id="attGlobe"></div></li>
+	
+		
+	</ul>
+
+	<div class="header-nav">
+	  
+	    
+	      
+
+	        	<a href="/sbd/Common/ShopRatePlans.action" class="">Compare Rate Plans</a>
+
+	      
+	    
+	    
+	      
+
+	      	<a href="https://www.att.com/olam/loginAction.olamexecute?goto=welcome" class="" target="_blank">Manage Postpaid Account</a>
+	      	
+	      	<a href="https://www.att.com/esupport/article.html#!/wireless/KM1048713" class="" target="_blank">FAQ</a>
+
+	      	
+	      	<a href="http://www.wireless.att.com/learn/articles-resources/wireless-legal-session.jsp" class="" target="_blank">Terms of Service</a>
+
+	    
+	  
+	  
+	  
+	</div>
+</div>
+				
+				
+					<div class="contentContainerWrapper">
+						<div class="contentContainerMiddle">
+				
+				
+					
+					
+						<div id="landingPageBkgd"></div>
+					
+
+			    
+					
+							<!-- Inserting content -->
+							
+
+
+<script type="text/javascript"> 
+	
+	function callRecoverPasswd() {
+		var contextPath= '/sbd';
+		var url=contextPath+"/CustModify/RecoverPassword.action";
+	    document.forms[0].action=url;
+        document.forms[0].submit();
+	    return true;
+    }
+   
+	function clickGoButton(){
+		var  $selectedNewCustomerAction =  $('input[name=selectedNewCustomerAction]:checked').val();
+
+		if($selectedNewCustomerAction == 'prepaid') {
+			document.location =  document.getElementById('ShowProductInfo').getAttribute('href');
+		}
+		else {
+			/* Change to jquery popup */
+			//alert("");
+			document.getElementById('loginErrorMessage').style.display = "block";
+			if(document.getElementById('wwerr_user'))document.getElementById('wwerr_user').style.display='none';
+			if(document.getElementById('wwerr_ProcessLogin_passwordEntered'))document.getElementById('wwerr_ProcessLogin_passwordEntered').style.display='none';
+			if(document.getElementById('ProcessLogin_'))document.getElementById('ProcessLogin_').style.display='none';
+			
+		}
+		
+		/* reset value after page navigation */
+		//selectedNewCustomerAction.value = '';
+	}
+   
+</script>
+<div class="homePageContentContainer">
+	<form id="ProcessLogin" name="ProcessLogin" action="/sbd/ProcessLogin" method="POST" novalidate="novalidate">
+
+	
+	<div class="landingPageContentContainer1">
+		<div class="container_12 clearfix">
+			<div class="grid_6 alpha">
+				
+			 	
+				 	<h2>New Customer?</h2>
+					<p id="loginErrorMessage" class="error" style="display:none" role="alert">						
+						To get started with a new data session, select one of the new customer options.
+					</p>
+					<p>
+		Sign up for a new prepaid DataConnect Pass!
+						
+						
+					</p>
+					<div class="grid_7">
+					<input type="button" value="Get Your Pass" title="Establish New Prepaid Account" class="btn-secondary" onclick="clickGoButton();">
+					</div>
+					<ul class="options">										
+						<li class="clearfix">
+							<input type="radio" name="selectedNewCustomerAction" value="prepaid" id="prepaid" class="radioBtnUnchecked" checked="checked" style="display: none;">
+						</li>
+					</ul>					
+				
+			
+			</div>
+			<div class="grid_6">
+				<h2>Existing AT&amp;T Customer Login</h2>
+				<p class="reqInfo"><span>*</span> Required Information</p>
+				
+				
+				
+					
+					
+					
+
+
+
+
+
+<label for="user" 
+class="label">
+       	
+   		
+   				<span>&#42;</span>
+        User Name/Email Address:
+        
+</label>
+
+
+
+
+
+<input type="text"  autocomplete="off" name="usernameEntered" size="25" maxlength="80" value="" id="user" data-mobile-input-type="email"/>
+
+
+
+				
+				
+				
+				
+
+
+
+
+
+
+<label for="ProcessLogin_passwordEntered" 
+class="label">
+       	
+   		
+   				<span>&#42;</span>
+        Password:
+        
+</label>
+
+
+
+
+
+
+<input type="password" name="passwordEntered"  autocomplete="off" size="25" maxlength="24" id="ProcessLogin_passwordEntered"/>
+
+
+
+
+
+
+				<p class="forgotPassword">
+					<a href="javascript:callRecoverPasswd()">Forgot password?</a>
+				</p>
+			</div>
+		</div>
+		<div class="container_12 clearfix btnRow">
+			<div class="grid_6">
+				
+				
+					&nbsp;
+					<a id="ShowProductInfo" href="/sbd/CustNew/ShowProductInfo.action" class="hidden">link</a>
+				
+			</div>
+			<div class="grid_6">
+				<input type="submit" value="Login" title="Login" class="btnMain btn-secondary">
+			</div>		
+		</div>
+	</div>	
+	</form>
+
+
+
+</div>
+						</div>
+		
+					<!-- Inserting Footer -->
+					
+
+<!--footer-->
+
+<div id="disclaimerText">
+  	<p>&copy;2017 AT&amp;T Intellectual Property. All rights reserved.</p>
+  	
+    	<p>
+ 		<a href="http://www.wireless.att.com/privacy/" target="_blank" class="embeddedDisclaimerLink">Privacy Policy</a>
+     	| 
+<a href="http://www.wireless.att.com/legal" target="_blank" class="embeddedDisclaimerLink">Terms of Use</a> 
+ 		| 
+		<a href="http://www.att.com/econtactus" target="_blank" class="embeddedDisclaimerLink">Contact Us</a>
+		</p>
+		
+  	
+    <p>AT&amp;T, the logo and all other AT&amp;T marks contained herein are trademarks of AT&amp;T Intellectual Property and/or AT&amp;T affiliated companies.</p>
+</div>
+				</div>
+	
+			</div>
+		</div>
+
+	</body>
+</html>

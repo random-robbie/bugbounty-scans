@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+
+  <!-- This Source Code Form is subject to the terms of the Mozilla Public
+       - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+       - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="scripts/jquery-ui-1.12.1/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="style/main.css"/>
+    <script src="scripts/colors.js"></script>
+    <script src="scripts/flot/jquery.js"></script>
+    <script src="scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="scripts/SS.min.js"></script>
+    <script src="scripts/flot/jquery.flot.js"></script>
+    <script src="scripts/flot/jquery.flot.time.js"></script>
+    <script src="scripts/flot/date.js"></script>
+    <script src="scripts/flot/jquery.flot.hiddengraphs.js"></script>
+    <script src="scripts/flot/jquery.flot.errorbars.js"></script>
+    <script src="scripts/flot/jquery.flot.selection.js"></script>
+    <script src="scripts/ICanHaz.min.js"></script>
+    <script src="scripts/plot.js"></script>
+    <script src="scripts/app.js"></script>
+    <title>Autophone results</title>
+  </head>
+
+  <body>
+
+    <table id="container">
+      <tr>
+        <td>
+          <div id="controls">
+            <div id="forms">
+              <form name="date-controls" id="date-controls" class="noload">
+                Date range:<br/>
+                <input id="startdate" class="date" type="text" size="10" pattern="[\d]{4}-[\d]{2}-[\d]{2}" /><br/>
+                <input id="enddate" class="date" type="text" size="10" pattern="[\d]{4}-[\d]{2}-[\d]{2}" /><br/>
+                Or select recent period:<br/>
+                <select name="period" id="period" class="noload">
+                  <option value="0" selected="selected">---</option>
+                  <option value="1">Today</option>
+                  <option value="7">Last 7 days</option>
+                  <option value="14">Last 14 days</option>
+                  <option value="30">Last 30 days</option>
+                  <option value="60">Last 60 days</option>
+                </select>
+              </form>
+              <form name="plot-controls" id="plot-controls" class="noload">
+                <button id="apply" type="button" title="Apply controls to current date range">Apply</button>
+                <button id="reset" type="button" title="Reset controls to defaults">Reset</button>
+                <br/>
+                <select name="binning" id="binning" class="noload">
+                  <option value="repo">repo</option>
+                  <option value="repo-phonetype">repo phonetype</option>
+                  <option value="repo-phonetype-phoneid" selected>repo phonetype phoneid</option>
+                  <option value="repo-phonetype-phoneid-test_name">repo phonetype phoneid test_name</option>
+                  <option value="repo-phonetype-phoneid-test_name-cached_label">repo phonetype phoneid test_name cached_label</option>
+                  <option value="repo-phonetype-phoneid-test_name-cached_label-metric">repo phonetype phoneid test_name cached_label metric</option>
+                </select>
+                <br/>
+                <input name="trim" id="trim" type="checkbox" class="noload" />Trim min/max values
+                <br/>
+                <select name="rejected" id="rejected" class="noload">
+                  <option value="norejected" selected>Exclude rejected results</option>
+                  <option value="rejected">Include rejected results</option>
+                </select>
+                <br/>
+                <select name="errorbars" id="errorbars" class="noload">
+                  <option value="noerrorbars" selected>No Error bars</option>
+                  <option value="errorbars">Show Error bars</option>
+                </select>
+                <br/>
+                <select name="errorbartype" id="errorbartype" class="noload">
+                  <option value="standarderror" selected>Standard Error</option>
+                  <option value="standarddeviation">Standard Deviation</option>
+                </select>
+                <br/>
+                <select name="valuetype" id="valuetype" class="noload">
+                  <option value="all">All</option>
+                  <option value="mean">Mean</option>
+                  <option value="geometric_mean">Geometric Mean</option>
+                  <option value="median" selected>Median</option>
+                  <option value="min">Minimum</option>
+                </select>
+                <br/>
+                Tests<br/>
+                <div id="tests">
+                </div>
+                Metrics<br/>
+                <div id="metrics">
+                </div>
+                Cached<br/>
+                <div id="cached">
+                </div>
+                Repositories<br/>
+                <div id="repos">
+                </div>
+                Phones<br/>
+                <div id="phones">
+                </div>
+              </form>
+            </div>
+          </div>
+        </td>
+        <td><div id="legend"></div></td>
+        <td id="plot-area">
+          <div id="plot"></div>
+          <div id="progressbar"><div class="progresslabel"></div></div>
+          <div id="button-container"><button id="clear-button" type="button"></button></div>
+          <div id="revisions">
+            <div id="rev1">&nbsp;</div><div id="rev2">&nbsp;</div><div id="pushlog">&nbsp;</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!--ICanHaz templates-->
+    <script type="text/html" id="controlopt">
+      <option value="{{ value }}">{{ text }}</option>
+    </script>
+
+    <script type="text/html" id="nodata">
+      <div>no data!</div>
+    </script>
+
+    <script type="text/html" id="flot_tooltip">
+      <div id="tooltip">
+        {{date}}<br/>
+        {{phonetype}}<br/>
+        {{phone}}<br/>
+        {{test_name}}<br/>
+        {{cached_label}}<br/>
+        {{metric}}<br/>
+        (<a href="{{ url }}">{{ revision }}</a>):<br/>
+        <b>{{ value }}{{valueerr}}<br/>
+          N={{count}}
+        </b>
+      </div>
+    </script>
+
+  </body>
+
+  <script>
+    $(document).ready(main);
+  </script>
+
+</html>

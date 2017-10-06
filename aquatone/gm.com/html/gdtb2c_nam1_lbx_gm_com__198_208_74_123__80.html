@@ -1,0 +1,132 @@
+﻿<!doctype html>
+
+<html lang="en" ng-app="center-of-learning" ng-controller="ApplicationCtrl">
+<head>
+    <meta charset="UTF-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" id="viewport-meta" content="width=device-width, user-scalable=no" />
+
+    <title translate="home_title"></title>
+    
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/datepicker/css/bootstrap-datepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/hover/css/hover-min.css">
+    <link rel="stylesheet" type="text/css" href="lib/ui-grid/ui-grid.css" />
+    <link rel="stylesheet" type="text/css" href="commons/modules/Accordion/css/ang-accordion.css" />
+    <link rel="stylesheet" type="text/css" ng-href="commons/assets/{{cssbrand}}commons.css"/>
+    <link rel="stylesheet" type="text/css" ng-href="css/{{cssbrand}}application.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/angular-ui-tree-master/angular-ui-tree.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ng-grid/ng-grid.css"/>
+    <link rel="stylesheet" type="text/css" href="commons/modules/Splash/splashAnim.css"/>
+
+    <!-- [if IE]>
+      <link rel="stylesheet" type="text/css" href="css/ie.min.css" />
+    <![endif]-->
+    <script src="//assets.adobedtm.com/81e75e0d225e65a4860f48466627a6b696b9fc66/satelliteLib-0e894463a173ab715ebb3837db657de82d6e542d.js"></script>
+    <script type="text/javascript" src="lib/moment/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery-1.11.1.min.js"></script>
+    
+    
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="lib/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="lib/angular-translate/angular-translate.min.js"></script>
+    <script type="text/javascript" src="lib/angular-translate/angular-translate-loader-static-files.min.js"></script>
+    <script type="text/javascript" src="lib/angular-dynamic-locale-master/tmhDynamicLocale.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-animate.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-touch.min.js"></script>
+    <script type="text/javascript" src="lib/angular-cookie/angular-cookie.min.js"></script>
+    <script type="text/javascript" src="lib/ng-breadcrumbs/ng-breadcrumbs.min.js"></script>
+    <script type="text/javascript" src="lib/ngStorage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="lib/ui-utils-0.2.3/ui-utils.min.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script type="text/javascript" src="lib/smart-table/smart-table.min.js"></script>
+    <script type="text/javascript" src="lib/ui-grid/ui-grid.js"></script>
+    <script type="text/javascript" src="commons/modules/Accordion/js/ang-accordion.js"></script>
+    <script type="text/javascript" src="js/application.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-tree-master/angular-ui-tree.js"></script>
+    <script type="text/javascript" src="lib/ng-grid/ng-grid.min.js"></script>
+
+    <!-- Helpers -->
+    <script type="text/javascript" src="commons/util/SystemsHelper.js"></script>
+    <script type="text/javascript" src="commons/util/UIHelper.js"></script>
+    <script type="text/javascript" src="commons/util/DateHelper.js"></script>
+    <script type="text/javascript" src="commons/util/UtilityHelper.js"></script>
+    <script type="text/javascript" src="commons/util/MediaLaunchHelper.js"></script>
+    <script type="text/javascript" src="commons/util/CacheHelper.js"></script>
+    <script type="text/javascript" src="commons/util/Client/ClientHelper.js"></script>
+    
+    <!-- Modules -->
+    <script type="text/javascript" src="commons/modules/HeaderNav/HeaderCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/LearnerPath/js/controllers/LearnerPathCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/LearnerPath/js/controllers/AccordionCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/LearnerGrid/js/controllers/LearnerGridCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/AlertFeed/js/controllers/AlertFeedCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/ClassContainer/js/controllers/CCParentCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/ClassContainer/js/controllers/ClassContainerCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/ClassContainer/js/controllers/ClassContentCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/DealershipSearch/dealership_search.js"></script>
+    <script type="text/javascript" src="commons/modules/GenericModal/GenericModalCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/Announcements/Announcements.js"></script>
+    <script type="text/javascript" src="commons/modules/CertificationTables/CertTablesCtrl.js"></script>
+    <script type="text/javascript" src="commons/modules/Splash/splash_parent.js"></script>
+
+    <!-- Views -->
+    <script type="text/javascript" src="views/ClassDetailsView/js/controllers/class_detail.js"></script>
+    <script type="text/javascript" src="views/HistoryCertView/js/controllers/history_certs.js"></script>
+    <script type="text/javascript" src="views/SearchPageView/js/controllers/search.js"></script>
+    <script type="text/javascript" src="views/HomeView/home.js"></script>
+    <script type="text/javascript" src="views/LearnerPathView/learningpaths.js"></script>
+    <script type="text/javascript" src="views/CourseDetailsView/course_details.js"></script>
+    <script type="text/javascript" src="views/GenMediaView/genmedia.js"></script>
+    <script type="text/javascript" src="views/ReserveSeatView/js/controllers/PreReqsCtrl.js"></script>
+    <script type="text/javascript" src="views/ReserveSeatView/AndOr/js/AndOrCtrl.js"></script>
+    <script type="text/javascript" src="views/PathManager/js/controllers/path_manager.js"></script>
+    <script type="text/javascript" src="views/PathManager/js/controllers/path_section_ctrl.js"></script>
+    <script type="text/javascript" src="views/PathManager/modules/FilterWidget/FilterCtrl.js"></script>
+    <script type="text/javascript" src="views/PathManager/modules/PathDetails/path_details_ctrl.js"></script>
+    <script type="text/javascript" src="views/Manager/TransferView/transfer.js"></script>
+    <script type="text/javascript" src="views/ATTPLoginView/js/ATTPLogin.js"></script>
+    <script type="text/javascript" src="views/ATTPLoginView/js/passwordReset.js"></script>
+    <script type="text/javascript" src="views/UnsupportedBrowserView/unsupportedCtrl.js"></script>
+    <script type="text/javascript" src="views/Courses&LearningPaths/js/courses_lps.js"></script>
+    <script type="text/javascript" src="views/Courses&LearningPaths/js/courses_lps_subcat.js"></script>
+    <script type="text/javascript" src="views/PS/ps_link.js"></script>
+
+    <!-- Manager Views -->
+    <script type="text/javascript" src="views/Manager/ManagerView/manager.js"></script>
+    <script type="text/javascript" src="views/Manager/ManageTeamView/manage_team.js"></script>
+    <script type="text/javascript" src="views/Manager/TeamLearning/team_learning.js"></script>
+    <script type="text/javascript" src="views/Manager/PendingApproval/pending_approval.js"></script>
+    <script type="text/javascript" src="views/Manager/TransferView/transfer.js"></script>
+    <script type="text/javascript" src="views/Manager/CreateLearner/create_learner.js"></script>
+    <script type="text/javascript" src="views/Manager/DealerCertification/dealer_cert.js"> </script>
+
+    <!-- Reporting -->
+    <script type="text/javascript" src="views/ReportView/js/ReportsView.js"></script>
+
+
+</head>
+<body>
+
+    <div id="root" class="container-fluid" >
+        <div ng-controller="HeaderCtrl" class="col-xs-12" id="Header" ng-include="url.headerTemplate" ></div>
+        <route-loading></route-loading>
+        <div id="application-view" ng-view class="row" ng-controller="GenericModalCtrl"></div>
+        <div id="public-background" ng-if="!isLoggedIn()&&notATTP()"></div>
+        <div id="public-overlay" ng-if="!isLoggedIn()"></div>
+        <div ng-if="isLoggedIn()" ng-include="'templates/footer.html'"></div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Coinbase Buy Widget</title>
+<link rel="stylesheet" type="text/css" href="static/stylesheets/reset.css">
+<link rel="stylesheet" href="static/stylesheets/style.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="navigation-global">
+<section class="nav-container">
+<div class="home"><a href="#"><img src="static/images/logo@2x.png" width="95.56" height="20"></a></div>
+<ul class="navigation">
+<li><a href="#features">Features</a></li>
+<li><a href="#clients">Clients</a></li>
+<li><a href="#setup">Setup</a></li>
+<li class="button-outline">
+<a href="#start">Get Started</a>
+</li>
+</ul>
+</section>
+</nav>
+<header>
+<section class="hero-wrapper">
+<div class="hero-text">
+<div class="hero-text-container">
+<h1>The easiest way to offer digital currency</h1>
+<p>The Coinbase Buy Widget is the quickest, most painless way to support bitcoin, ethereum, and litecoin purchases from your app or website.</p>
+<a class="button-primary hero-button" target="_blank" href="https://buy.coinbase.com/eth">Try Demo</a>
+</div>
+</div>
+<div class="hero-image">
+<img class="hero-widget" src="static/images/Widget@2x.png">
+</div>
+</section>
+</header>
+<section class="partners" id="clients">
+<h2>Selected Integration Partners</h2>
+<div class="row-logos">
+<div class="logo">
+<a target="_blank" rel="external noopener noreferrer" href="https://brave.com/"><img src="static/images/Brave@2x.png" width="172" alt="Brave"></a>
+</div>
+<div class="logo">
+<a target="_blank" rel="external noopener noreferrer" href="https://metamask.io/"><img src="static/images/Metamask@2x.png" width="90" alt="Metamask"></a>
+</div>
+<div class="logo" id="ethereum">
+<a target="_blank" rel="external noopener noreferrer" href="https://ethereum.org/"><img src="static/images/Ethereum@2x.png" width="150" alt="Mist"></a>
+</div>
+</div>
+</section>
+<section class="features" id="features">
+<div class="container">
+<div class="feature-block">
+<div class="feature-head">
+<img src="static/images/icon-placeholder1@2x.png" width="80" alt="placeholder1">
+<h3>User Friendly</h3>
+</div>
+<p>Users don’t have to leave your site or app to buy digital currency. In about a minute, even users who’ve never purchased digital currency before can make a purchase.</p>
+</div>
+<div class="feature-block">
+<div class="feature-head">
+<img src="static/images/icon-placeholder2@2x.png" width="80" alt="placeholder1">
+<h3>Customizable</h3>
+</div>
+<p>Add your logo. Optionally specify preferred corner radius and color schemes to match your application.</p>
+</div>
+<div class="feature-block">
+<div class="feature-head">
+<img src="static/images/icon-placeholder3@2x.png" width="80" alt="placeholder1">
+<h3>Easy Integration</h3>
+</div>
+<p>Use our tool to generate a custom code snippet. Copy and paste the code.</p>
+</div>
+<div class="feature-block">
+<div class="feature-head">
+<img src="static/images/icon-placeholder4@2x.png" width="80" alt="placeholder1">
+<h3>Trusted by Millions</h3>
+</div>
+<p>Powered by Coinbase - safe, secure, and designed by the world’s leading digital currency company. </p>
+</div>
+</div>
+</section>
+<section class="easy-setup" id="setup">
+<div class="container">
+<h2>Easy to setup</h2>
+<p class="light-copy">
+Set your receive address, select which currencies to support, and set default purchase amounts (optional).
+</p>
+<div class="code-placeholder">
+<pre><code class="html">
+&lt;a class="coinbase-widget"
+  id="coinbase_widget"
+  data-address="DESTINATION-ADDRESS"
+  data-amount="BUY-AMOUNT"
+  data-code="WIDGET-CODE"
+  data-currency="CURRENCY"
+  data-crypto_currency="CRYPTO-CURRENCY"
+  href=""&gt;Buy bitcoin using Coinbase&lt;/a&gt;;
+&lt;script type="text/javascript" id="coinbase_widget_loader" class="coinbase-widget-async-loader"&gt;
+  document.currentScript.src ="";
+  (function() {
+    function asyncLoad() {
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      var theUrl = "https://buy.coinbase.com/static/widget.js";
+      s.src = theUrl+ (theUrl.indexOf("?") >= 0 ? "&" : "?") + "ref=" + encodeURIComponent(window.location.href);
+      var embedder = document.getElementById("coinbase_widget_loader");
+      embedder.parentNode.insertBefore(s, embedder);
+    }
+    if (window.attachEvent) {
+      window.attachEvent("onload", asyncLoad);
+    } else {
+      window.addEventListener("load", asyncLoad, false);
+    }
+  })();
+&lt;/script&gt;
+        </code></pre>
+</div>
+<div class="setup-cta">
+<p class="cta-copy">Load the provided code snippet, request activation, and go live.</p>
+<a class="cta-action" href="https://developers.coinbase.com/docs/buy-widget" target="_blank">Learn more <span style="color: #147EE2;">→</span></a>
+</div>
+</div>
+</section>
+<section class="subscribe" id="start">
+<div class="container">
+<h2>Apply today for the Buy Widget</h2>
+<p>Please fill out a short survey to let us know who you are and how you’d like to use the Buy Widget. Our team will be happy to contact you with next steps.</p>
+<a href="https://docs.google.com/a/coinbase.com/forms/d/e/1FAIpQLSeq0eRV4koSnEe4PZEOV5JkKRSlelJMpgTxpP_pV-ULAYOkpg/viewform" rel="external noopener noreferrer" target="_blank" class="button-outline-inverse">Get started</a>
+</div>
+</section>
+<footer>
+<div class="footer-wrap">
+<div class="footer-home">
+<a href="https://coinbase.com" target="_blank"><img src="static/images/logo@2x.png" width="95.56" height="20"></a>
+</div>
+<div class="site-nav">
+<div class="nav-col">
+<h5>Products</h5>
+<ul>
+<li><a href="https://coinbase.com/home">Buy/Sell Digital Currency</a></li>
+<li><a href="https://gdax.com">GDAX</a></li>
+<li><a href="https://developers.coinbase.com">Developer Platform</a></li>
+<li><a href="https://coinbase.com/merchants">Merchant Tools</a></li>
+</ul>
+</div>
+<div class="nav-col">
+<h5>Learn</h5>
+<ul>
+<li><a href="https://coinbase.com/buy-bitcoin">Buy Bitcoin</a></li>
+<li><a href="https://www.coinbase.com/buy-ethereum">Buy Ethereum</a></li>
+<li><a href="https://www.coinbase.com/buy-litecoin">Buy Litecoin</a></li>
+<li><a href="https://www.coinbase.com/global">Supported Countries</a></li>
+<li><a href="http://status.coinbase.com/">Status</a></li>
+</ul>
+</div>
+<div class="nav-col">
+<h5>Company</h5>
+<ul>
+<li><a href="https://www.coinbase.com/about">About</a></li>
+<li><a href="https://www.coinbase.com/careers">Careers</a></li>
+<li><a href="https://www.coinbase.com/press">Press</a></li>
+<li><a href="https://www.coinbase.com/legal/privacy">Legal &amp Privacy</a></li>
+<li><a href="https://support.coinbase.com/">Support</a></li>
+</ul>
+</div>
+<div class="nav-col">
+<h5>Social</h5>
+<ul>
+<li><a href="https://blog.coinbase.com/">Blog</a></li>
+<li><a href="https://community.coinbase.com/">Community</a></li>
+<li><a href="https://twitter.com/coinbase">Twitter</a></li>
+<li><a href="https://www.facebook.com/Coinbase">Facebook</a></li>
+</ul>
+</div>
+</div>
+<div class="copywright">
+<p>© 2017 Coinbase</p>
+</div>
+</footer>
+</body>
+</html>

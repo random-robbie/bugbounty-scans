@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+<title>Authorize Your Mobile Number</title>
+<meta content='width=device-width, initial-scale=1.0,user-scalable=no' name='viewport'>
+<link href='/assets/apple-touch-icon-57x57.png' rel='apple-touch-icon'>
+<link href='/assets/apple-touch-icon-72x72.png' rel='apple-touch-icon' sizes='72x72'>
+<link href='/assets/apple-touch-icon-114x114.png' rel='apple-touch-icon' sizes='114x114'>
+<link href='/assets/apple-touch-icon-144x144.png' rel='apple-touch-icon' sizes='144x144'>
+<link href='/assets/apple-touch-icon-57x57-precomposed.png' rel='apple-touch-icon-precomposed'>
+<link href='/assets/apple-touch-icon-72x72-precomposed.png' rel='apple-touch-icon-precomposed' sizes='72x72'>
+<link href='/assets/apple-touch-icon-114x114-precomposed.png' rel='apple-touch-icon-precomposed' sizes='114x114'>
+<link href='/assets/apple-touch-icon-144x144-precomposed.png' rel='apple-touch-icon-precomposed' sizes='144x144'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<link href="/assets/mobile-d5a62c2579bd38737953ed430e035532.css" media="all" rel="stylesheet" type="text/css" />
+<script src="/assets/application-8e4542d2e7e1b1ca32922d0e2f1c1295.js" type="text/javascript"></script>
+<!--[if gte IE 9]>
+<style>
+  .push_btn {
+     filter: none;
+  }
+</style>
+<![endif]-->
+<script>
+  var addToHomeConfig = {
+    animationIn: 'bubble',
+    animationOut: 'drop',
+    lifespan: 10000,
+    expire: 0, //60*24*30,
+    touchIcon: true
+  };
+</script>
+<script src="/assets/add2home-8696b4d154069f849cfd71df70e578db.js" type="text/javascript"></script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="EQ52ZPaRGPwRfggjoNhfXRnHTLKo7rshEqNbWbsQ0t0=" name="csrf-token" />
+
+</head>
+<body>
+<div class='navbar'>
+<div class='container'>
+<div class='icon icon_branding'></div>
+</div>
+</div>
+
+<div class='container'>
+<div id='consent'>
+<div class='box'>
+
+<div class='content consent-notice'>
+<h3>
+<strong>Manage Permissions for your AT&amp;T Mobile Number or Account</strong>
+</h3>
+</div>
+<div class='bar'></div>
+</div>
+
+<input id='locale-error-empty_field' type='hidden' value='Enter your User ID'>
+<input id='locale-error-possible_wireless' type='hidden' value='Wireless Number? Please enter 10 digits'>
+<input id='locale-error-invalid_credentials' type='hidden' value='Invalid User ID or Password'>
+<form accept-charset="UTF-8" action="https://dfw3-auth-api.att.com/consent/att_login" class="consent_allow" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="EQ52ZPaRGPwRfggjoNhfXRnHTLKo7rshEqNbWbsQ0t0=" /></div>
+<div class='box consent_standard' id='off_network_consent'>
+<p>
+<strong>
+Authorize
+using your
+phone number or
+account:
+</strong>
+</p>
+<ul class='nav nav-tabs'>
+<li class='active'>
+<a data-toggle='tab' href='#tab-sms' tabindex='10'>
+<div class='tab-active'>
+<div class='icon icon_sms-active'></div>
+</div>
+<div class='tab-inactive'>
+<div class='icon icon_sms-inactive'></div>
+</div>
+SMS
+</a>
+</li>
+<li class='last'>
+<a data-toggle='tab' href='#tab-userid' tabindex='20'>
+<div class='tab-active'>
+<div class='icon icon_user-id-active'></div>
+</div>
+<div class='tab-inactive'>
+<div class='icon icon_user-id-inactive'></div>
+</div>
+User ID
+</a>
+</li>
+</ul>
+<div class='tab-content'>
+<div class='active tab-pane' id='tab-sms'>
+<p>
+To allow this service, text the word
+<span aria-hidden='true' class='consent_word'>leap</span>
+<span class='sr-only'>l e a p</span>
+to
+<span aria-hidden='true' class='consent_address'>2885</span>
+<span class='sr-only'>2 8 8 5</span>
+<span>from your mobile device.</span>
+</p>
+<p class='notice_response'>
+<img alt='waiting for text message' height='32' src='/assets/web2/ajax-loader.gif' width='32'>
+<span>waiting for text message...</span>
+</p>
+
+</div>
+<div class='tab-pane' id='tab-userid'>
+<div class='group'>
+<div class='actions'>
+<a class='has-my-tooltip' href='#' id='tooltip-link-user-id' tabindex='22' title='What ID should I use?'>What ID should I use?</a>
+</div>
+<label for='auth_id'>User ID:</label>
+<input id='auth_id' name='login' placeholder='User ID' tabindex='23' type='text'>
+<div class='field-error'>
+<span></span>
+</div>
+</div>
+<div class='group'>
+<label for='auth_password'>Password:</label>
+<input id='auth_password' name='password' placeholder='Password' tabindex='24' type='password'>
+<div class='field-error'>
+<span></span>
+</div>
+<div class='actions'>
+<a href='https://www.att.com/olam/forgotPasswordAction.olamexecute?forgotPasswordActionEvent=forgotPasswordStep1' tabindex='25' target='_blank'>Forgot Password?</a>
+</div>
+</div>
+<div class='group btn_hgroup'>
+<div class='btn_block'>
+<a class='push_btn gray' href='https://www.att.com/olam/unauth/displaySelectAccountRegistration.myworld' tabindex='26' target='_blank'>Need an account?</a>
+</div>
+<div class='btn_block'>
+<input class="att_login push_btn orange" name="commit" tabindex="27" type="submit" value="Allow" />
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</form>
+
+
+</div>
+<div class='modal hide fade' data-backdrop='static' data-keyboard='false' id='modal_consent_provision' role='dialog' tabindex='-1'>
+<div class='modal-body'>
+<div id='consent_provision_slides'>
+Loading
+</div>
+<div id='consent_provision_status'>
+<div class='loader'>
+<div class='loader-progress'></div>
+</div>
+<h2>Setting Up Your Account</h2>
+Please wait while your account is being provisioned
+</div>
+</div>
+</div>
+<script id='consent_setup_error' type='text/html'>
+<div class='error'><%= brief %></div>
+<div class='error-details'>
+<p><%= detailed %></p>
+<a class='push_btn gray' href='javascript:void(0);'>OK</a>
+<div class='code'>Service Error Code: <%= service_code %></div>
+</div>
+</script>
+
+<script>
+  function startSmsCheck() {
+    window.externalConsentInterval = setInterval(function() {
+      window.checkForExternalConsent(574845007)
+    }, 5000);
+  }
+  
+  $(document).ready(function(){
+    startSmsCheck();
+  
+    // stop checking for external consent after pin has expired
+    setTimeout(function() {
+      clearInterval(window.externalConsentInterval);
+    }, 360000 );
+  
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      if (/tab-userid$/.test(e.target)) {
+        clearInterval(window.externalConsentInterval);
+      } else {
+        startSmsCheck();
+      }
+    });
+  
+    $('#off_network_consent .tcots_login').click(function() {
+      clearInterval(window.externalConsentInterval);
+    });
+  
+  });
+</script>
+
+</div>
+</body>
+</html>

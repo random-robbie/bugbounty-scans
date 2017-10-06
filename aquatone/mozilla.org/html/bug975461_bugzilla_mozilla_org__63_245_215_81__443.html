@@ -1,0 +1,1942 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head><meta property="og:type" content="website">
+<meta property="og:image" content="https://bugzilla.mozilla.org/extensions/OpenGraph/web/moz-social-bw-rgb-1200x1200.png">
+<meta property="og:title" content="975461 - When opening a pdf, firefox opens tabs continuously and is impossible to close">
+<meta property="og:url" content="https://bugzilla.mozilla.org/show_bug.cgi?id=975461">
+
+    <meta name="bugzilla-global" content="dummy"
+        id="bugzilla-global" data-bugzilla="{&quot;api_token&quot;:&quot;&quot;,&quot;string&quot;:{&quot;short_desc_required&quot;:&quot;You must enter a Summary for this bug&quot;,&quot;description_required&quot;:&quot;You must enter a Description for this bug&quot;,&quot;version_required&quot;:&quot;You must select a Version for this bug&quot;,&quot;component_required&quot;:&quot;You must select a Component for this bug&quot;,&quot;attach_desc_required&quot;:&quot;You must enter a Description for this attachment.&quot;},&quot;constant&quot;:{&quot;COMMENT_COLS&quot;:80},&quot;param&quot;:{&quot;maxusermatches&quot;:&quot;50&quot;,&quot;cookiepath&quot;:&quot;/&quot;}}">
+    <title>975461 - When opening a pdf, firefox opens tabs continuously and is impossible to close</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <meta name="robots" content="noindex" />
+<link rel="Top" href="https://bugzilla.mozilla.org/">
+
+  
+
+
+  
+    <link rel="Show" title="Dependency Tree"
+          href="showdependencytree.cgi?id=975461&amp;hide_resolved=1">
+      <link rel="Show" title="Dependency Graph"
+            href="showdependencygraph.cgi?id=975461">
+
+      <link rel="Show" title="Bug Activity"
+            href="show_activity.cgi?id=975461">
+      <link rel="Show" title="Printer-Friendly Version"
+            href="show_bug.cgi?format=multiple&amp;id=975461">
+
+<link href="data/assets/6e2950a6b430e66beb45b46958cb75b7.css?1507037554" rel="stylesheet" type="text/css">
+
+
+
+    
+<script nonce="WaqhPddimkQa6x6uxWzIBN0Do1dSIAi101ryKJ53tKzoiUls" type="text/javascript" src="data/assets/f0d8f806b435d5c1c42cd109e6626548.js?1507037554"></script>
+
+      <script nonce="WaqhPddimkQa6x6uxWzIBN0Do1dSIAi101ryKJ53tKzoiUls">
+          YAHOO.namespace('bugzilla');
+          if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+              YAHOO.util.Event._simpleRemove(window, "unload",
+                                             YAHOO.util.Event._unload);
+          }BUGZILLA.value_descs = JSON.parse('{\"bug_status\":{},\"resolution\":{\"\":\"---\"}}');
+
+  
+    var tracking_flags_str = "{\"types\":[\"tracking\"],\"flags\":{\"tracking\":{\"cf_blocking_fennec\":\"---\",\"cf_status_firefox_esr52\":\"---\",\"cf_tracking_firefox57\":\"---\",\"cf_blocking_fx\":\"---\",\"cf_status_firefox58\":\"---\",\"cf_status_firefox57\":\"---\",\"cf_tracking_firefox_esr52\":\"---\",\"cf_tracking_thunderbird_esr52\":\"---\",\"cf_status_thunderbird_esr52\":\"---\",\"cf_tracking_firefox58\":\"---\",\"cf_tracking_firefox_relnote\":\"---\",\"cf_tracking_firefox56\":\"---\",\"cf_platform_rel\":\"---\",\"cf_status_firefox56\":\"---\"}},\"comments\":{\"cf_tracking_firefox58\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox57\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_relnote\":{\"?\":\"Release Note Request (optional, but appreciated)\\n[Why is this notable]:\\n[Affects Firefox for Android]:\\n[Suggested wording]:\\n[Links (documentation, blog post, etc)]:\"},\"cf_tracking_firefox56\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_esr52\":{\"?\":\"[Tracking Requested - why for this release]:\"}}}";
+    var TrackingFlags = $.parseJSON(tracking_flags_str);
+
+  
+
+  
+  BUGZILLA.bug_id = 975461;
+  BUGZILLA.bug_title = '975461 - When opening a pdf, firefox opens tabs continuously and is impossible to close';
+  BUGZILLA.user = {
+    id: 0,
+    login: '',
+    is_insider: false,
+    is_timetracker: false,
+    can_tag: false,
+    settings: {
+      quote_replies: 'quoted_reply',
+      zoom_textareas: true,
+      remember_collapsed: true,
+      autosize_comments: false
+    }
+  };
+
+  BUGZILLA.bug_secure = false;
+      </script>
+<script nonce="WaqhPddimkQa6x6uxWzIBN0Do1dSIAi101ryKJ53tKzoiUls" type="text/javascript" src="data/assets/f45fcff1319be4ab156441393c02d012.js?1507037554"></script>
+
+    
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+                       title="Bugzilla@Mozilla" href="./search_plugin.cgi">
+    <meta name="referrer" content="origin-when-crossorigin"><link rel="shortcut icon" href="extensions/BMO/web/images/favicon.ico">
+<link id="shorturl" rev="canonical" href="https://bugzil.la/975461"><meta name="robots" content="noarchive">
+  </head>
+
+
+
+  <body
+        class="bugzilla-mozilla-org
+               skin-standard bug_modal yui-skin-sam">
+
+
+
+<div id="header">
+
+  <div class="wrapper">
+    <table border="0" cellspacing="0" cellpadding="0" id="titles">
+    <tr>
+      <td id="title">
+        <a href="./" title="Home">Bugzilla@Mozilla</a>
+      </td>
+      <td>
+      </td>
+      <td id="moz_login">
+          <ul class="login-links">
+              <li id="moz_new_account_container_top"><a href="createaccount.cgi">New&nbsp;Account</a>
+              </li>
+
+                <li id="mini_login_container_top">
+  <span class="separator">| </span>
+  <a id="login_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=975461&amp;GoAheadAndLogIn=1"
+     class='show_mini_login_form' data-qs-suffix="_top">Log In</a>
+<span id="github_mini_login_top" class="bz_default_hidden mini_login_top">
+    <form method="post" action="https://bugzilla.mozilla.org/github.cgi">
+      <input type="hidden" name="github_secret" value="SNieN4Oc5zC9lgdc">
+      <input type="hidden" name="target_uri" value="https://bugzilla.mozilla.org/show_bug.cgi?id=975461">
+      <input type="image" src="extensions/GitHubAuth/web/images/sign_in.png" height="22" width="75" align="absmiddle"
+             alt="Sign in with GitHub"
+             title="Sign in with GitHub"> or
+    </form>
+  </span>
+  
+  <form action="https://bugzilla.mozilla.org/show_bug.cgi?id=975461" method="POST" 
+        class="mini_login bz_default_hidden "
+        id="mini_login_top"
+        data-qs-suffix="_top"
+  >
+    
+    <input id="Bugzilla_login_top" 
+           class="bz_login"
+           name="Bugzilla_login"
+           title="Login"
+           placeholder="email address"
+           type="email"
+           required
+    >
+    <input class="bz_password"
+           id="Bugzilla_password_top" 
+           name="Bugzilla_password"
+           type="password"
+           title="Password"
+           required
+    >
+    <input class="bz_password bz_default_hidden bz_mini_login_help" type="text" 
+           id="Bugzilla_password_dummy_top" value="password"
+           title="Password"
+    >
+      <input type="checkbox" id="Bugzilla_remember_top" 
+             name="Bugzilla_remember" value="on" class="bz_remember"
+                 checked>
+      <label for="Bugzilla_remember_top">Remember</label>
+    <input type="hidden" name="Bugzilla_login_token"
+           value="1507276852-6cbd661685e77c4fefebb1f6cee81db2">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in"
+           class="check_mini_login_fields"
+            id="log_in_top">
+    <a href="#" id="hide_mini_login_top" 
+       class="hide_mini_login_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+<li id="forgot_container_top">
+  <span class="separator">| </span>
+  <a id="forgot_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=975461&amp;GoAheadAndLogIn=1#forgot"
+     class='show_forgot_form'
+     data-qs-suffix="_top">Forgot Password</a>
+  <form action="token.cgi" method="post" id="forgot_form_top"
+        class="mini_forgot bz_default_hidden">
+    <label for="login_top">Login:</label>
+    <input type="text" name="loginname" size="20" id="login_top">
+    <input id="forgot_button_top" value="Reset Password" 
+           type="submit">
+    <input type="hidden" name="a" value="reqpw">
+    <input type="hidden" id="token_top" name="token" value="1507276852-52c32b867fadcc5b61373e81b38baa9f">
+    <a href="#" class="hide_forgot_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+          </ul>
+      </td>
+      <td id="moz_tab">
+        <a href="https://www.mozilla.org/" title="Mozilla - Home of the Mozilla Project">
+          <img src="images/tabzilla.png" border="0" height="42" width="154"></a>
+      </td>
+    </tr>
+    </table>
+
+    
+<ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_top" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_top"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+
+  </div>
+</div> 
+
+<div id="bugzilla-body">
+
+
+<div id="message">If you think a bug might affect users in the 57 release, please <a href="https://wiki.mozilla.org/Bugmasters/Marking_bugs_for_the_Firefox_57_release">set the correct tracking and status flags for Release Management</a>.</div><div id="xhr-error" style="display:none"></div>
+<div id="floating-message" style="display:none">
+  <div id="floating-message-text"></div>
+</div>
+<section class="module"
+>
+  <div class="module-content"
+  >
+  <div id="summary-container">
+    <div class="field indent"
+>
+
+  
+    <div class=" container">
+      <div id="field-value-bug_id">
+        <a id="this-bug" href="show_bug.cgi?id=975461">Bug 975461</a>
+      </div>
+    </div>
+
+  
+</div><div class="field indent edit-hide"
+>
+
+  
+    <div class=" container">
+      <h1 id="field-value-short_desc">When opening a pdf, firefox opens tabs continuously and is impossible to close</h1>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-alias" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#alias" id="alias-help-link" class="help">Alias:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-alias">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-short_desc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#short_desc" id="short_desc-help-link" class="help">Summary:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-short_desc">
+            When opening a pdf, firefox opens tabs continuously and is impossible to close
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field indent edit-hide" id="field-status_summary"
+>
+
+  
+    <div class="value">
+        <span id="field-value-status_summary">
+      <b>NEW
+        
+      </b>
+        <div id="status-assignee">Unassigned
+        </div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+
+  
+
+  <div id="mode-container">
+    <div>
+    </div>
+    <div class="button-row">
+      <div class="dropdown">
+        <button type="button" id="action-menu-btn" aria-haspopup="true" aria-label="Actions Menu"
+          aria-expanded="false" aria-controls="action-menu" class="dropdown-button minor">&#9662;</button>
+        <ul class="dropdown-content" id="action-menu" role="menu" style="display:none;">
+          <li role="presentation">
+            <a id="action-reset" role="menuitem" tabindex="-1">Reset Sections</a>
+          </li>
+          <li role="presentation">
+            <a id="action-expand-all" role="menuitem" tabindex="-1">Expand All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-collapse-all" role="menuitem" tabindex="-1">Collapse All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-last-comment" role="menuitem" tabindex="-1">Last Comment</a>
+          </li>
+          <li role="presentation">
+            <a id="action-history" role="menuitem" tabindex="-1">History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="user-guide">
+      <a title="User guide for Bugzilla" href="https://wiki.mozilla.org/BMO/UserGuide">Get help with this page</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-status"
+>
+    <header id="module-status-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Status section"
+           data-label-collapsed="Expand Status section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-status-content"
+             aria-expanded="true"
+             aria-labeledby="module-status-title"
+             aria-describedby="module-status-subtitle"></div>
+        <h2 class="module-title" id="module-status-title">Status</h2>
+          <h3 class="module-subtitle" id="module-status-subtitle">
+            (<span id="readable-bug-status" data-readable-bug-status="{&quot;cf_blocking_fennec&quot;:&quot;---&quot;,&quot;priority&quot;:&quot;--&quot;,&quot;cf_tracking_firefox57&quot;:&quot;---&quot;,&quot;status&quot;:&quot;NEW&quot;,&quot;cf_status_firefox58&quot;:&quot;---&quot;,&quot;cf_status_thunderbird_esr52&quot;:&quot;---&quot;,&quot;keywords&quot;:[],&quot;id&quot;:&quot;975461&quot;,&quot;cf_status_firefox56&quot;:&quot;---&quot;,&quot;flags&quot;:[],&quot;cf_status_firefox_esr52&quot;:&quot;---&quot;,&quot;dupe_of&quot;:null,&quot;cf_blocking_fx&quot;:&quot;---&quot;,&quot;cf_status_firefox57&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_thunderbird_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_firefox58&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_relnote&quot;:&quot;---&quot;,&quot;resolution&quot;:&quot;&quot;,&quot;target_milestone&quot;:&quot;---&quot;,&quot;cf_tracking_firefox56&quot;:&quot;---&quot;,&quot;cf_platform_rel&quot;:&quot;---&quot;}"></span>)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-status-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-product"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core" id="product-help-link" class="help">Product:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-product">
+      <span aria-owns="product-name product-latch">
+        <span role="button" aria-label="show product information" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="product-latch" data-latch="product" data-for="product">&#9656;</span>
+        <div title="show product information" tabindex="0" class="spin-toggle"
+             id="product-name" data-latch="product" data-for="product">Core
+        </div>
+        <div id="product-info" style="display:none">Shared components used by Firefox and other Mozilla software, including handling of Web content; Gecko, HTML, CSS, layout, DOM, scripts, images, networking, etc. Issues with web page layout probably go here, while Firefox user interface issues belong in the <a href="https://bugzilla.mozilla.org/editproducts.cgi?action=edit&amp;product=Firefox">Firefox</a> product. (<a href="https://wiki.mozilla.org/Modules/All#Core">More info</a>)
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-component"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core&component=General#General" id="component-help-link" class="help">Component:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-component">
+      <span aria-owns="component-name component-latch">
+        <span role="button" aria-label="show component description" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="component-latch" data-latch="component" data-for="component">&#9656;</span>
+        <div title="show component information" tabindex="0" class="spin-toggle" id="component-name"
+             data-latch="#component-latch" data-for="component">General
+        </div>
+        <div id="component-info" style="display:none">
+          <div>For bugs in Core which do not fit into other more specific Core components</div>
+          <a href="buglist.cgi?component=General&amp;product=Core&amp;bug_status=__open__" target="_blank">Other Bugs</a>
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#priority" id="-help-link" class="help">
+        <label for="priority">Importance:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-priority"
+>
+
+  
+    <div class="value">
+        <span id="field-value-priority">
+            --
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-bug_severity"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_severity">
+            normal
+
+        </span>
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-hide" id="field-status-view"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-view-help-link" class="help">
+        <label for="bug_status">Status:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-view">NEW
+        
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-creation_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#creation_ts" id="creation_ts-help-link" class="help">Reported:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-creation_ts"><span class="rel-time" title="2014-02-21 09:44 PST" data-time="1393004687">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-delta_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#delta_ts" id="delta_ts-help-link" class="help">Modified:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-delta_ts"><span class="rel-time" title="2016-06-22 00:47 PDT" data-time="1466581627">a year ago</span>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-status-edit" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-edit-help-link" class="help">Status:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-edit"><div class="field inline" id="field-bug_status"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_status">
+            NEW
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-resolution"
+>
+
+  
+    <div class="value">
+        <span id="field-value-resolution">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+    <div id="assigned-container" style="display:none">
+      <button type="button" class="minor" id="mark-as-assigned-btn">
+        Mark as Assigned
+      </button>
+    </div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-people"
+>
+    <header id="module-people-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse People section"
+           data-label-collapsed="Expand People section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-people-content"
+             aria-expanded="false"
+             aria-labeledby="module-people-title"
+             aria-describedby="module-people-subtitle"></div>
+        <h2 class="module-title" id="module-people-title">People</h2>
+          <h3 class="module-subtitle" id="module-people-subtitle">
+            (Reporter: David, Unassigned)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-people-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field edit-hide" id="field-assigned_to"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+        <i>Unassigned</i>
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-assigned_to" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-assignee" name="set_default_assignee" class="set-default"
+          value="1" data-for="assigned_to">
+        <label for="set-default-assignee">Reset Assignee to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-bug_mentors" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_mentor" id="bug_mentors-help-link" class="help">Mentors:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_mentors">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-qa_contact" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#qa_contact" id="qa_contact-help-link" class="help">QA Contact:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-qa_contact">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-qa-contact" name="set_default_qa_contact" class="set-default"
+          value="1" data-for="qa_contact">
+        <label for="set-default-qa-contact">Reset QA Contact to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-reporter"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#reporter" id="reporter-help-link" class="help">Reporter:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-reporter">
+            <div class="vcard vcard_431052" ><a class="email " href="user_profile?user_id=431052" > <span class="fna">David</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-triage_owner"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#triage_owner" id="triage_owner-help-link" class="help">Triage Owner:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-triage_owner">
+            <div class="vcard vcard_1" ><a class="email " href="user_profile?user_id=1" > <span class="fna">Nobody; OK to take it and work on it</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#cc" id="-help-link" class="help">CC:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+
+
+        <span aria-owns="cc-summary cc-latch">
+          <span role="button" tabindex="0" id="cc-summary" data-count="5">5 people
+          </span>
+        </span>
+
+
+        <div id="cc-list" style="display:none"></div>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+<section class="module" id="module-tracking"
+>
+    <header id="module-tracking-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Tracking section"
+           data-label-collapsed="Expand Tracking section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-tracking-content"
+             aria-expanded="true"
+             aria-labeledby="module-tracking-title"
+             aria-describedby="module-tracking-subtitle"></div>
+        <h2 class="module-title" id="module-tracking-title">Tracking</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-tracking-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-version"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#version" id="version-help-link" class="help">Version:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-version">
+            27 Branch
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-target_milestone"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#target_milestone" id="target_milestone-help-link" class="help">Target:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-target_milestone">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#rep_platform" id="-help-link" class="help">
+        <label for="rep_platform">Platform:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-rep_platform"
+>
+
+  
+    <div class="value">
+        <span id="field-value-rep_platform">
+            x86_64
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-op_sys"
+>
+
+  
+    <div class="value">
+        <span id="field-value-op_sys">
+            Windows 7
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline"
+>
+
+  
+    <div class=" container">
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-keywords" style="display:none"
+>
+    <div class="name">
+        <a href="describekeywords.cgi" id="keywords-help-link" class="help">Keywords:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-keywords">---
+        </span>
+    </div>
+
+  
+</div>
+<div class="field edit-show" id="field-cf_fx_iteration" style="display:none"
+>
+    <div class="name">Iteration:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_iteration">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+<div class="field" id="field-cf_fx_points"
+>
+    <div class="name">Points:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_points">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+</div><div class="fields-rhs">
+
+    <div class="field edit-show" id="field-dependson" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#dependson" id="dependson-help-link" class="help">Depends on:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-dependson">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-blocked" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#blocks" id="blocked-help-link" class="help">Blocks:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-blocked">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+
+    <div class="field edit-hide"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#duplicates" id="-help-link" class="help">Duplicates:
+        </a>
+    </div>
+
+  
+    <div class="value">
+            <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - firefox went nuts when opening a pdf"
+   href="show_bug.cgi?id=1138431">1138431</a>, <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - Firefox open a lot of tabs when I open a pdf"
+   href="show_bug.cgi?id=1150117">1150117</a>
+
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-bug_flags" style="display:none"
+>
+    <div class="name">Bug Flags:
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-bug_flags"><div id="bug-flags" class="flags">
+  <table class="layout-table">
+    <tbody class="edit-show" style="display:none"><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature." for="flag_type-835">a11y&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-835-dirty">
+      <select id="flag_type-835" name="flag_type-835"
+        title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue." for="flag_type-916">webcompat</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-916-dirty">
+      <select id="flag_type-916" name="flag_type-916"
+        title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag tracking inclusion in the desktop Firefox product backlog." for="flag_type-846">firefox&#8209;backlog</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-846-dirty">
+      <select id="flag_type-846" name="flag_type-846"
+        title="Flag tracking inclusion in the desktop Firefox product backlog."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Used to ask the security team to look over a feature or bug." for="flag_type-791">sec&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-791-dirty">
+      <select id="flag_type-791" name="flag_type-791"
+        title="Used to ask the security team to look over a feature or bug."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-791-container" style="display:none"><input
+    name="requestee_type-791"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-791" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug." for="flag_type-803">sec&#8209;bounty</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-803-dirty">
+      <select id="flag_type-803" name="flag_type-803"
+        title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame." for="flag_type-913">sec&#8209;bounty&#8209;hof</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-913-dirty">
+      <select id="flag_type-913" name="flag_type-913"
+        title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-787">in&#8209;qa&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-787-dirty">
+      <select id="flag_type-787" name="flag_type-787"
+        title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-787-container" style="display:none"><input
+    name="requestee_type-787"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-787" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-37">in&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-37-dirty">
+      <select id="flag_type-37" name="flag_type-37"
+        title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="QA verification tracking." for="flag_type-864">qe&#8209;verify</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-864-dirty">
+      <select id="flag_type-864" name="flag_type-864"
+        title="QA verification tracking."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr>
+    </tbody>
+  </table>
+</div>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+  
+<section class="module" id="module-firefox-tracking-flags"
+>
+    <header id="module-firefox-tracking-flags-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Firefox Tracking Flags section"
+           data-label-collapsed="Expand Firefox Tracking Flags section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-firefox-tracking-flags-content"
+             aria-expanded="false"
+             aria-labeledby="module-firefox-tracking-flags-title"
+             aria-describedby="module-firefox-tracking-flags-subtitle"></div>
+        <h2 class="module-title" id="module-firefox-tracking-flags-title">Firefox Tracking Flags</h2>
+          <h3 class="module-subtitle" id="module-firefox-tracking-flags-subtitle">
+            (Not tracked)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-firefox-tracking-flags-content" style="display:none"
+  ><div class="fields-lhs">
+
+        <p class="edit-hide">
+          This bug is not currently tracked.
+        </p>
+
+        <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide#Tracking_Flags" id="-help-link" class="help">Tracking Flags:
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <th></th>
+        <th>Tracking</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">platform-rel</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_platform_rel-dirty">
+  <select id="cf_platform_rel" name="cf_platform_rel">
+        <option value="---"
+          id="v2875_cf_platform_rel" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">blocking-fx</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_blocking_fx-dirty">
+  <select id="cf_blocking_fx" name="cf_blocking_fx">
+        <option value="---"
+          id="v505_cf_blocking_fx" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">relnote-firefox</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_tracking_firefox_relnote-dirty">
+  <select id="cf_tracking_firefox_relnote" name="cf_tracking_firefox_relnote">
+        <option value="---"
+          id="v539_cf_tracking_firefox_relnote" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">fennec</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_blocking_fennec-dirty">
+  <select id="cf_blocking_fennec" name="cf_blocking_fennec">
+        <option value="---"
+          id="v655_cf_blocking_fennec" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">thunderbird_esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_thunderbird_esr52-dirty">
+  <select id="cf_tracking_thunderbird_esr52" name="cf_tracking_thunderbird_esr52">
+        <option value="---"
+          id="v3065_cf_tracking_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_thunderbird_esr52-dirty">
+  <select id="cf_status_thunderbird_esr52" name="cf_status_thunderbird_esr52">
+        <option value="---"
+          id="v3087_cf_status_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox_esr52-dirty">
+  <select id="cf_tracking_firefox_esr52" name="cf_tracking_firefox_esr52">
+        <option value="---"
+          id="v3103_cf_tracking_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr52-dirty">
+  <select id="cf_status_firefox_esr52" name="cf_status_firefox_esr52">
+        <option value="---"
+          id="v3132_cf_status_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox56</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox56-dirty">
+  <select id="cf_tracking_firefox56" name="cf_tracking_firefox56">
+        <option value="---"
+          id="v3271_cf_tracking_firefox56" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox56-dirty">
+  <select id="cf_status_firefox56" name="cf_status_firefox56">
+        <option value="---"
+          id="v3276_cf_status_firefox56" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox57</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox57-dirty">
+  <select id="cf_tracking_firefox57" name="cf_tracking_firefox57">
+        <option value="---"
+          id="v3286_cf_tracking_firefox57" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox57-dirty">
+  <select id="cf_status_firefox57" name="cf_status_firefox57">
+        <option value="---"
+          id="v3291_cf_status_firefox57" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox58</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox58-dirty">
+  <select id="cf_tracking_firefox58" name="cf_tracking_firefox58">
+        <option value="---"
+          id="v3451_cf_tracking_firefox58" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox58-dirty">
+  <select id="cf_status_firefox58" name="cf_status_firefox58">
+        <option value="---"
+          id="v3441_cf_status_firefox58" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-details"
+>
+    <header id="module-details-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Details section"
+           data-label-collapsed="Expand Details section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-details-content"
+             aria-expanded="false"
+             aria-labeledby="module-details-title"
+             aria-describedby="module-details-subtitle"></div>
+        <h2 class="module-title" id="module-details-title">Details</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-details-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-status_whiteboard"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/Whiteboard" id="status_whiteboard-help-link" class="help">Whiteboard:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-status_whiteboard">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#votes" id="-help-link" class="help">Votes:
+        </a>
+    </div>
+
+  
+    <div class=" container">0
+        votes
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-cf_qa_whiteboard" style="display:none"
+>
+    <div class="name">QA Whiteboard:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_qa_whiteboard">
+        ---
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_regression_range" style="display:none"
+>
+    <div class="name">Has Regression Range:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_regression_range">
+            ---
+
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_str" style="display:none"
+>
+    <div class="name">Has STR:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_str">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field edit-show" id="field-bug_file_loc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_file_loc" id="bug_file_loc-help-link" class="help">URL:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_file_loc"><a href="" target="_blank"
+     rel="noreferrer" title=""
+     class="bug-url" data-safe="0"
+  ></a>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-see_also" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#see_also" id="see_also-help-link" class="help">See Also:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-see_also">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-cf_crash_signature" style="display:none"
+>
+    <div class="name">Crash Signature:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_crash_signature">
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-security"
+>
+    <header id="module-security-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Security section"
+           data-label-collapsed="Expand Security section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-security-content"
+             aria-expanded="false"
+             aria-labeledby="module-security-title"
+             aria-describedby="module-security-subtitle"></div>
+        <h2 class="module-title" id="module-security-title">Security</h2>
+          <h3 class="module-subtitle" id="module-security-subtitle">
+            (public)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-security-content" style="display:none"
+  ><div class="groups edit-hide">
+    This bug is publicly visible.
+</div>
+
+<div class="groups edit-show" style="display:none">
+
+
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-user-story" data-non-stick="1"
+>
+    <header id="module-user-story-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse User Story section"
+           data-label-collapsed="Expand User Story section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-user-story-content"
+             aria-expanded="false"
+             aria-labeledby="module-user-story-title"
+             aria-describedby="module-user-story-subtitle"></div>
+        <h2 class="module-title" id="module-user-story-title">User Story</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-user-story-content" style="display:none"
+  >
+    <pre id="user-story"></pre>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="module" id="module-attachments"
+>
+    <header id="module-attachments-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Attachments section"
+           data-label-collapsed="Expand Attachments section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-attachments-content"
+             aria-expanded="true"
+             aria-labeledby="module-attachments-title"
+             aria-describedby="module-attachments-subtitle"></div>
+        <h2 class="module-title" id="module-attachments-title">Attachments</h2>
+          <h3 class="module-subtitle" id="module-attachments-subtitle">
+            (1 attachment)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-attachments-content"
+  ><table role="table" class="layout-table" id="attachments">
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8379828">plan_accès_mérignac.pdf</a>
+        </div>
+        <div>
+            <a href="#c0" class="attach-time activity-ref"><span class="rel-time" title="2014-02-21 09:44 PST" data-time="1393004687">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_431052" ><a class="email " href="user_profile?user_id=431052" > <span class="fna">David</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">543.10 KB,
+          application/pdf        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8379828&amp;action=edit">Details</a>
+    </tr>
+</table>
+
+<div id="attachments-actions">
+</div>
+  </div>
+</section>
+
+
+
+<script nonce="WaqhPddimkQa6x6uxWzIBN0Do1dSIAi101ryKJ53tKzoiUls">
+  init_module_visibility();
+</script>
+
+
+
+
+
+
+<div id="comment-actions">
+    <button type="button" id="bottom-btn" class="minor">Bottom &darr;</button>
+  <div class="dropdown">
+    <button type="button" id="comment-tags-btn" arai-haspopup="true" aria-label="Tags Menu"
+      aria-expanded="false" aria-controls="comment-tags-menu" class="dropdown-button minor">Tags &#9662;</button>
+    <ul id="comment-tags-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a role="menuitem" tabindex="-1" data-comment-tag="">Reset</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button type="button" id="view-menu-btn" arai-haspopup="true" aria-label="View Menu"
+      aria-expanded="false" aria-controls="view-menu" class="dropdown-button minor">View &#9662;</button>
+    <ul id="view-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-reset" role="menuitem" tabindex="-1">Reset</a>
+      </li>
+      <li role="presentation">
+        <a id="view-collapse-all" role="menuitem" tabindex="-1">Collapse All</a>
+      </li>
+      <li role="presentation">
+        <a id="view-expand-all" role="menuitem" tabindex="-1">Expand All</a>
+      </li>
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-comments-only" role="menuitem" tabindex="-1">Comments Only</a>
+      </li>
+      <li role="presentation">
+        <a id="view-toggle-cc" role="menuitem" tabindex="-1">Show CC Changes</a>
+      </li>
+    </ul>
+   </div>
+</div>
+<div class="change-set" id="c0"><div class="comment" data-id="8448974" data-no="0">
+    
+    <table class="layout-table change-head reporter" id="ch-0">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_431052" ><img src="https://secure.gravatar.com/avatar/a47abb23688133dc9724c1b3b91428f5?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_431052" ><a class="email " href="user_profile?user_id=431052" > <span class="fna">David</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-0">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-0" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#c0">Description</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-21 09:44 PST" data-time="1393004687">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-0">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-0">Created <span class=""><a href="attachment.cgi?id=8379828" name="attach_8379828" title="plan_accès_mérignac.pdf">attachment 8379828</a> <a href="attachment.cgi?id=8379828&amp;action=edit" title="plan_accès_mérignac.pdf">[details]</a></span>
+plan_accès_mérignac.pdf
+
+User Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0 (Beta/Release)
+Build ID: 20140212131424
+
+Steps to reproduce:
+
+Open Firefox on Windows.
+Open the attached file with the native pdf viewer.
+
+
+Actual results:
+
+Firefox starts opening blank tabs after tabs in a very rapid way and never stops.
+
+Click on the red cross to close the program does not work.
+Killing the process in the task manager stops the current thread, but then another thread spawns and reopens a firefox window that continues opening tabs.
+I've been lucky once and was oable to kill them both in rapid succession: that stopped firefox for good. When I opened firefox again manually it behaved properly.
+
+
+Expected results:
+
+Firefox should have displayed the file.
+I loaded this file on libreoffice and it displayed fine, so I'm sure this is a valid file.</pre></div><div class="change-set" id="c1"><div class="comment" data-id="9086879" data-no="1">
+    
+    <table class="layout-table change-head " id="ch-1">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_512310" ><img src="https://secure.gravatar.com/avatar/18ac0fea98cf6357e676f8b5838cb5d8?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_512310" ><a class="email " href="user_profile?user_id=512310" > <span class="fna">rob.hawkins</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-1">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-1" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#c1">Comment 1</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-22 13:25 PDT" data-time="1406060746">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-1">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-1">I experience a similar problem where an image file is saved (for whatever reason) as a pdf AND .pdf extensions are opened with firefox as the default, the tabs will open as described above.  In windows explorer the file type was described as a Firefox HTML Document.</pre><div class="activity cc-only" style="display:none"><div class="change">CC: rob.hawkins</div></div></div><div class="change-set" id="c2"><div class="comment" data-id="9718505" data-no="2">
+    
+    <table class="layout-table change-head " id="ch-2">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_399155" ><img src="extensions/Gravatar/web/default.jpg" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_399155" ><a class="email " href="user_profile?user_id=399155" > <span class="fna">thynnmas</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-2">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-2" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#c2">Comment 2</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-12-20 04:10 PST" data-time="1419077411">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-2">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-2">(In reply to David from <a href="show_bug.cgi?id=975461#c0">comment #0</a>)
+
+Had the same issue in Nightly for the last week and appears to be related to the settings for PDF opening. Had this set to an external reader, and it would infinitely attempt to open it without success. Setting it back to &quot;preview in firefox&quot; solved the issue.</pre><div class="activity cc-only" style="display:none"><div class="change">CC: thynnmas</div></div></div><div class="change-set" id="a34882271_337567"><div class="change" id="aa34882271_337567">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_337567" id="a34882271_337567"><img src="https://secure.gravatar.com/avatar/2428b7c7c861741c7f1f60033a9bb0f0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_337567" id="a34882271_337567"><a class="email " href="user_profile?user_id=337567" > <span class="fna">Loic</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a34882271_337567">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a34882271_337567">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#a34882271_337567">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-04-01 04:15 PDT" data-time="1427886958">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity cc-only" style="display:none"><div class="change">CC: bhearsum</div></div><div class="activity"><div class="change">Duplicate of this bug: <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - firefox went nuts when opening a pdf"
+   href="show_bug.cgi?id=1138431">1138431</a></div></div></div><div class="change-set" id="a34885305_259016"><div class="change" id="aa34885305_259016">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_259016" id="a34885305_259016"><img src="https://secure.gravatar.com/avatar/2bb0ca53105183631a435b12682ef49e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_259016" id="a34885305_259016"><a class="email " href="user_profile?user_id=259016" > <span class="fna">Ben Hearsum (:bhearsum)</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a34885305_259016">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a34885305_259016">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#a34885305_259016">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-04-01 05:06 PDT" data-time="1427889992">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Status: UNCONFIRMED &rarr; NEW</div><div class="change">Ever confirmed: true</div></div></div><div class="change-set" id="a34982801_337567"><div class="change" id="aa34982801_337567">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_337567" id="a34982801_337567"><img src="https://secure.gravatar.com/avatar/2428b7c7c861741c7f1f60033a9bb0f0?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_337567" id="a34982801_337567"><a class="email " href="user_profile?user_id=337567" > <span class="fna">Loic</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a34982801_337567">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a34982801_337567">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#a34982801_337567">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-04-02 08:11 PDT" data-time="1427987488">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity cc-only" style="display:none"><div class="change">CC: adrien.vannson</div></div><div class="activity"><div class="change">Duplicate of this bug: <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - Firefox open a lot of tabs when I open a pdf"
+   href="show_bug.cgi?id=1150117">1150117</a></div></div></div><div class="change-set" id="c5"><div class="comment" data-id="11494373" data-no="5">
+    
+    <table class="layout-table change-head " id="ch-5">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_156997" id="a34982801_337567"><img src="https://secure.gravatar.com/avatar/6ab46950e13e13bb152bdfafacf42bb6?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_156997" id="a34982801_337567"><a class="email " href="user_profile?user_id=156997" > <span class="fna">chbok</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-5">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-5" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=975461#c5">Comment 5</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2016-06-22 00:47 PDT" data-time="1466581627">a year ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-5">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-5">I just experiment this bug and it's awful. Endless opening blank tab, even i modified the &quot;preview in firefox&quot; in options, or thru about:config where i re-init pdf's opening options.
+I try opening several pdf's docs.
+(Firefox 47.0 - windows 7)</pre><div class="activity cc-only" style="display:none"><div class="change">CC: chbok</div></div></div><div id="new-comment-notice">
+          You need to <a href="show_bug.cgi?id=975461&amp;GoAheadAndLogIn=1">log in</a>
+          before you can comment on or make changes to this bug.
+        </div>
+
+
+
+<div id="bottom-actions">
+  <div id="bottom-right-actions">
+    <button type="button" id="top-btn" class="minor">Top &uarr;</button>
+    <div class="dropdown">
+      <button type="button" id="format-btn" aria-haspopup="true" aria-label="Format Bug Menu"
+        aria-expanded="false" aria-controls="format-menu" class="dropdown-button minor">Format Bug &#9652;</button>
+      <ul class="dropdown-content menu-up" id="format-menu" role="menu" style="display:none;">
+        <li role="presentation">
+          <a href="show_bug.cgi?format=multiple&amp;id=975461" role="menuitem" tabindex="-1">For Printing</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?ctype=xml&amp;id=975461" role="menuitem" tabindex="-1">XML</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?format=default&amp;id=975461" role="menuitem" tabindex="-1">Legacy</a>
+        </li>
+          <li role="presentation">
+            <a href="rest/bug/975461" role="menuitem" tabindex="-1">JSON</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+
+
+<div id="footer">
+  <div class="intro"></div>
+
+
+
+
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_bottom" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_bottom"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+  </li>
+
+  
+    
+
+  
+
+
+  
+</ul>
+
+  <div class="outro"><div id="policy_links">
+  <ul>
+    <li id="privacy_notice">
+      <a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Notice</a> |
+    </li>
+    <li id="legal_terms">
+      <a href="https://www.mozilla.org/about/legal/terms/mozilla" target="_blank">Legal Terms</a>
+    </li>
+  </ul>
+</div></div>
+</div>
+
+
+</body>
+</html>

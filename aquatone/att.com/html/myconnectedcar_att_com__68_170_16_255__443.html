@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app" class="backseat" ng-class="{'learn-page': isLearnPage }">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="robots" content="INDEX,NO-FOLLOW">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+        <!-- WEBTRENDS AND TAGGING META -->
+        <meta name="DCSext.wtPN" content="" />
+
+        <!-- MOBILE DEVICE SETTINGS -->
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <!--[if IE 9]>
+        <title>AT&amp;T &#45; Mobilizing Your World&#8482;</title>
+        <![endif]-->
+        <!--[if lt IE 9]>
+        <title>AT&amp;T &#45; Mobilizing Your World&#8482;</title>
+        <![endif]-->
+        <title ng-bind-html="'lbl-portal-title-text' | translate">AT&amp;T &#45; Mobilizing Your World&#8482;</title>
+
+        <!-- PRODUCT ICON -->
+        <!--Standard fav icon-->
+        <!-- <link rel="shortcut icon" href="http://www.att.com/favicon.ico"/>-->				
+		<link rel="shortcut icon" href="favicon.ico" />
+        <!-- non-retina iPhone pre iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-57.png" sizes="57x57">
+        <!-- non-retina iPad pre iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-72.png" sizes="72x72">
+        <!-- non-retina iPad iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-76.png" sizes="76x76">
+        <!-- retina iPhone pre iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-114.png" sizes="114x114">
+        <!-- retina iPhone iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-120.png" sizes="120x120">
+        <!-- retina iPad pre iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-144.png" sizes="144x144">
+        <!-- retina iPad iOS 7 -->
+        <link rel="apple-touch-icon" href="//www.att.com/styles/att/assets3.1.0/images/icon-152.png" sizes="152x152">
+        <script>
+            (function () {
+                if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                    var msViewportStyle = document.createElement("style");
+                    msViewportStyle.appendChild(document.createTextNode("@-ms-viewport{width:auto!important}"));
+                    document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+                }
+            })();
+        </script>
+ <script type="text/javascript">
+    // IE9 fix
+    if(!window.console) {
+        var console = {
+            log : function(){},
+            warn : function(){},
+            error : function(){},
+            time : function(){},
+            info : function(){},
+            timeEnd : function(){},
+            debug: function(){}
+        }
+    }
+</script>
+        <!--[if lt IE 9]>
+            <script src="//www.att.com/styles/att/assets3.1.0/js/respond.js"></script>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <link href="./css/web/drive-portal-ie.css" rel="stylesheet" />
+        <![endif]-->
+        
+        <!--[if IE 9]>
+        	<link href="./css/web/drive-portal-ie.css" rel="stylesheet" />
+        <![endif]-->
+
+        <!-- Sandbox 3 Styles (additional css/script files will be loaded depending on the device look into app.js) -->
+        <link href="./css/bootstrap-datepicker.css" rel="stylesheet" />
+        <link href="./css/bootstrap-promos.css" rel="stylesheet" />
+        <link href="./css/carouselStyles.css" rel="stylesheet" />
+        <link href="./css/mod-cc-input-field.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/form-validation-styles.css">
+
+        <!-- Custom css -->
+        <!--<link href="/css/animations.css" rel="stylesheet" />-->
+
+        <link rel="stylesheet" href="./css/step-indicator.css"/>
+        <link rel="stylesheet" href="./css/ngToast.css" />
+
+        <!-- WiFi Activation styles -->
+        <!--moved this to app.js, because it needs to be loaded last-->
+        <!--<link rel="stylesheet" href="/backseat/styles/backseat-styles.css" />-->
+
+
+        <!-- Sandbox UI Toolkit -->
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/jquery.cookie.js"></script>
+        <!--<script src="/js/mobileMenuShunt-1.0.js"></script>-->
+        <script src="./js/global-sandbox.js"></script>
+
+        <link rel="stylesheet" href="css/font-awesome.css" />
+        <link rel="stylesheet" href="./css/ie-common.css" />
+
+
+		<style type="text/css">
+
+			.faq-accordion{
+				margin-bottom: 30px;
+			}
+
+			.faq-accordion-item{
+				margin-top: 10px;
+			}
+
+			.faq-field-title {
+				padding-left: 45px;
+				background: url('images/right-arrow-elipse.png') no-repeat left 5px;
+				min-height: 43px;
+			}
+
+			.faq-field-title.activeFaq{
+				background: url('images/bottom-arrow-elipse.png') no-repeat left 5px;
+			}
+
+			.faq-field-title a{
+				color: #777777;
+				font: 18px "omnes_att_iilight", "omnes";
+				font-weight: normal;
+				text-decoration: none;
+				cursor: pointer;
+				margin-top: 10px;
+				display: inline-block;
+			}
+
+			.faq-field-title a:hover{
+				color: #777777;
+				text-decoration: none;
+			}
+
+			.faq-accordion-content{
+				padding-left: 45px;
+				color: #666666;
+			}
+
+			.faq-accordion-content{
+				display: none;
+			}
+
+			.faq-accordion-content p:last-child{
+				margin-top: 10px;
+			}
+
+		</style>
+
+    </head>
+
+    <body >
+
+        <div  ng-controller="LayoutController as vm" data-ng-view=""></div>
+        <div data-loader=""></div>
+
+        <modal-message visible="showModal"></modal-message>
+
+        <!--<div data-role="page" class="container main-container" ng-controller="LayoutController as vm" ng-cloak="">
+
+            <div data-ng-if="!vm.showAuthenticatedContent">
+                <div data-ng-view=""></div>
+            </div>
+            <div data-ng-if="vm.showAuthenticatedContent">
+                <div data-ng-view=""></div>
+            </div>
+
+            <div data-loader=""></div>
+        </div>-->
+
+        <!-- Angular scripts -->
+        <script src="./js/angular-1.3.9/angular.js"></script>
+        <script src="./js/angular-1.3.9/angular-resource.js"></script>
+        <script src="./js/angular-1.3.9/angular-sanitize.js"></script>
+        <script src="./js/angular-1.3.9/angular-route.js"></script>
+        <script src="./js/angular-1.3.9/angular-animate.js"></script>
+        <script src="./js/angular-1.3.9/angular-touch.js"></script>
+        <script src="./js/angular-translate/angular-translate.min.js"></script>
+        <script src="./js/angular-translate/angular-translate-loader-url.min.js"></script>
+        <script src="./js/angular-translate/angular-translate-loader-static-files.min.js"></script>
+
+        <!-- Sandbox 3 Bootstrap AngularJS Directives-->
+        <script src="./js/ui-bootstrap/ui-bootstrap-tpls-0.7.0-SNAPSHOT.js"></script>
+        <!--<script src="/js/ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>-->
+        <!-- Underscore -->
+
+        <script src="./js/underscore-1.6.0/underscore.js"></script>
+        <script src="./js/underscore.string.js"></script>
+
+
+        <!-- Device detection script -->
+        <script src="./js/device.js"></script>
+
+        <!-- Dynamic JS/CSS scripts loading service -->
+        <script src="./js/angular-load.min.js"></script>
+
+
+        <!-- Custom JS -->
+        <script src="./common/extension/localStorage.js"></script>
+        <script src="./common/extension/array.js"></script>
+        <script src="./common/extension/string.js"></script>
+
+        <!-- Third party JS -->
+        <script src="./js/moment.min.js"></script>
+        <script src="js/ngToast.js"></script>
+        <script src="js/waypoints/jquery.waypoints.min.js"></script>
+        <script src="js/waypoints/shortcuts/inview.min.js"></script>
+
+        <!-- Angular UUID/GUID generator service -->
+        <script src="./js/angular-uuid2/angular-uuid2.js"></script>
+
+        <!-- Application scripts -->
+        <script src="./app.js"></script>
+
+        <script src="./backseat/controllers/backseatControllerScript.min.js"></script>
+        <script src="./backseat/services/backseatsevices.js"></script>
+        <script src="./backseat/services/backseatseviceSteps.min.js"></script>
+        <script src="./authentication/controllers/authenticationControllerScript.min.js"></script>
+
+        <script src="./common/constants.js"></script>
+
+        <!-- Modules -->
+        <!-- Services -->
+        <script src="./user/services/userService.js"></script>
+        <script src="./common/services/underscoreService.js"></script>
+        <script src="./common/services/helperService.js"></script>
+        <script src="./common/services/modalFlowService.js"></script>
+        <script src="./common/services/addressValidationService.js"></script>
+
+        <!--<script src="./backseat/services/backseatService.js"></script>
+        <script src="./backseat/services/trialRegistrationService.js"></script>
+        <script src="./backseat/services/purchaseWifiService.js"></script>
+        <script src="./backseat/services/purchaseWifiStepsFactory.js"></script>
+        <script src="./backseat/services/trialRegistrationStepsFactory.js"></script>
+        <script src="./backseat/services/accountManagementService.js"></script>
+        <script src="./backseat/services/accountManagementStepsFactory.js"></script>
+        <script src="./backseat/services/newVehicleStepsFactory.js"></script>
+        <script src="./backseat/services/newVehicleService.js"></script>
+        <script src="./backseat/services/resetPasswordStepsFactory.js"></script>
+        <script src="./backseat/services/resetUserIdStepsFactory.js"></script>
+        <script src="./backseat/services/accountRegistrationService.js"></script>
+        <script src="./backseat/services/accountRegistrationStepsFactory.js"></script>
+        <script src="./backseat/services/wifiDashboardService.js"></script>
+        <script src="./backseat/services/orderHistoryService.js"></script>
+        <script src="./backseat/services/orderHistoryStepsFactory.js"></script>
+        <script src="./backseat/services/userManagementService.js"></script>
+        <script src="./backseat/services/userManagementStepsFactory.js"></script>
+        <script src="./backseat/services/manageDataService.js"></script>
+        <script src="./backseat/services/manageDataStepsFactory.js"></script>
+        <script src="./backseat/services/paymentManagementService.js"></script>
+        <script src="./backseat/services/paymentManagementStepsFactory.js"></script>
+        <script src="./backseat/services/termsAndConditionsStepsFactory.js"></script>
+        <script src="./backseat/services/privacyPolicyStepsFactory.js"></script>
+        <script src="./backseat/services/trialActivationStepsFactory.js"></script>
+        <script src="./backseat/services/trialActivationService.js"></script>
+        <script src="./backseat/services/trialEmailActivationStepsFactory.js"></script>
+        <script src="./backseat/services/trialEmailActivationService.js"></script>
+        <script src="./backseat/services/resetPasswordService.js"></script>
+        <script src="./backseat/services/resetPasswordEmailStepsFactory.js"></script>
+        <script src="./backseat/services/clientTokenService.js"></script>
+        <script src="./backseat/services/customLanguageService.js"></script>
+
+        <script src="./authentication/controllers/layoutController.js"></script>
+        <script src="./authentication/controllers/footerController.js"></script>
+        <!-- Controllers -->
+      <!--  <script src="./backseat/controllers/backseatLoginController.js"></script>
+        <script src="./authentication/controllers/layoutController.js"></script>
+        <script src="./authentication/controllers/footerController.js"></script>
+        <script src="./backseat/controllers/passwordForgotController.js"></script>
+        <script src="./backseat/controllers/backseatLoginController.js"></script>
+        <script src="./backseat/controllers/backseatStartController.js"></script>
+        <script src="./backseat/controllers/readCountryOEMController.js"></script>-->
+
+        <!-- Directives -->
+        <script src="./common/directives/backButton.js"></script>
+        <script src="./common/directives/navigationMenu.js"></script>
+        <script src="./common/directives/usStates.js"></script>
+        <script src="./common/directives/creditCard.js"></script>
+        <script src="./common/directives/driver-pin-input.js"></script>
+        <script src="./common/directives/ngNumber.js"></script>
+        <script src="./common/directives/loader.js"></script>
+        <script src="./common/directives/modal.js"></script>
+        <script src="./common/directives/compareTo.js"></script>
+        <script src="./common/directives/notEqual.js"></script>
+        <script src="./common/directives/ngPasswordStrength.js"></script>
+        <script src="./common/directives/scrollDetector.js"></script>
+        <script src="./backseat/directives/dashboardSection.js"></script>
+        <script src="./backseat/directives/attDashboardTabs.js"></script>
+        <script src="./common/directives/canadaStates.js"></script>
+        <script src="./common/directives/attPasswordInput.js"></script>
+        <script src="./common/directives/printDirective.js"></script>
+        <script src="./common/directives/onlyDigit.js"></script>
+
+        <!-- Filters -->
+        <script src="./common/filters/mobilePhoneFilter.js"></script>
+        <script src="./common/filters/creditCardFilter.js"></script>
+        <script src="./common/filters/htmlToTextFilter.js"></script>
+        <script src="./common/filters/securityQuestionsFilter.js"></script>
+        <script src="./common/filters/msisdnMask.js"></script>
+        <script src="./common/filters/customCurrencyFilter.js"></script>
+
+        <!-- WiFi Activation scripts -->
+      <!--  <script src="./backseat/controllers/wifiInactiveController.js"></script>
+        <script src="./backseat/controllers/wifiConnectedController.js"></script>
+        <script src="./backseat/controllers/wifiRegisterTrialController.js"></script>
+        <script src="./backseat/controllers/learnPageController.js"></script>
+        <script src="./backseat/controllers/wifiRoamingController.js"></script>
+        <script src="./backseat/controllers/subscriptionExpiredController.js"></script>
+        <script src="./backseat/controllers/wifiTrialExpiredController.js"></script>
+        <script src="./backseat/controllers/wifiDashboardController.js"></script>-->
+
+		<script>
+			jQuery(window).load(function(){
+				function detectIE() {
+						var ua = window.navigator.userAgent;
+
+						var msie = ua.indexOf('MSIE ');
+						if (msie > 0) {
+						// IE 10 or older => return version number
+						return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+						}
+
+						var trident = ua.indexOf('Trident/');
+						if (trident > 0) {
+						// IE 11 => return version number
+						var rv = ua.indexOf('rv:');
+						return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+						}
+
+						var edge = ua.indexOf('Edge/');
+						if (edge > 0) {
+						   // IE 12 => return version number
+						   return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+						}
+
+						// other browser
+						return false;
+				}
+
+				if(detectIE()){
+					$('body').addClass('ie');
+				}
+			});
+
+		</script>
+
+
+
+    </body>
+
+</html>

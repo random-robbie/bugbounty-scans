@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Redirect page to default "en" when JS Disabled Case-->
+<meta id="refresh" http-equiv="Refresh" content="5;URL=en/index.htm" />
+
+<script type="text/javascript" src="https://na1.mobileiron.com/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript" language="javascript">
+
+//Remove JS Disabled redirection, when we reach here...
+$('#refresh').remove();
+
+//Default Lang
+var defaultLang = "en";
+
+//Fetch browser language
+$.ajax({
+url: "http://na1.mobileiron.com/api/v1/about/accept-language",
+//url: 'http://localhost:8080/polaris/api/v1/about/accept-language', //DEV URL
+dataType: 'jsonp',
+success: function(result)
+{ var lang = result.httpHeaderAcceptLanguage; lang = lang.split(';')[0]; gotoLocalizedHelp(lang, result.defaultLocaleLanguage); }
+
+,
+error: function()
+{ //Fallback, detect using host objects var userLang = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage); gotoLocalizedHelp(userLang, defaultLang); }
+
+});
+
+//Redirect
+function gotoLocalizedHelp(lang, defaultLang){
+
+lang = lang.split(',')[0];
+
+switch (lang)
+{ case "en": case "en-gb": case "de": case "fr": case "hr": case "it": case "cn": case "es": case "fr": case "hr": case "it": case "jp": case "ko": case "pb": case "tw": window.location.href = lang + '/index.htm'; break; default: window.location.href = defaultLang + '/index.htm'; break; }
+
+}
+</script>
+
+</head>
+<body>
+</body>
+</html>

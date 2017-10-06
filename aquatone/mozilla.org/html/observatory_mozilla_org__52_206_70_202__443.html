@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="April King">
+    <meta name="description" content="Observatory by Mozilla is a project designed to help developers, system administrators, and security professionals configure their sites safely and securely.">
+    <meta property="og:title" content="Observatory by Mozilla">
+
+    <!-- favicon stuff -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="196x196" href="/images/favicons/favicon-196x196.png">
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+
+    <title>Observatory by Mozilla</title>
+
+    <link rel="stylesheet" href="css/bootstrap-3.3.7.min.M4BawzpX2gZqpVcQ1m-1u-phtpgCuUP8wgn-fDlFPR8=.css" type="text/css" integrity="sha256-M4BawzpX2gZqpVcQ1m+1u+phtpgCuUP8wgn+fDlFPR8=" />
+    <link rel="stylesheet" href="css/httpobs.XD27OTZeTOtO9e2L_mE9Cx98sCJ2jzUPRCa_C-kh0Ek=.css" type="text/css" integrity="sha256-XD27OTZeTOtO9e2L/mE9Cx98sCJ2jzUPRCa/C+kh0Ek=" />
+</head>
+<body>
+    <div class="hidden alert alert-success text-center" id="redirect-banner">
+        You've found the Observatory development site. Were you looking for <a id="redirect-banner-url" href="https://observatory.mozilla.org">the official website</a>?
+    </div>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div id="navbar-container" class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="."><img id="observatory-wordmark" src="images/observatory-wordmark.svg" alt="Observatory by Mozilla"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href=".">Home</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="statistics.html">Statistics</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://github.com/mozilla/http-observatory/blob/master/httpobs/docs/api.md">API Documentation</a></li>
+                            <li><a href="https://github.com/mozilla/http-observatory-website/">Contribute at GitHub</a></li>
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="terms.html">Legal &amp; Privacy</a></li>
+                            <li><a href="https://github.com/mozilla/http-observatory/blob/master/httpobs/docs/scoring.md">Scoring Methodology</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main content -->
+    <div class="container">
+        
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 margin-bottom">
+            <h1 id="whatami" class="h5 margin-bottom">
+                Observatory by Mozilla has helped <span id="stats-numImprovedSites">over 80,000</span> websites by teaching developers, system administrators, and security professionals how configure their sites safely and securely.
+            </h1>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading"><span class="h3">Scan your site</span></div>
+                <div class="panel-body no-popover-mobile">
+                    <div class="alert alert-danger alert-hidden" id="scan-alert" role="alert">
+                        <strong>Error: </strong>
+                        <span id="scan-alert-text"></span>
+                    </div>
+                    <div class="alert alert-danger alert-hidden" id="scan-alert-ip" role="alert">
+                        <strong>Error: </strong>
+                        <span>It appears that <span id="scan-alert-ip-address"></span> is an IP address, which only works for SSH scans. If this is what you intended, please <a id="scan-alert-ip-link">click here</a> to continue.</span>
+                    </div>
+                    <form id="scantron-form">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="scan-input-hostname" placeholder="enter domain name here"
+                                       autocorrect="off" autocapitalize="off" spellcheck="false">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-default pull-right">Scan Me</button>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label title="Stealth scans" data-toggle="popover" data-content="Don't want your site to appear in the lists below? Not a problem!">
+                                <input type="checkbox" id="scan-btn-hidden">Don't include my site in the public results
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label title="Make some improvements?" data-toggle="popover" data-content="By default, any scan results from within the last 24 hours will be returned.<br><br>If you've made some changes, the Mozilla Observatory allows you to rescan your site up to every five minutes.">
+                                <input type="checkbox" id="scan-btn-rescan">Force a rescan instead of returning cached results
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label title="Third-party scanners" data-toggle="popover" data-content="The Mozilla Observatory integrates with a variety of third-party scanners to provide you additional security insights.<br><br>Information about these scanners can be found in our FAQ.">
+                                <input type="checkbox" id="scan-btn-third-party">Don't scan with third-party scanners
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    <!--
+    <footer class="footer text-center">
+        <div class="container">
+            Licensed under the Mozilla Public License. Contribute on <a href="https://github.com/mozilla/http-observatory">GitHub</a>.
+        </div>
+    </footer>
+    -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" integrity="sha256-8E6QUcFg1KTnpEU8TFGhpTGHw5fJqB9vCms3OhAYLqw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" integrity="sha256-SiHXR50l06UwJvHhFY4e5vzwq75vEHH+8fFNpkXePr0=" crossorigin="anonymous"></script>
+    <script src="js/httpobs.UlMUC6O-O2U1ZvqG99PmQR4xT2L9RUMaDfOkXe7bykA=.js" integrity="sha256-UlMUC6O+O2U1ZvqG99PmQR4xT2L9RUMaDfOkXe7bykA="></script>
+    <script src="js/httpobs-utils.nxttnBymkr7MC-pbxnoaC58CJYx24obU1RvG_7v5RB8=.js" integrity="sha256-nxttnBymkr7MC+pbxnoaC58CJYx24obU1RvG/7v5RB8="></script>
+    <script src="js/httpobs-third-party.O_Ud1X5iT5mXsf3CEV0IDFDCJkQG0skQ34cDkmWfHP4=.js" integrity="sha256-O/Ud1X5iT5mXsf3CEV0IDFDCJkQG0skQ34cDkmWfHP4="></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>404 - Not Found</title>
+
+    <script>
+        function loadFallbackStylesheet(cssTestPropertyName, cssTestPropertyValue, fallbackHrefs, extraAttributes) {
+            var doc = document,
+                scriptElements = doc.getElementsByTagName("SCRIPT"),
+                meta = scriptElements[scriptElements.length - 1].previousElementSibling,
+                metaStyle = (doc.defaultView && doc.defaultView.getComputedStyle)
+                    ? doc.defaultView.getComputedStyle(meta)
+                    : meta.currentStyle,
+                i;
+            if (metaStyle && metaStyle[cssTestPropertyName] !== cssTestPropertyValue) {
+                for (i = 0; i < fallbackHrefs.length; i++) {
+                    doc
+                        .write('<link rel="stylesheet" href="' +
+                            fallbackHrefs[i] +
+                            '" ' +
+                            (extraAttributes || '') +
+                            '/>');
+                }
+            }
+        }
+
+        
+        //Adobe Analytics DataLayer
+        //Creates Datalayer Object on load and populates avaliable fields
+        var digitalData = window.digitalData ||
+        {
+            pageInfo: {},
+            vehicleInfo: {},
+            vistorProfile: {}
+        }
+        
+        //Element
+        var pc;
+
+        //Variables 
+        var pageTitle, userExperienceHelper, breakPoint; 
+        document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                pc = document.querySelector('#Customer_PostalCode');
+
+                //events
+                function addEvent(el, type, handler) {
+                    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
+                }
+                function removeEvent(el, type, handler) {
+                    if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
+                }
+
+                if (pc !== null) {
+                    addEvent(pc,
+                    'blur',
+                    function() {
+                        localStorage.setItem('dd_vistor', pc.value);
+                        digitalData.vistorProfile.zipcodeUS = localStorage.getItem('dd_vistor');
+                    });
+                }
+
+                /*responsive design*/
+                userExperienceHelper = {
+                    getBreakpoint: function() {
+                        var desktop = "Desktop"; var tablet = "Tablet";
+                        var phone = "Phone";
+                        var error = "Unable to determine"; 
+
+                        function isPhone() {
+                            var screenWidth = document.querySelector('body').getClientRects().item(0).width;
+                            return  (screenWidth <= 786) ? phone : isTablet(screenWidth);
+                        };
+                        function isTablet(width) {
+                            return  ((width > 786) && (width <= 992) ) ? tablet : isDesktop(width);
+                        };
+                        function isDesktop(width) {
+                            return (width > 992)
+                                ? desktop
+                                : error;
+                        };
+                       
+                        return isPhone();
+                    }    
+                };
+
+                //seoStrategyPageName
+                pageTitle = document.getElementsByClassName('banner-heading__text').item(0).innerText; 
+
+               
+                digitalData.pageInfo.renderedExperience = userExperienceHelper.getBreakpoint();
+
+                //Page Title
+                digitalData.pageInfo.seoStrategyPageName = pageTitle;
+
+                //VehicleInfo (currently using Bandit data)
+        
+                var banditData = document.getElementById('BanditContainer');
+                if (banditData) {
+                    digitalData.vehicleInfo.modelName = banditData.dataset.model;
+                    digitalData.vehicleInfo.modelYear = banditData.dataset.year;
+                    
+                    banditData.addEventListener('changePage', function(e) {
+                        switch(e.detail.page) {
+                            case 'Vsr':
+                                digitalData.vehicleInfo.bodyStyle = '';
+                                digitalData.vehicleInfo.vehicleType = '';
+                                digitalData.vehicleInfo.trimLevel = '';
+                                digitalData.vehicleInfo.vin = '';
+                                break;
+                            case 'Vdp':
+                                digitalData.vehicleInfo.bodyStyle = e.detail.vehicle.Vehicle.BodyStyle;
+                                digitalData.vehicleInfo.vehicleType = "Car";
+                                digitalData.vehicleInfo.trimLevel = e.detail.vehicle.Vehicle.Trim;
+                                digitalData.vehicleInfo.vin = e.detail.vehicle.Vehicle.Vin;
+                                break;
+                        }
+                    });
+                }
+            }
+        }
+
+      
+        //determine Site Section Levels via regex and split
+        var url = window.location;
+        var sectionInfo = url.pathname.split('/').filter(function(string) { return string !== ""; });
+        var sectionLvls = sectionInfo.length;
+        var siteSections; //array
+        var brand = "Chevrolet";
+        var selectedLanguage = 'en';
+        var country; //dynamic
+        var countryCode; //dynamic
+        var region; //dynamic
+
+        //checkSection Levels count to determine if other levels values will be set.
+        digitalData.pageInfo.siteSectionsLevel1 = sectionInfo[0] == null ? "index" : sectionInfo[0];
+        digitalData.pageInfo.siteSectionsLevel2 = sectionInfo[1] == null ? "undefined" : sectionInfo[1];
+        digitalData.pageInfo.siteSectionsLevel3 = sectionInfo[2] == null ? "undefined" : sectionInfo[2];
+
+        siteSections = [
+            digitalData.pageInfo.siteSectionsLevel1, digitalData.pageInfo.siteSectionsLevel2,
+            digitalData.pageInfo.siteSectionsLevel3
+        ].filter(function(string) { return string !== "undefined"; });
+
+        digitalData.pageInfo.siteSectionsLevel5 = siteSections.join(":");
+
+        digitalData.pageInfo.pageName = "ch:na:" +
+            "us:en:affordability:" +
+            digitalData.pageInfo.siteSectionsLevel5;
+
+
+        digitalData.pageInfo.url = url.href;
+
+        /* website indentification */
+        digitalData.pageInfo.languageSelected = selectedLanguage;
+        digitalData.pageInfo.brand = brand;
+        digitalData.pageInfo.country = "US"; //country
+        digitalData.pageInfo.siteName = "affordabilityCheck_" + "us";
+        digitalData.pageInfo.region = "North America";
+
+        //ViewPort
+        digitalData.pageInfo.viewport = window.innerWidth + "x" + window.innerHeight;
+
+        //Page Orientation
+        if (window.innerWidth > window.innerHeight) {
+            digitalData.pageInfo.orientation = "landscape";
+        } else {
+            digitalData.pageInfo.orientation = "portrait";
+        }
+
+        //VistorInfo
+        if (digitalData.pageInfo.siteSectionsLevel1 !== 'index') {
+            digitalData.vistorProfile.zipcodeUS = localStorage.getItem('dd_vistor');
+        }
+    </script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <meta name="x-stylesheet-fallback-test" content="" class="sr-only">
+        <script>loadFallbackStylesheet("position", "absolute", ["/lib/bootstrap/dist/css/bootstrap.min.css"]);</script>
+    <link rel="stylesheet" href="/css/chevrolet/site.min.css" />
+
+    <script src="//assets.adobedtm.com/81e75e0d225e65a4860f48466627a6b696b9fc66/satelliteLib-ba57fcf7b032b885fa800165d26df1203ed27577.js"></script>
+
+    
+
+</head>
+<body>
+    <div class="body-wrapper">
+        <noscript>
+            <p class="browser-warning-message"><b><i>JavaScript is disabled.</i></b> Please enable JavaScript as it is required to use this site.</p>
+        </noscript>
+        <header class="banner">
+            <h1 class="banner-heading">
+                    <a href="http://www.chevrolet.com" class="banner-heading__logo stat-logo" target="_blank" data-dtm="header" data-dtm2="">
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source srcset="/images/chevrolet/chevrolet-brandmark-flush-left-270x71.png" media="(min-width: 1224px)" />
+                            <source srcset="/images/chevrolet/chevrolet-brandmark-flush-left-170x45.png, /images/chevrolet/chevrolet-brandmark-flush-left-340x89.png 2x" media="(min-width: 768px)" />
+                            <!--[if IE 9]></video><![endif]-->
+                            <img src="/images/chevrolet/chevrolet-brandmark-vertical-70x46.png" srcset="/images/chevrolet/chevrolet-brandmark-vertical-70x46.png, /images/chevrolet/chevrolet-brandmark-vertical-140x93.png 2x" alt="Chevrolet" />
+                        </picture>
+                    </a>
+                <span class="banner-heading__text">Affordability Check</span>
+            </h1>
+            
+    <div id="BannerHeroImage" class="banner-hero-image">
+    <h2 class="banner-hero-image__text">The resource you are looking for was not found.</h2>
+</div>
+
+<style>
+    .banner-hero-image {
+        background-image: url('https://storage.static-gm.com/Key: prequalprod.Exception.HeroImage.Mobile.Prod for LocaleId: en-US does not exist!');
+    }
+    @media (min-width: 768px) {
+        .banner-hero-image {
+            background-image: url('https://storage.static-gm.com/Key: prequalprod.Exception.HeroImage.Desktop.Prod for LocaleId: en-US does not exist!');
+        }
+    }
+</style>
+
+        </header>
+        <main class="main">
+            <section id="Preface" class="preface">
+                
+            </section>
+
+            
+
+
+
+<div class="main-panel">
+    <p>Affordability Check only supports the following vehicles, click one of the below links to browse that model.</p>
+            <ul class="error__link">
+                <li>
+                    <a href="https://ac-dmz-prdw.marketing.gm.com/Chevrolet/BoltEV/2017">2017 Chevrolet BoltEV</a>
+                </li>
+            </ul>
+            <ul class="error__link">
+                <li>
+                    <a href="https://ac-dmz-prdw.marketing.gm.com/Chevrolet/Cruze/2016">2016 Chevrolet Cruze</a>
+                </li>
+            </ul>
+            <ul class="error__link">
+                <li>
+                    <a href="https://ac-dmz-prdw.marketing.gm.com/Chevrolet/Cruze/2017">2017 Chevrolet Cruze</a>
+                </li>
+            </ul>
+
+</div>
+
+
+
+        </main>
+        <footer class="footer">
+            <div class="footer__supporting-brands">
+                    <picture class="supporting-brands__brand">
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source sizes="(min-width: 1224px) 270px, (min-width: 768px) 187px"
+                                srcset="/images/chevrolet/chevrolet-brandmark-flush-left-340x89.png 340w,
+                                /images/chevrolet/chevrolet-brandmark-flush-left-270x71.png 270w,
+                                /images/chevrolet/chevrolet-brandmark-flush-left-170x45.png 170w"
+                                media="(min-width: 768px)" />
+                        <!--[if IE 9]></video><![endif]-->
+                        <img sizes="56px" src="/images/chevrolet/chevrolet-brandmark-vertical-70x46.png" srcset="/images/chevrolet/chevrolet-brandmark-vertical-70x46.png 70w, /images/chevrolet/chevrolet-brandmark-vertical-140x93.png 140w" alt="Chevrolet" />
+                    </picture>
+                <img src="/images/experian-gm-financial-189x33.gif" sizes="(min-width: 1224px) 400px, (min-width: 768px) 276px, 189px"
+                     srcset="/images/experian-gm-financial-552x97.gif 552w,
+                        /images/experian-gm-financial-400x71.gif 400w,
+                        /images/experian-gm-financial-378X67.gif 378w,
+                        /images/experian-gm-financial-189x33.gif 189w"
+                     class="supporting-brands__brand"
+                     alt="Experian, GM Financial" />
+            </div>
+            <ul class="footer__links">
+                <li class="footer__link"><a href="http://www.gm.com/copyright-trademark.html" title="You are about to leave this site." target="_blank" class="stat-text-link" data-dtm="footer" data-dtm2="">Copyright &amp; Trademark</a></li>
+                <li class="footer__link"><a href="http://www.gm.com/privacy-statement.html" title="You are about to leave this site." target="_blank" class="stat-text-link" data-dtm="footer" data-dtm2="">GM Privacy Statement</a></li>
+                <li class="footer__link"><a href="http://www.chevrolet.com/important-information.html" title="You are about to leave this site." target="_blank" class="stat-text-link" data-dtm="footer" data-dtm2="">Important Information</a></li>
+                <li class="footer__link"><a href="http://www.chevrolet.com/user-guide-lines.html" title="You are about to leave this site." target="_blank" class="stat-text-link" data-dtm="footer" data-dtm2="">User Guidelines</a></li>
+                <li class="footer__link"><a href="#" id="_bapw-link" target="_blank" style="white-space: nowrap"><img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:text-top !important;padding-right:5px !important;" /><span>AdChoices</span></a></li>
+            </ul>
+            
+        </footer>
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.4.min.js"></script>
+        <script>
+            (window.jQuery||document.write("<script src='/lib/jquery/dist/jquery.min.js'><\/script>"));
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/jquery.validate.min.js"></script>
+        <script>
+            (window.jQuery && window.jQuery.fn && window.jQuery.fn.validate||document.write("<script src='/lib/jquery-validation/dist/jquery.validate.min.js'><\/script>"));
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
+        <script>
+            (window.picturefill||document.write("<script src='/lib/picturefill/dist/picturefill.min.js'><\/script>"));
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal||document.write("<script src='/lib/bootstrap/dist/js/bootstrap.min.js'><\/script>"));
+        </script>
+        
+
+        <script src="/js/site.min.js"></script>
+        
+        <script type="text/javascript">_satellite.pageBottom();</script>
+    </div>
+</body>
+</html>
+    
+
+

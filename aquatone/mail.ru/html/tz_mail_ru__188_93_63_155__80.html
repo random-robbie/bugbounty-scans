@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Онлайн игра TimeZero: ролевая online игра (MMORPG, RPG). Бесплатные онлайн игры.</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=windows-1251"/>
+	<meta name="keywords" content="игры бесплатно, бесплатная игра, скачать игры бесплатно, бесплатные онлайн игры, mmorpg, mmorpg игра, рпг, рпг игры, онлайн рпг, rpg, rpg игры, скачать rpg, игры онлайн, бесплатные онлайн игры, онлайн флеш игры, браузерная онлайн игра, лучшие онлайн игры, ролевые онлайн игры, интернет игры, мир онлайн игр, интересные игры, онлайновые игры, многопользовательские онлайн игры, многопользовательская ролевая игра, ролевые онлайн игры, бесплатные ролевые игры, online игры, бесплатные игры, rpg" />
+	<meta name="description" content="TimeZero - знаменитая постъядерная MMORPG. Тысячи игроков онлайн. Визуальная система боя, развитая экономика, сотни тысяч игровых локаций, широчайший выбор боевых и мирных профессий, десятки видов оружия и брони, множество квестов и секретных миссий!" />
+
+	<!--meta_like1--><script src="//connect.mail.ru/js/share/2/share.js" type="text/javascript"></script>
+<script type="text/javascript" src="//vkontakte.ru/js/api/share.js?5" charset="windows-1251"></script>
+<meta property="og:site_name" content="TimeZero. Мир, в котором хочется жить."/><meta property="og:title" content="Важная новость! Бонусы"/><meta property="og:image" content="/www/images/logo.timezero.png"/><meta name="mrc__share_title" content="TimeZero. Мир, в котором хочется жить."><meta name="mrc__share_description" content="Важная новость! Бонусы"><link rel="image_src" href="/www/images/logo.timezero.png" ><!--meta_like2-->
+	<link rel="icon" href="/favicon.ico?2" type="image/x-icon" />
+	<style type="text/css" media="all">@import "/www/styles/main.css"; @import "/www/styles/prettyPhoto.css";</style>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/news.rss" />
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="/www/styles/ie.css" /><![endif]-->
+	<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/www/styles/ie6.css" /><![endif]-->
+	<script type="text/javascript" src="/a/js/swfobject.js"></script>
+	<script type="text/javascript" src="/www/js/jquery.js"></script>
+
+</head>
+
+<script type="text/javascript">
+function setCookie (name, value, expires, path, domain, secure) {
+	document.cookie = name + "=" + escape(value) +
+	((expires) ? "; expires=" + expires : "") +
+	((path) ? "; path=" + path : "") +
+	((domain) ? "; domain=" + domain : "") +
+	((secure) ? "; secure" : "");
+}
+function GetCookie(cookie) {
+	//cookie=escape(cookie);
+	try {
+		var i1 = document.cookie.indexOf(cookie+"=");
+		if(i1<0) return "";
+		i1 += cookie.length+1;
+		var i2 = document.cookie.indexOf(";", i1);
+		if(i2<0) i2 = document.cookie.length;
+		return decodeURIComponent(document.cookie.substring(i1, i2));
+	} catch(e) {
+		//декодинга ошибка произошла тута.
+	}
+}
+</script>
+ 
+
+<body id="main_page" class="mailru  ">
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		CheckLogin();
+	});
+</script>
+	<div id="wrapper">
+	<div id="header">
+	<div class="inner">
+	<a href="/"><img src="/www/images/logo.timezero.png" alt="TimeZero - postnuclear online world - Точка отсчета" id="logo_img"/></a>
+<script type="text/javascript">
+if (location.host != location.host.replace("tz.mail.ru","")) {
+	document.write('<a id="logo_mailru" href="//www.mail.ru/"><img alt="Mail.Ru" src="/www/images/logo.mailru_logo.png"/></a>');
+}	
+
+function WriteFormLogin(login) {
+	document.getElementById('mailru_block').innerHTML = '<h2>Вход в игру</h2>'+
+	'<div class="content">'+
+	'<p>Вы уже зарегистрированы в игре как</p>'+
+	'<strong class="its_you">'+login+'</strong>'+
+	'<a href="https://auth.mail.ru/cgi-bin/logout?next=1&Page=https://tz.mail.ru/?from=logout&ref=main" class="change_login">сменить логин</a></div>'+
+	'<a href="//game.tz.mail.ru/" class="enter_button"><img src="/img/1x1.gif" alt="вход в игру" /></a>'+
+	'<div class="bg"></div>';
+}
+
+function WriteFormReg(mail) {
+	document.getElementById('mailru_block').innerHTML = '<h2>Вход в игру</h2>'+
+	'<div class="content">'+
+	'<strong class="its_you">'+mail+'</strong>'+
+	'<p>Вы авторизованы, но не зарегистрированы в игре</p>'+
+	'<a href="//swa.mail.ru/cgi-bin/logout?Page=//tz.mail.ru" class="change_login">сменить логин</a>'+
+	'</div>'+
+	'<a href="/promo/" class="reg_button"><img src="/img/1x1.gif" alt="регистрация" /></a>'+
+	'<div class="bg"></div>';
+}
+
+function WriteFormAuth(mail) {
+	document.getElementById('mailru_block').innerHTML = document.getElementById('auth_from_tpl').innerHTML;
+}
+function AuthMailRu() {
+	var mailru = $('#mailru').val().indexOf('@') > 0 ? $('#mailru').val() : ($('#mailru').val() + $('#domain').val());
+	if (mailru && $('#passwd').val()) {
+		$('#auth_form').attr('action','https://auth.mail.ru/cgi-bin/auth');
+		$('#auth_form').append('<input id="mairu_fakeauthpage" type="hidden" name="FakeAuthPage">');
+		$('#auth_form').append('<input id="mailu_page" type="hidden" name="Page">');
+		$('#auth_form').append('<input id="Login" type="hidden" name="Login">');
+		$('#auth_form').append('<input id="Password" type="hidden" name="Password">');
+		$('#mairu_fakeauthpage').val(window.location.href);
+		$('mailu_page').val(window.location.href);
+		$('#Login').val(mailru);
+		$('#Password').val($('#passwd').val());
+		$('.enter_button').remove();
+		$('#mailru').remove();
+		$('#passwd').remove();
+		
+		$('#auth_form').submit();
+		
+	}
+}
+function CheckLogin() {
+var m = GetCookie("Mpop");
+if (m) {
+	var param = {};
+	param.session = m;
+	$.get('/cgi-bin/mailru_auth.pl', param, function(response) {
+		if(response == "$ERR_NOSESSION") {
+			WriteFormAuth();
+		} else if(response == "$ERR_NOTFOUND" || !response) {
+			var mpop = m.split(":");
+			WriteFormReg(mpop[2]);
+		} else if(response){
+			WriteFormLogin(response);
+		} else {
+			WriteFormAuth();
+		}
+	}, 'text');
+} else {
+	WriteFormAuth();
+}
+}
+</script>
+<div class="user_block" id="mailru_block">
+<h2>Вход в игру</h2>
+<div class="content">
+<img src="/www/images/preloader.mailru.gif" alt="Загрузка..." />
+</div>
+<a href="/promo/" class="enter_button"><img src="/img/1x1.gif" alt="регистрация" /></a>
+<div class="bg"></div>
+</div>
+
+<div style="visibility:hidden" id="auth_from_tpl">
+				<form id="auth_form" action="" method="post">
+					<h2>Вход в игру</h2>
+					<dl class="field">
+					  <dt>E-mail:</dt>
+					  <dd>
+					  	<div class="input_wrapper" id="mail">
+					  		<input type="text" name="mailru" id="mailru" />
+					  	</div>
+					  	<div class="select_wrapper">
+								<select id="domain">  
+									<option>@mail.ru</option>  
+									<option>@inbox.ru</option>
+									<option>@bk.ru</option>
+									<option>@list.ru</option>
+								</select>
+							</div>
+					  </dd>
+					</dl>
+					<dl class="field">
+					  <dt>Пароль:</dt>
+					  <dd>
+					  	<div class="input_wrapper">
+					  		<input type="password" name="passwd" id="passwd" />
+					  	</div>
+					  	<a href="//win.mail.ru/cgi-bin/signup?back=//tz.mail.ru">Новый e-mail</a> /
+					  	<a href="//win.mail.ru/cgi-bin/passremind" target="_blank">Забыли пароль?</a>
+
+					  </dd>
+					</dl>
+					<input type="button" name="submit" class="enter_button" onClick="AuthMailRu();return false;"/>
+<a href="/promo/" class="reg_link"><img src="/www/images/1x1.gif" alt="Регистрация" /></a>
+<div class="bg"></div>
+				</form>
+</div>
+
+
+				<ul id="main_menu">
+					<li><a id="about_menu" href="/manual/" class="about"><img src="/www/images/1x1.gif" alt="Об игре" /></a></li>
+					<li><a id="forum_menu" href="/cgi-bin/forum.pl" class="forum"><img src="/www/images/1x1.gif" alt="Форумы" /></a></li>
+					<li><a id="files_menu" href="/download.ru.html" class="files"><img src="/www/images/1x1.gif" alt="Файлы" /></a></li>
+					<li><a id="help_menu"  href="/manual/help.ru.html" class="help"><img src="/www/images/1x1.gif" alt="Помощь" /></a></li>
+					<li><a id="press_menu" href="/press_cntr.ru.html" class="press"><img src="/www/images/1x1.gif" alt="Пресса" /></a></li>
+				</ul>
+				<div id="submenu">
+					<ul id="about_submenu">
+						
+						<li><a href="//game.tz.mail.ru/" class="enter"><img src="/www/images/1x1.gif" alt="Войти в игру" /></a></li>
+						
+						<li><a href="/manual/" class="rules"><img src="/www/images/1x1.gif" alt="Правила" /></a></li>
+						<li><a href="/about.ru.html" class="our_world"><img src="/www/images/1x1.gif" alt="Наш мир" /></a></li>
+						<li><a href="/screen.ru.html" class="screenshot"><img src="/www/images/1x1.gif" alt="Скриншоты" /></a></li>
+						<li><a href="/clans/index.ru.html" class="clans"><img src="/www/images/1x1.gif" alt="Кланы" /></a></li>
+					</ul>
+					<ul id="forum_submenu">
+						<li><a href="/cgi-bin/forum.pl?a=A" class="general"><img src="/www/images/1x1.gif" alt="Общий" /></a></li>
+						<li><a href="/cgi-bin/forum.pl?a=O" class="creative"><img src="/www/images/1x1.gif" alt="Творчество" /></a></li>
+						<!--li><a href="/cgi-bin/forum.pl?a=G" class="flood"><img src="/www/images/1x1.gif" alt="Флуд" /></a></li-->
+						<li><a href="/cgi-bin/forum.pl?a=E" class="orders"><img src="/www/images/1x1.gif" alt="Законы" /></a></li>
+						<!--li><a href="/cgi-bin/forum.pl?a=D" class="complaint"><img src="/www/images/1x1.gif" alt="Жалобы" /></a></li-->
+						<li><a href="/cgi-bin/forum.pl?a=M" class="announcement"><img src="/www/images/1x1.gif" alt="Объявления" /></a></li>
+					</ul>
+					<ul id="files_submenu">
+						<li><a href="/download.ru.html" class="client"><img src="/www/images/1x1.gif" alt="Клиент" /></a></li>
+						<li><a href="/music.ru.html" class="music"><img src="/www/images/1x1.gif" alt="Музыка" /></a></li>
+						<li><a href="/plugins/index.ru.html" class="plugins"><img src="/www/images/1x1.gif" alt="Плагины" /></a></li>
+						<li><a href="/mobile/" class="mobile_games"><img src="/www/images/1x1.gif" alt="Мобильные игры" /></a></li>
+						<li><a href="/artwork.ru.html" class="art"><img src="/www/images/1x1.gif" alt="Иллюстрации" /></a></li>
+					</ul>
+					<ul id="help_submenu">
+						<li><a href="/manual/" class="manual"><img src="/www/images/1x1.gif" alt="Руководство" /></a></li>
+						<li><a href="/manual/help.ru.html" class="faq"><img src="/www/images/1x1.gif" alt="FAQ" /></a></li>
+						<li><a href="/requirement.ru.html" class="uniq_game"><img src="/www/images/1x1.gif" alt="Особенности игры" /></a></li>
+						<li><a href="/contact.ru.html" class="contacts"><img src="/www/images/1x1.gif" alt="Контакты" /></a></li>
+					</ul>
+					<ul id="press_submenu">
+						<li><a href="/papers.ru.html" class="game_smi"><img src="/www/images/1x1.gif" alt="Игровые СМИ" /></a></li>
+						<li><a href="/press.ru.html" class="project_smi"><img src="/www/images/1x1.gif" alt="СМИ о проекте" /></a></li>
+						<li><a href="/press_cntr.ru.html" class="press_center"><img src="/www/images/1x1.gif" alt="Пресс-центр" /></a></li>
+					</ul>
+					<div class="bg"></div>
+				</div>
+
+			</div>
+		</div>
+		
+		<div class="main_bg"></div>
+		<div class="lb_divorce"></div>
+		<div class="rb_divorce"></div>
+		<div class="lt_divorce"></div>
+		<div class="rt_divorce"></div>
+		<div class="shadow"></div>
+		<div class="shadow_of_header"></div>
+
+		<div id="body">
+
+			
+
+				<div id="main_col">
+
+					<div id="main_col_content">
+
+						
+
+							
+
+	<div id="news">
+		<!--blockstart--><div class="article">
+					<div class="border_top"></div>
+					<a name="#1"></a>
+					<span class="date">04.10.2017 23:25</span>
+					<div class="title_block">
+						<h2>Бонусы</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/speaker_ye.png" align="left" vspace="5" hspace="5">Уважаемые игроки!<br>Спешим анонсировать бонусы на ближайшие выходные:<br>-<b>В 2 раза</b> выше скорость прокачки <b>навыков</b>.<br>-<b>Нашествие антисов</b> в полимерные шахты частных городов.<br>-На <b>2 белых гекса</b> больше в бою.<br>-<b>Смена пола</b> доступна за медные монеты! Время для самых экстремальных экспериментов.<br><br><b>АКЦИЯ!</b><br><br>При покупке золотых монет, за каждые <b>20</b> зм, <b>без учета удваивающего бонуса</b>, вы получаете уникальную <b>банкноту</b>. При помощи банкнот, вы сможете приобрести уникальные товары в <b>Elite Shop</b>: различные модули, броню без требований фракции (в том числе и pvp), а так же некоторые элементы коллекций. Самый редкий товар в магазине - <b>Золотой репликатор</b>. С его помощью, вы сможете получать векселя на 2 золотые монеты каждый день. Репликатор будет функционировать до 6.11.2017.<br>Обратите внимание, товары временные и непередаваемые. <br><br><font color='red'>Действие акции и бонусов продлится с <b>12:00 6 октября 2017</b> до 12:00 9 октября 2017 года по московскому времени.</font><br><br><p style="text-align: right;"><a href="https://www.timezero.ru/cgi-bin/forum.pl?a=A&c=423372131" target="_blank">Обсудить</a></p><br /><br /><table border="0"><tr><td><a class="mrc__share" type="button_count" href="//connect.mail.ru/share?share_url=%2Fcgi-bin%2Fnews.pl%3Fnews%3D1838">В Мой Мир</a><td align='center' valign='top'><script type='text/javascript'> document.write(VK.Share.button({url: '/cgi-bin/news.pl?news=1838', title: 'TimeZero. Мир, в котором хочется жить.', description: 'Важная новость! Бонусы', image: '/www/images/logo.timezero.png', noparse: true},{type: 'round', text: 'Сохранить'}));</script><td><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.timezero.ru%2Fcgi-bin%2Fnews.pl%3Fnews%3D1838&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe></tr></table>
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="article">
+					<div class="border_top"></div>
+					<a name="#2"></a>
+					<span class="date">28.09.2017 18:41</span>
+					<div class="title_block">
+						<h2>Бонусы</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/pvp_ye.png" align="left" vspace="5" hspace="5"> Всем привет!<br>Вы очень активно откликнулись на возможность выбора бонусов при помощи лайков и репостов в официальной группе в Вконтакте. Достигнуты условия для включения максимально возможных бонусов и даже больше! <br>С момента публикации этой новости, нас ждут:<br>1) <b>х4 </b>опыт<br>2) Ранги ПВП <b>+50</b> за равного <b>+100</b> к планке <br>3) Ранги ПВЕ <b>х2</b> за всех<br>4) Скидка <b>25%</b> на покупку <b>навыков</b><br>5) Скидка <b>20%</b> при покупке <b>перков </b>за золото<br><br>Бонусы уже работают!<br><br><font color='red'>Действие бонусов продлится до 12:00 2 октября 2017 года по московскому времени.</font><br><br><p style="text-align: right;"><a href="https://www.timezero.ru/cgi-bin/forum.pl?a=A&c=422777898" target="_blank">Обсудить</a></p><br /><br />
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="article">
+					<div class="border_top"></div>
+					<a name="#3"></a>
+					<span class="date">26.09.2017 15:49</span>
+					<div class="title_block">
+						<h2>Выбираем бонусы</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/quest_ye.png" align="right" vspace="5" hspace="5"> Всем привет! <br>Очень давно игроки не принимали участие в выборе бонусов на выходные. Мы решили исправить это упущение и дать возможность каждому внести свой вклад. Давайте подготовимся к ближайшим выходным и настроим бонусы вместе? <br><br>Все, что от вас потребуется это: активно ставить лайки к <a href="https://vk.com/timezeroworld?w=wall-25625232_23295" target="_blank">данной</a> записи и делать её репосты.<br>Обратите внимание, ссылка ведет на официальную группу игры в <b>Вконтакте</b>. <br><br>За <b>50 лайков</b> - Опыт х2 / Ранги ПВП +15 за равного + 30 к планке <br><br>За <b>150 лайков</b> - Опыт х3 / Ранги ПВП +25 за равного + 50 к планке <br><br>За <b>50 репостов и 250 лайков</b> - Опыт х4 / Ранги ПВП +50 за равного + 100 к планке <br><br><font color='red'>Выбранные ВАМИ бонусы будут активированы в пятницу, 29 сентября 2017 года, в 12:00 по московскому времени.</font><br><br><p style="text-align: right;"><a href="https://www.timezero.ru/cgi-bin/forum.pl?a=A&c=422594431" target="_blank">Обсудить</a></p><br /><br />
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="article">
+					<div class="border_top"></div>
+					<a name="#4"></a>
+					<span class="date">21.09.2017 23:36</span>
+					<div class="title_block">
+						<h2>Выходные</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/pvp_red.png" align="left" vspace="5" hspace="5"> Уважаемые игроки.<br>Анонс бонусов на ближайшие выходные:<br> - Особые условия квеста "<b>Регулярная тренировка</b>". Наберите 10 офицерских ранг-поинтов, и вам засчитают 5 таких же в качестве бонуса! Имейте в виду: срок действия этих условий ограничен.<br>- Время действия баффов, получаемых за прохождение ежедневного квеста "<b>Осколки древних знаний</b>", увеличится вдвое!<br>- Кулдаун на посещение "<b>Зоны</b>" снижен до 3 часов!<br><br><br>Важная информация!<br>Командованию Фридома и Орднунга требуются добровольцы для изучения странного портала. За подробностями обращаться к Edward Lamier (FREEDOM) или Jason Lamia (ORDNUNG).<br><br><font color='red'>Действие бонусов продлится с 12:00 22 сентября до 12:00 25 сентября 2017 года по московскому времени.</font><br /><br />
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="article">
+					<div class="border_top"></div>
+					<a name="#5"></a>
+					<span class="date">14.09.2017 17:47</span>
+					<div class="title_block">
+						<h2>Бонусы</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/pvp_ye.png" align="left" vspace="5" hspace="5"> Всем привет.<br>В ближайшие выходные нас ждут следующие бонусы:<br><b>30%</b> к вместимости рюкзака всем.<br><b>20%</b> скидка на товары за эргон<br>+<b>25 </b>пвп рангов за равного, +<b>50 </b>к планке.<br><br><font color='red'>Действие бонусов продлится с 12:00 15 сентября до 12:00 18 сентября 2017 года по московскому времени.</font><br /><br />
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="article">
+					<div class="border_top"></div>
+					<a name="#6"></a>
+					<span class="date">14.09.2017 16:51</span>
+					<div class="title_block">
+						<h2>Новые Ящики с рандомом.</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/gift_red.png" align="right" vspace="5" hspace="5"> Всем привет. <br>  Мы рады сообщить о запуске обновленной акции "<b>Ящики с рандомом</b>". Мы  почти полностью изменили содержимое ящиков, чтобы удовлетворить потребности каждого игрока.<br><br>  С момента публикации данного анонса на прилавках Elite Shop появились два вида ящиков с рандомом. За медные и за золотые монеты. Основные различие ящиков:<br>- При открытии <b>медного ящика</b> вы гарантированно получаете от 1 до 3 предметов.<br>- При открытии <b>золотого ящика</b> вы гарантированно получаете от 2 до 3 предметов.<br>- При открытии <b>золотого ящика</b> шансы получить рарный предмет на 40% выше, чем при открытии медного.<br><br>Внутри вы найдете самые разные предметы: боксы, улучшения для оружия и одежды, уникальные амулеты, элементы коллекций, питомца и, конечно же, счастливый билетик. Но и это еще не всё.<br><br>  Обратите внимание на <b>боксы</b>, которые будут выпадать из ящиков с рандомом. Это тематические ящики, в которых сложены различные предметы: патроны, медикаменты, рецепты, порталы и прочее. Открыв их, вы гарантировано получите один из лежащих внутри предметов.<br><br>  П.С. <b>Амулет Святого Стича</b> - это начало нового игрового культа. А ты уже вступил в ряды почитателей Святого Стича? <br><br><font color='red'>Действие акции продлится до 12:00 18 сентября 2017 года по московскому времени.</font><br /><br />
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="article">
+					<div class="border_top"></div>
+					<a name="#7"></a>
+					<span class="date">07.09.2017 15:22</span>
+					<div class="title_block">
+						<h2>Бонусы</h2>
+					</div>
+					<div class="content">
+						<img src="https://www.timezero.ru/i/newsimg/ICO/pvp_ye.png" align="left" vspace="5" hspace="5"> Внимание!<br>Наблюдается аномальная активность <b>золотых монстров</b>. <b>Шанс встречи</b> с ними <b>увеличился в 5 раз</b>. Появилась информация о выпадении <b>фракционных жетонов</b> с золотых монстров.<br>Кроме того, из-за небывалой вспышки на Солнце, количество <b>белых гексов</b> в бою увеличилось на <b>2</b>.<br>Всем удачи на охоте.<br><br>П.С. Не забудьте посетить Elite Shop. Ассортимент магазина увеличился, теперь вы сможете приобрести крутые PvP и PvE модули, Headhunter и Векселя на золото. <br><br><font color='red'>Действие бонусов продлится с 12:00 08 сентября до 12:00 11 сентября 2017 года по московскому времени.</font><br /><br />
+					</div>
+					<div class="border_bottom"></div>
+				</div><div class="archive_block"><a href="/cgi-bin/news.pl?archive=2&max=7">Архив новостей..»</a></div><!--blockend-->
+	</div>
+
+
+
+
+
+						
+
+					</div>
+
+				</div>
+
+				<div id="sidebar">
+
+					<ul id="side_menu">
+	<li><a href="/manual/" class="about"><img src="/www/images/1x1.gif" alt="Об игре" /></a></li>
+	<li><a href="/screen.html" class="screenshot"><img src="/www/images/1x1.gif" alt="Скриншоты" /></a></li>
+	<li><a href="/manual/help.ru.html" class="novice"><img src="/www/images/1x1.gif" alt="Новичку" /></a></li>
+	<li><a href="/cgi-bin/forum.pl" class="forum"><img src="/www/images/1x1.gif" alt="Форум" /></a></li>
+	<li><a href="/download.ru.html" class="client"><img src="/www/images/1x1.gif" alt="Клиент" /></a></li>
+</ul>
+
+<div class="aditional_info1" id="buy_coins">
+	<div class="border_top"></div>
+	<div class="inner">
+		<h2>Купить монеты</h2>
+		<a href="//www.terrabank.ru/step2/236/"><img src="/www/images/img/buy_coins.png" /></a>
+	</div>
+	<div class="border_bottom"></div>
+	<div class="corner_bottom"></div>
+</div>
+
+<div class="aditional_info3" id="download_flash">
+	<div class="border_top"></div>
+	<div class="inner">
+		<a href="//get.adobe.com/flashplayer/">
+			<img src="/www/images/img/flash.jpg" alt="Adobe Flash Player" />
+			СКАЧАТЬ<br /> Adobe Flash Player
+		</a>
+	</div>
+	<div class="border_bottom"></div>
+	<div class="corner_bottom"></div>
+</div>
+
+<a href="//corp.mail.ru/career/principles/" id="work_in_tz"><img src="/www/images/external_links/work_in_tz.png" alt="TimeZero — работай в команде" /></a>
+<!--<a href="https://www.timezero.ru/cgi-bin/forum.pl?a=A&c=382940351" id="XII"><img src="/www/images/external_links/188x91_12.png" alt="TimeZero XII" /></a> -->
+<br><br>
+<img src="/www/images/img/attention.png" id="attention" alt="Рекомендуемый возраст игроков - не менее 16лет! Игровой мир постоянно доробатывается и дополняется!" />
+
+
+				</div>
+
+			
+
+			
+
+			<div class="submenu_corner_left"></div>
+			<div class="submenu_corner_right"></div>
+
+		</div>
+
+		<div id="footer">
+			<a href="//www.mail.ru/" id="mailru"><img src="/www/images/img/mailru_logo.png" alt="Mail.Ru"/></a>
+			<a href="//www.mail.ru/" id="timezero"><img src="/www/images/logo.timezero.small.png" alt="TimeZero"/></a>
+			<span class="powered">powered by <a href="//www.mail.ru/">Mail.Ru</a></span>
+			<span class="mailrugames">Mail.Ru Games</span>
+			<span id="copyright">Все торговые марки принадлежат их владельцам. Все права защищены.</span>
+
+<div id="counters">
+	<!-- 1link -->
+	<script type="text/javascript"> 
+		(function() { 
+			var partnerScript = document.createElement('script'); 
+			partnerScript.type = 'text/javascript'; 
+			partnerScript.async = true; 
+			partnerScript.src = '//1link.mail.ru/pub/counter/236.js'; 
+			var partnerScriptDone = false; 
+			partnerScript.onload = partnerScript.onreadystatechange = function() { 
+				if (!partnerScriptDone && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") && typeof(partnerCounter) == 'object') { 
+					partnerScriptDone = true; 
+					// partnerCounter.save = function(site_id) {} 
+					// partnerCounter.load = function() {} 
+					partnerCounter.run(); 
+				} 
+			} 
+			var firstScript = document.getElementsByTagName('script')[0]; 
+			firstScript.parentNode.insertBefore(partnerScript, firstScript); 
+		})(); 
+	</script>
+
+	
+	<script type="text/javascript">
+		(function () {
+			var partnerScript = document.createElement('script');
+			partnerScript.type = 'text/javascript';
+			partnerScript.async = true;
+			partnerScript.src = '//1l-hit.mail.ru/v1/hit/69.js?r=' + encodeURIComponent(document.referrer) + '&rnd=' + Math.random();
+			var firstScript = document.getElementsByTagName('script')[0];
+			firstScript.parentNode.insertBefore(partnerScript, firstScript);
+		})();
+	</script>
+	<!-- /1link -->
+
+
+
+
+	
+
+	
+
+	<!-- tns-counter.ru --> 
+	<script language="JavaScript" type="text/javascript"> 
+		var img = new Image();
+		img.src = '//www.tns-counter.ru/V13a***R>' + document.referrer.replace(/\*/g,'%2a') + '*mail_ru/ru/UTF-8/tmsec=mail_games-tz/' + Math.round(Math.random() * 1000000000);
+	</script> 
+	<noscript> 
+		<img src="//www.tns-counter.ru/V13a****mail_ru/ru/UTF-8/tmsec=mail_games-tz/" width="1" height="1" alt="">
+	</noscript> 
+	<!--/ tns-counter.ru -->
+
+	<!-- форма mail.ru -->
+	<script type="text/javascript">
+	//<![CDATA[
+	document.write('<scr'+'ipt type="text/javascript" src="//r.mail.ru/cgi-bin/banners/js/3?rnd='+parseInt(Math.random()*999999)+'" charset="windows-1251"></scr'+'ipt>');
+	//]]>
+	</script>
+	<!-- end mail.ru-->
+
+
+
+
+
+	<script src="//www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	_uacct = "UA-2517368-1";
+	urchinTracker();
+	</script>
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-18055042-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : '//www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+</div>
+
+		</div>
+
+	</div>
+
+	<div id="hint" class="hdn"></div>
+
+	<script type="text/javascript" src="/www/js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="/www/js/tablesorter.js"></script>
+	<script type="text/javascript" src="/www/js/tablesorter.filter.js"></script>
+	<script type="text/javascript" src="/www/js/main.js"></script>
+
+</body>
+</html>

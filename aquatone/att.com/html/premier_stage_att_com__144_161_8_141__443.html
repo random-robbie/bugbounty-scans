@@ -1,0 +1,214 @@
+
+
+
+<html lang="en" ng-app="icamapp">
+    <title>Login</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/jquery.min.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/modernizr.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/angular.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/angular-messages.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/angular-sanitize.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/angular-touch.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/angular-animate.min.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/digital-design-library.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/lib/b2b-library.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/app.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/controllers.js"></script>
+	<script src="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/scripts/directives.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/lib/att/global-full.css">
+	<link rel="stylesheet" type="text/css" href="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/lib/att/ds2-icons.css">
+	<link rel="stylesheet" type="text/css" href="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/lib/att/icon-numslets.css">
+	<link rel="stylesheet" type="text/css" href="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/lib/att/digital-design-library.css">
+	<link rel="stylesheet" type="text/css" href="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/lib/att/b2b-angular.css">
+	<link rel="stylesheet" type="text/css" href="https://fcontent.stage.att.com/static/fiam/en/PSEPortal/styles/main.css">
+	
+    
+		<META HTTP-EQUIV="refresh" CONTENT="300; URL=https://premier.stage.att.com/b2bservlets/HaloSSOLoginServlet.dyn?REFERRER=" />
+	
+	
+	<header>
+		<div ng-include="'/static/fiam/en/PSEPortal/header.html'"></div>
+	</header>
+    <body >
+		<div class="container login">
+			<div id="login-page" class="outer-container login-page" login-directive="_">
+				<form action="{{actionURL}}" method="post">
+					<input type="hidden" name="appName" value="premierclient"></input> 
+					<input type="hidden" name="refIDFromLogin" value="1507283881323_468053733_P"></input>
+					<input type="hidden" name="targetURL" value="https://premier.stage.att.com/isam/sps/oidc/client/FnetRP?oidc_client=amapp-runtime-premierrpendpoint&Target=https://premier.stage.att.com/b2bservlets/HaloSSOLoginServlet.dyn?REFERRER="></input>
+					<input type="hidden" name="loginSuccessURL" value="https://premier.stage.att.com/b2bservlets/HaloSSOLoginServlet.dyn?REFERRER="></input>
+					<div class="columncontrol section">
+						<div class="row login-page-column " id="login-page-column">
+							<div class="custom-col-0 span4 span4-md span4-sm span4-xsm">
+								<div class="text parbase section">
+									<div id="login-heading" class="login-heading ">
+									<h1 class="omnes-38-light">Log in to FirstNet</h1>
+										<!-- <h1 class="omnes-38-light">Login</h1> -->
+									</div>
+								</div>
+								
+								<div class="text parbase section">
+									<div id="description-text" class="description-text ">
+										<p><span class="omnes-16-reg">Select where you’re logging in from. If you’re with a federated agency, select your agency from the list. Otherwise, select FirstNet.</span></p>
+										<!-- <p><span class="omnes-16-reg">Instructional content prompting user to select a login user.</span></p> -->
+										
+									</div>
+								</div>
+								<div class="dropdown section">
+									<div class="provider-dropdown form-row span3" id="provider-dropdown">
+										<div class="form-row ">
+											<label for="loginProvider">Log in from
+											<!-- <label for="loginProvider">Login provider select -->
+											</label>
+											<span class="selectWrap">
+												<div>
+													<select class="awd-select xxx" ddh-dropdown name="loginProvider" id="loginProvider" ng-model="loginProvider.value" ng-change="onLoginProviderChange()" >
+														<option ddh-dropdown-list value="" ng-disabled="true">Select</option>
+														<!-- <option ddh-dropdown-list value="" ng-if="unknownValue">Select login provider</option> -->
+														<option ddh-dropdown-list id="firstNet" value="firstNet" >FirstNet</option>
+														<!-- <option ddh-dropdown-list id="nonFnLoginProvider" value="nonFnLoginProvider" selected>Non-FN login provider</option>
+														<option ddh-dropdown-list id="nonFnLoginProvider1" value="nonFnLoginProvider1">Non-FN login provider</option>
+														<option ddh-dropdown-list id="nonFnLoginProvider2" value="nonFnLoginProvider2">Non-FN login provider</option> -->
+														 
+														
+														<option ddh-dropdown-list id="Firstnet Test IDP" value="Firstnet Test IDP">Firstnet Test IDP</option>
+														
+													</select>
+												</div>
+											</span>
+										</div>
+									</div>
+								</div>
+								<input type="hidden" name="idpID" value="{{idpIDInput}}"></input>
+								<div id="user-input" class="outer-container user-input" ng-if="showUserInput">
+									<div class="inputtext section"><div class="form-row input-username" id="input-username-div">
+										<label for="username"><p>Email address</p>
+										<!-- <label for="username"><p>Username</p> -->
+										</label> 
+										<div class="field-group " >
+										<input name="userid"  ddh-reset ng-focus="" class="span12" type="text" id="username" ng-model="username"  maxlength="256" placeholder="">
+										</div>
+										<div id="input-username-error" aria-live="polite" aria-atomic="true" class="error-msg">
+										</div>
+										</div>
+										<div class="form_row_description"></div>
+									</div>
+									<div class="inputtext section"><div class="form-row input-password" id="input-password-div">
+										<label for="password"><p>Password</p>
+										</label> 
+										<div class="field-group " > 
+											<input name="password"  ddh-reset ng-focus="" class="span12" type="password" id="password" ng-model="password"  maxlength="256" placeholder="" >
+										</div> 
+										<div id="input-password-error" aria-live="polite" aria-atomic="true" class="error-msg">
+										</div>
+										</div>
+										<div class="form_row_description"></div>
+									</div>
+									<div class="checkbox section">
+										<div class="form-row checkbox-password" id="checkbox-password">
+											<div class="form_rightcol" style="display: none;">&nbsp;</div>
+										</div>					
+										<div class="form_row" role="group" aria-labelledby="remPassword-0">
+											<label class="angular-checkbox" for="remPassword-0">
+												<input type="checkbox" ng-model="remPassword0" id="remPassword-0" name="rememberID" value="Y"/>
+												<i class="skin"></i> 
+												<span>Remember me</span>
+												<!-- <span>Remember my username</span> -->
+											</label>
+											<div> &nbsp; </div>
+										</div>
+										<div class="form_row_description"></div>
+									</div>
+									<div class="text parbase section">
+										<div id="forgot-text" class="forgot-text ">
+											<p><span class="omnes-16-reg">Forgot your <a adhocenable="false" href="https://test-profilemgt.firstnet.att.com/ebiz/firstnet/home.jsp#/forgotPassword?returnURL=https%3A%2F%2Fpremier.stage.att.com%2Fisam%2Fsps%2Foidc%2Fclient%2FFnetRP%3Foidc_client%3Damapp-runtime-premierrpendpoint%26Target%3Dhttps%3A%2F%2Fpremier.stage.att.com%2Fb2bservlets%2FHaloSSOLoginServlet.dyn%3FREFERRER%3D">password?</a></span></p>
+											
+											
+										</div>
+									</div>
+									<div class="text parbase section">
+										<div id="contact-text" class="contact-text ">
+											<p><span class="omnes-16-reg">Trouble logging in?<br>
+												Call Support at 1-800-574-7000</span></p>
+										</div>
+									</div>
+								</div>
+								<div class="dividercomp section">
+									<div class="row" id="button-divider" style="border-bottom:1px solid #cccccc;margin-top:27px; margin-right:px; margin-bottom:30px; margin-left:px;">
+									</div>
+								</div>
+								<div class="button section">
+									<div name="continueButton" class="continue-login" id="continue-login" undefined="_">
+										<button ng-click="onLogin()" class="btn btn-secondary-blue" ng-disabled="!showButton" > 
+											Continue
+										</button>
+									</div>
+								</div>	
+							</div>	
+							<div class="custom-col-1 span2 span2-md span2-sm span2-xsm">
+							</div>
+							<div class="custom-col-2 span6 span6-md span6-sm span6-xsm">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script>
+		var app = angular.module('icamapp', ['ddh.att']);
+		app.directive('loginDirective', function($sce) {
+		    return {
+		        restrict: 'AEC', //E = element, A = attribute, C = class, M = comment 
+		        link: function($scope,$window, element, attrs) {
+					$scope.loginProvider = {};
+					//Hiding container through ng-if directive
+					if("defaultValue" != "firstNet" && "defaultValue" != "defaultValue"){
+						$scope.showUserInput=false;
+						$scope.showButton=true;
+						$scope.loginProvider.value="defaultValue";
+					}else{
+						$scope.showUserInput=true;
+						$scope.showButton=true;
+						//$scope.showSelected=true;
+						$scope.loginProvider.value = "firstNet";
+					}
+					var rememberIDValue = "";
+					if(rememberIDValue){
+						$scope.username = rememberIDValue;
+						$scope.remPassword0 = true;
+					}
+					$scope.onLoginProviderChange = function()	{			
+						/* console.log("Define the on-change method for login provider");
+						console.log("Value Changed to "+$scope.loginProvider.value); */
+						//Hiding container through ng-if directive and disable continue button
+						$scope.showUserInput=false;
+						$scope.showButton=false;
+						var loginProviderValue = $scope.loginProvider.value;
+						if(loginProviderValue !== ""){
+							$scope.showButton=true;
+							if(loginProviderValue == "firstNet"){
+								$scope.showUserInput=true;
+							}
+						}
+					}
+					$scope.onLogin = function()	{
+						$scope.idpIDInput = $scope.loginProvider.value;
+						if( $scope.loginProvider.value == "firstNet" ){
+							$scope.actionURL = $sce.trustAsResourceUrl('https://oidc.stage.flogin.att.com/mga/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:passAuth');
+						} else {
+							$scope.actionURL = './LrrRedirect';
+						}
+					} 
+				}
+			}
+		})
+		</script>
+		<script type="text/javascript" src="https://att.inq.com/chatskins/launch/inqChatLaunch10004119.js"></script>
+    </body>
+	<footer>
+		<div ng-include="'/static/fiam/en/PSEPortal/footer.html'"></div>
+	</footer>
+</html>

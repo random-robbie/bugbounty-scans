@@ -1,0 +1,507 @@
+<!--
+/*
+ * (C) Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+ *
+ * NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the 
+ * terms of the Adobe license agreement accompanying it.  If you have received this file from a 
+ * source other than Adobe, then your use, modification, or distribution of it requires the prior 
+ * written permission of Adobe. 
+ * THIS CODE AND INFORMATION IS PROVIDED "AS-IS" WITHOUT WARRANTY OF
+ * ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ *
+ *  THIS CODE IS NOT SUPPORTED BY Adobe Systems Incorporated.
+ *
+ */
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Adobe Flash Media Server</title>
+<link rel="stylesheet" type="text/css" href="startpage.css" />
+<!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+<!-- BEGIN Browser History required section -->
+<link rel="stylesheet" type="text/css" href="history/history.css" />
+<style type="text/css" media="screen"> 
+	html, body  { height:100%; }
+	body { margin:0; 
+	       padding:0; 
+		  overflow:auto; 
+		  text-align:center; 
+		  background-color: #000000; 
+		 }   
+	object:focus { outline:none; }
+	#flashContent { display:none; }
+</style>
+<script type="text/javascript" src="history/history.js"></script>
+<!-- END Browser History required section -->
+
+<script type="text/javascript" src="scripts/swfobject.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.5.1.min.js"></script>
+<script type="text/javascript">
+			function loadLinks() {
+						var hostName = window.location.hostname;
+						var portNum = window.location.port.toString();
+						if(hostName.length > 0)
+						{
+							hostName = "http://" + hostName;
+							if (portNum.length > 0) 
+								hostName += ":" + portNum;
+						}
+						else
+						{
+							hostName = "http://localhost";
+							if (portNum.length > 0) 
+								hostName += ":" + portNum;
+						}
+						var sourceURL = new String(document.location.href);
+						var paramsIndex = sourceURL.indexOf("?");
+						if (paramsIndex != -1) {
+							sourceURL = sourceURL.substring(0, paramsIndex);
+						}
+						sourceURL = sourceURL.substring(sourceURL.lastIndexOf("/") + 1);
+						
+						// Update links
+						
+						var link;
+							link = "&protocol=rtmp&protection=RTMPe&xml=rtmp";
+							$("a.rtmpsingle").click(function(e){ preloadSWF("url=rtmp:/vod/mp4:sample1_1500kbps.f4v" + link + "&type=rtmpsingle") });
+							$("a.rtmpmbr").click(function(e){ preloadSWF("url=" + hostName + "/vod/rtmp_sample1_manifest.f4m" + link + "&type=rtmpmbr") });
+							
+							link = "&protocol=HTTP&protection=None&xml=http";
+							$("a.httpsingle").click(function(e){ preloadSWF("url=" + hostName + "/hds-vod/sample1_1500kbps.f4v.f4m" + link + "&type=httpsingle") });
+							$("a.httpmbr").click(function(e){ preloadSWF("url=" + hostName + "/vod/hds_sample1_manifest.f4m" + link + "&type=httpmbr") });
+						
+							link = "&protocol=HTTP&protection=None&xml=hls";
+							$("a.hlssingle").click(function(e){ preloadSWF("url=" + hostName + "/hls-vod/sample1_1500kbps.f4v.m3u8" + link + "&type=hlssingle") });
+							$("a.hlsmbr").click(function(e){ preloadSWF("url=" + hostName + "/vod/hls_sample1_manifest.m3u8" + link + "&type=hlsmbr") });
+			}
+			
+			$(document).ready(function(){
+
+				loadLinks();
+				
+				$('#streaming_tab').click(function(e){
+					$(this).removeClass('streaming_tab_normal').addClass('streaming_tab_selected');
+					$('#interactive_tab').removeClass('interactive_tab_selected').addClass('interactive_tab_normal');
+					$("#streaming_content").removeClass('nav_content_hide').addClass('nav_content_show');
+					$('#interactive_content').removeClass('nav_content_show').addClass('nav_content_hide');
+					
+				});
+				$('#interactive_tab').click(function(e){
+					loadSWF("swfs/LiveSample.swf", 640, 377);
+					$(this).removeClass('interactive_tab_normal').addClass('interactive_tab_selected');
+					$("#streaming_tab").removeClass('streaming_tab_selected').addClass('streaming_tab_normal');
+					$("#interactive_content").removeClass('nav_content_hide').addClass('nav_content_show');
+					$('#streaming_content').removeClass('nav_content_show').addClass('nav_content_hide');
+				});
+				
+				var currentURL = new String(document.location.href);
+				var params = unescape(currentURL.substring(indexOfParams + 1));
+				var indexOfParams = currentURL.indexOf("?");
+				
+				if (indexOfParams != -1) {
+					preloadSWF(params);
+				} else {
+					preloadSWF();
+				}
+				
+			});
+			
+			function preloadSWF(params)
+			{
+				// Figure out which swf to embed.
+
+				var source = (params) ? params : "url=rtmp:/vod/mp4:sample1_1500kbps.f4v&protocol=rtmp&xml=rtmp&type=rtmpsingle";
+
+				var uagent = navigator.userAgent.toLowerCase();
+				var swfURL = "swfs/adobedemoplayer_pc.swf";
+				var swfWidth = "770";
+				var swfHeight = "457";
+				var embedSWF = true;
+				var ignoreHTML5 = false;
+				var embedWmode = "direct";
+				var secondIdx;
+				
+				var urlParam = "url=";
+				var urlIdx = source.indexOf(urlParam);
+				var url;
+
+				if (urlIdx != -1) {
+					secondIdx = source.indexOf("&", urlIdx);
+					if (secondIdx != -1) {
+						url = source.substring(urlIdx + urlParam.length, secondIdx);
+					}
+					else {
+						url = source.substring(urlIdx + urlParam.length);
+					}
+					
+					var sepIdx = url.lastIndexOf(".");
+					if (sepIdx != -1) {
+						var type = url.substring(sepIdx+1);
+						if (type == "m3u8") {
+							embedSWF = false;
+						}
+					}
+				}
+				
+				if (embedSWF) {
+					loadSWF(swfURL, swfWidth, swfHeight, embedWmode, url);
+					if (uagent.search('iphone') != -1 || uagent.search('ipad') != -1) {
+						var htmlData = $("#player_main").html();
+						$("#player_main").html(htmlData + "<p style='font-size:24px;margin-top:100px;'>Flash is currently not available for this device.<br />  Please use the (HLS) HTTP Live Streaming links to the right.</p>"); 
+					}
+				}
+				else {
+					$("#html5_vid").show();
+					var ele = document.getElementById("demoPlayer");
+					if (ele && (ele.nodeName === "OBJECT" || ele.nodeName === "EMBED"))
+					{
+						var div = document.createElement("div");
+						ele.parentNode.insertBefore(div, ele);
+						swfobject.removeSWF("demoPlayer");
+						div.setAttribute("id", "player_main");
+					}
+					if (uagent.search('firefox') != -1 || uagent.search('chrome') != -1 || uagent.search('msie') != -1) {
+						$("#html5_vid").hide();
+						$("#player_main").html("<p style='font-size:20px;margin-top:150px;'>This browser is not capable of playing the HTML5 video.<br />  Please use an Apple Safari browser with HTML5 video support.</p>");
+						ignoreHTML5 = true;
+					}
+					else
+					{
+						swfobject.createCSS("#player_main", "display:none;");
+					}
+				}
+				
+				// reset the buttons to the top position
+				$("a.rtmpsingle").css("background-position","top");
+				$("a.httpsingle").css("background-position","top");
+				$("a.hlssingle").css("background-position","top");
+				$("a.rtmpmbr").css("background-position","top");
+				$("a.httpmbr").css("background-position","top");
+				$("a.hlsmbr").css("background-position","top");
+				
+				var items = source.split("&");
+				var xml;
+				
+				for ( var i = 0; i < items.length; i++ ) {
+					var p = items[i];
+					var pieces = p.split("=");
+					switch ( pieces[0] ) {
+						case "type":
+							xml = pieces[1];
+							// Highlight the matching navigation button.
+							switch ( xml ) {
+								case "rtmpsingle":
+									$("a.rtmpsingle").css("background-position","bottom");
+									break;
+								case "httpsingle":
+									$("a.httpsingle").css("background-position","bottom");
+									break;
+								case "hlssingle":
+									$("a.hlssingle").css("background-position","bottom");
+									break;
+								case "rtmpmbr":
+									$("a.rtmpmbr").css("background-position","bottom");
+									break;
+								case "httpmbr":
+									$("a.httpmbr").css("background-position","bottom");
+									break;
+								case "hlsmbr":
+									$("a.hlsmbr").css("background-position","bottom");
+									break;
+							}
+							break;
+						case "url":
+							if (ignoreHTML5 == false) {
+								$("video.videoplayer").attr( "src", pieces[1] );
+							}
+							break;
+					}
+				}
+
+			}
+			
+		
+
+		function loadSWF(swfURL, swfWidth, swfHeight, swfMode, src)
+		{
+				$("#html5_vid").hide();
+				var ele = document.getElementById("demoPlayer");
+				if (ele && (ele.nodeName === "OBJECT" || ele.nodeName === "EMBED"))
+				{
+					var div = document.createElement("div");
+					ele.parentNode.insertBefore(div, ele);
+					swfobject.removeSWF("demoPlayer");
+					div.setAttribute("id", "player_main");
+				}
+
+				$("div.player_window").css("width", String("770px"));
+				$("div.player_window").css("height", String("457px"));
+				$("div.player_window").css("text-align", "center");
+
+				// For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+				var swfVersionStr = "10.2.0";
+				// To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+				var xiSwfUrlStr = "swfs/playerProductInstall.swf";
+				var flashvars = {};
+				if (src)
+				{
+					flashvars.src = src;
+				}
+				var params = {};
+				params.quality = "high";
+				params.bgcolor = "#000000";
+				params.allowscriptaccess = "sameDomain";
+				params.allowfullscreen = "true";
+				params.wmode = swfMode;
+				var attributes = {};
+				attributes.id = "demoPlayer";
+				attributes.name = "demoPlayer";
+				attributes.align = "middle";
+				swfobject.embedSWF(
+					swfURL, "player_main", 
+					swfWidth, swfHeight, 
+					swfVersionStr, xiSwfUrlStr, 
+					flashvars, params, attributes);
+				swfobject.createCSS("player_main", "display:inline;text-align:center;outline:none;border:0;vertical-align:middle;margin:0 auto;");
+				
+		}
+		
+		function troubleshooting() {
+			alert("Flash Media Server ships with sample f4m manifest files.  These files are coded to operate using the \"localhost\" server.   To access the server remotely, you will need to replace the localhost reference with your actual server name or IP Address.   \n\nFollow these steps:\n" + 
+	
+			"1.  Locate the files Manifest files.   Browse to [serverinstall]/webroot/vod\n" +
+			"2.  Backup the 2 f4m manifest files\n" +
+			"\ta.  hds_sample1_manifest.f4m\n" +
+			"\tb.  rtmp_sample1_manifest.f4m\n" +
+			"3.  Edit the original files using a text editor.\n" +
+			"4.  Replace the \"localhost\" references with the name or IP address of your server\n" +
+			"5.  On your remote device, you may need to clear the browser cache\n" +
+			"6.  Reload the start page, and your video should play\n\n" +
+			
+			"Note: this is not required for HLS playback, the M3u8 supports the relative URI path.\n");
+		}
+		</script>
+</head>
+
+<body>
+<div class="content">
+    <!--
+  
+  
+        Title and Links
+  
+
+    -->
+  <div class="title_banner"><a class="fms_logo" href="http://www.adobe.com/go/fms" target="_blank"></a> <a class="adobe_logo_tag" href="http://www.adobe.com" target="_blank"></a>
+    <div class="header_links"> <a class="header_link" target="_blank" href="http://www.adobe.com/go/flashmediaserver_wishform_en">Request A Feature</a> <a class="header_link" target="_blank" href="http://www.adobe.com/go/flashmediaserver_wishform_en">Submit A Bug</a> <a class="header_link" target="_blank" href="http://www.adobe.com/go/flashmediaserver_releasenotes_en">Release Notes</a> <a class="header_link" target="_blank" href="http://www.adobe.com/go/flashmediaserver_docs_en">Documentation</a> <a class="header_link" target="_blank" href="http://www.adobe.com/go/gpr_registration">Register</a> </div>
+  </div>
+  
+    <!--
+  
+  
+        Splash Banner
+  
+
+    -->
+  <div class="content_banner">
+    <div class="content_banner_text"></div>
+    <div class="fms_mnemonic"></div>
+    <a class="content_banner_button content_banner_admin_button" target="_blank" href="fms_adminConsole.htm"></a> <a class="content_banner_button content_banner_update_button" target="_blank" href="http://www.adobe.com/go/fms_updates"></a> 
+  </div>
+
+  <table class="player_region" cellpadding="0" cellspacing="0"><tr>
+     <!--
+  
+  
+        Player Windows
+  
+
+    -->
+    <td width="770" valign="top"><div class="player_window">
+		<div id="html5_vid">
+			<video id="vid_player" class="videoplayer" controls="controls" autoplay="autoplay"> This browser does not support the video tag. </video>
+		</div>
+		<div id="player_main" align="center" style="text-align: center;vertical-align:middle;">
+			<img src="images/no_flash_title.png" 
+            	 alt="This video requires Adobe Flash Player 10.2" style="margin:10px auto;vertical-align:middle;"/>
+			<div style="text-align:center;" align="center">
+                 <a href="http://www.adobe.com/go/getflashplayer">Download Flash Player</a><br />
+				<script type="text/javascript"> 
+                	var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
+                	document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>"); 
+                </script>
+			</div>
+		</div>
+	</div>
+    </td>
+    <!--
+  
+  
+        Navigation Panel
+  
+
+    -->
+    <td width="218" valign="top"><div class="nav_tabs">
+      <div id="streaming_tab" class="tabs streaming_tab_selected">Streaming</div>
+      <div id="interactive_tab" class="tabs interactive_tab_normal">Interactive</div>
+      <div id="streaming_content" class="nav_content nav_content_show">
+	   <div class="troubleshooting" onclick="troubleshooting()">Troubleshooting Playback</div>
+        <div class="nav_hrule"></div>
+        <p class="nav_header">(HDS) HTTP DYNAMIC<br clear="all"/>
+          STREAMING SAMPLE</p>
+        <p class="nav_note">requires Apache server to be installed</p>
+        <p class="nav_link"><a class="play_button two_state_button httpmbr"></a> <a class="play_link httpmbr">HDS Multiple Bitrate</a></p>
+        <p class="nav_link"><a class="play_button two_state_button httpsingle"></a> <a class="play_link httpsingle">HDS Single Bitrate</a></p>
+        <div class="nav_hrule"></div>
+        <p class="nav_header">RTMP DYNAMIC
+          STREAMING SAMPLE</p>
+        <p class="nav_link"><a class="play_button two_state_button rtmpmbr"></a> <a class="play_link rtmpmbr"> Multiple Bitrate</a></p>
+        <p class="nav_link"><a class="play_button two_state_button rtmpsingle"></a> <a class="play_link rtmpsingle">Single Bitrate</a></p>
+        <div class="nav_hrule"></div>
+        <p class="nav_header">(HLS) HTTP LIVE<br clear="all"/>
+          STREAMING FOR APPLE IOS</p>
+        <p class="nav_note">requires Apache server to be installed</p>
+        <p class="nav_link"><a class="play_button two_state_button hlsmbr"></a> <a class="play_link hlsmbr"> Multiple Bitrate</a></p>
+        <p class="nav_link"><a class="play_button two_state_button hlssingle"></a> <a class="play_link hlssingle">Single Bitrate</a></p>
+      </div>
+      <div id="interactive_content" class="nav_content nav_content_hide" style="padding: 10px 10px 10px 10px;">
+        <p>USE YOUR WEBCAM<br /> TO STREAM A LIVE VIDEO</p>
+        <p>If you have a camera installed, you can publish it to Flash Media Server.<br />
+        When you click Publish, your camera feed will be published to Flash Media Server.<br />
+        When you click the Play button, the stream will be received from Flash Media Server.</p>
+		<br />
+        <p>TIP: You can use the window on the right to receive any live stream from Flash Media Server.</p>
+      
+      
+      </div>
+	 </div>
+    </td>
+      </tr></table>
+  <div class="hrule"></div>
+<div class="additional_info">
+    <table width="960" border="0" cellspacing="0" cellpadding="0" class="additional_resources_table">
+      <tr>
+        <th valign="bottom" style="width: 325px;">TOOLS</th>
+        <th valign="bottom" style="width: 305px;">SAMPLE APPLICATIONS<br />
+          AND WHITE PAPERS </th>
+        <th valign="bottom" style="width: 300px;">GETTING STARTED</th>
+      </tr>
+      <tr>
+		<!--
+      
+      
+			Tools Column
+      
+
+		-->
+        <td valign="top" style="width: 325px;">
+        <div class="column_rule"></div>
+          <div class="info_block"><a href="http://www.adobe.com/go/flashmediaplayback" target="_blank">Flash Media Playback Configurator</a><br />
+            Easy to use media player that requires no client development, just configure it, add your manifest file and you can start streaming quickly.</div>
+          <div class="info_block"><a href="http://www.osmf.org/strobe_mediaplayback.html" target="_blank">Strobe Media Playback with Debug</a><br />
+            Prebuilt video player interface and source code to accelerate your custome video player development.  For troubleshooting, the Strobe Media Playback debug player is available at <a href="http://www.osmf.org/dev" target="_blank" style="color:#ccc;">http://www.osmf.org/dev</a>.</div>
+          <div class="info_block"><a href="http://www.osmf.org" target="_blank">Open Source Media Framework</a><br />Robust media player development using OSMF optimized for HDS, RTMP, Multicast, P2P and adaptive bitrate.  You can also easily use external services like advertising and analytics easily.</div>
+          <div class="info_block"><div class="false_link">Manifest Generator for HTTP Streaming</div>
+           Generate manifest files easier and with fewer errors with tools that cut out creating F4M and M3u8 files manually for Live and VOD delivery for Flash, and for Apple iOS.  <p style="font-style:italic;">Located in the folder: /tools</p></div>
+           <div class="info_block"><div class="false_link">Manifest Generator for Multicast</div>
+           Generate multicast, multicast fusion and P2P manifest files easier and with fewer errors with tools that cut out creating F4M manually for multicast streaming to Flash.<p style="font-style:italic;">Located in the folder: /tools</p></div>
+          <div class="info_block"><a href="http://www.adobe.com/go/fms_tools" target="_blank">FLVCheck Tool</a><br />Ensure video files are compatible to stream with FMS.  Use it as-is, or as part of an automated script.</div>
+          <div class="info_block"><a href="http://www.adobe.com/go/fms_tools" target="_blank">Other Productivity Tools</a><br />
+            Additional productivity tools are available on <a href="http://www.adobe.com/go/fms_tools" target="_blank" style="color:#ccc;">http://www.adobe.com/go/fms_tools</a> including server applications such as FMSCheck, DVRCast, and LiveStreamCast.</div>
+        </td>
+        <!--
+      
+      
+			Sample Apps Column
+      
+
+		-->
+        <td valign="top">
+		<div class="column_rule"></div>
+		<div class="info_block"><a href="http://help.adobe.com/en_US/flashmediaserver/techoverview/index.html" target="_blank"><img src="images/pdf_icon.png" class="pdf_icon"/> Flash Media Server 4.5 Whitepaper</a><br/>
+            Everything you need to know about Flash Media Server 4.5.</div>
+          <div class="info_block"><img src="images/pdf_icon.png" class="pdf_icon"/><a href="http://www.adobe.com/go/httpdynamicstreaming_whitepaper" target="_blank">HTTP Dynamic Streaming Whitepaper</a><br/>Full details for HTTP Dynamic Streaming are available for complete understanding how it works, and how to optimize.</div>
+          <div class="info_block"><a href="http://www.adobe.com/go/fms_largescaledeploy" target="_blank">Large Scale Deployments</a><br/>Learn how to configure Flash Media Server for large-scale enterprise deployments.</div>
+          <div class="info_block"><a href="http://www.adobe.com/go/fms_hardening_guide" target="_blank">Security: Server Hardening Guide</a><br />
+            Learn how to deploy your Flash Media Server safely and securely.</div>
+            <div class="info_block"><a href="http://www.adobe.com/devnet/flv" target="_blank">F4V/F4F Format Spec</a><br />Learn more details about the F4F and F4V File Format used for HTTP Dynamic Streaming.</div>
+          <div class="info_block"><a href="http://www.adobe.com/devnet/rtmp" target="_blank">RTMP Specification</a><br />Learn more details about the RTMP protocol for streaming and communication applications.</div>
+          <div class="info_block"><a href="http://www.adobe.com/go/fms_bandwidthcalculation" target="_blank">Calculating Bandwidth</a><br />Learn how to calculate how much bandwidth you need to stream video.</div>
+           <div class="info_block"><a href="http://www.adobe.com/go/fms_wm_to_flash" target="_blank">Transition guide for Windows Media Server users</a><br />Ease the transition from Microsoft Windows Media to Adobe Flash Platform and its related technologies.</div>
+        </td>
+        <!--
+      
+      
+			Getting Started
+      
+
+		-->
+        <td valign="top">
+        <div class="column_rule"></div>
+        <div class="info_block"> <a href="http://www.adobe.com/go/flashmediaserver_desdev_en" target="_blank">Developer Connection</a><br />
+            <a href="http://www.adobe.com/devnet/flashmediaserver/articles/real-time-collaboration.html" target="_blank">P2P / RTMFP Technology</a><br />
+            <img src="images/pdf_icon.png" class="pdf_icon"/><a href="http://help.adobe.com/en_US/flashmediaserver/devguide/WS5b3ccc516d4fbf351e63e3d11a0773cfae-8000Dev.html" target="_blank">Streaming Recorded Video</a><br />
+            <img src="images/pdf_icon.png" class="pdf_icon"/><a href="http://help.adobe.com/en_US/flashmediaserver/devguide/WS5b3ccc516d4fbf351e63e3d11a0773cfae-8000Dev.html" target="_blank">Streaming Live Video</a><br />
+            <img src="images/pdf_icon.png" class="pdf_icon"/><a href="http://help.adobe.com/en_US/flashmediaserver/devguide/WS47c0525fe440307e-685173b213221ed709a-8000.html" target="_blank">Protecting Video</a><br />
+            <img src="images/pdf_icon.png" class="pdf_icon"/><a href="http://help.adobe.com/en_US/flashmediaserver/configadmin/WSE2A5A7B9-E118-496f-92F9-E295038DB7DB.html" target="_blank">The built-in Web Server</a><br />
+          </div>
+        <!--
+      
+      
+			Getting Support
+      
+
+		-->
+          <div class="info_block" style="margin-bottom:0px;">GETTING SUPPORT</div>
+          <div class="column_rule"></div>
+          <div class="info_block"> <a href="http://www.adobe.com/go/fms_experts" target="_blank">Find an Expert</a><br />
+            <a href="http://www.adobe.com/go/flashmediaserver_support_en" target="_blank">Knowledge Base</a><br />
+            <a href="http://www.adobe.com/go/flashmediaserver_forum_en" target="_blank">Flash Media Discussion Forums</a><br />
+            <a href="http://adobe.com/go/fms_usergroup" target="_blank">User Groups / Community</a><br />
+            <a href="http://www.adobe.com/go/flashmediaserver_support_en" target="_blank">Adobe Support for Flash Media Server</a><br />
+            <a href="http://www.adobe.com/events/main.jsp" target="_blank">Worldwide Events</a><br />
+            <a href="http://www.adobe.com/go/fms_training" target="_blank">Hands on (Instructor-Led) Training</a><br />
+            <a href="http://www.adobe.com/go/fvss/" target="_blank">CDN Partners</a><br />
+            <a href="http://www.adobe.com/go/fmsp_consulting/" target="_blank">Consulting Partners</a><br />
+            <a href="http://www.adobe.com/go/fmsp_encoding/" target="_blank">Encoding Partners</a><br />
+            <a href="http://www.adobe.com/go/fmsp_publishing/" target="_blank">Publishing Partners</a><br />
+            <a href="http://www.adobe.com/go/fmsp_addelivery/" target="_blank">Advertising Partners</a><br />
+          </div>
+      </td>
+      </tr>
+    </table>
+  </div>
+  <div class="hrule"></div>
+  <div class="productsheader"> <a href="http://www.adobe.com/go/fms" target="_blank" class="morelink two_state_button">More</a> </div>
+  <div class="products">
+    <div class="hrule"></div>
+    <a href="http://www.adobe.com/go/fms" target="_blank" class="productcell fmslink">Adobe Flash Media Server</a>
+    <div class="hrule"></div>
+    <a href="http://www.adobe.com/go/flashaccess" target="_blank" class="productcell accesslink">Adobe Flash Access</a>
+    <div class="hrule"></div>
+    <a href="http://www.adobe.com/products/adobepass/" target="_blank" class="productcell passlink">Adobe Pass</a>
+    <div class="hrule"></div>
+    <a href="http://www.adobe.com/go/fmsaws" target="_blank" class="productcell fmsawslink">Adobe Flash Media Server on Amazon Web Services</a>
+    <div class="hrule"></div>
+    <a href="http://www.adobe.com/products/flashplayer/" target="_blank" class="productcell flashplayerlink">Adobe Flash Player</a>
+    <div class="hrule"></div>
+    <a href="http://www.adobe.com/products/air/" target="_blank" class="productcell airlink">Adobe AIR for devices</a>
+    <div class="hrule"></div>
+    <a href="http://www.osmf.org/configurator/fmp/" target="_blank" class="productcell playbacklink">Adobe Flash Media Playback</a>
+    <div class="hrule"></div>
+    <a href="http://www.osmf.org/" target="_blank" class="productcell osmflink">Open Source Media Framework</a>
+    <div class="hrule"></div>
+  </div>
+  <div class="footer">
+    <p class="footertext">Copyright &copy; 2011 Adobe Systems Incorporated.  All rights reserved.</p>
+  </div>
+</div>
+
+</body>
+</html>

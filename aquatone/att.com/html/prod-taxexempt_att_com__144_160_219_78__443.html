@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8; IE=9">
+<script src="ui/js/timeout.js" type="text/javascript"></script>
+<script src="ui/js/tax-common.js" type="text/javascript"></script>
+<script src="ui/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+<script src="ui/js/jquery.cookie.js" type="text/javascript"></script>
+<link href="ui/css/style.css" rel="stylesheet" type="text/css" />
+<title>ATT TAX EXEMPT WEB TOOL | Home Page</title>
+<script type="text/javascript">
+	var sess_expirationMinutes =
+60
+	var pollInterval =
+3
+	;
+	var sess_pollInterval = pollInterval * 60 * 1000;
+	var sess_warningMinutes =
+58
+	;
+	$(window).load(function() {
+		initSessionMonitor();
+	});
+
+	$(document)
+			.ready(
+					function() {
+						var isBrowserIElt8 = false;
+						//var IE7BrowserMode = ($.browser.msie && $.browser.version < 8);
+						var IE7DocumentMode = ($.browser.msie
+								&& document.documentMode && document.documentMode <= 7);
+						//check for IE8 or less, show a message if browser's client is IE and version is less than 8.
+						//if ($.browser.msie && parseFloat($.browser.version) < 8) {
+						if (IE7DocumentMode) {
+							isBrowserIElt8 = true;
+						}
+						showDisclaimer('show',
+						isBrowserIElt8);
+					});
+
+	$(document).ready(function() {
+		$(':button').focus(function() {
+			$(this).blur();
+		});
+		$('a').focus(function() {
+			$(this).blur();
+		});
+	});
+
+	$(window).unload(function() {
+		unBlockScreen();
+	});
+</script>
+</head>
+<body>
+<form id="taxWPlayout" name="taxWPlayout" action="/tax_exmp-web/OpenHome.action" method="POST">
+
+	<input type="hidden" name="application" value="" id="application"/>		
+</form>
+
+
+
+			
+	<div id="page" class="whiteBox">
+			<div class="whiteBoxTop">
+				<div class="left"></div>
+				<div class="mid"></div>
+				<div class="right"></div>
+			</div>
+			<div class="whiteBoxMidCover">
+				<div class="whiteBoxMid">
+					
+					
+						
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<div class="header">
+	<div class="mainNav">
+
+		<div class="left"></div>
+
+		<div class="mid line">
+
+			<div class="unit width50 top3SpaceInside">
+				<div class="attLogo unit"></div>
+				<img src="ui/images/attLogo_separator.png" width="6" height="43" class="unit left10Space" />
+				<a id="taxExemptionPortal" href="/tax_exmp-web/OpenHome.action" class="appName unit left10Space">Tax Exemption Web Tool</a>
+			</div>
+
+			
+				
+			
+			
+			
+			
+
+			
+
+			<div class="unit toolBar lastUnit width50">
+				Welcome,
+				Guest
+				&nbsp; &nbsp; &nbsp;
+				<a id="homeLink" href="/tax_exmp-web/OpenHome.action" class="whiteText" onclick="blockScreen(event);">Home</a>
+				&nbsp;|&nbsp;
+				
+				
+				<a id="FAQLink" target="_blank"
+					href="/tax_exmp-web/viewDocument.action?docId=1002" title=""
+					>FAQ</a>
+					&nbsp;|&nbsp;
+					
+					<a
+					id="contactUsLink" target="_blank"
+					href="/tax_exmp-web/viewDocument.action" title=""
+					>Contact Us</a>
+				
+				
+				
+			</div>
+		</div>
+		<!-- /mid -->
+
+		<div class="right"></div>
+
+	</div>
+	<!-- /mainNav -->
+
+	<div class="subNav">
+		<div class="left"></div>
+
+		<div class="mid line">
+
+			<div class="unit width50">
+				<h1>Tax Exemptions</h1>
+			</div>
+		</div>
+		<!-- /mid (subNav)-->
+
+		<div class="right"></div>
+
+		<div class="pointerArrow"></div>
+	</div>
+	<!-- /subNav -->
+
+</div>
+<!-- /header -->
+					
+					
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body>
+
+	<!-- Start of White Box -->
+
+	<div class="top10Space left10Space"
+		style="color: #c72a00; font-size: 10px;">
+		<b>Tax Exemptions are not added until a valid certificate is
+			received and processed</b>
+	</div>
+
+	<div class="content">
+
+		<h2>Tax Exemptions</h2>
+		<div class="line TepOptions">
+			
+			
+				<div class="width25 boxSizing unit" style="margin-left: 25%;">
+			
+			<div class="TepOptionBox">
+				<div class="left"></div>
+				<div class="mid">
+					<img src="ui/images/iconCheck.png" width="52" height="66"
+						alt="check" />
+					<div class="TepOptionBoxDescription">Check Eligibility and
+						Request Tax Exemption</div>
+					<!-- /TepOptionBoxDescription (1)-->
+					<a id="Check&amp;ApplyExemp" href="/tax_exmp-web/checkAndApplyTaxExemption.action" class="multiLine" onclick="blockScreen(event);"><span>Check Eligibility &amp; Apply<br />for Tax Exemption
+						</span></a>
+				</div>
+				<!-- /mid (1)-->
+				<div class="right"></div>
+			</div>
+			<!-- /TepOptionBox (1)-->
+		</div>
+		<!-- /width25 -->
+		<div class="width25 boxSizing unit">
+			<div class="TepOptionBox">
+				<div class="left"></div>
+				<div class="mid">
+					<img src="ui/images/iconRemove.png" width="51" height="66"
+						alt="Remove" />
+					<div class="TepOptionBoxDescription">
+						Create a request to remove existing<br />tax exemption on
+						accounts.
+					</div>
+					<!-- /TepOptionBoxDescription (2)-->
+					<a id="RemoveCertificate" href="/tax_exmp-web/removeTaxExemption.action" class="multiLine" onclick="blockScreen(event);"><span>Request to remove Existing <br />Tax Exemption on
+							Accounts
+						</span></a>
+				</div>
+				<!-- /mid (2)-->
+				<div class="right"></div>
+			</div>
+			<!-- /TepOptionBox (2) -->
+		</div>
+		<!-- /width25 -->
+		
+		<!-- /width25 -->
+	</div>
+	<!-- /line content (1)-->
+	<h3>
+		<b>General Information on Tax Exemptions</b>
+	</h3>
+
+	<div class="line TepInformtion">
+		<div class="width50 boxSizing right5SpaceInside unit" align="justify">
+			<p>This website provides AT&amp;T customers with a simple,
+				state-of-the-art process to manage their tax exemption questions and
+				requests. There are tools available to assist with determining
+				exemption eligibility and to apply for changes in account exempt
+				status. AT&amp;T is legally required to charge the appropriate taxes
+				on all transactions subject to tax except when a transaction is
+				deemed exempt under a federal, state, or local jurisdiction's
+				statutes.</p>
+		</div>
+		<div class="width50 boxSizing left5SpaceInside unit lastUnit"
+			align="justify">
+			<p>
+				In compliance with the laws and regulations published by the various
+				jurisdictions, AT&amp;T customers must then provide to AT&amp;T any
+				required documentation before taxes can be exempted from the
+				bill/invoices and/or a sales transaction. Please contact your local
+				taxing authority if you have questions about state and local tax
+				exemption. For Federal Excise Tax Exemption questions please contact
+				the IRS at 800-829-4933 or via the web at
+				<a id="IRSLink" href="https://www.IRS.gov" target="_blank">www.IRS.gov</a>
+				.
+			</p>
+		</div>
+	</div>
+	<!-- /line content (2)-->
+	</div>
+	<!-- /content -->
+	<!-- End of White Box -->
+
+	<!--  Start Disclaimer -->
+	<div id="showDisclaimerPopup" style="display: none;">
+		<div id="mask"></div>
+		<div id="popup" class="width50">
+			<div class="popupTop">
+				<div class="left"></div>
+				<div class="mid"></div>
+				<div class="right"></div>
+			</div>
+			<!-- end of popupTop -->
+
+			<div class="popupMid">
+				<div class="left">
+					<div class="right">
+						<div class="popupContent">
+							<div class="line">
+								<h1>Disclaimer</h1>
+							</div>
+							<!-- end of Line -->
+							<div class="line" style="padding: 10px 10px;">
+								<div class="width100 unit lastUnit">
+									<h3 style="color: #333; font-weight: bold;">DISCLAIMER FOR
+										USE WITH TAX EXEMPTION WEBSITE TOOL!</h3>
+									<p id="PopupMessage" style="padding: 10px;" align="justify">This
+										website tool is for use in the AT&T account exemption process
+										only. Access to this site is limited to customers requesting
+										tax exemption status on their AT&T account. Data presented on
+										this site is subject to change due to amendments and
+										modifications in laws and rules governing tax exemption and
+										the operation of AT&T&lsquo;s business. Use of this website
+										does not grant any explicit rights to tax exemption status.</p>
+									<p style="padding: 10px;" align="justify">All facts and
+										documents presented to AT&T are subject to review and
+										approval. The sole purpose of this tool is to assist customers
+										in gathering all necessary support information in an efficient
+										manner so that AT&T can determine whether a customer&lsquo;s
+										account should be considered exempt for purposes of certain
+										taxes. AT&T is not providing tax or legal advice. Customers
+										should contact their legal and tax counsel for all legal and
+										tax advice.</p>
+									<div class="top10SpaceInside alignCenter">
+										<button id="showDisclaimerOkButton" type="button"
+											class="buttonBlue"
+											onclick="hideDisclaimerPopUp('EXTERNAL');">
+											<span class="buttonLeft"> <span class="buttonRight">OK</span>
+											</span>
+										</button>
+									</div>
+
+								</div>
+								<!-- /width65 -->
+
+							</div>
+						</div>
+						<!-- end of popupContent-->
+					</div>
+				</div>
+			</div>
+			<!-- end of popupMid -->
+
+			<div class="popupBot">
+				<div class="left"></div>
+				<div class="mid"></div>
+				<div class="right"></div>
+			</div>
+			<!-- end of popupBot -->
+		</div>
+		<!-- /popup -->
+	</div>
+	<!--  End Disclaimer -->
+
+	<!--  Start Browser Compatibility pop up -->
+	<div id="showBrowserCompatibilityPopup" style="display: none;">
+		<div id="mask"></div>
+		<div id="popup" class="width50">
+			<div class="popupTop">
+				<div class="left"></div>
+				<div class="mid"></div>
+				<div class="right"></div>
+			</div>
+			<!-- end of popupTop -->
+
+			<div class="popupMid">
+				<div class="left">
+					<div class="right">
+						<div class="popupContent">
+							<div class="line">
+								<h1>Message</h1>
+							</div>
+							<!-- end of Line -->
+							<div class="line" style="padding: 10px 10px;">
+								<div class="width90 unit lastUnit">
+									<p id="PopupMessage" style="padding: 10px;">This website
+										supports Microsoft IE8+ for better viewing and usability.
+										Please access the website in the recommended browser version.
+									</p>
+									<div class="top25SpaceInside alignCenter">
+										<button id="showBrowserCompatibilityOkButton" type="button"
+											class="buttonBlue"
+											onclick="hideBrowserCompatibilityPopUp('show');">
+											<span class="buttonLeft"> <span class="buttonRight">OK</span>
+											</span>
+										</button>
+									</div>
+
+								</div>
+								<!-- /width65 -->
+
+							</div>
+						</div>
+						<!-- end of popupContent-->
+					</div>
+				</div>
+			</div>
+			<!-- end of popupMid -->
+
+			<div class="popupBot">
+				<div class="left"></div>
+				<div class="mid"></div>
+				<div class="right"></div>
+			</div>
+			<!-- end of popupBot -->
+		</div>
+		<!-- /popup -->
+	</div>
+	<!--  End Browser Compatibility Pop Up -->
+</body>
+</html>
+					
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body>
+	<form id="OpenHome" name="footerForm" action="/tax_exmp-web/OpenHome.action" method="post">
+
+		<div class="footer">
+			<div class="line">
+				<div class="width15 unit">
+					<img src="ui/images/bottomATTLogo.png" width="67" height="30"
+						alt="AT&amp;T logo Bottom" />
+				</div>
+
+				<!--  Contact Us URL action -->
+				
+
+				<div class="width85 unit lastUnit">
+					<div class="bottomLinks">
+						<a id="privacyPolicyLink" href="https://www.att.com/privacy/" target="_blank">Privacy Policy</a>
+						&nbsp; | &nbsp; <a id="contactUsFooter"
+							href="/tax_exmp-web/viewDocument.action" target="_blank">Contact
+							Us</a> &nbsp; | &nbsp;
+						<a id="termsOfUse" href="https://www.att.com/gen/general?pid=11561" target="_blank">Terms of Use</a>
+						&nbsp; | &nbsp; <a id="siteMap"
+							href="/tax_exmp-web/OpenSiteMap.action" target="_blank">Site Map</a>
+					</div>
+					<!-- /bottomLinks -->
+					
+					<div>
+						<a id="intellectual" href="https://www.att.com/gen/privacy-policy?pid=2587" target="_blank">&copy;2013 AT&amp;T Intellectual Property.</a>
+						All rights reserved. AT&amp;T. the AT&amp;T logo and all other
+						AT&amp;T marks contained herein are trademarks of AT&amp;T
+						Intellectual<br /> Property and/or AT&amp;T affiliated
+						companies. AT&amp;T 36USC220506<br><font color="#c72a00"> The website can be best viewed in the screen resolution 1024*768 </font>
+					</div>
+					
+					<!-- /copyright -->
+
+				</div>
+				<!-- /width85 -->
+			</div>
+			<!-- /line footer (1)-->
+
+		</div>
+		<!-- /footer -->
+	</form>
+
+
+
+
+</body>
+</html>
+				</div>
+			</div>
+			<div class="whiteBoxBot">
+				<div class="left"></div>
+				<div class="mid"></div>
+				<div class="right"></div>
+			</div>
+		</div>
+	<div id="Loading" style="display: none;">
+		<div class="freeze"></div>
+		<div class="blockScreen">
+			<div class="top15Space left10Space">
+				<img src="ui/images/loading.gif" width="16" height="16"
+					alt="Loading" /> <span class="left10Space"
+					style="font-family: Calibri; font-size: 16px; font-weight: bold;">Loading...&nbsp;&nbsp;Please&nbsp;Wait</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

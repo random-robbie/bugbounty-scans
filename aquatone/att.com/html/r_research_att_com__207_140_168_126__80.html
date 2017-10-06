@@ -1,0 +1,247 @@
+<html>
+<head>
+<title>R for Mac OS X - developer's page</title>
+<link rel=stylesheet href='main.css' type='text/css'>
+<style type="text/css"> tt {color: #000080} #RC {background-color: #e0e0ff; border: 2px solid #c0c0ff; padding: 10px; margin: 7px}</style>
+</head>
+<body bgcolor="white">
+
+<h1>R for Mac OS X Developer's Page</h1>
+
+This is the new home for experimental binaries and documentation related to R for Mac OS X. To learn more about the R software or download released versions, please visit <a href=http://www.r-project.org/>www.r-project.org</a>.
+<p>
+<b><i>All software on this page is strictly experimental and subject to acceptance of the supplied R license agreement and the disclaimer at the end of the page.</i></b>
+<p>
+In addition to this nightly generated page, visit the <a href=building.html>Building R</a> page for the most recent tips.
+
+<h2>Index</h2>
+<ul>
+<li><a href=#nightly>Nightly builds of R for Mac OS X</a></li>
+<!-- <li><a href=#leopard>Leopard release build (OS X 10.5 and 10.6)</a></li> -->
+<li><a href=#GUI>Nightly builds of the R.app GUI</a></li>
+<li><a href=/tools/>Tools for R development</a></li>
+<li><a href=/man/>Most current R manuals</a></li>
+<li><a href=/src/>Sources for tools and libraries</a></li>
+<!-- <li><a href=#pkg>Experimental binary packages</a></li> -->
+<!-- <li><a href=#bioc>Experimental Bioconductor packages</a></li> -->
+<!-- <li><a href=/exp/>Experimental 64-bit build of R</a></li> -->
+<li><a href=#old>Legacy OS X support</a></li>
+<li><a href=#other>Other binaries and tools (e.g. RSwitch, Graphviz, GTK+, ..)</a></li>
+</ul>
+
+<a name=nightly></a>
+<h2>Universal nightly builds for Mac OS X (10.6+ and 10.9+)</h2>
+<h3>R framework</h3>
+
+<table bgcolor=#ffffe0 border=0 cellspacing=0 cellpadding=3 width=100%><tr bgcolor=#c8c8ff><th>Build</th><th>OS</th><th>Date</th><th>Status</th><th>Download</th></tr>
+<tr valign=bottom bgcolor=#ffffa0><td><b>R-3.2-branch</b><br>3.2.5 Patched<br>(2016/05/05, r71659)
+</td><td>mavericks</td><td>Nov 17 2016</td><td><b>x86_64</b>: OK (<a href="log-R-3.2-branch.mavericks.x86_64.html">log</a>)<br><b>Package:</b> OK<br></td><td><br><a href=mavericks/R-3.2-branch/R-3.2-branch-mavericks-sa-x86_64.tar.gz>R-3.2-branch-mavericks-sa-x86_64.tar.gz</a> (60Mb)<br><br><a href=mavericks/R-3.2-branch/R-3.2-branch-mavericks-signed.pkg>R-3.2-branch-mavericks-signed.pkg</a> (70Mb, installer incl. GUI)</td></tr>
+<tr valign=bottom><td><b>R-3.3-branch</b><br>3.3.3 Patched<br>(2017/08/09, r73475)
+</td><td>mavericks</td><td>Oct 5 22:46</td><td><b>x86_64</b>: OK (<a href="log-R-3.3-branch.mavericks.x86_64.html">log</a>)<br><b>Package:</b> OK<br></td><td><br><a href=mavericks/R-3.3-branch/R-3.3-branch-mavericks-sa-x86_64.tar.gz>R-3.3-branch-mavericks-sa-x86_64.tar.gz</a> (61Mb)<br><br><a href=mavericks/R-3.3-branch/R-3.3-branch-mavericks.pkg>R-3.3-branch-mavericks.pkg</a> (71Mb, installer incl. GUI)</td></tr>
+<tr valign=bottom bgcolor=#ffffa0><td><b>R-3.4-branch</b><br>3.4.2 Patched<br>(2017/10/05, r73475)
+</td><td>el-capitan</td><td>Oct 5 22:16</td><td><b>x86_64</b>: OK (<a href="log-R-3.4-branch.el-capitan.x86_64.html">log</a>)<br><b>Package:</b> OK<br></td><td><br><a href=el-capitan/R-3.4-branch/R-3.4-branch-el-capitan-sa-x86_64.tar.gz>R-3.4-branch-el-capitan-sa-x86_64.tar.gz</a> (51Mb)<br><br><a href=el-capitan/R-3.4-branch/R-3.4-branch-el-capitan.pkg>R-3.4-branch-el-capitan.pkg</a> (61Mb, installer incl. GUI)</td></tr>
+<tr valign=bottom><td><b>R-devel</b><br>3.5.0 Under development (unstable)<br>(2017/10/05, r73475)
+</td><td>el-capitan</td><td>Oct 5 22:32</td><td><b>x86_64</b>: OK (<a href="log-R-devel.el-capitan.x86_64.html">log</a>)<br><b>Package:</b> OK<br></td><td><br><a href=el-capitan/R-devel/R-devel-el-capitan-sa-x86_64.tar.gz>R-devel-el-capitan-sa-x86_64.tar.gz</a> (51Mb)<br><br><a href=el-capitan/R-devel/R-devel-el-capitan.pkg>R-devel-el-capitan.pkg</a> (62Mb, installer incl. GUI)</td></tr>
+</table>
+
+
+<!--
+ <i>Important note:</i> Leopard builds above are strictly <i>experimental</i> and not supported by CRAN (i.e., there are no binary packages). Although CRAN packages may accidentally be compatible, they exist only for 32-bit, so for 64-bit R you <i>must</i> use <tt>install.packages(...,type='source')</tt> and have all necessary development tools. -->
+<p>
+<u>Requirements</u>: Mac OS X 10.6 or higher for the Snow Leopard build, Mac OS X 10.9 or higher for the Mavericks build. For additional tools necessary for compiling packages, see below. We use Xcode 4.2 but Xcode 3.2 and higher should work as well. Note that you will need Command Line Tools component of Xcode on Mac OS X 10.7 or higher. The Mavericks build uses Xcode 5.
+
+<p>
+The installer image (<tt>*.pkg</tt>) is packaged exactly the same way as the CRAN release of R (including the GUI) and it will update your R version (unless you use <tt>pkgutil</tt> - see instructions during installation). Alternatively you can use the tar-ball (<tt>*.tar.gz</tt>) which must be unpacked in the root (e.g. <tt>tar fvxz R*.tar.gz -C /</tt>), but doesn't contain the GUI (see below for a separate download).
+<p>
+NOTE: The installer for the Snow Leopard build of R also includes Tcl/Tk package which will install in <tt>/usr/local</tt>. It is optional (only needed for the <tt>tcltk</tt> R package) and can be unchecked at installation time.
+
+<!--
+[previous version: <b>R 2.9.0</b> (2009/04/17): <a href=R-2.9.0.pkg>R-2.9.0.pkg</a> (ca. 61MB, includes Fortran for Xcode 3.1.2 - do NOT install if you have Xcode 3.2!)<p>
+[previous R version: <a href=R-2.8-branch-leopard.pkg>R-2.8-branch-leopard.pkg</a> (ca. 58MB, includes Fortran for Xcode 3.1.2)].
+-->
+<!--
+Download: <b>R 2.9.0 beta</b> (2009/04/08): <a href=R-2.9-beta-48309.pkg>R-2.9-beta-48309.pkg</a>
+(ca. 61MB, includes Fortran for Xcode 3.1.2)<p>
+older version: <a href=R-2.8-branch-leopard.pkg>R-2.8-branch-leopard.pkg</a> (ca. 58MB, includes Fortran for Xcode 3.1.2).
+-->
+
+<p>
+<!--
+Leopard builds can be installed as follows - paste in <i>Terminal</i> (for R 2.8.x):<br>
+<div id=RC class=RC><tt>curl -s http://r.research.att.com/R-2.8-branch-leopard-universal.tar.gz | sudo tar fvxz - -C /</tt></div>
+Then pick the corresponding GUI below (32-bit or 64-bit or both). -->
+Starting with R 3.0.0 the builds are single-arch 64-bit Intel builds for OS X 10.6 and higher.
+<!-- On the command line the R is by default 32-bit, for 64-bit use <tt>R --arch x86_64</tt> (Intel Macs) or <tt>R --arch ppc64</tt> (PowerPC G5). The above Leopard installer package installs the 32-bit GUI as <tt>R.app</tt> and the 64-bit GUI as <tt>R64.app</tt>. -->
+<!-- <p>
+For experimental/beta binary builds of packages use <tt>http://r.research.att.com/</tt> repository.
+-->
+<!--
+<p>
+The build results for CRAN can be found at the <a href=http://cran.r-project.org/src/contrib/checkSummary.html>CRAN check summary page</a>. For Bioconductor packages see <a href=/results/>http://r.research.att.com/results/</a>. Package maintainers, please check this page after you release a new package or version.
+-->
+
+<!--
+<a name=leopard>
+<h3>Leopard build</h3>
+Leopard builds are for Mac OS X 10.5 (<b>Leopard</b>) and Mac OS X 10.6 (<b>Snow Leopard</b>) and are available in 32-bit (PowerPC+Intel) and 64-bit (Intel only). The nightly builds are above and releases are now on CRAN. Note that the default package type for that build is <tt>"mac.binary.leopard"</tt>. Please make sure you delete all old packages and re-install them after upgrading from the older Tiger build.
+<p>
+Last binary release supporting PowerPC 64-bit: <b>R 2.9.2</b> (2009/09/16): <a href=R-2.9.2.pkg>R-2.9.2.pkg</a> (ca. 40MB).<br>
+For more recent releases, see <a href=http://cran.r-project.org/bin/macosx/>CRAN</a> and nightly builds above.
+-->
+
+<a name=gui></a>
+<h3>Mac OS X GUI</h3>
+
+<table bgcolor=#ffffe0 border=0 cellspacing=0 cellpadding=3><tr bgcolor=#c8c8ff><th>Version</th><th>Build</th><th>Download</th></tr><tr valign=top bgcolor=#ffffa0><td>Mac OS X GUI rev. 7291 for R 3.2.x</td><td>mavericks-Debug.dmg</td><td><a href=mavericks/R-3.2-branch/R-GUI-7291-3.2-mavericks-Debug.dmg>R-GUI-7291-3.2-mavericks-Debug.dmg</a></td></tr>
+<tr valign=top><td>Mac OS X GUI rev. 7434 for R 3.3.x</td><td>mavericks-Debug.dmg</td><td><a href=mavericks/R-3.3-branch/R-GUI-7434-3.3-mavericks-Debug.dmg>R-GUI-7434-3.3-mavericks-Debug.dmg</a></td></tr>
+<tr valign=top bgcolor=#ffffa0><td>Mac OS X GUI rev. 7434 for R 3.4.x</td><td>el-capitan-Debug.dmg</td><td><a href=el-capitan/R-3.4-branch/R-GUI-7434-3.4-el-capitan-Debug.dmg>R-GUI-7434-3.4-el-capitan-Debug.dmg</a></td></tr>
+<tr valign=top><td>Mac OS X GUI rev. 7434 for R 3.5.x</td><td>el-capitan-Debug.dmg</td><td><a href=el-capitan/R-devel/R-GUI-7434-3.5-el-capitan-Debug.dmg>R-GUI-7434-3.5-el-capitan-Debug.dmg</a></td></tr>
+</table>
+
+
+<p>To install, open the image and drag the <b>R</b> icon to your <tt>Applications</tt> folder. Alternatively the GUI can be run directly off that image without copying if you just want to test it. Build configurations with "64" suffix are 64-bit builds, all others are 32-bit (except for Debug). If you want to use both, rename one of them or place them in different directories.
+
+<!--
+<h3>Mac OS X 10.3 nightly builds</h3>
+This build is not supported anymore, but as long as the machine is still available the nightly builds for Mac OS X 10.3 (Panther) can be found at <a href=/panther/>http://R.research.att.com/panther/</a>.
+-->
+
+<a name=tools></a>
+<h2>Tools</h2>
+
+In order to compile R and R packages you will need <b>Xcode Developer Tools</b> version <b>3.1 or higher</b> and a universal Fortran compiler. For details and download, please read the <a href=/tools/>Tools page</a>. The R 3.0.0 and higerh binaries are built using Xcode 4.2.
+
+<!--
+<b>Developers interested in R 2.5.0 and higher, please read <a href=/tools/>this tools page</a> instead! The information below applies only to R 2.4.0 and earlier!</b>
+<p>
+If you want to use supplied binary packages only, you don't need to read any of the following, becuase R framework + GUI is all you need. However, if you want to compile your own R or compile packages from sources, read on.
+<p>
+If you installed universal R 2.3.0 from CRAN (the big 100MB image) then you're all set and everything is already installed.
+<p>
+In order to build packages for the above R, you will have to use the same compilers that R was built with. Unfortunately Xcode comes with an older version of gcc that has some critical bugs and doesn't include gfortran, so we have to use a more recent compiler. We use <tt>gcc 4.0.3</tt> FSF release with Darwin drivers, i.e. some flags like <tt>-arch</tt> are supported, but Apple-only extensions are not. The compiler lives in <tt>/usr/local/gcc4.0</tt> and can uninstalled by removing that directory (<tt>sudo rm -rf /usr/local/gcc4.0</tt>).
+
+<p>
+<b>gcc-4.0.3 release (FSF)</b> with Darwin drivers and multi-arch target support (ppc, ppc64 and i386):<br>
+Download: <a href=gcc403.dmg>gcc403.dmg</a>
+<p>
+Note: if you have a previous version of gcc (e.g. you installed R 2.2.1 universal binary), remove it using <tt>sudo rm -rf /usr/local/gcc4.0</tt> before you install the new version.
+<br>
+The ppc64 target has not been tested, so your mileage may vary.
+<p>
+In addition to the compilers, <b>Intel Mac</b> users may need the ptATLAS libraries. If you installed universal R (2.2.1 or 2.3.0), you can skip this step, because you probably have them already.<br>
+Download: <a href=atlas-lib-i686.tar.gz>atlas-lib-i686.tar.gz</a>
+<p>
+Install by typing
+<div id=RC class=RC>
+<tt>sudo tar fvxz ~/atlas-lib-i686.tar.gz -C /</tt>
+</div>
+The ATLAS libraries are optional if you build your own R: you can use vecLib (slowest), internal BLAS (fast on Core Solo) or the above ATLAS (best for Core Duo).
+-->
+
+<h3>Building universal binaries</h3>
+<p>
+Starting with R 2.5.0 CRAN binaries use Apple's 10.4u SDK allowing universal builds on both PowerPC and Intel Macs. <!-- Currently it is not possible to build universal binaries on PowerPC-based Macs, because the system doesn't include i386 libraries. You will need Intel-based Mac to build universal binaries. --> Building universal R is done by compliling two R binaries and setting <tt>r_arch</tt> parameter to <tt>ppc</tt> and <tt>i386</tt> respectively, along with the proper compiler flags. Those two builds can then be installed into the same framework location, R install process merges them correspondingly.
+<p>
+To build an universal package that contains a <tt>configure</tt> script, it is necessary to run <tt>R CMD</tt> twice. Assuming you have a source package <tt>foo_0.1.tar.gz</tt>, this is how you install it universally:
+<div id=RC class=RC>
+<tt>R CMD INSTALL foo_0.1.tar.gz</tt><br>
+<tt>R --arch=ppc CMD INSTALL --libs-only foo_0.1.tar.gz</tt><br>
+<tt>R --arch=x86_64 CMD INSTALL --libs-only foo_0.1.tar.gz</tt>
+</div>
+(Note: if the package doesn't contain a <tt>configure</tt> script, regular single-step installation actually works). You can create a binary package by packing such installed package into a tar ball. The resulting binary will work on both PowerPC and Intel-based Macs.
+
+<!-- no longer true- this server is now the binary master --
+<a name=pkg></a>
+<h2>Experimental binary packages</h2>
+
+This site is also a repository for experimental binaries, i.e. you could set it as your default repository for development verion of R such as <tt>options(repos=c(CRAN="http://r.research.att.com/"))</tt>
+<br>The frequency of package updates is currently random - remember, this is an experimental repository and it may not be complete.
+-->
+<!--
+<a name=bioc></a>
+<h2>Experimental Bioconductor packages</h2>
+
+We also build binaries for Bioconductor (<a href=http://www.bioconductor.org/>www.bioconductor.org</a>) packages nightly. In order to install BioC for R 2.4 from this repository, use
+<pre>
+source("http://R.research.att.com/scripts/2.4/biocinstall.R")
+biocinstall()
+</pre>
+You can also use <tt>groupName="graph"</tt> or similar to install additional groups. Use <tt>http://R.research.att.com/packages/1.9/bioc</tt> (and its variations) as the repository if you want to install packages manually.
+<p>
+The current binaries are built for R 2.4.x (BioC 1.9). Binaries for R-devel should be available shortly (we are running out of disk space on the server - BioC  needs several GB per repository). -->
+<!-- no longer needed - 64-bit is not the defualt in the Leopard build
+<a name=R64></a>
+<h2>Experimental 64-bit R</h2>
+
+Experimental R builds have been moved to <a href=/exp/>this page</a>.
+-->
+<!--
+<h3>PowerPC (G5) 64-bit R [ppc64]</h3>
+The 64-bit experimental binary for G5-based Macs is available from the  <a href=exp>experimental builds</a> page. It is based on R 2.3.1 (patched) and the same gcc 4.0.3 compiler that commes with the CRAN binary of R. Visit the above pages for download and details on building 64-bit R.
+
+<h3>Intel (Mac Pro) 64-bit R [x86_64]</h3>
+R builds fine as 64-bit application on Intel Macs with Apple compilers and gfortran. See <a href=exp>experimental builds</a> page for details.
+-->
+<a name=old></a>
+<h2>Legacy R</h2>
+The current build supports only Mac OS X 10.6 (Snow Leopard) or higher. Older versions of OS X are not supported in binary form, but R can be compiled from sources for such legacy OS versions. Last released version for Mac OS X 10.4 (Tiger) was <b>R 2.10.1</b> and last release for Mac OS X 10.5 (Leopard) was <b>R 2.15.3</b>.
+<!--
+The following binaries are <b>unofficial and unsupported</b> and provided only as a by-product of the old R building process for people that cannot upgrade to Mac OS X 10.4 (Tiger) for some reason. <b>CRAN binary packages will NOT work</b> with this version!! Please do <b>not fill bug reports</b> on this version - you're entirely on your own.
+<p>
+Download: <a href=R-2.3.0-OSX-10.3.dmg>R-2.3.0-OSX-10.3.dmg</a> (ca. 34MB)
+<p>
+Experimental binaries for this build may be available at the <tt>http://r.research.att.com/panther/</tt> repository, i.e. you should specify that URL as your primary CRAN repository. Again, binary packages from the 'real' CRAN will NOT work!
+<p>
+Nightly builds for Panther can be found at <a href=/panther/>http://R.research.att.com/panther/</a> - again, please no bug reports about this one.
+-->
+
+<a name=other></a>
+<h2>Other binaries</h2>
+
+<!-- Binaries for R 2.3.0-2.4.1 are incompatible with all other R version (including the current R 2.5.0 version), therefore they have been removed for now. You can download some more recent binaries from the <a href="/tools/">Tools page</a>. 3rd party binaries for R 2.5.0 and higher will be posted here soon after the release. <p>-->
+The following binaries are not maintained or supported by R-core and are provided without any guarantee and for convenience only (Mac OS X 10.4.4 or higher required). They match the binaries used on the CRAN binary build machine and thus are recommended for use with CRAN R package binaries.
+<ul>
+<li><b>GTK+ 2.24.17 framework</b> - 64-bit build of GTK+ 2.24.17, necessary for binary R packages that use GTK+ version 2 (such as RGtk2+). <i>R 3.0.0 and higher, Snow Leopard build</i><br>
+Download: <a href=/libs/GTK_2.24.17-X11.pkg>GTK_2.24.17-X11.pkg</a> (ca. 41MB)<br>&nbsp;
+<li><b>GTK+ 2.18.5 framework</b> - universal build of GTK+ 2.18.5, necessary for binary R packages that use GTK+ version 2 (such as RGtk2+). <i>R 2.10.0 - 2.15.3, Leopard build</i><br>
+Download: <a href=/libs/GTK_2.18.5-X11.pkg>GTK_2.18.5-X11.pkg</a> (ca. 58MB)<br>&nbsp;
+<!--
+<li><b>GTK+ 2.14.3 framework</b> - universal build of GTK+ 2.14.3, necessary for binary R packages that use GTK+ version 2 (such  as RGtk2). <i>R 2.8.0 and higher, Tiger build</i><br>
+Download: <a href=gtk2-framework.dmg>gtk2-framework.dmg</a> (ca. 25MB)<br>&nbsp;</li> -->
+<!--
+<li><b>GTK+ 2.10.11 run-time</b> - run-time files of a universal build of GTK+ 2.10.11, necessary for binary R packages that use GTK+ version 2 (such as RGtk2).<br>
+Download: <a href=gtk2-runtime.dmg>gtk2-runtime.dmg</a> (ca. 19MB)<br>&nbsp;</li>
+<li><b>Graphviz 2.12</b> - universal build (necessary for Rgraphviz  from the <a href=http://www.bioconductor.org/>Bioconductor</a> repository).<br>
+Download: <a href=graphviz-2.12.dmg>graphviz-2.12.dmg</a><br>&nbsp;</li>
+-->
+<!--
+<li><b>GLib/GTK 1.2.10 (w/patches and tools)</b> - static, binary build (necessary for compilation of Gtk-based packages; <i>not needed at run-time</i>).<br>
+Download: <a href=glibgtk-1.2.10-bin-univ.tar.gz>glibgtk-bin-1.2.10-univ.tar.gz</a><br>
+<i>Updated 2006/09/01:</i> The above package now also contains universal <tt>pkg-config</tt> and <tt>libpng</tt>. To download and install, type/paste the following in Terminal:
+<pre>curl -O http://r.research.att.com/glibgtk-1.2.10-bin-univ.tar.gz
+sudo tar fvxz glibgtk-1.2.10-bin-univ.tar.gz -C /</pre>
+</li>
+<li><b>PVM 3.4.5</b> - universal binary, necessary for <i>rpvm</i> (modified to use ssh instead of rsh by default). Set <tt>PVM_ROOT=/usr/local/pvm3</tt> to use.<br>
+Download: <a href=pvm-3.4.5-osx-bin.tar.gz>pvm-3.4.5-osx-bin.tar.gz</a> (ca. 4.6MB)<br>(Install with <tt>sudo tar fvxz pvm-3.4.5-osx-bin.tar.gz -C /</tt> ).<br>&nbsp;</li>
+<li><b>JAGS 0.97.1</b> - universal binary of <a href="http://www-fis.iarc.fr/~martyn/software/jags/">JAGS 0.97.1</a>. Not directly realted to R (save for the existence of rjags) but useful.<br>
+Download: <a href=jags-0.97.1-ppc-i386.tar.gz>jags-0.97.1-ppc-i386.tar.gz</a> (ca. 14MB, universal, updated 2006/12/21)<br>
+<tt>curl http://r.research.att.com/jags-0.97.1-ppc-i386.tar.gz|sudo tar fxz - -C /</tt>
+<br>&nbsp;</li>
+-->
+<li><b>RSwitch</b> - a small GUI that allows you to switch between R versions quickly (if you have multiple versions of R framework installed).<br>
+Download: <a href=RSwitch-1.2.dmg>RSwitch-1.2.dmg</a> (ca 67kB, universal, <font color=red>updated 2011/03/24</font> to support R 2.13.0 and up)<br>
+Download: <a href=RSwitch-1.1.dmg>RSwitch-1.1.dmg</a> (ca 120kB, universal, updated 2006/09/22)<br>
+Sources: <a href=RSwitch-1.2.tar.gz>RSwitch-1.2.tar.gz</a> (Xcode project and sources)<br>
+Sources: <a href=RSwitch-1.1.tar.gz>RSwitch-1.1.tar.gz</a> (Xcode project and sources)
+</li>
+</ul>
+<p>
+More external libraries and older versions can be found in the <a href=/libs/>/libs/</a> directory.
+
+<h2>Disclaimer</h2>
+<b><i>
+All software is provided "as is" and any express or implied warranties, including, but but not limited to the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall AT&amp;T, the publisher, copyright owner or contributors be liable for any direct, indirect, incidental,special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
+</i></b>
+
+</body>
+</html>

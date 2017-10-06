@@ -1,0 +1,229 @@
+
+
+ 
+<html>
+<head>
+<title>DeskNow</title>
+<link rel="shortcut icon" href="3.2.17themes/modern/blue/icons/favicon.ico">
+<link rel="icon" type="image/png" href="3.2.17themes/modern/blue/icons/favicon.png">
+<style>
+* {font-family: Arial, Verdana, Helvetica, sans-serif }
+BODY { background-color:#FFFFFF }
+.btn {background-color:#CCCCCC; font-weight: bold; color:black;border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-style:solid; border-color:black}
+.btnhover {background-color:#CCCCCC; ; font-weight: bold; color:black;border: 1px solid #FEC414; padding: 0px; margin: 0px ;cursor: pointer; }
+A:visited, A:link, A:active {text-decoration: underline; color:blue }
+A:hover {text-decoration: underline; color:yellow }
+</style>
+<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+</head>
+<script language="javascript" src="3.2.17javascript/md5.js"></script>
+<script language="javascript" src="3.2.17javascript/des.js"></script>
+<script language="JavaScript"><!--
+function getCookie(name) {
+    var cookie= document.cookie;
+    var start = cookie.indexOf(name+"=");
+    // we must check if there is another cookie that ENDS in name... look for the character before start
+    var ok=false;
+    while(!ok) {
+      if(start==-1) {
+        return null;
+      }
+      if(start==0) {
+        ok=true;
+      }
+      else {
+        var c=cookie.charAt(start-1);
+        if(!((c>='a' && c<='z') || (c>='A' && c<='Z') || (c>='0' && c<='9'))) {
+          ok=true;
+        }
+      }
+      if(!ok) {
+        start=cookie.indexOf(name+"=",start+1);
+      }
+    }
+    var len = start+name.length+1;
+    if ((!start) && (name != cookie.substring(0,name.length))) return null;
+    if (start == -1) return null;
+    var end = cookie.indexOf(";",len);
+    if (end == -1) end = cookie.length;
+    return unescape(cookie.substring(len,end));
+}
+
+function setCookie(name,value) {
+	var expiration=new Date(2099,12,31);
+    document.cookie = name + "=" +escape(value) + ";expires=" + expiration.toGMTString();
+}
+
+function formSubmit() {
+	var name=document.form1.username.value;
+	if(name=="") {
+		alert("Please input your username");
+		return false;
+	}
+	if(document.form1.cbremember.checked) {
+		setCookie("username",name);
+	}
+	var password=document.form1.ipwd.value;
+	if(password=="") {
+		alert("Please input your password");
+		return false;
+	}
+    
+    var s="X9L7UNX3U4X715ef11421db"+password;
+    var hp=b64_md5(s);
+    document.form1.hp.value=hp;
+    
+
+    var s="";
+    for(i=0;i<password.length;i++) {
+       s=s+".";
+    }
+    document.form1.ipwd.value=s;//keep the textbox with the same number of asterisks. the server ignores this field anyway
+
+    if(document.form1.cbnewwin.checked) {
+      // replace / and + of Base64 into something that can be in a URL
+      var hp=document.form1.hp.value;
+      var re=/\//g;
+      hp=hp.replace(re,"%2f");
+      re=/\+/g;
+      hp=hp.replace(re,"%2b");
+      var u="home.do?NewWindow=TRUE&Action=Login&LoginToken="+escape(document.form1.LoginToken.value)+"&encryption="+escape(document.form1.encryption.value)+"&hp="+hp+"&username="+escape(document.form1.username.value);
+
+      u=u+"&OpenerBase="+escape(window.location.href);
+      window.open(u,"_blank","toolbar=0,location=0,directories=0,menubar=0,scrollbars=0,resizable=1");
+      document.getElementById("closepage").style.display="";
+      document.getElementById("loginpage").style.display="none";
+      return false;
+    }
+
+	return true;
+}
+
+function rememberClick() {
+	if(!document.form1.cbremember.checked) {
+		setCookie("username","");
+		setCookie("rememberusernameflag","no");
+	}
+	else {
+		setCookie("rememberusernameflag","yes");
+	}
+}
+function newWinClick() {
+	if(!document.form1.cbnewwin.checked) {
+		setCookie("openinnewwindow","no");
+	}
+	else {
+		setCookie("openinnewwindow","yes");
+	}
+}
+--></script>
+
+<body class="dn" bgcolor="#FFFFFF" text="#000000">
+<table width="100%" cellspacing="0" height="100%" id="closepage" style="display:none">
+  <tr>
+    <td align="center" valign="middle">
+<p align="center">DeskNow has been launched in a new window.</p>
+<p align="center">You can now close this window.</p>
+	</td>
+  </tr>
+</table>
+<div id="loginpage">
+<form name="form1" method="post" action="home.do?Action=Login" onSubmit="return formSubmit();" >
+<input type="hidden" name="LoginToken" value="X9L7UNX3U4X715ef11421db" >
+<input type="hidden" name="encryption" value="md5" >
+<input type="hidden" name="hp" value="" >
+
+
+
+
+
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td>
+      <table border="0" align="center">
+        <tr>
+          <td align="right" valign="middle">
+            <p><img src="logoservlet.jpg"></p>
+          </td>
+          <td align="right" valign="middle"><br>
+            <p>&nbsp;</p>
+              <table width="100%" cellspacing="5" cellpadding="5">
+                <tr>
+                  <td><b>Username</b></td>
+                  <td>
+                    <input type="text" name="username" tabindex=1>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Password</b></td>
+                  <td>
+                    <input type="password" name="ipwd" value="" tabindex=2 autocomplete="off">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div align="right">
+                      <input type=submit value="Login" tabindex=3/>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">&nbsp;</td>
+          <td align="right" valign="top"><font face="Arial, Helvetica, sans-serif" size="2">DeskNow&reg; 3.2.17
+            <br>
+            <a href="http://www.desknow.com">http://www.desknow.com</a><br>
+            <a href="pocket.html">PocketPC Login</a><br>
+            <input type="checkbox" name="cbremember" value="checkbox" checked onClick="rememberClick();">
+            remember my username<br/>
+
+
+            <input type="checkbox" name="cbnewwin" value="checkbox"  onClick="newWinClick();">
+
+            open in new window
+
+</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+<script language="JavaScript">
+document.form1.hp.value="";
+var rem=getCookie("rememberusernameflag");
+if(rem!=null && rem=="no") {
+	document.form1.cbremember.checked=false;
+	document.form1.username.focus();
+}
+else {
+	var name=getCookie("username");
+	if(name!=null) {
+		document.form1.username.value=name;
+		document.form1.hp.value="";
+		document.form1.ipwd.focus();
+	}
+	else {
+		document.form1.username.focus();
+	}
+}
+var opennw=getCookie("openinnewwindow");
+
+
+
+if(opennw!=null && opennw=="yes") {
+	document.form1.cbnewwin.checked=true;
+}
+
+
+</script>
+</body>
+</html>

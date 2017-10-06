@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html style="height:100%;width:100%;">
+<head>
+
+<title>AT&T Restricted Access - lab.vpn.att.com</title>
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=500,user-scalable=no" />
+<script>
+if(self != top) top.location.href="/+CSCOE+/logon.html";
+
+
+
+var blinkCounter=0;
+var dap;
+
+function scrollToLogonForm() {
+    document.location.hash = "form_title_text";
+}
+
+function dap_message(){
+
+      if(!dap) return;
+      
+      if(dap.style.visibility == "visible"){
+         dap.style.visibility = "hidden"
+      }else{
+         dap.style.visibility = "visible"
+      }
+      blinkCounter++;
+      if(dap.style.visibility == "visible" && blinkCounter > 5)
+	      clearInterval(dap_interval)
+} 
+
+function blinkDapMessage(){
+        dap=document.getElementById("dap");
+        if(dap){
+           dap_interval = setInterval('dap_message()',1000)
+        }
+}
+
+function showDapMessage(){
+        obj=document.getElementById("dap_message");
+        if(obj){
+           obj.style.visibility = "visible"
+           obj.style.top = (document.body.clientHeight - obj.clientHeight)/2+"px"
+           obj.style.left = (document.body.clientWidth - obj.clientWidth)/2+"px"
+        }
+
+        obj1=document.getElementById("dap_message_shield");
+        if(obj1){
+           obj1.style.visibility = "visible"
+           obj1.style.top = (document.body.clientHeight - obj.clientHeight)/2+"px"
+           obj1.style.left = (document.body.clientWidth - obj.clientWidth)/2+"px"
+           obj1.style.height = obj.clientHeight+"px"
+           obj1.style.width = obj.clientWidth+"px"
+        }
+} 
+
+function hideDapMessage(){
+        obj=document.getElementById("dap_message");
+        if(obj){
+           obj.style.visibility = "hidden"
+        }
+
+        obj1=document.getElementById("dap_message_shield");
+        if(obj1){
+           obj1.style.visibility = "hidden"
+        }
+} 
+
+
+
+
+
+
+
+
+
+
+function updateLogonForm(group,reload){
+
+    if(reload[group]){
+    	var obj=document.getElementById("login");
+    	if(obj) {
+           obj.disabled=true
+        }
+        document.cookie = "tg=1" + group + "; path=/; secure";
+    	document.location = "/+CSCOE+/logon.html";
+        return
+    }
+}
+function PrefillError() {
+      var obj = document.getElementById("logon_message_text");
+      if (obj) {
+         obj.innerHTML="Your certificate is invalid for the selected group";
+         obj.style.fontWeight="bold";
+         obj.style.color="red";
+      }
+      obj = document.getElementById("Login");
+      if (obj) {
+         obj.disabled=true;
+      }
+}
+</script>
+
+
+<link href="/+CSCOU+/portal.css" rel="stylesheet" type="text/css">
+<link href="/+CSCOE+/logon_custom.css" rel="stylesheet" type="text/css">
+<style>
+     .auth-page-title {color:#020000;font-size:150%;font-weight:normal;background-image:url('/+CSCOU+/gradient.gif?r=255&g=255&b=255');}
+.auth-page-form-title {background-color:#f90516;color:#ffffff;}
+
+</style>
+
+<script src="/+CSCOE+/win.js"></script>
+<script>
+function CSCO_Format(fmt) {
+var i;
+	for(i=1; i < arguments.length; i++) {
+		var r = new RegExp("\\%("+i+"\\$)?.", "i");
+		fmt=fmt.replace(r, arguments[i])
+	}
+	return fmt;
+}
+document.cookie="webvpnlogin=1; path=/; secure";
+//++7C54453D5172736E6879674A524F49434154656268637C5042313D6E67672D6666796963612D636265676E797C5042323D6E67672D6666796963612D636265676E797C796E61743D72612D68662C776E2C73652C65687C717273796E61743D7261
+function disableButton(){
+        try{
+                obj=document.getElementById("submit_button");
+                if(obj){
+                        obj.disabled=true;
+                }
+        }
+        catch (e) {
+
+        }
+
+}
+</script>
+
+
+</head>
+
+
+<body style="background-color:#ffffff; overflow:auto;height:100%; width:100%; " onload="scrollToLogonForm();blinkDapMessage();">
+<table style="width:100%; height: 100%" cellSpacing="0" cellPadding="0" >
+<tr><td vAlign="top">
+<table style="width:100%;"  cellspacing=0 cellpadding=0>
+
+<tr>
+<td style="border-bottom:1px solid #aaaaaa;vertical-align:top; " colspan=2>    
+
+<table   style="width:100%" border="0" cellpadding="0" cellspacing="0" class="cuesHeaderBg">
+<tr width=100%>
+<td class="cuesHeaderAccent" width=100% colspan=2></td>
+
+</tr>
+   <tr id="title" width=100% >
+      <td colspan=2 class="auth-page-title" style="height:40px; padding: 8px" width="100%"><img src="/+CSCOU+/att-your-world-delivered.jpg"  align="absmiddle" alt="Logo"  title="Logo">&nbsp;&nbsp;AT&T Employee Home VPN Portal</td>
+<!-- <td class="auth-page-title" style="heigh:40px; padding: 8px" align="right">
+
+
+</td> -->
+</tr>
+</table>
+
+ 
+</td>
+</tr>
+
+<tr style="height:40px">
+<td align="right" colspan="2">
+
+</td>
+</tr>
+<tr align="center">
+
+<td id=form_panel align=middle>
+<div id=keepout_margin  style="MARGIN-TOP: 100px; MARGIN-LEFT: 30px; MARGIN-RIGHT: 30px;padding:3em;">
+      <table style="border:0px !important;table-layout:fixed;" id=form_table cellspacing=0 cellpadding=0 border=0 width=350 >
+
+    <tr>
+    <td colspan=2 id="logon" align="middle" valign="top" border=0>
+      <table id="form_title" style="table-layout:fixed;background-color: rgba(0,0,0,0); " width=100% cellspacing=0 cellpadding=0 border="0">
+    	<tr height=40>
+    		<td id="form_title_text" align="left" nowrap style="padding: 0px; border:0px;background-color: rgba(0,0,0,0);" width=51><img src="/+CSCOU+/login-header-icon.jpg" width=51  style="display:block;" ></td>
+		<td width=100% nowrap style="background-color: #ffffff;" border=0>
+			<table style="width:100%" cellspacing=0 cellpadding=0 border=0>
+				<tr>
+					<td colspan=2 height=16 style="background-color: #ffffff;"></td>
+				</tr>
+				<tr>
+					<td width=100% align=left nowrap style="background: url('/+CSCOU+/login-header-middle.jpg'); color: #7d8184; font-weight: bold;padding-left:100px; ">Logout</td>
+					<td width=1><img src="/+CSCOU+/login-header-end.jpg" style="display:block;"  width=1></td>
+				</tr>
+			</table>
+		</td>
+    	</tr>
+      </table>
+    </td>
+    </tr>
+
+<tr align="center"><td colspan=2 align=middle style="color:#000000; background-color:#ffffff;border-left:1px solid #858a91;border-right:1px solid #858a91;border-bottom:1px solid #858a91;">
+<table border=0 style="color:#000000; background-color:#ffffff;">
+
+<tr align="center"> 
+<td colspan=2 align="middle" id=auth_message style="font-weight: bold;border-left:1px solid #858a91;border-right:1px solid #858a91;  color: #bb0000">Certificate Validation Failure<br>
+
+</td>
+</tr>
+
+
+<tr>
+<td colspan=2><div id=logout_message  style="margin-top:10;margin-bottom:10;padding-left:20px;font-weight:normal;" align=left>
+
+</div>
+</td>
+</tr> 
+
+<tr align="center">
+<td align=middle colspan=2 height=40>
+<input id=logout_button type=button  style="font-weight:bold; cursor: pointer;" value='Logon'  onclick='document.location.replace("/+CSCOE+/logon.html")'>
+</td>
+</tr>
+
+</table>
+</div>
+</td>
+</table>
+</div>
+<!-- this is for closing smart tunnels -->
+<script defer src='https://4214980788shutdown.relay.webvpn./nonexistent.js'></script>
+</td>
+
+</tr>
+</table>
+</td></tr>
+
+<tr>
+<td id=copyright_panel  colspan=2 style="vertical-align:bottom">
+      <div style="text-indent:10px; ">  AT&T Restricted Access
+</div></td>
+</tr>
+
+</table>
+
+<iframe style="top:0px;left:0px;position:absolute; visibility:hidden; width: 500px;" id=dap_message_shield src="/+CSCOE+/blank.html"></iframe>
+<div style="top:0px;left:0px;position:absolute; visibility:hidden; width: 500px; background-color: #ffffff; border: 1px solid #000000" id=dap_message>
+<table cellspacing=0 >
+<tr>
+<td height=40 style="margin:10px; background-color: #dbdbdb;">
+<div style="margin:10px;">
+<br>Your system administrator provided the following information to help understand and remedy the security conditions: 
+</div>
+</td>
+</tr>
+<tr>
+<td height=40>
+<div style="margin:10px">
+Certificate Validation Failure<br>
+</div>
+</td>
+</tr>
+<tr>
+<td align=right height=40 style="border-top: 1px dotted #aaaaaa;">
+<a href="javascript:hideDapMessage()">Close</a>&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</div>
+
+
+
+</body>
+</HTML>

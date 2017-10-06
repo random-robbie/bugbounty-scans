@@ -1,0 +1,130 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META NAME="description" CONTENT="MediaBin Web Client">
+<META NAME="keywords" CONTENT="MediaBin, Interwoven, Web Client">
+
+<TITLE>Connect to MediaBin Server</TITLE>
+
+<LINK REL="stylesheet" TYPE="text/css" HREF="css/MediaBin.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+<style type="text/css">
+	a:link {color: black}
+	a:visited {color: black}
+	a:hover {color: black}
+	a:active {color: black}
+</style>
+
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript" SRC="js/Default.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript" SRC="js/ChangeImage.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript" SRC="js/Cookies.js"></SCRIPT>
+
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript">
+var g_blnClear = false;
+
+// Make sure this is in the top frame
+if (window.top != window)
+	window.top.location = window.location;
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TOPMARGIN="0" LEFTMARGIN="0" onLoad="OnLoad()" onKeyPress="HandleKeyPress(event)">
+
+<BR>
+
+<CENTER>
+
+<TABLE ID='tbl1' BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="547">
+<TR><TD COLSPAN="3">
+		<IMG SRC="images/G-login-mid_top.jpg" WIDTH="510" HEIGHT="154" BORDER="0" ALT="MediaBin"></TD></TR>
+
+<TR><TD VALIGN="top" STYLE="height:100%" ROWSPAN="2">
+		<IMG SRC="images/G-login-left.jpg" STYLE="width:131px;height:100%;border:0" ALT="MediaBin"></TD>
+
+    <TD VALIGN="top" WIDTH="368">
+		<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="368">
+		<TR><TD><IMG SRC="images/spacer.gif" WIDTH="40" HEIGHT="1" BORDER="0" CLASS="hidden" ALT="MediaBin"></TD>
+			<TD CLASS="MediumText">
+
+				<DIV ID="divForm" STYLE="display:block">
+
+				<FORM ID="frmLogin" METHOD="post" ACTION="default.asp?folder=">
+				<INPUT TYPE=hidden NAME="RETURN_URL" VALUE="Main.asp">
+				<INPUT TYPE=hidden NAME="timezone" VALUE="0">
+
+				<IMG SRC="images/L-login-userid.gif"	WIDTH="77" HEIGHT="16" BORDER="0" ALT="User Id" ><INPUT NAME="userId"   ID="userId"   ALT="user id"  STYLE="width:180px" TYPE="text" VALUE=""><BR>
+				<IMG SRC="images/L-login-password.gif"	WIDTH="77" HEIGHT="16" BORDER="0" ALT="Password"><INPUT NAME="password" ID="password" ALT="password" STYLE="width:180px" TYPE="password"><BR>
+<!--				<IMG SRC="images/L-login-domain.gif" 	WIDTH="77" HEIGHT="16" BORDER="0" ALT="Domain"	><INPUT NAME="domain"   ID="domain"   ALT="domain" STYLE="width:180px" TYPE="text" VALUE="NETGEAR"><BR>
+				<IMG SRC="images/L-login-server.gif" 	WIDTH="77" HEIGHT="16" BORDER="0" ALT="Server"	><INPUT NAME="server"   ID="server"   ALT="server" STYLE="width:180px" TYPE="text" VALUE="EMERALD"><BR> -->
+
+				<BR>
+				<IMG SRC="images/spacer.gif" WIDTH="55" HEIGHT="1" BORDER="0" CLASS="hidden" ALT="MediaBin">
+				<A HREF="JavaScript:formClear();"
+					onMouseOver="changeImage('btnClear','images/B-box-clear_on.gif');self.status='clear';return true;"   
+					onMouseOut="changeImage('btnClear','images/B-box-clear_off.gif'); self.status='';return true;"
+					onfocus="g_blnClear=true;"
+					onblur="g_blnClear=false;">
+					<IMG src="images/B-box-clear_off.gif"   NAME="btnClear" BORDER="0" WIDTH="84" HEIGHT="23" ALT="Clear"></A>
+				<A HREF="JavaScript:formSubmit();"
+					onMouseOver="changeImage('btnConnect','images/B-box-connect_on.gif');self.status='connect';return true;" 
+					onMouseOut="changeImage('btnConnect','images/B-box-connect_off.gif');self.status='';return true;">
+					<IMG SRC="images/B-box-connect_off.gif" NAME="btnConnect" BORDER="0" WIDTH="84" HEIGHT="23" ALT="Connect"></A>
+				</FORM>
+
+				</DIV>
+					
+				<DIV ID="divLoggingIn" CLASS="message" STYLE="display:none;height:15em;border:0">
+				<BR>
+				<BR>
+				<BR>
+				<BR>
+				<BR>
+				<B>Logging in to MediaBin Server</B><BR>
+				<BR>
+				<BR>
+				</DIV>
+
+
+			</TD></TR>
+		</TABLE>
+		<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="5">
+		<TR><TD ID="divMessage" ALIGN="center" CLASS="SmallText">
+				&nbsp;
+			</TD></TR>
+		</TABLE>
+	</TD>
+	
+	<TD VALIGN="top" HEIGHT="100%" ROWSPAN="2"
+		><IMG SRC="images/G-login-right.jpg" WIDTH="48" HEIGHT="100%" BORDER="0" ALT="MediaBin"></TD></TR>
+	
+<TR><TD VALIGN="bottom">
+		<IMG SRC="images/G-login-mid_bottom.jpg" WIDTH="368" HEIGHT="8" BORDER="0" ALT="MediaBin"></TD></TR>
+
+<TR><TD COLSPAN="3" CLASS="copyright">
+		<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" HEIGHT="100%">
+		<TR><TD><IMG SRC="images/spacer.gif" WIDTH="95" HEIGHT="1" BORDER="0" CLASS="hidden" ALT="MediaBin"></TD>
+			<TD CLASS="copyright" VALIGN="top">
+				<B>	Copyright &copy; 1999-2017 Autonomy Corporation plc and its affiliates. All rights reserved.<BR>
+					MediaBin and STiNG are trademarks of Autonomy.<BR>
+					MediaBin Web Client, Release Virage-MediaBin 7.2.</B></TD>
+		</TABLE>
+	</TD></TR>
+
+<TR>
+	<TD colspan="3" style="padding-top:20px;text-align:center" CLASS="smalltext"><img height="16" width="16" style="text-align:center;vertical-align:bottom" src="images/validatebrowser.gif"/>
+		&nbsp;<a href="ValidateBrowser.asp">Validate Browser</a>
+	</TD></TR>
+
+</TABLE>
+
+</center>
+
+</BODY>
+</HTML>

@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REST API Resources | Developer Resources</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://developer.wordpress.com/xmlrpc.php">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Merriweather:700' rel='stylesheet' type='text/css'>
+
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//widgets.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Developer Resources &raquo; Feed" href="https://developer.wordpress.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Developer Resources &raquo; Comments Feed" href="https://developer.wordpress.com/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1505864856h&ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='all-css-0-1' href='https://s2.wp.com/_static/??-eJyNketOwzAMhV8Ik43LVH4gniVNTerNqaPapeztSVeNjVvEn+gc63yxnbg5Q5DBcDCXJsg8RRrUzTlIAk3EePzmboPqjfsdYzqguj1a9uEAJ1eLBxmx1FP2tiQSduSRMZVYDZupi2gF17MGw/cqkvLu3GiRfRmvOtm6cdvmEVWhnImmBNaX2X5ya9n5Jqxch2/3Tu3IuEbJDWJU0vop/rOeSYYsWtTVXXVEJZBnWHtdmxocUYAleCMZvhh4ZU9jDR2xZYlFxtNnXGwN8mG5vPXjRf31pP2Diyyt5yXwkp63j5vtpnna3TX7D/EcBdk=' type='text/css' media='all' />
+	<script type="text/javascript">
+	if ( window.top !== window.self ) {
+		if ( window.top.location.hostname !== window.self.location.hostname || window.top.location.protocol !== window.top.location.protocol ) {
+			window.top.location.href = window.self.location.href;
+		}
+	}
+	</script><script type='text/javascript' src='https://s1.wp.com/_static/??-eJyF0dsOgjAMBuAXckwUIzfGZxlbxSJbcQeIPr2V6AURIVmypPvS9d/k0Al0uk0Ggmx43RP4x2fLmrCRS0BYrL2KkFl0X6zJRXDxbS1V2IJIAbyqucaNLjTjOgrRQgiMZk6nI6HrEYZV1kDslL4JDwGfP13jFfg+qUrNVU3WQL8fBwaXFkInlJr8JO28GtDUENed0tzPILl1aomfcZ2NeVXVzn7Jv9iqQ2FIB/Zne8qL8rgr80OxbV4CE8jQ'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://developer.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel="canonical" href="https://developer.wordpress.com/docs/api/" />
+<link rel='shortlink' href='http://wp.me/P2gHKz-g' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fdeveloper.wordpress.com%2Fdocs%2Fapi%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fdeveloper.wordpress.com%2Fdocs%2Fapi%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="REST API Resources" />
+<meta property="og:url" content="https://developer.wordpress.com/docs/api/" />
+<meta property="og:description" content="Welcome to the WordPress.com REST API. Below, you&#8217;ll find a full listing of all the available endpoints. As we add more endpoints, they will be automatically documented here and available thr…" />
+<meta property="article:published_time" content="2012-04-05T00:12:39+00:00" />
+<meta property="article:modified_time" content="2016-12-19T19:08:08+00:00" />
+<meta property="og:site_name" content="Developer Resources" />
+<meta property="og:image" content="https://secure.gravatar.com/blavatar/2b9f802603565d131ae7d2ba65746574?s=200&amp;ts=1507239326" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:site" content="@AutomatticEng" />
+<meta name="twitter:text:title" content="REST API Resources" />
+<meta name="twitter:image" content="https://secure.gravatar.com/blavatar/2b9f802603565d131ae7d2ba65746574?s=240" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@AutomatticEng" />
+<meta property="fb:app_id" content="249643311490" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+<meta name="twitter:app:name:iphone" content="WordPress" />
+<meta name="twitter:app:id:iphone" content="335703880" />
+<meta name="twitter:app:name:ipad" content="WordPress" />
+<meta name="twitter:app:id:ipad" content="335703880" />
+<meta name="twitter:app:name:googleplay" content="WordPress" />
+<meta name="twitter:app:id:googleplay" content="org.wordpress.android" />
+<link rel="shortcut icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/2b9f802603565d131ae7d2ba65746574?s=32" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/2b9f802603565d131ae7d2ba65746574?s=32" sizes="16x16" />
+<link rel="apple-touch-icon-precomposed" href="https://secure.gravatar.com/blavatar/2b9f802603565d131ae7d2ba65746574?s=114" />
+<link rel='openid.server' href='https://developer.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='https://developer.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://developer.wordpress.com/osd.xml" title="Developer Resources" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Developer Resources" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Create cool applications that integrate with WordPress.com" /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://developer.wordpress.com/feed/;icon-uri=https://secure.gravatar.com/blavatar/2b9f802603565d131ae7d2ba65746574?s=16" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="title" content="REST API Resources | Developer Resources on WordPress.com" />
+<meta name="description" content="Welcome to the WordPress.com REST API. Below, you&#039;ll find a full listing of all the available endpoints. As we add more endpoints, they will be automatically documented here and available through the Developer Console. If you&#039;re not sure how to make calls to the API, you might want to check out the Getting Started guide&hellip;" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+		<link rel="stylesheet" id="custom-css-css" type="text/css" href="https://s0.wp.com/?custom-css=1&#038;csblog=2gHKz&#038;cscache=6&#038;csrev=44" />
+		</head>
+
+<body class="page-template page-template-api-doc-index page-template-api-doc-index-php page page-id-16 page-parent page-child parent-pageid-8 mp6 customizer-styles-applied highlander-enabled highlander-light">
+<div id="page" class="hfeed site">
+
+	<header id="masthead" class="site-header" role="banner">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<form role="search" method="get" class="search-form" action="https://developer.wordpress.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:'" />
+	</label>
+</form>				<div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li id="menu-item-5714" class="menu-item-home menu-item menu-item-type-post_type menu-item-object-page menu-item-5714"><a href="https://developer.wordpress.com/">Developers</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-32"><a href="https://developer.wordpress.com/docs/">Documentation</a>
+<ul  class="sub-menu">
+	<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item menu-item-has-children menu-item-34"><a href="https://developer.wordpress.com/docs/api/">REST API</a>
+	<ul  class="sub-menu">
+		<li id="menu-item-90807" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90807"><a href="https://developer.wordpress.com/docs/api/getting-started/">Getting Started</a></li>
+		<li id="menu-item-28306" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28306"><a href="https://developer.wordpress.com/docs/api/console/">Developer Console</a></li>
+		<li id="menu-item-88679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88679"><a href="https://developer.wordpress.com/docs/api/rest-api-example-apps/">Example Apps</a></li>
+	</ul>
+</li>
+	<li id="menu-item-28277" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28277"><a href="https://developer.wordpress.com/docs/oauth2/">Authentication</a>
+	<ul  class="sub-menu">
+		<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://developer.wordpress.com/docs/oauth2/">OAuth</a></li>
+		<li id="menu-item-4109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4109"><a href="https://developer.wordpress.com/docs/wpcc/">WordPress.com Connect (Login)</a></li>
+	</ul>
+</li>
+	<li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="https://developer.wordpress.com/docs/oembed-provider-api/">oEmbed API</a></li>
+	<li id="menu-item-1271" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1271"><a href="https://developer.wordpress.com/docs/photon/">Photon Image API</a></li>
+	<li id="menu-item-28280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28280"><a href="https://developer.wordpress.com/docs/follow-button-creation/">Embeddable Widgets</a>
+	<ul  class="sub-menu">
+		<li id="menu-item-4573" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4573"><a href="https://developer.wordpress.com/docs/follow-button-creation/">Follow Button</a></li>
+		<li id="menu-item-5138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5138"><a href="https://developer.wordpress.com/docs/embedded-timelines/">Timeline</a></li>
+	</ul>
+</li>
+	<li id="menu-item-28282" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28282"><a href="https://developer.wordpress.com/docs/embedding-on-wordpress-com/">Other Integrations</a>
+	<ul  class="sub-menu">
+		<li id="menu-item-9582" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9582"><a href="https://developer.wordpress.com/docs/embedding-on-wordpress-com/">Embedding</a></li>
+		<li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56"><a href="https://developer.wordpress.com/docs/sharing-buttons/">Sharing Buttons</a></li>
+		<li id="menu-item-1861" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1861"><a href="https://developer.wordpress.com/themes/">Theme Guide</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://developer.wordpress.com/blog/">Blog</a></li>
+<li id="menu-item-135" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135"><a href="https://developer.wordpress.com/apps/">My Apps</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="https://developer.wordpress.com/contact/">Contact</a></li>
+</ul></div>				<a href="#" id="menu-hamburger"><span class="noticon noticon-menu"></span></a>
+				<a href="#" id="menu-search"><span class="noticon noticon-search"></span></a>
+			</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+			<div id="page-name" class="page-masthead">
+			<div class="name-area">
+				<h1>REST API Resources</h1>
+			</div>
+		</div>
+	
+	<div id="main-container" class="site-content">
+		<div class="breadcrumbs"><a href="https://developer.wordpress.com/docs/">Documentation</a> &rarr; <strong>REST API Resources</strong></div>
+	<div id="primary" class="content-area full-width">
+		<div id="content" class="site-content" role="main">
+			<article class="post hentry api-index">
+
+				<div class="entry-content">
+
+					
+	<div class="api-index-wrap">
+		<p>Welcome to the WordPress.com REST API. Below, you&#8217;ll find a full listing of all the available endpoints. As we add more endpoints, they will be automatically documented here and available through the <a href="https://developer.wordpress.com/docs/api/console/">Developer Console</a>.</p>
+<p>If you&#8217;re not sure how to make calls to the API, you might want to check out the <a href="https://developer.wordpress.com/docs/api/getting-started/">Getting Started</a> guide or the walkthrough on <a href="https://developer.wordpress.com/docs/oauth2/">authentication</a>.</p>
+<p>For more information about a particular endpoint, click on its name under the Resource header. You&#8217;ll be taken to the endpoint&#8217;s documentation page, which includes what query parameters the endpoint will accept, what the JSON object&#8217;s parameters will be in the response, and an example query/response.</p>
+<p>This documentation is for our most recent version of the REST API, version 1.1. Documentation is still available for <a href="https://developer.wordpress.com/docs/api/v1/">version 1</a> of the REST API.</p>
+<p>If you&#8217;re looking for the WordPress REST API that shipped as part of WordPress core in version 4.7, see <a href="https://developer.wordpress.org/rest-api/">its documentation</a>.  Note that this API is <a href="https://developer.wordpress.com/2016/11/11/wordpress-rest-api-on-wordpress-com/">also enabled on WordPress.com</a>.</p>
+<hr />
+			<table class="api-index api-index-users" id="users">
+				<caption>
+					<h2>Users</h2>
+					<p>View user information data such as username, name, email, blog, and Gravatar.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/users/" title="/sites/$site/users">
+				<span class="api-method-get">GET</span>/sites/$site/users			</a>
+		</td>
+		<td class="api-index-item-body">List the users of a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/users/%24user_id/" title="/sites/$site/users/$user_id">
+				<span class="api-method-post">POST</span>/sites/$site/users/$user_id			</a>
+		</td>
+		<td class="api-index-item-body">Update details of a user of a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/users/login:%24user_id/" title="/sites/$site/users/login:$user_id">
+				<span class="api-method-get">GET</span>/sites/$site/users/login:$user_id			</a>
+		</td>
+		<td class="api-index-item-body">Get details of a user of a site by login.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/users/%24user_ID/delete/" title="/sites/$site/users/$user_ID/delete">
+				<span class="api-method-post">POST</span>/sites/$site/users/$user_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Deletes or removes a user of a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/users/suggest/" title="/users/suggest">
+				<span class="api-method-get">GET</span>/users/suggest			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of possible users to suggest for @mentions.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/" title="/me">
+				<span class="api-method-get">GET</span>/me			</a>
+		</td>
+		<td class="api-index-item-body">Get metadata about the current user.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/billing-history/" title="/me/billing-history">
+				<span class="api-method-get">GET</span>/me/billing-history			</a>
+		</td>
+		<td class="api-index-item-body">Get list of current user's billing history and upcoming charges.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/settings/" title="/me/settings/">
+				<span class="api-method-get">GET</span>/me/settings/			</a>
+		</td>
+		<td class="api-index-item-body">Get the current user's settings.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/settings/" title="/me/settings/">
+				<span class="api-method-post">POST</span>/me/settings/			</a>
+		</td>
+		<td class="api-index-item-body">Update the current user's settings.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/preferences/" title="/me/preferences/">
+				<span class="api-method-get">GET</span>/me/preferences/			</a>
+		</td>
+		<td class="api-index-item-body">Get the current user's settings.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/preferences/" title="/me/preferences/">
+				<span class="api-method-post">POST</span>/me/preferences/			</a>
+		</td>
+		<td class="api-index-item-body">Update the current user's preferences.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/settings/password/validate/" title="/me/settings/password/validate">
+				<span class="api-method-post">POST</span>/me/settings/password/validate			</a>
+		</td>
+		<td class="api-index-item-body">Verify strength of a user's new password.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/settings/profile-links/" title="/me/settings/profile-links/">
+				<span class="api-method-get">GET</span>/me/settings/profile-links/			</a>
+		</td>
+		<td class="api-index-item-body">Get current user's profile links.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/settings/profile-links/new/" title="/me/settings/profile-links/new">
+				<span class="api-method-post">POST</span>/me/settings/profile-links/new			</a>
+		</td>
+		<td class="api-index-item-body">Add a link to current user's profile.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/settings/profile-links/%24slug/delete/" title="/me/settings/profile-links/$slug/delete">
+				<span class="api-method-post">POST</span>/me/settings/profile-links/$slug/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a link from current user's profile.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/connected-applications/" title="/me/connected-applications/">
+				<span class="api-method-get">GET</span>/me/connected-applications/			</a>
+		</td>
+		<td class="api-index-item-body">Get current user's connected applications.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/connected-applications/%24ID/" title="/me/connected-applications/$ID">
+				<span class="api-method-get">GET</span>/me/connected-applications/$ID			</a>
+		</td>
+		<td class="api-index-item-body">Get one of current user's connected applications.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/connected-applications/%24ID/delete/" title="/me/connected-applications/$ID/delete">
+				<span class="api-method-post">POST</span>/me/connected-applications/$ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete one of current user's connected application access tokens.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/two-step/" title="/me/two-step">
+				<span class="api-method-get">GET</span>/me/two-step			</a>
+		</td>
+		<td class="api-index-item-body">Get information about current user's two factor configuration.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/two-step/sms/new/" title="/me/two-step/sms/new">
+				<span class="api-method-post">POST</span>/me/two-step/sms/new			</a>
+		</td>
+		<td class="api-index-item-body">Sends a two-step code via SMS to the current user.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/likes/" title="/me/likes/">
+				<span class="api-method-get">GET</span>/me/likes/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of the current user's likes.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-users -->
+						<table class="api-index api-index-sites" id="sites">
+				<caption>
+					<h2>Sites</h2>
+					<p>View general site information and options.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/shortcodes/render/" title="/sites/$site/shortcodes/render">
+				<span class="api-method-get">GET</span>/sites/$site/shortcodes/render			</a>
+		</td>
+		<td class="api-index-item-body">Get a rendered shortcode for a site. Note: The current user must have publishing access.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/shortcodes/" title="/sites/$site/shortcodes">
+				<span class="api-method-get">GET</span>/sites/$site/shortcodes			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of shortcodes available on a site. Note: The current user must have publishing access.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/embeds/render/" title="/sites/$site/embeds/render">
+				<span class="api-method-get">GET</span>/sites/$site/embeds/render			</a>
+		</td>
+		<td class="api-index-item-body">Get a rendered embed for a site. Note: The current user must have publishing access.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/embeds/" title="/sites/$site/embeds">
+				<span class="api-method-get">GET</span>/sites/$site/embeds			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of embeds available on a site. Note: The current user must have publishing access.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/" title="/sites/$site">
+				<span class="api-method-get">GET</span>/sites/$site			</a>
+		</td>
+		<td class="api-index-item-body">Get information about a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/page-templates/" title="/sites/$site/page-templates">
+				<span class="api-method-get">GET</span>/sites/$site/page-templates			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of page templates supported by a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/post-types/" title="/sites/$site/post-types">
+				<span class="api-method-get">GET</span>/sites/$site/post-types			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of post types available for a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/post-counts/%24post_type/" title="/sites/$site/post-counts/$post_type">
+				<span class="api-method-get">GET</span>/sites/$site/post-counts/$post_type			</a>
+		</td>
+		<td class="api-index-item-body">Get number of posts in the post type groups by post status</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/wordads/settings/" title="/sites/$site/wordads/settings">
+				<span class="api-method-get">GET</span>/sites/$site/wordads/settings			</a>
+		</td>
+		<td class="api-index-item-body">Get detailed WordAds settings information about a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/wordads/settings/" title="/sites/$site/wordads/settings">
+				<span class="api-method-post">POST</span>/sites/$site/wordads/settings			</a>
+		</td>
+		<td class="api-index-item-body">Update WordAds settings for a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/wordads/earnings/" title="/sites/$site/wordads/earnings">
+				<span class="api-method-get">GET</span>/sites/$site/wordads/earnings			</a>
+		</td>
+		<td class="api-index-item-body">Get detailed WordAds earnings information about a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/wordads/tos/" title="/sites/$site/wordads/tos">
+				<span class="api-method-get">GET</span>/sites/$site/wordads/tos			</a>
+		</td>
+		<td class="api-index-item-body">Get WordAds TOS information about a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/wordads/tos/" title="/sites/$site/wordads/tos">
+				<span class="api-method-post">POST</span>/sites/$site/wordads/tos			</a>
+		</td>
+		<td class="api-index-item-body">Update WordAds TOS setting for a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/wordads/approve/" title="/sites/$site/wordads/approve">
+				<span class="api-method-post">POST</span>/sites/$site/wordads/approve			</a>
+		</td>
+		<td class="api-index-item-body">Request streamlined approval to join the WordAds program.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/sites/" title="/me/sites">
+				<span class="api-method-get">GET</span>/me/sites			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of the current user's sites.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/widgets/widget:%24id/" title="/sites/$site/widgets/widget:$id">
+				<span class="api-method-get">GET</span>/sites/$site/widgets/widget:$id			</a>
+		</td>
+		<td class="api-index-item-body">Retrieve a widget on a site by its ID.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/widgets/widget:%24id/" title="/sites/$site/widgets/widget:$id">
+				<span class="api-method-post">POST</span>/sites/$site/widgets/widget:$id			</a>
+		</td>
+		<td class="api-index-item-body">Update a widget on a site by its ID.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/widgets/widget:%24id/delete/" title="/sites/$site/widgets/widget:$id/delete">
+				<span class="api-method-post">POST</span>/sites/$site/widgets/widget:$id/delete			</a>
+		</td>
+		<td class="api-index-item-body">Deactivate a widget on a site by its ID. Will delete if already deactivated.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/widgets/" title="/sites/$site/widgets">
+				<span class="api-method-get">GET</span>/sites/$site/widgets			</a>
+		</td>
+		<td class="api-index-item-body">Retrieve the active and inactive widgets for a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/widgets/new/" title="/sites/$site/widgets/new">
+				<span class="api-method-post">POST</span>/sites/$site/widgets/new			</a>
+		</td>
+		<td class="api-index-item-body">Activate a widget on a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/headers/%24theme_slug/" title="/sites/$site/headers/$theme_slug">
+				<span class="api-method-get">GET</span>/sites/$site/headers/$theme_slug			</a>
+		</td>
+		<td class="api-index-item-body">Get the custom header options for a site with a particular theme.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/headers/mine/" title="/sites/$site/headers/mine">
+				<span class="api-method-get">GET</span>/sites/$site/headers/mine			</a>
+		</td>
+		<td class="api-index-item-body">Get the custom header options for a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/headers/mine/" title="/sites/$site/headers/mine">
+				<span class="api-method-post">POST</span>/sites/$site/headers/mine			</a>
+		</td>
+		<td class="api-index-item-body">Set the custom header options for a site.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-sites -->
+						<table class="api-index api-index-posts" id="posts">
+				<caption>
+					<h2>Posts</h2>
+					<p>View and manage posts including reblogs and likes.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post_ID/" title="/sites/$site/posts/$post_ID">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single post (by ID).</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/" title="/sites/$site/posts/$post_ID">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID			</a>
+		</td>
+		<td class="api-index-item-body">Edit a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/slug:%24post_slug/" title="/sites/$site/posts/slug:$post_slug">
+				<span class="api-method-get">GET</span>/sites/$site/posts/slug:$post_slug			</a>
+		</td>
+		<td class="api-index-item-body">Get a single post (by slug).</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/" title="/sites/$site/posts/">
+				<span class="api-method-get">GET</span>/sites/$site/posts/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of matching posts.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/new/" title="/sites/$site/posts/new">
+				<span class="api-method-post">POST</span>/sites/$site/posts/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/delete/" title="/sites/$site/posts/$post_ID/delete">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a post. Note: If the trash is enabled, this request will send the post to the trash. A second request will permanently delete the post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/restore/" title="/sites/$site/posts/$post_ID/restore">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID/restore			</a>
+		</td>
+		<td class="api-index-item-body">Restore a post or page from the trash to its previous status.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/delete/" title="/sites/$site/posts/delete">
+				<span class="api-method-post">POST</span>/sites/$site/posts/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete multiple posts. Note: If the trash is enabled, this request will send non-trashed posts to the trash. Trashed posts will be permanently deleted.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/posts/" title="/me/posts">
+				<span class="api-method-get">GET</span>/me/posts			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of posts across all the user's sites.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post_ID/likes/" title="/sites/$site/posts/$post_ID/likes/">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post_ID/likes/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of the likes for a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/likes/new/" title="/sites/$site/posts/$post_ID/likes/new">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID/likes/new			</a>
+		</td>
+		<td class="api-index-item-body">Like a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/likes/mine/delete/" title="/sites/$site/posts/$post_ID/likes/mine/delete">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID/likes/mine/delete			</a>
+		</td>
+		<td class="api-index-item-body">Unlike a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post_ID/likes/mine/" title="/sites/$site/posts/$post_ID/likes/mine/">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post_ID/likes/mine/			</a>
+		</td>
+		<td class="api-index-item-body">Get the current user's like status for a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post/subscribers/" title="/sites/$site/posts/$post/subscribers/">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post/subscribers/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of the specified post's subscribers.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post/subscribers/mine/" title="/sites/$site/posts/$post/subscribers/mine">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post/subscribers/mine			</a>
+		</td>
+		<td class="api-index-item-body">Get subscription status of the specified post for the current user.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post/subscribers/new/" title="/sites/$site/posts/$post/subscribers/new">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post/subscribers/new			</a>
+		</td>
+		<td class="api-index-item-body">Subscribe current user to be notified of the specified post's comments.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post/subscribers/mine/delete/" title="/sites/$site/posts/$post/subscribers/mine/delete">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post/subscribers/mine/delete			</a>
+		</td>
+		<td class="api-index-item-body">Unsubscribe the current user from the specified post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/reblogs/new/" title="/sites/$site/posts/$post_ID/reblogs/new">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID/reblogs/new			</a>
+		</td>
+		<td class="api-index-item-body">Reblog a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post_ID/reblogs/mine/" title="/sites/$site/posts/$post_ID/reblogs/mine">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post_ID/reblogs/mine			</a>
+		</td>
+		<td class="api-index-item-body">Get reblog status for a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post/related/" title="/sites/$site/posts/$post/related">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post/related			</a>
+		</td>
+		<td class="api-index-item-body">Search within a site for related posts.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-posts -->
+						<table class="api-index api-index-comments" id="comments">
+				<caption>
+					<h2>Comments</h2>
+					<p>View and manage a post's comments.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/comments/%24comment_ID/" title="/sites/$site/comments/$comment_ID">
+				<span class="api-method-get">GET</span>/sites/$site/comments/$comment_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/" title="/sites/$site/comments/$comment_ID">
+				<span class="api-method-post">POST</span>/sites/$site/comments/$comment_ID			</a>
+		</td>
+		<td class="api-index-item-body">Edit a comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/comments/" title="/sites/$site/comments/">
+				<span class="api-method-get">GET</span>/sites/$site/comments/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of recent comments.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/%24post_ID/replies/" title="/sites/$site/posts/$post_ID/replies/">
+				<span class="api-method-get">GET</span>/sites/$site/posts/$post_ID/replies/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of recent comments on a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/posts/%24post_ID/replies/new/" title="/sites/$site/posts/$post_ID/replies/new">
+				<span class="api-method-post">POST</span>/sites/$site/posts/$post_ID/replies/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a comment on a post.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/replies/new/" title="/sites/$site/comments/$comment_ID/replies/new">
+				<span class="api-method-post">POST</span>/sites/$site/comments/$comment_ID/replies/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a comment as a reply to another comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/delete/" title="/sites/$site/comments/$comment_ID/delete">
+				<span class="api-method-post">POST</span>/sites/$site/comments/$comment_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/comments/%24comment_ID/likes/" title="/sites/$site/comments/$comment_ID/likes/">
+				<span class="api-method-get">GET</span>/sites/$site/comments/$comment_ID/likes/			</a>
+		</td>
+		<td class="api-index-item-body">Get the likes for a comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/likes/new/" title="/sites/$site/comments/$comment_ID/likes/new">
+				<span class="api-method-post">POST</span>/sites/$site/comments/$comment_ID/likes/new			</a>
+		</td>
+		<td class="api-index-item-body">Like a comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/likes/mine/delete/" title="/sites/$site/comments/$comment_ID/likes/mine/delete">
+				<span class="api-method-post">POST</span>/sites/$site/comments/$comment_ID/likes/mine/delete			</a>
+		</td>
+		<td class="api-index-item-body">Remove your like from a comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/comments/%24comment_ID/likes/mine/" title="/sites/$site/comments/$comment_ID/likes/mine/">
+				<span class="api-method-get">GET</span>/sites/$site/comments/$comment_ID/likes/mine/			</a>
+		</td>
+		<td class="api-index-item-body">Get your like status for a comment.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/kill-switch/comment-likes/" title="/kill-switch/comment-likes">
+				<span class="api-method-get">GET</span>/kill-switch/comment-likes			</a>
+		</td>
+		<td class="api-index-item-body">Kill comment likes</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-comments -->
+						<table class="api-index api-index-taxonomy" id="taxonomy">
+				<caption>
+					<h2>Taxonomy</h2>
+					<p>View and manage a site's tags and categories.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/categories/" title="/sites/$site/categories">
+				<span class="api-method-get">GET</span>/sites/$site/categories			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of a site's categories.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/tags/" title="/sites/$site/tags">
+				<span class="api-method-get">GET</span>/sites/$site/tags			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of a site's tags.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/categories/slug:%24category/" title="/sites/$site/categories/slug:$category">
+				<span class="api-method-get">GET</span>/sites/$site/categories/slug:$category			</a>
+		</td>
+		<td class="api-index-item-body">Get information about a single category.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/categories/slug:%24category/" title="/sites/$site/categories/slug:$category">
+				<span class="api-method-post">POST</span>/sites/$site/categories/slug:$category			</a>
+		</td>
+		<td class="api-index-item-body">Edit a category.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/tags/slug:%24tag/" title="/sites/$site/tags/slug:$tag">
+				<span class="api-method-get">GET</span>/sites/$site/tags/slug:$tag			</a>
+		</td>
+		<td class="api-index-item-body">Get information about a single tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/tags/slug:%24tag/" title="/sites/$site/tags/slug:$tag">
+				<span class="api-method-post">POST</span>/sites/$site/tags/slug:$tag			</a>
+		</td>
+		<td class="api-index-item-body">Edit a tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/" title="/sites/$site/taxonomies/$taxonomy/terms/slug:$slug">
+				<span class="api-method-get">GET</span>/sites/$site/taxonomies/$taxonomy/terms/slug:$slug			</a>
+		</td>
+		<td class="api-index-item-body">Get information about a single term.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/" title="/sites/$site/taxonomies/$taxonomy/terms/slug:$slug">
+				<span class="api-method-post">POST</span>/sites/$site/taxonomies/$taxonomy/terms/slug:$slug			</a>
+		</td>
+		<td class="api-index-item-body">Edit a term.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/post-types/%24post_type/taxonomies/" title="/sites/$site/post-types/$post_type/taxonomies">
+				<span class="api-method-get">GET</span>/sites/$site/post-types/$post_type/taxonomies			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of taxonomies associated with a post type.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/taxonomies/%24taxonomy/terms/" title="/sites/$site/taxonomies/$taxonomy/terms">
+				<span class="api-method-get">GET</span>/sites/$site/taxonomies/$taxonomy/terms			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of a site's terms by taxonomy.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/categories/new/" title="/sites/$site/categories/new">
+				<span class="api-method-post">POST</span>/sites/$site/categories/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a new category.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/tags/new/" title="/sites/$site/tags/new">
+				<span class="api-method-post">POST</span>/sites/$site/tags/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a new tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/categories/slug:%24category/delete/" title="/sites/$site/categories/slug:$category/delete">
+				<span class="api-method-post">POST</span>/sites/$site/categories/slug:$category/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a category.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/tags/slug:%24tag/delete/" title="/sites/$site/tags/slug:$tag/delete">
+				<span class="api-method-post">POST</span>/sites/$site/tags/slug:$tag/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/taxonomies/%24taxonomy/terms/new/" title="/sites/$site/taxonomies/$taxonomy/terms/new">
+				<span class="api-method-post">POST</span>/sites/$site/taxonomies/$taxonomy/terms/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a new term.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/delete/" title="/sites/$site/taxonomies/$taxonomy/terms/slug:$slug/delete">
+				<span class="api-method-post">POST</span>/sites/$site/taxonomies/$taxonomy/terms/slug:$slug/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a term.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-taxonomy -->
+						<table class="api-index api-index-follow" id="follow">
+				<caption>
+					<h2>Follow</h2>
+					<p>Follow and unfollow blogs.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/follows/" title="/sites/$site/follows/">
+				<span class="api-method-get">GET</span>/sites/$site/follows/			</a>
+		</td>
+		<td class="api-index-item-body">List a site's followers in reverse chronological order.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/follows/new/" title="/sites/$site/follows/new">
+				<span class="api-method-post">POST</span>/sites/$site/follows/new			</a>
+		</td>
+		<td class="api-index-item-body">Follow a blog.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/follows/mine/delete/" title="/sites/$site/follows/mine/delete">
+				<span class="api-method-post">POST</span>/sites/$site/follows/mine/delete			</a>
+		</td>
+		<td class="api-index-item-body">Unfollow a blog.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/follows/mine/" title="/sites/$site/follows/mine">
+				<span class="api-method-get">GET</span>/sites/$site/follows/mine			</a>
+		</td>
+		<td class="api-index-item-body">Get blog following status for the current user.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-follow -->
+						<table class="api-index api-index-sharing" id="sharing">
+				<caption>
+					<h2>Sharing</h2>
+					<p>Connect social media services to automatically share new posts and manage sharing buttons on a site.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/sharing-buttons/" title="/sites/$site/sharing-buttons/">
+				<span class="api-method-get">GET</span>/sites/$site/sharing-buttons/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of a site's sharing buttons.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/sharing-buttons/" title="/sites/$site/sharing-buttons">
+				<span class="api-method-post">POST</span>/sites/$site/sharing-buttons			</a>
+		</td>
+		<td class="api-index-item-body">Edit all sharing buttons for a site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/meta/external-services/" title="/meta/external-services/">
+				<span class="api-method-get">GET</span>/meta/external-services/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of third-party services that WordPress.com or Jetpack sites can integrate with via keyring.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/meta/external-services/%24service/" title="/meta/external-services/$service">
+				<span class="api-method-get">GET</span>/meta/external-services/$service			</a>
+		</td>
+		<td class="api-index-item-body">Get information about a single external service that WordPress.com or Jetpack sites can integrate with via keyring.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/publicize-connections/" title="/me/publicize-connections/">
+				<span class="api-method-get">GET</span>/me/publicize-connections/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of publicize connections that the current user has set up.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/publicize-connections/%24publicize_connection_ID/" title="/me/publicize-connections/$publicize_connection_ID">
+				<span class="api-method-get">GET</span>/me/publicize-connections/$publicize_connection_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single publicize connection that the current user has set up.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/publicize-connections/%24publicize_connection_ID/" title="/me/publicize-connections/$publicize_connection_ID">
+				<span class="api-method-post">POST</span>/me/publicize-connections/$publicize_connection_ID			</a>
+		</td>
+		<td class="api-index-item-body">Update a single publicize connection belonging to the current user.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/publicize-connections/%24publicize_connection_ID/delete/" title="/me/publicize-connections/$publicize_connection_ID/delete">
+				<span class="api-method-post">POST</span>/me/publicize-connections/$publicize_connection_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete the specified publicize connection.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/keyring-connections/" title="/me/keyring-connections/">
+				<span class="api-method-get">GET</span>/me/keyring-connections/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of all the keyring connections associated with the current user.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/me/keyring-connections/%24keyring_connection_ID/" title="/me/keyring-connections/$keyring_connection_ID">
+				<span class="api-method-get">GET</span>/me/keyring-connections/$keyring_connection_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single Keyring connection that the current user has setup.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/me/keyring-connections/%24keyring_connection_ID/delete/" title="/me/keyring-connections/$keyring_connection_ID/delete">
+				<span class="api-method-post">POST</span>/me/keyring-connections/$keyring_connection_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete the Keyring connection (and associated token) with the provided ID. Also deletes all associated publicize connections.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/publicize-connections/" title="/sites/$site/publicize-connections/">
+				<span class="api-method-get">GET</span>/sites/$site/publicize-connections/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of publicize connections that are associated with the specified site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/publicize-connections/%24publicize_connection_ID/" title="/sites/$site/publicize-connections/$publicize_connection_ID">
+				<span class="api-method-get">GET</span>/sites/$site/publicize-connections/$publicize_connection_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single publicize connection that is associated with the specified site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/publicize-connections/%24publicize_connection_ID/" title="/sites/$site/publicize-connections/$publicize_connection_ID">
+				<span class="api-method-post">POST</span>/sites/$site/publicize-connections/$publicize_connection_ID			</a>
+		</td>
+		<td class="api-index-item-body">Update a single publicize connection belonging to the specified site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/publicize-connections/new/" title="/sites/$site/publicize-connections/new">
+				<span class="api-method-post">POST</span>/sites/$site/publicize-connections/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a new publicize connection that is associated with the specified site.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/publicize-connections/%24publicize_connection_ID/delete/" title="/sites/$site/publicize-connections/$publicize_connection_ID/delete">
+				<span class="api-method-post">POST</span>/sites/$site/publicize-connections/$publicize_connection_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete the specified publicize connection.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/meta/sharing-buttons/" title="/meta/sharing-buttons">
+				<span class="api-method-get">GET</span>/meta/sharing-buttons			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of external services for which sharing buttons are supported.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-sharing -->
+						<table class="api-index api-index-freshly-pressed" id="freshly-pressed">
+				<caption>
+					<h2>Freshly Pressed</h2>
+					<p>View Freshly Pressed posts from the WordPress.com homepage.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/freshly-pressed/" title="/freshly-pressed/">
+				<span class="api-method-get">GET</span>/freshly-pressed/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of Freshly Pressed posts. (Note: Freshly Pressed has been retired. Please visit https://discover.wordpress.com to get the best content published across our network.)</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-freshly-pressed -->
+						<table class="api-index api-index-notifications" id="notifications">
+				<caption>
+					<h2>Notifications</h2>
+					<p>View and manage a user's notifications.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/notifications/seen/" title="/notifications/seen">
+				<span class="api-method-post">POST</span>/notifications/seen			</a>
+		</td>
+		<td class="api-index-item-body">Set the timestamp of the most recently seen notification.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/notifications/read/" title="/notifications/read">
+				<span class="api-method-post">POST</span>/notifications/read			</a>
+		</td>
+		<td class="api-index-item-body">Mark a set of notifications as read.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-notifications -->
+						<table class="api-index api-index-insights" id="insights">
+				<caption>
+					<h2>Insights</h2>
+					<p>View analytics for your application.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/insights/" title="/insights">
+				<span class="api-method-get">GET</span>/insights			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of stats/metrics/insights that the current user has access to.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/insights/%24slug/" title="/insights/$slug">
+				<span class="api-method-get">GET</span>/insights/$slug			</a>
+		</td>
+		<td class="api-index-item-body">Get raw data for a particular graph.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-insights -->
+						<table class="api-index api-index-read" id="read">
+				<caption>
+					<h2>Reader</h2>
+					<p>Manage and view a user's subscriptions to the WordPress.com Reader.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/menu/" title="/read/menu/">
+				<span class="api-method-get">GET</span>/read/menu/			</a>
+		</td>
+		<td class="api-index-item-body">Get default reader menu.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/feed/%24feed_url_or_id/" title="/read/feed/$feed_url_or_id">
+				<span class="api-method-get">GET</span>/read/feed/$feed_url_or_id			</a>
+		</td>
+		<td class="api-index-item-body">Get details about a feed.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/sites/%24site/posts/%24post_ID/" title="/read/sites/$site/posts/$post_ID">
+				<span class="api-method-get">GET</span>/read/sites/$site/posts/$post_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single post (by ID).</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/following/" title="/read/following/">
+				<span class="api-method-get">GET</span>/read/following/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of posts from the blogs a user follows.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/liked/" title="/read/liked/">
+				<span class="api-method-get">GET</span>/read/liked/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of posts from the blogs a user likes.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/tags/%24tag/posts/" title="/read/tags/$tag/posts">
+				<span class="api-method-get">GET</span>/read/tags/$tag/posts			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of posts from a tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/tags/" title="/read/tags">
+				<span class="api-method-get">GET</span>/read/tags			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of tags subscribed to by the user.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/trending/tags/" title="/read/trending/tags">
+				<span class="api-method-get">GET</span>/read/trending/tags			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of trending tags.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/tags/%24tag/" title="/read/tags/$tag">
+				<span class="api-method-get">GET</span>/read/tags/$tag			</a>
+		</td>
+		<td class="api-index-item-body">Get details about a specified tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/tags/%24tag/mine/" title="/read/tags/$tag/mine">
+				<span class="api-method-get">GET</span>/read/tags/$tag/mine			</a>
+		</td>
+		<td class="api-index-item-body">Get the subscribed status of the user to a given tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/read/tags/%24tag/mine/new/" title="/read/tags/$tag/mine/new">
+				<span class="api-method-post">POST</span>/read/tags/$tag/mine/new			</a>
+		</td>
+		<td class="api-index-item-body">Subscribe to a new tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/read/tags/%24tag/mine/delete/" title="/read/tags/$tag/mine/delete">
+				<span class="api-method-post">POST</span>/read/tags/$tag/mine/delete			</a>
+		</td>
+		<td class="api-index-item-body">Unsubscribe from a tag.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/following/mine/" title="/read/following/mine">
+				<span class="api-method-get">GET</span>/read/following/mine			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of the feeds the user is following.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/read/following/mine/new/" title="/read/following/mine/new">
+				<span class="api-method-post">POST</span>/read/following/mine/new			</a>
+		</td>
+		<td class="api-index-item-body">Follow the specified blog.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/read/following/mine/delete/" title="/read/following/mine/delete">
+				<span class="api-method-post">POST</span>/read/following/mine/delete			</a>
+		</td>
+		<td class="api-index-item-body">Unfollow the specified blog.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/feed/" title="/read/feed/">
+				<span class="api-method-get">GET</span>/read/feed/			</a>
+		</td>
+		<td class="api-index-item-body">Get the ID and subscribe URL of one or more matching feeds by domain or URL.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/read/recommendations/mine/" title="/read/recommendations/mine/">
+				<span class="api-method-get">GET</span>/read/recommendations/mine/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of blog recommendations for the current user.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-read -->
+						<table class="api-index api-index-stats" id="stats">
+				<caption>
+					<h2>Stats</h2>
+					<p>View stats for a site.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/" title="/sites/$site/stats">
+				<span class="api-method-get">GET</span>/sites/$site/stats			</a>
+		</td>
+		<td class="api-index-item-body">Get a site's stats</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/summary/" title="/sites/$site/stats/summary">
+				<span class="api-method-get">GET</span>/sites/$site/stats/summary			</a>
+		</td>
+		<td class="api-index-item-body">View a site's summarized views, visitors, likes and comments</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/top-posts/" title="/sites/$site/stats/top-posts">
+				<span class="api-method-get">GET</span>/sites/$site/stats/top-posts			</a>
+		</td>
+		<td class="api-index-item-body">View a site's top posts and pages by views</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/video/%24post_id/" title="/sites/$site/stats/video/$post_id">
+				<span class="api-method-get">GET</span>/sites/$site/stats/video/$post_id			</a>
+		</td>
+		<td class="api-index-item-body">View the details of a single video</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/referrers/" title="/sites/$site/stats/referrers">
+				<span class="api-method-get">GET</span>/sites/$site/stats/referrers			</a>
+		</td>
+		<td class="api-index-item-body">View a site's referrers</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/clicks/" title="/sites/$site/stats/clicks">
+				<span class="api-method-get">GET</span>/sites/$site/stats/clicks			</a>
+		</td>
+		<td class="api-index-item-body">View a site's outbound clicks</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/tags/" title="/sites/$site/stats/tags">
+				<span class="api-method-get">GET</span>/sites/$site/stats/tags			</a>
+		</td>
+		<td class="api-index-item-body">View a site's views by tags and categories</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/top-authors/" title="/sites/$site/stats/top-authors">
+				<span class="api-method-get">GET</span>/sites/$site/stats/top-authors			</a>
+		</td>
+		<td class="api-index-item-body">View a site's top authors</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/comments/" title="/sites/$site/stats/comments">
+				<span class="api-method-get">GET</span>/sites/$site/stats/comments			</a>
+		</td>
+		<td class="api-index-item-body">View a site's top comment authors and most-commented posts</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/video-plays/" title="/sites/$site/stats/video-plays">
+				<span class="api-method-get">GET</span>/sites/$site/stats/video-plays			</a>
+		</td>
+		<td class="api-index-item-body">View a site's video plays</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/podcast-downloads/" title="/sites/$site/stats/podcast-downloads">
+				<span class="api-method-get">GET</span>/sites/$site/stats/podcast-downloads			</a>
+		</td>
+		<td class="api-index-item-body">View a site's podcast downloads</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/post/%24post_id/" title="/sites/$site/stats/post/$post_id">
+				<span class="api-method-get">GET</span>/sites/$site/stats/post/$post_id			</a>
+		</td>
+		<td class="api-index-item-body">View a post's views</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/country-views/" title="/sites/$site/stats/country-views">
+				<span class="api-method-get">GET</span>/sites/$site/stats/country-views			</a>
+		</td>
+		<td class="api-index-item-body">View a site's views by country</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/followers/" title="/sites/$site/stats/followers">
+				<span class="api-method-get">GET</span>/sites/$site/stats/followers			</a>
+		</td>
+		<td class="api-index-item-body">View a site's followers</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/comment-followers/" title="/sites/$site/stats/comment-followers">
+				<span class="api-method-get">GET</span>/sites/$site/stats/comment-followers			</a>
+		</td>
+		<td class="api-index-item-body">View a site's comment followers</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/stats/referrers/spam/new/" title="/sites/$site/stats/referrers/spam/new">
+				<span class="api-method-post">POST</span>/sites/$site/stats/referrers/spam/new			</a>
+		</td>
+		<td class="api-index-item-body">Report a referrer as spam</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/stats/referrers/spam/delete/" title="/sites/$site/stats/referrers/spam/delete">
+				<span class="api-method-post">POST</span>/sites/$site/stats/referrers/spam/delete			</a>
+		</td>
+		<td class="api-index-item-body">Unreport a referrer as spam</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/publicize/" title="/sites/$site/stats/publicize">
+				<span class="api-method-get">GET</span>/sites/$site/stats/publicize			</a>
+		</td>
+		<td class="api-index-item-body">View a site's publicize follower counts</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/search-terms/" title="/sites/$site/stats/search-terms">
+				<span class="api-method-get">GET</span>/sites/$site/stats/search-terms			</a>
+		</td>
+		<td class="api-index-item-body">View search terms used to find the site</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/stats/streak/" title="/sites/$site/stats/streak">
+				<span class="api-method-get">GET</span>/sites/$site/stats/streak			</a>
+		</td>
+		<td class="api-index-item-body">Get stats for Calendar Heatmap. Returns data with each post timestamp.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-stats -->
+						<table class="api-index api-index-media" id="media">
+				<caption>
+					<h2>Media</h2>
+					<p>Manage a site's media library.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/media/%24media_ID/delete/" title="/sites/$site/media/$media_ID/delete">
+				<span class="api-method-post">POST</span>/sites/$site/media/$media_ID/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a piece of media. Note: Media is deleted and not trashed.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/media/%24media_ID/" title="/sites/$site/media/$media_ID">
+				<span class="api-method-get">GET</span>/sites/$site/media/$media_ID			</a>
+		</td>
+		<td class="api-index-item-body">Get a single media item (by ID).</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/media/%24media_ID/" title="/sites/$site/media/$media_ID">
+				<span class="api-method-post">POST</span>/sites/$site/media/$media_ID			</a>
+		</td>
+		<td class="api-index-item-body">Edit basic information about a media item.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/media/" title="/sites/$site/media/">
+				<span class="api-method-get">GET</span>/sites/$site/media/			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of items in the media library.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/media/new/" title="/sites/$site/media/new">
+				<span class="api-method-post">POST</span>/sites/$site/media/new			</a>
+		</td>
+		<td class="api-index-item-body">Upload a new piece of media.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/media/%24media_ID/edit/" title="/sites/$site/media/$media_ID/edit">
+				<span class="api-method-post">POST</span>/sites/$site/media/$media_ID/edit			</a>
+		</td>
+		<td class="api-index-item-body">Edit a media item.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-media -->
+						<table class="api-index api-index-menus" id="menus">
+				<caption>
+					<h2>Menus</h2>
+					<p>View and manage a site's menus.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/menus/new/" title="/sites/$site/menus/new">
+				<span class="api-method-post">POST</span>/sites/$site/menus/new			</a>
+		</td>
+		<td class="api-index-item-body">Create a new navigation menu.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/menus/%24menu_id/" title="/sites/$site/menus/$menu_id">
+				<span class="api-method-post">POST</span>/sites/$site/menus/$menu_id			</a>
+		</td>
+		<td class="api-index-item-body">Update a navigation menu.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/menus/%24menu_id/" title="/sites/$site/menus/$menu_id">
+				<span class="api-method-get">GET</span>/sites/$site/menus/$menu_id			</a>
+		</td>
+		<td class="api-index-item-body">Get a single navigation menu.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/menus/" title="/sites/$site/menus">
+				<span class="api-method-get">GET</span>/sites/$site/menus			</a>
+		</td>
+		<td class="api-index-item-body">Get a list of all navigation menus.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/sites/%24site/menus/%24menu_id/delete/" title="/sites/$site/menus/$menu_id/delete">
+				<span class="api-method-post">POST</span>/sites/$site/menus/$menu_id/delete			</a>
+		</td>
+		<td class="api-index-item-body">Delete a navigation menu</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-menus -->
+						<table class="api-index api-index-batch" id="batch">
+				<caption>
+					<h2>Batch</h2>
+					<p>Batch several API GET requests into one.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/batch/" title="/batch/">
+				<span class="api-method-get">GET</span>/batch/			</a>
+		</td>
+		<td class="api-index-item-body">Run several GET endpoints and return them as an array.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-batch -->
+						<table class="api-index api-index-videos" id="videos">
+				<caption>
+					<h2>Videos</h2>
+					<p>View video information.</p>
+				</caption>
+				<thead>
+					<tr>
+						<th class="api-index-title">Resource</th>
+						<th class="api-index-title">Description</th>
+					</tr>
+			 	</thead>
+				<tbody>
+					<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/videos/%24guid/" title="/videos/$guid">
+				<span class="api-method-get">GET</span>/videos/$guid			</a>
+		</td>
+		<td class="api-index-item-body">Get the metadata for a specified VideoPress video.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/get/videos/%24guid/poster/" title="/videos/$guid/poster">
+				<span class="api-method-get">GET</span>/videos/$guid/poster			</a>
+		</td>
+		<td class="api-index-item-body">Get the poster for a specified VideoPress video.</td>
+	</tr>
+	<tr class="api-index-item">
+		<td class="api-index-item-title">
+			<a href="https://developer.wordpress.com/docs/api/1.1/post/videos/%24guid/poster/" title="/videos/$guid/poster">
+				<span class="api-method-post">POST</span>/videos/$guid/poster			</a>
+		</td>
+		<td class="api-index-item-body">Upload and set a poster for a specified VideoPress video.</td>
+	</tr>
+				</tbody>
+			</table><!-- .api-index-videos -->
+				</div><!-- .api-index-wrap -->
+
+				</div><!-- .entry-content -->
+			</article><!-- .api-index -->
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+												<aside class="widget widget-api-menu">
+			<!-- Accordian menu of all documentation -->
+			<ul class="api-docs-menu">
+				<li>
+					<h3 data-count="0">Authentication</h3>
+					<ul>
+						<li>
+							<a href="/docs/oauth2/">OAuth2 Authentication</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+						<h3 data-count="1">Users</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/users/" title="/sites/%24site/users/">
+										List the users of a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/users/%24user_id/" title="/sites/%24site/users/%24user_id/">
+										Update details of a user of a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/users/login:%24user_id/" title="/sites/%24site/users/login:%24user_id/">
+										Get details of a user of a site by login.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/users/%24user_ID/delete/" title="/sites/%24site/users/%24user_ID/delete/">
+										Deletes or removes a user of a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/users/suggest/" title="/users/suggest/">
+										Get a list of possible users to suggest for @mentions.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/" title="/me/">
+										Get metadata about the current user.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/billing-history/" title="/me/billing-history/">
+										Get list of current user&#039;s billing history and upcoming charges.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/settings/" title="/me/settings/">
+										Get the current user&#039;s settings.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/settings/" title="/me/settings/">
+										Update the current user&#039;s settings.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/preferences/" title="/me/preferences/">
+										Get the current user&#039;s settings.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/preferences/" title="/me/preferences/">
+										Update the current user&#039;s preferences.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/settings/password/validate/" title="/me/settings/password/validate/">
+										Verify strength of a user&#039;s new password.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/settings/profile-links/" title="/me/settings/profile-links/">
+										Get current user&#039;s profile links.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/settings/profile-links/new/" title="/me/settings/profile-links/new/">
+										Add a link to current user&#039;s profile.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/settings/profile-links/%24slug/delete/" title="/me/settings/profile-links/%24slug/delete/">
+										Delete a link from current user&#039;s profile.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/connected-applications/" title="/me/connected-applications/">
+										Get current user&#039;s connected applications.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/connected-applications/%24ID/" title="/me/connected-applications/%24ID/">
+										Get one of current user&#039;s connected applications.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/connected-applications/%24ID/delete/" title="/me/connected-applications/%24ID/delete/">
+										Delete one of current user&#039;s connected application access tokens.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/two-step/" title="/me/two-step/">
+										Get information about current user&#039;s two factor configuration.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/two-step/sms/new/" title="/me/two-step/sms/new/">
+										Sends a two-step code via SMS to the current user.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/likes/" title="/me/likes/">
+										Get a list of the current user&#039;s likes.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="2">Sites</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/shortcodes/render/" title="/sites/%24site/shortcodes/render/">
+										Get a rendered shortcode for a site. Note: The current user must have publishing access.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/shortcodes/" title="/sites/%24site/shortcodes/">
+										Get a list of shortcodes available on a site. Note: The current user must have publishing access.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/embeds/render/" title="/sites/%24site/embeds/render/">
+										Get a rendered embed for a site. Note: The current user must have publishing access.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/embeds/" title="/sites/%24site/embeds/">
+										Get a list of embeds available on a site. Note: The current user must have publishing access.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.2/get/sites/%24site/" title="/sites/%24site/">
+										Get information about a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/page-templates/" title="/sites/%24site/page-templates/">
+										Get a list of page templates supported by a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/post-types/" title="/sites/%24site/post-types/">
+										Get a list of post types available for a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/post-counts/%24post_type/" title="/sites/%24site/post-counts/%24post_type/">
+										Get number of posts in the post type groups by post status									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/wordads/settings/" title="/sites/%24site/wordads/settings/">
+										Get detailed WordAds settings information about a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/wordads/settings/" title="/sites/%24site/wordads/settings/">
+										Update WordAds settings for a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/wordads/earnings/" title="/sites/%24site/wordads/earnings/">
+										Get detailed WordAds earnings information about a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/wordads/tos/" title="/sites/%24site/wordads/tos/">
+										Get WordAds TOS information about a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/wordads/tos/" title="/sites/%24site/wordads/tos/">
+										Update WordAds TOS setting for a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/wordads/approve/" title="/sites/%24site/wordads/approve/">
+										Request streamlined approval to join the WordAds program.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/sites/" title="/me/sites/">
+										Get a list of the current user&#039;s sites.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/widgets/widget:%24id/" title="/sites/%24site/widgets/widget:%24id/">
+										Retrieve a widget on a site by its ID.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/widgets/widget:%24id/" title="/sites/%24site/widgets/widget:%24id/">
+										Update a widget on a site by its ID.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/widgets/widget:%24id/delete/" title="/sites/%24site/widgets/widget:%24id/delete/">
+										Deactivate a widget on a site by its ID. Will delete if already deactivated.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/widgets/" title="/sites/%24site/widgets/">
+										Retrieve the active and inactive widgets for a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/widgets/new/" title="/sites/%24site/widgets/new/">
+										Activate a widget on a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/headers/%24theme_slug/" title="/sites/%24site/headers/%24theme_slug/">
+										Get the custom header options for a site with a particular theme.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/headers/mine/" title="/sites/%24site/headers/mine/">
+										Get the custom header options for a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/headers/mine/" title="/sites/%24site/headers/mine/">
+										Set the custom header options for a site.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="3">Posts</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post_ID/" title="/sites/%24site/posts/%24post_ID/">
+										Get a single post (by ID).									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.2/post/sites/%24site/posts/%24post_ID/" title="/sites/%24site/posts/%24post_ID/">
+										Edit a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/slug:%24post_slug/" title="/sites/%24site/posts/slug:%24post_slug/">
+										Get a single post (by slug).									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/" title="/sites/%24site/posts/">
+										Get a list of matching posts.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.2/post/sites/%24site/posts/new/" title="/sites/%24site/posts/new/">
+										Create a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post_ID/delete/" title="/sites/%24site/posts/%24post_ID/delete/">
+										Delete a post. Note: If the trash is enabled, this request will send the post to the trash. A second request will permanently delete the post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post_ID/restore/" title="/sites/%24site/posts/%24post_ID/restore/">
+										Restore a post or page from the trash to its previous status.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/delete/" title="/sites/%24site/posts/delete/">
+										Delete multiple posts. Note: If the trash is enabled, this request will send non-trashed posts to the trash. Trashed posts will be permanently deleted.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/posts/" title="/me/posts/">
+										Get a list of posts across all the user&#039;s sites.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post_ID/likes/" title="/sites/%24site/posts/%24post_ID/likes/">
+										Get a list of the likes for a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post_ID/likes/new/" title="/sites/%24site/posts/%24post_ID/likes/new/">
+										Like a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post_ID/likes/mine/delete/" title="/sites/%24site/posts/%24post_ID/likes/mine/delete/">
+										Unlike a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post_ID/likes/mine/" title="/sites/%24site/posts/%24post_ID/likes/mine/">
+										Get the current user&#039;s like status for a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post/subscribers/" title="/sites/%24site/posts/%24post/subscribers/">
+										Get a list of the specified post&#039;s subscribers.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post/subscribers/mine/" title="/sites/%24site/posts/%24post/subscribers/mine/">
+										Get subscription status of the specified post for the current user.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post/subscribers/new/" title="/sites/%24site/posts/%24post/subscribers/new/">
+										Subscribe current user to be notified of the specified post&#039;s comments.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post/subscribers/mine/delete/" title="/sites/%24site/posts/%24post/subscribers/mine/delete/">
+										Unsubscribe the current user from the specified post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post_ID/reblogs/new/" title="/sites/%24site/posts/%24post_ID/reblogs/new/">
+										Reblog a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post_ID/reblogs/mine/" title="/sites/%24site/posts/%24post_ID/reblogs/mine/">
+										Get reblog status for a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post/related/" title="/sites/%24site/posts/%24post/related/">
+										Search within a site for related posts.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="4">Comments</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/comments/%24comment_ID/" title="/sites/%24site/comments/%24comment_ID/">
+										Get a single comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/" title="/sites/%24site/comments/%24comment_ID/">
+										Edit a comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/comments/" title="/sites/%24site/comments/">
+										Get a list of recent comments.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/posts/%24post_ID/replies/" title="/sites/%24site/posts/%24post_ID/replies/">
+										Get a list of recent comments on a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/posts/%24post_ID/replies/new/" title="/sites/%24site/posts/%24post_ID/replies/new/">
+										Create a comment on a post.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/replies/new/" title="/sites/%24site/comments/%24comment_ID/replies/new/">
+										Create a comment as a reply to another comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/delete/" title="/sites/%24site/comments/%24comment_ID/delete/">
+										Delete a comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/comments/%24comment_ID/likes/" title="/sites/%24site/comments/%24comment_ID/likes/">
+										Get the likes for a comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/likes/new/" title="/sites/%24site/comments/%24comment_ID/likes/new/">
+										Like a comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/comments/%24comment_ID/likes/mine/delete/" title="/sites/%24site/comments/%24comment_ID/likes/mine/delete/">
+										Remove your like from a comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/comments/%24comment_ID/likes/mine/" title="/sites/%24site/comments/%24comment_ID/likes/mine/">
+										Get your like status for a comment.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/kill-switch/comment-likes/" title="/kill-switch/comment-likes/">
+										Kill comment likes									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="5">Taxonomy</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/categories/" title="/sites/%24site/categories/">
+										Get a list of a site&#039;s categories.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/tags/" title="/sites/%24site/tags/">
+										Get a list of a site&#039;s tags.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/categories/slug:%24category/" title="/sites/%24site/categories/slug:%24category/">
+										Get information about a single category.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/categories/slug:%24category/" title="/sites/%24site/categories/slug:%24category/">
+										Edit a category.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/tags/slug:%24tag/" title="/sites/%24site/tags/slug:%24tag/">
+										Get information about a single tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/tags/slug:%24tag/" title="/sites/%24site/tags/slug:%24tag/">
+										Edit a tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/" title="/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/">
+										Get information about a single term.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/" title="/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/">
+										Edit a term.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/post-types/%24post_type/taxonomies/" title="/sites/%24site/post-types/%24post_type/taxonomies/">
+										Get a list of taxonomies associated with a post type.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/taxonomies/%24taxonomy/terms/" title="/sites/%24site/taxonomies/%24taxonomy/terms/">
+										Get a list of a site&#039;s terms by taxonomy.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/categories/new/" title="/sites/%24site/categories/new/">
+										Create a new category.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/tags/new/" title="/sites/%24site/tags/new/">
+										Create a new tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/categories/slug:%24category/delete/" title="/sites/%24site/categories/slug:%24category/delete/">
+										Delete a category.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/tags/slug:%24tag/delete/" title="/sites/%24site/tags/slug:%24tag/delete/">
+										Delete a tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/taxonomies/%24taxonomy/terms/new/" title="/sites/%24site/taxonomies/%24taxonomy/terms/new/">
+										Create a new term.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/delete/" title="/sites/%24site/taxonomies/%24taxonomy/terms/slug:%24slug/delete/">
+										Delete a term.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="6">Follow</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/follows/" title="/sites/%24site/follows/">
+										List a site&#039;s followers in reverse chronological order.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/follows/new/" title="/sites/%24site/follows/new/">
+										Follow a blog.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/follows/mine/delete/" title="/sites/%24site/follows/mine/delete/">
+										Unfollow a blog.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/follows/mine/" title="/sites/%24site/follows/mine/">
+										Get blog following status for the current user.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="7">Sharing</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/sharing-buttons/" title="/sites/%24site/sharing-buttons/">
+										Get a list of a site&#039;s sharing buttons.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/sharing-buttons/" title="/sites/%24site/sharing-buttons/">
+										Edit all sharing buttons for a site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/meta/external-services/" title="/meta/external-services/">
+										Get a list of third-party services that WordPress.com or Jetpack sites can integrate with via keyring.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/meta/external-services/%24service/" title="/meta/external-services/%24service/">
+										Get information about a single external service that WordPress.com or Jetpack sites can integrate with via keyring.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/publicize-connections/" title="/me/publicize-connections/">
+										Get a list of publicize connections that the current user has set up.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/publicize-connections/%24publicize_connection_ID/" title="/me/publicize-connections/%24publicize_connection_ID/">
+										Get a single publicize connection that the current user has set up.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/publicize-connections/%24publicize_connection_ID/" title="/me/publicize-connections/%24publicize_connection_ID/">
+										Update a single publicize connection belonging to the current user.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/publicize-connections/%24publicize_connection_ID/delete/" title="/me/publicize-connections/%24publicize_connection_ID/delete/">
+										Delete the specified publicize connection.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/keyring-connections/" title="/me/keyring-connections/">
+										Get a list of all the keyring connections associated with the current user.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/me/keyring-connections/%24keyring_connection_ID/" title="/me/keyring-connections/%24keyring_connection_ID/">
+										Get a single Keyring connection that the current user has setup.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/me/keyring-connections/%24keyring_connection_ID/delete/" title="/me/keyring-connections/%24keyring_connection_ID/delete/">
+										Delete the Keyring connection (and associated token) with the provided ID. Also deletes all associated publicize connections.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/publicize-connections/" title="/sites/%24site/publicize-connections/">
+										Get a list of publicize connections that are associated with the specified site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/publicize-connections/%24publicize_connection_ID/" title="/sites/%24site/publicize-connections/%24publicize_connection_ID/">
+										Get a single publicize connection that is associated with the specified site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/publicize-connections/%24publicize_connection_ID/" title="/sites/%24site/publicize-connections/%24publicize_connection_ID/">
+										Update a single publicize connection belonging to the specified site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/publicize-connections/new/" title="/sites/%24site/publicize-connections/new/">
+										Create a new publicize connection that is associated with the specified site.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/publicize-connections/%24publicize_connection_ID/delete/" title="/sites/%24site/publicize-connections/%24publicize_connection_ID/delete/">
+										Delete the specified publicize connection.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/meta/sharing-buttons/" title="/meta/sharing-buttons/">
+										Get a list of external services for which sharing buttons are supported.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="8">Freshly Pressed</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/freshly-pressed/" title="/freshly-pressed/">
+										Get a list of Freshly Pressed posts. (Note: Freshly Pressed has been retired. Please visit https://discover.wordpress.com to get the best content published across our network.)									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="9">Notifications</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/post/notifications/seen/" title="/notifications/seen/">
+										Set the timestamp of the most recently seen notification.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/notifications/read/" title="/notifications/read/">
+										Mark a set of notifications as read.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="10">Insights</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/insights/" title="/insights/">
+										Get a list of stats/metrics/insights that the current user has access to.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/insights/%24slug/" title="/insights/%24slug/">
+										Get raw data for a particular graph.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="11">Reader</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/read/menu/" title="/read/menu/">
+										Get default reader menu.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/feed/%24feed_url_or_id/" title="/read/feed/%24feed_url_or_id/">
+										Get details about a feed.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/sites/%24site/posts/%24post_ID/" title="/read/sites/%24site/posts/%24post_ID/">
+										Get a single post (by ID).									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/following/" title="/read/following/">
+										Get a list of posts from the blogs a user follows.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/liked/" title="/read/liked/">
+										Get a list of posts from the blogs a user likes.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/tags/%24tag/posts/" title="/read/tags/%24tag/posts/">
+										Get a list of posts from a tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/tags/" title="/read/tags/">
+										Get a list of tags subscribed to by the user.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/trending/tags/" title="/read/trending/tags/">
+										Get a list of trending tags.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/tags/%24tag/" title="/read/tags/%24tag/">
+										Get details about a specified tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/tags/%24tag/mine/" title="/read/tags/%24tag/mine/">
+										Get the subscribed status of the user to a given tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/read/tags/%24tag/mine/new/" title="/read/tags/%24tag/mine/new/">
+										Subscribe to a new tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/read/tags/%24tag/mine/delete/" title="/read/tags/%24tag/mine/delete/">
+										Unsubscribe from a tag.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/following/mine/" title="/read/following/mine/">
+										Get a list of the feeds the user is following.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/read/following/mine/new/" title="/read/following/mine/new/">
+										Follow the specified blog.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/read/following/mine/delete/" title="/read/following/mine/delete/">
+										Unfollow the specified blog.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/feed/" title="/read/feed/">
+										Get the ID and subscribe URL of one or more matching feeds by domain or URL.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/read/recommendations/mine/" title="/read/recommendations/mine/">
+										Get a list of blog recommendations for the current user.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="12">Stats</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/" title="/sites/%24site/stats/">
+										Get a site&#039;s stats									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/summary/" title="/sites/%24site/stats/summary/">
+										View a site&#039;s summarized views, visitors, likes and comments									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/top-posts/" title="/sites/%24site/stats/top-posts/">
+										View a site&#039;s top posts and pages by views									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/video/%24post_id/" title="/sites/%24site/stats/video/%24post_id/">
+										View the details of a single video									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/referrers/" title="/sites/%24site/stats/referrers/">
+										View a site&#039;s referrers									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/clicks/" title="/sites/%24site/stats/clicks/">
+										View a site&#039;s outbound clicks									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/tags/" title="/sites/%24site/stats/tags/">
+										View a site&#039;s views by tags and categories									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/top-authors/" title="/sites/%24site/stats/top-authors/">
+										View a site&#039;s top authors									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/comments/" title="/sites/%24site/stats/comments/">
+										View a site&#039;s top comment authors and most-commented posts									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/video-plays/" title="/sites/%24site/stats/video-plays/">
+										View a site&#039;s video plays									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/podcast-downloads/" title="/sites/%24site/stats/podcast-downloads/">
+										View a site&#039;s podcast downloads									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/post/%24post_id/" title="/sites/%24site/stats/post/%24post_id/">
+										View a post&#039;s views									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/country-views/" title="/sites/%24site/stats/country-views/">
+										View a site&#039;s views by country									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/followers/" title="/sites/%24site/stats/followers/">
+										View a site&#039;s followers									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/comment-followers/" title="/sites/%24site/stats/comment-followers/">
+										View a site&#039;s comment followers									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/stats/referrers/spam/new/" title="/sites/%24site/stats/referrers/spam/new/">
+										Report a referrer as spam									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/stats/referrers/spam/delete/" title="/sites/%24site/stats/referrers/spam/delete/">
+										Unreport a referrer as spam									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/publicize/" title="/sites/%24site/stats/publicize/">
+										View a site&#039;s publicize follower counts									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/search-terms/" title="/sites/%24site/stats/search-terms/">
+										View search terms used to find the site									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/stats/streak/" title="/sites/%24site/stats/streak/">
+										Get stats for Calendar Heatmap. Returns data with each post timestamp.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="13">Media</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/post/sites/%24site/media/%24media_ID/delete/" title="/sites/%24site/media/%24media_ID/delete/">
+										Delete a piece of media. Note: Media is deleted and not trashed.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/media/%24media_ID/" title="/sites/%24site/media/%24media_ID/">
+										Get a single media item (by ID).									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/media/%24media_ID/" title="/sites/%24site/media/%24media_ID/">
+										Edit basic information about a media item.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/media/" title="/sites/%24site/media/">
+										Get a list of items in the media library.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/media/new/" title="/sites/%24site/media/new/">
+										Upload a new piece of media.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/media/%24media_ID/edit/" title="/sites/%24site/media/%24media_ID/edit/">
+										Edit a media item.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="14">Menus</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/post/sites/%24site/menus/new/" title="/sites/%24site/menus/new/">
+										Create a new navigation menu.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/menus/%24menu_id/" title="/sites/%24site/menus/%24menu_id/">
+										Update a navigation menu.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/menus/%24menu_id/" title="/sites/%24site/menus/%24menu_id/">
+										Get a single navigation menu.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/sites/%24site/menus/" title="/sites/%24site/menus/">
+										Get a list of all navigation menus.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/sites/%24site/menus/%24menu_id/delete/" title="/sites/%24site/menus/%24menu_id/delete/">
+										Delete a navigation menu									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="15">Batch</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/batch/" title="/batch/">
+										Run several GET endpoints and return them as an array.									</a>
+								</li>
+							</ul>
+					</li><li>
+						<h3 data-count="16">Videos</h3>
+						<ul>
+														<li>
+									<a href="/docs/api/1.1/get/videos/%24guid/" title="/videos/%24guid/">
+										Get the metadata for a specified VideoPress video.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/get/videos/%24guid/poster/" title="/videos/%24guid/poster/">
+										Get the poster for a specified VideoPress video.									</a>
+								</li>
+															<li>
+									<a href="/docs/api/1.1/post/videos/%24guid/poster/" title="/videos/%24guid/poster/">
+										Upload and set a poster for a specified VideoPress video.									</a>
+								</li>
+							</ul>
+					</li>			</ul>
+		</aside>
+			</div><!-- #secondary .widget-area -->
+
+
+	</div><!-- #content -->
+
+	<div class="footer-contain">
+		<footer id="colophon" class="site-footer" role="contentinfo">
+
+			<div class="site-info">
+				<div class="automattic">
+					An <a href="http://automattic.com"><span class="a8c-attribution">Automattic</span></a> Production
+				</div>
+				<div class="footer-links">
+					<a href="guidelines/">Usage Guidelines</a>
+					<a href="http://automattic.com/privacy/" target="_blank">Privacy Policy</a>
+					<a href="http://wordpress.com/tos/" target="_blank">Terms of Service</a>
+				</div>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div>
+</div><!-- #page -->
+
+<!--  -->
+	<script type="text/javascript">
+	if ( window.top !== window.self ) {
+		if ( window.top.location.hostname !== window.self.location.hostname || window.top.location.protocol !== window.top.location.protocol ) {
+			window.top.location.href = window.self.location.href;
+		}
+	}
+	</script><script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201740y'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/js/devicepx.js,/wp-content/mu-plugins/likes/queuehandler.js?m=1502681720j'></script>
+<script type='text/javascript' src='//widgets.wp.com/platform.js?ver=20140724'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var actionbardata = {"siteID":"33534099","siteName":"Developer Resources","siteURL":"http:\/\/developer.wordpress.com","icon":"<img alt='' src='https:\/\/secure.gravatar.com\/blavatar\/2b9f802603565d131ae7d2ba65746574?s=50&d=https%3A%2F%2Fs1.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"a8c\/wpcomdev3","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/developer.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fdeveloper.wordpress.com%2Fdocs%2Fapi%2F","themeURL":"","xhrURL":"https:\/\/developer.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"dff72e24ea","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"dfdf787f74\" \/>","referer":"https:\/\/developer.wordpress.com\/docs\/api\/","canFollow":"1","feedID":"3039616","statusMessage":"","customizeLink":"https:\/\/developer.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fdeveloper.wordpress.com%2Fdocs%2Fapi%2F","postID":"16","shortlink":"http:\/\/wp.me\/P2gHKz-g","canEditPost":"","editLink":"https:\/\/wordpress.com\/page\/developer.wordpress.com\/16","statsLink":"https:\/\/wordpress.com\/stats\/post\/16\/developer.wordpress.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: WordPress.com Developer site","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 11,692 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/developer.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fdeveloper.wordpress.com%2Fdocs%2Fapi%2F\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/_static/??-eJx9jEEOgzAMBD9U14AEt4qnVGmwkFPsRIkp3ydc6AVxG612BrcEPqqRGsoKaVln1oKBLDn/xTerR9vYjDIYCy2s9Azlgdeem4QVPi6juFKdShB/lDNPVP7bXcEbRz0KJ9X3KK+2b7q2a4Z+CDt4Z0Mg'></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="//stats.wp.com/w.js?56" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'33534099','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'33534099','v':'wpcom','tz':'0','user_id':'0','post':'16','subd':'developer'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1lSiYrZXhzUkM5fD1uTDNLUGt6QzVbd3FKb3Q4aVlJPzFyPVJZKy9zL2d+YysyY1czVzdWVGVTPyVrPUk1JUtVRVJJZ0R3cHRBanRBLyttbz0xM3RpJkZxVmpbenNHTmhoLHNZZEtkaUl5QXY9QyVuWVgrK0g4YUVUY1JiQ2pPbi1zNyUtNlM2W3FPSjYmJnl5Q1c0aGpjc0F3XV8xU2V6Mm4vSl1mJi02djV6aG4vZWpYYltCLmZUT0dIZTErd08mNzFhZU9kLjdVfGhbb2lvNVBvTnhPOG9HU1AxTlNwYmpJYXw0cnhIZlJ+VH5TNEU3bl9pQXltbWw/eG1JLmxYZmIlSUM0QllTbUZbLXo='}]);
+_stq.push([ 'clickTrackerInit', '33534099', '16' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+</html>
+<!--
+	generated 166 seconds ago
+	generated in 0.104 seconds
+	served from batcache in 0.002 seconds
+	expires in 134 seconds
+-->

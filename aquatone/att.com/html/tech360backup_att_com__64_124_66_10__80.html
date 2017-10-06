@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AT&amp;T Tech Support 360 | Backup and Go Login</title>
+<link href='&#x2f;genfiles&#x2f;combined&#x2f;wp&#x2f;d4kdux3f67bywux67glb5x5u&#x2f;prnfnoxg5wex6l76h7nisr6oba&#x2e;css' rel='stylesheet' type='text/css' />
+<script src='&#x2f;genfiles&#x2f;combined&#x2f;lk&#x2f;o4yfaiigw7tzmwluphrn327m&#x2f;n27jbji2efncvguncyfxf3zowa&#x2e;js' type='text/javascript'></script>
+</head>
+<body>
+<div id="forgotPwdOverlay"></div>
+<div id="forgotPwdPopupTop">
+<a href="javascript:void(0);"><img src="/images/global/closePopupButton.png" /></a>
+<iframe id="forgotPwdFrame" src="/web/new/remotedesk/empty.html" width="400" height="200" frameborder="no" scrolling="no"></iframe>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery("#forgotPwdPopupTop a").click(function() {
+PasswordRecovery.hideForgotPassword();
+});
+jQuery("#forgotPwdPopupTop iframe").unbind("load");
+jQuery("#forgotPwdPopupTop iframe").load(function() {
+PasswordRecovery.resizeIframe();
+});
+});
+var PasswordRecovery = {};
+PasswordRecovery.resizeIframe = function() {
+jQuery("#forgotPwdPopupTop iframe").each(function() {
+this.style.display = "block";
+if (this.contentDocument && this.contentDocument.body.offsetHeight) {
+var h = this.contentDocument.body.offsetHeight;
+if (this.contentDocument.body.offsetHeight && this.contentDocument.body.scrollHeight) {
+h = Math.max(this.contentDocument.body.offsetHeight, this.contentDocument.body.scrollHeight);
+}
+this.height = h;
+} else if (this.Document && this.Document.body.scrollHeight) {
+var h = this.Document.body.scrollHeight;
+if (this.Document.body.scrollHeight && this.Document.body.offsetHeight) {
+h = Math.max(this.Document.body.scrollHeight, this.Document.body.offsetHeight);
+}
+this.height = h;
+}
+});
+}
+PasswordRecovery.forgotpassword = function() {
+var w = jQuery(window);
+var b = jQuery("body");
+var newH = Math.max(w.height(), b.height() + 20);
+jQuery("#forgotPwdOverlay").width(b.width()).height(newH).show();
+var url = "/forms/new/account/forgotpw.jsp";
+if (typeof CsrfGuard != 'undefined') {
+url = CsrfGuard.injectTokenToURI(url);
+}
+jQuery("#forgotPwdPopupTop iframe").attr("src", url);
+var left = (w.width() / 2) - 220;
+var top = w.height() * 0.15;
+jQuery("#forgotPwdPopupTop").fadeIn().css("left", left+"px").css("top", top+"px");
+};
+PasswordRecovery.hideForgotPassword = function() {
+jQuery("#forgotPwdOverlay").hide();
+jQuery("#forgotPwdPopupTop").fadeOut("fast", function() {
+jQuery("#forgotPwdPopupTop iframe").attr("src", "/web/new/remotedesk/empty.html");
+});
+};
+PasswordRecovery.forgotPasswordVisible = function() {
+return jQuery("#forgotPwdPopupTop").is(":visible");
+};
+</script>
+<style type="text/css">
+#forgotPwdPopupTop {
+z-index: 1100;
+position: absolute;
+width: 440px;
+top: 0;
+text-align: center;
+background-color: white;
+border: 1px solid #D1D1D1;
+display: none;
+}
+#forgotPwdPopupTop a {
+position: absolute;
+top: -14px;
+left: -14px;
+}
+#forgotPwdPopupTop iframe {
+padding: 10px;
+overflow: hidden;
+margin: 0 auto;
+}
+#forgotPwdOverlay {
+display: none;
+background: url('/images/clear.gif');
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1010;
+background-color: black;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+opacity: 0.7;
+}
+</style>
+<div id="topcenter">
+<div id="main">
+<div id="logobox">
+<img src="/images/clear.gif" class="attLogin-logo" />
+<div id="remotehelpbox">
+<a href="http://www.att.com" target="_blank">att.com</a><br/>
+<span>24/7 U.S. Based Remote Technical Support and Services</span>
+</div>
+</div>
+<div id="navigation">
+<a href="https://tech360.att.com/ATT/WebPages/Login.aspx" target="_blank">My 360 Account</a>
+<a href="https://tech360.att.com/ATT/home/index.asp" target="_blank">Other Services</a>
+<a href="https://tech360.att.com/ATT/contact-us/index.asp" target="_blank">Customer Support</a>
+</div>
+<div id="loginbox">
+<form name="loginForm" id="loginForm" action="/web/new/login.do"method="post">
+<input type="hidden" name="action" value="login" />
+<input type="hidden" name="autolinkid" value="" />
+<input type="hidden" name="pubShareKey" value="">
+<input type="hidden" name="forward" value="">
+<input type="hidden" name="loginSecurityToken" value="1507283500738" />
+<div class="attLogin-boxtop">&nbsp;</div>
+<div class="attLogin-boxbackground">
+<div>
+<h3>Login</h3>
+<label for="userName">Email Address</label>
+<input type="text" name="userName" id="userName" type="username" onfocus="Page.cancelFocus=true;" value="">
+<label for="password">Password</label>
+<input type="password" name="password" id="password" onfocus="Page.cancelFocus=true;" value="">
+<a href="javascript:PasswordRecovery.forgotpassword();">Forgot your password?</a>
+<input type="image" src="/images/clear.gif" class="attLogin-button" />
+</div>
+</div>
+<div class="attLogin-boxbottom">&nbsp;</div>
+</form>
+</div>
+<div id="promobox">
+<h1 class="attLogin-title">Backup and Go</h1>
+<h2>Online Data Backup</h2>
+<hr />
+<p id="promotitle">Protect your business data with Backup and Go and gain mobile access to your files from any web-connected device.</p>
+<hr />
+<h4>Automatic Backup</h4>
+<p class="promodesc">Hassle-free, automatic, and continuous backup of computer data; backup all your files or select folders or file types.</p>
+<h4>Mobile Access</h4>
+<p class="promodesc">Access and view your office documents and pictures from any web-connected computer, tablet or smart phone.</p>
+<h4>Sharing and Collaboration</h4>
+<p class="promodesc">Create your own online project space and invite team members to collaborate on documents. Review, share, comment, e-mail, and print, documents even when you are away from your desk.</p>
+<h4>24/7 Technical Support</h4>
+<p class="promodesc">Take advantage of 24x7 support from live remote technicians. Call us at <span style="white-space: nowrap;">1-866-442-2827</span> if you need help with installation, set-up, configuration or restoration.</p>
+</div>
+</div>
+<div id="footer">
+<p>
+<a href="http://localization.att.com/loc/controller?cdvn=landinglocalization&pid=1080&cookieResetted=true&ltype=contactus" target="_blank">Contact AT&T</a>
+<span class="delim" target="_blank">|</span>
+<a href="http://www.att.com/gen/privacy-policy?pid=2506" target="_blank">Privacy Policy</a>
+<span class="delim" target="_blank">|</span>
+<a href="https://tech360.att.com/ATT/terms/index.asp" target="_blank">Terms of Service</a>
+<span class="delim" target="_blank">|</span>
+<a href="http://www.att.com" target="_blank">AT&T.com</a>
+</p>
+<p class="copy">
+&copy;2014 AT&T Intellectual Property. All rights reserved. See <a href="https://tech360.att.com/ATT/terms/index.asp" target="_blank">Terms of Service</a>.<br/>
+AT&T, the AT&T logo and all other AT&T marks contained herein are trademarks of AT&T Intellectual<br/> Property and/or AT&T affiliated companies.
+</p>
+</div>
+</div>
+</body>
+</html>

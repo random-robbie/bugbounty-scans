@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js" data-ffo-opensans="false" data-ffo-zillaslab="false">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+  
+    
+  
+
+  
+  <title>MDN Web Docs</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+    <link rel="home" href="/en-US/">
+    <link rel="copyright" href="#copyright">
+  
+
+  
+  
+
+    
+          <link href="https://developer.cdn.mozilla.net/static/build/styles/mdn-skinny.b2d9061c8deb.css" rel="stylesheet" type="text/css" />
+      
+
+    
+  
+
+  <link href="https://developer.cdn.mozilla.net/static/build/styles/home.7bc487f16ebe.css" rel="stylesheet" type="text/css" />
+
+  <link href="https://developer.cdn.mozilla.net/static/build/styles/locale-en-US.7e45c23d7d30.css" rel="stylesheet" type="text/css" />
+    <!-- common social tags -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.72382e605ce3.png">
+    <meta property="og:site_name" content="Mozilla Developer Network">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.72382e605ce3.png">
+    <meta name="twitter:site" content="@MozDevNet">
+    <meta name="twitter:creator" content="@MozDevNet">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/en-US/search/xml" title="Mozilla Developer Network">
+  
+
+  <!-- third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.cdn.mozilla.net/static/img/favicon144.0d89fc050967.png">
+  <!-- iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/static/img/favicon114.57ce6f6d1857.png">
+  <!-- first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/static/img/favicon72.deefe20a0360.png">
+  <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/static/img/favicon57.930938a93373.png">
+  <!-- basic favicon -->
+  
+    
+  
+  <link rel="shortcut icon" href="https://developer.cdn.mozilla.net/static/img/favicon32.e1ca6d9bb933.png">
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/html5shiv.3948ccddab6f.js" charset="utf-8"></script>
+  <![endif]-->
+
+  <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/font-check.f6a4c7250869.js" charset="utf-8"></script>
+
+  
+  <meta name="google-site-verification" content="Phj8dHc2oKwic3FGPsKIhdOBk_1wnCTnKwjcjiLgJPc">
+  <meta name="google-site-verification" content="TH9rA27HbfjO_XqYWTIPrW1E7E7Dtgsh7ULzHi3UTVA">
+
+  
+  
+  <meta property="og:description" content="The Mozilla Developer Network (MDN) provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and HTML5 Apps. It also documents Mozilla products, like Firefox OS.">
+  <meta name="description" content="The Mozilla Developer Network (MDN) provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and HTML5 Apps. It also documents Mozilla products, like Firefox OS.">
+  <meta name="twitter:description" content="The Mozilla Developer Network (MDN) provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and HTML5 Apps. It also documents Mozilla products, like Firefox OS.">
+  <meta name="twitter:title" content="Mozilla Developer Network">
+  <meta property="og:title" content="Mozilla Developer Network">
+
+  
+
+
+
+  
+    
+
+<script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36116321-5', 'mozilla.org');
+    ga('set', 'anonymizeIp', true);
+
+    
+
+    // dimension9 == "Section editing"
+    
+
+    (function() {
+        // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+        var win = window;
+        var removeUtms = function(){
+            var location = win.location;
+            if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                win.history.replaceState({}, '', location.pathname);
+            }
+        };
+
+        ga('send', 'pageview', {'hitCallback': removeUtms});
+    })();
+</script>
+
+  
+</head>
+<body id="home" class="">
+
+  <script type="text/javascript">
+    // make sure global mdn object exists
+    var mdn = window.mdn || {};
+
+    (function(win) {
+        'use strict';
+
+        
+            (function(){
+  var FLAGS = {
+    'compat_api': false,'kumaediting': false,'line_length': false,'page_move': false,'redesign_beta': false,'redesign_live': false,'registration_disabled': false,'sample_frame': false,'search_suggestions': false,'section_edit': false,'sg_task_completion': false,'spam_admin_override': false,'spam_checks_enabled': true,'spam_spammer_override': false,'spam_submissions_enabled': false,'spam_testing_mode': false,'wiki_samples': true,'wiki_spam_exempted': false,'wiki_spam_training': false
+    },
+    SWITCHES = {
+    'wiki_error_on_delete': false,'wiki_force_immediate_rendering': false,'enable_optimizely': false,'welcome_email': true,'application_ACAO': true,'store_revision_ips': true,'dumb_doc_urls': true,'newsletter': true,'newsletter_article': true,'foundation_callout': false,'helpful-survey-2': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+        
+
+        // This needs to be set before ckeditor.js loads
+        window.CKEDITOR_BASEPATH = '/static/js/libs/ckeditor/build/ckeditor/';
+
+        // Site configuration
+        win.mdn.ckeditor = {};
+        win.mdn.features = {};
+        win.mdn.staticPath = 'https://developer.cdn.mozilla.net/static/';
+        win.mdn.optimizely = win['optimizely'] || [];
+        win.mdn.wiki = {
+            autosuggestTitleUrl: '/en-US/docs/get-documents'
+        };
+        win.mdn.assets = {
+            css: {
+                'editor-content': ['https://developer.cdn.mozilla.net/static/build/styles/editor-content.4b63a9347c67.css','https://developer.cdn.mozilla.net/static/build/styles/editor-locale-en-US.7e45c23d7d30.css',
+                ]
+            },
+            js: {
+                'syntax-prism': ['https://developer.cdn.mozilla.net/static/build/js/syntax-prism.66bd4038bff3.js',]
+            }
+        };
+
+        win.mdn.notifications = [];
+
+        
+
+        // interactive editor config
+        win.mdn.interactiveEditor = {
+            siteUrl: "https://developer.mozilla.org",
+            editorUrl: "https://interactive-examples.mdn.mozilla.net"
+        };
+
+    })(this);
+</script>
+    
+  <div class="global-notice">
+    <div class="wrap center">
+      
+        <p><bdi>MDN will be in maintenance mode on Tuesday October 10, from 9:30 AM to 1:30 PM Pacific (4:30 PM to 8:30 PM UTC) as we move data centers.</bdi></p>
+      
+    </div>
+  </div>
+
+
+  <ul id="nav-access">
+    <li><a href="#content" id="skip-main">Skip to main content</a></li>
+    <li><a id="skip-language" href="#language">Select language</a></li>
+    <li><a href="#q" id="skip-search">Skip to search</a></li>
+  </ul>
+
+  <!-- Header -->
+  <header id="main-header"><div class="center">
+    <a href="/en-US/" class="logo">MDN Web Docs</a>
+
+    <div id="nav-sec">
+    
+      <ul>
+      <li class="nav-login"><div class="login">
+    
+        
+        <a href="/users/github/login/?next=%2Fen-US%2F" class="login-link js-login-link" data-service="GitHub">
+            Sign in
+            <i class="icon-github" aria-hidden="true"></i>
+        </a>
+    
+</div></li>
+      </ul>
+    
+    </div>
+
+    <nav id="main-nav" class="nav-main" role="navigation"><ul><li class="nav-main-item"><a href="/en-US/docs/Web">Technologies<i aria-hidden="true" class="icon-caret-down"></i></a>
+      <div class="submenu js-submenu" id="nav-tech-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="/en-US/docs/Web/HTML">HTML</a></li>
+            <li><a href="/en-US/docs/Web/CSS">CSS</a></li>
+            <li><a href="/en-US/docs/Web/JavaScript">JavaScript</a></li>
+            <li><a href="/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+            <li><a href="/en-US/docs/Web/HTTP">HTTP</a></li>
+            <li><a href="/en-US/docs/Web/API">APIs / DOM</a></li>
+            <li><a href="/en-US/docs/Mozilla/Add-ons/WebExtensions">Browser Extensions</a></li>
+            <li><a href="/en-US/docs/Web/MathML">MathML</a></li>
+          </ul>
+        </div></div><li class="nav-main-item"><a href="/en-US/docs/Learn">References & Guides<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <div class="submenu js-submenu" id="nav-learn-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="/en-US/docs/Learn">Learn web development</a></li>
+            <li><a href="/en-US/docs/Web/Tutorials">Tutorials</a></li>
+            <li><a href="/en-US/docs/Web/Reference">References</a></li>
+            <li><a href="/en-US/docs/Web/Guide">Developer Guides</a></li>
+            <li><a href="/en-US/docs/Web/Accessibility">Accessibility</a></li>
+            <li><a href="/en-US/docs/Games">Game development</a></li>
+            <li><a href="/en-US/docs/Web">...more docs</a></li>
+          </ul>
+        </div>
+      </div>
+      </li><li class="nav-main-item"><a href="/en-US/docs/MDN/Feedback">Feedback<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <div class="submenu js-submenu" id="nav-contact-submenu">
+          <div class="submenu-column">
+            <ul>
+              <li><a href="https://support.mozilla.org/">Get Firefox help<i aria-hidden="true" class="icon-external-link"></i></a></li>
+              <li><a href="https://stackoverflow.com/">Get web development help<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            </ul>
+            <ul>
+              <li><a href="/en-US/docs/MDN/Community">Join the MDN community</a></li>
+              <li><a target="_blank" href="https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/en-US/">Report a content problem<i aria-hidden="true" class="icon-external-link"></i></a></li>
+              <li><a target="_blank" href="https://bugzilla.mozilla.org/form.mdn">Report a bug<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </li><li class="nav-main-search"><form action="/en-US/search" method="get" role="search">
+        <div class="search-wrap">
+          <label for="main-q" class="offscreen">Search</label>
+          <input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="" />
+          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>
+          <button type="submit" class="offscreen">Search</button>
+        </div>
+      </form></li></ul></nav>
+  </div></header>
+
+  <!-- Content will go here -->
+  <main id="content">
+      
+
+<!-- top search area -->
+<div class="home-masthead"><div class="center">
+    <h1 class="highlight highlight-spanned"><span class="highlight-span">Resources for developers, by developers.</span></h1>
+
+    
+        <form id="home-search-form" action="/en-US/search" method="get" class="search nodisable">
+            <div class="home-search-form search-form">
+                <label for="home-q" class="offscreen">Search</label>
+                <span class="search-icon">
+                    <i class="icon-search" aria-hidden="true"></i>
+                </span>
+                <input class="search-input" type="search" id="home-q" name="q" placeholder="Search the docs" />
+                <button type="submit" class="offscreen">Search</button>
+                
+                  <input type="hidden" name="topic" value="apps">
+                
+                  <input type="hidden" name="topic" value="html">
+                
+                  <input type="hidden" name="topic" value="css">
+                
+                  <input type="hidden" name="topic" value="js">
+                
+                  <input type="hidden" name="topic" value="api">
+                
+                  <input type="hidden" name="topic" value="canvas">
+                
+                  <input type="hidden" name="topic" value="svg">
+                
+                  <input type="hidden" name="topic" value="webgl">
+                
+                  <input type="hidden" name="topic" value="mobile">
+                
+                  <input type="hidden" name="topic" value="webdev">
+                
+                  <input type="hidden" name="topic" value="http">
+                
+                  <input type="hidden" name="topic" value="webext">
+                
+            </div>
+        </form>
+    
+
+    <ul class="home-features">
+      <li><a href="/en-US/docs/Web" class="cta-link">Web Technologies</a></li>
+      <li><a href="/en-US/docs/Learn" class="cta-link">Learn web development</a></li>
+      <li><a href="/en-US/docs/Tools" class="cta-link">Developer Tools</a></li>
+    </ul>
+</div></div>
+
+
+      <div class="center clear">
+      
+
+<!-- callout area -->
+<div class="home-callouts">
+  <h2 class="offscreen">Featured</h2>
+  <div class="column-container center">
+    
+      <div class="column-callout callout-saucelabs">
+        <a href="https://www.saucelabs.com/cross-browser-testing-tutorial?utm_campaign=cbt&amp;utm_medium=banner&amp;utm_source=home-page">
+          <span>
+            <p>Test in Firefox and over 800 browser/OS combos with Mozilla and Sauce Labs</p>
+            <button type="button">Test on Sauce Labs</button>
+          </span>
+        </a>
+      </div>
+    
+    
+    <div class="column-callout callout-newsletter">
+      <div class="newsletter">
+    <form id="newsletterForm" class="newsletter-form nodisable" name="newsletter-form" action="https://www.mozilla.org/en-US/newsletter/" method="post">
+        <div class="newsletter-head">
+            <h2 class="newsletter-teaser">Learn the best of web development</h2>
+            <p class="newsletter-description">Get the latest and greatest from MDN delivered straight to your inbox.</p>
+            
+        </div>
+
+        <div class="newsletter-fields">
+            <input type="hidden" id="fmt" name="fmt" value="H">
+            <input type="hidden" id="newsletterNewslettersInput" name="newsletters" value="app-dev" />
+            <div id="newsletterErrors" class="newsletter-errors"></div>
+
+            <div id="newsletterEmail" class="form-group newsletter-group-email">
+                <label for="newsletterEmailInput" class="form-label offscreen">E-mail</label>
+                <input type="email" id="newsletterEmailInput" name="email" class="form-input newsletter-input-email" required placeholder="you@example.com" size="30">
+            </div>
+
+            <div id="newsletterPrivacy" class="form-group form-group-agree newsletter-group-privacy hidden">
+                <input type="checkbox" id="newsletterPrivacyInput" name="privacy" required>
+                <label for="newsletterPrivacyInput">
+                I'm okay with Mozilla handling my info as explained in this <a href="https://www.mozilla.org/privacy/">Privacy Policy</a>.
+                </label>
+            </div>
+            <div id="newsletterSubmit" class="newsletter-group-submit">
+                <button id="newsletter-submit" type="submit" class="button neutral newsletter-submit">Sign up now</button>
+            </div>
+        </div>
+    </form>
+    <div id="newsletterThanks" class="newsletter-thanks hidden">
+        <h2>Thanks! Please check your inbox to confirm your subscription.</h2>
+        <p>If you haven’t previously confirmed a subscription to a Mozilla-related newsletter you may have to do so. Please check your inbox or your spam filter for an email from us.
+        </p>
+    </div>
+    <button id="newsletterHide" type="button" class="only-icon newsletter-hide hidden"><span>Hide Newsletter Sign-up</span><i aria-hidden="true" class="icon-times"></i></button>
+</div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- hacks area -->
+<div class="home-hacks"><div class="column-container center">
+  <div class="column-hacks" dir="ltr">
+    <h2><i aria-hidden="true" class="icon-star"></i> Hacks Blog<span class="heading-link"><a href="http://hacks.mozilla.org">read more at hacks.mozilla.org <i aria-hidden="true" class="icon-arrow-right"></i></a></span></h2>
+    <ul class="hfeed">
+  
+    
+    <li class="hentry">
+      <h2 class="entry-title"><a href="https://hacks.mozilla.org/2017/10/firefox-56-last-stop-before-quantum/" rel="bookmark">Firefox 56: Last Stop before Quantum</a></h2>
+      <p class="entry-summary">Here at Mozilla, we’re extremely excited about next month’s release of Firefox Quantum, with massive speed improvements, a brand new UI, and many Developer Tools upgrades -- available now in Developer Edition. But last week&#39;s general release of Firefox 56 features good news for developers now - including &#34;headless mode&#34; ...</p>
+      <p class="entry-meta vcard">
+      
+      
+      Posted <time class="updated" datetime="2017-10-04" title="2017-10-04">October 04, 2017</time> by <cite class="author fn">Dan Callahan</cite>
+      
+      </p>
+    </li>
+    
+  
+    
+    <li class="hentry">
+      <h2 class="entry-title"><a href="https://hacks.mozilla.org/2017/10/containers-for-add-on-developers/" rel="bookmark">An overview of Containers for add-on developers</a></h2>
+      <p class="entry-summary">Containers work by giving users the ability to place barriers on the flow of data across sites by isolating cookies, indexedDB, localStorage, and caches within discrete browsing contexts. This in-depth introduction to Containers and Container extensions explores the capabilities of Containers and contextual identity for developers.</p>
+      <p class="entry-meta vcard">
+      
+      
+      Posted <time class="updated" datetime="2017-10-03" title="2017-10-03">October 03, 2017</time> by <cite class="author fn">Jonathan Kingston</cite>
+      
+      </p>
+    </li>
+    
+  
+    
+    <li class="hentry">
+      <h2 class="entry-title"><a href="https://hacks.mozilla.org/2017/10/multi-user-experiences-with-a-frame/" rel="bookmark">Multi-user experiences with A-Frame</a></h2>
+      <p class="entry-summary">Salva de la Puente describes the sharedspace component he&#39;s built, which brings the power of WebRTC to A-Frame users. The component provides a collaboration model where participants can join or leave a named space, share audio and state, and send JSON-serializable objects to other peers. Check it out!</p>
+      <p class="entry-meta vcard">
+      
+      
+      Posted <time class="updated" datetime="2017-10-02" title="2017-10-02">October 02, 2017</time> by <cite class="author fn">Salva</cite>
+      
+      </p>
+    </li>
+    
+  
+    
+    <li class="hentry">
+      <h2 class="entry-title"><a href="https://hacks.mozilla.org/2017/09/rnnoise-deep-learning-noise-suppression/" rel="bookmark">RNNoise: Using Deep Learning for Noise Suppression</a></h2>
+      <p class="entry-summary">The Mozilla Research RRNoise project shows how to apply deep learning to noise suppression. It combines classic signal processing with deep learning, but it’s small and fast. No expensive GPUs required — it runs easily on a Raspberry Pi. The result is easier to tune and sounds better than traditional ...</p>
+      <p class="entry-meta vcard">
+      
+      
+      Posted <time class="updated" datetime="2017-09-28" title="2017-09-28">September 28, 2017</time> by <cite class="author fn">Jean-Marc Valin</cite>
+      
+      </p>
+    </li>
+    
+  
+    
+    <li class="hentry">
+      <h2 class="entry-title"><a href="https://hacks.mozilla.org/2017/09/developer-edition-devtools-update-now-with-photon-ui/" rel="bookmark">Developer Edition Devtools Update: Now with Photon UI</a></h2>
+      <p class="entry-summary">An update on all the changes and improvements to Firefox Dev Tools available now in the Firefox Quantum Developer Edition release. Beginning with the brand-new logo and new Photon UI, nearly every aspect of the DevTools suite is faster and more responsive to developer needs - including improvements to the ...</p>
+      <p class="entry-meta vcard">
+      
+      
+      Posted <time class="updated" datetime="2017-09-26" title="2017-09-26">September 26, 2017</time> by <cite class="author fn">Julian Descottes</cite>
+      
+      </p>
+    </li>
+    
+  
+</ul>
+  </div>
+  <div class="column-involved">
+    <div class="home-involved-card"><a href="/en-US/docs/MDN/Contribute">
+      <h2 class="title">Get Involved</h2>
+
+      <p class="numbers"> <span class="row1">Join <span class="number">9656</span> contributors</span> <span class="row2">in <span class="number">47</span> languages and locales</span> <span class="row3">around the world.</span> </p>
+      <p><span class="button">Help improve MDN</span></p>
+    </a></div>
+  </div>
+</div></div>
+
+<!-- contributions section -->
+<div class="home-contribute"><div class="center">
+  <h2><i aria-hidden="true" class="icon-smile-o"></i> Help improve MDN</h2>
+
+  <div class="column-container">
+    <div class="column-half">
+      <p>All parts of MDN (docs and the site itself) are created by an open community of developers. Please join us! Pick one of these ways to help:</p>
+    </div>
+    <div class="column-half">
+      <div class="column-container">
+        <div class="column-half">
+          <ul>
+            <li><a href="/en-US/docs/MDN/Getting_started">Getting started</a></li>
+            <li><a href="/en-US/docs/MDN/Contribute/Howto/Do_an_editorial_review">Editorial review</a></li>
+            <li><a href="/en-US/docs/MDN/Contribute/Howto/Do_a_technical_review">Technical review</a></li>
+          </ul>
+        </div>
+        <div class="column-half">
+          <ul>
+            <li><a href="/en-US/docs/MDN/Contribute/Localize/Translating_pages">Translating</a></li>
+            <li><a href="/en-US/docs/MDN/Promote">Promoting MDN</a></li>
+            <li><a href="https://github.com/mozilla/kuma#readme">Contributing to the MDN codebase</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+      </div>
+  </main>
+
+  <!-- redesign notices -->
+  
+
+
+  <!-- Footer -->
+    <footer id="nav-footer" class="nav-footer">
+      <div class="center">
+          <a href="/en-US/" class="nav-footer-logo">MDN Web Docs</a>
+          <div class="footer-group footer-group-mdn">
+            <h2 class="footer-title">MDN</h2>
+            <ul class="footer-list">
+              <li><a href="/en-US/docs/Web">Web Technologies</a></li>
+              <li><a href="/en-US/docs/Learn">Learn Web Development</a></li>
+              <li><a href="/docs/MDN/About">About MDN</a></li>
+              <li><a href="/en-US/docs/MDN/Feedback">Feedback</a></li>
+              <li class="footer-social"><a href="https://twitter.com/mozdevnet" class="only-icon"><i aria-hidden="true" class="icon-twitter"></i> <span>Twitter</span></a></li>
+              <li class="footer-social"><a href="https://github.com/mdn/" class="only-icon"><i aria-hidden="true" class="icon-github"></i> <span>GitHub</span></a></li>
+            </ul>
+          </div>
+
+          <a href="https://mozilla.org" class="nav-footer-mozilla">Mozilla</a>
+          <div class="footer-group footer-group-mozilla">
+            <h2 class="footer-title">Mozilla</h2>
+            <ul class="footer-list">
+              <li><a href="https://www.mozilla.org/about/">About</a></li>
+              <li><a href="https://www.mozilla.org/contact/">Contact Us</a></li>
+              <li><a href="https://donate.mozilla.org/?utm_source=developer.mozilla.org&utm_medium=referral&utm_content=footer">Donate</a></li>
+              <li><a href="https://www.mozilla.org/firefox/?utm_source=developer.mozilla.org&utm_campaign=footer&utm_medium=referral">Firefox</a></li>
+              <li class="footer-social"><a href="https://twitter.com/mozilla" class="only-icon"><i aria-hidden="true" class="icon-twitter"></i> <span>Twitter</span></a></li>
+              <li class="footer-social"><a href="https://www.facebook.com/mozilla" class="only-icon"><i aria-hidden="true" class="icon-facebook"></i> <span>Facebook</span></a></li>
+              <li class="footer-social"><a href="https://www.instagram.com/mozillagram/" class="only-icon"><i aria-hidden="true" class="icon-instagram"></i> <span>Instagram</span></a></li>
+            </ul>
+          </div>
+
+          
+            
+                
+
+<form class="languages go" method="get" action="#">
+  <label for="language">Other languages:</label>
+  
+  <select id="language" class="autosubmit" name="lang">
+    <option title="English (US)" value="en-US">
+      English (US) (en-US)
+    </option>
+    
+        <option title="Afrikaans" value="af">
+          Afrikaans (af)
+        </option>
+      
+        <option title="Arabic" value="ar">
+          عربي (ar)
+        </option>
+      
+        <option title="Azerbaijani" value="az">
+          Azərbaycanca (az)
+        </option>
+      
+        <option title="Bulgarian" value="bg">
+          Български (bg)
+        </option>
+      
+        <option title="Bambara" value="bm">
+          Bamanankan (bm)
+        </option>
+      
+        <option title="Bengali (Bangladesh)" value="bn-BD">
+          বাংলা (বাংলাদেশ) (bn-BD)
+        </option>
+      
+        <option title="Bengali (India)" value="bn-IN">
+          বাংলা (ভারত) (bn-IN)
+        </option>
+      
+        <option title="Catalan" value="ca">
+          Català (ca)
+        </option>
+      
+        <option title="Czech" value="cs">
+          Čeština (cs)
+        </option>
+      
+        <option title="German" value="de">
+          Deutsch (de)
+        </option>
+      
+        <option title="Ewe" value="ee">
+          Eʋe (ee)
+        </option>
+      
+        <option title="Greek" value="el">
+          Ελληνικά (el)
+        </option>
+      
+        <option title="Spanish" value="es">
+          Español (es)
+        </option>
+      
+        <option title="Persian" value="fa">
+          فارسی (fa)
+        </option>
+      
+        <option title="Fulah" value="ff">
+          Pulaar-Fulfulde (ff)
+        </option>
+      
+        <option title="Finnish" value="fi">
+          suomi (fi)
+        </option>
+      
+        <option title="French" value="fr">
+          Français (fr)
+        </option>
+      
+        <option title="Frisian" value="fy-NL">
+          Frysk (fy-NL)
+        </option>
+      
+        <option title="Irish" value="ga-IE">
+          Gaeilge (ga-IE)
+        </option>
+      
+        <option title="Hausa" value="ha">
+          Hausa (ha)
+        </option>
+      
+        <option title="Hebrew" value="he">
+          עברית (he)
+        </option>
+      
+        <option title="Hindi (India)" value="hi-IN">
+          हिन्दी (भारत) (hi-IN)
+        </option>
+      
+        <option title="Croatian" value="hr">
+          Hrvatski (hr)
+        </option>
+      
+        <option title="Hungarian" value="hu">
+          magyar (hu)
+        </option>
+      
+        <option title="Indonesian" value="id">
+          Bahasa Indonesia (id)
+        </option>
+      
+        <option title="Igbo" value="ig">
+          Igbo (ig)
+        </option>
+      
+        <option title="Italian" value="it">
+          Italiano (it)
+        </option>
+      
+        <option title="Japanese" value="ja">
+          日本語 (ja)
+        </option>
+      
+        <option title="Georgian" value="ka">
+          ქართული (ka)
+        </option>
+      
+        <option title="Kabyle" value="kab">
+          Taqbaylit (kab)
+        </option>
+      
+        <option title="Korean" value="ko">
+          한국어 (ko)
+        </option>
+      
+        <option title="Lingala" value="ln">
+          Lingála (ln)
+        </option>
+      
+        <option title="Malagasy" value="mg">
+          Malagasy (mg)
+        </option>
+      
+        <option title="Malayalam" value="ml">
+          മലയാളം (ml)
+        </option>
+      
+        <option title="Malay" value="ms">
+          Melayu (ms)
+        </option>
+      
+        <option title="Burmese" value="my">
+          မြန်မာဘာသာ (my)
+        </option>
+      
+        <option title="Dutch" value="nl">
+          Nederlands (nl)
+        </option>
+      
+        <option title="Polish" value="pl">
+          Polski (pl)
+        </option>
+      
+        <option title="Portuguese (Brazilian)" value="pt-BR">
+          Português (do Brasil) (pt-BR)
+        </option>
+      
+        <option title="Portuguese (Portugal)" value="pt-PT">
+          Português (Europeu) (pt-PT)
+        </option>
+      
+        <option title="Romanian" value="ro">
+          Română (ro)
+        </option>
+      
+        <option title="Russian" value="ru">
+          Русский (ru)
+        </option>
+      
+        <option title="Songhai" value="son">
+          Soŋay (son)
+        </option>
+      
+        <option title="Albanian" value="sq">
+          Shqip (sq)
+        </option>
+      
+        <option title="Serbian" value="sr">
+          Српски (sr)
+        </option>
+      
+        <option title="Serbian" value="sr-Latn">
+          Srpski (sr-Latn)
+        </option>
+      
+        <option title="Swedish" value="sv-SE">
+          Svenska (sv-SE)
+        </option>
+      
+        <option title="Swahili" value="sw">
+          Kiswahili (sw)
+        </option>
+      
+        <option title="Tamil" value="ta">
+          தமிழ் (ta)
+        </option>
+      
+        <option title="Thai" value="th">
+          ไทย (th)
+        </option>
+      
+        <option title="Tagalog" value="tl">
+          Tagalog (tl)
+        </option>
+      
+        <option title="Tswana" value="tn">
+          Setswana (tn)
+        </option>
+      
+        <option title="Turkish" value="tr">
+          Türkçe (tr)
+        </option>
+      
+        <option title="Ukrainian" value="uk">
+          Українська (uk)
+        </option>
+      
+        <option title="Vietnamese" value="vi">
+          Tiếng Việt (vi)
+        </option>
+      
+        <option title="Wolof" value="wo">
+          Wolof (wo)
+        </option>
+      
+        <option title="Xhosa" value="xh">
+          isiXhosa (xh)
+        </option>
+      
+        <option title="Yoruba" value="yo">
+          Yorùbá (yo)
+        </option>
+      
+        <option title="Chinese (Simplified)" value="zh-CN">
+          中文 (简体) (zh-CN)
+        </option>
+      
+        <option title="Chinese (Traditional)" value="zh-TW">
+          正體中文 (繁體) (zh-TW)
+        </option>
+      
+        <option title="Zulu" value="zu">
+          isiZulu (zu)
+        </option>
+      
+  </select>
+  <noscript><button type="submit">Go</button></noscript>
+</form>
+            
+          
+
+          
+            <ul class="footer-tos">
+              <li><a href="https://www.mozilla.org/about/legal/terms/mozilla">Terms</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/">Privacy</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
+            </ul>
+
+            <div class="contentinfo">
+              <p>&copy; 2005-2017 Mozilla and individual contributors.</p> <p>Content is available under <a href="/en-US/docs/MDN/About#Copyrights_and_licenses">these licenses</a>.</p>
+            </div>
+          
+      </div>
+    </footer>
+
+  <!-- site js -->
+  
+    <!--[if lte IE 8]><script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/selectivizr.091e18cf669b.js" charset="utf-8"></script><![endif]-->
+
+    
+    <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/jsi18n/en-us/javascript.b28203373cc1.js"></script>
+    <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/main.0a73d7502ddf.js" charset="utf-8"></script>
+    
+      <script>
+        if(window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+      </script>
+    
+    
+
+  
+
+  
+  
+  
+  
+  
+    <script async type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/newsletter.7cd3274169f2.js" charset="utf-8"></script>
+  
+
+</body>
+</html>

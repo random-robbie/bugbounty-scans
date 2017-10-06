@@ -1,0 +1,2799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head><meta property="og:type" content="website">
+<meta property="og:image" content="https://bugzilla.mozilla.org/extensions/OpenGraph/web/moz-social-bw-rgb-1200x1200.png">
+<meta property="og:title" content="1005535 - enable skia_gpu on big endian platforms">
+<meta property="og:url" content="https://bugzilla.mozilla.org/show_bug.cgi?id=1005535">
+
+    <meta name="bugzilla-global" content="dummy"
+        id="bugzilla-global" data-bugzilla="{&quot;api_token&quot;:&quot;&quot;,&quot;string&quot;:{&quot;short_desc_required&quot;:&quot;You must enter a Summary for this bug&quot;,&quot;description_required&quot;:&quot;You must enter a Description for this bug&quot;,&quot;version_required&quot;:&quot;You must select a Version for this bug&quot;,&quot;component_required&quot;:&quot;You must select a Component for this bug&quot;,&quot;attach_desc_required&quot;:&quot;You must enter a Description for this attachment.&quot;},&quot;constant&quot;:{&quot;COMMENT_COLS&quot;:80},&quot;param&quot;:{&quot;maxusermatches&quot;:&quot;50&quot;,&quot;cookiepath&quot;:&quot;/&quot;}}">
+    <title>1005535 - enable skia_gpu on big endian platforms</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <meta name="robots" content="noindex" />
+<link rel="Top" href="https://bugzilla.mozilla.org/">
+
+  
+
+
+  
+    <link rel="Show" title="Dependency Tree"
+          href="showdependencytree.cgi?id=1005535&amp;hide_resolved=1">
+      <link rel="Show" title="Dependency Graph"
+            href="showdependencygraph.cgi?id=1005535">
+
+      <link rel="Show" title="Bug Activity"
+            href="show_activity.cgi?id=1005535">
+      <link rel="Show" title="Printer-Friendly Version"
+            href="show_bug.cgi?format=multiple&amp;id=1005535">
+
+<link href="data/assets/6e2950a6b430e66beb45b46958cb75b7.css?1507037554" rel="stylesheet" type="text/css">
+
+
+
+    
+<script nonce="1qaeS6bnDSpMr8GVQ9QcpfLjyhJ2HzXuE6HJ4E0zvnlE03Bt" type="text/javascript" src="data/assets/f0d8f806b435d5c1c42cd109e6626548.js?1507037554"></script>
+
+      <script nonce="1qaeS6bnDSpMr8GVQ9QcpfLjyhJ2HzXuE6HJ4E0zvnlE03Bt">
+          YAHOO.namespace('bugzilla');
+          if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+              YAHOO.util.Event._simpleRemove(window, "unload",
+                                             YAHOO.util.Event._unload);
+          }BUGZILLA.value_descs = JSON.parse('{\"bug_status\":{},\"resolution\":{\"\":\"---\"}}');
+
+  
+    var tracking_flags_str = "{\"types\":[\"tracking\"],\"flags\":{\"tracking\":{\"cf_blocking_fennec\":\"---\",\"cf_status_firefox_esr52\":\"---\",\"cf_tracking_firefox57\":\"---\",\"cf_blocking_fx\":\"---\",\"cf_status_firefox58\":\"---\",\"cf_status_firefox57\":\"---\",\"cf_tracking_firefox_esr52\":\"---\",\"cf_tracking_thunderbird_esr52\":\"---\",\"cf_status_thunderbird_esr52\":\"---\",\"cf_tracking_firefox58\":\"---\",\"cf_tracking_firefox_relnote\":\"---\",\"cf_tracking_firefox56\":\"---\",\"cf_platform_rel\":\"---\",\"cf_status_firefox56\":\"---\"}},\"comments\":{\"cf_tracking_firefox58\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox57\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_relnote\":{\"?\":\"Release Note Request (optional, but appreciated)\\n[Why is this notable]:\\n[Affects Firefox for Android]:\\n[Suggested wording]:\\n[Links (documentation, blog post, etc)]:\"},\"cf_tracking_firefox56\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_esr52\":{\"?\":\"[Tracking Requested - why for this release]:\"}}}";
+    var TrackingFlags = $.parseJSON(tracking_flags_str);
+
+  
+
+  
+  BUGZILLA.bug_id = 1005535;
+  BUGZILLA.bug_title = '1005535 - enable skia_gpu on big endian platforms';
+  BUGZILLA.user = {
+    id: 0,
+    login: '',
+    is_insider: false,
+    is_timetracker: false,
+    can_tag: false,
+    settings: {
+      quote_replies: 'quoted_reply',
+      zoom_textareas: true,
+      remember_collapsed: true,
+      autosize_comments: false
+    }
+  };
+
+  BUGZILLA.bug_secure = false;
+      </script>
+<script nonce="1qaeS6bnDSpMr8GVQ9QcpfLjyhJ2HzXuE6HJ4E0zvnlE03Bt" type="text/javascript" src="data/assets/f45fcff1319be4ab156441393c02d012.js?1507037554"></script>
+
+    
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+                       title="Bugzilla@Mozilla" href="./search_plugin.cgi">
+    <meta name="referrer" content="origin-when-crossorigin"><link rel="shortcut icon" href="extensions/BMO/web/images/favicon.ico">
+<link id="shorturl" rev="canonical" href="https://bugzil.la/1005535"><meta name="robots" content="noarchive">
+  </head>
+
+
+
+  <body
+        class="bugzilla-mozilla-org
+               skin-standard bug_modal yui-skin-sam">
+
+
+
+<div id="header">
+
+  <div class="wrapper">
+    <table border="0" cellspacing="0" cellpadding="0" id="titles">
+    <tr>
+      <td id="title">
+        <a href="./" title="Home">Bugzilla@Mozilla</a>
+      </td>
+      <td>
+      </td>
+      <td id="moz_login">
+          <ul class="login-links">
+              <li id="moz_new_account_container_top"><a href="createaccount.cgi">New&nbsp;Account</a>
+              </li>
+
+                <li id="mini_login_container_top">
+  <span class="separator">| </span>
+  <a id="login_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1005535&amp;GoAheadAndLogIn=1"
+     class='show_mini_login_form' data-qs-suffix="_top">Log In</a>
+<span id="github_mini_login_top" class="bz_default_hidden mini_login_top">
+    <form method="post" action="https://bugzilla.mozilla.org/github.cgi">
+      <input type="hidden" name="github_secret" value="XekbzXqQ7WpnJdSc">
+      <input type="hidden" name="target_uri" value="https://bugzilla.mozilla.org/show_bug.cgi?id=1005535">
+      <input type="image" src="extensions/GitHubAuth/web/images/sign_in.png" height="22" width="75" align="absmiddle"
+             alt="Sign in with GitHub"
+             title="Sign in with GitHub"> or
+    </form>
+  </span>
+  
+  <form action="https://bugzilla.mozilla.org/show_bug.cgi?id=1005535" method="POST" 
+        class="mini_login bz_default_hidden "
+        id="mini_login_top"
+        data-qs-suffix="_top"
+  >
+    
+    <input id="Bugzilla_login_top" 
+           class="bz_login"
+           name="Bugzilla_login"
+           title="Login"
+           placeholder="email address"
+           type="email"
+           required
+    >
+    <input class="bz_password"
+           id="Bugzilla_password_top" 
+           name="Bugzilla_password"
+           type="password"
+           title="Password"
+           required
+    >
+    <input class="bz_password bz_default_hidden bz_mini_login_help" type="text" 
+           id="Bugzilla_password_dummy_top" value="password"
+           title="Password"
+    >
+      <input type="checkbox" id="Bugzilla_remember_top" 
+             name="Bugzilla_remember" value="on" class="bz_remember"
+                 checked>
+      <label for="Bugzilla_remember_top">Remember</label>
+    <input type="hidden" name="Bugzilla_login_token"
+           value="1507276813-c7be6bdde47fb05764c9008562deaec3">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in"
+           class="check_mini_login_fields"
+            id="log_in_top">
+    <a href="#" id="hide_mini_login_top" 
+       class="hide_mini_login_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+<li id="forgot_container_top">
+  <span class="separator">| </span>
+  <a id="forgot_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1005535&amp;GoAheadAndLogIn=1#forgot"
+     class='show_forgot_form'
+     data-qs-suffix="_top">Forgot Password</a>
+  <form action="token.cgi" method="post" id="forgot_form_top"
+        class="mini_forgot bz_default_hidden">
+    <label for="login_top">Login:</label>
+    <input type="text" name="loginname" size="20" id="login_top">
+    <input id="forgot_button_top" value="Reset Password" 
+           type="submit">
+    <input type="hidden" name="a" value="reqpw">
+    <input type="hidden" id="token_top" name="token" value="1507276813-bec5bfe380bccc4fba3514d03cb752aa">
+    <a href="#" class="hide_forgot_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+          </ul>
+      </td>
+      <td id="moz_tab">
+        <a href="https://www.mozilla.org/" title="Mozilla - Home of the Mozilla Project">
+          <img src="images/tabzilla.png" border="0" height="42" width="154"></a>
+      </td>
+    </tr>
+    </table>
+
+    
+<ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_top" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_top"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+
+  </div>
+</div> 
+
+<div id="bugzilla-body">
+
+
+<div id="message">If you think a bug might affect users in the 57 release, please <a href="https://wiki.mozilla.org/Bugmasters/Marking_bugs_for_the_Firefox_57_release">set the correct tracking and status flags for Release Management</a>.</div><div id="xhr-error" style="display:none"></div>
+<div id="floating-message" style="display:none">
+  <div id="floating-message-text"></div>
+</div>
+<section class="module"
+>
+  <div class="module-content"
+  >
+  <div id="summary-container">
+    <div class="field indent"
+>
+
+  
+    <div class=" container">
+      <div id="field-value-bug_id">
+        <a id="this-bug" href="show_bug.cgi?id=1005535">Bug 1005535</a>
+      </div>
+    </div>
+
+  
+</div><div class="field indent edit-hide"
+>
+
+  
+    <div class=" container">
+      <h1 id="field-value-short_desc">enable skia_gpu on big endian platforms</h1>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-alias" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#alias" id="alias-help-link" class="help">Alias:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-alias">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-short_desc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#short_desc" id="short_desc-help-link" class="help">Summary:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-short_desc">
+            enable skia_gpu on big endian platforms
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field indent edit-hide" id="field-status_summary"
+>
+
+  
+    <div class="value">
+        <span id="field-value-status_summary">
+      <b>RESOLVED
+        INVALID
+      </b>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+
+  
+
+  <div id="mode-container">
+    <div>
+    </div>
+    <div class="button-row">
+      <div class="dropdown">
+        <button type="button" id="action-menu-btn" aria-haspopup="true" aria-label="Actions Menu"
+          aria-expanded="false" aria-controls="action-menu" class="dropdown-button minor">&#9662;</button>
+        <ul class="dropdown-content" id="action-menu" role="menu" style="display:none;">
+          <li role="presentation">
+            <a id="action-reset" role="menuitem" tabindex="-1">Reset Sections</a>
+          </li>
+          <li role="presentation">
+            <a id="action-expand-all" role="menuitem" tabindex="-1">Expand All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-collapse-all" role="menuitem" tabindex="-1">Collapse All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-last-comment" role="menuitem" tabindex="-1">Last Comment</a>
+          </li>
+          <li role="presentation">
+            <a id="action-history" role="menuitem" tabindex="-1">History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="user-guide">
+      <a title="User guide for Bugzilla" href="https://wiki.mozilla.org/BMO/UserGuide">Get help with this page</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-status"
+>
+    <header id="module-status-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Status section"
+           data-label-collapsed="Expand Status section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-status-content"
+             aria-expanded="true"
+             aria-labeledby="module-status-title"
+             aria-describedby="module-status-subtitle"></div>
+        <h2 class="module-title" id="module-status-title">Status</h2>
+          <h3 class="module-subtitle" id="module-status-subtitle">
+            (<span id="readable-bug-status" data-readable-bug-status="{&quot;cf_blocking_fennec&quot;:&quot;---&quot;,&quot;priority&quot;:&quot;--&quot;,&quot;cf_tracking_firefox57&quot;:&quot;---&quot;,&quot;status&quot;:&quot;RESOLVED&quot;,&quot;cf_status_firefox58&quot;:&quot;---&quot;,&quot;cf_status_thunderbird_esr52&quot;:&quot;---&quot;,&quot;keywords&quot;:[],&quot;id&quot;:&quot;1005535&quot;,&quot;cf_status_firefox56&quot;:&quot;---&quot;,&quot;flags&quot;:[],&quot;cf_status_firefox_esr52&quot;:&quot;---&quot;,&quot;dupe_of&quot;:null,&quot;cf_blocking_fx&quot;:&quot;---&quot;,&quot;cf_status_firefox57&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_thunderbird_esr52&quot;:&quot;---&quot;,&quot;cf_tracking_firefox58&quot;:&quot;---&quot;,&quot;cf_tracking_firefox_relnote&quot;:&quot;---&quot;,&quot;resolution&quot;:&quot;INVALID&quot;,&quot;target_milestone&quot;:&quot;---&quot;,&quot;cf_tracking_firefox56&quot;:&quot;---&quot;,&quot;cf_platform_rel&quot;:&quot;---&quot;}"></span>)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-status-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-product"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core" id="product-help-link" class="help">Product:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-product">
+      <span aria-owns="product-name product-latch">
+        <span role="button" aria-label="show product information" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="product-latch" data-latch="product" data-for="product">&#9656;</span>
+        <div title="show product information" tabindex="0" class="spin-toggle"
+             id="product-name" data-latch="product" data-for="product">Core
+        </div>
+        <div id="product-info" style="display:none">Shared components used by Firefox and other Mozilla software, including handling of Web content; Gecko, HTML, CSS, layout, DOM, scripts, images, networking, etc. Issues with web page layout probably go here, while Firefox user interface issues belong in the <a href="https://bugzilla.mozilla.org/editproducts.cgi?action=edit&amp;product=Firefox">Firefox</a> product. (<a href="https://wiki.mozilla.org/Modules/All#Core">More info</a>)
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-component"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Core&component=Graphics#Graphics" id="component-help-link" class="help">Component:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-component">
+      <span aria-owns="component-name component-latch">
+        <span role="button" aria-label="show component description" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="component-latch" data-latch="component" data-for="component">&#9656;</span>
+        <div title="show component information" tabindex="0" class="spin-toggle" id="component-name"
+             data-latch="#component-latch" data-for="component">Graphics
+        </div>
+        <div id="component-info" style="display:none">
+          <div>Mapping of cross platform rendering interfaces to various 2D graphics APIs</div>
+          <a href="buglist.cgi?component=Graphics&amp;product=Core&amp;bug_status=__open__" target="_blank">Other Bugs</a>
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#priority" id="-help-link" class="help">
+        <label for="priority">Importance:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-priority"
+>
+
+  
+    <div class="value">
+        <span id="field-value-priority">
+            --
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-bug_severity"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_severity">
+            normal
+
+        </span>
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-hide" id="field-status-view"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-view-help-link" class="help">
+        <label for="bug_status">Status:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-view">RESOLVED
+        INVALID
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-creation_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#creation_ts" id="creation_ts-help-link" class="help">Reported:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-creation_ts"><span class="rel-time" title="2014-05-03 12:57 PDT" data-time="1399147034">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-delta_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#delta_ts" id="delta_ts-help-link" class="help">Modified:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-delta_ts"><span class="rel-time" title="2015-12-11 14:55 PST" data-time="1449874549">2 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-status-edit" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-edit-help-link" class="help">Status:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-edit"><div class="field inline" id="field-bug_status"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_status">
+            RESOLVED
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-resolution"
+>
+
+  
+    <div class="value">
+        <span id="field-value-resolution">
+            INVALID
+
+        </span>
+    </div>
+
+  
+</div>
+    <div id="assigned-container" style="display:none">
+      <button type="button" class="minor" id="mark-as-assigned-btn">
+        Mark as Assigned
+      </button>
+    </div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-people"
+>
+    <header id="module-people-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse People section"
+           data-label-collapsed="Expand People section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-people-content"
+             aria-expanded="false"
+             aria-labeledby="module-people-title"
+             aria-describedby="module-people-subtitle"></div>
+        <h2 class="module-title" id="module-people-title">People</h2>
+          <h3 class="module-subtitle" id="module-people-subtitle">
+            (Reporter: stevensn, Assigned: stevensn)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-people-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field edit-hide" id="field-assigned_to"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-assigned_to" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-assignee" name="set_default_assignee" class="set-default"
+          value="1" data-for="assigned_to">
+        <label for="set-default-assignee">Reset Assignee to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-bug_mentors" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_mentor" id="bug_mentors-help-link" class="help">Mentors:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_mentors">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-qa_contact" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#qa_contact" id="qa_contact-help-link" class="help">QA Contact:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-qa_contact">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-qa-contact" name="set_default_qa_contact" class="set-default"
+          value="1" data-for="qa_contact">
+        <label for="set-default-qa-contact">Reset QA Contact to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-reporter"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#reporter" id="reporter-help-link" class="help">Reporter:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-reporter">
+            <div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-triage_owner"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#triage_owner" id="triage_owner-help-link" class="help">Triage Owner:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-triage_owner">
+            <div class="vcard vcard_456486" ><a class="email " href="user_profile?user_id=456486" > <span class="fna">Milan Sreckovic [:milan]</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#cc" id="-help-link" class="help">CC:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+
+
+        <span aria-owns="cc-summary cc-latch">
+          <span role="button" tabindex="0" id="cc-summary" data-count="6">6 people
+          </span>
+        </span>
+
+
+        <div id="cc-list" style="display:none"></div>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+<section class="module" id="module-tracking"
+>
+    <header id="module-tracking-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Tracking section"
+           data-label-collapsed="Expand Tracking section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-tracking-content"
+             aria-expanded="true"
+             aria-labeledby="module-tracking-title"
+             aria-describedby="module-tracking-subtitle"></div>
+        <h2 class="module-title" id="module-tracking-title">Tracking</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-tracking-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-version"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#version" id="version-help-link" class="help">Version:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-version">
+            Trunk
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-target_milestone"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#target_milestone" id="target_milestone-help-link" class="help">Target:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-target_milestone">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#rep_platform" id="-help-link" class="help">
+        <label for="rep_platform">Platform:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-rep_platform"
+>
+
+  
+    <div class="value">
+        <span id="field-value-rep_platform">
+            Other
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-op_sys"
+>
+
+  
+    <div class="value">
+        <span id="field-value-op_sys">
+            Linux
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline"
+>
+
+  
+    <div class=" container">
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-keywords" style="display:none"
+>
+    <div class="name">
+        <a href="describekeywords.cgi" id="keywords-help-link" class="help">Keywords:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-keywords">---
+        </span>
+    </div>
+
+  
+</div>
+<div class="field edit-show" id="field-cf_fx_iteration" style="display:none"
+>
+    <div class="name">Iteration:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_iteration">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+<div class="field" id="field-cf_fx_points"
+>
+    <div class="name">Points:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_fx_points">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+</div><div class="fields-rhs">
+
+    <div class="field edit-show" id="field-dependson" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#dependson" id="dependson-help-link" class="help">Depends on:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-dependson">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-blocked"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#blocks" id="blocked-help-link" class="help">Blocks:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-blocked">
+            <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED INVALID - skia renders with a blue tint on big endian platforms"
+   href="show_bug.cgi?id=1005645">1005645</a>
+
+        </span>
+    </div>
+
+  
+</div>
+
+
+    
+
+    <div class="field edit-show" id="field-bug_flags" style="display:none"
+>
+    <div class="name">Bug Flags:
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-bug_flags"><div id="bug-flags" class="flags">
+  <table class="layout-table">
+    <tbody class="edit-show" style="display:none"><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature." for="flag_type-835">a11y&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-835-dirty">
+      <select id="flag_type-835" name="flag_type-835"
+        title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue." for="flag_type-916">webcompat</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-916-dirty">
+      <select id="flag_type-916" name="flag_type-916"
+        title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag tracking inclusion in the desktop Firefox product backlog." for="flag_type-846">firefox&#8209;backlog</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-846-dirty">
+      <select id="flag_type-846" name="flag_type-846"
+        title="Flag tracking inclusion in the desktop Firefox product backlog."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Used to ask the security team to look over a feature or bug." for="flag_type-791">sec&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-791-dirty">
+      <select id="flag_type-791" name="flag_type-791"
+        title="Used to ask the security team to look over a feature or bug."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-791-container" style="display:none"><input
+    name="requestee_type-791"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-791" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug." for="flag_type-803">sec&#8209;bounty</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-803-dirty">
+      <select id="flag_type-803" name="flag_type-803"
+        title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame." for="flag_type-913">sec&#8209;bounty&#8209;hof</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-913-dirty">
+      <select id="flag_type-913" name="flag_type-913"
+        title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-787">in&#8209;qa&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-787-dirty">
+      <select id="flag_type-787" name="flag_type-787"
+        title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-787-container" style="display:none"><input
+    name="requestee_type-787"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-787" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-37">in&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-37-dirty">
+      <select id="flag_type-37" name="flag_type-37"
+        title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="QA verification tracking." for="flag_type-864">qe&#8209;verify</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-864-dirty">
+      <select id="flag_type-864" name="flag_type-864"
+        title="QA verification tracking."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr>
+    </tbody>
+  </table>
+</div>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+  
+<section class="module" id="module-firefox-tracking-flags"
+>
+    <header id="module-firefox-tracking-flags-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Firefox Tracking Flags section"
+           data-label-collapsed="Expand Firefox Tracking Flags section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-firefox-tracking-flags-content"
+             aria-expanded="false"
+             aria-labeledby="module-firefox-tracking-flags-title"
+             aria-describedby="module-firefox-tracking-flags-subtitle"></div>
+        <h2 class="module-title" id="module-firefox-tracking-flags-title">Firefox Tracking Flags</h2>
+          <h3 class="module-subtitle" id="module-firefox-tracking-flags-subtitle">
+            (Not tracked)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-firefox-tracking-flags-content" style="display:none"
+  ><div class="fields-lhs">
+
+        <p class="edit-hide">
+          This bug is not currently tracked.
+        </p>
+
+        <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide#Tracking_Flags" id="-help-link" class="help">Tracking Flags:
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <th></th>
+        <th>Tracking</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">platform-rel</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_platform_rel-dirty">
+  <select id="cf_platform_rel" name="cf_platform_rel">
+        <option value="---"
+          id="v2875_cf_platform_rel" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">blocking-fx</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_blocking_fx-dirty">
+  <select id="cf_blocking_fx" name="cf_blocking_fx">
+        <option value="---"
+          id="v505_cf_blocking_fx" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">relnote-firefox</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_tracking_firefox_relnote-dirty">
+  <select id="cf_tracking_firefox_relnote" name="cf_tracking_firefox_relnote">
+        <option value="---"
+          id="v539_cf_tracking_firefox_relnote" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">fennec</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_blocking_fennec-dirty">
+  <select id="cf_blocking_fennec" name="cf_blocking_fennec">
+        <option value="---"
+          id="v655_cf_blocking_fennec" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">thunderbird_esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_thunderbird_esr52-dirty">
+  <select id="cf_tracking_thunderbird_esr52" name="cf_tracking_thunderbird_esr52">
+        <option value="---"
+          id="v3065_cf_tracking_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_thunderbird_esr52-dirty">
+  <select id="cf_status_thunderbird_esr52" name="cf_status_thunderbird_esr52">
+        <option value="---"
+          id="v3087_cf_status_thunderbird_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox_esr52-dirty">
+  <select id="cf_tracking_firefox_esr52" name="cf_tracking_firefox_esr52">
+        <option value="---"
+          id="v3103_cf_tracking_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr52-dirty">
+  <select id="cf_status_firefox_esr52" name="cf_status_firefox_esr52">
+        <option value="---"
+          id="v3132_cf_status_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox56</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox56-dirty">
+  <select id="cf_tracking_firefox56" name="cf_tracking_firefox56">
+        <option value="---"
+          id="v3271_cf_tracking_firefox56" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox56-dirty">
+  <select id="cf_status_firefox56" name="cf_status_firefox56">
+        <option value="---"
+          id="v3276_cf_status_firefox56" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox57</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox57-dirty">
+  <select id="cf_tracking_firefox57" name="cf_tracking_firefox57">
+        <option value="---"
+          id="v3286_cf_tracking_firefox57" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox57-dirty">
+  <select id="cf_status_firefox57" name="cf_status_firefox57">
+        <option value="---"
+          id="v3291_cf_status_firefox57" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox58</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox58-dirty">
+  <select id="cf_tracking_firefox58" name="cf_tracking_firefox58">
+        <option value="---"
+          id="v3451_cf_tracking_firefox58" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox58-dirty">
+  <select id="cf_status_firefox58" name="cf_status_firefox58">
+        <option value="---"
+          id="v3441_cf_status_firefox58" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-details"
+>
+    <header id="module-details-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Details section"
+           data-label-collapsed="Expand Details section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-details-content"
+             aria-expanded="false"
+             aria-labeledby="module-details-title"
+             aria-describedby="module-details-subtitle"></div>
+        <h2 class="module-title" id="module-details-title">Details</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-details-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-status_whiteboard"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/Whiteboard" id="status_whiteboard-help-link" class="help">Whiteboard:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-status_whiteboard">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#votes" id="-help-link" class="help">Votes:
+        </a>
+    </div>
+
+  
+    <div class=" container">1
+        vote
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-cf_qa_whiteboard" style="display:none"
+>
+    <div class="name">QA Whiteboard:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_qa_whiteboard">
+        ---
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_regression_range" style="display:none"
+>
+    <div class="name">Has Regression Range:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_regression_range">
+            ---
+
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-cf_has_str" style="display:none"
+>
+    <div class="name">Has STR:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_has_str">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field edit-show" id="field-bug_file_loc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_file_loc" id="bug_file_loc-help-link" class="help">URL:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_file_loc"><a href="" target="_blank"
+     rel="noreferrer" title=""
+     class="bug-url" data-safe="0"
+  ></a>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-see_also" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#see_also" id="see_also-help-link" class="help">See Also:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-see_also">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-cf_crash_signature" style="display:none"
+>
+    <div class="name">Crash Signature:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_crash_signature">
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-security"
+>
+    <header id="module-security-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Security section"
+           data-label-collapsed="Expand Security section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-security-content"
+             aria-expanded="false"
+             aria-labeledby="module-security-title"
+             aria-describedby="module-security-subtitle"></div>
+        <h2 class="module-title" id="module-security-title">Security</h2>
+          <h3 class="module-subtitle" id="module-security-subtitle">
+            (public)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-security-content" style="display:none"
+  ><div class="groups edit-hide">
+    This bug is publicly visible.
+</div>
+
+<div class="groups edit-show" style="display:none">
+
+
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-user-story" data-non-stick="1"
+>
+    <header id="module-user-story-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse User Story section"
+           data-label-collapsed="Expand User Story section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-user-story-content"
+             aria-expanded="false"
+             aria-labeledby="module-user-story-title"
+             aria-describedby="module-user-story-subtitle"></div>
+        <h2 class="module-title" id="module-user-story-title">User Story</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-user-story-content" style="display:none"
+  >
+    <pre id="user-story"></pre>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="module" id="module-attachments"
+>
+    <header id="module-attachments-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Attachments section"
+           data-label-collapsed="Expand Attachments section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-attachments-content"
+             aria-expanded="true"
+             aria-labeledby="module-attachments-title"
+             aria-describedby="module-attachments-subtitle"></div>
+        <h2 class="module-title" id="module-attachments-title">Attachments</h2>
+          <h3 class="module-subtitle" id="module-attachments-subtitle">
+            (2 attachments, 5 obsolete attachments)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-attachments-content"
+  ><table role="table" class="layout-table" id="attachments">
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8416949">skia_gpu_bendian.diff</a>
+        </div>
+        <div>
+            <a href="#c1" class="attach-time activity-ref"><span class="rel-time" title="2014-05-03 13:09 PDT" data-time="1399147740">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">5.93 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8416949&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8416949&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=1005535&attachment=8416949">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8416950">skia_gpu_bendian_upstream.diff</a>
+        </div>
+        <div>
+            <a href="#c2" class="attach-time activity-ref"><span class="rel-time" title="2014-05-03 13:14 PDT" data-time="1399148079">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">1.03 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8416950&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8416950&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=1005535&attachment=8416950">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8420608">skia_bigendian_alternate.diff</a>
+        </div>
+        <div>
+            <a href="#c3" class="attach-time activity-ref"><span class="rel-time" title="2014-05-10 20:07 PDT" data-time="1399777667">3 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">3.88 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8420608&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8420608&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=1005535&attachment=8420608">Splinter Review</a>
+    </tr>
+    <tr class="
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8424358"
+              title="with_skia.png"
+              class="lightbox">
+              <img src="extensions/BugModal/web/image.png" width="16" height="16">with_skia.png
+            </a>
+        </div>
+        <div>
+            <a href="#c5" class="attach-time activity-ref"><span class="rel-time" title="2014-05-17 13:48 PDT" data-time="1400359691">3 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">165.42 KB,
+          image/png        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8424358&amp;action=edit">Details</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8528718">skia_bigendian_alternate.diff</a>
+        </div>
+        <div>
+            <a href="#c8" class="attach-time activity-ref"><span class="rel-time" title="2014-11-25 17:34 PST" data-time="1416965673">3 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">5.72 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8528718&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8528718&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=1005535&attachment=8528718">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8542684">skia_bigendian_alternate.diff</a>
+        </div>
+        <div>
+            <a href="#c11" class="attach-time activity-ref"><span class="rel-time" title="2014-12-30 13:34 PST" data-time="1419975272">3 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">6.55 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8542684&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8542684&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=1005535&attachment=8542684">Splinter Review</a>
+    </tr>
+    <tr class=" attach-patch
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8544332">skia_bigendian_alternate.diff</a>
+        </div>
+        <div>
+            <a href="#c13" class="attach-time activity-ref"><span class="rel-time" title="2015-01-05 19:18 PST" data-time="1420514310">3 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">6.97 KB,
+          patch        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_309398" ><span class="fn">jrmuizel</span>
+</div>:
+              <a href="#c19"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="3 years ago"
+              data-time="1420514310"
+            >
+              review-</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8544332&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8544332&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=1005535&attachment=8544332">Splinter Review</a>
+    </tr>
+</table>
+
+<div id="attachments-actions">
+    <button type="button" id="attachments-obsolete-btn" class="minor">Show Obsolete Attachments</button>
+</div>
+  </div>
+</section>
+
+
+
+<script nonce="1qaeS6bnDSpMr8GVQ9QcpfLjyhJ2HzXuE6HJ4E0zvnlE03Bt">
+  init_module_visibility();
+</script>
+
+
+
+
+
+
+<div id="comment-actions">
+    <button type="button" id="bottom-btn" class="minor">Bottom &darr;</button>
+  <div class="dropdown">
+    <button type="button" id="comment-tags-btn" arai-haspopup="true" aria-label="Tags Menu"
+      aria-expanded="false" aria-controls="comment-tags-menu" class="dropdown-button minor">Tags &#9662;</button>
+    <ul id="comment-tags-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a role="menuitem" tabindex="-1" data-comment-tag="">Reset</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button type="button" id="view-menu-btn" arai-haspopup="true" aria-label="View Menu"
+      aria-expanded="false" aria-controls="view-menu" class="dropdown-button minor">View &#9662;</button>
+    <ul id="view-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-reset" role="menuitem" tabindex="-1">Reset</a>
+      </li>
+      <li role="presentation">
+        <a id="view-collapse-all" role="menuitem" tabindex="-1">Collapse All</a>
+      </li>
+      <li role="presentation">
+        <a id="view-expand-all" role="menuitem" tabindex="-1">Expand All</a>
+      </li>
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-comments-only" role="menuitem" tabindex="-1">Comments Only</a>
+      </li>
+      <li role="presentation">
+        <a id="view-toggle-cc" role="menuitem" tabindex="-1">Show CC Changes</a>
+      </li>
+    </ul>
+   </div>
+</div>
+<div class="change-set" id="c0"><div class="comment" data-id="8746447" data-no="0">
+    
+    <table class="layout-table change-head assignee" id="ch-0">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" ><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-0">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-0" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c0">Description</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-03 12:57 PDT" data-time="1399147034">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-0">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-0">We currently set MOZ_ENABLE_SKIA_GPU=0 on ppc,ppc64 and sparc even when building skia enabled.  We should allow for big endian platforms using skia to build the GPU code as well.</pre></div><div class="change-set" id="c1"><div class="comment" data-id="8746459" data-no="1">
+    
+    <table class="layout-table change-head assignee" id="ch-1">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" ><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-1">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-1" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c1">Comment 1</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-03 13:09 PDT" data-time="1399147740">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-1">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-1">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8416949" name="attach_8416949" title="skia_gpu_bendian.diff">attachment 8416949</a> <a href="attachment.cgi?id=8416949&amp;action=edit" title="skia_gpu_bendian.diff">[details]</a> <a href="attachment.cgi?id=8416949&amp;action=diff" title="skia_gpu_bendian.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8416949'>[review]</a>
+skia_gpu_bendian.diff
+
+This patch adds a configure time flag to indicate if the target platform is big endian or little endian.  This is then used in the moz.build files to set the proper defines for building skia gpu.
+
+This patch is dependent on skia_gpu_bendian_upstream.diff</pre></div><div class="change-set" id="c2"><div class="comment" data-id="8746464" data-no="2">
+    
+    <table class="layout-table change-head assignee" id="ch-2">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" ><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" ><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-2">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-2" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c2">Comment 2</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-03 13:14 PDT" data-time="1399148079">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-2">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-2">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8416950" name="attach_8416950" title="skia_gpu_bendian_upstream.diff">attachment 8416950</a> <a href="attachment.cgi?id=8416950&amp;action=edit" title="skia_gpu_bendian_upstream.diff">[details]</a> <a href="attachment.cgi?id=8416950&amp;action=diff" title="skia_gpu_bendian_upstream.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8416950'>[review]</a>
+skia_gpu_bendian_upstream.diff
+
+These are the changes to the upstream provided files to remove the #error when building.
+
+I have not yet patches</pre></div><div class="change-set" id="a68450_454498"><div class="change" id="aa68450_454498">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a68450_454498">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a68450_454498">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#a68450_454498">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-04 07:58 PDT" data-time="1399215484">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Blocks: <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED INVALID - skia renders with a blue tint on big endian platforms"
+   href="show_bug.cgi?id=1005645">1005645</a></div></div></div><div class="change-set" id="c3"><div class="comment" data-id="8777434" data-no="3">
+    
+    <table class="layout-table change-head assignee" id="ch-3">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-3">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-3" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c3">Comment 3</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-10 20:07 PDT" data-time="1399777667">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-3">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-3">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8420608" name="attach_8420608" title="skia_bigendian_alternate.diff">attachment 8420608</a> <a href="attachment.cgi?id=8420608&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8420608&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8420608'>[review]</a>
+skia_bigendian_alternate.diff
+
+The previous patches actually rendered everything blue.
+This patch builds with the skia GPU code and looks fine using skia a 64 bit big endian platform (ppc64).  I am not yet sure if the GPU code is actually tested or works though</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8416949&amp;action=edit"
+           title="skia_gpu_bendian.diff"
+           class=""
+        >Attachment #8416949</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8416950&amp;action=edit"
+           title="skia_gpu_bendian_upstream.diff"
+           class=""
+        >Attachment #8416950</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c4"><div class="comment" data-id="8806049" data-no="4">
+    
+    <table class="layout-table change-head assignee" id="ch-4">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-4">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-4" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c4">Comment 4</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-17 10:09 PDT" data-time="1400346594">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-4">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-4">  Commit <a rel="nofollow" href="https://hg.mozilla.org/mozilla-central/rev/3b5fb4abaa3f">https://hg.mozilla.org/mozilla-central/rev/3b5fb4abaa3f</a> (part of <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - pdf.js print prints a white page"
+   href="show_bug.cgi?id=1003707">Bug 1003707</a>)
+appears to have introduced an issue where parts of the background show up black or gray when running with gfx.content.azure.backends=skia (but not cario) with <span class="bz_obsolete"><a href="attachment.cgi?id=8420608" name="attach_8420608" title="skia_bigendian_alternate.diff">attachment 8420608</a> <a href="attachment.cgi?id=8420608&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8420608&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8420608'>[review]</a> applied on my big endian machine.</pre></div><div class="change-set" id="c5"><div class="comment" data-id="8806552" data-no="5">
+    
+    <table class="layout-table change-head assignee" id="ch-5">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-5">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-5" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c5">Comment 5</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-17 13:48 PDT" data-time="1400359691">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-5">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-5"><a href="attachment.cgi?id=8424358" title="with_skia.png" class="lightbox"><img src="extensions/BugModal/web/image.png" width="16" height="16"></a>Created <span class=""><a href="attachment.cgi?id=8424358" name="attach_8424358" title="with_skia.png">attachment 8424358</a> <a href="attachment.cgi?id=8424358&amp;action=edit" title="with_skia.png">[details]</a></span>
+with_skia.png
+
+Attaching a screenshot of how things look with this patch when using skia after commit <a rel="nofollow" href="https://hg.mozilla.org/mozilla-central/rev/3b5fb4abaa3f">https://hg.mozilla.org/mozilla-central/rev/3b5fb4abaa3f</a> which introduced the black/gray.</pre></div><div class="change-set" id="c6"><div class="comment" data-id="8807588" data-no="6">
+    
+    <table class="layout-table change-head " id="ch-6">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_101070" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/dc606a9be7561247917310c85abe3c72?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_101070" id="a68450_454498"><a class="email " href="user_profile?user_id=101070" > <span class="fna">Cameron Kaiser [:spectre]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-6">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-6" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c6">Comment 6</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-18 08:16 PDT" data-time="1400426184">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-6">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-6">I'd prefer this wasn't enabled for OS X/ppc -- Skia has issues on 10.4, and we still build with the 10.4 SDK. Eventually I'll get around to fixing them but for now we're fine with Cairo.</pre><div class="activity cc-only" style="display:none"><div class="change">CC: spectre</div></div></div><div class="change-set" id="c7"><div class="comment" data-id="8811999" data-no="7">
+    
+    <table class="layout-table change-head assignee" id="ch-7">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-7">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-7" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c7">Comment 7</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-19 14:07 PDT" data-time="1400533644">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-7">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-7">Cameron, 
+<span class="bz_obsolete"><a href="attachment.cgi?id=8420608" name="attach_8420608" title="skia_bigendian_alternate.diff">attachment 8420608</a> <a href="attachment.cgi?id=8420608&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8420608&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8420608'>[review]</a> should still allow you to build on OSX/PPC with --disable-skia (and that patch should not change the default for using/not using skia).  If USE_SKIA_GPU is set but USE_SKIA isn't set then I'd expect things to build fine without SKIA. Please correct me if I am mistaken.</pre></div><div class="change-set" id="c8"><div class="comment" data-id="9638330" data-no="8">
+    
+    <table class="layout-table change-head assignee" id="ch-8">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-8">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-8" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c8">Comment 8</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-11-25 17:34 PST" data-time="1416965673">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-8">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-8">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8528718" name="attach_8528718" title="skia_bigendian_alternate.diff">attachment 8528718</a> <a href="attachment.cgi?id=8528718&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8528718&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8528718'>[review]</a>
+skia_bigendian_alternate.diff
+
+Updated patch to fix bitrot</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8420608&amp;action=edit"
+           title="skia_bigendian_alternate.diff"
+           class=""
+        >Attachment #8420608</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c9"><div class="comment" data-id="9738995" data-no="9">
+    
+    <table class="layout-table change-head " id="ch-9">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_372329" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/6baa085e4124d4ad5828c59fb36833f1?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_372329" id="a68450_454498"><a class="email " href="user_profile?user_id=372329" > <span class="fna">Landry Breuil (:gaston)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-9">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-9" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c9">Comment 9</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-12-29 13:33 PST" data-time="1419888817">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-9">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-9">(In reply to Cameron Kaiser [:spectre] from <a href="show_bug.cgi?id=1005535#c6">comment #6</a>)
+<span class="quote">&gt; I'd prefer this wasn't enabled for OS X/ppc -- Skia has issues on 10.4, and
+&gt; we still build with the 10.4 SDK. Eventually I'll get around to fixing them
+&gt; but for now we're fine with Cairo.</span >
+
+Fwiw, i'm not sure this will still be possible soonish, given <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - build failure with --disable-skia"
+   href="show_bug.cgi?id=1105087#c2">https://bugzilla.mozilla.org/show_bug.cgi?id=1105087#c2</a></pre><div class="activity cc-only" style="display:none"><div class="change">CC: landry</div></div></div><div class="change-set" id="c10"><div class="comment" data-id="9742048" data-no="10">
+    
+    <table class="layout-table change-head " id="ch-10">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_372329" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/6baa085e4124d4ad5828c59fb36833f1?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_372329" id="a68450_454498"><a class="email " href="user_profile?user_id=372329" > <span class="fna">Landry Breuil (:gaston)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-10">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-10" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c10">Comment 10</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-12-30 12:40 PST" data-time="1419972032">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-10">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-10">Testing att 8528718 to see if it fixes my build-failures on m-c/m-a sparc64...</pre></div><div class="change-set" id="c11"><div class="comment" data-id="9742220" data-no="11">
+    
+    <table class="layout-table change-head assignee" id="ch-11">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-11">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-11" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c11">Comment 11</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-12-30 13:34 PST" data-time="1419975272">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-11">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-11">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8542684" name="attach_8542684" title="skia_bigendian_alternate.diff">attachment 8542684</a> <a href="attachment.cgi?id=8542684&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8542684&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8542684'>[review]</a>
+skia_bigendian_alternate.diff
+
+This version of the patch uses the same byte ordering on big endian as on little endian.  It seems to show things in the right color when using skia but I don't understand why (I would have expected to need different values for the SK_A32_SHIFT series of defines)</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8528718&amp;action=edit"
+           title="skia_bigendian_alternate.diff"
+           class=""
+        >Attachment #8528718</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c12"><div class="comment" data-id="9747587" data-no="12">
+    
+    <table class="layout-table change-head " id="ch-12">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_372329" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/6baa085e4124d4ad5828c59fb36833f1?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_372329" id="a68450_454498"><a class="email " href="user_profile?user_id=372329" > <span class="fna">Landry Breuil (:gaston)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-12">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-12" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c12">Comment 12</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-01-02 13:56 PST" data-time="1420235760">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-12">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-12">While testing, i realized that i had to add --enable-skia to get MOZ_ENABLE_SKIA set to 1 on sparc64, by default only tier1 archs have it enabled...</pre></div><div class="change-set" id="c13"><div class="comment" data-id="9755692" data-no="13">
+    
+    <table class="layout-table change-head assignee" id="ch-13">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-13">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-13" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c13">Comment 13</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-01-05 19:18 PST" data-time="1420514310">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-13">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-13">Created <span class=""><a href="attachment.cgi?id=8544332" name="attach_8544332" title="skia_bigendian_alternate.diff">attachment 8544332</a> <a href="attachment.cgi?id=8544332&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8544332&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8544332'>[review]</a>
+skia_bigendian_alternate.diff
+
+Attached is a cleaned up version of the patch that seems to work on ppc and ppc64.  I was a bit surprised that the same bit order works on big endian.
+I also don't seem to need a ARGB32ToBGRA in the layer manager.
+
+
+Jeff, does this approach make sense to you?</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8542684&amp;action=edit"
+           title="skia_bigendian_alternate.diff"
+           class=""
+        >Attachment #8542684</a> -
+        Attachment is obsolete: true</div><div class="change cc-only" style="display:none">CC: jmuizelaar</div><div class="change">
+        <a href="attachment.cgi?id=8544332&amp;action=edit"
+           title="skia_bigendian_alternate.diff"
+           class=""
+        >Attachment #8544332</a> -
+        Flags: review?(jmuizelaar)</div></div></div><div class="change-set" id="c14"><div class="comment" data-id="9758037" data-no="14">
+    
+    <table class="layout-table change-head " id="ch-14">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_309398" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/ad916833cb7747e6939d576f34df1daa?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_309398" id="a68450_454498"><a class="email " href="user_profile?user_id=309398" > <span class="fna">Jeff Muizelaar [:jrmuizel]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-14">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-14" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c14">Comment 14</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-01-06 08:57 PST" data-time="1420563441">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-14">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-14">I'm not sure this approach is workable in the long term. This would give us the burden of having to support a color format that's not supported in upstream Skia which I'm not thrilled with... It also means that big endian would have no hw accelerated skia support. Still, it might be the easiest thing to do in the short term.
+
+Another idea I had would be to add support to cairo for the BGRA data format. It might be worth proposing this on the cairo list.
+
+It's unfortunate that all of the options here are bad.</pre></div><div class="change-set" id="c15"><div class="comment" data-id="9772642" data-no="15">
+    
+    <table class="layout-table change-head assignee" id="ch-15">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a68450_454498"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-15">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-15" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c15">Comment 15</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-01-08 20:26 PST" data-time="1420777581">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-15">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-15">Jeff, as I understand the options we could
+
+1) Go with this patch which is using SKIA in ARGB mode on big endian but using the BGRA enums (or am I naming this wrong)
+2) Add support to cario for BGRA on big endian
+3) Somehow do conversions between the format. I am not clear where we would do these conversions.  The layer manager functions you mentioned in <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED DUPLICATE - build failure with --disable-skia"
+   href="show_bug.cgi?id=1105087">bug 1105087</a># are not being called for normal SKIA draw operations(outside of stuff changed in <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Animation of CSS transform: rotateX() shakes as it crosses rotation of 0, when hw acceleration off"
+   href="show_bug.cgi?id=1097776">bug  1097776</a>)</pre></div><div class="change-set" id="c16"><div class="comment" data-id="9783756" data-no="16">
+    
+    <table class="layout-table change-head " id="ch-16">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_309398" id="a68450_454498"><img src="https://secure.gravatar.com/avatar/ad916833cb7747e6939d576f34df1daa?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_309398" id="a68450_454498"><a class="email " href="user_profile?user_id=309398" > <span class="fna">Jeff Muizelaar [:jrmuizel]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-16">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-16" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c16">Comment 16</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-01-12 12:33 PST" data-time="1421094825">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-16">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-16">(In reply to Steve Singer (:stevensn) from <a href="show_bug.cgi?id=1005535#c15">comment #15</a>)
+<span class="quote">&gt; Jeff, as I understand the options we could
+&gt; 
+&gt; 1) Go with this patch which is using SKIA in ARGB mode on big endian but
+&gt; using the BGRA enums (or am I naming this wrong)</span >
+
+This approach probably won't work for GPU support. OpenGL doesn't have much support for the cairo big endian color ARGB format and my understanding is Skia assumes only BGRA or RGBA support.
+
+<span class="quote">&gt; 2) Add support to cario for BGRA on big endian
+&gt; 3) Somehow do conversions between the format. I am not clear where we would
+&gt; do these conversions.  The layer manager functions you mentioned in bug
+&gt; 1105087# are not being called for normal SKIA draw operations(outside of
+&gt; stuff changed in <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Animation of CSS transform: rotateX() shakes as it crosses rotation of 0, when hw acceleration off"
+   href="show_bug.cgi?id=1097776">bug  1097776</a>)</span >
+
+That basically matches my understanding.</pre></div><div class="change-set cc-only" id="a26498625_263117" style="display:none"><div class="change" id="aa26498625_263117">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_263117" id="a26498625_263117"><img src="https://secure.gravatar.com/avatar/1ad575baf124ff5058f4d44d5b066a29?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_263117" id="a26498625_263117"><a class="email " href="user_profile?user_id=263117" > <span class="fna">Martin Stránský</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a26498625_263117">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a26498625_263117">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#a26498625_263117">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-03-06 04:40 PST" data-time="1425645659">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: stransky</div></div></div><div class="change-set" id="c17"><div class="comment" data-id="10023093" data-no="17">
+    
+    <table class="layout-table change-head " id="ch-17">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_372329" id="a26498625_263117"><img src="https://secure.gravatar.com/avatar/6baa085e4124d4ad5828c59fb36833f1?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_372329" id="a26498625_263117"><a class="email " href="user_profile?user_id=372329" > <span class="fna">Landry Breuil (:gaston)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-17">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-17" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c17">Comment 17</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-03-12 14:19 PDT" data-time="1426195187">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-17">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-17">Is this stuck? since <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - gfx/layers/basic/BasicCompositor.cpp:20:56: fatal error: skia/SkCanvas.h: No such file or directory when skia is disabled"
+   href="show_bug.cgi?id=1136958">bug 1136958</a> landed some days ago the patch here isnt applying anymore on my sparc64 buildbot...</pre></div><div class="change-set" id="c18"><div class="comment" data-id="10023765" data-no="18">
+    
+    <table class="layout-table change-head assignee" id="ch-18">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_454498" id="a26498625_263117"><img src="https://secure.gravatar.com/avatar/4d7013e4978d5d76aaaa871ca5f9e700?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_454498" id="a26498625_263117"><a class="email " href="user_profile?user_id=454498" > <span class="fna">Steve Singer (:stevensn)</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-18">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-18" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c18">Comment 18</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-03-12 16:09 PDT" data-time="1426201744">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-18">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-18">Yah this is stuck.
+
+I can upload a refreshed patch of #8544332 but that approach doesn't seem acceptable 
+I can upload a refreshed patch of  where so things build with skia but will crash on startup if skia is enabled (I don't see this getting us much)
+I don't really have a good sense of how to find all the places that would need to do bit-swapping between cario and skia space if we wanted to go that route.</pre></div><div class="change-set" id="c19"><div class="comment" data-id="10058427" data-no="19">
+    
+    <table class="layout-table change-head " id="ch-19">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_309398" id="a26498625_263117"><img src="https://secure.gravatar.com/avatar/ad916833cb7747e6939d576f34df1daa?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_309398" id="a26498625_263117"><a class="email " href="user_profile?user_id=309398" > <span class="fna">Jeff Muizelaar [:jrmuizel]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-19">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-19" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c19">Comment 19</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-03-20 13:50 PDT" data-time="1426884635">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-19">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-19">Comment on <span class=""><a href="attachment.cgi?id=8544332" name="attach_8544332" title="skia_bigendian_alternate.diff">attachment 8544332</a> <a href="attachment.cgi?id=8544332&amp;action=edit" title="skia_bigendian_alternate.diff">[details]</a> <a href="attachment.cgi?id=8544332&amp;action=diff" title="skia_bigendian_alternate.diff">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=1005535&amp;attachment=8544332'>[review]</a>
+skia_bigendian_alternate.diff
+
+After a bit of discussion, gw280 and I decided that it doesn't make any sense to enable skia gpu on big endian without upstream support. If you're interested in pursuing this you should work on it in upstream skia.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8544332&amp;action=edit"
+           title="skia_bigendian_alternate.diff"
+           class=""
+        >Attachment #8544332</a> -
+        Flags: review?(jmuizelaar) &rarr; review-</div></div></div><div class="change-set" id="c20"><div class="comment" data-id="10058469" data-no="20">
+    
+    <table class="layout-table change-head " id="ch-20">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_432425" id="a26498625_263117"><img src="https://secure.gravatar.com/avatar/61d963a63ad71f73060c41020d9b0c6b?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_432425" id="a26498625_263117"><a class="email " href="user_profile?user_id=432425" > <span class="fna">George Wright (:gw280) (needinfo me!)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-20">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-20" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c20">Comment 20</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-03-20 13:59 PDT" data-time="1426885142">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-20">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-20">To elaborate further, we don't even use Skia/GL on little endian platforms right now (with the exception of Android), and so I'm not sure I see where the desire comes from to enable it on BE platforms.
+
+I'm talking with upstream at the moment to gauge their interest in porting to BE, but I suspect that the engineering effort will have to come from you guys as upstream don't have any BE testers or any internal desire to support BE. The discussion has been widened to their team at <a rel="nofollow" href="https://code.google.com/p/skia/issues/detail?id=3571">https://code.google.com/p/skia/issues/detail?id=3571</a>
+
+I'll close this issue as invalid as I don't think this is a Mozilla issue; if upstream supports BE then we will inherit the BE support, but we are not in a position to drive development of BE support in Skia, nor do we want to fork upstream.</pre><div class="activity"><div class="change">Status: NEW &rarr; RESOLVED</div><div class="change cc-only" style="display:none">CC: gwright</div><div class="change">Last Resolved: <span class="rel-time" title="2015-03-20 06:59 PDT" data-time="1426859942">3 years ago</span></div><div class="change">Resolution: --- &rarr; INVALID</div></div></div><div class="change-set cc-only" id="a36117683_386893" style="display:none"><div class="change" id="aa36117683_386893">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_386893" id="a36117683_386893"><img src="https://secure.gravatar.com/avatar/8aaa2e200bba66b6b6c4bd59a6c416dd?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_386893" id="a36117683_386893"><a class="email " href="user_profile?user_id=386893" > <span class="fna">Johannes Pfrang [:johnp]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a36117683_386893">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a36117683_386893">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#a36117683_386893">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-06-25 13:38 PDT" data-time="1435264717">2 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: johnp</div></div></div><div class="change-set" id="c21"><div class="comment" data-id="11001880" data-no="21">
+    
+    <table class="layout-table change-head " id="ch-21">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_101070" id="a36117683_386893"><img src="https://secure.gravatar.com/avatar/dc606a9be7561247917310c85abe3c72?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_101070" id="a36117683_386893"><a class="email " href="user_profile?user_id=101070" > <span class="fna">Cameron Kaiser [:spectre]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-21">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-21" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=1005535#c21">Comment 21</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2015-12-11 14:55 PST" data-time="1449874549">2 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-21">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-21">Upstream today said they weren't interested, in any case, so that's that.</pre></div><div id="new-comment-notice">
+          You need to <a href="show_bug.cgi?id=1005535&amp;GoAheadAndLogIn=1">log in</a>
+          before you can comment on or make changes to this bug.
+        </div>
+
+
+
+<div id="bottom-actions">
+  <div id="bottom-right-actions">
+    <button type="button" id="top-btn" class="minor">Top &uarr;</button>
+    <div class="dropdown">
+      <button type="button" id="format-btn" aria-haspopup="true" aria-label="Format Bug Menu"
+        aria-expanded="false" aria-controls="format-menu" class="dropdown-button minor">Format Bug &#9652;</button>
+      <ul class="dropdown-content menu-up" id="format-menu" role="menu" style="display:none;">
+        <li role="presentation">
+          <a href="show_bug.cgi?format=multiple&amp;id=1005535" role="menuitem" tabindex="-1">For Printing</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?ctype=xml&amp;id=1005535" role="menuitem" tabindex="-1">XML</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?format=default&amp;id=1005535" role="menuitem" tabindex="-1">Legacy</a>
+        </li>
+          <li role="presentation">
+            <a href="rest/bug/1005535" role="menuitem" tabindex="-1">JSON</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+
+
+<div id="footer">
+  <div class="intro"></div>
+
+
+
+
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_bottom" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_bottom"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+  </li>
+
+  
+    
+
+  
+
+
+  
+</ul>
+
+  <div class="outro"><div id="policy_links">
+  <ul>
+    <li id="privacy_notice">
+      <a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Notice</a> |
+    </li>
+    <li id="legal_terms">
+      <a href="https://www.mozilla.org/about/legal/terms/mozilla" target="_blank">Legal Terms</a>
+    </li>
+  </ul>
+</div></div>
+</div>
+
+
+</body>
+</html>

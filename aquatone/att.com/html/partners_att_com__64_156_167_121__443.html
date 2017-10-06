@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta charset="utf-8" />
+<title>Login</title>
+
+<!-- List the CSS files in the order so that the most specific ones come after the most general ones. -->
+<link rel="Stylesheet" type="text/css" href="/jquery-ui-login.css" />
+<link rel="stylesheet" type="text/css" href="/login_styles.css" />
+
+<script type="text/javascript" src="/org/jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/org/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/org/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="/org/jquery/jquery.validate.js"></script>
+
+<script type="text/javascript" src="/cj/prc/kitchensink/QueryString.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/Base64.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/CJLANG.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/swfobject.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/CidResolver.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/console.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/Advertiser.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/CountrySubdivisionDropdown.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/Credentials.js"></script>
+<script type="text/javascript" src="/cj/prc/kitchensink/HttpClient.js"></script>
+
+<script type="text/javascript" src="/LoginScreen.js"></script>
+<script type="text/javascript" src="/LoginHeader.js"></script>
+<script type="text/javascript" src="/ResetPasswordWidget.js"></script>
+<script type="text/javascript" src="/RegistrationWidget.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+
+        function isMobile() {
+            return navigator.userAgent.match(/iPad|iPhone|iPod|Android|BlackBerry/i) ? true : false;
+        }
+
+        if(typeof jQuery === "undefined") {
+            document.cookie = "Authorization=;expires=Thu, 01-Jan-1970 00:00:01 GMT";
+            window.location = window.location;
+        } else {
+            $(document).ready(function () {
+                var cid, advertiserName;
+                try {
+                    cid = detectPortalAdvertiserCID();
+                    advertiserName = Advertiser(cid).name;
+                    document.title = advertiserName;
+                    if(isMobile()) {
+                        $("head").append("<meta name='apple-mobile-web-app-capable' content='yes' />");
+                        $("head").append("<meta http-equiv='cleartype' content='on' />");
+                        $("head").append("<meta name='MobileOptimized' content='width' />");
+                        $("head").append("<meta name='viewport' content='width=device-width, user-scalable=yes, initial-scale=2.5, minimum-scale=1.0, maximum-scale=10.0' />");
+                        $("head").append("<meta name='HandheldFriendly' content='true' />)");
+
+                        $("#loginHeader").append("You are attempting to access "+ advertiserName+", powered by CJ, Affiliate. To view this content, please access this site using your Mac or PC.");
+                    } else {
+                        LoginHeader({ view: $("#loginHeader"), cid: cid });
+                    }
+                } catch(e) {
+                    $("#loginHeader").append(e);
+                }
+            });
+        }
+    };
+</script>
+</head>
+
+<body width="100%" height="100%">
+  <div id="loginHeader"/>
+</body>
+</html>

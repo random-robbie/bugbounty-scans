@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+ 
+
+
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>AT&amp;T U-verse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- 
+	 * File :    <index.jsp>
+	 *
+	 * Copyright (c) <2011> Motive, Inc.
+	 * All rights reserved.
+	 *
+	 * Motive, Inc. Proprietary/Trade Secret ; Information
+	 * Not to be disclosed or used except in accordance with applicable agreements.
+	-->
+<meta name="Keywords" content="GlobeCom, HomeView Residential Service, Internet Service Activation, Activation, HomeView" />
+<meta name="description" content="HomeView Residential Service" />
+<link rel="icon" type="image/ico" href="/homeview-common/images/common/favicon.ico" />
+
+<!-- STYLE -->
+<style type="text/css">
+body{background :#fff;}
+h1{margin: 20% auto auto auto; text-align: center;}
+</style>
+
+<!--*********** SCRIPT ***********-->
+<script language="javascript">
+	/* Invoking authenticateLogin function during page load */
+	//window.onload = authenticateLogin;
+
+	window.setTimeout("authenticateLogin()", 1500); // tmityok: slight pause to let spinner GIF load
+	/**
+	*   AJAX function call to submit the username and password for authenticating the container
+	*/
+	function authenticateLogin()
+	{	
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4)
+			{
+				document.getElementById("loginForm").action="/uverse-workflow-portal/welcome.jsp?&channel=uverse2&channel=uverse&portalServiceProvider=AT&T Yahoo";
+				document.getElementById("loginForm").submit();
+			}
+		}
+
+		var url = "/uverse-workflow-portal/j_security_check";
+		var params = "j_username=" + encodeURIComponent("subscriber")
+					+ "&j_password=" + encodeURIComponent("0aHJlc2hvbGR4cD9");
+
+		xmlhttp.open("POST",url,true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Content-length", params.length);
+		xmlhttp.send(params);
+	}
+</script>
+</head>
+<body>
+	<h1><img border="0" src="images/loading_anim.gif" /></h1>
+   	<form name="loginForm" id="loginForm" method="post">
+		<input type="hidden" name="password" value="" />
+	</form>
+</body>
+</html>

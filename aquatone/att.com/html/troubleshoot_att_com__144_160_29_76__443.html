@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+ Copyright 2016 AT&T Intellectual Property. All rights reserved.
+-->
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" id="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+        <meta name="description" content="Troubleshoot and resolve common issues with cell phones, tablets, wearables &amp; wireless devices sold by AT&amp;T." />
+        <meta name="robots" content="index,nofollow" />
+        <title>Troubleshoot Phones, Tablets &amp; Wireless Devices - AT&amp;T</title>
+
+        <link type="image/x-icon" rel="shortcut icon" href="//www.att.com/favicon.ico" />
+
+        <link type="text/css" rel="stylesheet" media="(min-width: 1025px)" href="styles/att.css?bust=v1" />
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="libs/json2.js"></script>
+        <link type="text/css" rel="stylesheet" href="styles/att.css?bust=v1" />
+        <link type="text/css" rel="stylesheet" href="styles/ie8Styles.css?bust=v1" />
+        <![endif]-->
+
+        <script type="text/javascript">
+            // TODO: Remove after AT&T updates their reporting code. -- cwells
+            if (typeof console === "undefined") { // IE8, of course.
+                window.console = {
+                    log: function () {},
+                    warn: function () {}
+                };
+            }
+        </script>
+        <script type="text/javascript" src="//www.att.com/scripts/foresee_global/foresee-trigger-global.js"></script>
+        <!-- Reporting: the virtual directory is rewritten on the server to point to the correct environment. - cwells -->
+        <script type="text/javascript" src="/scripts/adobe/virtual/detm-container-hdr.js"></script>
+        <!-- A/B Testing -->
+        <script type="text/javascript" src="libs/at.js"></script>
+        <!-- Application -->
+        <script data-main="main" src="libs/require.js?bust=v1"></script>
+        <script type="text/javascript">
+
+            var oldOnError = window.onerror;
+            window.onerror = function (message, url, line, column, error) {
+                var output = "***** UNCAUGHT ERROR: '" + message + "' in " + url + ":" + line + (column ? ":" + column : "");
+                if (typeof Logger !== "undefined") {
+                    Logger.error(output);
+                    if (error) { Logger.error(error); }
+                } else if (console && console.log) {
+                    console.log(output);
+                    if (error) { console.log(error); }
+                }
+                if (typeof oldOnError === "function") {
+                    return oldOnError(message, url, line, column, error);
+                }
+                return false;
+            };
+
+            (function() {
+                if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                    var msViewportStyle = document.createElement("style");
+                    msViewportStyle.appendChild(
+                            document.createTextNode("@-ms-viewport{width:auto!important}")
+                    );
+                    document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+                }
+            })();
+            //fix win8 viewport issue
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(document.createTextNode("@-ms-viewport{width:auto!important}"));
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+            var player = null;
+
+            // Chat variables are in the global scope:
+            window.lpMTagConfig = window.lpMTagConfig || {};
+            lpMTagConfig.vars = lpMTagConfig.vars || [];
+        </script>
+    </head>
+    <body style="display:none">
+        <link type="text/css" rel="stylesheet" href="styles/main.css?bust=v1" />
+
+        <!-- frame-buster start -->
+        <script type="text/javascript">
+        var bustFrame = (self !== top)
+                        && !(document.referrer.match(/^https?:\/\/[-a-z0-9.]*\.att\.com(:\d{1,5})?(\/.*)?$/))
+                        && !(document.referrer.match(/^https?:\/\/[-a-z0-9.]*\.cingular\.net(:\d{1,5})?(\/.*)?$/))
+                        && !(document.referrer.match(/^https?:\/\/[-a-z0-9.]*\.sbc\.com(:\d{1,5})?(\/.*)?$/));
+        if (bustFrame) {
+            top.location = self.location;
+        } else {
+            var theBody = document.getElementsByTagName('body')[0];
+            // Add the MotiveBrowser CSS class when running inside pcBrowser or MacBrowser.
+            if ((window.external && window.external.AppKey) || navigator.userAgent.match(/WebNode|MacBrowser/i)) {
+                theBody.className += (theBody.className == "" ? "" : " ") + "MotiveBrowser";
+            }
+            theBody.style.display = "block";
+        }
+        </script>
+        <!-- frame-buster end -->
+
+        <!-- Used to distinguish between devices. -->
+        <div id="phoneTest" class="visible-phone"></div>
+        <div id="tabletTest" class="visible-tablet"></div>
+        <div id="desktopTest" class="visible-desktop"></div>
+
+        <div id="ssc-mainContainer" style="display: none;">
+            <div id="modal-content-app" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false"></div>
+            <div id="ssc-header"></div>
+            <div id="ssc-content"></div>
+            <div id="ssc-footer"></div>
+        </div>
+
+        <div id="gvpPlayerWrapper">
+            <!-- GVP injection target -->
+            <div id="playerDiv"></div>
+        </div>
+
+        <!-- Reporting: the virtual directory is rewritten on the server to point to the correct environment. - cwells -->
+        <script type="text/javascript">
+        // This tells AT&T's reporting not to report this page load.  We report virtual page loads in our reporting class. -- cwells
+        if (typeof ddo !== "undefined") { ddo.disableAutoPageLoad(); }
+        </script>
+        <script type="text/javascript" src="/scripts/adobe/virtual/detm-container-ftr.js"></script>
+    </body>
+</html>

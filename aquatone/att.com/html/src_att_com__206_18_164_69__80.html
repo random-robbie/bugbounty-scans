@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+<title>AT&amp;T Security Research Center</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script type="text/javascript" src="scripts/swfobject.js"></script>
+        <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript">
+		
+			var mapInitialized = false;
+		
+			function enableNav(type) {
+				$("#" + type + "nav").addClass("activenav");
+			}
+			
+			function disableNav(type) {
+				$("#" + type + "nav").removeClass("activenav");
+			}
+			
+			function selectNav(type) {
+				window.location = "./" + type + "/index.html";
+			}
+			
+			function mapReady() {
+				mapInitialized = true;
+			}
+			
+			function enableNode(node) {
+				if (mapInitialized) $("#map")[0].enableNav(node);
+			}
+			
+			function disableNode(node) {
+				if (mapInitialized) $("#map")[0].disableNav(node);
+			}
+		</script>
+	</head>	
+	<body>
+		<div id="header"><img id="logo" src="images/attlogo.png" alt="AT&T Security Research Center"/>
+            <div id="nav">
+                <ul>
+                    <li><a href="#" class="activenav">HOME</a></li>
+                    <li><a id="projectsnav" href="./projects/index.html" onMouseOver="enableNode('projects');" onMouseOut="disableNode('projects');">PROJECTS</a></li>
+                    <li><a id="peoplenav" href="./people/index.html" onMouseOver="enableNode('people');" onMouseOut="disableNode('people');">PEOPLE</a></li>
+                    <li><a id="aboutusnav" href="./aboutus/index.html" onMouseOver="enableNode('aboutus');" onMouseOut="disableNode('aboutus');">ABOUT US</a></li>
+                </ul>
+            </div>
+        </div>
+		<div id="homepromo">
+        	<div id="map"><img src="images/home_gridmap.jpg" alt="Grid Map"/></div>
+        	<div id="welcome">
+            			<h1>Welcome</h1>
+            			<p>The AT&T Security Research Center was created by the AT&T Chief Security Organization to invent the secure future of modern communications and entertainment.</p>
+                        <p>Our researchers work on very large scale problems in dynamic areas such as mobility and cellular, cloud computing, networking, and data mining.  In particular, we search for ways to leverage the power of the network for new security architectures and mechanisms.</p>
+                        <p><a href="./projects/index.html"><b>Come inside to see what we are up to.</b></a></p>
+           </div>
+        </div>
+       
+        <div id="footer">
+        	<p><a href="./index.html">Home</a> | <a href="./projects/index.html">Projects</a> | <a href="./people/index.html">People</a> | <a href="./aboutus/index.html">About Us</a></p>
+        	<p><a href="http://www.att.com/gen/privacy-policy?pid=2587" target="_blank">&copy; 2017 AT&amp;T Intellectual Property.</a> All rights reserved.<br />AT&amp;T, AT&amp;T logo and all other AT&amp;T marks contained herein are trademarks of AT&amp;T Intellectual Property and/or AT&amp;T affiliated companies.</p>
+        </div>
+        <script type="text/javascript">
+			
+			var flashvars = {};
+				            
+			var params = {};
+			params.quality = "high";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "false";
+			params.wmode = "transparent";
+			params.bgcolor = "#000000";
+				    
+			var attributes = {
+				id: "map",
+				name: "map"
+			};
+			
+			swfobject.embedSWF("images/promo.swf", "map", "910", "473", "9.0.0", "expressInstall.swf", flashvars, params, attributes);
+		</script> 
+	</body>
+</html>

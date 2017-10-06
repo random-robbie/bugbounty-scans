@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, must revalidate" />
+    <meta http-equiv="Expires" content="Fri, 1 May 2009 05:00:00 GMT" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <!-- CSS -->
+    <link href="//0.ecom.attccc.com/styles/att/assets3.2.0/css/sandbox-styles.min.css" rel="stylesheet">
+    
+
+    <!-- iOS icons -->
+   <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-57.png" sizes="57x57"> <!-- non-retina iPhone pre iOS 7 -->
+    <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-72.png" sizes="72x72"> <!-- non-retina iPad pre iOS 7 -->
+    <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-76.png" sizes="76x76"> <!-- non-retina iPad iOS 7 -->
+    <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-114.png" sizes="114x114"> <!-- retina iPhone pre iOS 7 -->
+    <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-120.png" sizes="120x120"> <!-- retina iPhone iOS 7 -->
+   <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-144.png" sizes="144x144"> <!-- retina iPad pre iOS 7 -->
+    <link rel="apple-touch-icon" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/icon-152.png" sizes="152x152"> <!-- retina iPad iOS 7 -->
+   <!-- Android icon -->
+   <link rel="apple-touch-icon-precomposed" href="//0.ecom.attccc.com/styles/att/assets3.2.0/images/android-icon.png" sizes="192x192">
+   <!-- Windows Icons -->
+   <meta name="application-name" content="AT&amp;T">
+   <meta name="msapplication-TileColor" content="#ef6f00">
+   <meta name="msapplication-TileImage" content="//0.ecom.attccc.com/styles/att/assets3.2.0/images/att-ms-icon-square.png">
+   <meta name="msapplication-square70x70logo" content="//0.ecom.attccc.com/styles/att/assets3.2.0/images/att-ms-icon-tiny.png">
+   <meta name="msapplication-square150x150logo" content="//0.ecom.attccc.com/styles/att/assets3.2.0/images/att-ms-icon-square.png">
+   <meta name="msapplication-wide310x150logo" content="//0.ecom.attccc.com/styles/att/assets3.2.0/images/att-ms-icon-wide.png">
+   <meta name="msapplication-square310x310logo" content="//0.ecom.attccc.com/styles/att/assets3.2.0/images/att-ms-icon-large.png">
+
+    <!-- js -->
+    <script src="//0.ecom.attccc.com/styles/att/assets3.2.0/js/jquery.min.js"></script>
+    <script src="//0.ecom.attccc.com/styles/att/assets3.2.0/js/global-sandbox.min.js"></script>
+    <script>
+      (function() {
+         if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild( document.createTextNode("@-ms-viewport{width:auto!important}") );
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+         }
+      })();
+    </script>
+    <!--[if lt IE 9]>
+       <script src="//0.ecom.attccc.com/styles/att/assets3.2.0/js/respond.js"></script>
+       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div data-role="page" class="container">
+    <header class="navbar globalNav">
+      <a href="/" id="logoHolder">
+         <i class="cssIcon-globe">at&amp;t home</i>
+      </a>
+     
+      <nav>
+         <script type="text/javascript">
+            var mobileMenu_ecomName='m.att.com',
+            mobileMenu_dssName='https://m.att.com',
+            searchSilo = "shop";
+            var g_hideSearch = false;
+         </script>
+      </nav>
+   </header>
+
+   
+ <section class="row main-content">
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="span12">
+                <form id="frm-login" action="/accounts/login/" method="post">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='rl5URp5XJFlP7hb3MJSLLYyzYAbLEoMWpA73UclIpIeY0Z3EnLnKPILsIlITcetb' />
+                    <!-- Alerts section -->
+                    <div class="alert alert-error hide">
+                        <h4><i class="cssIcon-error"></i> Error Message!</h4>
+                        <ul class="bullet">
+                            <li id="error-uid">Please enter your User ID</li>
+                            <li id="error-pwd">Please enter your Password</li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="page-header">
+                        <h1 class="text-center">Site Visit Login</h1>
+                    </div>
+
+                    <!-- User ID -->
+                    <div class="content-pad">
+                        <div class="form-row field-group">
+                            <!--<label for="uid">User ID</label>-->
+                            <label for="id_username">Email address:</label>
+                            <div class="field-group">
+                                <!--<input type="text" class="span3" name="uid" id="uid">-->
+                                <input autofocus="" id="id_username" maxlength="254" name="username" type="text" required />
+                                <button type="button" class="reset-field hide-text">Reset text field</button>
+                            </div>
+                        </div>
+
+                        <!-- ***** not using password. keeping hidden for now until confirmed ***** -->
+                        <!-- Password -->
+                        <div class="form-row field-group">
+                            <label for="id_password">Password <span class="pipe"></span> <a href="#" id="togglePasswordField" value="Toggle Password">show</a></label>
+                            <div class="field-group">
+                            <!-- <input id="pwd" name="pwd" class="span5" type="password" placeholder=""> -->
+                                <input id="id_password" name="password" type="password" required />
+                                <button type="button" class="reset-field hide-text">Reset text field</button>
+                            </div>
+                        </div>
+
+                        <br>
+                        <button class="btn btn-large btn-block">Log in</button>
+                        <div class="text-center">
+                            <a href="/accounts/signup/">I'm New</a>
+                            <span class="pipe"></span>
+                            <a href="/accounts/password_reset/"> Forgot password</a>
+                        </div>
+                    </div>
+                    <script>
+                        // Toggle password in clear text
+                        // Uncomment the line below for show clear text onload
+                        // document.getElementById('pwd').type = 'text';
+                        // Show Password in clear text (mobile)
+                        (function() {
+                           try {
+                              // switch the password field to text, then back to password to see if it supports
+                              // changing the field type (IE9+, and all other browsers do). then switch it back.
+                              var pwd = document.getElementById('id_password');
+                              pwd.type = 'text';
+                              pwd.type = 'password';
+                              // if it does support changing the field type then add the event handler and make
+                              // the button visible. if the browser doesn't support it, then this is bypassed
+                              // and code execution continues in the catch() section below
+                              var togglePasswordField = document.getElementById('togglePasswordField');
+                              togglePasswordField.addEventListener('click', togglePasswordFieldClicked, false);
+                              togglePasswordField.style.display = 'inline';
+                           }
+                           catch(err) {}
+                        })();
+
+                        function togglePasswordFieldClicked() {
+                            var pwd = document.getElementById('id_password');
+                            var value = pwd.value;
+                            if(pwd.type == 'password') {
+                                pwd.type = 'text';
+                            }
+                            else {
+                                pwd.type = 'password';
+                            }
+                            pwd.value = value;
+                        }
+                        $('#togglePasswordField').click(function() {
+                            if ($(this).text() == "show") {
+                                $(this).text("hide");
+                            }
+                            else{
+                                $(this).text("show");
+                            };
+                        });
+                    </script>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+      <div id="footerBtm">
+         <ul>
+            <li><a href="//www.att.com/gen-mobile/privacy-policy?pid=2506">PRIVACY</a></li>
+            <li><a href="//www.att.com/gen-mobile/general?pid=11561">TERMS OF USE</a></li>
+            <li><a href="/contactus">CONTACT US</a></li>
+            <li><a href="//m.att.com/shopmobile/wireless/legal.html">LEGAL</a></li>
+            <li><a href="/feedback/">APP FEEDBACK</a></li>
+         </ul>
+         <p><a href="//www.att.com/gen-mobile/privacy-policy?pid=2587">&copy; <span class="copyright">2014</span> AT&amp;T Intellectual Property.</a> All rights reserved. AT&amp;T and Globe logo are registered trademarks of AT&amp;T Intellectual Property.</p>
+      </div>
+   </footer>
+
+    <!-- custom js -->
+    
+
+    <!-- ANALYTICS AND TAGGING -->
+<!-- TODO: Disabling for now
+    <script>
+        $(window).on('load', function(){
+            (function(d, t) {
+                var x1 = d.getElementsByTagName(t)[0];
+                /* WEBTRENDS */
+                var wtJS = d.createElement(t);
+                wtJS.src = '//0.ecom.attccc.com/styles/att/assets3.2.0/js/webtrends.load.js';
+                x1.parentNode.insertBefore(wtJS, x1);
+            })(document, 'script');
+        });
+    </script>
+-->
+</div>
+
+</body>
+</html>

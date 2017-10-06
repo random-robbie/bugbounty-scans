@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=yes">
+		<link rel="shortcut icon" href="img/fav.png">
+		<title page-title></title>
+
+		<!-- inject:css -->
+  		<link rel="stylesheet" href="css/lib.min.css">
+  		<link rel="stylesheet" href="css/style.min.css">
+  		<!-- endinject -->
+  	</head>
+	<body class="state-{{$state.current.name}}" ng-class="{'web-viewed': webViewed}" ping tag-init>
+		<!-- added void event handler on div to fix bootstrap ui issues for mobile devices to dismiss tooltip -->
+		<div class="app-content network-{{header.networkStatus}}" ng-class="{'router-error': header.routerIssue}" ng-controller="HeaderController as header" ng-click="void(0)" role="presentation">
+			<div class="loader" ng-if="loading" tabindex="0" aria-label="updating animation" auto-focus="{delay: 0}">
+				<div class="cssload-loader">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<header class="main-header container-fluid" ng-include="'app/common/views/header.html'"></header>
+			<section class="main-content container-fluid" ui-view="main" position-background reset-focus></section>
+			<footer class="main-footer container-fluid" ng-include="'app/common/views/footer.html'" ng-if="!webViewed"></footer>
+			<footer class="webview-footer container-fluid" ng-include="'app/common/views/nativeFooter.html'" ng-if="webViewed"></footer>
+
+		</div>
+
+		
+		<script src="//www.att.com/scripts/adobe/prod/edmDataManager.js"></script>
+		<script src="//www.att.com/scripts/adobe/prod/edmDataDefinition.js"></script>
+		<script src="//www.att.com/scripts/adobe/prod/dataMappingFramework.min.js"></script>
+		<script>
+			var pgUrl = window.location.hostname + window.location.pathname;
+			if (pgUrl.indexOf('/businessebill/') > -1) {
+				document.write("<script src='//assets.adobedtm.com/3cb377f74dd760b920cb82680edd5ed3ee951963/satelliteLib-ed747715529f45d08618d00cf7cca3159b56bc30.js'><\/script>");
+			} else {
+				document.write("<script src='//assets.adobedtm.com/8bb7555f31d461fe2aef4e2d53a11a03e7f9a04c/satelliteLib-bee1ce9b89e943a46b1dfd167adc564fe75eef37.js'><\/script>");
+			}
+		</script>
+
+		<!-- vendor:js -->
+  		<script src="vendor/vendor.min.js"></script>
+  		<!-- endinject -->
+
+		<!-- inject:js -->
+  		<script src="app/app.min.js"></script>
+  		<!-- endinject -->
+
+  		<script type="text/javascript">var appVersion = "1.1.9";</script>
+	</body>
+
+</html>

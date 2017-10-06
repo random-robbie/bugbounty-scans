@@ -1,0 +1,1047 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><title>
+
+</title>
+    <script type="text/javascript">
+        /**
+        * Resets the time of this Date object to 12:00 AM (00:00), which is the start of the day.
+        * @return {Date}    this
+        */
+        Date.prototype.clearTime = function () {
+            this.setHours(0);
+            this.setMinutes(0);
+            this.setSeconds(0);
+            this.setMilliseconds(0);
+            return this;
+        };
+
+        /**
+        * Determines if this instance is between a range of two dates or equal to either the start or end dates.
+        * @param {Date}     Start of range [Required]
+        * @param {Date}     End of range [Required]
+        * @return {Boolean} true is this is between or equal to the start and end dates, else false
+        */
+        Date.prototype.between = function (start, end) {
+            var t = this.getTime();
+            return t >= start.getTime() && t <= end.getTime();
+        };
+
+        /**
+        * Adds the specified number of milliseconds to this instance. 
+        * @param {Number}   The number of milliseconds to add. The number can be positive or negative [Required]
+        * @return {Date}    this
+        */
+        Date.prototype.addMilliseconds = function (value) {
+            this.setMilliseconds(this.getMilliseconds() + value);
+            return this;
+        };
+
+        /**
+        * Adds the specified number of days to this instance. 
+        * @param {Number}   The number of days to add. The number can be positive or negative [Required]
+        * @return {Date}    this
+        */
+        Date.prototype.addDays = function (value) {
+            return this.addMilliseconds(value * 86400000); /* 60*60*24*1000 */
+        };
+
+        /**
+        * Reformats string from MM/DD/YY date format to MM/DD/YYYY date format. 
+        * @return {String}  
+        */
+        String.prototype.reformatYear = function () {
+            dArr = this.split("/"); //ex input "MM/DD/YY"
+            return dArr[0] + "/" + dArr[1] + "/20" + dArr[2]; // ex out "MM/DD/20YY"
+        };
+
+        function checkStartDate(sender, args) {
+            var startValue = new String(document.getElementById("ctl00_ContentPlaceHolder1_startDate").value).reformatYear();
+            var startDate = new Date(startValue);
+            var todayPlus7 = new Date().addDays(10);
+            var todayPlus30 = new Date().addDays(30);
+
+            // Clear the time from all dates before performing comparisons
+            startDate.clearTime();
+            todayPlus7.clearTime();
+            todayPlus30.clearTime();
+
+            if (startDate.between(todayPlus7, todayPlus30)) {
+                return;
+            }
+            else {
+                args.IsValid = false;
+                return;
+            }
+            return;
+        }
+
+        function checkReturnDate(sender, args) {
+            var startValue = new String(document.getElementById("ctl00_ContentPlaceHolder1_startDate").value).reformatYear();
+            var returnValue = new String(document.getElementById("ctl00_ContentPlaceHolder1_returnDate").value).reformatYear();
+            var startDate = new Date(startValue)
+            var returnDate = new Date(returnValue)
+            var minReturnDate = new Date(startDate.getTime()).addDays(60);
+            var maxReturnDate = new Date(startDate.getTime()).addDays(270);
+
+            // Clear the time from all dates before performing comparisons
+            startDate.clearTime();
+            returnDate.clearTime();
+            maxReturnDate.clearTime();
+
+            if (returnDate.between(minReturnDate, maxReturnDate)) {
+                return;
+            }
+            else {
+                args.IsValid = false;
+                return;
+            }
+            return;
+        }
+    </script>
+<link href="App_Themes/Theme1/ModalPopup.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Theme1/style.css" type="text/css" rel="stylesheet" /><link href="/WebResource.axd?d=z8fZWxv8Ial_jVAiMf8awyh1HsD3nPd2W0w0vxmTiGtgCvL2I-h2qbBIEYqqcoImCmvTJizOhqQvPWiH_4Gu8qUnS0womaLnUE6Vm-1BJj2cY4a-rrJUZhlWbtHMVaOVVsS8ms6dHpWHuRviSYgTmJyoZMq6mFOfuDfdHdRMnvs1&amp;t=635803224622986366" type="text/css" rel="stylesheet" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="./" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="ctl00_ScriptManager1_HiddenField" id="ctl00_ScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUIMTc3NTkzNzQPZBYCZg9kFgICAw9kFgICDw9kFgICAQ9kFgICAQ8PFgIeBFRleHQFJCZjb3B5MjAxNyBBVCZUIEludGVsbGVjdHVhbCBQcm9wZXJ0eWRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBTJjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJHVuaXZlcnNhbFBvcFVwJHBvcFVwSW1nMrqVKHMtSqSa6+he4Lb1SVKKTkjeGrRxWnBs6fLayh5F" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=UVtQ0A440qQb76wAhb-LoP1_B5z8XehbBt4zj-vaGq8DH8lMw_HrIg8IRsxXCgQzeP2UsJDOFIGjNJVtpVPNGsjxMMlTR3kLncW1BqwFPMc1&amp;t=636354726046607314" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=96s-bZieA8TJFftqGR4ofu8axGNQYxmpEk3uYmJzsmL4Px5i2Ju44my-M7fOoJQ3IvDO_99EA2Hu2jT0Nylzq0cDCFJPTK0zAJbf8qtOV9eGOPENbkX2AgVdBEz2h7lOkHDnjg1__wvBCIbJ0tAoxPOveu7i_v5U4v7jSwCSet81&amp;t=29ce779a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=l0W0i913kwSOEX2HpLWSUEAmYknL6RWUZHAuREMdxgUlgVVXkp22EaHezE29_pwN-Ump7sAvFhWqoAzY6mp-vTNzQmY0WUOFOUOdvWLelu6J5WYF0HfN_2-biAncxmFiSveAC5PsaCXMDF2tzsjVZLREQIZJM3QAIFsaKjKbF9-yUKQDKPKzY-eakQdTxoO50&amp;t=3d6efc1f" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=d6gKAxaOT4Swd_VdWY_RZeXusjyvK-1zCFoOVkONTYq2zEN7ck6Rjp3FVhhHG8WKJavux6ClY6MIEEzX2i2ONIxPsSqkAWkXyA05Fmifie4-pdvv3hwC67vsuGVXXf-mROqbUOshp9Cw0x1N_qAZsgqWl_nMAkUfz4I6yaWXUFhk-VqD-pmbiO1aw_EUKJEr0&amp;t=3d6efc1f" type="text/javascript"></script>
+<script src="Include/webKit.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=YJn7X8Bp8d3HJY05K9e2Aw9qUG4uIaKMUfgZ8LnQJjnnoPpACtFb7tlw9aFOqOB4mXAaP6ZLMD5271RuJEH5X4gnYomMIVF2Msm920pXnzm2s9Q8QeFAwdKhBIrZa5rBgEhpCT5c6uoEtsGl9g_G9riatLkouwdkQtjLhCErNRc1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=2g_pfl97D91uRGSzaqxupaZx5uU-iYUocPq-SGw9p6b6BFbjsyQde9v6bmaKHqOs0q6IgDdwEdhk65-diVgqJCITY6mhN4IW0PL81OhHHybUjQLq9gOrzEFZfZyaefV6UCfFcJKqpM6aBNyLiaHsRUmrIyWrfYSRV9maTp_Wh4s1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EiS4udDW9xtxUi1V1yPTHRql3Uf6yUvrfFQxyKzSUMJQPaiPpAxKMG5C9xjlRvpJWsMMFmBxXDssm09lWXcD-leY82Zv9WFwvzoEReJbdw8y4V7Te5K4FQSLHUOhXZygUsXPxQE8M_AGCGoDP6XHSHftevRvvClRO043KI4PvoziQBIYUyLTKgwV07-QNlej0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-_vKvnTHKACZm5fwkv6u76piBEVb2GaNcoPU8qs5FC_22FOW7C7gzM4vfJJqMMk72tGY8qeA-kKBvXaAX1IQS3a1_tXdtZhoberVmsLXypYMkf-NTP6XPFcu6Nbzse3jH6YsjXOKcg5zUEKeTftq4MXs3X39EOB_6JPS_g1eWe41&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=BIoSLC8v5LXNuu-DOptAxjRe0LkrCpkNsMl2NxJO7RS6Mc0yO6lK2NSGp1h0TxKs2_xLqYKB-0kchJbwYx92zKHInDR1p94Z1q6XMuQUx9d4IhFmis3wht0-Y4mj-6McX254rFVVXmXt4sY6APdk5FAQVOhtWYh-36_5nBnoivI1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=takWGEngMyns2jkQouziRcdeTK2o6LLhayrSMahdgWPIHwI931mGSuiI9NKV4XPyHtTqEjx55qv-b7NWUW4ZFSUE0WFnfaHSlPDDdYDjnKy9HaC5438XYvRpWepad1MVfVa93I1zmuOLiR2S6ifEcsvAGCgoaSWCYKqPZaDrc1cwz2D8ipcoGmBXx7X-Ez0K0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=mVOPDHkngbp6PhQa7pZT78aGNHbt1LExC7B0m3KFORiBfMrrwMSLnLJQp2WgyicVMTVGLJ5LK5b7EKVCBAqPtaTdrM6uOeAW5hf6T8_8J2SJT2RdGsUyB35qGBy6ABQNGPvC9azQ4-D4-jvmpoJDAR5cjLcvqNNu9TxHO4U09cnLCyrHDBog8qhgFhOco0KM0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=H02jcOznqPXekpKrHjnCSsdt1SePIgrGXlDz8Awxzp-S2FH3H0lGHl8lqaZIAgunIPixRMaD6GSvqlmcJT4JAbGZFnP8OTvEBTICim6jI_NqdZ0TXfCvB4Lbm_f5B_po7T3zRvGJa_whT9o_JU5erOdjFuTeRnQALpRUSgNUBsIuoUdLg7I5aw6MNy3lB0lJ0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=lhloWvEAB62V8516cXdj7sK_jBHsqQU_FUTsJE5V0dFJXPtFtiJE4M5bkRosyw0yVtLP-hJIhhC-uVWxSldt8VP4uziAVkmskTcmoD6vBCpKZH1eidUVTjLFctnLAMWAsGtyl7KqPwBF6LMjLK2fqjM8_mnrDXHHvOTsnrh4-PtmY08rSGUJPXbVSNvrr3OT0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=179MOJLIm5qUL6FCwpa8TTUC7gqBRB0c5hmN435F5o2xt909loJMqzzHzcf6hXEgAALgKPgE28pjP7am2s8G2tvNtx-r8hcx1MzDE3mBlROUKjoKPatqdJg441x9DwvAfJcmLD0pd32Gde5_DLsjRmUbvbWDJ6k0OEtA4QBw8qw1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=skUliIfj01ViSPkeYB58a6UiRWnMn-4Rub8eus05mZ9qAknEhitglusw0-tC4AjnKi2NpS9tlSTIlPN8iZYloO3ZMdHZgSEMe0vHPy0wwFefXe5X_P2dK67bLSupDOFR7lX7d8cCXnhEcDlPRlOt2vbiI7LXevQspDNgfPiL4P81&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=xs11WQr95fA75mBVqDQkE77UWnYODvf2_uD_FXlJrPZN9hr2D5bJXlTTd5bZpU39eCNgXFV-jdvulN-fGRXlq_BoSUEiSsXNw4xm-fnXwHuO3vQ2KBrXk5t2_8s8S9XuOPD5qfR71r2ZXJvBzW4J9EoLFUs67c1GfygOAnp_W981&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=fA8bxXF_ZmZ949USV5bWGleiBgv-z-DjbwBpP8BFiVdSgFK46hEjt2TF9iaNFSpuJJv3joHdTKBbdmckMkg-BjJP6BGJgUv6r8mPK5WE0GJVdUCRBZXglE9hmBpiPULyygGdpZfSjNZfuRC2kmcswgmTz0zrPySe3lLsQLZU-xs1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=5u6taKItkgH4Dq1__nA5srJuf9Y1xnTVYJvn5uSgygWZ5Pqt8jmT8gpJuZ4ccudZpRlvC_8ByO8JM4SMC5gDGENIrKtjw07zGNXMP2F2m0n5WDlJfEzj_Ax5EJ-EqC8Z_oB8OetJ8oICBIgGAANPJHuT7MMc9HcgI2eFHK9rRBQ1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=QXuCiK5xxZuAKuj1zz5dB78aTCD_HDGDPLG4s55b_2iChtTQvTyoGEl-EjT036B-DOkaW4htl6FouoO69xdcOxkcmJjwCmJKGAXiFQjgvF1752S6H-UPP-9uJA3J5MWBEHOXtybFyzrEGMsu8O7LIsk_zvL7d2yF0BeV-WIp6241&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=7EKcAJctS1rDjjsOu5Tb_NpeHEv2GQ_01aXQ_5I_i669UCDtDHm2calskrWmZgBUaBXQLmHOY0nQhzy6opQ1utGf296XF8uKznLcQ4kDs5KWDdHZgLW6ltK9Jo3MsEsBiuZ86eTjT-AgSkiDp1hK8bZli5r0jt4pgtZuTSTMu9dVWsXMI3wP52BemKfiGaU40&amp;t=2e070b50" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+null;if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAE9DPkhkPxMNflykbWSOQhLTrmlkFLAu+LxI+GRTRmoBtcNYaG0bNXMj4ahG+GqRI5czAPoO/85LMK+7+8emGcVrcg1z2JoBpOp2wmv0OWenv/tqKKvQQU0Gcpt0nDXFDHFj2+5GbtlBTEzlKnfOMgvDgE3njM89W464AZJ7fAlf6/CLImvicUAq7tDhi/ifo3Y3hqjq9CmtiZ7qKxMbHg6OrbXmB/UkTCRYdvsNiwaq4cPTH1V8FNbJPYdp+LpsZunVrcckt9kz++vdjcBB9htpkK7RmaIl1uY7y7xM2vOUmV3OrkOcFkqhJ4NvdpVfMjCQdVWsS9JOosl7GceO1BIWGwUTS3ki4cNUDOJmk/23U6WSpmo+phbkEuL/btn+/E+w8NmR96qHIKc6Rd2/4DvZ5RJqUnYiTper+TRBc9hMLyuDwhgEnAjsvn2bu5pJDRbMlytse12zcRuljAYcRqnGiZKsG8Ej+N1vIhCiRB6xpBrmTO/EFEfiYlQrVkKQONf5lAAg7h4TJBHoxBwHgj3DDKMYaZiCvB1/IfMT2fw+3EqvgWV3Q2AWA3pDYq3+Mf3cMQ0Bny5uiIrFuHNwp3L96xn+IrRVCiou5eTnb8Y5Z79KhIwxVTBcoeUPpYbAteVK/zs45GQ1jzcClHrT+DO4FxyCeoJExMkO49ixdCF/5fLz3vpqu8QxK1mjoJwX345xiFaiBiEmQGRw583LAz1pIZzuQkWVXoYqS/7MqaGSnMlAtuppuuysBiXEzmCAjmT/L7SuGYt0YWva53stePcH5BSNryJSnykIU+MJzcujh7/397iEg8LExOdfanLouoX8SDADwfPsjCNNRlhsSQuyepH5TNNvAuubBu+cHq7WH0m5qYbeSarkEN3BY7doErxMCpm3bguGLvzZi1IaIqe3HB/w/f8jopH60BI8JP9MPhCCP4jSw9p7kj0ouAJqOdoapngYOXDsGitm+TZhFat7ROfpRH7nreW2mfMNHNZ7jKpf4/DZCDhpUfWuRf2NMqiTYtsIt3K5g9rFhUDdYLk3TfBjpbWmDki8v4RzwwJ3Qg37iRV6rUeZ/Q4Ogtqexr/EbKAAOAhr7SKlX2w5ylJCRWC9x2ALs5PE4WCB6ePdOmuUk5zDZ6mp7YhsHHrTbZqZQ/Z9MdyATCKCGWm/9c1C8ynnKBhhvgAX89dsdoSE8Y+jjOQ/YjCFa0xhuc+wMHd9vLoowr/ThFrBR3AYtiCA5sJ86wYS0nzphEFUGtKfh8PMqCXaaBQxCmuNC1L/8gUzzoCxLb9tGjpXoX40VyPAFS4+jMRbi9eKdLKXiPr5iE/ktTa03B0+mA6Y3ky8Uq5AyaWuwe+w08W0cTcykkup4nCDpSAORabm1TX1mL2H86tvlUq1FK1LVQiguHIKiTMXx8Ue/lfUj5fPPUhYpeW6ophoSgbE0qiEYiu1FDJ/9flfUnF+X4zLWHg1KpsOyiJ3LILWjODiRazFgnk05lMyH8fe2e69fH5Us7jcsNHHutGe4u0lc8ViB9Vyi3vVl7yvy00I7nB2EOWCc/jw5aWr5Dr3RaJvhQkdotzXDaNcVP5p8BWV0VdqKeDwDtbcBWCDSF/K/2NRocAL+GKr/n5ChuWJelzgyYyfG5I8hnXq7U9wNa2oADzDaI7gSeo7nidQXJ7FGtJkepgAxCuCzExdSPS/LeSFAK0nsuZtvxCmSbvl/d7xzGfY1Js5CyFe/TI=" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$ContentPlaceHolder1$ctl00','','tctl00$ContentPlaceHolder1$universalPopUp$UpdatePanel2','','tctl00$ContentPlaceHolder1$universalPopUp$UpdatePanel3','','tctl00$ContentPlaceHolder1$universalPopUp$UpdatePanel1','','tctl00$ContentPlaceHolder1$Whatisthis$UpdatePanel2','','tctl00$ContentPlaceHolder1$Whatisthis$UpdatePanel3','','tctl00$ContentPlaceHolder1$Whatisthis$UpdatePanel1',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div>
+            <div id="ctl00_divTopBar" class="top-bar">
+            <div class="page-wrapper">
+                    <a href="default.aspx" id="ctl00_hlVacationHold" tabindex="45" title="AT&amp;T Vacation Hold">AT&T Vacation Hold</a>
+                    <ul class="sub-nav">
+                        <li>
+                            &nbsp;
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            <div class="page-wrapper">
+                
+                <div id="main-navigation" class="main-navigation">
+                    <ul class="main-menu">
+                        <li class="attGlobe first">
+                            <a href="default.aspx" id="ctl00_hlHome" title="Home" tabindex="47">&nbsp;</a>
+                        </li>
+                        <li class="last">
+                            <a href="default.aspx" id="ctl00_lbtnVacationHoldHome" tabindex="48" title="Vacation Hold Home" class="main-menu-item">AT&T Vacation Hold</a>
+                        </li>
+                        <li class="navSpacer">
+                            &nbsp;
+                        </li>
+                        <li class="last">
+                            <a href="faq.aspx" id="ctl00_lbtnFAQ" title="FAQ">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="ctl00_mainContent" style="width: 100%; max-width:970px; margin: auto;">
+                
+    <div class="page-wrapper">
+        <div id="defaultBanner">
+            <img src="images/Defaultbanner.png" id="ctl00_ContentPlaceHolder1_imgDefaultBanner" class="defaultBanner" alt="AT&amp;T Vacation Hold.  Enjoy your time away, we&#39;ll be right here waiting." />
+        </div>
+        <div id="divHeadText">
+            <span class="headerText1">Place your AT&T Voice line(s), AT&T Internet Service and U-verse TV, if applicable*, on hold for $5 a month each.</span><br /><br />
+            <span class="headerText2">
+                Vacation Hold can be activated for a minimum period of 2 months and a maximum period of 9 months over a 12 month period.**<br />
+                To be eligible, your AT&T account must be in good standing and you must have had service for at least 30 days.<br /><br />
+            </span>
+            <span class="headerText3">
+                <span style="padding-left: 5px;padding-right:1px;">*</span> If you have AT&T Voice, AT&T Internet Service and U-verse TV, you will be required to put all three on hold, including all AT&T Voice line(s).<br />
+                <span style="padding-left: 1px;">**</span> Each AT&T account is only allowed to place their service on Vacation Hold twice within 12 months.  Customer can call AT&T at 1.800.288.2020 to restore any AT&T service(s) placed on hold; if customer does not call and<br />
+                <span style="padding-left: 10px;">restore, service(s) will be restored on the restoral date selected below.</span>
+            </span>
+        </div>
+        <div style="clear: both; width: 945px; padding-top: 20px;">
+            <div id="ctl00_ContentPlaceHolder1_ctl00">
+	
+                    <div id="ctl00_ContentPlaceHolder1_defaultPnl">
+                        <div id="ctl00_ContentPlaceHolder1_divFollowSteps" class="StepsHeaderText">
+                            Just follow the <span class="attBlueFont">4</span> easy steps to activate your Vacation Hold.
+                        </div>
+                        <div>
+                            
+                            &nbsp;
+                        </div>
+                        <div id="divErrorMessage">
+                            <span id="ctl00_ContentPlaceHolder1_lblErrorMessage" style="color: red;"></span>
+                        </div>
+                        <div id="ctl00_ContentPlaceHolder1_divStep1">
+                            <div id="ctl00_ContentPlaceHolder1_divStep1Header" class="attBlueFontLarge">
+                                Step 1: Enter your information. <span class="attGreyFontSmaller">(<span class="attBlueFont">*</span>Required)</span>
+                                
+                            </div>
+                            <div id="divStep1Body" class="divSetHeight" style="margin-top: 20px; height: 316px;">
+                                <div id="divStep1Group">
+                                    <div id="divStep1AccountInfo" class="divAdjacent">
+                                        <span id="ctl00_ContentPlaceHolder1_custLbl" class="attBlueFontBold">Customer Account Information</span><br />
+                                        <div id="divStep1AccLeft"  class="divAdjacent" style="margin-top: 10px;">
+                                            <input name="ctl00$ContentPlaceHolder1$acctFName" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_acctFName" tabindex="1" class="slim" placeholder=" * Account Holder&#39;s First Name" style="width:200px;" />
+                                            <br />
+                                            <input name="ctl00$ContentPlaceHolder1$billingAddress1" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_billingAddress1" tabindex="3" class="slim" placeholder=" * AT&amp;T Service Address" style="width:200px;" />
+                                            <br />
+                                            <input name="ctl00$ContentPlaceHolder1$city" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_city" tabindex="5" class="slim" placeholder=" * City" style="width:200px;" />
+                                            <br /><br />
+                                            <input name="ctl00$ContentPlaceHolder1$acctNumber1" type="text" maxlength="9" id="ctl00_ContentPlaceHolder1_acctNumber1" tabindex="8" class="slim" placeholder=" * AT&amp;T Billing Account Number" style="width:200px;" />
+                                            <br />
+                                            <a id="ctl00_ContentPlaceHolder1_whatsThis2" tabindex="16" class="text_Link" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$whatsThis2&#39;,&#39;&#39;)">What is this?</a>&nbsp;
+                                            <span id="ctl00_ContentPlaceHolder1_exLbl" class="attOrangeFontSmall">Example: 101050501 (9 digits)</span>
+                                            <br />
+                                            <input name="ctl00$ContentPlaceHolder1$dgacctnumber1" type="text" maxlength="4" id="ctl00_ContentPlaceHolder1_dgacctnumber1" tabindex="10" class="slim" placeholder=" * AT&amp;T 4 Digit Account Passcode" style="width:200px;" />
+                                            <br />
+                                            <a id="ctl00_ContentPlaceHolder1_whatsThis3" tabindex="17" class="text_Link" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$whatsThis3&#39;,&#39;&#39;)">What is this?</a>
+                                        </div>
+                                        <div id="divStep1AccRight"  class="divAdjacent" style="margin-top: 10px;">
+                                            <input name="ctl00$ContentPlaceHolder1$acctLName" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_acctLName" tabindex="2" class="slim" placeholder=" * Account Holder&#39;s Last Name" style="width:200px;" />
+                                            <br />
+                                            <input name="ctl00$ContentPlaceHolder1$ActAptSuite" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_ActAptSuite" tabindex="4" class="slim topTextMargin" placeholder="   Apartment or Suite" style="width:200px;" /><br />
+                                            <select name="ctl00$ContentPlaceHolder1$state" id="ctl00_ContentPlaceHolder1_state" tabindex="6" class="slim" style="height: 20px; margin-top: 5px; width: 100px;">
+		<option selected="selected" value=""> * State</option>
+		<option value="AL">AL</option>
+		<option value="AK">AK</option>
+		<option value="AZ">AZ</option>
+		<option value="AR">AR</option>
+		<option value="CA">CA</option>
+		<option value="CO">CO</option>
+		<option value="CT">CT</option>
+		<option value="DE">DE</option>
+		<option value="DC">DC</option>
+		<option value="FL">FL</option>
+		<option value="GA">GA</option>
+		<option value="HI">HI</option>
+		<option value="ID">ID</option>
+		<option value="IL">IL</option>
+		<option value="IN">IN</option>
+		<option value="IA">IA</option>
+		<option value="KS">KS</option>
+		<option value="KY">KY</option>
+		<option value="LA">LA</option>
+		<option value="ME">ME</option>
+		<option value="MD">MD</option>
+		<option value="MA">MA</option>
+		<option value="MI">MI</option>
+		<option value="MN">MN</option>
+		<option value="MS">MS</option>
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="NE">NE</option>
+		<option value="NV">NV</option>
+		<option value="NH">NH</option>
+		<option value="NJ">NJ</option>
+		<option value="NM">NM</option>
+		<option value="NY">NY</option>
+		<option value="NC">NC</option>
+		<option value="ND">ND</option>
+		<option value="OH">OH</option>
+		<option value="OK">OK</option>
+		<option value="OR">OR</option>
+		<option value="PA">PA</option>
+		<option value="RI">RI</option>
+		<option value="SC">SC</option>
+		<option value="SD">SD</option>
+		<option value="TN">TN</option>
+		<option value="TX">TX</option>
+		<option value="UT">UT</option>
+		<option value="VT">VT</option>
+		<option value="VA">VA</option>
+		<option value="WA">WA</option>
+		<option value="WV">WV</option>
+		<option value="WI">WI</option>
+		<option value="WY">WY</option>
+
+	</select>
+                                            <input name="ctl00$ContentPlaceHolder1$zipCode" type="text" maxlength="20" id="ctl00_ContentPlaceHolder1_zipCode" tabindex="7" class="slim" placeholder=" * Zip Code" style="width:75px;padding-top: 2px; margin-left: 21px;" />
+                                            <br />
+                                            <input name="ctl00$ContentPlaceHolder1$acctNumber2" type="text" maxlength="9" id="ctl00_ContentPlaceHolder1_acctNumber2" tabindex="9" class="slim" placeholder=" * Re-enter Account Number" style="width:200px;margin-top: 23px;" />
+                                            <br /><br />
+                                            <input name="ctl00$ContentPlaceHolder1$dgacctnumber2" type="text" maxlength="4" id="ctl00_ContentPlaceHolder1_dgacctnumber2" tabindex="11" class="slim" placeholder=" * Re-enter Passcode" style="width:200px;" />
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div id="divStep1ContactInfo"  class="divAdjacent">
+                                        <span id="ctl00_ContentPlaceHolder1_actLbl" class="attBlueFontBold" style="width: 100%;">Customer Contact Information</span><br />
+                                        <div style="margin-top: 10px;">    
+                                            <div id="divStep1ContLeft" class="divAdjacent">
+                                                <input name="ctl00$ContentPlaceHolder1$bestNumber" type="text" maxlength="10" id="ctl00_ContentPlaceHolder1_bestNumber" tabindex="12" class="slim" placeholder=" * Best Number to Reach You" style="width:200px;" /><br />
+                                                <input name="ctl00$ContentPlaceHolder1$emailaddress" type="text" maxlength="75" id="ctl00_ContentPlaceHolder1_emailaddress" tabindex="14" class="slim" placeholder=" * Preferred E-mail Address" style="width:200px;margin-top: 5px;" /><br />
+                                            </div>
+                                            <div id="divStep1ContRight" class="divAdjacent">
+                                                <input name="ctl00$ContentPlaceHolder1$reenterbestnumber" type="text" maxlength="10" id="ctl00_ContentPlaceHolder1_reenterbestnumber" tabindex="13" class="slim" placeholder=" * Re-enter Number to Reach You" style="width:200px;" /><br />
+                                                <input name="ctl00$ContentPlaceHolder1$reenterEmailaddress" type="text" maxlength="75" id="ctl00_ContentPlaceHolder1_reenterEmailaddress" tabindex="15" class="slim" placeholder=" * Re-enter E-mail Address" style="width:200px;margin-top: 5px;" /><br />
+                                            </div>
+                                            <p>Note: The required information provided will be used to update your account information.  The e-mail address provided will be used to contact you about your Vacation Hold order.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="divStep1Validators">
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator1" style="color:Red;font-weight:bold;display:none;">Account Holder's First Name is required.  </span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator2" style="color:Red;font-weight:bold;display:none;">Account Holder's Last Name is required.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator3" style="color:Red;font-weight:bold;display:none;">AT&T Service Address is required.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator12" style="color:Red;font-weight:bold;display:none;">City is required.        </span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator16" style="color:Red;font-weight:bold;display:none;">State is required.  </span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator13" style="color:Red;font-weight:bold;display:none;">Zip Code is required.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator9" style="color:Red;font-weight:bold;display:none;">Zip Code must be in proper format(12345-6789).<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator7" style="color:Red;font-weight:bold;display:none;">AT&T Billing Account Number is required.  </span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator8" style="color:Red;font-weight:bold;display:none;">AT&T Billing Account Number must be 9 digits.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_CompareValidator3" style="color:Red;font-weight:bold;display:none;">AT&T Billing Account Numbers do not match, please re-enter.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator8" style="color:Red;font-weight:bold;display:none;">Re-Enter Account Number is required.<br></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator1" style="color:Red;font-weight:bold;display:none;">Re-Enter Account Number must be 9 digits.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator9" style="color:Red;font-weight:bold;display:none;">AT&T 4 digit Account passcode is required.  </span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator10" style="color:Red;font-weight:bold;display:none;">Re-Enter passcode is required.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator3" style="color:Red;font-weight:bold;display:none;">AT&T 4 digit Account passcode must be 4 digits<br></span>
+                                    <span id="ctl00_ContentPlaceHolder1_CompareValidator1" style="color:Red;font-weight:bold;display:none;">AT&T 4 digit Account passcodes do not match, please re-enter.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator4" style="color:Red;font-weight:bold;display:none;">Re-Enter passcode must be 4 digits<br></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator4" style="color:Red;font-weight:bold;display:none;">Best Number to Reach You is required.  </span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator6" style="color:Red;font-weight:bold;display:none;">Best Number to Reach You must be 10 digits<br></span>
+                                    <span id="ctl00_ContentPlaceHolder1_CompareValidator2" style="color:Red;font-weight:bold;display:none;">Best Number to Reach You do not match, please re-enter.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator14" style="color:Red;font-weight:bold;display:none;">Re-Enter Number to Reach You is required.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator7" style="color:Red;font-weight:bold;display:none;">Re-Enter Number to Reach You, must be 10 digits.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator5" style="color:Red;font-weight:bold;display:none;">Preferred E-mail Address is invalid.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator5" style="color:Red;font-weight:bold;display:none;">Preferred E-mail Address is required.    </span>
+                                    <span id="ctl00_ContentPlaceHolder1_CompareValidator4" style="color:Red;font-weight:bold;display:none;">Preferred E-mail Address do not match, please re-enter.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RegularExpressionValidator2" style="color:Red;font-weight:bold;display:none;">Re-Enter E-mail Address is invalid.<br/></span>
+                                    <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator11" style="color:Red;font-weight:bold;display:none;">Re-Enter E-mail Address is required.<br/></span>
+                                    <div id="ctl00_ContentPlaceHolder1_ValidationSummaryStep1" style="color:Red;font-weight:bold;display:none;">
+
+	</div>
+                                </div>
+                            </div>
+                            <div id="divStep1Button" class="buttonDivStyling">
+                                <input type="submit" name="ctl00$ContentPlaceHolder1$btnStep1Next" value="Next" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnStep1Next&quot;, &quot;&quot;, true, &quot;vacgroup1&quot;, &quot;&quot;, false, false))" id="ctl00_ContentPlaceHolder1_btnStep1Next" tabindex="17" class="attButton roundedCorners" />
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                
+</div>
+        </div>
+    </div>
+    <div id="ctl00_ContentPlaceHolder1_universalPopUp_UpdatePanel2">
+	
+        <div id="ctl00_ContentPlaceHolder1_universalPopUp_pnlAreYouSure" class="modal-dialogGraph" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ContentPlaceHolder1_universalPopUp_closeBtn&#39;)" style="display: none;">
+		
+            <div id="ctl00_ContentPlaceHolder1_universalPopUp_UpdatePanel3">
+			
+                    <input type="submit" name="ctl00$ContentPlaceHolder1$universalPopUp$btnImSureTrigger" value="" id="ctl00_ContentPlaceHolder1_universalPopUp_btnImSureTrigger" style="display: none" />
+                    
+                    <div class="titleBar">
+                        <table border="0" cellpadding="0" cellspacing="0" Width="100%">
+                            <tr>
+                                <td valign="middle" align="right" style="padding-right: 15px;" class="closeButton">
+                                    &nbsp;
+                                </td>
+                                <td valign="middle" align="left" style="width: 100%" class="titleBarTextHolder">
+                                    <span id="ctl00_ContentPlaceHolder1_universalPopUp_lblTitle" class="attBlueFontLarge"></span>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <table class="modalContentArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <td valign="top" style="vertical-align: top;">
+                                <div id="ctl00_ContentPlaceHolder1_universalPopUp_UpdatePanel1">
+				
+                                        <table id="ctl00_ContentPlaceHolder1_universalPopUp_tblPopUpTable" border="0" cellspacing="0" cellpadding="0">
+					<tr id="ctl00_ContentPlaceHolder1_universalPopUp_labelPopRow">
+						<td>
+                                                    <div id="ctl00_ContentPlaceHolder1_universalPopUp_Panel1" style="border-color:Black;height:345px;overflow-y:scroll;">
+							
+                                                        
+                                                    
+						</div>
+                                                </td>
+					</tr>
+					<tr id="ctl00_ContentPlaceHolder1_universalPopUp_popDateRow">
+						<td>
+                                                    <div id="ctl00_ContentPlaceHolder1_universalPopUp_testDiv" style="display: none;">
+                                                        <table cellpadding="0" width="300" cellspacing="0">
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <span id="ctl00_ContentPlaceHolder1_universalPopUp_Label1"></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input name="ctl00$ContentPlaceHolder1$universalPopUp$popStartDate" type="text" maxlength="8" id="ctl00_ContentPlaceHolder1_universalPopUp_popStartDate" class="slim" style="width:220px;" />
+                                                                </td>
+                                                                <td style="padding-left: 5px;">
+                                                                    <input type="image" name="ctl00$ContentPlaceHolder1$universalPopUp$popUpImg2" id="ctl00_ContentPlaceHolder1_universalPopUp_popUpImg2" src="Images/calBtn.png" style="border-width:0px;" />
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2" align="right" style="padding-top: 10px;">
+                                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$universalPopUp$calSubmitBtn" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$universalPopUp$calSubmitBtn&quot;, &quot;&quot;, true, &quot;SDgroup&quot;, &quot;&quot;, false, false))" id="ctl00_ContentPlaceHolder1_universalPopUp_calSubmitBtn" class="attButton roundedCorners" /><input type="hidden" name="ctl00$ContentPlaceHolder1$universalPopUp$HdnTransID" id="ctl00_ContentPlaceHolder1_universalPopUp_HdnTransID" value="0" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <span id="ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99" style="color:Red;font-weight:bold;display:none;">Start Date is not in proper format<br></span>
+                                                                    <span id="ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99" style="color:Red;font-weight:bold;display:none;">Start date is required.</span>
+                                                                    <span id="ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99" style="color:Red;font-weight:bold;display:none;">Start date must be at least 7 calendar days from today's date but not more than 30 days out from today's date.</span>
+                                                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$universalPopUp$TextBoxWatermarkExtender99_ClientState" id="ctl00_ContentPlaceHolder1_universalPopUp_TextBoxWatermarkExtender99_ClientState" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+					</tr>
+				</table>
+				
+                                    
+			</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="text-align: right; padding-top: 10px;">
+                                <a id="ctl00_ContentPlaceHolder1_universalPopUp_closeBtn" class="text_5" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$universalPopUp$closeBtn&#39;,&#39;&#39;)">Close</a>
+                            </td>
+                        </tr>
+                    </table>
+                
+		</div>
+        
+	</div>
+    
+</div>
+<script type="text/javascript">
+    /**
+    * Resets the time of this Date object to 12:00 AM (00:00), which is the start of the day.
+    * @return {Date}    this
+    */
+    Date.prototype.clearTime = function ()
+    {
+        this.setHours(0);
+        this.setMinutes(0);
+        this.setSeconds(0);
+        this.setMilliseconds(0);
+        return this;
+    };
+
+    /**
+    * Determines if this instance is between a range of two dates or equal to either the start or end dates.
+    * @param {Date}     Start of range [Required]
+    * @param {Date}     End of range [Required]
+    * @return {Boolean} true is this is between or equal to the start and end dates, else false
+    */
+    Date.prototype.between = function (start, end)
+    {
+        var t = this.getTime();
+        return t >= start.getTime() && t <= end.getTime();
+    };
+
+    /**
+    * Adds the specified number of milliseconds to this instance. 
+    * @param {Number}   The number of milliseconds to add. The number can be positive or negative [Required]
+    * @return {Date}    this
+    */
+    Date.prototype.addMilliseconds = function (value)
+    {
+        this.setMilliseconds(this.getMilliseconds() + value);
+        return this;
+    };
+
+    /**
+    * Adds the specified number of days to this instance. 
+    * @param {Number}   The number of days to add. The number can be positive or negative [Required]
+    * @return {Date}    this
+    */
+    Date.prototype.addDays = function (value)
+    {
+        return this.addMilliseconds(value * 86400000); /* 60*60*24*1000 */
+    };
+
+    /**
+    * Reformats string from MM/DD/YY date format to MM/DD/YYYY date format. 
+    * @return {String}  
+    */
+    String.prototype.reformatYear = function ()
+    {
+        dArr = this.split("/"); //ex input "MM/DD/YY"
+        return dArr[0] + "/" + dArr[1] + "/20" + dArr[2]; // ex out "MM/DD/20YY"
+    };
+
+    function checkSDate(sender, args)
+    {
+        var startValue = new String(document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_popStartDate").value).reformatYear();
+        var startDate = new Date(startValue);
+        var todayPlus7 = new Date().addDays(7);
+        var todayPlus30 = new Date().addDays(30);
+
+        // Clear the time from all dates before performing comparisons
+        startDate.clearTime();
+        todayPlus7.clearTime();
+        todayPlus30.clearTime();
+
+        if(startDate.between(todayPlus7, todayPlus30))
+        {
+            return;
+        }
+        else
+        {
+            args.IsValid = false;
+            return;
+        }
+        return;
+    }
+</script>
+
+    <div id="ctl00_ContentPlaceHolder1_Whatisthis_UpdatePanel2">
+	
+        <div id="ctl00_ContentPlaceHolder1_Whatisthis_pnlAreYouSure" class="modal-dialogGraph" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ContentPlaceHolder1_Whatisthis_closeBtn&#39;)" style="display: none;">
+		
+            <div id="ctl00_ContentPlaceHolder1_Whatisthis_UpdatePanel3">
+			
+                    <input type="submit" name="ctl00$ContentPlaceHolder1$Whatisthis$btnImSureTrigger" value="" id="ctl00_ContentPlaceHolder1_Whatisthis_btnImSureTrigger" style="display: none" />
+                    
+                    <div class="titleBar">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="right" style="text-align: right;">
+                                    <a id="ctl00_ContentPlaceHolder1_Whatisthis_closeBtn" class="text_5" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$Whatisthis$closeBtn&#39;,&#39;&#39;)">Close</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" align="left" style="width: 100%" class="titleBarTextHolder">
+                                    <span id="ctl00_ContentPlaceHolder1_Whatisthis_lblTitle" class="attBlueFontLarge"></span>
+                                </td>
+                                <td valign="middle" align="right" style="padding-right: 15px;" class="closeButton">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <table class="modalContentArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <td valign="top" style="vertical-align: top;">
+                                <div id="ctl00_ContentPlaceHolder1_Whatisthis_UpdatePanel1">
+				
+                                        <table id="ctl00_ContentPlaceHolder1_Whatisthis_tblPopUpTable" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td>
+                                                    <div id="ctl00_ContentPlaceHolder1_Whatisthis_Panel1" style="border-color:Black;height:80px;">
+							
+                                                        
+						</div>
+                                                </td>
+					</tr>
+				</table>
+				
+                                    
+			</div>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                
+		</div>
+        
+	</div>
+    
+</div>
+
+
+            </div>
+            <span id="ctl00_lblCallout" style="color:Red;"></span>
+            <div id="ctl00_divFooter" class="site-footer">
+                <div class="site-footer-text">
+                    <a href="http://www.att.com/gen/privacy-policy?pid=2587" id="ctl00_A1" style="font-size: 10px;" target="_blank" tabindex="50">
+                        <span id="ctl00_attLink" style="font-size: 10px;">&copy2017 AT&T Intellectual Property</span></a>
+                    <span id="ctl00_PrivacyLbl">All rights reserved. AT&T, AT&T logo and all other marks contained herein are trademarks of AT&T Intellectual Property and/or AT&T affiliated companies.</span>
+                </div>
+                <ul class="sub-nav">
+                    <li>
+                        <a onclick="JavaScript:window.open('http://www.att.com/gen/privacy-policy?pid=2506', '', '');" tabindex="51" target="_blank" id="lblPrivacyPolicy" title="Privacy Policy" class="attBlueFont" href="javascript:__doPostBack('ctl00$lblPrivacyPolicy','')">Privacy Policy</a>
+                            
+                        <div style="border-right: solid 1px #009edb;  display: inline;">
+                            &nbsp;
+                        </div>
+                    </li>
+                    <li>
+                        <a onclick="JavaScript:window.open('http://www.att.com/gen/general?pid=11561', '', '');" tabindex="52" target="_blank" id="lbtnLegalNotice" title="Legal Notice" class="attBlueFont" href="javascript:__doPostBack('ctl00$lbtnLegalNotice','')">Legal Notice</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_ContentPlaceHolder1_ValidationSummaryStep1"));
+var Page_Validators =  new Array(document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator1"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator2"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator3"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator12"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator16"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator13"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator9"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator7"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator8"), document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator3"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator8"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator1"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator9"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator10"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator3"), document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator1"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator4"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator4"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator6"), document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator2"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator14"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator7"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator5"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator5"), document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator4"), document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator2"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator11"), document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99"), document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99"), document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator1 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator1"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator1");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.controltovalidate = "ctl00_ContentPlaceHolder1_acctFName";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.errormessage = "Account Holder\'s First Name is required.  ";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator2 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator2"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator2");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.controltovalidate = "ctl00_ContentPlaceHolder1_acctLName";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.errormessage = "Account Holder\'s Last Name is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator3 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator3"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator3");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.controltovalidate = "ctl00_ContentPlaceHolder1_billingAddress1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.errormessage = "AT&T Service Address is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator12 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator12"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator12");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator12.controltovalidate = "ctl00_ContentPlaceHolder1_city";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator12.errormessage = "City is required.        ";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator12.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator12.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator12.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator12.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator16 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator16"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator16");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator16.controltovalidate = "ctl00_ContentPlaceHolder1_state";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator16.errormessage = "State is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator16.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator16.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator16.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator16.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator13 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator13"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator13");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator13.controltovalidate = "ctl00_ContentPlaceHolder1_zipCode";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator13.errormessage = "Zip Code is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator13.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator13.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator13.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator13.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator9 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator9"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator9");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator9.controltovalidate = "ctl00_ContentPlaceHolder1_zipCode";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator9.errormessage = "Zip Code must be in proper format(12345-6789).<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator9.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator9.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator9.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator9.validationexpression = "\\d{5}(-\\d{4})?";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator7 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator7"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator7");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator7.controltovalidate = "ctl00_ContentPlaceHolder1_acctNumber1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator7.errormessage = "AT&T Billing Account Number is required.  ";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator7.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator7.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator7.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator7.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator8 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator8"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator8");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator8.controltovalidate = "ctl00_ContentPlaceHolder1_acctNumber1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator8.errormessage = "AT&T Billing Account Number must be 9 digits.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator8.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator8.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator8.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator8.validationexpression = "(^\\d{9}$)";
+var ctl00_ContentPlaceHolder1_CompareValidator3 = document.all ? document.all["ctl00_ContentPlaceHolder1_CompareValidator3"] : document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator3");
+ctl00_ContentPlaceHolder1_CompareValidator3.controltovalidate = "ctl00_ContentPlaceHolder1_acctNumber2";
+ctl00_ContentPlaceHolder1_CompareValidator3.errormessage = "AT&T Billing Account Numbers do not match, please re-enter.<br/>";
+ctl00_ContentPlaceHolder1_CompareValidator3.display = "Dynamic";
+ctl00_ContentPlaceHolder1_CompareValidator3.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_CompareValidator3.evaluationfunction = "CompareValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_CompareValidator3.controltocompare = "ctl00_ContentPlaceHolder1_acctNumber1";
+ctl00_ContentPlaceHolder1_CompareValidator3.controlhookup = "ctl00_ContentPlaceHolder1_acctNumber1";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator8 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator8"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator8");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator8.controltovalidate = "ctl00_ContentPlaceHolder1_acctNumber2";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator8.errormessage = "Re-Enter Account Number is required.<br>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator8.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator8.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator8.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator8.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator1 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator1"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator1");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator1.controltovalidate = "ctl00_ContentPlaceHolder1_acctNumber2";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator1.errormessage = "Re-Enter Account Number must be 9 digits";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator1.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator1.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator1.validationexpression = "(^\\d{9}$)";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator9 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator9"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator9");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator9.controltovalidate = "ctl00_ContentPlaceHolder1_dgacctnumber1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator9.errormessage = "AT&T 4 digit Account passcode is required.  ";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator9.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator9.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator9.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator9.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator10 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator10"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator10");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.controltovalidate = "ctl00_ContentPlaceHolder1_dgacctnumber2";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.errormessage = "Re-Enter passcode is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator3 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator3"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator3");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator3.controltovalidate = "ctl00_ContentPlaceHolder1_dgacctnumber1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator3.errormessage = "AT&T 4 digit Account passcode must be 4 digits.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator3.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator3.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator3.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator3.validationexpression = "(^\\d{4}$)";
+var ctl00_ContentPlaceHolder1_CompareValidator1 = document.all ? document.all["ctl00_ContentPlaceHolder1_CompareValidator1"] : document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator1");
+ctl00_ContentPlaceHolder1_CompareValidator1.controltovalidate = "ctl00_ContentPlaceHolder1_dgacctnumber2";
+ctl00_ContentPlaceHolder1_CompareValidator1.errormessage = "AT&T 4 digit Account passcodes do not match, please re-enter.<br/>";
+ctl00_ContentPlaceHolder1_CompareValidator1.display = "Dynamic";
+ctl00_ContentPlaceHolder1_CompareValidator1.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_CompareValidator1.evaluationfunction = "CompareValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_CompareValidator1.controltocompare = "ctl00_ContentPlaceHolder1_dgacctnumber1";
+ctl00_ContentPlaceHolder1_CompareValidator1.controlhookup = "ctl00_ContentPlaceHolder1_dgacctnumber1";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator4 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator4"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator4");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator4.controltovalidate = "ctl00_ContentPlaceHolder1_dgacctnumber2";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator4.errormessage = "Re-Enter passcode must be 4 digits.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator4.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator4.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator4.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator4.validationexpression = "(^\\d{4}$)";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator4 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator4"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator4");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator4.controltovalidate = "ctl00_ContentPlaceHolder1_bestNumber";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator4.errormessage = "Best Number to Reach You is required.  ";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator4.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator4.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator4.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator6 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator6"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator6");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator6.controltovalidate = "ctl00_ContentPlaceHolder1_bestNumber";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator6.errormessage = "Best Number to Reach You must be 10 digits.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator6.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator6.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator6.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator6.validationexpression = "(^\\d{10}$)";
+var ctl00_ContentPlaceHolder1_CompareValidator2 = document.all ? document.all["ctl00_ContentPlaceHolder1_CompareValidator2"] : document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator2");
+ctl00_ContentPlaceHolder1_CompareValidator2.controltovalidate = "ctl00_ContentPlaceHolder1_reenterbestnumber";
+ctl00_ContentPlaceHolder1_CompareValidator2.errormessage = "Best Number to Reach You do not match, please re-enter.<br/>";
+ctl00_ContentPlaceHolder1_CompareValidator2.display = "Dynamic";
+ctl00_ContentPlaceHolder1_CompareValidator2.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_CompareValidator2.evaluationfunction = "CompareValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_CompareValidator2.controltocompare = "ctl00_ContentPlaceHolder1_bestNumber";
+ctl00_ContentPlaceHolder1_CompareValidator2.controlhookup = "ctl00_ContentPlaceHolder1_bestNumber";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator14 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator14"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator14");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator14.controltovalidate = "ctl00_ContentPlaceHolder1_reenterbestnumber";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator14.errormessage = "Re-Enter Number to Reach You is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator14.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator14.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator14.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator14.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator7 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator7"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator7");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator7.controltovalidate = "ctl00_ContentPlaceHolder1_reenterbestnumber";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator7.errormessage = "Re-Enter Number to Reach You must be 10 digits.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator7.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator7.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator7.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator7.validationexpression = "(^\\d{10}$)";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator5 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator5"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator5");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator5.controltovalidate = "ctl00_ContentPlaceHolder1_emailaddress";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator5.errormessage = "Preferred E-mail Address is invalid.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator5.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator5.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator5.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator5.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator5 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator5"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator5");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator5.controltovalidate = "ctl00_ContentPlaceHolder1_emailaddress";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator5.errormessage = "Preferred E-mail Address is required.    ";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator5.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator5.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator5.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator5.initialvalue = "";
+var ctl00_ContentPlaceHolder1_CompareValidator4 = document.all ? document.all["ctl00_ContentPlaceHolder1_CompareValidator4"] : document.getElementById("ctl00_ContentPlaceHolder1_CompareValidator4");
+ctl00_ContentPlaceHolder1_CompareValidator4.controltovalidate = "ctl00_ContentPlaceHolder1_reenterEmailaddress";
+ctl00_ContentPlaceHolder1_CompareValidator4.errormessage = "Preferred E-mail Address do not match, please re-enter.<br/>";
+ctl00_ContentPlaceHolder1_CompareValidator4.display = "Dynamic";
+ctl00_ContentPlaceHolder1_CompareValidator4.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_CompareValidator4.evaluationfunction = "CompareValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_CompareValidator4.controltocompare = "ctl00_ContentPlaceHolder1_emailaddress";
+ctl00_ContentPlaceHolder1_CompareValidator4.controlhookup = "ctl00_ContentPlaceHolder1_emailaddress";
+var ctl00_ContentPlaceHolder1_RegularExpressionValidator2 = document.all ? document.all["ctl00_ContentPlaceHolder1_RegularExpressionValidator2"] : document.getElementById("ctl00_ContentPlaceHolder1_RegularExpressionValidator2");
+ctl00_ContentPlaceHolder1_RegularExpressionValidator2.controltovalidate = "ctl00_ContentPlaceHolder1_reenterEmailaddress";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator2.errormessage = "Re-Enter E-mail Address is invalid.<br/>";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator2.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator2.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator2.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RegularExpressionValidator2.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator11 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator11"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator11");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator11.controltovalidate = "ctl00_ContentPlaceHolder1_reenterEmailaddress";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator11.errormessage = "Re-Enter E-mail Address is required.<br/>";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator11.display = "Dynamic";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator11.validationGroup = "vacgroup1";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator11.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator11.initialvalue = "";
+var ctl00_ContentPlaceHolder1_ValidationSummaryStep1 = document.all ? document.all["ctl00_ContentPlaceHolder1_ValidationSummaryStep1"] : document.getElementById("ctl00_ContentPlaceHolder1_ValidationSummaryStep1");
+ctl00_ContentPlaceHolder1_ValidationSummaryStep1.headertext = "Unable to continue - Please look for Red Error messages above in Form";
+ctl00_ContentPlaceHolder1_ValidationSummaryStep1.showsummary = "False";
+ctl00_ContentPlaceHolder1_ValidationSummaryStep1.validationGroup = "vacgroup1";
+var ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99 = document.all ? document.all["ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99"] : document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99");
+ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99.controltovalidate = "ctl00_ContentPlaceHolder1_universalPopUp_popStartDate";
+ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99.errormessage = "Start Date is not in proper format<br>";
+ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99.display = "Dynamic";
+ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99.validationGroup = "SDgroup";
+ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99.validationexpression = "^(?:(?:(?:0?[13578]|1[02])(\\/|-|\\.)31)\\1|(?:(?:0?[13-9]|1[0-2])(\\/|-|\\.)(?:29|30)\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:0?2(\\/|-|\\.)29\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9])|(?:1[0-2]))(\\/|-|\\.)(?:0?[1-9]|1\\d|2[0-8])\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
+var ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99 = document.all ? document.all["ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99"] : document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99");
+ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99.controltovalidate = "ctl00_ContentPlaceHolder1_universalPopUp_popStartDate";
+ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99.errormessage = "Start date is required.";
+ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99.display = "Dynamic";
+ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99.validationGroup = "SDgroup";
+ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99.initialvalue = "";
+var ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99 = document.all ? document.all["ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99"] : document.getElementById("ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99");
+ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99.controltovalidate = "ctl00_ContentPlaceHolder1_universalPopUp_popStartDate";
+ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99.errormessage = "Start date must be at least 7 calendar days from today\'s date but not more than 30 days out from today\'s date.";
+ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99.display = "Dynamic";
+ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99.validationGroup = "SDgroup";
+ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99.clientvalidationfunction = "checkSDate";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+            function CheckBoxValidatorEvaluation(ValidatorControl)
+            {
+               var control = document.getElementById(ValidatorControl.controltovalidate);
+               control.onclick = function() {
+                   if(control.checked == true)
+                       ValidatorControl.style.display = 'none';
+               }
+               return control.checked == true;
+            }
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+(function(id) {
+    var e = document.getElementById(id);
+    if (e) {
+        e.dispose = function() {
+            Array.remove(Page_ValidationSummaries, document.getElementById(id));
+        }
+        e = null;
+    }
+})('ctl00_ContentPlaceHolder1_ValidationSummaryStep1');
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator1'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator2'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator3'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator12').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator12'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator16').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator16'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator13').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator13'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator9').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator9'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator7').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator7'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator8').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator8'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator3'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator8').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator8'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator1'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator9').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator9'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator10').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator10'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator3'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator1'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator4'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator4'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator6').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator6'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator2'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator14').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator14'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator7').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator7'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator5').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator5'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator5').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator5'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_CompareValidator4'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RegularExpressionValidator2'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator11').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator11'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"progressBackgroundFilter","PopupControlID":"ctl00_ContentPlaceHolder1_universalPopUp_pnlAreYouSure","dynamicServicePath":"/default.aspx","id":"mdlPopUpImSure"}, null, null, $get("ctl00_ContentPlaceHolder1_universalPopUp_btnImSureTrigger"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.CalendarBehavior, {"button":$get("ctl00_ContentPlaceHolder1_universalPopUp_popUpImg2"),"format":"MM/dd/yy","id":"CalIDpop"}, null, null, $get("ctl00_ContentPlaceHolder1_universalPopUp_popStartDate"));
+});
+
+document.getElementById('ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_universalPopUp_RegularExpressionValidator99'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_universalPopUp_RequiredFieldValidator99'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_universalPopUp_CustomValidator99'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TextBoxWatermarkBehavior, {"ClientStateFieldID":"ctl00_ContentPlaceHolder1_universalPopUp_TextBoxWatermarkExtender99_ClientState","WatermarkText":" *Start date mm/dd/yy","id":"ctl00_ContentPlaceHolder1_universalPopUp_TextBoxWatermarkExtender99"}, null, null, $get("ctl00_ContentPlaceHolder1_universalPopUp_popStartDate"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"progressBackgroundFilter","PopupControlID":"ctl00_ContentPlaceHolder1_Whatisthis_pnlAreYouSure","dynamicServicePath":"/default.aspx","id":"mdlPopUpImSure1"}, null, null, $get("ctl00_ContentPlaceHolder1_Whatisthis_btnImSureTrigger"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="copyright" href="#license">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="shortcut icon" type="image/png" href="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/favicon.png">
+  <link rel="stylesheet" type="text/css" media="screen" href="https://blog.nightly.mozilla.org/wp-content/themes/frontierline-nightly/style.css?v=1506313576">
+
+  <!--[if IE]>
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <![endif]-->
+
+  <!--[if lte IE 8]>
+  <script src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/js/html5.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/oldIE.css">
+  <![endif]-->
+
+  <style type="text/css">
+  @media screen and (min-width: 480px) {
+    #masthead {
+      background-image: url('https://blog.nightly.mozilla.org/files/2017/07/nightly-blog-header-robot-2.jpg');
+    }
+  }
+  </style>
+
+  
+  <meta name="title" content="Firefox Nightly News">
+  <meta name="description" content="Let&#039;s improve quality, build after build!">
+
+    <meta property="og:site_name" content="Firefox Nightly News">
+  <meta property="og:url" content="https://blog.nightly.mozilla.org">
+  <meta property="og:title" content="Firefox Nightly News">
+  <meta property="og:description" content="Let&#039;s improve quality, build after build!">
+
+    <meta property="twitter:title" content="Firefox Nightly News">
+  <meta property="twitter:description" content="Let&#039;s improve quality, build after build!">
+  <meta name="twitter:card" content="summary">
+    <meta property="twitter:image" content="https://blog.nightly.mozilla.org/files/2017/07/nightly-blog-header-robot-2.jpg">
+  
+  <title>Firefox Nightly News – Let&#039;s improve quality, build after build!</title>
+<link rel="alternate" type="application/rss+xml" title="Firefox Nightly News &raquo; Feed" href="https://blog.nightly.mozilla.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Firefox Nightly News &raquo; Comments Feed" href="https://blog.nightly.mozilla.org/comments/feed/" />
+<link rel='stylesheet' id='social_comments-css'  href='https://blog.nightly.mozilla.org/wp-content/plugins/social/assets/comments.css?ver=3.1.1' type='text/css' media='screen' />
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://blog.nightly.mozilla.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.nightly.mozilla.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.nightly.mozilla.org/wp-includes/wlwmanifest.xml" /> 
+            <script type="text/javascript">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-36116321-4', 'auto');
+                ga('set', 'dimension1', 'Firefox Nightly News');
+                ga('send', 'pageview');
+            </script></head>
+
+<body class="home blog color-scheme-none pattern-none" data-blogname="Firefox Nightly News">
+  
+<nav id="nav-global" class="nav-global can-stick">
+  <div class="content">
+    <div class="logo"><a href="https://www.mozilla.org" rel="external" title="Visit mozilla.org">Mozilla</a></div>
+
+    <p class="fx-cta"><a href="https://www.mozilla.org/firefox/channel/desktop/#nightly" rel="external" class="button button-green">Download Firefox Nightly</a></p>
+
+    <div class="nav-mozilla">
+      <span class="toggle" role="button" aria-controls="nav-mozilla-menu" aria-expanded="false" tabindex="0">Menu</span>
+      <ul class="nav-mozilla-menu" id="nav-mozilla-menu">
+        <li class="nav-global-twitter"><a href="https://twitter.com/FirefoxNightly" rel="external">Twitter</a></li>
+        <li class="nav-global-join"><a href="https://wiki.mozilla.org/Nightly" rel="external">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <a class="page-top" href="#masthead" title="Go to the top of the page">Top</a>
+  </div>
+</nav>
+
+<header id="masthead" class="section">
+  <div class="site-id">
+    <div class="site-title-wrap content">
+          <h1 id="site-title"><span>Firefox Nightly News</span></h1>
+            <p id="site-description"><span>Let&#039;s improve quality, build after build!</span></p>
+              </div>
+  </div>
+</header>
+
+  <div class="site-wrap">
+
+    
+<nav id="nav-util" class="can-stick has-categories">
+  <ul class="content">
+    <li class="nav-util-sidebar"><a href="#sidebar" aria-controls="sidebar" id="toggle-sidebar">Explore</a></li>
+       <li class="nav-util-categories"><a href="#categories" aria-controls="categories" id="toggle-categories">Categories</a></li>
+       <li class="nav-util-search">
+<form id="search" class="fm-search" method="get" action="https://blog.nightly.mozilla.org/">
+  <fieldset>
+    <p>
+      <label for="s">Search this site</label>
+      <input type="search" value="" name="s" id="s">
+      <button type="submit" class="button button-minor">Search</button>
+    </p>
+  </fieldset>
+</form>
+</li>
+  </ul>
+</nav>
+
+    
+    
+
+    <main id="content" role="main">
+
+
+    <div class="content posts-grid hfeed">
+  
+    
+<article id="post-295" class="post-summary post-295 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/" class="entry-link" title="Permanent link to “These Weeks in Firefox: Issue 24”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-3" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-4.png">
+            </div>
+
+      <h2 class="entry-title">These Weeks in Firefox: Issue 24</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/mconleymozilla-com/" title="Posts by mconley" rel="author">mconley</a>      </address>
+
+      <time class="date published" datetime="2017-09-26T19:21:33+00:00">September 26, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Highlights Firefox Quantum (57) is now on Beta! Developer Edition has also gone to 57! Tell everyone you know, tell people you don’t know, test like crazy, file bugs! Firefox &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-293" class="post-summary post-293 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/09/12/these-weeks-in-firefox-issue-23/" class="entry-link" title="Permanent link to “These Weeks in Firefox: Issue 23”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-1" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+            </div>
+
+      <h2 class="entry-title">These Weeks in Firefox: Issue 23</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/mconleymozilla-com/" title="Posts by mconley" rel="author">mconley</a>      </address>
+
+      <time class="date published" datetime="2017-09-12T19:14:12+00:00">September 12, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>The team is busy sanding down the last few rough edges, and getting Firefox 57 ready to merge to beta! So busy in fact, that there are no screenshots or &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/09/12/these-weeks-in-firefox-issue-23/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-275" class="post-summary post-275 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-devtools">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/09/11/developer-tools-visual-refresh-coming-to-nightly/" class="entry-link" title="Permanent link to “Developer Tools visual refresh coming to Nightly”" rel="bookmark">
+      <div class="post-image post-image-large">
+      <img width="600" height="330" src="https://blog.nightly.mozilla.org/files/2017/09/Slice-600x330.png" class="attachment-post-large size-post-large wp-post-image" alt="" srcset="https://blog.nightly.mozilla.org/files/2017/09/Slice-600x330.png 600w, https://blog.nightly.mozilla.org/files/2017/09/Slice-300x165.png 300w" sizes="(max-width: 600px) 100vw, 600px" />      </div>
+
+      <h2 class="entry-title">Developer Tools visual refresh coming to Nightly</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/viwangmozilla-com/" title="Posts by Victoria Wang" rel="author">Victoria Wang</a>      </address>
+
+      <time class="date published" datetime="2017-09-11T20:54:42+00:00">September 11, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Good evening, Nightly friends! As the UX designer for DevTools, I&#8217;ve been working on fresh new themes for Firefox 57. My colleague Gabriel Luong is handling the implementation and will &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/09/11/developer-tools-visual-refresh-coming-to-nightly/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-263" class="post-summary post-263 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/08/16/these-weeks-in-firefox-issue-22/" class="entry-link" title="Permanent link to “These Weeks in Firefox: Issue 22”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-5" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-5.png">
+            </div>
+
+      <h2 class="entry-title">These Weeks in Firefox: Issue 22</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/jhofmannmozilla-com/" title="Posts by Johann Hofmann" rel="author">Johann Hofmann</a>      </address>
+
+      <time class="date published" datetime="2017-08-16T15:18:34+00:00">August 16, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Highlights Prathiksha added site permission settings for Location, Camera, Microphone and replaced the old permission dialog for Notifications in about:preferences. jkt has improved the WebExtensions contextualIdentities APIs to the point &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/08/16/these-weeks-in-firefox-issue-22/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-256" class="post-summary post-256 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/08/02/these-weeks-in-firefox-issue-21/" class="entry-link" title="Permanent link to “These Weeks in Firefox: Issue 21”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-1" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+            </div>
+
+      <h2 class="entry-title">These Weeks in Firefox: Issue 21</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/mconleymozilla-com/" title="Posts by mconley" rel="author">mconley</a>      </address>
+
+      <time class="date published" datetime="2017-08-02T15:17:29+00:00">August 2, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Highlights The App Updater is now using LZMA compression and SHA384 for signing. The release of builds taking advantage of this should be unthrottled today. So far, complete update files &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/08/02/these-weeks-in-firefox-issue-21/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-252" class="post-summary post-252 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/07/25/stylo-is-ready-for-community-testing-on-nightly/" class="entry-link" title="Permanent link to “Stylo is ready for community testing on Nightly!”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-4" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+            </div>
+
+      <h2 class="entry-title">Stylo is ready for community testing on Nightly!</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/pchevrelmozilla-com/" title="Posts by Pascal Chevrel" rel="author">Pascal Chevrel</a>      </address>
+
+      <time class="date published" datetime="2017-07-25T10:29:18+00:00">July 25, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Quantum CSS, aka Stylo, aims to integrate Servo&#8217;s parallelized CSS style system written in Rust into Gecko. Stylo is built with Firefox Nightly and is now ready for wider community &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/07/25/stylo-is-ready-for-community-testing-on-nightly/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-243" class="post-summary post-243 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/07/19/these-weeks-in-firefox-issue-20/" class="entry-link" title="Permanent link to “These Weeks in Firefox: Issue 20”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-4" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-6.png">
+            </div>
+
+      <h2 class="entry-title">These Weeks in Firefox: Issue 20</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/mconleymozilla-com/" title="Posts by mconley" rel="author">mconley</a>      </address>
+
+      <time class="date published" datetime="2017-07-19T14:31:14+00:00">July 19, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Headlines Out of process extensions is now on in Nightly for Windows users. Much excite about this. Please file any bugs you might find with this, we’ve been squashing a &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/07/19/these-weeks-in-firefox-issue-20/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-207" class="post-summary post-207 post type-post status-publish format-standard hentry category-html-5">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/07/17/preview-storage-api-in-firefox-nightly/" class="entry-link" title="Permanent link to “Preview Storage API in Firefox Nightly”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-3" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-1.png">
+            </div>
+
+      <h2 class="entry-title">Preview Storage API in Firefox Nightly</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/shuangmozilla-com/" title="Posts by Shawn Huang" rel="author">Shawn Huang</a>      </address>
+
+      <time class="date published" datetime="2017-07-17T10:36:08+00:00">July 17, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>We are happy to announce that the Storage API feature is ready for testing in Firefox Nightly Desktop! Storage API The Storage API allows Web sites to find out how &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/07/17/preview-storage-api-in-firefox-nightly/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-197" class="post-summary post-197 post type-post status-publish format-standard hentry category-uncategorized">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/06/21/these-weeks-in-firefox-issue-19/" class="entry-link" title="Permanent link to “These Weeks in Firefox: Issue 19”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-6" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-6.png">
+            </div>
+
+      <h2 class="entry-title">These Weeks in Firefox: Issue 19</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/jhofmannmozilla-com/" title="Posts by Johann Hofmann" rel="author">Johann Hofmann</a>      </address>
+
+      <time class="date published" datetime="2017-06-21T09:56:19+00:00">June 21, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Highlights The Photon structure pref has been flipped on Nightly. Photon menus / customization etc. are now the default configuration on Nightly. See dolske’s blog post. We populated the onboarding &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/06/21/these-weeks-in-firefox-issue-19/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-191" class="post-summary post-191 post type-post status-publish format-standard has-post-thumbnail hentry category-community">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/06/20/resolved-fixed-a-short-story-about-a-community-reported-bug/" class="entry-link" title="Permanent link to “Resolved: Fixed &#8211; A short story about a community-reported bug”" rel="bookmark">
+      <div class="post-image post-image-large">
+      <img width="330" height="330" src="https://blog.nightly.mozilla.org/files/2017/06/striptm.jpg" class="attachment-post-large size-post-large wp-post-image" alt="" srcset="https://blog.nightly.mozilla.org/files/2017/06/striptm.jpg 400w, https://blog.nightly.mozilla.org/files/2017/06/striptm-160x160.jpg 160w, https://blog.nightly.mozilla.org/files/2017/06/striptm-250x250.jpg 250w" sizes="(max-width: 330px) 100vw, 330px" />      </div>
+
+      <h2 class="entry-title">Resolved: Fixed &#8211; A short story about a community-reported bug</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/pchevrelmozilla-com/" title="Posts by Pascal Chevrel" rel="author">Pascal Chevrel</a>      </address>
+
+      <time class="date published" datetime="2017-06-20T09:14:55+00:00">June 20, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Firefox Nightly users, thanks to the telemetry and crash reports they send to Mozilla, are an amazing help to Firefox developers. The aggregated data sent by our community is extremely &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/06/20/resolved-fixed-a-short-story-about-a-community-reported-bug/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-172" class="post-summary post-172 post type-post status-publish format-standard hentry category-html-5">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/06/12/datetime-inputs-enabled-on-nightly/" class="entry-link" title="Permanent link to “Date/Time Inputs Enabled on Nightly”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-6" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+            </div>
+
+      <h2 class="entry-title">Date/Time Inputs Enabled on Nightly</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/jjongmozilla-com/" title="Posts by Jessica Jong" rel="author">Jessica Jong</a>      </address>
+
+      <time class="date published" datetime="2017-06-12T04:01:08+00:00">June 12, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>Exciting! Firefox is now providing simple and chic interfaces for representing, setting and picking a time or date on Nightly. Various content attributes defined in the HTML standard, such as &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/06/12/datetime-inputs-enabled-on-nightly/">Read more</a></p>
+  </div>
+
+</article>
+
+  
+    
+<article id="post-166" class="post-summary post-166 post type-post status-publish format-standard hentry category-mozregression">
+
+  <header class="entry-header">
+    <a href="https://blog.nightly.mozilla.org/2017/06/07/using-mozregression-on-windows/" class="entry-link" title="Permanent link to “Using mozregression on Windows”" rel="bookmark">
+      <div class="post-image post-image-large">
+              <img class="wp-post-image image-fallback color-3" width="600" height="330" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-3.png">
+            </div>
+
+      <h2 class="entry-title">Using mozregression on Windows</h2>
+    </a>
+
+      <div class="entry-info">
+      <address class="vcard">
+      <a href="https://blog.nightly.mozilla.org/author/pchevrelmozilla-com/" title="Posts by Pascal Chevrel" rel="author">Pascal Chevrel</a>      </address>
+
+      <time class="date published" datetime="2017-06-07T12:29:52+00:00">June 7, 2017</time>
+    </div>
+    </header>
+
+  <div class="entry-summary">
+    <p>I already blogged about using mozregression in a terminal for Linux/Mac users so this is a follow-up post with specific instructions presented as a video tutorial for Windows users. If &hellip; <a class="go" href="https://blog.nightly.mozilla.org/2017/06/07/using-mozregression-on-windows/">Read more</a></p>
+  </div>
+
+</article>
+
+    </div>
+
+  
+<nav class="pagination">
+  <ul class='page-numbers'>
+	<li><span class='page-numbers current'><span class="a11y">Page</span>1</span></li>
+	<li><a class='page-numbers' href='https://blog.nightly.mozilla.org/page/2/'><span class="a11y">Page</span>2</a></li>
+	<li><a class='page-numbers' href='https://blog.nightly.mozilla.org/page/3/'><span class="a11y">Page</span>3</a></li>
+	<li><a class='page-numbers' href='https://blog.nightly.mozilla.org/page/4/'><span class="a11y">Page</span>4</a></li>
+	<li><a class="next page-numbers" href="https://blog.nightly.mozilla.org/page/2/">Next</a></li>
+</ul>
+</nav>
+
+
+    </main>
+
+  
+<aside id="sidebar" class="section widgets can-stick" role="complementary">
+  <div class="content">
+  		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/">These Weeks in Firefox: Issue 24</a>
+						</li>
+					<li>
+				<a href="https://blog.nightly.mozilla.org/2017/09/12/these-weeks-in-firefox-issue-23/">These Weeks in Firefox: Issue 23</a>
+						</li>
+					<li>
+				<a href="https://blog.nightly.mozilla.org/2017/09/11/developer-tools-visual-refresh-coming-to-nightly/">Developer Tools visual refresh coming to Nightly</a>
+						</li>
+					<li>
+				<a href="https://blog.nightly.mozilla.org/2017/08/16/these-weeks-in-firefox-issue-22/">These Weeks in Firefox: Issue 22</a>
+						</li>
+					<li>
+				<a href="https://blog.nightly.mozilla.org/2017/08/02/these-weeks-in-firefox-issue-21/">These Weeks in Firefox: Issue 21</a>
+						</li>
+				</ul>
+		</aside>		<aside id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">qwertyuiopyozo</span> on <a href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/#comment-4307">These Weeks in Firefox: Issue 24</a></li><li class="recentcomments"><span class="comment-author-link">happysurf</span> on <a href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/#comment-4209">These Weeks in Firefox: Issue 24</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://glitchwalker.blogspot.co.uk/' rel='external nofollow' class='url'>Glitch Walker</a></span> on <a href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/#comment-4206">These Weeks in Firefox: Issue 24</a></li><li class="recentcomments"><span class="comment-author-link">happysurf</span> on <a href="https://blog.nightly.mozilla.org/2017/09/12/these-weeks-in-firefox-issue-23/#comment-3995">These Weeks in Firefox: Issue 23</a></li><li class="recentcomments"><span class="comment-author-link">John M.</span> on <a href="https://blog.nightly.mozilla.org/2017/09/12/these-weeks-in-firefox-issue-23/#comment-3994">These Weeks in Firefox: Issue 23</a></li></ul></aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='https://blog.nightly.mozilla.org/2017/09/'>September 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/08/'>August 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/07/'>July 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/06/'>June 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/05/'>May 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/04/'>April 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/03/'>March 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/02/'>February 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2017/01/'>January 2017</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2016/12/'>December 2016</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2016/11/'>November 2016</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2016/10/'>October 2016</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2016/09/'>September 2016</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2016/08/'>August 2016</a></li>
+	<li><a href='https://blog.nightly.mozilla.org/2016/07/'>July 2016</a></li>
+		</ul>
+		</aside>  </div>
+</aside>
+
+      
+<aside id="categories" role="complementary" class="can-stick">
+  <div class="content">
+    <h3 class="module-title">More articles</h3>
+
+    <ul class="cat-list" role="navigation">
+          <li><a href="#cat-uncategorized">Uncategorized</a></li>
+          <li><a href="#cat-events">Events</a></li>
+          <li><a href="#cat-mozregression">mozregression</a></li>
+          <li><a href="#cat-html-5">HTML 5</a></li>
+          <li><a href="#cat-project-uptime">Project Uptime</a></li>
+          <li><a href="#cat-community">community</a></li>
+        </ul>
+
+    <div class="categories">
+          <div class="category" id="cat-uncategorized">
+        <h4 class="category-title">Uncategorized</h4>
+                  <ul class="category-posts">
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/09/26/these-weeks-in-firefox-issue-24/">
+      <img class="post-image image-fallback color-6" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-4.png">
+      <h5 class="entry-title">These Weeks in Firefox: Issue 24</h5>
+  </a>
+  <time class="date" datetime="2017-09-26T19:21:33+00:00">September 26, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/09/12/these-weeks-in-firefox-issue-23/">
+      <img class="post-image image-fallback color-6" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-5.png">
+      <h5 class="entry-title">These Weeks in Firefox: Issue 23</h5>
+  </a>
+  <time class="date" datetime="2017-09-12T19:14:12+00:00">September 12, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/09/11/developer-tools-visual-refresh-coming-to-nightly/">
+      <img class="post-image" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/files/2017/09/Slice-300x165.png">
+      <h5 class="entry-title">Developer Tools visual refresh coming to Nightly</h5>
+  </a>
+  <time class="date" datetime="2017-09-11T20:54:42+00:00">September 11, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/08/16/these-weeks-in-firefox-issue-22/">
+      <img class="post-image image-fallback color-6" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-1.png">
+      <h5 class="entry-title">These Weeks in Firefox: Issue 22</h5>
+  </a>
+  <time class="date" datetime="2017-08-16T15:18:34+00:00">August 16, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/08/02/these-weeks-in-firefox-issue-21/">
+      <img class="post-image image-fallback color-6" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+      <h5 class="entry-title">These Weeks in Firefox: Issue 21</h5>
+  </a>
+  <time class="date" datetime="2017-08-02T15:17:29+00:00">August 2, 2017</time>
+</div>
+            </li>
+                              </ul>
+                  </div>
+          <div class="category" id="cat-events">
+        <h4 class="category-title">Events</h4>
+                  <ul class="category-posts">
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/04/25/guest-post-india-uses-firefox-nightly-kick-off-on-may-1-2017/">
+      <img class="post-image image-fallback color-3" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-3.png">
+      <h5 class="entry-title">Guest post: India uses Firefox Nightly: Kick off on May 1, 2017</h5>
+  </a>
+  <time class="date" datetime="2017-04-25T13:30:26+00:00">April 25, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/03/30/guest-post-india-uses-firefox-nightly-a-campaign-especially-for-india/">
+      <img class="post-image image-fallback color-2" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-6.png">
+      <h5 class="entry-title">Guest post: India uses Firefox Nightly – A Campaign especially for India</h5>
+  </a>
+  <time class="date" datetime="2017-03-30T16:45:53+00:00">March 30, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/02/20/fosdem-2017-nightly-slides-and-video/">
+      <img class="post-image image-fallback color-6" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+      <h5 class="entry-title">Fosdem 2017 Nightly slides and video</h5>
+  </a>
+  <time class="date" datetime="2017-02-20T16:05:21+00:00">February 20, 2017</time>
+</div>
+            </li>
+                              </ul>
+                  </div>
+          <div class="category" id="cat-mozregression">
+        <h4 class="category-title">mozregression</h4>
+                  <ul class="category-posts">
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/06/07/using-mozregression-on-windows/">
+      <img class="post-image image-fallback color-1" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-5.png">
+      <h5 class="entry-title">Using mozregression on Windows</h5>
+  </a>
+  <time class="date" datetime="2017-06-07T12:29:52+00:00">June 7, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2016/10/11/found-a-regression-in-firefox-give-us-details-with-mozregression/">
+      <img class="post-image" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/files/2016/10/Capture-d’écran-2017-05-24-à-16.44.27.png">
+      <h5 class="entry-title">Found a regression in Firefox? Give us details with mozregression!</h5>
+  </a>
+  <time class="date" datetime="2016-10-11T14:24:55+00:00">October 11, 2016</time>
+</div>
+            </li>
+                              </ul>
+                  </div>
+          <div class="category" id="cat-html-5">
+        <h4 class="category-title">HTML 5</h4>
+                  <ul class="category-posts">
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/07/17/preview-storage-api-in-firefox-nightly/">
+      <img class="post-image image-fallback color-1" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-2.png">
+      <h5 class="entry-title">Preview Storage API in Firefox Nightly</h5>
+  </a>
+  <time class="date" datetime="2017-07-17T10:36:08+00:00">July 17, 2017</time>
+</div>
+            </li>
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/06/12/datetime-inputs-enabled-on-nightly/">
+      <img class="post-image image-fallback color-1" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/fallbacks/pattern-5.png">
+      <h5 class="entry-title">Date/Time Inputs Enabled on Nightly</h5>
+  </a>
+  <time class="date" datetime="2017-06-12T04:01:08+00:00">June 12, 2017</time>
+</div>
+            </li>
+                              </ul>
+                  </div>
+          <div class="category" id="cat-project-uptime">
+        <h4 class="category-title">Project Uptime</h4>
+                  <ul class="category-posts">
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2016/07/13/crash-investigation-in-firefox-nightly/">
+      <img class="post-image" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/files/2016/07/Capture-d’écran-2017-05-24-à-16.43.30.png">
+      <h5 class="entry-title">Crash investigation in Firefox Nightly</h5>
+  </a>
+  <time class="date" datetime="2016-07-13T16:05:31+00:00">July 13, 2016</time>
+</div>
+            </li>
+                              </ul>
+                  </div>
+          <div class="category" id="cat-community">
+        <h4 class="category-title">community</h4>
+                  <ul class="category-posts">
+                      <li class="category-post">
+              
+<div class="post-mini">
+  <a class="entry-link" href="https://blog.nightly.mozilla.org/2017/06/20/resolved-fixed-a-short-story-about-a-community-reported-bug/">
+      <img class="post-image" width="300" height="165" alt="" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/img/place-thumb.png" data-src="https://blog.nightly.mozilla.org/files/2017/06/striptm.jpg">
+      <h5 class="entry-title">Resolved: Fixed &#8211; A short story about a community-reported bug</h5>
+  </a>
+  <time class="date" datetime="2017-06-20T09:14:55+00:00">June 20, 2017</time>
+</div>
+            </li>
+                              </ul>
+                  </div>
+        </div>
+
+  </div>
+</aside>
+  
+      
+<aside id="newsletter-subscribe" class="section">
+  <form id="newsletter_form" class="content newsletter_form" name="newsletter_form" action="https://www.mozilla.org/en-US/newsletter/" method="post" data-blog="Firefox Nightly News">
+    <input type="hidden" id="newsletters" name="newsletters" value="mozilla-foundation">
+    <input type="hidden" id="source_url" name="source_url" value="https://blog.nightly.mozilla.org">
+
+    <div class="form-title">
+      <h3>Love the Web?</h3>
+      <h4>Get the Mozilla newsletter and help us keep it open and free.</h4>
+    </div>
+
+    <div id="form-contents" class="form-contents">
+      <div id="newsletter_errors" class="newsletter_errors"></div>
+
+      <div class="field field-email">
+        <label for="email">Your e-mail address</label>
+                <input type="email" id="email" name="email" required placeholder="yourname@example.com" size="30">
+      </div>
+
+      <div class="form-details">
+        <div class="field field-language">
+          <label for="lang">Language</label>
+          <select aria-required="true" id="lang" name="lang" required="required">
+            <option value="de">Deutsch</option>
+            <option value="en" selected="selected">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="pl">Polski</option>
+          </select>
+        </div>
+
+        <div class="field field-format">
+          <label for="format-h"><input checked="checked" id="format-h" name="fmt" value="H" type="radio"> HTML</label>
+          <label for="format-t"><input id="format-t" name="fmt" value="T" type="radio"> Text</label>
+        </div>
+
+        <div class="field field-privacy">
+          <label for="privacy">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            I’m okay with Mozilla handling my info as explained in this <a href="https://www.mozilla.org/privacy/">Privacy Policy</a>.          </label>
+        </div>
+      </div>
+
+      <div class="form-submit">
+        <button id="newsletter_submit" type="submit" class="form-button button-dark">Sign up now</button>
+        <p class="form-details promise">
+          <small>We will only send you Mozilla-related information.</small>
+        </p>
+      </div>
+    </div>
+
+    <div id="newsletter_thanks" class="thanks">
+      <h2>Thanks!</h2>
+      <p>
+        If you haven’t previously confirmed a subscription to a Mozilla-related newsletter you may have to do so.        Please check your inbox or your spam filter for an e-mail from us.      </p>
+    </div>
+
+  </form>
+</aside>
+  
+  </div><!-- /.site-wrap -->
+
+
+
+<footer id="site-info" class="section">
+  <div class="content">
+    <nav class="primary">
+      <div class="logo">
+        <a href="https://www.mozilla.org" data-link-type="footer" data-link-name="Mozilla">Mozilla</a>
+      </div>
+      <section class="mozilla">
+        <h5><a href="https://www.mozilla.org" data-link-type="footer" data-link-name="Mozilla">Mozilla</a></h5>
+        <ul class="mozilla-links">
+          <li><a href="https://www.mozilla.org/about/" data-link-type="footer" data-link-name="About">About</a></li>
+          <li><a href="https://www.mozilla.org/contact/" data-link-type="footer" data-link-name="Contact Us">Contact Us</a></li>
+          <li><a href="https://donate.mozilla.org/?presets=100,50,25,15&amp;amount=50&amp;currency=usd" class="donate" data-link-type="footer" data-link-name="Donate">Donate</a></li>
+          <li>
+            <ul class="social-links">
+              <li><a class="twitter" href="https://twitter.com/mozilla" data-link-type="footer" data-link-name="Twitter (@mozilla)">Twitter<span> (@mozilla)</span></a></li>
+              <li><a class="facebook" href="https://www.facebook.com/mozilla" data-link-type="footer" data-link-name="Facebook (Mozilla)">Facebook<span> (Mozilla)</span></a></li>
+              <li><a class="instagram" href="https://www.instagram.com/mozillagram/" data-link-type="footer" data-link-name="Instagram (@mozillagram)">Instagram<span> (@mozillagram)</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="firefox">
+        <h5><a href="https://www.mozilla.org/firefox/" data-link-type="footer" data-link-name="Mozilla">Firefox</a></h5>
+        <ul class="firefox-links">
+          <li><a href="https://www.mozilla.org/firefox/" data-link-type="footer" data-link-name="Download Firefox now">Download Firefox Web Browser</a></li>
+          <li><a href="https://www.mozilla.org/firefox/desktop/" data-link-type="footer" data-link-name="Desktop Browser for Mac, Windows, Linux">Desktop Browser for Mac, Windows, Linux</a></li>
+          <li><a href="https://www.mozilla.org/firefox/android/" data-link-type="footer" data-link-name="Mobile Browser for Android">Mobile Browser for Android</a></li>
+          <li><a href="https://www.mozilla.org/firefox/ios/" data-link-type="footer" data-link-name="Mobile Browser for iOS">Mobile Browser for iOS</a></li>
+          <li>
+            <ul class="social-links">
+              <li><a class="twitter" href="https://twitter.com/firefox" data-link-type="footer" data-link-name="Twitter (@firefox)">Twitter<span> (@firefox)</span></a></li>
+              <li><a class="facebook" href="https://www.facebook.com/Firefox" data-link-type="footer" data-link-name="Facebook (Firefox)">Facebook<span> (Firefox)</span></a></li>
+              <li><a class="youtube" href="https://www.youtube.com/firefoxchannel" data-link-type="footer" data-link-name="YouTube (firefoxchannel)">YouTube<span> (firefoxchannel)</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+
+    <nav class="secondary">
+        <div class="small-links">
+          <ul>
+            <li><a rel="nofollow" href="https://www.mozilla.org/privacy/" data-link-type="footer" data-link-name="Privacy">Privacy</a></li>
+            <li><a rel="nofollow" href="https://www.mozilla.org/privacy/websites/#cookies" data-link-type="footer" data-link-name="Cookies">Cookies</a></li>
+            <li><a rel="nofollow" href="https://www.mozilla.org/about/legal/" data-link-type="footer" data-link-name="Legal">Legal</a></li>
+          </ul>
+          <p class="license">
+          Portions of this content are ©1998-2017 by individual contributors. Content available under a <a href="https://www.mozilla.org/foundation/licensing/website-content/" rel="external license">Creative Commons license</a>          </p>
+        </div>
+    </nav>
+  </div>
+</footer>
+
+  <!--[if IE 9]>
+    <script type="text/javascript" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/js/matchMedia.js"></script>
+    <script type="text/javascript" src="https://blog.nightly.mozilla.org/wp-content/themes/frontierline/js/matchMedia.addListener.js"></scrip>
+  <![endif]-->
+
+  <link rel='stylesheet' id='hljstheme-css'  href='https://blog.nightly.mozilla.org/wp-content/plugins/wp-code-highlightjs/styles/tomorrow-night.css?ver=0.6.2' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var Sociali18n = {"commentReplyTitle":"Post a Reply"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-content/plugins/social/assets/social.js?ver=3.1.1'></script>
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-content/themes/frontierline/js/global.js?ver=2.1'></script>
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-content/themes/frontierline/js/basket-client.js?ver=1.1'></script>
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://blog.nightly.mozilla.org/wp-content/plugins/wp-code-highlightjs/highlight.common.pack.js?ver=0.6.2'></script>
+    <style>pre.hljs {padding: 5px;}
+pre.hljs code {}</style>
+    <script type="text/javascript">
+    (function($, window) {
+        var init_fn_flag = false;
+        var init_fn = (function() {
+            if (init_fn_flag)
+                return;
+            init_fn_flag = true;
+             hljs.configure({"tabReplace":"    "});
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+        $(document).ready(init_fn);
+        $(window).on("load", init_fn);
+    })(jQuery, window);
+    </script>
+</body>
+</html>

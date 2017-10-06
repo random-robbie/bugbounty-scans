@@ -1,0 +1,2504 @@
+<!--
+%W% %G% %U%
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style type="text/css">
+	body { font-family:Arial; background:#fff; }
+</style>
+<title>AT&T Security Server: Login</title>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="expires" content="0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="security, global_logon"/>
+<meta name="description" content="AT&amp;T Global Logon."/>
+<meta name="robots" content="noarchive, noindex, nofollow"/>
+
+<style>
+<!--
+	.popup {
+	      background-color: #DDD;
+	      height: 180px; 
+	      width: 400px;
+	      border: 1px solid #666;
+	      position: absolute; 
+	      visibility: hidden;
+	     font-family: Arial, Helvetica, sans-serif;
+	      font-size: small;
+	      text-align: justify;
+	      padding: 5px;  
+	      z-index: 2;
+	      border-radius: 10px;
+	}
+	
+	.popup_bg {
+	      position: absolute;
+	      visibility: hidden;
+	       height: 100%; 
+	       width: 100%; 
+	      left: 0px;
+	       top: 0px;
+	      filter: alpha(opacity=70); /* for IE */
+	      opacity: 0.7; /* CSS3 standard */
+	      background-color:  	#696969;
+	      z-index: 1;
+	}
+ 
+	body {
+		 margin: 0px;
+	 }
+
+ 	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	
+	.close:hover { background: #00d9ff; }
+
+	.cancelButton {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: 90px;
+		text-align: center;
+		top: 120px;
+		width: 100px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	
+	.saveButton {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: 220px;
+		text-align: center;
+		top: 120px;
+		width: 100px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+ -->
+</style>	
+	
+<script type="text/javascript">
+//<!--
+
+var bShowNonPrimaryUsage = false;
+var bNoLoginButton = false;
+
+var bIsIphone = false;
+//if ( navigator.userAgent.indexOf("iPhone") > 0 )
+var agent = navigator.userAgent;
+if ( agent.match(/iPhone/i) || agent.match(/iPad/i) ||
+	agent.match(/Android/i) )
+{
+	bIsIphone = true;
+		// Append proper Meta tag attributes		
+	document.write("<meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=1.6\">");
+	document.write("<meta name=\"apple-mobile-web-app-capable\" content=\"YES\">");
+	//document.getElementsByTagName('meta').item(0).setAttribute('name','viewport');
+	//document.getElementsByTagName('meta').item(0).setAttribute('content','width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5');
+	//document.getElementsByTagName('meta').item(0).setAttribute('name','apple-mobile-web-app-capable');
+	//document.getElementsByTagName('meta').item(0).setAttribute('content','yes');
+}
+
+var strReqLnkCookie = "cspReqLnk";
+var strCSPEnvURLCookie = "cspURL";
+var strPKMSLogin = "pkmslogin.form";
+
+var astrShowBD = new Array("/iprotect/", "/iprotect.asp", "/isnn/", "/iprotent", "/secreporting", "/seta", "/smgavs", "/cportal", "/cpt", "/mssoltpd", "/cusp02", "/dhsnest", "/iaware", "/iawareqa", "/visualizer", "/arborsptest", "/ddosdefense", "/ddosportal", "/attddosdefense", "/cybersecurity", "/mssprtl", "/usersvcs/cspsaml/?service=cpsaml", "/usersvcs/cspsamltest/?service=cpsaml", "/oltpd", "/tmla");
+var astrBDOnly = new Array("/iprotect/", "/iprotent", "/secreporting", "/seta", "/smgavs", "/cpt", "/mssoltpd", "/cusp02", "/visualizer", "/arborsptest", "/ddosdefense", "/ddosportal", "/attddosdefense", "/mssprtl", "/usersvcs/cspsaml/?service=cpsaml", "/usersvcs/cspsamltest/?service=cpsaml", "/oltpd-stageext", "/oltpd-testext", "/oltpd-devext", "/oltpd-prodext", "/tmla");
+var astrTokenOnly = new Array("/globalnetwork/download", "/empsvcs/hrpinmgt/pagToken");
+var astrBDAppName = new Array("/iprotect", "Internet Protect", "/iprotent", "IProtect Enterprise", "/secreporting", "Reporting Portal", "/seta", "SETA", "/smgavs", "MTIPS", "/cportal", "MTIPS", "/cpt", "Customer Policy Tuning", "/mssoltpd", "MSS Online Technical Provision Document", "/cusp02", "Customer Policy Tuning", "/dhsnest", "DHS NEST Portal", "/iaware", "iAware", "/iawareqa", "iAwareQA", "/visualizer", "MSS VizGems Visualizer", "/arborsptest", "ArborSP", "/ddosdefense", "DDoS Defense", "/ddosportal", "DDoS Portal", "/attddosdefense", "DDoS Defense", "/cybersecurity", "Cyber Security", "/mssprtl", "MSS Portal", "/usersvcs/cspsaml/?service=cpsaml", "MSS Portal", "/usersvcs/cspsamltest/?service=cpsaml", "MSS Portal", "/oltpd", "Online Technical Provision Document", "/tmla", "TMLA");
+var astrIsurvey = new Array("/isurvey/2w9WALJ");
+var astrATTOnly = new Array("/empsvcs", "/globalnetwork", "/src", "/srcstage", "/usersvcs/cspsaml/?service=opus&");
+var astrATTOnlyExc = new Array("/idadmin/createmsg");
+var astrIsurvey = new Array("/isurvey/2w9WALJ");
+
+//var astrHideATT = new Array("/commissionportal", "/ebizweb/anrsupport", "/ebizwebstage/anrsupport", "/esignnl", "/esigndevnl", "/esignstnl", "/esignstanl", "/esignpsnl", "/usersvcs/cspsaml/?service=callidus&", "/usersvcs/cspsaml/?service=cricketselfserve&", "/usersvcs/cspsaml/?service=cricketinsight&");
+//var astrShowCricket = new Array("/usersvcs/cspsaml/?service=callidus&", "/usersvcs/cspsaml/?service=cricketselfserve&", "/usersvcs/cspsaml/?service=cricketinsight&");
+
+//Updated as per the recent eamil conversation from CSP
+var astrHideATT = new Array("/commissionportal", "/ebizweb/anrsupport", "/ebizwebstage/anrsupport", "/esignnl", "/esigndevnl", "/esignstnl", "/esignstanl", "/esignpsnl", "/usersvcs/cspsaml/?service=callidus&", "/usersvcs/cspsaml/?service=cricketselfserve&", "/usersvcs/cspsaml/?service=cricketinsight&", "/usersvcs/cspsaml/?service=cricketlearn&");
+var astrShowCricket = new Array("/usersvcs/cspsaml/?service=callidus&", "/usersvcs/cspsaml/?service=cricketselfserve&", "/usersvcs/cspsaml/?service=cricketinsight&", "/usersvcs/cspsaml/?service=cricketlearn&");
+
+
+//var strUserIDText = "UserID or AT&amp;T ATTUID or HRID:";
+var strUserIDText = "UserID<sup>*</sup>:";
+var strBDUserIDText = "UserID:";
+//var strATTUserIDText = "AT&amp;T ATTUID or HRID<sup>*</sup>:";
+//var strATTUserIDText = "AT&amp;T ATTUID <font size=-2><i> or HRID</i></font>:";
+//var strATTUserIDText = "AT&amp;T ATTUID <font size=-2><i> or HRID</i></font><sup>*</sup>:";
+var strATTUserIDText = "AT&T ATTUID<sup>*</sup>:";
+//var strATTUserIDText = "AT&amp;T HRID:";
+
+//var strCookieDomain = ".att.com";
+var strCookieDomain = null;
+
+var strUserIDCookie = "CSPUserID";
+var strTokenUserCookie = "CSPTokenUser";
+var strTokenPINCookie = "CSPTokenPIN";
+
+var strStateCookie = "attCSPState";
+var strV1StateCookie = "CSPState";
+var strPwd = "PWD";
+var strToken = "Token";
+var strTokenGemalto = "TokenG";
+var strTokenBasic = "Basic";
+var strTokenAdvanced = "Advanced";
+var strTokenHard = "Hard";
+var strTokenSoft = "Soft";
+var strStateRemember = "Remember";
+var strStateForget = "Forget";
+var strV1StateSep = ";";
+var strStateSep = "|";
+var strStateVersion = "2";
+var strWriteStateVersion = "2";
+	// Milliseconds that session state cookie values will be used
+var strStateSessionLifetime = "240000";
+
+var strWinAuthAlways = "1";
+var strWinAuthDisabled = "0";
+
+	// Init state values.
+var strUserIDVal = "";
+var strTokenUserVal = "";
+var strTokenPINVal = "";
+var strStateVal = strStateForget;
+var strPwdOrTokenVal = strPwd;
+var strTokenTypeVal = strTokenBasic;
+var strSoftOrHardTokenVal = strTokenHard;
+var strWinAuthVal = strWinAuthDisabled;
+var strVersionVal = strStateVersion;
+
+var bSetupRememberMe = true;
+var bAllowTokenPINSave = false;
+var bSetupSoftwareToken = true;
+var bSupportSafenet = true;
+var bWriteSessionCookies = false;
+
+var strAuthnLevel = "";
+var strAuthnLevel2 = "2";
+var strAuthnLevel3 = "3";
+var strAuthnLevel4 = "4";
+
+var strLoginErrorCookie = "attssole";
+var strLoginErrorTag = "csple";
+
+// Common Code Start
+
+	// Return true if the browser is Internet Explorer, false otherwise
+function isIE()
+{
+	var browName = navigator.appName;
+	var bIsIE = false;
+
+	if ( browName == 'Microsoft Internet Explorer' )
+		bIsIE = true;
+
+	return(bIsIE);
+}
+
+	// Return true if the browser is Netscape, false otherwise
+function isNS()
+{
+	var browName = navigator.appName;
+	var bIsNS = false;
+
+	if ( browName == 'Netscape' )
+		bIsNS = true;
+
+	return(bIsNS);
+}
+
+	// Return true if the browser is an iOS device, false otherwise
+function isIOS()
+{
+	var agent = navigator.userAgent;
+	var bIsIOS = false;
+
+	if ( agent.match(/iPhone/i) || agent.match(/iPad/i) )
+		bIsIOS = true;
+
+	return(bIsIOS);
+}
+
+	// Delay nMsecs milliseconds
+function delay(nMsecs)
+{
+	var nStartTime, nEndTime;
+
+	nStartTime = new Date().getTime();
+	nEndTime = nStartTime;
+	while ( ( nEndTime - nStartTime ) < nMsecs )
+	{
+		nEndTime = new Date().getTime();
+	}
+}
+
+	// Get cookie expiration
+	// Return null for session cookie, or future date for
+	// permanent cookie
+function getCookieExpiration()
+{
+	var exp = null;
+
+	if ( bWriteSessionCookies == false )
+	{
+		exp = new Date();
+
+		//var expMinutes = 5;
+		//exp.setTime(exp.getTime() + (expMinutes*60*1000));
+		exp.setFullYear(exp.getFullYear() + 1);
+	}
+
+	return(exp);
+}
+
+// Added by srp 10/24/2000 to set cursor on userid field
+function setInputFocus()
+{
+	document.frmLogin.userid.focus();
+}
+
+// Added by srp 11/10/2000 to handle blank userid and password fields
+function checkSubmit()
+{
+	return(checkFormSubmit(document.frmLogin));
+}
+
+function checkFormSubmit(form)
+{
+	if ( ( form.userid.value == "" ) ||
+		( form.password.value == "" ) )
+	{
+		alert("You must enter a User Name and Password!");
+		setInputFocus();
+		return(false);
+	}
+}
+
+function checkCookiesOnLoad()
+{
+		 
+	var strSearch = "PinLogin"
+	var nOffset = -1;
+	var strNSMessage = "To log on and access secure sites, your browser must accept 'cookies'. " +"\n\n"
+		+"For Netscape Navigator 4.x "+"\n"
+		+" 1. Select Edit > Preferences > Advanced " +"\n"
+		+" 2. Within the Cookies frame, select 'Accept all cookies' ";
+	var strIEMessage = "To log on and access secure sites, your browser must accept 'cookies'. "+"\n\n"
+		+"For Microsoft Internet Explorer 4.x  "+"\n"
+		+" 1. Select View > Internet Options > Advanced"+"\n"
+		+" 2. Within the Security > Cookies section, select 'Always accept cookies'";
+	var strIOSMessage = "To log on and access secure sites, your browser must accept 'cookies'. "+"\n\n"
+		+"For IOS Devices   "+"\n"
+		+" 1. Select Settings > Safari > Accept cookies "+"\n"
+		+" 2. Within the Accept Cookies section, select 'Always' ";
+		
+	var bIsIE = isIE();
+	var bIsNS = isNS();
+	var bIsIOS = isIOS();
+
+	
+	   
+	
+		// Don't try to set cookie again if it already exists
+	if ( document.cookie.length > 0 )
+	{
+			// There are cookies, so look for the one we care about
+		nOffset = document.cookie.indexOf(strSearch)
+		if ( nOffset != -1 )
+		{
+			return true;
+		}
+	}
+
+	document.cookie = strSearch + "=" + "TestCookies";
+
+	if ( document.cookie.length > 0 )
+	{
+			// There are cookies, so look for the one we care about
+		nOffset = document.cookie.indexOf(strSearch);
+		if ( nOffset != -1 )
+		{
+			return true;
+		}
+		else
+		{
+			if ( bIsIE )
+				alert(strIEMessage);
+			else if ( bIsIOS )
+				alert(strIOSMessage);
+			else if ( bIsNS )
+				alert(strNSMessage);
+			return false;
+		}
+	}
+	else
+	{
+			// Cookie could not be set
+		if ( bIsIE )
+			alert(strIEMessage);
+		else if ( bIsIOS )
+			alert(strIOSMessage);
+		else if ( bIsNS )
+			alert(strNSMessage);
+		return false;
+	}
+	
+	
+}
+
+function checkCookiesAtField(thisField)
+{
+	var bCookiesOK = 0;
+	var browVer = navigator.appVersion.substring(0, 4);
+	var bIsIE = isIE();
+	var bIsNS = isNS();
+
+	bCookiesOK = checkCookiesOnLoad();
+
+	/* if ( ( bIsIE && browVer < 4.0 ) || ( bIsNS && browVer < 4.04 ) )
+	{
+		alert("Your browser is not approved.  Please use Netscape 4.04 or higher or Internet Explorer 4.0 or higher.");
+	}
+ */
+	if ( bCookiesOK == true )
+		return true;
+
+	thisField.focus();
+	thisField.select();
+
+	return false;
+}
+
+	// Search Layers Array by ID [Netscape 4 Work-Around]
+function ns4ElementById(layerId,me)
+{
+	var foundIt = false;
+	var whereAmI = (me) ? me : document.layers;
+	if (whereAmI[layerId])
+	{
+		return whereAmI[layerId];
+	}
+	for (var i=0; i<whereAmI.length; i++)
+	{
+		if (whereAmI[i].document.layers)
+		{
+			foundIt = ns4ElementById(layerId,whereAmI[i].document.layers);
+		}
+		if (foundIt)
+		{
+			return foundIt;
+		}
+	}
+	return null;
+}
+
+function getObject(thisObj)
+{
+	ns4 = (document.layers)&&(navigator.appName=="Netscape")&&(parseInt(navigator.appVersion)==4) ? 'ns4' : false;
+
+	if ( ns4 )
+		return ns4ElementById(thisObj);
+
+	if (document.getElementById)
+		return document.getElementById(thisObj);
+	else if (document.all)
+		return document.all[thisObj];
+}
+
+	// Get the cookie value at the specified offset
+function getCookieVal(nOffset)
+{
+	var nEndStr = document.cookie.indexOf(";", nOffset);
+
+	if ( nEndStr == -1 )
+		nEndStr = document.cookie.length;
+
+	return unescape(document.cookie.substring(nOffset, nEndStr));
+}
+
+	// Get a cookie
+	// var someVariable = getCookie('your_cookie_name');
+function getCookie(strName)
+{
+	var arg = strName + "=";
+	var alen = arg.length;
+	var clen = document.cookie.length;
+	var i = 0;
+
+	while (i < clen)
+	{
+		var j = i + alen;
+
+		if ( document.cookie.substring(i, j) == arg )
+			return getCookieVal(j);
+
+		i = document.cookie.indexOf(" ", i) + 1;
+
+		if ( i == 0 )
+			break;
+	}
+
+	return null;
+}
+
+	// Set a cookie
+	// setCookie('your_cookie_name', 'your_cookie_value', exp);
+	// examples for setting expiration value:
+	// var expDays = 100;
+	// var expMinutes = 5;
+	// var exp = new Date();
+	// to set timeout in days:
+	// exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+	// to set timeout in minutes:
+	// exp.setTime(exp.getTime() + (expMinutes*60*1000));
+function setCookie(strName, strValue)
+{
+	var argv = setCookie.arguments;
+	var argc = setCookie.arguments.length;
+	var expires = (argc > 2) ? argv[2] : null;
+	var path = (argc > 3) ? argv[3] : null;
+	var domain = (argc > 4) ? argv[4] : null;
+	var secure = (argc > 5) ? argv[5] : false;
+
+	document.cookie = strName + "=" + escape (strValue) +
+		((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+		((path == null) ? "" : ("; path=" + path)) +
+		((domain == null) ? "" : ("; domain=" + domain)) +
+		((secure == true) ? "; secure" : "");
+}
+
+	// Set requested URL cookie for CSP success page
+function setReqURL()
+{
+	var strReqURL = null;
+	var nCheckPKMS = -1;
+	var bReturn = false;
+
+	strReqURL = getCookie(strReqLnkCookie);
+	if ( strReqURL == null )
+	{
+		strReqURL = getReqURL();
+		setCookie(strReqLnkCookie, strReqURL, null, "/", null);
+	}
+	bReturn = true;
+
+	// when we no longer have to support NS 4.7x, this code is
+	// cleaner and can give us the full URL, not just the path
+	// from the root
+//	try
+//	{
+//		strReqURL = getCookie(strReqLnkCookie);
+//		//if ( strReqURL != null )
+//		//{
+//			//if ( strReqURL.substr(1, 4) != "http" )
+//				//strReqURL = null;
+//		//}
+//		if ( strReqURL == null )
+//		{
+//			nCheckPKMS = window.location.href.indexOf(strPKMSLogin);
+//			if ( nCheckPKMS == -1 )
+//			{
+//				setCookie(strReqLnkCookie, window.location.href, null, "/",
+//					null);
+//				bReturn = true;
+//			}
+//		}
+//		else
+//			bReturn = true;
+//	}
+//	catch(e)
+//	{
+//		//alert("Unable to read javascript location!");
+//		setCookie(strReqLnkCookie, "/empsvcs/hrpinmgt/pagLogin/?sysName=OSD&retURL=https://144.160.90.11/", null, "/", null);
+//		return(true);
+//	}
+	return(bReturn);
+}
+
+	//Method will used for correct URL query parameter if any URL with # symbol truncated
+	function correctURLContainHashSymbol() {
+
+		var currentURL = window.location.href;
+		var returnURL;
+		if (currentURL.indexOf("&URL=") > currentURL.indexOf("&METHOD=")) {
+			returnURL = currentURL.substring(currentURL
+					.indexOf("&URL=") + 5, currentURL.indexOf("&REFERER="));
+		}
+		
+		if (currentURL.indexOf("#") > currentURL.indexOf("&EXPIRE_SECS=")) {
+			 
+			  returnURL = returnURL + currentURL.substr(currentURL
+						.lastIndexOf("#"));
+		} 
+		
+		return decodeURIComponent(returnURL);
+	}
+
+	// Get requested URL from window location or cookie
+	function getReqURL() {
+		var strReqURL = null;
+		var nCheckPKMS = -1;
+
+		//strReqURL = "/empsvcs/hrpinmgt/pagLogin/?sysName=OSD&retURL=https://144.160.90.11/";
+		//strReqURL = window.location.pathname +
+		//window.location.hash + window.location.search;
+		//if ( strReqURL == "/pkmslogin.form" )
+		//	strReqURL = window.location.href;
+		strReqURL = "https://www.e-access.att.com/empsvcs/hrpinmgt/pagLogin/?sysName=OSD&retURL=https%3A%2F%2F144.160.90.11%2F"
+		if (window.location.pathname == "/pkmslogin.form") {
+			var strCookieReqURL = null;
+
+			// the user login request probably has failed so
+			// the browser line shows /pkmslogin.form which we
+			// do not want to save. we should have already saved
+			// the value from the initial request.
+			strCookieReqURL = getCookie(strReqLnkCookie);
+			if (strCookieReqURL == null) {
+				// Use value from current window.
+			} else {
+				strReqURL = strCookieReqURL;
+			}
+		} else {
+			strReqURL = correctURLContainHashSymbol();
+			setCookie(strReqLnkCookie, strReqURL, null, "/", null);
+		}
+
+		// when we no longer have to support NS 4.7x, this code is
+		// cleaner and can give us the full URL, not just the path
+		// from the root
+		//	try
+		//	{
+		//		nCheckPKMS = window.location.href.indexOf(strPKMSLogin);
+		//		if ( nCheckPKMS == -1 )
+		//		{
+		//			strReqURL = window.location.href;
+		//			setCookie(strReqLnkCookie, window.location.href, null, "/", null);
+		//		}
+		//		else
+		//		{
+		//			strReqURL = getCookie(strReqLnkCookie);
+		//		}
+		//	}
+		//	catch(e)
+		//	{
+		//		strReqURL = getCookie(strReqLnkCookie);
+		//		if ( strReqURL == null )
+		//		{
+		//			strReqURL = "/empsvcs/hrpinmgt/pagLogin/?sysName=OSD&retURL=https://144.160.90.11/";
+		//		}
+		//	}
+		return (strReqURL);
+	}
+
+	// Save the CSP environment URL in a cookie
+	function setCSPEnvURL() {
+		var strCSPEnvURL = window.location.protocol + "//"
+				+ window.location.host;
+		setCookie(strCSPEnvURLCookie, strCSPEnvURL, null, "/", null);
+	}
+
+	// Return true if BD stuff (login button, automatic redirect
+	// if ECCUser cookie found) should be handled, false otherwise
+	function getShowBD() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strReqURL != null) {
+			var nCtr;
+
+			for (nCtr = 0; nCtr < astrShowBD.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrShowBD[nCtr]);
+				if (nCheckJunc >= 0) {
+					bReturn = true;
+					break;
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	// Return true if this is a BD-only page, false otherwise
+	function getBDOnly() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strReqURL != null) {
+			var nCtr;
+
+			for (nCtr = 0; nCtr < astrBDOnly.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrBDOnly[nCtr]);
+				if (nCheckJunc >= 0) {
+					bReturn = true;
+					break;
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	function showUserID() {
+		return;
+		var elementUserID = getObject('lblUserID');
+		if (elementUserID)
+			elementUserID.innerHTML = getUserIDText(document.frmLogin.chkBD.checked);
+	}
+
+	function getLoginError() {
+		var strError;
+		var strReturn;
+		var strDefaultError = "Login incorrect.  Please try again.";
+
+		strReturn = null;
+		//	strError = "";
+		strError = "";
+		if (strError != "") {
+			if (strError.indexOf("%ERR") != 0) {
+				var strMsg2;
+
+				strMsg2 = strError.substring(0, strError.indexOf("."));
+				if ((strMsg2 == "Could not acquire a client credential")
+						|| (strMsg2 == "The client's account has expired")
+						|| (strMsg2 == "The%20client's%20account%20has%20expired")) {
+					//strReturn = "Your account has been suspended.  Please contact customer service.";
+					strReturn = "Your account is suspended.  Most likely, your account was assigned a temporary password that is now expired.  Please click the appropriate help link below to reset your password.";
+				} else if (strError == "Unauthorized") {
+				} else {
+					strReturn = strDefaultError;
+				}
+			}
+		}
+
+		var strLoginError = getCookie(strLoginErrorCookie);
+		if (strLoginError != null) {
+			setCookie(strLoginErrorCookie, "", new Date("January 1, 1970"),
+					"/", strCookieDomain);
+		}
+
+		if (strReturn == null) {
+			if (strLoginError != null) {
+				strReturn = strDefaultError;
+			}
+		}
+
+		return strReturn;
+	}
+
+	function getBDUserID() {
+		var strBDUserID = "";
+		var strBD = getCookie("ECCUser");
+
+		if (strBD != null) {
+			var astrSplit = strBD.split(":");
+
+			if (astrSplit.length == 3) {
+				strBDUserID = astrSplit[2];
+			}
+		}
+		return (strBDUserID);
+	}
+
+	function doBD(bReturnToCSP, bCheckCookieAge) {
+		var strJunc;
+		var strArgs;
+		var strReturnToCSP;
+		var strCheckCookieAge;
+
+		strJunc = "usersvcs/bd";
+		strArgs = "";
+
+		if (bReturnToCSP == false)
+			if (strArgs == "")
+				strArgs = "?ReturnToCSP=0";
+			else
+				strArgs = strArgs + "&ReturnToCSP=0";
+		else if (strArgs == "")
+			strArgs = "?ReturnToCSP=1";
+		else
+			strArgs = strArgs + "&ReturnToCSP=1";
+
+		if (bCheckCookieAge == false)
+			if (strArgs == "")
+				strArgs = "?CheckCookieAge=0";
+			else
+				strArgs = strArgs + "&CheckCookieAge=0";
+		else if (strArgs == "")
+			strArgs = "?CheckCookieAge=1";
+		else
+			strArgs = strArgs + "&CheckCookieAge=1";
+
+		// use host, not hostname to include port
+		setCookie("cspBDURL", window.location.protocol + "//"
+				+ window.location.host + "/" + strJunc, null, "/", null);
+		window.location = "/" + strJunc + "/bd.aspx" + strArgs;
+	}
+
+	function handlePwdOrToken(strNewVal) {
+		var bShowDebug = false;
+		var bDoReload = false;
+
+		// if we can verify that the requested page is the current
+		// page, then don't do the reload
+		if (strPwdOrTokenVal != null) {
+			if (((strNewVal == strPwd) && (strPwdOrTokenVal != strPwd))
+					|| ((strNewVal == strToken) && (strPwdOrTokenVal != strToken))
+					|| ((strNewVal == strTokenGemalto) && (strPwdOrTokenVal != strTokenGemalto)))
+				bDoReload = true;
+		} else {
+			bDoReload = true;
+		}
+
+		if (bDoReload == true) {
+			strPwdOrTokenVal = strNewVal;
+			setStateCookies(true);
+
+			window.location.reload();
+		}
+	}
+
+	function handleAdvanced(button) {
+		var exp = getCookieExpiration();
+
+		if (button.value == "Advanced" || button.value == "Avanzado") {
+			button.value = "Basic";
+			strTokenTypeVal = strTokenAdvanced;
+		} else {
+			button.value = "Advanced";
+			strTokenTypeVal = strTokenBasic;
+			var elementTokenAuth = getObject('tokenauth');
+			if (elementTokenAuth != null)
+				strTokenUserVal = elementTokenAuth.value;
+		}
+		setStateCookies(true);
+		window.location.reload();
+	}
+
+	function handleTokenDefault(bDefaultToken) {
+		var elementTUN = getObject('lblTUN');
+		var elementTA = getObject('tokenauth');
+
+		if (!elementTUN || !elementTA)
+			return;
+
+		if (bDefaultToken == true) {
+			elementTUN.disabled = true;
+			elementTA.disabled = true;
+		} else {
+			elementTUN.disabled = false;
+			elementTA.disabled = false;
+		}
+	}
+
+	function handleSoftwareToken(checkbox) {
+		if (checkbox.checked) {
+			strSoftOrHardTokenVal = strTokenSoft;
+		} else {
+			strSoftOrHardTokenVal = strTokenHard;
+		}
+		setStateCookies(true);
+		window.location.reload();
+	}
+
+	function handleRememberMe(checkbox) {
+		if (checkbox.checked) {
+			strStateVal = strStateRemember;
+		} else {
+			strStateVal = strStateForget;
+		}
+	}
+
+	function isCSPTestSystem() {
+		var bIsCSPTest = false;
+		var strHostName = "www.e-access.att.com";
+		var nCheckCSPAttCom = 0;
+
+		if (strHostName.indexOf("%HOST") == 0)
+			strHostName = window.location.hostname;
+		strHostName = strHostName.toLowerCase();
+		nCheckCSPAttCom = strHostName.indexOf(".csp.att.com");
+		if (nCheckCSPAttCom >= 0) {
+			bIsCSPTest = true;
+		}
+
+		return (bIsCSPTest);
+	}
+
+	function readStateCookies() {
+		var strVal;
+		var bIgnoreCookies = false;
+
+		if (0) {
+			alert("strUserIDCookie = " + getCookie(strUserIDCookie) + "\n"
+					+ "strTokenUserCookie = " + getCookie(strTokenUserCookie)
+					+ "\n" + "strTokenPINCookie = "
+					+ getCookie(strTokenPINCookie) + "\n" + "strStateCookie = "
+					+ getCookie(strStateCookie) + "\n");
+		}
+
+		var strState = getCookie(strStateCookie);
+
+		if (strState != null) {
+			var astrSplit = strState.split(strStateSep);
+
+			if (astrSplit.length == 10) {
+				// Version 2 cookie
+				var strLocalState = astrSplit[1];
+
+				if (strLocalState == strStateForget) {
+					var strDate = new Date();
+					var strCookieDate = new Date(astrSplit[9]);
+
+					if ((strDate - strCookieDate) > strStateSessionLifetime) {
+						bIgnoreCookies = true;
+					}
+				}
+			}
+		} else {
+			var strState = getCookie(strV1StateCookie);
+
+			if (strState != null) {
+				astrSplit = strState.split(strV1StateSep);
+				if (astrSplit.length == 5) {
+					// Version 1 cookie(s)
+					var strLocalState = astrSplit[0];
+
+					if (strLocalState == strStateForget) {
+						var strDate = new Date();
+						var strCookieDate = new Date(astrSplit[4]);
+
+						if ((strDate - strCookieDate) > strStateSessionLifetime) {
+							bIgnoreCookies = true;
+						}
+					}
+				}
+			}
+		}
+
+		if (bIgnoreCookies == true) {
+			return;
+		}
+
+		var strState = getCookie(strStateCookie);
+
+		if (strState != null) {
+			var astrSplit = strState.split(strStateSep);
+
+			if (astrSplit.length == 10) {
+				// Version 2 cookie
+				strVersionVal = astrSplit[0];
+				strStateVal = astrSplit[1];
+				strPwdOrTokenVal = astrSplit[2];
+				strTokenTypeVal = astrSplit[3];
+				strSoftOrHardTokenVal = astrSplit[4];
+				strUserIDVal = unescape(astrSplit[5]);
+				strTokenUserVal = unescape(astrSplit[6]);
+				strTokenPINVal = unescape(astrSplit[7]);
+				strWinAuthVal = astrSplit[8];
+			}
+		} else {
+			var strState = getCookie(strV1StateCookie);
+
+			if (strState != null) {
+				astrSplit = strState.split(strV1StateSep);
+				if (astrSplit.length == 5) {
+					// Version 1 cookie(s)
+					strStateVal = astrSplit[0];
+					strPwdOrTokenVal = astrSplit[1];
+					strTokenTypeVal = astrSplit[2];
+					strSoftOrHardTokenVal = astrSplit[3];
+
+					strVal = getCookie(strUserIDCookie);
+					if (strVal != null)
+						strUserIDVal = strVal;
+					strVal = getCookie(strTokenUserCookie);
+					if (strVal != null)
+						strTokenUserVal = strVal;
+					strVal = getCookie(strTokenPINCookie);
+					if (strVal != null)
+						strTokenPINVal = strVal;
+				}
+			}
+		}
+	}
+
+	function setStateCookies(bSessionCookies) {
+		var exp = getCookieExpiration();
+		var strDate = new Date();
+
+		// As of cookie version 2, always write permanent cookies.
+		if (strWriteStateVersion == "1")
+			if (bSessionCookies == true)
+				exp = null;
+
+		if (strWriteStateVersion == "1") {
+			setCookie(strStateCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+
+			if (strUserIDVal == null)
+				strUserIDVal = "";
+			setCookie(strUserIDCookie, strUserIDVal, exp, "/", strCookieDomain);
+			if (strTokenUserVal == null)
+				strTokenUserVal = "";
+			setCookie(strTokenUserCookie, strTokenUserVal, exp, "/",
+					strCookieDomain);
+			if (strTokenPINVal == null)
+				strTokenPINVal = "";
+			setCookie(strTokenPINCookie, strTokenPINVal, exp, "/",
+					strCookieDomain);
+
+			var strState = strStateVal + strV1StateSep + strPwdOrTokenVal
+					+ strV1StateSep + strTokenTypeVal + strV1StateSep
+					+ strSoftOrHardTokenVal + strV1StateSep + strDate;
+			setCookie(strV1StateCookie, strState, exp, "/", strCookieDomain);
+		} else {
+			setCookie(strUserIDCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+			setCookie(strTokenUserCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+			setCookie(strTokenPINCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+			setCookie(strV1StateCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+
+			var strState = "";
+			if (strStateVal == strStateRemember) {
+				strState = strVersionVal + strStateSep + strStateVal
+						+ strStateSep + strPwdOrTokenVal + strStateSep
+						+ strTokenTypeVal + strStateSep + strSoftOrHardTokenVal
+						+ strStateSep + escape(strUserIDVal) + strStateSep
+						+ escape(strTokenUserVal) + strStateSep
+						+ escape(strTokenPINVal) + strStateSep + strWinAuthVal
+						+ strStateSep + strDate;
+			} else {
+				strState = strVersionVal + strStateSep + strStateForget
+						+ strStateSep + strPwdOrTokenVal + strStateSep
+						+ strTokenTypeVal + strStateSep + strSoftOrHardTokenVal
+						+ strStateSep + "" + strStateSep + "" + strStateSep
+						+ "" + strStateSep + strWinAuthVal + strStateSep
+						+ strDate;
+			}
+			setCookie(strStateCookie, strState, exp, "/", strCookieDomain);
+		}
+	}
+
+	function deleteStateCookies() {
+		setCookie(strUserIDCookie, "", new Date("January 1, 1970"), "/",
+				strCookieDomain);
+		setCookie(strTokenUserCookie, "", new Date("January 1, 1970"), "/",
+				strCookieDomain);
+		setCookie(strTokenPINCookie, "", new Date("January 1, 1970"), "/",
+				strCookieDomain);
+		setCookie(strStateCookie, "", new Date("January 1, 1970"), "/",
+				strCookieDomain);
+		setCookie(strV1StateCookie, "", new Date("January 1, 1970"), "/",
+				strCookieDomain);
+
+		// Delete old cookies, too.
+		if (1) {
+			var strPwdOrTokenCookie = "CSPLoginType";
+			var strTokenTypeCookie = "CSPTokenType";
+			var strSoftTokenCookie = "CSPSoftToken";
+			setCookie(strPwdOrTokenCookie, "", new Date("January 1, 1970"),
+					"/", strCookieDomain);
+			setCookie(strTokenTypeCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+			setCookie(strSoftTokenCookie, "", new Date("January 1, 1970"), "/",
+					strCookieDomain);
+		}
+	}
+
+	// Return userid stripping out any prepended strings we've added
+	function getUserName() {
+		var strRealUser;
+		var strUser = "unauthenticated";
+		var nOffset = 7;
+
+		nOffset = strUser.lastIndexOf("|");
+		if (nOffset == -1)
+			strRealUser = strUser;
+		else {
+			if (nOffset == strUser.length - 1)
+				strRealUser = "";
+			else
+				strRealUser = strUser.substr(nOffset + 1);
+		}
+
+		if ((strRealUser == "unknown") || (strRealUser == "unauthenticated")
+				|| (strRealUser.substring(0, 5) == "%USER"))
+			strRealUser = "";
+
+		if (strRealUser == "")
+			if (strUserIDVal != null)
+				strRealUser = strUserIDVal;
+
+		return (strRealUser);
+	}
+
+	function trim(strInput) {
+		return strInput.replace(/^\s*|\s*$/g, "");
+	}
+
+	// Common Code End
+
+	function setFocus() {
+
+		if (document.frmLogin) {
+			if (document.frmLogin.userid) {
+				document.frmLogin.userid.focus();
+
+				if (document.frmLogin.userid.value.length > 0) {
+					var bFocusSet = false;
+
+					if (document.frmLogin.password) {
+						if (document.frmLogin.password.type != 'hidden') {
+							document.frmLogin.password.focus();
+							bFocusSet = true;
+						}
+					}
+					if (bFocusSet == false) {
+						if (document.frmLogin.tokenpin) {
+							if (document.frmLogin.tokenpin.type != 'hidden') {
+								document.frmLogin.tokenpin.focus();
+								bFocusSet = true;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Return appropriate string for user ID.
+	function getUserIDText(bShowBD) {
+		if (bShowBD == true)
+			return (strBDUserIDText);
+		else {
+			var bATTOnly = getATTOnly();
+
+			if (bATTOnly == true)
+				return (strATTUserIDText);
+			else
+				return (strUserIDText);
+		}
+	}
+
+	// Return true if this is a token-only page, false otherwise
+	function getTokenOnly() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strAuthnLevel == strAuthnLevel3) {
+			bReturn = true;
+		} else if (strReqURL != null) {
+			var nCtr;
+
+			for (nCtr = 0; nCtr < astrTokenOnly.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrTokenOnly[nCtr]);
+				if (nCheckJunc >= 0) {
+					bReturn = true;
+					break;
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	// Return true if this is an ATT-only page, false otherwise
+	function getATTOnly() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strReqURL != null) {
+			var nCtr;
+			var bExclude = false;
+
+			for (nCtr = 0; nCtr < astrATTOnlyExc.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrATTOnlyExc[nCtr]);
+				if (nCheckJunc >= 0) {
+					bExclude = true;
+					break;
+				}
+			}
+
+			if (bExclude == false) {
+				for (nCtr = 0; nCtr < astrATTOnly.length; nCtr++) {
+					var nCheckJunc = strReqURL.indexOf(astrATTOnly[nCtr]);
+					if (nCheckJunc >= 0) {
+						bReturn = true;
+						break;
+					}
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	// Return true if this is an isurvey page, false otherwise
+	function getIsurvey() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strReqURL != null) {
+			var nCtr;
+
+			for (nCtr = 0; nCtr < astrIsurvey.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrIsurvey[nCtr]);
+				if (nCheckJunc >= 0) {
+					bReturn = true;
+					break;
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	// Return true if this junction show not show AT&T stuff,
+	// false otherwise
+	function getHideATT() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strReqURL != null) {
+			var nCtr;
+
+			for (nCtr = 0; nCtr < astrHideATT.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrHideATT[nCtr]);
+				if (nCheckJunc >= 0) {
+					bReturn = true;
+					break;
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	// Return true if this junction show not show AT&T stuff and
+	// instead show Cricket stuff,
+	// false otherwise
+	function getShowCricket() {
+		var bReturn = false;
+		var strReqURL = getReqURL();
+
+		if (strReqURL != null) {
+			var nCtr;
+
+			for (nCtr = 0; nCtr < astrShowCricket.length; nCtr++) {
+				var nCheckJunc = strReqURL.indexOf(astrShowCricket[nCtr]);
+				if (nCheckJunc >= 0) {
+					bReturn = true;
+					break;
+				}
+			}
+		}
+		//document.write("bReturn is " + bReturn);
+		return (bReturn);
+	}
+
+	// Added by srp 02/26/2002 to eliminate double clicks of the Submit button
+	function doSubmit() {
+		var bIsIE = isIE();
+		var bIsNS = isNS();
+		var bShowBD = getShowBD();
+
+		// Only disable the Submit button for IE and NS. NetFront (PDAs)
+		// browsers fail with this call.
+		if ((bIsIE) || (bIsNS)) {
+			document.frmLogin.btnSubmit.disabled = true;
+		}
+
+		document.frmLogin.elements["login-form-type"].value = "pwd";
+		document.frmLogin.username.value = trim(document.frmLogin.userid.value);
+
+		strUserIDVal = trim(document.frmLogin.userid.value);
+
+		// handle the "Remember Me" checkbox
+		if (document.frmLogin.chkRememberMe) {
+			if (document.frmLogin.chkRememberMe.checked) {
+				strStateVal = strStateRemember;
+			} else {
+				strStateVal = strStateForget;
+			}
+		}
+
+		if (document.frmLogin.authmethod[0].checked) {
+			//document.frmLogin.action="/authweb/pwdauth/";
+			//document.frmLogin.action="/usersvcs/AuthEAI/pagPwd/PwdAuthHandler.ashx";
+		} else if (document.frmLogin.authmethod[1].checked
+				|| document.frmLogin.authmethod[2].checked) {
+			var strUserName;
+			var strTokenAuth;
+
+			strTokenAuth = "Default";
+
+			if (document.frmLogin.authmethod[1].checked) {
+				//strTokenAuth = "DUGN";
+
+				//document.frmLogin.action="/usersvcs/AuthEAI/pagToken/TokenAuthHandler.ashx";
+				//document.frmLogin.action="/authweb/tokenauth/";
+			} else if (document.frmLogin.authmethod[2].checked) {
+				strTokenAuth = "GEM";
+
+				//document.frmLogin.action="/usersvcs/AuthEAI/pagToken/TokenAuthHandler.ashx";
+				document.frmLogin.action = "https://www.e-access.att.com/authweb/tokenauth/";
+			}
+
+			document.frmLogin.elements["login-form-type"].value = "token";
+
+			var elementTokenAuth = getObject('tokenauth');
+			if (elementTokenAuth != null) {
+				strTokenUserVal = elementTokenAuth.value;
+			}
+
+			if (document.frmLogin.tokenauth) {
+				if (document.frmLogin.tokendefault[1].checked) {
+					if (document.frmLogin.tokenauth.value != "")
+						strTokenAuth = trim(document.frmLogin.tokenauth.value);
+				}
+			}
+			//idx = document.frmLogin.SelectTokenAuth.selectedIndex;
+			//strTokenAuth = document.frmLogin.SelectTokenAuth.options[idx].value;
+
+			strUserName = trim(document.frmLogin.userid.value);
+			if (bShowBD == true) {
+				if (document.frmLogin.chkBD)
+					if (document.frmLogin.chkBD.checked)
+						strUserName = "bd-"
+								+ trim(document.frmLogin.userid.value);
+			}
+			document.frmLogin.tokenuser.value = "(" + strTokenAuth + ")|"
+					+ strUserName;
+			document.frmLogin.username.value = "(" + strTokenAuth + ")|"
+					+ strUserName;
+
+			document.frmLogin.passcode.value = trim(document.frmLogin.tokenpin.value)
+					+ trim(document.frmLogin.tokendisplay.value);
+			document.frmLogin.password.value = trim(document.frmLogin.tokenpin.value)
+					+ trim(document.frmLogin.tokendisplay.value);
+
+			if (bSetupSoftwareToken == true) {
+				if (document.frmLogin.chkSoftToken) {
+					// handle the "Software Token" checkbox
+					if (document.frmLogin.chkSoftToken.checked) {
+						strSoftOrHardTokenVal = strTokenSoft;
+					} else {
+						strSoftOrHardTokenVal = strTokenHard;
+					}
+				} else {
+					strSoftOrHardTokenVal = strTokenHard;
+				}
+			}
+
+			if (bAllowTokenPINSave == true) {
+				// handle the "Remember PIN" checkbox
+				if (document.frmLogin.chkRememberPIN.checked) {
+					strTokenPINVal = document.frmLogin.tokenpin.value;
+				} else {
+					strTokenPINVal = "";
+				}
+			}
+		}
+
+		if (strStateVal == strStateRemember) {
+			setStateCookies(false);
+		} else {
+			setStateCookies(true);
+			//deleteStateCookies();
+		}
+
+		if (document.frmLogin.username.value == "") {
+			document.frmLogin.username.value = "x";
+		}
+		if (document.frmLogin.password.value == "") {
+			document.frmLogin.password.value = "x";
+		}
+
+		return (true);
+	}
+
+	function start() {
+		var bShowDebug = false;
+		var strAuthType = strPwd;
+		var bAutoRedirToBD = true;
+		var bShowBD = getShowBD();
+		var bBDOnly = getBDOnly();
+		var bTokenOnly = getTokenOnly();
+		var bIsurvey = getIsurvey();
+		var bHideATT = getHideATT();
+		// Read page state
+		readStateCookies();
+		if (strStateVal == strStateForget) {
+			// Delete page state
+			deleteStateCookies();
+		}
+		// Ensure that requested URL is saved in cookie
+		setReqURL();
+		// Ensure that CSP environment URL is saved in cookie
+		setCSPEnvURL();
+
+		// If this is not a .att.com machine, then we shouldn't be
+		// displaying a login page. We probably got here since the
+		// user did not enter valid credentials at the .att.com site,
+		// resulting in a redirect here. Redirect back to this page
+		// (which will not include the ecsso values) which will result
+		// in going back to the .att.com site.
+		// Only do the redirect if we find this URL in the BACK_URL
+		// since then we know this came from ecsso.
+		var strHostName = "www.e-access.att.com";
+		var nCheckCSPAttCom = 0;
+		var nCheckProdAttCom = 0;
+		strHostName = strHostName.toLowerCase();
+		nCheckCSPAttCom = strHostName.indexOf(".csp.att.com");
+		nCheckProdAttCom = strHostName.indexOf(".e-access.att.com");
+		if ((nCheckCSPAttCom == -1) && (nCheckProdAttCom == -1)) {
+			//var strGoBack = "https://" + "www.e-access.att.com" + "/empsvcs/hrpinmgt/pagLogin/?sysName=OSD&retURL=https://144.160.90.11/";
+			//var strBackURL = "https://144.160.90.11/";
+			var strGoBack = "https://" + "www.e-access.att.com"
+					+ unescape("/empsvcs/hrpinmgt/pagLogin/?sysName=OSD&retURL=https://144.160.90.11/");
+			var strBackURL = unescape("https://144.160.90.11/");
+
+			nCheckCSPAttCom = strBackURL.indexOf(strGoBack);
+			if (nCheckCSPAttCom >= 0) {
+				nCheckCSPAttCom = strGoBack.indexOf("?");
+				if (nCheckCSPAttCom >= 0) {
+					window.location = strGoBack + "&" + strLoginErrorTag;
+				} else {
+					window.location = strGoBack + "?" + strLoginErrorTag;
+				}
+			}
+			//else
+			//{
+			//window.location = strGoBack;
+			//}
+		}
+
+		if (bBDOnly == true) {
+			if (bAutoRedirToBD == true) {
+				if (bTokenOnly == true) {
+					var strBDUserID = getBDUserID();
+
+					if (strBDUserID == "") {
+						// We're at a token-only, BD-only junction with
+						// no ECCUser cookie so this is probably from
+						// a bookmark. Off to BD we go without returning.
+						//doBD(false, false);
+						// Let's come back just in case.
+						doBD(true, true);
+						return;
+					}
+				} else {
+					doBD(true, true);
+					return;
+				}
+			}
+		}
+
+		if (bShowBD == true) {
+			if (bAutoRedirToBD == true) {
+				var strBD = getCookie("ECCUser");
+
+				if (strBD != null) {
+					// Delete existing cookie so that coming back
+					// to CSP without automatically redirecting to
+					// BD is possible (in case the user really did
+					// want to log in using CSP credentials).
+					//setCookie("ECCUser", "", new Date("January 1, 1970"),
+					//	"/", ".att.com");
+					doBD(true, true);
+					return;
+				}
+			}
+		}
+
+		if (bTokenOnly == true) {
+			if (strPwdOrTokenVal != null) {
+				if (strPwdOrTokenVal == strPwd)
+					strAuthType = strToken;
+				else if (strPwdOrTokenVal == strToken)
+					strAuthType = strPwdOrTokenVal;
+				else if (strPwdOrTokenVal == strTokenGemalto)
+					strAuthType = strPwdOrTokenVal;
+			} else {
+				strAuthType = strToken;
+			}
+		} else {
+			if (strPwdOrTokenVal != null) {
+				if (strPwdOrTokenVal == strToken)
+					strAuthType = strPwdOrTokenVal;
+				else if (strPwdOrTokenVal == strTokenGemalto)
+					strAuthType = strPwdOrTokenVal;
+			}
+		}
+
+		if (bIsurvey == true)
+			showIsurveyLogin(false);
+		else
+			showLogin(strAuthType, bHideATT);
+	}
+
+	// Language selection options -- start
+	//User currently selected language.This will invoked when loading the page.
+	function setCurrentLocale() {
+		//find the current locale value
+		var selOpts = "";
+		var urlStr = window.location.href;
+
+		if (urlStr.indexOf("locale=") > 0) {
+			selOpts = urlStr.substr(urlStr.indexOf("locale=") + 7, 2);
+		} else {
+			selOpts = getIamlangCookie("iamlang");
+		}
+		//set the radio button selected/checked 
+		if ("es" == selOpts) {
+			document.getElementById('spanishRadio').checked = true;
+		} else {
+			document.getElementById('englishRadio').checked = true;
+		}
+	}
+	//get the iamlang cookie current value 
+	function getIamlangCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ')
+				c = c.substring(1);
+			if (c.indexOf(name) == 0)
+				return c.substring(name.length, c.length);
+		}
+		return "";
+	}
+	// Invoked when User changing the current locale/language to different locale
+	function selectedLanguage() {
+
+		var selectedLang;
+		var radioButtons = document.getElementsByName("language");
+
+		for (var x = 0; x < radioButtons.length; x++) {
+			if (radioButtons[x].checked) {
+
+				selectedLang = radioButtons[x].value;
+			}
+		}
+		return selectedLang;
+	}
+
+	//Invoked when user select the prefered language and click the save button
+	function saveButtonClick() {
+
+		var selLang = selectedLanguage();
+		var urlStr = window.location.href;
+		var finalStr = "";
+
+		if (urlStr.indexOf("locale=") > 0) {
+			//first part of URL i.e before 'locale' string 
+			var beforeLocale = urlStr.substr(0, urlStr.indexOf("locale="));
+
+			var afterLocale = urlStr.substr(urlStr.indexOf("locale=") + 9);
+
+			if (selLang == "Spanish") {
+				finalStr = beforeLocale + "locale=es" + afterLocale;
+			} else {
+				finalStr = beforeLocale + "locale=en" + afterLocale;
+			}
+
+		} else {
+
+			urlStr = (window.location.href).split("?")
+			if (selLang == "Spanish") {
+				finalStr = urlStr[0] + "?locale=es&";
+			} else {
+				finalStr = urlStr[0] + "?locale=en&";
+			}
+
+			for (var x = 1; x < urlStr.length; x++) {
+				finalStr = finalStr + urlStr[x]
+			}
+
+		}
+
+		closePopupWindow('popupWindow');
+		//setting the selected locale to display in browser
+		window.location.href = finalStr;
+	}
+
+	// Open the pop-up window when click the language selection hyperlink
+	function openPopupWindow(id) {
+		//Calculate Page width and height
+		var pageWidth = window.innerWidth;
+		var pageHeight = window.innerHeight;
+
+		if (typeof pageWidth != "number") {
+
+			if (document.compatMode == "CSS1Compat") {
+				pageWidth = document.documentElement.clientWidth;
+				pageHeight = document.documentElement.clientHeight;
+			} else {
+				pageWidth = document.body.clientWidth;
+				pageHeight = document.body.clientHeight;
+			}
+		}
+		//Make the background div tag visible...
+		var divbg = document.getElementById('popupWindow_bg');
+		divbg.style.visibility = "visible";
+
+		var divobj = document.getElementById(id);
+		divobj.style.visibility = "visible";
+		if (navigator.appName == "Microsoft Internet Explorer") {
+			computedStyle = divobj.currentStyle;
+		} else {
+			computedStyle = document.defaultView.getComputedStyle(divobj, null);
+		}
+		//Get Div width and height from StyleSheet
+		var divWidth = computedStyle.width.replace('px', '');
+		var divHeight = computedStyle.height.replace('px', '');
+		var divLeft = (pageWidth - divWidth) / 2;
+		var divTop = (pageHeight - divHeight) / 3;
+		//Set Left and top coordinates for the div tag
+		divobj.style.left = divLeft + "px";
+		divobj.style.top = divTop + "px";
+		//set the current locale as the selected radio button
+		setCurrentLocale();
+
+	}
+
+	// close the pop-up window when user click the Cancel button or close icon 
+	function closePopupWindow(id) {
+		var divbg = document.getElementById('popupWindow_bg');
+		divbg.style.visibility = "hidden";
+		var divobj = document.getElementById(id);
+		divobj.style.visibility = "hidden";
+	}
+
+	// Language selection options -- end
+
+	function showLogin(strAuthType, bHideATT) {
+		var bShowBD = getShowBD();
+		var bTokenOnly = getTokenOnly();
+		var bATTOnly = getATTOnly();
+		var bIsCSPTest = isCSPTestSystem();
+		var bShowCricket = getShowCricket();
+
+		// Language selection hyperlink 
+		document
+				.write("<p align=\"right\" style=\"margin-top: 0px;\"><font size=-1><a href=\"#\" onclick=\"openPopupWindow('popupWindow')\">Site supported languages </a> </font> </p>");
+
+		//document.clear();
+		document
+				.write("<form name=\"frmLogin\" method=post action=\"/pkmslogin.form\" onsubmit=\"return(doSubmit());\">");
+
+		document.write("<table border=0 cellspacing=0 cellpadding=0>");
+		document.write("<tr>");
+		document.write("<td>");
+
+		if (bHideATT == false) {
+			document
+					.write("<a href=\"http://www.att.com\"><img border=0 src=\"https://www.e-access.att.com//faq/eiam/static/en/csp/default/images/logo_homepage2.gif\" width=150 height=79></a>");
+		} else {
+			if (bShowCricket == true) {
+				document
+						.write("<a href=\"http://www.cricketwireless.com\"><img border=0 src=\"https://www.e-access.att.com//faq/eiam/static/en/csp/default/images/cricket2.png\"></a>");
+			}
+		}
+
+		document.write("</td>");
+		document.write("<td>");
+		if (bIsCSPTest == true) {
+			if (bHideATT == false) {
+				document
+						.write("<font face=Arial size=5 color=#000000 black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AT&T Global Logon - TEST ENVIRONMENT</font>");
+			} else {
+				document
+						.write("<font face=Arial size=5 color=#000000 black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Global Logon - TEST ENVIRONMENT  </font>");
+			}
+		} else {
+			if (bHideATT == false) {
+				document
+						.write("<font face=Arial size=5 color=#000000 black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AT&T Global Logon</font>");
+
+			} else {
+				document
+						.write("<font face=Arial size=5 color=#000000 black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Global Logon  </font>");
+			}
+		}
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table>");
+
+		document
+				.write("<table width=\"100%\" border=0 cellspacing=0 cellpadding=0> ");
+		document.write("<tr>");
+		document.write("<td bgcolor=\"#336699\" height=\"16\">&nbsp;</td>");
+		document.write("</tr>");
+		document.write("</table>");
+
+		document.write("<br>");
+		document.write("<br>");
+
+		// SRP Start
+		// Added by srp 10/24/2000 to show error text on failed login attempts
+		// Set bShowRawErrors to 1 to show PD error information
+		var bShowRawErrors = 0;
+		if (bShowRawErrors) {
+			var emsg;
+			emsg = "";
+			if (emsg != "") {
+				if (emsg.indexOf("%ERR") != 0) {
+					document.write("<font size=-1 color=\"#FF0000\">");
+					document.write("<br>");
+					document.write(emsg);
+					document.write("<br>");
+					document.write("</font>");
+				}
+			}
+		}
+		// SRP End
+
+		var strPwdChecked = "";
+		var strTokenChecked = "";
+		var strTokenGChecked = "";
+		if (strAuthType == strPwd)
+			strPwdChecked = "CHECKED";
+		else if (strAuthType == strToken)
+			strTokenChecked = "CHECKED";
+		else if (strAuthType == strTokenGemalto)
+			strTokenGChecked = "CHECKED";
+
+		var strTokenOnly = "";
+		if (bTokenOnly == true)
+			strTokenOnly = "disabled=true";
+
+		document.write("<table border=1 align=center>");
+
+		document.write("<tr>");
+		document.write("<td align=center>");
+		if (strAuthType == strPwd) {
+			if (bATTOnly == true) {
+				document
+						.write("<font size=-1><a href=\"/iamportal-prod/iampwdmgmt/home#/home\"><b>Forgot password?</b></a>&nbsp;&nbsp;<a href=\"/iamportal-prod/iampwdmgmt/home#/home\"><b>Register New Password</b></a></font>");
+			} else {
+				document
+						.write("<font size=-1><a href=\"/usersvcs/accountmgt/acctmgtMenu\"><b>Forgot password?</b></a>&nbsp;&nbsp;<a href=\"/usersvcs/accountmgt/acctmgtMenu\"><b>Register New Password</b></a></font>");
+			}
+		} else {
+			document
+					.write("<font size=-1><b>Need help with your token?</b>&nbsp;<a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=token&aa=prod\">Click here.</a></font>");
+		}
+		document.write("</td>");
+		document.write("</tr>");
+
+		// SRP Start
+		// Added by srp 10/24/2000 to show error text on failed login attempts
+		var strError;
+		strError = getLoginError();
+		if (strError != null) {
+			document.write("<tr>");
+			document.write("<td align=left>");
+			document.write("<font size=-1 color=\"#FF0000\">");
+			document.write("<b>" + strError + "</b>");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+		// SRP End
+
+		if (bShowNonPrimaryUsage == true) {
+			document.write("<tr>");
+			document.write("<td align=left>");
+			document.write("<font size=-1 color=\"#FF0000\">");
+			document.write("<b>");
+			document
+					.write("You are accessing the AT&amp;T Global Logon secondary site and not using DNS to resolve to the primary site. This site will be disabled on 10/06/2014. Please work with your network administrator to use DNS (for internal and VPN users) or AT&amp;T DNS views (for AT&amp;T vendor locations) to resolve the AT&amp;T Global Logon URLs.  If you have the AT&amp;T Global Log on IP address stored in your local machine hosts file, please remove it and close all browsers.  For questions please send email to csp@att.com.");
+			document.write("</b>");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+
+		document.write("<tr>");
+		document.write("<td>");
+		document.write("<table border=0 align=center>");
+		document.write("<tr>");
+		document.write("<td align=center>");
+		document
+				.write("<input type=\"RADIO\" "
+						+ strTokenOnly
+						+ " name=\"authmethod\" onclick=\"handlePwdOrToken(strPwd);\" "
+						+ strPwdChecked
+						+ ">Password");
+
+		if (bSupportSafenet == true) {
+			document.write("&nbsp;&nbsp;");
+		} else {
+			document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+		}
+		document
+				.write("<input type=\"radio\" name=\"authmethod\" onclick=\"handlePwdOrToken(strToken);\" "
+						+ strTokenChecked
+						+ ">SecurID<sup>&reg;</sup>&nbsp;Token");
+
+		if (bSupportSafenet == true) {
+			//document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			document.write("&nbsp;&nbsp;");
+			document.write("<span style=\"white-space: nowrap;\">");
+			document
+					.write("<input type=\"radio\" name=\"authmethod\" onclick=\"handlePwdOrToken(strTokenGemalto);\" "
+							+ strTokenGChecked
+							+ ">SAFENet<sup>&reg;</sup>&nbsp;Token");
+			document.write("</span>");
+		}
+
+		document.write("</td>");
+		document.write("</tr>");
+
+		document.write("<tr>");
+		document.write("<td>");
+
+		if (strAuthType == strPwd)
+			showPwd();
+		else
+			showToken(strAuthType);
+
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table>");
+
+		document.write("<br>");
+		document.write("<p align=center>");
+		document.write("<font size=-1>");
+		//document.write("Need Help?");
+		//document.write("<br>");
+		//if ( bATTOnly == true )
+		//document.write("<a href=\"/iamportal-prod/iampwdmgmt/home#/home\">Need help?&nbsp;&nbsp;Forgot your password?</a>");
+		//else
+		//document.write("<a href=\"/usersvcs/accountmgt/acctmgtMenu\">Need help?&nbsp;&nbsp;Forgot your password?</a>");
+		//document.write("<br>");
+		//document.write("AT&amp;T Associates with an ATTUID or HRID should visit the ");
+		//document.write("<a href=\"/iamportal-prod/iampwdmgmt/home#/home\">Password Management</a> site or the Password <a href=\"/empsvcs/hrpinmgt/faq.asp\">FAQs</a>.");
+		//document.write("<br>");
+		//document.write("Non-AT&amp;T Associates should visit the ");
+		//document.write("<a href=\"/usersvcs/accountmgt/acctmgtMenu\">Password Management</a> site or the <a href=\"/usersvcs/accountmgt/faq.html\">FAQs</a>.");
+		if (bShowBD == true) {
+			var strFAQOffset;
+
+			if (strAuthType == strPwd)
+				strFAQOffset = "7.1";
+			else
+				strFAQOffset = "7.2";
+
+			document.write("<br>");
+			document
+					.write("<a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html"
+							+ strFAQOffset
+							+ "&aa=prod\">FAQs</a>");
+			document
+					.write("for BusinessDirect users. ");
+		}
+		//if ( bShowBD == false && bATTOnly == false )
+		if (bShowBD == false) {
+			//document.write("<br>");
+			//document.write("<br>");
+			if (bHideATT == false) {
+				if (bATTOnly == false) {
+					document
+							.write("<sup>*</sup>AT&T Employees should use their   ");
+					document.write("<br>");
+					document
+							.write("<a href=\"/iamportal-prod/iampwdmgmt/home#/home\">Password help for AT&T Employees/Contractors</a>");
+				} else {
+					document
+							.write("<sup>*</sup>Active AT&T Employees should use their ATTUID");
+					document.write("<br>");
+					//document.write("<sup>*</sup>AT&amp;T Retirees should use their HRID");
+				}
+			}
+		}
+		document.write("<br>");
+		document
+				.write("What is <a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=token&aa=prod\">SecurID<sup>&reg;</sup>&nbsp;Token</a>?");
+
+		if (bSupportSafenet == true) {
+			document.write("<br>");
+			document
+					.write("What is <a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=SafeNet&aa=prod\">SAFENet<sup>&reg;</sup>&nbsp;Token</a>?");
+
+		}
+
+		if (strAuthType != strPwd) {
+			var bShowSoftToken = false;
+			if (bSetupSoftwareToken == true) {
+				if (strSoftOrHardTokenVal != null)
+					if (strSoftOrHardTokenVal == strTokenSoft)
+						bShowSoftToken = true;
+			}
+
+			document.write("<br>");
+			/* 			if (bShowSoftToken == true) {
+			 document
+			 .write("What value should be used for the <a href=\"/empsvcs/hrpinmgt/faq.asp?book=5.13\"></a> field?");
+			 } else {
+			 document
+			 .write("What value should be used for the <a href=\"/empsvcs/hrpinmgt/faq.asp?book=tokenvalue\">Token PIN</a> and <a href=\"/empsvcs/hrpinmgt/faq.asp?book=tokenvalue\">Token Display</a> fields?");
+			 } */
+		}
+
+		document.write("</font>");
+		document.write("</p>");
+		document.write("<br>");
+
+		if (bHideATT == false) {
+			document.write("<!--COPYRIGHT-->");
+			document.write("<p class=\"copyright\">");
+			document.write("<font size=\"1\">");
+			document
+					.write("&nbsp;<a target=\"_top\" href=\"http://www.att.com/terms\">Terms and Conditions</a>.");
+			document
+					.write("&nbsp;<a target=\"_top\" href=\"http://www.att.com/privacy\">Privacy Policy</a>.");
+			document.write("<br>");
+			document
+					.write("&nbsp;Copyright © 2016 AT&T. All rights reserved.");
+			document.write("</font>");
+			document.write("</p>");
+			document.write("<!--/COPYRIGHT-->");
+
+			document.write("<!--");
+			document.write("@(#)cspdev_internet.html	1.3 03/31/03 11:51:52");
+			document.write("-->");
+			document.write("");
+			document.write("<!--DEVBY-->");
+			document.write("<p>");
+			document.write("<font face=Arial size=\"1\">");
+			document
+					.write("&nbsp;Developed by:<br> ");
+			document
+					.write("&nbsp;The AT&T Common Security Platform");
+			document.write("<br>&nbsp;agws08lr02 - Internet-facing&nbsp;");
+			document.write("</font>");
+			document.write("</p>");
+			document.write("<!--/DEVBY-->");
+			document.write("");
+		}
+
+		document.write("</form>");
+
+		if (bIsCSPTest == true) {
+			//document.bgColor = "#FFCCFF";
+			document.body.style.backgroundColor = "#FFCCFF";
+		}
+
+		//document.close();
+	}
+
+	function showPwd() {
+		var bShowBD = getShowBD();
+
+		document.write("<table border=0 align=center>");
+		document.write("<tr>");
+		document.write("<th align=right id=\"lblUserID\">");
+		document.write(getUserIDText(bShowBD));
+		document.write("</th>");
+		//document.write("<td align=left><input type=TEXT name=\"userid\" value=\"\" MAXLENGTH=128 SIZE=30></td>");
+		document
+				.write("<td align=left><input type=TEXT name=\"userid\" value=\""
+						+ getUserName() + "\" MAXLENGTH=128 SIZE=30></td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<td colspan=2>");
+		document
+				.write("<input type=hidden name=\"username\" value=\"\" MAXLENGTH=128 SIZE=30>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<th align=right>");
+		document.write("Password :");
+		document.write("</th>");
+		document
+				.write("<td align=left><input type=password name=\"password\" value=\"\" MAXLENGTH=46 SIZE=30 autocomplete=\"off\">");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<td colspan=2>");
+		document
+				.write("<input type=hidden name=\"login-form-type\" value=\"pwd\">");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		if (bNoLoginButton == true) {
+			document.write("<td align=center colspan=2>");
+			document.write("<font size=-1 color=\"#FF0000\">");
+			document.write("<b>");
+			document
+					.write("<label ID=lblSubmit>Logins are disabled at this site - see above.</label>");
+			document.write("</b>");
+			document.write("</font>");
+			document.write("</td>");
+		} else {
+			document
+					.write("<td align=center colspan=2><input type=\"submit\" name=\"btnSubmit\" value=\"  OK  \" onClick=\"if (setReqURL()==false) return false; if (checkCookiesAtField(userid)) return true; else return false;\"></td>");
+		}
+		document.write("</tr>");
+
+		if (bSetupRememberMe == true) {
+			var strRememberMeChk = "";
+
+			if (strStateVal != null)
+				if (strStateVal == strStateRemember)
+					strRememberMeChk = "CHECKED";
+
+			document.write("<tr>");
+			document.write("<td align=left colspan=2>");
+			document.write("<font size=-1>");
+			document
+					.write("<input type=\"checkbox\" style=\"font-size:10\" name=\"chkRememberMe\" onClick=\"handleRememberMe(this)\" "
+							+ strRememberMeChk
+							+ "><a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=4.5&aa=prod\">Remember Me</a> (and my settings) on this computer  ");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+
+		if (bShowBD == true) {
+			document.write("<tr>");
+			document.write("<td align=center colspan=2>");
+			document.write("<hr width=\"100%\" size=2");
+			document.write("</td>");
+			document.write("</tr>");
+			document.write("<tr>");
+			document.write("<td align=center colspan=2>");
+			document.write("<font size=-1>");
+			document.write("<center>-OR-</center>");
+			document.write("</font>");
+			document
+					.write("<input type=button style=\"font-size:10\" name=\"btnBD\" value=\"Log On\" onClick=\"doBD(true, true)\">");
+			document.write("<font size=-1>");
+			document
+					.write("<LABEL ID=lblBD>&nbsp;with your BusinessDirect User Name</LABEL>");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+		document.write("</table>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table>");
+	}
+
+	function showToken(strAuthType) {
+		var bShowDebug = false;
+		var bTokenAdvanced = false;
+		var bDefaultToken = true;
+		var bShowBD = getShowBD();
+		var bBDOnly = getBDOnly();
+
+		if (strTokenTypeVal != null) {
+			if (strTokenTypeVal == strTokenAdvanced)
+				bTokenAdvanced = true;
+			if (strTokenUserVal != null)
+				if (strTokenUserVal != "")
+					bDefaultToken = false;
+		}
+
+		document.write("<table border=0 align=center>");
+		// set width to allow centering of labels and input boxes
+		document.write("<tr>");
+		document.write("<td width=300 colspan=2></td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<th width=50% align=right id=\"lblUserID\">");
+		document.write(getUserIDText(bShowBD));
+		document.write("</th>");
+		//document.write("<td align=left><input type=TEXT name=\"userid\" value=\"\" MAXLENGTH=128 SIZE=9></td>");
+		document
+				.write("<td align=left><input type=TEXT name=\"userid\" value=\""
+						+ getUserName() + "\" MAXLENGTH=128 SIZE=9></td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document
+				.write("<td><input type=hidden name=\"username\" value=\"\" MAXLENGTH=128 SIZE=9>");
+		document.write("</td>");
+		document.write("</tr>");
+		if (bShowBD == true) {
+			var strBDChecked = "";
+
+			if (bBDOnly == true)
+				strBDChecked = "CHECKED";
+			else
+				strBDChecked = "";
+			document.write("<tr>");
+			document.write("<td align=center colspan=2>");
+			document.write("<font size=-1>");
+			document
+					.write("<input type=\"checkbox\" style=\"font-size:10\" name=\"chkBD\" onclick=\"showUserID();\" "
+							+ strBDChecked
+							+ ">This is a BusinessDirect User Name");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+		document.write("<tr>");
+		document.write("<td colspan=2>&nbsp;</td>");
+		document.write("</tr>");
+
+		var bShowSoftToken = false;
+		if (bSetupSoftwareToken == true) {
+			if (strSoftOrHardTokenVal != null)
+				if (strSoftOrHardTokenVal == strTokenSoft)
+					bShowSoftToken = true;
+		}
+		if (strAuthType == strTokenGemalto)
+			bShowSoftToken = true;
+
+		var strPINVal = "";
+		if (bAllowTokenPINSave == true) {
+			if (strTokenPINVal != null)
+				if (strTokenPINVal != "")
+					strPINVal = strTokenPINVal;
+		}
+
+		if (bShowSoftToken == true) {
+			document.write("<tr>");
+			document
+					.write("<th align=right>Passcode:</th>");
+			document
+					.write("<td align=left><input type=text name=\"tokenpin\" value=\"" + strPINVal + "\" MAXLENGTH=46 SIZE=32></td>");
+			document.write("</tr>");
+			document.write("<tr>");
+			document
+					.write("<td><input type=hidden name=\"tokendisplay\" value=\"\" MAXLENGTH=8 SIZE=8>");
+			document.write("</td>");
+			document.write("</tr>");
+		} else {
+			document.write("<tr>");
+			document
+					.write("<th align=right>Token PIN:</th>");
+			document
+					.write("<td align=left><input type=password name=\"tokenpin\" value=\"" + strPINVal + "\" MAXLENGTH=46 SIZE=10 autocomplete=\"off\"></td>");
+			document.write("</tr>");
+			document.write("<tr>");
+			document
+					.write("<th align=right>Token Display :</th>");
+			document
+					.write("<td align=left><input type=text name=\"tokendisplay\" value=\"\" MAXLENGTH=8 SIZE=8 autocomplete=\"off\"></td>");
+			document.write("</tr>");
+		}
+
+		//document.write("<tr>");
+		//document.write("<th align=right>Token Authority:</th>");
+		//document.write("<td align=left>");
+		//document.write("<select name=\"SelectTokenAuth\" size=\"1\">");
+		//document.write("<option selected value=\"(Default)\">Use My Default Token</option>");
+		//document.write("<option value=\"DUGN\">AT&amp;T UGN SecurID<sup>&reg;</sup>&nbsp;Token</option>");
+		//document.write("<option value=\"TAMS\">Token Authentication Mgmt Serv</option>");
+		//document.write("<option value=\"sbux\">Token Authentication Mgmt Serv-SB</option>");
+		//document.write("<option value=\"delphi\">Token Authentication Mgmt Serv-D</option>");
+		//document.write("<option value=\"Test\">Test Token Service</option>");
+		//document.write("</select>");
+		//document.write("</td>");
+		//document.write("</tr>");
+		document.write("<tr>");
+		document
+				.write("<td><input type=hidden name=\"tokenuser\" value=\"\" MAXLENGTH=128 SIZE=9>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document
+				.write("<td><input type=hidden name=\"passcode\" value=\"\" MAXLENGTH=30 SIZE=30>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document
+				.write("<td><input type=hidden name=\"password\" value=\"\" MAXLENGTH=30 SIZE=30>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<td colspan=2>");
+		document
+				.write("<input type=hidden name=\"login-form-type\" value=\"token\">");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		if (bNoLoginButton == true) {
+			document.write("<td align=center colspan=2>");
+			document.write("<font size=-1 color=\"#FF0000\">");
+			document.write("<b>");
+			document
+					.write("<label ID=lblSubmit>Logins are disabled at this site - see above.</label>");
+			document.write("</b>");
+			document.write("</font>");
+			document.write("</td>");
+		} else {
+			document
+					.write("<td align=center colspan=2><input type=\"submit\" name=\"btnSubmit\" value=\"  OK  \" onClick=\"if (setReqURL()==false) return false; if (checkCookiesAtField(userid)) return true; else return false;\"></td>");
+		}
+		document.write("</tr>");
+
+		if (bSetupRememberMe == true) {
+			var strRememberMeChk = "";
+
+			if (strStateVal != null)
+				if (strStateVal == strStateRemember)
+					strRememberMeChk = "CHECKED";
+
+			document.write("<tr>");
+			document.write("<td align=left colspan=2>");
+			document.write("<font size=-1>");
+			document
+					.write("<input type=\"checkbox\" style=\"font-size:10\" name=\"chkRememberMe\" onClick=\"handleRememberMe(this)\" "
+							+ strRememberMeChk
+							+ "><a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=4.5&aa=prod\">Remember Me </a> (and my settings) on this computer ");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+
+		if (bSetupSoftwareToken == true && strAuthType == strToken) {
+			var strSoftTokenChk = "";
+
+			if (strSoftOrHardTokenVal != null)
+				if (strSoftOrHardTokenVal == strTokenSoft)
+					strSoftTokenChk = "CHECKED";
+
+			document.write("<tr>");
+			document.write("<td align=left colspan=2>");
+			document.write("<font size=-1>");
+			document
+					.write("<input type=\"checkbox\" style=\"font-size:10\" name=\"chkSoftToken\" onClick=\"handleSoftwareToken(this)\" "
+							+ strSoftTokenChk
+							+ ">I am using a<a href=\https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=5.2&aa=prod\">&nbsp;software token</a>");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+
+		if (bAllowTokenPINSave == true) {
+			var strRememberPINChk = "";
+
+			if (strTokenPINVal != null)
+				if (strTokenPINVal != "")
+					strRememberPINChk = "CHECKED";
+
+			document.write("<tr>");
+			document.write("<td align=left colspan=2>");
+			document.write("<font size=-1>");
+			document
+					.write("<input type=\"checkbox\" style=\"font-size:10\" name=\"chkRememberPIN\" " + strRememberPINChk + ">Remember Token PIN");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+
+		document.write("</table>");
+
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table>");
+
+		document.write("<tr>");
+		document.write("<td>");
+		document.write("<table border=0 align=center width=100%>");
+
+		if (bTokenAdvanced == true) {
+			var strDefaultChecked = "";
+			var strDifferentChecked = "";
+			if (bDefaultToken == true)
+				strDefaultChecked = "CHECKED";
+			else
+				strDifferentChecked = "CHECKED";
+
+			document.write("<tr>");
+			document.write("<td align=center colspan=2>");
+			document.write("<table border=0>");
+			document.write("<tr>");
+			document.write("<td align=left>");
+			document
+					.write("<input type=\"RADIO\" name=\"tokendefault\" onclick=\"handleTokenDefault(true);\" "
+							+ strDefaultChecked
+							+ ">Use my default token ");
+			document.write("</td>");
+			document.write("</tr>");
+			document.write("<tr>");
+			document.write("<td align=left>");
+			document
+					.write("<input type=\"RADIO\" name=\"tokendefault\" onclick=\"handleTokenDefault(false);\" "
+							+ strDifferentChecked
+							+ ">Enter a different token user name below");
+			document.write("</td>");
+			document.write("</tr>");
+			document.write("</table>");
+			document.write("</td>");
+			document.write("</tr>");
+			document.write("<tr>");
+			document.write("<td>");
+			document.write("<table border=0>");
+			document.write("<tr>");
+			document
+					.write("<th align=right id=\"lblTUN\">Token User Name :</th>");
+			document.write("</tr>");
+			document.write("<tr>");
+			document.write("<td align=center>");
+			document.write("<font size=-2>");
+			document
+					.write("<a href=\"https://www.e-access.att.com//faq/eiam/static/en/csp/csp_ext/html/faq.html?book=tokenvalue&aa=prod\">Learn More </a>");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+			document.write("</table>");
+			document.write("<td align=left valign=top>");
+			var strValue = "";
+			if (strTokenUserVal != null)
+				strValue = strTokenUserVal;
+			document
+					.write("<input type=text name=\"tokenauth\" value=\"" + strValue + "\" MAXLENGTH=30 SIZE=20>");
+			document.write("</td>");
+			document.write("</tr>");
+			handleTokenDefault(bDefaultToken);
+		}
+
+		document.write("<tr>");
+		if (bTokenAdvanced == true) {
+			document.write("<td align=right colspan=2>");
+			document
+					.write("<input type=button style=\"font-size:10\" name=\"btnAdv\" value=\"Basic\" onClick=\"handleAdvanced(this)\">");
+		} else {
+			document.write("<td align=right>");
+			document
+					.write("<input type=button style=\"font-size:10\" name=\"btnAdv\" value=\"Advanced\" onClick=\"handleAdvanced(this)\">");
+		}
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table>");
+	}
+
+	function showIsurveyLogin() {
+		document
+				.write("<form name=\"frmLogin\" method=post action=\"/pkmslogin.form\" onsubmit=\"return(doSubmit());\">");
+		document.write("<p>");
+		document.write("<div align=\"center\">");
+		document.write("<center>");
+
+		document.write("<table border=1 align=center>");
+		document.write("<tr>");
+		document.write("<td>");
+		document.write("<table border=0 align=center>");
+
+		var strError;
+		strError = getLoginError();
+		if (strError != null) {
+			document.write("<tr>");
+			document.write("<td colspan=2>");
+			document.write("<font size=-1 color=\"#FF0000\">");
+			document.write("<b>" + strError + "</b>");
+			document.write("</font>");
+			document.write("</td>");
+			document.write("</tr>");
+		}
+
+		document.write("<tr>");
+		document.write("<th align=right>");
+		document.write("UserID :");
+		document.write("</th>");
+		document
+				.write("<td align=left><input type=TEXT name=\"userid\" value=\"\" MAXLENGTH=128 SIZE=30></td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<td colspan=2>");
+		document
+				.write("<input type=hidden name=\"username\" value=\"\" MAXLENGTH=128 SIZE=30>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<th align=right>");
+		document.write("Password:");
+		document.write("</th>");
+		document
+				.write("<td align=left><input type=password name=\"password\" value=\"\" MAXLENGTH=46 SIZE=30 autocomplete=\"off\">");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document.write("<td colspan=2>");
+		document
+				.write("<input type=hidden name=\"login-form-type\" value=\"pwd\">");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("<tr>");
+		document
+				.write("<td align=center colspan=2><input type=submit name=\"btnSubmit\" value=\"  OK  \" onClick=\"if (setReqURL()==false) return false; if (checkCookiesAtField(userid)) return true; else return false;\"></td>");
+		if (bNoLoginButton == true) {
+			document.write("<td align=center colspan=2>");
+			document.write("<font size=-1 color=\"#FF0000\">");
+			document.write("<b>");
+			document
+					.write("<label ID=lblSubmit>Logins are disabled at this site - see above.</label>");
+			document.write("</b>");
+			document.write("</font>");
+			document.write("</td>");
+		} else {
+			document
+					.write("<td align=center colspan=2><input type=\"submit\" name=\"btnSubmit\" value=\"  OK  \" onClick=\"if (setReqURL()==false) return false; if (checkCookiesAtField(userid)) return true; else return false;\"></td>");
+		}
+		document.write("</tr>");
+		document.write("</table>");
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table>");
+
+		document.write("</center>");
+		document.write("</div>");
+		document.write("</form>");
+
+		if (document.frmLogin.userid.value.length > 0)
+			document.frmLogin.password.focus();
+		else
+			document.frmLogin.userid.focus();
+	}
+
+	function DeviceTypeChangeCss() {
+		var agent = navigator.userAgent;
+		if (agent.match(/iPhone/i) || agent.match(/iPad/i)
+				|| agent.match(/Android/i)) {
+			var bIsCSPTest = isCSPTestSystem();
+			var bgColor = "#ddd";
+			if (bIsCSPTest == true) {
+				bgColor = "#ffccff";
+			}
+
+			document.styleSheets[0]
+					.insertRule(
+							"body {font:12px arial; margin:0 auto; -webkit-text-size-adjust:none; color:#333; background:-webkit-gradient(linear, center bottom, center top, color-stop(0.0, "
+									+ bgColor + "), color-stop(0.85, #fff));}",
+							1);
+			document.styleSheets[0]
+					.insertRule(
+							"table {width:100%; border-collapse:collapse; border:none; font-size:12px;}",
+							0);
+			document.styleSheets[0].insertRule(
+					"a {text-decoration:none; color:#0094D7;}", 0);
+			document.styleSheets[0].insertRule("a b {font-weight:normal;}", 0);
+			document.styleSheets[0].insertRule("br {display:none;}", 0);
+			document.styleSheets[0].insertRule(
+					"p {margin:7px 10px; text-align:left;}", 0);
+			document.styleSheets[0].insertRule("p font br {display:block;}", 0);
+			document.styleSheets[0].insertRule(
+					"p:last-child {color:#666; line-height:1;}", 0);
+			document.styleSheets[0].insertRule(
+					"form>table:nth-child(1) font {font-size:20px;}", 0);
+			document.styleSheets[0].insertRule(
+					"form>table:nth-child(1) tr td:nth-child(1) {width:20%;}",
+					0);
+			document.styleSheets[0]
+					.insertRule(
+							"form>table:nth-child(1) tr td:nth-child(2) font {margin-left:-55px}",
+							0);
+			document.styleSheets[0]
+					.insertRule(
+							"table:nth-child(2) {font-size:0px; height:5px; margin:0 0 10px; z-index:10;;}",
+							0);
+			document.styleSheets[0].insertRule(
+					"table:nth-child(2) td {height:5px; background:#ff7200;}",
+					0);
+			document.styleSheets[0]
+					.insertRule(
+							"table:nth-child(5) {width:94%; background:#fff; border:1px solid #ccc; -webkit-box-shadow:0 0 5px #aaa; box-shadow:0 0 5px #aaa; }",
+							0);
+
+			document.styleSheets[0]
+					.insertRule(
+							"table:nth-child(5)>tbody>tr:first-child {background:-webkit-gradient(linear, center bottom, center top, color-stop(0.0, #dcdcdc), color-stop(1.0, #fff));}",
+							0);
+
+			document.styleSheets[0]
+					.insertRule(
+							"table:nth-child(5)>tbody>tr:first-child a {margin:0 5px;}",
+							0);
+		}
+	}
+
+	//DeviceTypeChangeCss();
+//-->
+</script>
+</head>
+
+<!--
+<body bgcolor="white" onload="checkCookiesOnLoad(); setFocus();">
+-->
+<body style="" onload="checkCookiesOnLoad(); setFocus();">
+<script type="text/javascript">
+//<!--
+start();
+//-->
+</script>
+<form name="frmDummy"></form>
+  <!--  Pop-up window -- start -->
+   <div id="popupWindow" class="popup">
+
+	<div>
+		<a href="#close" title="Close" onClick="closePopupWindow('popupWindow');" class="close">X</a>
+		<br/><h3>&nbsp;&nbsp;&nbsp;Select the language</h3>
+		<table cellpadding="2" cellspacing="10">
+         <tr>
+            <td>
+               <input type="radio" name="language"  id="englishRadio" value="English" checked> English
+            </td>
+            <td>
+             <input type="radio" name="language" id="spanishRadio"  value="Spanish"> Español
+            </td>
+         </tr>
+         <tr>
+            <td>
+            </td>
+            <td align="center">
+                <a href="#" onClick="saveButtonClick();"  class="saveButton">Save</a>  
+               <a href="#" onClick="closePopupWindow('popupWindow');"  class="cancelButton">Cancel</a>
+            </td>
+         </tr>
+       </table>
+	</div>
+ 
+  </div>
+
+ <div id="popupWindow_bg" class="popup_bg"></div> 
+  <!--  Pop-up window -- end -->
+</body>
+
+</html>
+

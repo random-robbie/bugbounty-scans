@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="format-detection" content="telephone=no">
+        <title></title>
+        <link rel='shortcut icon' type='image/x-icon' href="css/img/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no" />
+
+        <script>
+            var is_ie_lt9 = false;
+            var is_ie8 = false;
+            var app;
+        </script>
+        <!--[if lte IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!--[if IE 8]>
+        <link rel="stylesheet" media="all" href="css/ie8.css" />
+        <link rel="stylesheet" media="all" href="css/ie8_brand.css" />
+        <script>
+                is_ie8 = true;
+            </script>
+        <![endif]-->
+
+        <!--[if lte IE 9 ]>
+        <link rel="stylesheet" media="all" href="css/ie9.css" />
+        <link rel="stylesheet" media="all" href="css/ie9_brand.css" />
+            <script>
+                is_ie_lt9 = true;
+            </script>
+        <![endif]-->
+        <!--[if lte IE 8]>
+            <script src="libs/jqplot/plugins/excanvas.min.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript" src="libs/jquery-1.9.1/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="libs/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="libs/jquery-hashchange-1.3/jquery.ba-hashchange.js"></script>
+        <script type="text/javascript" src="libs/knockout-3.4.0/knockout-3.4.0.js"></script>
+        <script type="text/javascript" src="libs/sprintf/sprintf.js"></script>
+        <script type="text/javascript" src="libs/mustache/mustache.js"></script>
+        <script type="text/javascript" src="libs/md5/md5.min.js"></script>
+        <script type="text/javascript" src="libs/ie-eight.js"></script>
+        <script type="text/javascript" src="libs/resumble/resumable.js"></script>
+        <script type="text/javascript" src="libs/jqplot/jquery.jqplot.min.js"></script>
+        <script type="text/javascript" src="libs/jqplot/plugins/jqplot.barRenderer.min.js"></script>
+        <script type="text/javascript" src="libs/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script type="text/javascript" src="libs/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+        <script type="text/javascript" src="libs/jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script type="text/javascript" src="libs/jqplot/plugins/jqplot.pointLabels.min.js"></script>
+        <script type="text/javascript" src="libs/jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+        <script type="text/javascript" src="libs/fileTree/jqueryFileTree.js"></script>
+        <script type="text/javascript" src="libs/stickyTableHeaders/jquery.stickytableheaders.min.js"></script>
+        <script type="text/javascript" src="libs/knockout-jqueryui/knockout-jqueryui.min.js"></script>
+
+        <script type="text/javascript" src="libs/jssip/jssip-devel.js"></script>
+        <script type="text/javascript" src="libs/lodash/lodash.min.js"></script>
+        
+        <script type="text/javascript" src="libs/moment/moment-with-locales.min.js"></script>
+        <script type="text/javascript" src="libs/eonasdan-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap-tagsinput/bootstrap3-typeahead.min.js"></script>
+
+        <script type="text/javascript" src="labssoft-web-min.js"></script>
+        <link rel="stylesheet" media="all" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" media="all" href="css/bootstrap-theme.min.css" />
+
+        <!-- <link rel="stylesheet" media="all" href="css/reset.css" /> -->
+        
+        <link rel="stylesheet" media="all" href="libs/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+        <link rel="stylesheet" media="all" href="libs/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css" />
+        <link rel="stylesheet" media="all" href="libs/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.css" />
+        <link rel="stylesheet" href="libs/eonasdan-bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+        <link rel="stylesheet" media="all" href="css/style.css" />
+        
+        <!--<link rel="stylesheet" media="all" href="css/style_brand.css" />-->
+        <link rel="stylesheet" media="all" href="libs/jqplot/jquery.jqplot.min.css"/>
+        <link rel="stylesheet" media="all" href="libs/fileTree/jqueryFileTree.css"/>
+        <link rel="stylesheet" media="all" href="libs/fileTree/jqueryFileTree.css"/>
+
+        <link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
+        
+
+        <script type="text/javascript">
+            var ie_dummy_timer;
+            function putPlaceholders() {
+            };
+
+            function setPassFake(input){
+                input.css('color', 'black');
+                //input.hide(); //hide original
+                
+                
+                if(!$(".right #fakepass").length && $(".right #login-form").length){
+                    $(".right #login-form").after('<input tabindex="2" type="text" id="fakepass" value="' + input.attr('placeholder') + '" placeholder="' + input.attr('placeholder') + '" data-bind="' + input.attr('data-bind') + '" class="' + input.attr('class') + '"/>');
+                    $("#fakepass").width($(input).width());
+                    $("#fakepass").css("margin","auto");
+                    $("#fakepass").css("margin-top","-222px");
+                    $(".right #login-form").css("height","310px");
+                    var prevVal = "";
+                    ie_dummy_timer = window.setInterval(function(){
+                        if($("#password").val()!=prevVal) $("#password").change();
+                        prevVal = $("#password").val();
+                    }, 500);
+                }else if(!$(input).parent().find("#fakepass").length && !$(".right #login-form").length){
+                    input.after('<input type="text" id="fakepass" value="' + input.attr('placeholder') + '" placeholder="' + input.attr('placeholder') + '" data-bind="' + input.attr('data-bind') + '" class="' + input.attr('class') + '"/>');
+                }else if($(".right #login-form").length){
+                    $("#fakepass").width($(input).width());
+                }
+                
+                
+                
+                $('#fakepass').focus(function() { //on focus show original field
+                    $(this).hide();
+                    input.show().focus();
+                });
+                $('#password').focus(function() { //on focus show original field
+                    $('#fakepass').hide();
+                    input.show();
+                });
+                
+                $(input).change(function(){
+                    if($("#password").val()!=""){
+                        $('#fakepass').hide();
+                        input.show();
+                    }
+                });
+                $( document ).delegate( input, "DOMAutoComplete", function() {
+                    $('#fakepass').hide();
+                    input.show().focus();
+                });
+                
+            }
+            
+            function setupLogin(){
+                var usernamePlaceholder = $(".right #login-form #login-user").attr("placeholder");
+                var passwordPlaceholder = $(".right #login-form #password").attr("placeholder");
+                var submitLabel = $(".right #login-form #login-submit").val();
+                
+                $("#ie-dummy-holder form #login-user").attr("placeholder",usernamePlaceholder);
+                $("#ie-dummy-holder form #password").attr("placeholder",passwordPlaceholder);
+                $("#ie-dummy-holder form #login-submit").val(submitLabel);
+                
+                $(".right #login-form #login-user").replaceWith($("#ie-dummy-holder form #login-user"));
+                $(".right #login-form #password").replaceWith($("#ie-dummy-holder form #password"));
+                $(".right #login-form #login-submit").replaceWith($("#ie-dummy-holder form #login-submit"));
+                $("#ie-dummy-holder form").remove();
+                ko.applyBindings(ko.dataFor($(".right #login-form")[0]), $(".right #login-form #login-user")[0]);
+                ko.applyBindings(ko.dataFor($(".right #login-form")[0]), $(".right #login-form #password")[0]);
+                putPlaceholders();
+            }
+            
+            function setLogin(){
+            }
+            
+            function initializeGoogleMaps(){};
+            function loadGoogleMapsAPI() {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = window.location.protocol+'//maps.googleapis.com/maps/api/js?v=3&key='+Resources.getMessage("config_google_maps_api_key")+'&libraries=places&callback=initializeGoogleMaps&sensor=false';
+                document.body.appendChild(script);
+            }
+            $(function() {
+                if (!app) {
+                    Application.loadResources();
+                    app = new Application($(".app-wrapper"));
+                    app.init().start();
+                }
+
+                setLogin();
+                
+                document.title = Resources.getMessage("application_page_title");
+
+                //$('[data-toggle="tooltip"]').tooltip({trigger:'hover', 'delay': { "show": 500, "hide": 100 }});
+                //$('[title]').tooltip({trigger:'hover', 'delay': { "show": 500, "hide": 100 }});
+                //$(document).tooltip();
+                $('body').tooltip({selector: "[title]", trigger:'hover','delay': { "show": 500, "hide": 100 }});
+
+                //fix drop down cut out at bottom of page 
+                $(document).on("shown.bs.dropdown", ".dropdown", function () {
+                    // calculate the required sizes, spaces
+                    var $ul = $(this).children(".dropdown-menu");
+                    var $button = $(this).children(".dropdown-toggle");
+                    var ulOffset = $ul.offset();
+                    var ulHeight = $ul.outerHeight();
+                    var ulPadding = $ul.css('padding-top') + $ul.css('padding-bottom');
+                    // how much space would be left on the top if the dropdown opened that direction
+                    var spaceUp = (ulOffset.top - $button.height() - ulHeight) - $(window).scrollTop();
+                    // how much space is left at the bottom
+                    var spaceDown = $(window).scrollTop() + $(window).height() - (ulOffset.top + ulHeight);
+                    // switch to dropup only if there is no space at the bottom AND there is space at the top, or there isn't either but it would be still better fit
+                    if (spaceDown < 10 && (spaceUp >= 10 || spaceUp > spaceDown)){
+                      $(this).addClass("dropup");
+                    }
+                }).on("hidden.bs.dropdown", ".dropdown", function() {
+                    // always reset after close
+                    $(this).removeClass("dropup");
+                });
+
+                $(document).on("keydown", '[tabindex="0"]', function(e) {
+
+                    if (e.keyCode == 13) { // enter
+                        var element = e.target;
+                        element.click();
+                        return false;
+                    }
+                });
+
+                $(document).on("keydown", "ul", function(e) {
+                    //if($(this).is("ul")){
+
+
+                        // if($(this).find("li.selected").length == 0){
+                        //     $(this).find("li:visible").first().addClass("selected");
+                        // }
+                        var focused = $(this).find("li.selected:visible");
+                        if(focused.length == 0){
+                            focused = $(this).find("li:focus");
+                        }
+                        if(focused.length == 0){
+                            $(this).find("li:visible").first().addClass("selected");
+                        }
+
+                        if (e.keyCode == 13) { // enter
+
+                            var element = $(focused).find(':visible[data-bind*="click"][class!="selector"][type!="checkbox"]:first, :visible[data-bind*="adminLink"]:first');
+                            if (!element.is("a") || element.parents('.dropdown-menu').length == 0) {
+                                element.click();
+                            }
+
+                            if($(focused).hasClass("submenu-item") && element.attr("data-bind").indexOf("adminLink") == -1){
+                                return false;
+                            }
+                        }
+
+                        if (e.keyCode == 32){ //space
+                            var element = $(focused).find('.selector:first');
+                            var avatar = $(focused).find('.avatar-column:first');
+                            var more = $(focused).find('.more-menu-column:first');
+
+                            if(element.length > 0){
+                                element.show();
+                                var cb = element.find('input[type="checkbox"]');
+                                cb.focus();
+                                cb.click();
+                                if($(cb).is(":checked")){
+                                    if(avatar.length > 0){
+                                        avatar.css("display", "none");
+                                    }
+
+                                    if(more.length > 0){
+                                        more.css("display", "block");
+                                        more.css("visibility", "visible");
+                                    }
+                                }else{
+                                    if(avatar.length > 0){
+                                        avatar.css("display", "block");
+                                    }
+
+                                    if(more.length > 0){
+                                        more.css("display", "none");
+                                        more.css("visibility", "hidden");
+                                    }
+                                }
+                            }
+                        }
+
+                        if (e.keyCode == 38) { // up
+                            // var focused = $(this).find("li.selected");
+                            if($(focused).is(':offscreen')){
+                                var list = $(focused).parents('div.scroll-list')[0];
+                                var scrollTo = $(focused).position().top + $(list).scrollTop();
+                                if($(focused).position().top < 0){
+                                    scrollTo = scrollTo - 200;
+                                }
+                                $(list).animate(
+                                    {
+                                        scrollTop: scrollTo
+                                    }, 
+                                    200, 
+                                    function(){ 
+                                        $(focused).children().focus();
+                                    }
+                                );
+                            }
+                            if ($(focused).prev().length == 0) {
+                                $(focused).removeClass("selected");
+                                $(focused).siblings("li:visible:last").addClass("selected").children().focus();
+                                $(focused).siblings("li:visible:last").focus();
+                            } else {
+                                $(focused).removeClass("selected");
+                                $(focused).prevAll("li:visible:first").addClass("selected").children().focus();
+                                $(focused).prevAll("li:visible:first").focus();
+                            }
+                            return false;
+                        }
+                        if (e.keyCode == 40) { // down
+                            // var focused = $(this).find("li.selected");
+                            // console.log('top position ' + $(focused).position().top);
+                            if($(focused).is(':offscreen')){
+                                var list = $(focused).parents('div.scroll-list')[0];
+                                var scrollTo = $(focused).position().top + $(list).scrollTop();
+
+                                $(list).animate(
+                                    {
+                                        scrollTop: scrollTo
+                                    }, 
+                                    200, 
+                                    function(){ 
+                                        $(focused).children().focus();
+                                    }
+                                );
+                            }
+                            if ($(focused).next().length == 0) {
+                                $(focused).removeClass("selected");
+                                $(focused).siblings("li:visible:first").addClass("selected").children().focus();
+                                $(focused).siblings("li:visible:first").focus();
+                            } else {
+                                $(focused).removeClass("selected");
+                                var next = $(focused).nextAll("li:visible:first");
+                                $(focused).nextAll("li:visible:first").addClass("selected").children().focus();
+                                $(focused).nextAll("li:visible:first").focus();
+                            }
+                            return false;
+                        }
+                    //}
+                    //
+
+
+                });
+
+
+            
+            });
+
+            jQuery.expr.filters.offscreen = function(el) {
+                
+                var offscreen = (
+                        (el.offsetLeft + el.offsetWidth) < 0 
+                          || (el.offsetTop + el.offsetHeight) < 0
+                          || $(el).position().top < 0
+                          || (el.offsetLeft > window.innerWidth || $(el).position().top > (window.innerHeight - 200))
+                    )
+                
+                console.log('offscreen ' + offscreen);
+
+                return offscreen;
+            };
+            
+        </script>
+    </head>
+    <body x-ms-format-detection="none">
+        
+        <div class="app-wrapper"></div>
+        <div id="send-optin-popup" > </div>
+    </body>
+</html>
+<!--This software uses libraries from the FFmpeg project under the LGPLv2.1-->
+<!--"This software uses code of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a> and its source can be downloaded <a href=link_to_your_sources>here</a>"-->

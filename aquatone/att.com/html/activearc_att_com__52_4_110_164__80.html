@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<title>activeARC | WLAN Mobility Solution</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://activearc.att.com/wp-content/themes/activearc/style.css" />
+<link rel="pingback" href="https://activearc.att.com/xmlrpc.php" />
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/ico" href="/images/favicon.ico">
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="activeARC &raquo; Feed" href="https://activearc.att.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="activeARC &raquo; Comments Feed" href="https://activearc.att.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/activearc.att.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='contact-form-7-css'  href='https://activearc.att.com/wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
+<link rel='stylesheet' id='synved-shortcode-jquery-ui-css'  href='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/jqueryUI/css/snvdshc/jquery-ui-1.9.2.custom.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='synved-shortcode-layout-css'  href='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/style/layout.css' type='text/css' media='all' />
+<link rel='stylesheet' id='synved-shortcode-jquery-ui-custom-css'  href='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/style/jquery-ui.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fancybox-css'  href='https://activearc.att.com/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.8.min.css' type='text/css' media='screen' />
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/script/jquery.ba-bbq.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/script/jquery.scrolltab.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/core.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/widget.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/tabs.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/accordion.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/button.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/script/jquery-unselectable.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/mouse.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/jquery/ui/slider.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/script/base.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/synved-shortcodes/synved-shortcode/script/custom.js'></script>
+<link rel='https://api.w.org/' href='https://activearc.att.com/wp-json/' />
+<link rel="canonical" href="https://activearc.att.com/" />
+<link rel='shortlink' href='https://activearc.att.com/' />
+<link rel="alternate" type="application/json+oembed" href="https://activearc.att.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Factivearc.att.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://activearc.att.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Factivearc.att.com%2F&#038;format=xml" />
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//activearc.att.com/?wordfence_logHuman=1&hid=6DF202018007DEF3BCDFB4F70DA37535');
+</script>
+<style type="text/css">.synved-column-flow-start {
+clear:left;
+background:url(images/column_sep.png) no-repeat top right;
+}
+.synved-column-flow-hold {
+background:url(images/column_sep.png) no-repeat top right;
+}
+.synved-column-flow-hold > .synved-column-content {
+    margin-left: 0;
+    margin-right: 12px;
+}
+.snvdshc .ui-widget-header {
+    background: none;
+    border: none;
+    color: #222222;
+    font-weight: bold;
+}
+.snvdshc .ui-corner-all, .snvdshc .ui-corner-bottom, .snvdshc .ui-corner-left, .snvdshc .ui-corner-bl {
+    border-bottom-left-radius: 0px;
+}
+.snvdshc .ui-corner-all, .snvdshc .ui-corner-bottom, .snvdshc .ui-corner-right, .snvdshc .ui-corner-br {
+    border-bottom-right-radius: 0px;
+}</style>
+
+<!-- Easy FancyBox 1.6 using FancyBox 1.3.8 - RavanH (http://status301.net/wordpress-plugins/easy-fancybox/) -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var fb_timeout = null;
+var fb_opts = { 'overlayShow' : true, 'hideOnOverlayClick' : true, 'showCloseButton' : true, 'margin' : 20, 'centerOnScroll' : true, 'enableEscapeButton' : true, 'autoScale' : true };
+var easy_fancybox_handler = function(){
+	/* IMG */
+	var fb_IMG_select = 'a[href*=".jpg"]:not(.nolightbox,li.nolightbox>a), area[href*=".jpg"]:not(.nolightbox), a[href*=".jpeg"]:not(.nolightbox,li.nolightbox>a), area[href*=".jpeg"]:not(.nolightbox), a[href*=".png"]:not(.nolightbox,li.nolightbox>a), area[href*=".png"]:not(.nolightbox)';
+	jQuery(fb_IMG_select).addClass('fancybox image');
+	var fb_IMG_sections = jQuery('div.gallery');
+	fb_IMG_sections.each(function() { jQuery(this).find(fb_IMG_select).attr('rel', 'gallery-' + fb_IMG_sections.index(this)); });
+	jQuery('a.fancybox, area.fancybox, li.fancybox a').fancybox( jQuery.extend({}, fb_opts, { 'transitionIn' : 'elastic', 'easingIn' : 'easeOutBack', 'transitionOut' : 'elastic', 'easingOut' : 'easeInBack', 'opacity' : false, 'hideOnContentClick' : false, 'titleShow' : false, 'titlePosition' : 'over', 'titleFromAlt' : true, 'showNavArrows' : true, 'enableKeyboardNav' : true, 'cyclic' : false }) );
+}
+var easy_fancybox_auto = function(){
+	/* Auto-click */
+	setTimeout(function(){jQuery('#fancybox-auto').trigger('click')},1000);
+}
+/* ]]> */
+</script>
+<style type="text/css">
+#fancybox-content{background-color:#fff}
+#fancybox-content{border-color:#fff}#fancybox-outer{background-color:#fff}
+#fancybox-content{color:inherit}
+</style>
+<script type="text/javascript" language="javascript">
+	jQuery(document).ready(function($) {
+		$("#primary_Shop").mouseover(function(){
+			$("#secondaryMenu_Shop").show();
+			$("#primary_Shop").parent().addClass('selected');
+		});
+		$("#secondaryMenu_Shop").mouseover(function(){
+			$("#secondaryMenu_Shop").show();
+			$("#primary_Shop").parent().addClass('selected');
+		});
+		$("#primary_Shop").mouseout(function(){
+			$("#secondaryMenu_Shop").hide();
+			$("#primary_Shop").parent().removeClass('selected');
+		});
+		$("#secondaryMenu_Shop").mouseout(function(){
+			$("#secondaryMenu_Shop").hide();
+			$("#primary_Shop").parent().removeClass('selected');
+		});
+		 $("input").focus(function () {
+			$(this).css("background-color","#EBF5F7");
+			$(this).css("border", "1px solid #90C8E2");
+		  });
+
+		$("#primary_Support").mouseover(function(){
+			$("#secondaryMenu_Support").show();
+			$("#primary_Support").parent().addClass('selected');
+		});
+		$("#secondaryMenu_Support").mouseover(function(){
+			$("#secondaryMenu_Support").show();
+			$("#primary_Support").parent().addClass('selected');
+		});
+		$("#primary_Support").mouseout(function(){
+			$("#secondaryMenu_Support").hide();
+			$("#primary_Support").parent().removeClass('selected');
+		});
+		$("#secondaryMenu_Support").mouseout(function(){
+			$("#secondaryMenu_Support").hide();
+			$("#primary_Support").parent().removeClass('selected');
+		});
+
+		$("#primary_Contact").mouseover(function(){
+			$("#secondaryMenu_Contact").show();
+			$("#primary_Contact").parent().addClass('selected');
+		});
+		$("#secondaryMenu_Contact").mouseover(function(){
+			$("#secondaryMenu_Contact").show();
+			$("#primary_Contact").parent().addClass('selected');
+		});
+		$("#primary_Contact").mouseout(function(){
+			$("#secondaryMenu_Contact").hide();
+			$("#primary_Contact").parent().removeClass('selected');
+		});
+		$("#secondaryMenu_Contact").mouseout(function(){
+			$("#secondaryMenu_Contact").hide();
+			$("#primary_Contact").parent().removeClass('selected');
+		});
+
+
+	});
+	</script>
+  <script src="/cycle.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+	jQuery(document).ready(function($) {
+		$('.slideshow').cycle({
+			fx: 'fade',
+			timeout: 8000
+		});
+		
+		$("#primary_Shop").mouseover(function(){
+			$("#secondaryMenu_Shop").show();
+			$("#primary_Shop").parent().addClass('selected');
+		});
+		$("#secondaryMenu_Shop").mouseover(function(){
+			$("#secondaryMenu_Shop").show();
+			$("#primary_Shop").parent().addClass('selected');
+		});
+		$("#primary_Shop").mouseout(function(){
+			$("#secondaryMenu_Shop").hide();
+			$("#primary_Shop").parent().removeClass('selected');
+		});
+		$("#secondaryMenu_Shop").mouseout(function(){
+			$("#secondaryMenu_Shop").hide();
+			$("#primary_Shop").parent().removeClass('selected');
+		});
+
+		$("#primary_Support").mouseover(function(){
+			$("#secondaryMenu_Support").show();
+			$("#primary_Support").parent().addClass('selected');
+		});
+		$("#secondaryMenu_Support").mouseover(function(){
+			$("#secondaryMenu_Support").show();
+			$("#primary_Support").parent().addClass('selected');
+		});
+		$("#primary_Support").mouseout(function(){
+			$("#secondaryMenu_Support").hide();
+			$("#primary_Support").parent().removeClass('selected');
+		});
+		$("#secondaryMenu_Support").mouseout(function(){
+			$("#secondaryMenu_Support").hide();
+			$("#primary_Support").parent().removeClass('selected');
+		});
+	});
+	</script>
+	<style type="text/css">
+.slideshow { height: 280px; width: 974px; margin: 0px auto; }
+</style>
+<script type="text/javascript">
+
+/***********************************************
+* IFrame SSI script II- � Dynamic Drive DHTML code library (http://www.dynamicdrive.com)
+* Visit DynamicDrive.com for hundreds of original DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+
+//Input the IDs of the IFRAMES you wish to dynamically resize to match its content height:
+//Separate each ID with a comma. Examples: ["myframe1", "myframe2"] or ["myframe"] or [] for none:
+var iframeids=["myframe"]
+
+//Should script hide iframe from browsers that don't support this script (non IE5+/NS6+ browsers. Recommended):
+var iframehide="yes"
+
+var getFFVersion=navigator.userAgent.substring(navigator.userAgent.indexOf("Firefox")).split("/")[1]
+var FFextraHeight=parseFloat(getFFVersion)>=0.1? 16 : 0 //extra height in px to add to iframe in FireFox 1.0+ browsers
+
+function resizeCaller() {
+var dyniframe=new Array()
+for (i=0; i<iframeids.length; i++){
+if (document.getElementById)
+resizeIframe(iframeids[i])
+//reveal iframe for lower end browsers? (see var above):
+if ((document.all || document.getElementById) && iframehide=="no"){
+var tempobj=document.all? document.all[iframeids[i]] : document.getElementById(iframeids[i])
+tempobj.style.display="block"
+}
+}
+}
+
+function resizeIframe(frameid){
+var currentfr=document.getElementById(frameid)
+if (currentfr && !window.opera){
+currentfr.style.display="block"
+if (currentfr.contentDocument && currentfr.contentDocument.body.offsetHeight) //ns6 syntax
+currentfr.height = currentfr.contentDocument.body.offsetHeight+FFextraHeight; 
+else if (currentfr.Document && currentfr.Document.body.scrollHeight) //ie5+ syntax
+currentfr.height = currentfr.Document.body.scrollHeight;
+if (currentfr.addEventListener)
+currentfr.addEventListener("load", readjustIframe, false)
+else if (currentfr.attachEvent){
+currentfr.detachEvent("onload", readjustIframe) // Bug fix line
+currentfr.attachEvent("onload", readjustIframe)
+}
+}
+}
+
+function readjustIframe(loadevt) {
+var crossevt=(window.event)? event : loadevt
+var iframeroot=(crossevt.currentTarget)? crossevt.currentTarget : crossevt.srcElement
+if (iframeroot)
+resizeIframe(iframeroot.id);
+}
+
+function loadintoIframe(iframeid, url){
+if (document.getElementById)
+document.getElementById(iframeid).src=url
+}
+
+if (window.addEventListener)
+window.addEventListener("load", resizeCaller, false)
+else if (window.attachEvent)
+window.attachEvent("onload", resizeCaller)
+else
+window.onload=resizeCaller
+
+</script>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "2ea5ba5d-9cc9-4c42-8b28-1d634ea0cd9a", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+</head>
+
+<body class="home page-template page-template-onecolumn-page page-template-onecolumn-page-php page page-id-6">
+<div id="tiptop">
+	<div id="top_inner">
+	<a href="/reseller/" id="top_focus"></a> <a href="/design/" id="top_design"></a> <a href="/press/" id="top_media"></a>
+	</div>
+</div>
+<div id="social-wrapper">
+<div id="position-social">
+<div id="social-share">
+<div class="marginblock">
+<span class="share-cta"></span><br><br>
+<span class='st_twitter_custom' displayText='Tweet'></span>
+<span class='st_facebook_custom' displayText='Facebook'></span>
+<span class='st_linkedin_custom' displayText='LinkedIn'></span>
+<span class='st_plusone_custom' displayText='Google +'></span>
+<span class='st_email_custom' displayText='Email'></span>
+</div>
+</div>
+</div>
+</div>
+<div id="globalNav" class="en_US hardRock">
+	<div id="globalNavInterface" class="ecom">
+
+				<div id="tieredNav">
+					<div id="primaryMenu">
+						<ul>
+							<li id="primary_ATTLogo">
+								<a class="primaryMenuItem" title="AT&amp;T Home" href="http://www.att.com" target="_blank">&nbsp;</a>
+							</li>
+								<li class=""><a href="https://activearc.att.com/" id="primary_Home" name="Home" class="primaryMenuItem"><span></span></a></li>
+								<li class=""><a href="/products" id="primary_Shop" name="Shop" class="primaryMenuItem"><span></span></a></li>
+								<li class=""><a href="/support" id="primary_Support" name="Support" class="primaryMenuItem"><span></span></a></li>
+								<li class=""><a href="/contact" id="primary_Contact" name="Contact" class="primaryMenuItem"><span></span></a></li>
+
+						</ul>
+					</div>
+					<ul id="secondaryMenu_Shop" class="secondaryMenu ">
+												<li><a class="secondaryMenuItem" href="/active500em/" name="active500EM Access Control Data Networking Switch" >active500EM Access Control Data Networking Switch</a></li>
+												<li><a class="secondaryMenuItem" href="/activearc-access-points/" name="activeARC Access Points" >active<i>ARC</i> Access Points</a></li>
+								</ul>
+					<ul id="secondaryMenu_Support" class="secondaryMenu ">
+												<!-- <li><a class="secondaryMenuItem" href="/registration/" name="Registration" >Product Registration</a></li> -->
+												<li><a class="secondaryMenuItem" href="/downloads/" name="Downloads" >Downloads</a></li>																								
+												<li><a class="secondaryMenuItem" href="/reseller/" name="Reseller" >Focus Reseller Program</a></li>
+												<li><a class="secondaryMenuItem" href="/design/" name="Design" >Design Assistance</a></li>
+												<li><a class="secondaryMenuItem" href="/value/" name="Value" >active<i>ARC</i> Value</a></li>
+												<li><a class="secondaryMenuItem" href="/support/markets/" name="Value" >active<i>ARC</i> Markets</a></li>
+												<li><a class="secondaryMenuItem" href="/support/technology/" name="Value" >active<i>ARC</i> Technology</a></li>
+											<!--<li><a class="secondaryMenuItem" href="/news-events/webinars/smb_unified_data/" name="Value" >Webinar Signup</a></li>
+												<li><a class="secondaryMenuItem" href="/blog/" name="Value" >Blog</a></li>-->
+								</ul>
+					<div id="trayContent" style="display:block;height:0px;"></div>
+				</div>
+	</div>
+	<div id="globalNavShadows" style="height:15px;*height:40px;" ></div>
+</div>
+<div style="height:290px; width:974px; margin:0px auto;">
+                <div class="slideshow" style="position: relative;">
+					<a href="/products/"><img src="images/sliderimage1.png" /></a>
+					<a href="/activearc-access-points/"><img src="images/sliderimage2.png" /></a>
+					<a href="/active500em/"><img src="images/sliderimage3.png" /></a>
+				</div> 
+</div>
+<div id="wrapper" class="hfeed">
+	<div id="main-container">
+    		<div class="bg-top-shadow"></div>
+    		<div class="bg-mid-shadow">
+        		<div id="content">
+<div id="content_bg">
+	<div id="main">
+
+		<div id="container" class="one-column">
+			<div id="content" role="main">
+
+			
+
+				<div id="post-6" class="post-6 page type-page status-publish hentry">
+					
+
+					<div class="entry-content">
+						<div class="snvdshc">
+<div class="synved-content-column synved-column-half synved-column-flow-start"><a href="/active500em/"></p>
+<div class="synved-column-content">
+<img src="/wp-content/uploads/2014/02/controller_tiny.jpg" alt="AT&#038;T activeARC active500EM Access Control Data Networking Switch" title="AT&#038;T activeARC active500EM Access Control Data Networking Switch" width="150" height="150" class="aligncenter size-full wp-image-224" /></p>
+<p align="center"><a href="/active500em/">active500EM Access Control Data Networking Switch</a></p>
+</div>
+<p></a></div>
+</div>
+<div class="snvdshc">
+<div class="synved-content-column synved-column-half synved-column-flow-end"><a href="/activearc-access-points/"></p>
+<div class="synved-column-content">
+<img src="/wp-content/uploads/2014/02/ap_tiny.jpg" alt="AT&#038;T activeARC Access Points" title="AT&#038;T activeARC Access Points" width="150" height="150" class="aligncenter size-full wp-image-225" /></p>
+<p align="center"><a href="/activearc-access-points/">AT&#038;T active<i>ARC</i><sup>®</sup> Access Points</a></p>
+</div>
+<p></a></div>
+</div>
+<p><img src="/wp-content/uploads/2012/11/gradientline.png" alt="" title="gradientline" width="900" height="36" class="aligncenter size-full wp-image-229" srcset="https://activearc.att.com/wp-content/uploads/2012/11/gradientline.png 900w, https://activearc.att.com/wp-content/uploads/2012/11/gradientline-300x12.png 300w" sizes="(max-width: 900px) 100vw, 900px" /></p>
+<div class="synved-content-column synved-column-full">
+<div class="synved-column-content">
+<div class="synved-content-column synved-column-third synved-column-flow-start">
+<div class="synved-column-content" style="margin-right:20px;margin-left:20px;">
+<h3 style="margin-bottom:15px;font-weight:normal;padding:0;">
+Software-Optimized<br />
+</h3>
+<p>The AT&#038;T active<i>ARC</i><sup>®</sup> solution doesn’t simply provide your wired and wireless connection, it uses intelligent software to optimize the flow of voice, data, and video to increase efficiency and performance.</p>
+</div>
+</div>
+<div class="synved-content-column synved-column-third synved-column-flow-hold">
+<div class="synved-column-content" style="margin-right:20px;margin-left:20px;">
+<h3 style="margin-bottom:15px;font-weight:normal;padding:0;">
+Revolutionary User Experience<br />
+</h3>
+<p>With advanced features such as fast-roaming, the user experience with the AT&#038;T active<i>ARC</i><sup>®</sup> system is unmatched. Stay connected wherever you go and enjoy the performance you need.</p>
+</div>
+</div>
+<div class="synved-content-column synved-column-third synved-column-flow-end">
+<div class="synved-column-content" style="margin-right:20px;margin-left:20px;">
+<h3 style="margin-bottom:15px;font-weight:normal;padding:0;">
+Sophisticated Platform<br />
+</h3>
+<p>With the help of advanced software, the AT&#038;T active<i>ARC</i><sup>®</sup> solution allows bandwidth management, content shaping and traffic handling to ensure performance is consistent for each user.</p>
+</div>
+</div>
+</div>
+</div>
+																	</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+
+				
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+
+
+	</div><!-- #main -->
+
+	</div>
+
+</div>
+
+                    <div class="modClear"></div>
+
+                </div>
+
+            </div>
+
+            <div class="bg-gr-bottom-shadow"></div>
+
+            <div class="gn_prefooter">
+
+            </div>
+
+
+
+      <div id="footer" class="container_2">
+
+
+
+        <div class="footer_text">
+
+
+
+          <div id="footer_content">
+
+
+
+            <ul id="copyright">
+
+
+
+              <li class="navmenu">
+
+ 
+
+                <div class="credits">                    © 2015 International Communications Corporation, Inc. All Rights Reserved. AT&T and the AT&T logo are trademarks of AT&T Intellectual 
+
+Property licensed to International Communications Corporation, Riverside, California 92505 | Issue 16.0<br /> 
+
+                                   <a href="/trademark/">Trademark Usage</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/glossary/">Glossary</a> | <a href="/news-events/">News & Events</a><br>
+
+
+                 
+
+                </div>
+
+              </li>
+
+
+
+              <li class="attcom">
+
+                <a href="http://www.att.com/" target="_blank">
+
+                  att.com
+
+                </a><br />
+
+                Shop, Service, Support.
+
+              </li>
+
+
+
+              <li class="attnet">
+
+                <a href="http://www.att.net/" target="_blank">
+
+                  att.net
+
+                </a><br/>
+
+                E-mail - News - Weather &amp; More
+
+              </li>
+
+
+
+            </ul>
+
+
+
+            <div class="clear"></div>
+
+           
+
+
+
+		</div><!-- #colophon -->
+
+	</div><!-- #footer -->
+
+
+
+</div><!-- #wrapper -->
+
+
+
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/activearc.att.com\/wp-json\/","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/contact-form-7/includes/js/scripts.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.8.min.js'></script>
+<script type='text/javascript' src='https://activearc.att.com/wp-content/plugins/easy-fancybox/js/jquery.easing.min.js'></script>
+<script type="text/javascript">
+jQuery(document).on('ready post-load', function(){ jQuery('.nofancybox,a.pin-it-button,a[href*="pinterest.com/pin/create/button"]').addClass('nolightbox'); });
+jQuery(document).on('ready post-load',easy_fancybox_handler);
+jQuery(document).on('ready',easy_fancybox_auto);</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.number9creative.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44668304-1', 'att.com');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>
+

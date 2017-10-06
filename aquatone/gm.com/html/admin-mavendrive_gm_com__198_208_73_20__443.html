@@ -1,0 +1,233 @@
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+       
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"  dir="ltr"   >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.5" /> 
+<title>General Motors</title>
+<link rel='stylesheet' href='/GMLogin/pages/css/login_page.css'/>
+<link rel="stylesheet" type="text/css" href="/GMLogin/pages/css/general.css"/>
+<link rel="stylesheet" type="text/css" href="/GMLogin/pages/css/gmid.layout.css" media="all" />
+
+<!-- Start Disable frame hijacking Script-->
+
+<style id="antiClickjack">body { display: none !important; }</style>
+<script type="text/javascript">
+	 
+    if (self == top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+
+<!-- End Disable frame hijacking Script--> 
+
+
+<!-- 
+<style>
+body
+{
+  background:url(/GMLogin/pages/images/loginpage_bg.png);
+  background-repeat:repeat-x;
+  background-color:#185E87;
+}
+</style>
+-->
+
+<script type="text/javascript">
+<!-- 
+var currentPageLang = 'en';
+var userLanguageArray =  new Array("English");
+var isError;
+
+// -->
+</script>
+<script type="text/javascript" src="/GMLogin/pages/js/config.js"></script>
+<script type="text/javascript" src="/GMLogin/pages/js/messages.js"></script>
+<script type="text/javascript" src="/GMLogin/pages/js/loginJS.js"></script>
+
+<script src="/GMLogin/pages/js/browserVersion.js"></script>
+<script src="/GMLogin/pages/js/auth.js"></script>
+
+<script  type="text/javascript">
+function submitform()
+{
+	
+	 document.loginData.action = "/GMLogin/pages/login.jsp"; 
+	 document.loginData.submit();
+	 document.loginData.action ="/oam/server/auth_cred_submit";
+}
+
+function set_cookie(){
+document.cookie = "User_x509_clickedlink=true;secure;path=/";
+document.loginData.submit();
+document.loginData.action ="/oam/server/auth_cred_submit";
+}
+
+function checkform() {
+	var nameInput = document.loginData.username;
+
+	if (nameInput.value) {
+		var myValue = trim(nameInput.value);
+		if (myValue) {
+			nameInput.value = myValue;
+		}
+	}
+}
+
+function trim(value) {
+    return value.trim();
+}
+
+function checkDevice() {
+	var uagent = navigator.userAgent.toLowerCase();
+	if (uagent.toLowerCase().indexOf("windows ce ") != -1) {
+		window.location.href = "loginXT15.jsp";
+	} else {
+		placeCursorOnFirstElm();
+		return;
+	}
+}
+
+</script>
+
+</head>
+<body onload="checkDevice();">
+
+<div class="overlay" id="processing">
+		<img src="/GMLogin/pages/images/processing.gif" class="processing" alt="Processing" />
+</div><!--/processing -->
+	
+
+<div class="body_wrap_login">
+	<div class="main_wrap_login">
+			<div class="login_title">
+				<img src="/GMLogin/pages/images/gm_logo.png" alt="General Motors" class="logo" style="vertical-align:middle;" />
+				<h1>General Motors</h1>
+				<div class="clear"></div>
+				<!--/clear-->
+			</div>            
+
+		<div class="content_wrap"> <div class="inner_contain"> <form id="loginData" action="/oam/server/auth_cred_submit" method="post" name="loginData"> <input name="request_id" type="hidden" value="&#45;7082330786147337433" />			                  
+					<table cellpadding="1" cellspacing="1" border="0" align="center">
+					       
+					              <tr>
+					       		 <td colspan="2" align="center">	
+					       				 <script type="text/javascript">				             
+					       				 var uagent = navigator.userAgent.toLowerCase();
+					       				 var mobileLinkTxt = "";					       									       				             
+					       				 if (!(uagent.match(/windows nt|macintosh|crios/i))){					       									       					      
+					       				 mobileLinkTxt +="<input type='button' value='&nbsp;GM Managed Mobile Device &nbsp;' class='submit' onclick='set_cookie()'/>"
+					       				
+					       				 mobileLinkTxt +="</td></tr>  <tr> <td colspan='2' align='center'>";
+									 mobileLinkTxt +="<table> <tr>";
+									 mobileLinkTxt +=" <td><div class='horizontal-line' style='width: 105px;' ></div> </td> <td> Or </td>";
+									 mobileLinkTxt +=" <td> <div class='horizontal-line' style='width: 105px;'></div> </td> ";
+									 mobileLinkTxt +=" </tr></table>";							 
+									 mobileLinkTxt +=" </td> </tr><tr><td colspan='2' align='right'>";
+						    	                 mobileLinkTxt +="<p class='choosernonmobile'>Login to your non-GM managed mobile device.</p>";				       				
+					       				
+					       				 document.write(mobileLinkTxt);				      
+					       									       					      }				       									       					      
+					       				 </script>				       									       						
+					       
+						    	
+						    	 </td>
+						      </tr>
+					       		
+					
+						 <tr>	
+							<Td align="right"><strong>GMID:</strong></Td>
+							<td>
+								<input type="text" name="username" id="username" maxlength="20" class="login_input" />
+							</td>
+						</tr>
+
+						<tr>
+							<Td align="right"><strong>Password:</strong></Td>
+							<td>
+								<input type="password" name="password" id="password" maxlength="20" class="login_input" autocomplete="off"/>
+                     		</td>
+						</tr>
+
+						<tr>
+							<td colspan="2" align="center">
+                                <input type="submit" value="Login" class="submit" onclick="this.disabled=true;document.body.style.cursor = 'wait'; this.className='formButton-disabled';checkform();form.submit();return false;"/>
+                               </td>
+				</tr>
+				 
+				
+					</table>
+
+                       
+                         
+                        
+
+                        
+
+				</form>
+			</div>
+				<div class="clear"></div>
+				<!--/clear-->
+
+				<p class="terms_box">By clicking "Login", you agree to General Motors Acceptable Use Policy.  For more information visit the 
+					<A href="https://gmid.gm.com/gmidStatic/policy_center/index.html">Policy Center</A>
+					.
+				</p>
+				<p class="help_link">
+					<a href="http://gmid.gm.com">Password Management & Support</a>
+				</p>
+				
+				<div class="clear"></div>
+				<!--/clear-->			
+		</div>
+	</div>
+	
+		<div class="login_links">
+			<ul>
+				<li class="header">Non-GM Login</li>
+				<li><a href="https://gmsupplypower.covisint.com">SupplyPower</a></li>
+				<li><a href="https://fedhub.covisint.com/fed/app/idp.saml20?entityID=https://game-osso-vip.iw.gm.com:443/gmgameosso-SP2&TARGET=https://businessconnect.gm.com/sites/alliancepower">AlliancePower</a></li>
+			</ul>
+
+			<div class="clear"></div>
+			<!--/clear-->
+		</div>	
+		
+		<div class="footer">
+			<p>&copy; General Motors</p>
+			<div class="clear"></div>
+			<!--/clear-->
+		</div>
+		<!--/footer-->		
+</div>        
+    
+    <!-- 
+    <div class="login-footer-version">
+      <div class="info">
+        
+       <p id="copyright">Copyright &copy; [Ljava.lang.String;@4fdb5a82, Oracle and/or its affiliates. All rights reserved.</p>
+       <p id="trademark">Oracle is a registered trademark of Oracle Corporation and/or its affiliates. Other names may be trademarks of their respective owners.</p>
+      </div>
+    </div>
+    -->
+  </body>
+</html>

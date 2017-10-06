@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="treeherder.app" ng-strict-di>
+<head>
+<meta charset="utf-8">
+<title ng-bind="getWindowTitle()">Treeherder</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link id="favicon" type="image/png" rel="shortcut icon" href="img/tree_open.png">
+<th-favicon-link></th-favicon-link>
+</head>
+<body ng-controller="MainCtrl">
+<div id="global-container">
+<div id="onscreen-overlay" ng-if="onscreenOverlayShowing" ng-click="setOnscreenShortcutsShowing(false)">
+<div id="onscreen-shortcuts" ng-if="onscreenShortcutsShowing" stop-propagation-on-left-click>
+<div class="col-xs-8">
+<ng-include src="'partials/main/thShortcutTable.html'"></ng-include>
+</div>
+</div>
+</div>
+<div id="global-navbar-container">
+<ng-include id="th-global-top-nav-panel" src="'partials/main/thGlobalTopNavPanel.html'">
+</ng-include>
+</div>
+<ng-include src="'partials/main/thTreeherderUpdateBar.html'"></ng-include>
+<ng-include src="'partials/main/thActiveFiltersBar.html'"></ng-include>
+<div id="th-global-content" class="th-global-content" ng-click="clearJobOnClick($event)">
+<span class="th-view-content" ng-cloak>
+<ng-view></ng-view>
+</span>
+</div>
+<div ng-controller="PluginCtrl" id="info-panel" ng-show="selectedJob" ng-include src="'plugins/pluginpanel.html'">
+</div>
+</div>
+<th-notification-box></th-notification-box>
+<!-- Clone targets -->
+<!-- Clone target for each result set -->
+<script type="'text/ng-template'" id="resultsetClone.html">
+<div class="clearfix"></div>
+            <div class="row result-set">
+                <span style="display:block;" class="revision-list col-xs-5">
+                    <ul class="list-unstyled"></ul>
+                </span>
+                <span class="job-list col-xs-7 job-list-pad">
+                    <span class="fa fa-spinner fa-pulse th-spinner"></span>
+                    <table id="{{ aggregateId }}" class="table-hover"></table>
+                </span>
+            </div>
+</script>
+<!-- Clone target for each platform -->
+<script type="'text/ng-template'" id="platformClone.html">
+<td class="platform">
+                <span title="{{ name }} {{ option }}">{{ name }} {{ option }}</span>
+            </td>
+</script>
+<!-- Table column for jobs -->
+<script type="'text/ng-template'" id="jobTdClone.html">
+<td class="job-row"></td>
+</script>
+<!-- Start span for job groups -->
+<script type="'text/ng-template'" id="jobGroupClone.html">
+<span class="platform-group" style="display: {{ display }};">
+                <span class="disabled job-group" title="{{ name }}"
+                      data-grkey="{{ grkey }}">
+                    <button class="btn group-symbol"
+                          data-ignore-job-clear-on-click>{{ symbol }}{{(tier) ?
+                      '<span class="small text-muted">[tier ' + tier + ']</span>': ""}}
+                    </button>
+                    <span class="group-content">
+                        <span class="group-job-list">
+                            {{ btnHTML }}
+                        </span>
+                        <span class="group-count-list">
+                            {{ countBtnHTML }}
+                        </span>
+                    </span>
+                </span>
+            </span>
+</script>
+<!-- Job group count span for each count item -->
+<script type="'text/ng-template'" id="jobGroupCountClone.html">
+<button class="btn {{ selectedClasses }} group-btn btn-xs job-group-count {{ btnClass }} {{ visibleClass }}"
+                    title="{{ title }}" data-ignore-job-clear-on-click="">{{ value }}</button>
+</script>
+<!-- Job Btn span -->
+<script type="'text/ng-template'" id="jobBtnClone.html">
+<button class="btn job-btn {{ btnClass }} {{ key }} {{ extraClasses }}"
+                  data-jmkey="{{ key }}"
+                  data-ignore-job-clear-on-click
+                  title="{{ title }}">{{ value }}</button>
+</script>
+<!-- Runnable Job Btn span -->
+<script type="'text/ng-template'" id="runnableJobBtnClone.html">
+<button class="btn runnable-job-btn {{ key }}  {{ extraClasses }}"
+                  data-jmkey="{{ key }}"
+                  data-buildername="{{ buildername }}"
+                  data-ignore-job-clear-on-click
+                  title="{{ title }}">{{ value }}</button>
+</script>
+<!-- Tooltip for job info-->
+<script type="'text/ng-template'" id="jobInfoTooltip.html">
+<div>
+                <table class="table-super-condensed table-striped">
+                    <tr>
+                        <th class="small">Result</th>
+                        <td class="small {{ resultStatusClass }}">{{ job.result }}</td>
+                    </tr>
+                    <tr>
+                        <th class="small">Machine name</th>
+                        <td class="small">
+                            <a target="_blank" href="{{ getSlaveHealthUrl(job.machine_name) }}">{{ job.machine_name }}</a>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="(label, value) in visibleFields"><th>{{label}}</th><td>{{ value }}</td></tr>
+                </table>
+            </div>
+</script>
+<script type="text/javascript" src="./manifest.20f21afe84d4779eda97.bundle.js"></script><script type="text/javascript" src="./vendor.e82f84d8702fafd2e759.bundle.js"></script><script type="text/javascript" src="./index.1cd64a2f6e7e9a2b0cbd.bundle.js"></script></body>
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ticketing, repair, bmp, wfa, wfac, aots" />
+    <meta name="description" content="AT&T Express Ticketing provides online trouble ticketing and repair" />
+    <title>AT&amp;T Express Ticketing</title>
+
+    <script type="text/javascript">
+        if(screen.width <= 480) {
+            var searchTicket = location.search;
+            if (searchTicket != '') {
+                document.location = 'https://expressticketing.acss.att.com/expressticketing/mobile/index.html' + searchTicket;
+            } else {
+                document.location = 'https://expressticketing.acss.att.com/expressticketing/mobile/index.html';
+            }
+
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+        <script src="js/ie/html5shiv.js"></script>
+        <script src="js/ie/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Apple Icons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+
+    <link rel="stylesheet" href="css/jquery-ui/jquery-ui.min.css" />
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+
+    <link rel="stylesheet" href="css/style.css?v=7_2" />
+
+    <script src="js/jquery/jquery-1.11.0.min.js"></script>
+    <!--<script src="//finalstage.att.com/scripts/satellite/stage/8bb7555f31d461fe2aef4e2d53a11a03e7f9a04c/satelliteLib-bee1ce9b89e943a46b1dfd167adc564fe75eef37-staging.js"></script>-->
+	<script src="https://www.att.com/scripts/satellite/prod/8bb7555f31d461fe2aef4e2d53a11a03e7f9a04c/satelliteLib-bee1ce9b89e943a46b1dfd167adc564fe75eef37.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/bootstrap/bootstrap-form-buttonset.js"></script>
+
+    <script src="js/jquery/jquery-ui.min.js"></script>
+
+    <script src="js/jquery/jquery.cookie.js"></script>
+    <script src="js/jquery/jquery.raty.min.js"></script>
+    <script src="js/jquery/jquery.placeholder.js"></script>
+    <script src="js/jquery/jquery.dialogextend.js"></script>
+    <script src="js/jquery/jquery.blockUI.js"></script>
+
+    <script src="js/moment/jstz.min.js"></script>
+    <script src="js/moment/moment-with-locales.js"></script>
+    <script src="js/moment/moment-timezone-with-data.js"></script>
+
+    <script src="js/feedback/feedback.js"></script>
+    <script src="js/tzSettings.js?v=7_2"></script>
+    <script src="js/functions.js?v=9_25"></script>
+
+    <!--[if IE 9]>
+        <link rel="stylesheet" href="css/ie/ie9.css" />
+        <script>
+            ie = 'ie9';
+        </script>
+    <![endif]-->
+
+    <!--[if IE 8]>
+        <link rel="stylesheet" media="screen" href="css/ie/ie8.css" />
+        <link rel="stylesheet" media="print" href="css/ie/ie8-print.css" />
+        <script>
+            ie = 'ie8';
+        </script>
+    <![endif]-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" media="screen" href="css/ie/ie7.css" />
+        <link rel="stylesheet" media="print" href="css/ie/ie8-print.css" />
+        <script src="js/ie/html5shiv.js"></script>
+        <script src="js/ie/respond.min.js"></script>
+        <script type="text/javascript">
+            ie = 'ie7';
+        </script>
+    <![endif]-->
+</head>
+<body>
+    <div class="bar">
+        <div class="navigationLinks">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <!-- In order for IE7 to correctly present the home button on the right -->
+                <!-- Had to move the home div in front of the other header bar elements -->
+                <div id="settingsButton" class="btn-group btn-group-xs floatRight">
+                    <button id="settings" type="button" class="btn btn-black">
+                        Time Zone Settings
+                        <img id="gearSetting" src="images/gear.png" alt="Settings" width="15" />
+                    </button>
+                </div>
+                <div id="homeButton" class="btn-group btn-group-xs floatRight">
+                    <button id="home" type="button" class="btn btn-black">
+                        Home
+                    </button>
+                </div>
+                <div class="btn-group btn-group-xs displayInline">
+                    <button id="personal" type="button" class="btn btn-black dropdown-toggle" data-toggle="dropdown">
+                        Personal
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="personalDropdown" class="dropdown-menu" role="menu" style="font-size: 12px;">
+                        <li><a href="http://www.att.com" title="att.com">att.com</a></li>
+                        <li><a href="http://www.att.net" title="att.net">att.net</a></li>
+                        <li><a href="http://uverseonline.att.net" title="UVerse Online">uverse.com</a></li>
+                        <li><a href="https://my-digitallife.att.com/learn/" title="My Digital Life">Digital Life</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-xs displayInline">
+                    <button id="business" type="button" class="btn btn-black dropdown-toggle" data-toggle="dropdown">
+                        Business
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="businessDropdown" class="dropdown-menu" role="menu" style="font-size: 12px;">
+                        <li><a href="http://www.att.com/smallbusiness" title="AT&amp;T Small Business">Small Business</a></li>
+                        <li><a href="http://www.att.com/gen/landing-pages?pid=9214" title="AT&amp;T Enterprise Business">Enterprise Business</a></li>
+                        <li><a href="http://www.att.com/gen/general?pid=11624" title="AT&amp;T Wholesale">Wholesale</a></li>
+                        <li><a href="http://www.att.com/gen/general?pid=11625" title="AT&amp;T Government">Government</a></li>
+                        <li><a href="http://businessdirect.att.com" title="AT&amp;T Business Direct">Business Direct</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-xs displayInline">
+                    <button id="aboutATT" type="button" class="btn btn-black">
+                        About AT&amp;T
+                    </button>
+                </div>
+                <div class="btn-group btn-group-xs displayInline">
+                    <button id="aboutET" type="button" class="btn btn-black dropdown-toggle" data-toggle="dropdown">
+                        About AT&amp;T Express Ticketing
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="etDropdown" class="dropdown-menu" role="menu" style="font-size: 12px;">
+                        <li><a href="#" id="about" title="About Express Ticketing">About</a></li>
+                        <li><a href="help/ATT_Express_Ticketing_Quick_Guide.pdf" target="_blank" title="Express Ticketing User Guide">User Guide</a></li>
+                        <li><a href="#" id="tutorialVideo" title="Express Ticketing Tutorial Video">Tutorial Video</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </nav>
+        </div>
+    </div>
+    <div id="draggableDiv">
+        <div class="backgroundLeft">
+            <img src="images/background_left.jpg" alt="AT&amp;T Intellectual Property &copy;2014" />
+        </div>
+        <div class="backgroundRight">
+            <img src="images/background_right.jpg" alt="AT&amp;T Intellectual Property &copy;2014" />
+        </div>
+        <div class="backgroundLeftImage">
+            <img src="images/att_circles_green.png" alt="AT&amp;T Intellectual Property &copy;2014" />
+        </div>
+        <div class="bottomLeft">
+            <img src="images/background_left_bottom.jpg" alt="AT&amp;T Intellectual Property &copy;2014" />
+        </div>
+        <div class="bottomRight">
+            <img src="images/background_right_bottom.jpg" alt="AT&amp;T Intellectual Property &copy;2014" />
+        </div>
+        <div class="page" id="mainPage">
+            <div id="mainHeader">
+                <div id="topHeader" class="header">
+                    <img src="images/banner-1.png" id="headerBanner" height="43" alt="AT&T Express Ticketing" />
+                </div>
+                <div id="insideHeader" class="bottomHeader clearfix">
+                    <div id="ticketStatusWrapper" class="alignLeft" style="margin-top: 5px;">
+                        <div class="ie-inline">
+                            <span class="label10px" style="margin-left: 15px;">Ticket Number</span>
+                            <input type="text" class="ie-inline width175px input10px alignCenter" id="headerT" placeholder="Ticket Number" maxlength="15">
+                            <!--[if IE 8]><div id="headerCountrySelect" class="ie-inline"><![endif]-->
+                            <span id="headerCountryLabel" class="label10px" style="margin-left: 8px;">Country</span>
+                            <select id="headerTicketCountry" class="ie-inline width175px select10px">
+                                <option value="">Select Country</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Algeria">Algeria</option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Angola">Angola</option>
+                                <option value="Anguilla">Anguilla</option>
+                                <option value="Antigua">Antigua</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Aruba">Aruba</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Azerbaijan">Azerbaijan</option>
+                                <option value="Bahamas">Bahamas</option>
+                                <option value="Bahrain">Bahrain</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Barbados">Barbados</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Belize">Belize</option>
+                                <option value="Benin">Benin</option>
+                                <option value="Bermuda">Bermuda</option>
+                                <option value="Bolivia">Bolivia</option>
+                                <option value="Bosnia">Bosnia</option>
+                                <option value="Botswana">Botswana</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="British Virgin Isls">British Virgin Isls</option>
+                                <option value="Brunei">Brunei</option>
+                                <option value="Bulgaria">Bulgaria</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Burma">Burma</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Cambodia">Cambodia</option>
+                                <option value="Cameroon">Cameroon</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Cape Verde">Cape Verde</option>
+                                <option value="Cayman Islands">Cayman Islands</option>
+                                <option value="Chad">Chad</option>
+                                <option value="Chile">Chile</option>
+                                <option value="China">China</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Congo">Congo</option>
+                                <option value="Cook Island">Cook Island</option>
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="Croatia">Croatia</option>
+                                <option value="Cuba">Cuba</option>
+                                <option value="Curacao">Curacao</option>
+                                <option value="Cyprus">Cyprus</option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Diego Garcia">Diego Garcia</option>
+                                <option value="Djibouti">Djibouti</option>
+                                <option value="Dominica">Dominica</option>
+                                <option value="Dominican Republic">Dominican Republic</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="El Salvador">El Salvador</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="Fiji">Fiji</option>
+                                <option value="Finland">Finland</option>
+                                <option value="France">France</option>
+                                <option value="French Antilles">French Antilles</option>
+                                <option value="French Guinea">French Guinea</option>
+                                <option value="French Polynesia">French Polynesia</option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia">Gambia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Gibraltar">Gibraltar</option>
+                                <option value="Greece">Greece</option>
+                                <option value="Grenada">Grenada</option>
+                                <option value="Guadeloupe">Guadeloupe</option>
+                                <option value="Guam">Guam</option>
+                                <option value="Guantanamo Bay">Guantanamo Bay</option>
+                                <option value="Guatemala">Guatemala</option>
+                                <option value="Guinea">Guinea</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Haiti">Haiti</option>
+                                <option value="Honduras">Honduras</option>
+                                <option value="Hong Kong">Hong Kong</option>
+                                <option value="Hungary">Hungary</option>
+                                <option value="Iceland">Iceland</option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Iraq">Iraq</option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Israel">Israel</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Ivory Coast">Ivory Coast</option>
+                                <option value="Jamaica">Jamaica</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="Kazakhstan">Kazakhstan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Korea">Korea</option>
+                                <option value="Kuwait">Kuwait</option>
+                                <option value="Lebanon">Lebanon</option>
+                                <option value="Lesotho">Lesotho</option>
+                                <option value="Liberia">Liberia</option>
+                                <option value="Libyan Arab Republic">Libyan Arab Republic</option>
+                                <option value="Luxembourg">Luxembourg</option>
+                                <option value="Macao">Macao</option>
+                                <option value="Macedonia">Macedonia</option>
+                                <option value="Malawi">Malawi</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Maldives">Maldives</option>
+                                <option value="Mali Republic">Mali Republic</option>
+                                <option value="Malta, Republic of">Malta, Republic of</option>
+                                <option value="Marshall Islands">Marshall Islands</option>
+                                <option value="Martinique">Martinique</option>
+                                <option value="Mauritania">Mauritania</option>
+                                <option value="Mauritius">Mauritius</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Midway">Midway</option>
+                                <option value="Montserrat">Montserrat</option>
+                                <option value="Morocco">Morocco</option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="New Caledonia">New Caledonia</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Nicaragua">Nicaragua</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Norfolk Island">Norfolk Island</option>
+                                <option value="Norway">Norway</option>
+                                <option value="Oman">Oman</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Palau">Palau</option>
+                                <option value="Panama">Panama</option>
+                                <option value="Papua New Guinea">Papua New Guinea</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Peru">Peru</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Ponapei">Ponapei</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Romania">Romania</option>
+                                <option value="Russia (USSR)">Russia (USSR)</option>
+                                <option value="Rwanda Republic">Rwanda Republic</option>
+                                <option value="Saipan">Saipan</option>
+                                <option value="Sao Tome and Prin.">Sao Tome and Prin.</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="Senegal Republic">Senegal Republic</option>
+                                <option value="Sierra Leone">Sierra Leone</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Slovenia">Slovenia</option>
+                                <option value="Solomon Islands">Solomon Islands</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="St. Kitts">St. Kitts</option>
+                                <option value="St. Kitts &amp; Nevis">St. Kitts &amp; Nevis</option>
+                                <option value="St. Lucia">St. Lucia</option>
+                                <option value="St. Maarten">St. Maarten</option>
+                                <option value="St. Vincent">St. Vincent</option>
+                                <option value="Sudan">Sudan</option>
+                                <option value="Suriname">Suriname</option>
+                                <option value="Swaziland">Swaziland</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Switzerland">Switzerland</option>
+                                <option value="Syrian">Syrian</option>
+                                <option value="Taiwan">Taiwan</option>
+                                <option value="Tanzania United Rep">Tanzania United Rep</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Togolese Republic">Togolese Republic</option>
+                                <option value="Tonga Islands">Tonga Islands</option>
+                                <option value="Trinidad &amp; Tobago">Trinidad &amp; Tobago</option>
+                                <option value="Tunisia">Tunisia</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Turks &amp; Caicos Isls">Turks &amp; Caicos Isls</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="USA" selected>USA</option>
+                                <option value="Vanuatu Island">Vanuatu Island</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Wake">Wake</option>
+                                <option value="Western Samoa">Western Samoa</option>
+                                <option value="Yeman Arab Republic">Yeman Arab Republic</option>
+                                <option value="Yugoslavia">Yugoslavia</option>
+                                <option value="Zaire">Zaire</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                            </select>
+                            <!--[if IE 8]></div><![endif]-->
+                            <!--[if IE 8]><div id="headerStateSelect" class="ie-inline"><![endif]-->
+                            <span id="headerStateLabel" class="label10px" style="margin-left: 8px;">State</span>
+                            <select id="headerTicketState" class="ie-inline width175px select10px">
+                                <option value="" selected>Select State</option>
+                                <option value="AL" prefix="WAL">Alabama</option>
+                                <option value="AK" prefix="null">Alaska</option>
+                                <option value="AS" prefix="null">American Samoa</option>
+                                <option value="AZ" prefix="null">Arizona</option>
+                                <option value="AR" prefix="WMW">Arkansas</option>
+                                <option value="CA" prefix="null">California</option>
+                                <option value="CO" prefix="null">Colorado</option>
+                                <option value="CT" prefix="WCT">Connecticut</option>
+                                <option value="DE" prefix="null">Delaware</option>
+                                <option value="DC" prefix="null">District of Columbia</option>
+                                <option value="FM" prefix="null">Federated States of Micronesia</option>
+                                <option value="FL" prefix="null">Florida</option>
+                                <option value="GA" prefix="WGA">Georgia</option>
+                                <option value="GU" prefix="null">Guam</option>
+                                <option value="HI" prefix="null">Hawaii</option>
+                                <option value="ID" prefix="null">Idaho</option>
+                                <option value="IL" prefix="WIL">Illinois</option>
+                                <option value="IN" prefix="WIN">Indiana</option>
+                                <option value="IA" prefix="null">Iowa</option>
+                                <option value="KS" prefix="WMW">Kansas</option>
+                                <option value="KY" prefix="WAL">Kentucky</option>
+                                <option value="LA" prefix="WLM">Louisiana</option>
+                                <option value="ME" prefix="null">Maine</option>
+                                <option value="MH" prefix="null">Marshall Islands</option>
+                                <option value="MD" prefix="null">Maryland</option>
+                                <option value="MA" prefix="null">Massachusetts</option>
+                                <option value="MI" prefix="WMI">Michigan</option>
+                                <option value="MN" prefix="null">Minnesota</option>
+                                <option value="MS" prefix="WLM">Mississippi</option>
+                                <option value="MO" prefix="WMW">Missouri</option>
+                                <option value="MT" prefix="null">Montana</option>
+                                <option value="NE" prefix="null">Nebraska</option>
+                                <option value="NV" prefix="WPN">Nevada</option>
+                                <option value="NH" prefix="null">New Hampshire</option>
+                                <option value="NJ" prefix="null">New Jersey</option>
+                                <option value="NM" prefix="null">New Mexico</option>
+                                <option value="NY" prefix="null">New York</option>
+                                <option value="NC" prefix="WCA">North Carolina</option>
+                                <option value="ND" prefix="null">North Dakota</option>
+                                <option value="MP" prefix="null">Northern Mariana Islands</option>
+                                <option value="OH" prefix="WOH">Ohio</option>
+                                <option value="OK" prefix="WMW">Oklahoma</option>
+                                <option value="OR" prefix="null">Oregon</option>
+                                <option value="PW" prefix="null">Palau</option>
+                                <option value="PA" prefix="null">Pennsylvania</option>
+                                <option value="PR" prefix="null">Puerto Rico</option>
+                                <option value="RI" prefix="null">Rhode Island</option>
+                                <option value="SC" prefix="WCA">South Carolina</option>
+                                <option value="SD" prefix="null">South Dakota</option>
+                                <option value="TN" prefix="WTN">Tennessee</option>
+                                <option value="TX" prefix="WTX">Texas</option>
+                                <option value="UT" prefix="null">Utah</option>
+                                <option value="VT" prefix="null">Vermont</option>
+                                <option value="VI" prefix="null">Virgin Islands</option>
+                                <option value="VA" prefix="null">Virginia</option>
+                                <option value="WA" prefix="null">Washington</option>
+                                <option value="WV" prefix="null">West Virginia</option>
+                                <option value="WI" prefix="WWI">Wisconsin</option>
+                                <option value="WY" prefix="null">Wyoming</option>
+                            </select>
+                            <!--[if IE 8]></div><![endif]-->
+                            <img id="resetHeaderStatus" src="images/reset.png" title="Reset Country and State" width="24" style="cursor: pointer; margin-left: 10px;" />
+                            <button type="submit" id="headerViewStatus" class="ie-inline btn btn-sm btn-blue ie7-btn" ticketElem="headerT" countryElem="headerTicketCountry" stateElem="headerTicketState" style="margin-left: 10px;">
+                                View Status
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainContent">
+                <div id="leftContainer" class="twoThirdsFull">
+                    <div id="start">
+                        <h3 class="attOrangeFont">Welcome to AT&amp;T Express Ticketing</h3>
+                        <div class="jumbotron">
+                            <p style="font-size: 16px; width: 900px; margin-left: auto; margin-right: auto;">
+                                AT&amp;T Express Ticketing is available for ticket creation for designed and non-designed AT&amp;T services. To get started creating a ticket on your AT&amp;T service, click the <b>Start Ticket Create</b> button.
+                            </p>
+                            <div class="contentButtons" style="float: right; margin-top: 10px;">
+                                <button id="getTicketStatus" type="submit" class="btn btn-blue createButtonWidth" style="margin-right: 5px;">Get Ticket Status</button>
+                                <button id="startTicketCreate" type="submit" class="btn btn-blue createButtonWidth">Start Ticket Create</button>
+                            </div>
+                            <div class="alignCenter" style="clear: both;">
+                                <p class="helpLinks">
+                                    For more information or assistance using Express Ticketing, consult the <a href="help/ATT_Express_Ticketing_Quick_Guide.pdf" class="color" target="_blank" title="AT&amp;T Express Ticketing User Guide">User Guide</a> or watch the <a href="#" id="tutorialVideoLink" class="color" title="AT&amp;T Express Ticketing Tutorial Video">Tutorial Video</a>.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: -15px; width: 962px; margin-left: auto; margin-right: auto;">
+                            <img id="img_1" src="images/homepage-1.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_2" src="images/homepage-2.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_3" src="images/homepage-3.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_4" src="images/homepage-4.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_5" src="images/homepage-5.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_6" src="images/homepage-6.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_7" src="images/homepage-7.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                            <img id="img_8" src="images/homepage-8.jpg" alt="AT&amp;T - I Can Help You With That" style="display: none;" />
+                        </div>
+                    </div>
+                </div>
+                <!--<div id="rightContainer" class="oneThird">
+                    <h3>&nbsp;</h3>
+                    <div id="infoContainer" class="statusContainer">
+                        <div class="statusTop">
+                            <div id="statusTopTitle" class="verticalMiddle">
+                                Helpful Links
+                            </div>
+                        </div>
+                        <div id="statusBottomText">
+                            <div id="helpfulLinks" class="ticketStatusButtons alignCenter">
+                                <p class="paddingRightLeft5px fontSize11px">These links will help answer questions on how to use Express Ticketing</p>
+                                <button id="userGuide" type="submit" class="btn btn-blue ticketStatusWidths">User Guide</button>&lt;!&ndash;[if IE 7]><br /><![endif]&ndash;&gt;
+                                <button type="submit" class="btn btn-blue ticketStatusWidths" onclick="tutorialVideo();">Tutorial Video</button>&lt;!&ndash;[if IE 7]><br /><![endif]&ndash;&gt;
+                                <button id="termsUse" type="submit" class="btn btn-blue ticketStatusWidths">Terms of Use</button>&lt;!&ndash;[if IE 7]><br /><![endif]&ndash;&gt;
+                                <button id="privacyPolicy" type="submit" class="btn btn-blue ticketStatusWidths">Privacy Policy</button>&lt;!&ndash;[if IE 7]><br /><![endif]&ndash;&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+            <div class="clearfix footer">
+                <hr />
+                <div class="footerLeft">
+                    <div class="alignCenter">
+                        &nbsp;
+                        <!--<a href="/smallbusiness/index.jsp" class="Globe"><img src="images/att_rp_85x50.png" title="AT&amp;T logo"/></a>-->
+                    </div>
+                </div>
+                <div class="footerMiddleLeft">
+                    <a href="https://expressticketing.acss.att.com/expressticketing/mobile/index.html">Mobile Site</a>
+                    <span class="separator"></span>
+                    <a href="http://www.att.com/contactus/" target="_blank">Contact Us</a>
+                    <span class="separator"></span>
+                    <a href="#" id="feedbackLink" class="feedback">Provide Feedback</a>
+                    <span class="separator"></span>
+                    <a href="http://www.att.com/gen/general?pid=11561" target="_blank">Terms of Use</a>
+                    <span class="separator"></span>
+                    <a href="http://www.att.com/privacy" target="_blank">Privacy Policy</a>
+                    <div class="marginTop5px">
+                        <a href="http://www.att.com/gen/privacy-policy?pid=2587" target="_blank">
+                            &copy;<span id="copyYear"></span> AT&T Intellectual Property.
+                        </a>
+                        All rights reserved. AT&T and Globe logo are registered trademarks of AT&T Intellectual Property.
+                    </div>
+                </div>
+                <div class="footerMiddleRight">
+                    <div class="footer-links">
+                        <img src="images/home-footer-separator.png" alt="AT&amp;T Intellectual Property &copy;2014" />
+                    </div>
+                    <div class="footer-links">
+                        <a href="http://www.att.com" title="att.com" target="_blank">
+                            <img src="images/att.com_globe.png" alt="att.com" />
+                            <span class="attcomText">att.com</span>
+                            <span class="attcomDarkText">Shop, Service, Support</span>
+                        </a>
+                    </div>
+                    <div class="footer-links">
+                        <img src="images/home-footer-separator.png" alt="AT&amp;T Intellectual Property &copy;2014" />
+                    </div>
+                    <div class="footer-links">
+                        <a href="http://www.att.net" title="att.com" target="_blank">
+                            <img src="images/att.com_globe.png" alt="att.net" />
+                            <span class="attcomText">att.net</span>
+                            <span class="attcomDarkText">E-mail - News - Weather & More</span>
+                        </a>
+                    </div>
+                    <div class="footer-links">
+                        <a href="http://www.ctia.org/" class="WirelessQualityConsumerInformationCode" target="_blank">
+                            <img src="images/logo_wls_cnsmr_code.gif" width="45" title="Wireless Quality Consumer Information Code" alt="CTIAlogo"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div id="ticketStatusWindows"></div>-->
+    <div id="htmlModal" style="display: none;">
+        <div id="htmlModalPanel" class="panel panel-default">
+            <div class="panel-body">
+                <div id="htmlInfo" style="font-size: 12px;"></div>
+            </div>
+            <div class="panel-footer">
+                <div class="alignCenter">
+                    <button id="saveSettings" type="button" class="btn btn-blue width105px" style="display: none;">Save Settings</button>
+                    <button id="closeHtmlModal" type="button" class="btn btn-blue width105px ie-margin-left10px">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="helpErrorModal" style="display: none;">
+        <div id="helpErrorPanel" class="panel panel-default">
+            <div class="panel-body">
+                <div id="helpInfo" style="font-size: 12px;"></div>
+            </div>
+            <div class="panel-footer">
+                <div class="alignCenter">
+                    <button id="closeHelpModal" type="button" class="btn btn-blue width105px">Ok</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div id="baseErrorModal" style="display: none;">
+        <div id="baseErrorPanel" class="panel panel-default">
+            <div class="panel-body">
+                <div id="serviceNotFoundInfo" style="display: none;">
+                    <p style="font-size: 12px;">
+                        Service Type:&nbsp;&nbsp;<span id="serviceNotFoundType"></span><br />
+                        Asset ID:&nbsp;&nbsp;<span id="serviceNotFoundID"></span><br />
+                        Service Location:&nbsp;&nbsp;<span id="serviceNotFoundLocation"></span>
+                    </p>
+                    <hr />
+                </div>
+                <div>
+                    <p id="errorInfo" style="text-wrap: normal; font-size: 12px;"></p>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="alignCenter">
+                    <button id="closeErrorModal" type="button" class="btn btn-blue width105px">Ok</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div id="chatModal" style="display: none;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div id="chatContactInfoDiv">
+                    <div id="chatFirstNameInput" class="form-inline form-group has-feedback alignLeft">
+                        <label for="chatFirstName" class="control-label label12px width125px">First Name</label>
+                        <div class="displayInline">
+                            <input id="chatFirstName" class="form-control input-sm alignCenter" type="text" placeholder="First Name" style="width: 365px !important; font-size: 12px;" />
+                        </div>
+                    </div>
+                    <div id="chatLastNameInput" class="form-inline form-group has-feedback alignLeft">
+                        <label for="chatLastName" class="control-label label12px width125px">Last Name</label>
+                        <div class="displayInline">
+                            <input id="chatLastName" class="form-control alignCenter input-sm" type="text" placeholder="Last Name" style="width: 365px !important; font-size: 12px;" />
+                        </div>
+                    </div>
+                    <div id="chatPhoneNumberInput" class="form-inline form-group has-feedback alignLeft">
+                        <label for="chatPhoneNumber" class="control-label label12px width125px">Phone Number</label>
+                        <div class="displayInline">
+                            <input id="chatPhoneNumber" class="form-control alignCenter input-sm" type="tel" placeholder="Phone Number" style="width: 265px !important; font-size: 12px;" />
+                        </div>
+                        <div id="chatExtensionInput" class="displayInline form-group has-success ie-margin-left6px">
+                            <input id="chatExtension" class="alignCenter input-sm width100px" type="tel" placeholder="Ext" />
+                        </div>
+                    </div>
+                    <div id="chatTroubleSelectInput" class="form-inline form-group alignLeft">
+                        <label for="chatTroubleSelect" class="control-label label12px width125px">Chat Purpose</label>
+                        <div class="displayInline">
+                            <select id="chatTroubleSelect" class="form-control input-sm" style="width: 365px !important; font-size: 12px;">
+                                <option value="">Select Chat Trouble Type</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="chatMessage" style="display: none;"></div>
+            </div>
+            <div class="panel-footer">
+                <div class="pull-right">
+                    <button id="chatNowSubmit" type="button" class="btn btn-blue ticketStatusWidths">Chat Now</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div id="baseConfirmModal" style="display: none;">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <p id="confirmQuestion" style="padding: 5px; font-size: 10pt;"></p>
+            </div>
+            <div class="panel-footer">
+                <div class="ticketStatusButtons alignCenter">
+                    <button id="yes" class="btn btn-blue width105px">Yes</button>
+                    <button id="no" class="btn btn-blue width105px">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popupBlockedModal" style="display: none;">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <p id="popupBlockedContent" style="padding: 5px; font-size: 10pt;"></p>
+            </div>
+            <div class="panel-footer">
+                <div class="ticketStatusButtons alignCenter">
+                    <button id="ok" class="btn btn-blue width105px">View Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tutorialVideoModal" style="display: none;">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <object width="560" height="315">
+                    <param name="movie" value="//www.youtube.com/v/bRHCVUs-pTY?version=3&amp;hl=en_US" />
+                    <param name="allowFullScreen" value="true" />
+                    <param name="allowscriptaccess" value="always" />
+                    <embed src="//www.youtube.com/v/bRHCVUs-pTY?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true" />
+                </object>
+            </div>
+            <div class="panel-footer">
+                <div class="ticketStatusButtons pull-right">
+                    <button id="closeVideo" type="button" class="btn btn-blue width105px">Close</button>
+                </div>
+                <div class="clearfix" style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+    <div id="feedbackModals"></div>
+    <div id="printLogsDiv" class="printLogs"></div>
+    <script type="text/javascript">
+        helpFunctionality();
+        getStartedButton();
+        $(window).load(function() {
+            var imgNum = Math.floor(Math.random() * 8) + 1;
+            $('#img_' + imgNum).show();
+        });
+    </script>
+    <!--<script type="text/javascript" src="https://att.inq.com/chatskins/launch/inqChatLaunch10004119.js"></script>-->
+    <script type="text/javascript">
+        try {
+            _satellite.pageBottom();
+        } catch(err) {
+            chatAvail = 0;
+            //alert("Caught Satellite Error!");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Marketing Admin Site">
+    <meta name="author" content="GM Marketing IT">
+    <!-- Version: MA-Dev-CI.53.20171005.8.e0e9212a83a26d4ad3be531fdef625aafbb502bd -->
+    <link rel="shortcut icon" href="app/images/favicon.ico">
+    <!-- gulp build from TFS -->
+    <title>Marketing Admin</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800|Raleway:300,200,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./vendor-manual/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="app/css/style.min.css?v=20171005205939592">
+    <script src="app/lib/modernizr.js?v=20171005205939592"></script>
+</head>
+
+
+<body class="{{!authLookup.isAuthenticated() ? 'texture' : ''}}" waiting-for="appReady">
+
+    <gm-dam-selector></gm-dam-selector>
+    <gm-top-bar></gm-top-bar>
+    <gm-side-menu ng-show="authLookup.isAuthenticated()" class="cl-sidebar"></gm-side-menu>
+    <div data-ui-view ng-class="authLookup.isAuthenticated() ? 'main-content':'login-container'"></div>
+
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?client=gme-adamopelag&v=3.24"></script>
+
+    <script type="text/javascript" src="app/lib/require.js?v=20171005205939592" data-main="app/app-min.js?v=20171005205939592"></script>
+
+</body>
+</html>

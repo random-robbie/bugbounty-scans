@@ -1,0 +1,289 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="https://csdaccess-ext.att.com:443/customloginpage/">
+<meta http-equiv="X-UA-Compatible" content="IE=7"></meta>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>DOORS First-Factor Authentication Stage</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="DOORS First-Factor Authentication Stage">
+
+    <link href="pages/Login_files/custibeCStyleSheet.css" type="text/css"
+          rel="stylesheet"></link>
+    <link href="pages/Login_files/global.css" type="text/css" rel="stylesheet"></link>
+    <link href="pages/Login_files/navigation.css" type="text/css" rel="stylesheet"></link>
+    <link href="pages/Login_files/condensedgbl.css" type="text/css"
+          rel="stylesheet"></link>
+    <script language="JavaScript" src="pages/Login_files/ibeCButton.js"
+            type="text/javascript"></script>
+    <meta name="robots" content="noindex,nofollow"></meta>
+    <!--[if lte IE 7]>
+   <style type="text/css">
+        div { zoom:1; }
+   </style>
+<![endif]-->
+    <!--[if IE 8]>
+   <style type="text/css">
+.utilityNav input{display:none;}
+.utilityNav input.search{display:inline;position:relative;top:-5px;}
+.utilityNav input.gobtnblue{display:inline;}
+   </style>
+<![endif]-->
+<script type="text/javascript" language="JavaScript">
+    function valAkw(obj)
+    {
+      var loginobj = document.getElementById("tguardLoginButton");
+        if(obj.checked )
+        {
+            loginobj.style.display = 'block';
+        } else {
+            loginobj.style.display = 'none';
+        }
+    }
+    function setUserName()
+    {
+        var str = document.getElementById("serialNumber").value;
+        var val = trimNumber(str);
+        document.getElementById("username").value = val; 
+        document.getElementById("serialNumber").value = val; 
+        return false;
+    }
+    function trimNumber(s) {
+        while (s.substr(0,1) == '0' && s.length > 1) 
+        { 
+            s = s.substr(1,9999); 
+        }
+    return s;
+    }
+    function forwardRequest() {
+        setUserName();
+        submitForm('', 'mainForm');
+    }
+</script>
+
+<style type="text/css">
+.errorMessage {
+background-color: #eaeff5;
+font-family: Verdana, Arial, Arial, Helvetica, sans-serif;
+font-size: 10pt;
+color: #C00;
+font-weight:bold;
+}
+</style>
+  </head>
+  <body><div>
+      <div id="segMenuBar"></div>
+    </div><div id="container">
+      <div id="topLine"></div>
+       
+      <div id="header">
+        <span id="#header" class="logo">
+          <img src="pages/Login_files/DOORLogo.png" alt="Store Main Logo"
+               border="0"></img>
+        </span>
+         
+        <div class="utilityNav"></div>
+         
+        <div class="cleardiv"></div>
+         
+         <div id="navigation"> <ol id="globalnav_min"></ol> </div>
+       
+      <div id="content"
+           style="width : 950px ;  padding-bottom : 20px !important;">
+        <div id="bodytext">
+          <form name="mainForm" method="post"
+                action="/oam/server/auth_cred_submit">
+            <input type="hidden" name="event" value=""></input>
+            <input type="hidden" name="request_id" value="1424559302324166536"></input>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%"
+                   summary="">
+              <tbody>
+                <tr>
+                  <td valign="top" width="15%">
+                    <br clear="all"></br>
+                  </td>
+                  <td valign="top" width="70%">
+                    <table summary="" width="100%" border="0" cellspacing="0"
+                           cellpadding="0" align="center">
+                      <tbody>
+                        <tr>
+                          <td class="prompt" width="99%">      
+                         
+		         </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table summary="" width="100%" border="0" cellspacing="0"
+                           cellpadding="0" align="center">
+                      <tbody>
+                        <tr>
+                          <td class="prompt" align="left" valign="top">
+                            <img alt=""
+                                 src="pages/Login_files/requiredicon_status.gif"></img>
+                            Indicates required field
+                          </td>
+                          <td>
+                            <img src="pages/Login_files/jtfutrpx.gif" height="50"
+                                 width="0" alt=""></img>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0"
+                           width="100%" summary="">
+                      <tbody>
+                        <tr>
+                          <td class="prompt" align="left" valign="top">
+                            <img alt=""
+                                 src="pages/Login_files/requiredicon_status.gif"></img>
+                            <input type="checkbox" name="acknoledgement"
+                                   value="" onclick="JavaScript:valAkw(this)"></input>
+                            I acknowledge and agree that this site and all
+                            information contained in it including, without
+                            limitation, the prices of equipment and accessories,
+                            is Confidential Information under the terms of the
+                            Dealer Agreement. Dealer may only share this
+                            information as permitted under the Confidentiality
+                            provision of the Dealer Agreement with persons in
+                            the dealership with a legitimate need to know and an
+                            obligation to keep it confidential. Any improper use
+                            or disclosure of this Confidential Information will
+                            cause irreparable injury to Company and may subject
+                            the dealership to immediate termination. DO NOT
+                            SHARE OR DISTRIBUTE.
+                          </td>
+                          <td>
+                            <div id="LoginArea">
+                              <div class="LoingBox">
+                                <div class="boxTop">
+                                  <div class="boxTopTop">
+                                    <div class="boxtitle">RSA Token Toolbar</div>
+                                     
+                                    <div class="lockIcon">
+                                      <img src="pages/Login_files/Lock.png" alt=""></img>
+                                    </div>
+                                     
+                                    <div class="loginclear"></div>
+                                  </div>
+                                </div>
+                                 
+                                <div class="boxMiddle">
+                                  <div class="boxMiddleArea">
+                                    <div class="captureArea">
+                                      <div class="userNameBlock">
+                                        <div class="userNameLbl">
+                                          <label for="username"
+                                                 class="lblStyle">RSA Serial Number:</label>
+                                        </div>
+                                         
+                                        <div>
+                                          <span>
+                                          <input id="serialNumber" type="text"
+                                                   name="serialNumber" size="30"
+                                                   value=""
+                                                   style=" padding-top: 3px; padding-bottom: 3px; margin-left: 16px; width:174px; "
+                                                   onfocus ="javascript:setUserName()"
+                                                   onblur = "javascript:setUserName()" 
+                                                   onChange ="javascript:setUserName()" > 
+                                                   </input>
+                                            <input type="hidden" id="username" name="username" value=""></input>
+                                          </span>
+                                        </div>
+                                      </div>
+                                       
+                                      <div class="passwordBloc">
+                                        <div class="userNameLbl">
+                                          <label for="password"
+                                                 class="lblStyle">RSA Passcode:</label>
+                                        </div>
+                                         
+                                        <div>
+                                          <span>
+                                            <input id="passcode" type="password"
+                                                   name="passcode" size="30"
+                                                   style=" padding-top: 3px; padding-bottom: 3px; margin-left: 16px; width:174px; "></input>
+                                          </span>
+                                        </div>
+                                      </div>
+                                       
+                                      <input type="HIDDEN" name="ref" value=""></input>
+                                       
+                                      <div>
+				      <input type="image"
+					     id="tguardLoginButton"
+					     value="Login"
+                                             src="pages/Login_files/login-new-bt.png"
+                                             alt="Login" title="Login"
+					     onclick="javascript: forwardRequest()"
+                                             style="margin-left: 16px; display: none;"></input>
+                                      </div>
+                                       
+                                      <div class="footnote"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                 
+                                <div class="boxBottom"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td valign="top" width="15%">
+                    <br></br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+           
+          <br></br>
+           
+          <br></br>
+           
+          <br></br>
+           
+          <br></br>
+           
+          <table border="0" cellspacing="0" cellpadding="0" width="100%"
+                 align="center" summary="">
+            <tbody>
+              <tr>
+                <td valign="top" width="15%">
+                  <br clear="all"></br>
+                </td>
+                <td valign="top" width="70%">
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                         summary="">
+                    <tbody>
+                      <tr>
+                        <td class="OraBGAccentDark">
+                          <img src="pages/Login_files/jtfutrpx.gif" height="1"
+                               width="1" alt=""></img>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td valign="top" width="15%">
+                  <br clear="all"></br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+           
+          <br></br>
+        </div>
+      </div>
+    </div></body>
+</html>
+

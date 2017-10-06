@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Telemetry Dashboards</title>
+
+    <!-- Bootstrap and supporting libraries -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="style/dashboards.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <form class="navbar-form inline pull-right">
+                <a href="https://github.com/mozilla/telemetry-dashboard/issues" class="btn" title="Report bugs in Telemetry dashboards" target="_blank">Report bug</a>
+            </form>
+            <form class="navbar-form inline pull-right">
+                <a href="https://wiki.mozilla.org/Telemetry" class="btn" title="Wiki" target="_blank">Telemetry Wiki</a>
+            </form>
+            <form class="navbar-form inline pull-right">
+                <a href="http://docs.telemetry.mozilla.org" class="btn" title="Docs" target="_blank">Telemetry Documentation</a>
+            </form>
+            <h2>Telemetry dashboards</h2>
+            <!-- <div class="error-msg">
+              We're currently experiencing an issue with the Measurement and Evolution Dashboards.
+              <a href="https://bugzil.la/1375921">More Details</a>
+            </div> -->
+        </header>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Main dashboards</h3>
+                <div class="dashboard-list scrollable-dashboard-list list-group" style="margin: 0">
+                    <a class="list-group-item" href="new-pipeline/dist.html">
+                        Measurement Dashboard
+                        <div class="dashboard-description">View measure distributions as histograms.</div>
+                    </a>
+                    <a class="list-group-item" href="new-pipeline/evo.html">
+                        Evolution Dashboard <div class="dashboard-description">View evolution of measure values over time.</div>
+                    </a>
+                    <a class="list-group-item" href="https://sql.telemetry.mozilla.org/">
+                        SQL Portal <div class="dashboard-description">Query telemetry data with SQL.</div>
+                    </a>
+                    <a class="list-group-item" href="https://analysis.telemetry.mozilla.org/">
+                        Analysis Portal <div class="dashboard-description">Analyze telemetry data with Spark.</div>
+                    </a>
+                    <a class="list-group-item" href="https://reports.telemetry.mozilla.org/">
+                        Reports Portal <div class="dashboard-description">Explore data analyses &amp; reports.</div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>Telemetry @ Twitter</h3>
+                <!-- Twitter widget -->
+                <div>
+                    <a class="twitter-timeline"
+                        href="https://twitter.com/MozTelemetry"
+                        data-tweet-limit="3"
+                        data-chrome="noheader nofooter noborders noscrollbar transparent"
+                        data-widget-id="410497663147053056">
+                        Loading updates on telemetry...
+                    </a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    <a href="https://twitter.com/MozTelemetry"
+                       class="twitter-follow-button"
+                       data-show-count="false"
+                       data-align="left"
+                       data-dnt="true"
+                       data-lang="en">
+                        Follow @MozTelemtry
+                    </a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>Other dashboards</h3>
+                <div class="dashboard-list scrollable-dashboard-list list-group">
+                    <a class="list-group-item" href="dashboard-generator/index.html">
+                      Dashboard Generator
+                      <div class="dashboard-description">Hand-craft your own dashboard with the push of a few buttons</div>
+                    </a>
+                    <a class="list-group-item" href="https://bsmedberg.github.io/telemetry-experiments-dashboard/">
+                        Experiment Monitoring <div class="dashboard-description">View vitals and statistics for Firefox Telemetry Experiments.</div>
+                    </a>
+                    <a class="list-group-item" href="https://metrics.mozilla.com/firefox-hardware-report/">
+                        Firefox Hardware Report
+                        <div class="dashboard-description">View the Firefox user population categorized by hardware specifications.</div>
+                    </a>
+                    <a class="list-group-item" href="http://alerts.telemetry.mozilla.org/">
+                        Telemetry Alerts <div class="dashboard-description">Set up email alerts for significant performance changes.</div>
+                    </a>
+                    <a class="list-group-item" href="https://people.mozilla.org/~danderson/moz-gfx-telemetry/www/">
+                        Graphics Telemetry <div class="dashboard-description">View percentage breakdowns for various graphics features.</div>
+                    </a>
+                    <a class="list-group-item" href="update-orphaning/">
+                        Update Orphaning <div class="dashboard-description">View percentage breakdowns of users who are up-to-date vs. out-of-date.</div>
+                    </a>
+                    <a class="list-group-item" href="crashes/">
+                        Stability Dashboard <div class="dashboard-description">See how crash rates evolve over time</div>
+                    </a>
+                    <a class="list-group-item" href="https://squarewave.github.io">
+                        Background Hang Reporting <div class="dashboard-description">View browser hang information collected from Nightly users</div>
+                    </a>
+                    <a class="list-group-item" href="histogram-simulator/">
+                        Histogram Simulator <div class="dashboard-description">Simulate histogram bucket widths</div>
+                    </a>
+                    <span class="list-group-item disabled">
+                        Addon Startup Correlations
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Addon Shutdown Correlations
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Chrome Hangs
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Fennec App Not Responding (ANR)
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Fennec UI Telemetry
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Firefox UI Telemetry
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Main Thread I/O
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        Power Dashboard <span class="label label-warning" style="font-size: 12px">DRAFT</span>
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                    <span class="list-group-item disabled">
+                        SlowSQL
+                        <div class="dashboard-description">Please <a href="https://github.com/mozilla/telemetry-dashboard/issues">Report a Bug</a> if you require this data.</div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and supporting libraries -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script>
+    // Check for permalink - if there is a URL hash, the user probably clicked on a permalink to the old dashboard, so redirect them there with the same state to avoid breaking permalinks
+    if (window.location.hash.length > 1) {
+        window.location.href = window.location.origin + "/advanced/" + window.location.hash;
+    }
+    </script>
+</body>
+</html>

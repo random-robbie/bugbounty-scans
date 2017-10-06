@@ -1,0 +1,188 @@
+<!-- Added for the BD Mobile project : 231620 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+<html lang="en">
+<head>
+<meta content='True' name='HandheldFriendly' />
+<meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
+<meta name="viewport" content="width=device-width" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>BD Mobile Login Page</title>
+
+
+
+<style type="text/css">
+
+                body{
+                        background-image:url('/images/mobile_background.jpg');
+                }
+        .submit{
+                width: 95%;
+                overflow:hidden;
+                                padding-top:5%;
+                                padding-left:5%;
+        }
+
+        .errorMsg{
+                                padding-top:2%;
+                                padding-bottom:2%;
+                                padding-left:5%;
+                                padding-right:2%;
+                font-family:arial;
+                                font-size:11px;
+                                font-weight:bold;
+                                color:#CC0000;
+        }
+                .link1{
+                                #top:70%;
+                                padding-top:5%;
+                                padding-left:5%;
+                color: #2E64FE;
+                font-family:arial;
+                font-size:14px;
+        }
+                .link2{
+                                #top:70%;
+                                padding-top:2%;
+                                padding-left:5%;
+                color: #2E64FE;
+                font-family:arial;
+                font-size:14px;
+        }
+                .link3{
+                                #top:80%;
+                                padding-top:2%;
+                                padding-left:5%;
+                color: #2E64FE;
+                font-family:arial;
+                font-size:14px;
+        }
+                .link4{
+                                #top:90%;
+                                padding-top:2%;
+                                padding-left:5%;
+                color: #2E64FE;
+                font-family:arial;
+                font-size:14px;
+        }
+
+
+</style>
+
+<script type="text/javascript">
+
+        function taCount() {
+
+                var userid=document.loginForm.userID.value;
+                var pwd=document.loginForm.pass_temp.value;
+
+                if ((userid.length>=6 && userid.length<=12) && (pwd !='Password' && pwd.length>=8 && pwd.length<=16))
+                {
+
+                        document.loginForm.enabledbutton.style.display='inline';
+                        document.loginForm.disabledbutton.style.display='none';
+
+
+                }else{
+                        document.loginForm.disabledbutton.style.display='inline';
+                        document.loginForm.enabledbutton.style.display='none';
+                }
+                return true;
+        }
+
+        function changeBox() {
+                        if(document.loginForm.pass_temp.value.length<1){
+                                document.loginForm.pass_temp.value = '';
+                        }
+         document.loginForm.pass_temp.style.color = '#000';
+        }
+
+        function restoreBox(){
+         if(document.loginForm.pass_temp.value.length<1){
+                                document.loginForm.pass_temp.style.display = 'inline';
+                 document.loginForm.pass_temp.value='Password';
+                 document.loginForm.pass_temp.style.color = '#ccc';
+         }
+        }
+
+
+</script>
+</head>
+<body>
+
+<form name="loginForm" id="loginForm" method="post" action="">
+<div id="banner-image">
+<img src="/images/bdmobile_logo.gif" alt="AT&T BusinessDirect"/>
+</div>
+
+<form name="bdmobileLoginForm" action="/portal/bdmobile.jsp?_DARGS=/portal/bdmobile.jsp" method="post"><input name="_dyncharset" value="ISO-8859-1" type="hidden"></input><input name="_dynSessConf" value="2045493694569798940" type="hidden"></input>
+<input name="/atg/userprofiling/ProfileFormHandler.loginSuccessURL" value="/portal/index.jsp?fromlogin=true" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.loginSuccessURL" value=" " type="hidden">
+<input name="/atg/userprofiling/ProfileFormHandler.loginErrorURL" value="/portal/bdmobile.jsp" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.loginErrorURL" value=" " type="hidden">
+<input name="/atg/userprofiling/ProfileFormHandler.isMobileUser" value="true" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.isMobileUser" value=" " type="hidden">
+
+
+<div class="errorMsg">
+
+    
+     <!-- end of formError.true -->
+     <!-- end of formError.false -->
+
+    
+     <!-- end of formError.true -->
+    
+
+                <tr>
+                    <td colspan=4>&nbsp;</td>
+                </tr>
+
+     <!-- end of formError.false -->
+ <!-- end of switch on formError -->
+
+        
+                
+                
+        
+
+</div>
+<div id="userid" class="userid">
+<label for="userid"></label>
+<input id="userID" style="color: #ccc;top:5%;margin-left:5%;width:90%;" name="userid" onblur="if (this.value == '') {this.value = 'User ID';this.style.color='#ccc';}" value="User ID" onkeyup="return taCount()" onfocus="if(this.value == 'User ID') {this.value = '';this.style.color='#000';}" type="text"><input name="_D:userid" value=" " type="hidden">
+</div>
+<br>
+<div id="div1" class="div1">
+<input id="pass_temp" style="color: #ccc;top:5%;margin-left:5%;width:90%;" name="pass_temp" onblur="if(this.value == ''){this.type = 'text';this.value = 'Password';this.style.color='#ccc'}" value="Password" onclick="changeBox()" onkeyup="return taCount()" onfocus="if(this.value == 'Password'){this.type = 'password';this.value = '';this.style.color='#000'}" type="text"><input name="_D:pass_temp" value=" " type="hidden">
+</div>
+<br>
+<div id="submit">
+<center>
+<img src="/images/mobile_login_disabled.gif" name="disabledbutton" id="disabledbutton" alt="Login">
+<a href="javascript:document.loginForm.submit()"><img src="/images/mobile_login_enabled.gif" name="enabledbutton" id="enabledbutton" style="display:none;" alt="Login"/></a>
+<input name="/atg/userprofiling/ProfileFormHandler.login" value="Submit" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.login" value=" " type="hidden">
+</center>
+</div>
+
+<div class="link1">
+                <a href="/portal/exclude/aerequestuserlogin.jsp?fromMobile=true">User ID Unknown?</a>
+</div>
+<div class="link2">
+                <a href="/portal/forgot_password.jsp">Forgot Your Password?</a>
+</div>
+<div class="link3">
+                <a target=_blank href="https://www.att.com/gen/general?pid=11561">Terms and Conditions</a>
+</div>
+<div class="link4">
+                <a target=_blank href="https://www.att.com/gen/privacy-policy?pid=2506">Privacy Policy</a>
+</div>
+
+<input name="_DARGS" value="/portal/bdmobile.jsp" type="hidden"></input></form>
+</form>
+</body>
+</html>
+
+

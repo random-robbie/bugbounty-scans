@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Centrify FTP Server Login</title>
+        <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/login.css" />
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery-ui-1.8.2.custom.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/login.js"></script>
+        
+        <script type="text/javascript">
+        function showRecaptcha(element) {
+        if(window.Recaptcha)
+        {
+        window.Recaptcha.create("/*RECAPTCHA_PUBLIC_KEY*/", element, {
+        theme: "red"
+        });
+        }
+        }
+        $(document).ready(function() {
+                /*RECAPTCHA*/
+            });
+        var passwordRule = {random_password_length:6,min_password_numbers:0,min_password_lowers:0,min_password_uppers:0,min_password_specials:0};
+        </script>
+        <script></script>
+    </head>
+    <body style="overflow-x: hidden; overflow-y: auto;" class="login">
+        
+        <div id="login">
+            <div id="languageSelector" style="display:none;">
+                <select>
+                    <option value="en" rel="English">English</option>
+                    <option value="cn" rel="Chinese">Chinese</option>
+                    <option value="cs" rel="Czech">Czech</option>
+                    <option value="da" rel="Danish">Danish</option>
+                    <option value="nl" rel="Dutch">Dutch</option>
+                    <option value="fr" rel="French">French</option>
+                    <option value="de" rel="German">German</option>
+                    <option value="hu" rel="Hungarian">Hungarian</option>
+                    <option value="it" rel="Italian">Italian</option>
+                    <option value="pl" rel="Polish">Polish</option>
+                    <option value="ro" rel="Romanian">Romanian</option>
+                    <option value="sk" rel="Slovak">Slovak</option>
+                    <option value="es" rel="Spanish">Spanish</option>
+                    <option value="se" rel="Swedish">Swedish</option>
+                </select>
+            </div>
+            <form id="loginForm" name="loginForm" method="post" action="/" onSubmit="return doLogin2();">
+                <div id="panelbody">
+                    <div id="branding" class="clearfix branding">
+                        <img id="loginWheel" src="/WebInterface/images/wheel.gif" />
+                        <a id="defaultLogoLink" href="javascript:void();">
+                            <img id="imgLogo" src="/WebInterface/images/centrify.png" style="border-width:0px;float:left;" />
+                        </a>
+                    </div>
+                    <div id="panelLogin">
+                        <div>
+                            <label id="UserNameText">Username</label>
+                            <input autocomplete="on" type="text" class="textbox" name="username" id="username" value="" />
+                        </div>
+                        <div>
+                            <label id="PasswordText">Password</label>
+                            <input type="password" class="textbox" name="password" id="password" value="" />
+                        </div>
+                        <div id="rememberMePanel">
+                            <label><input type="checkbox" name="remember" id="remember" /> <span id="RememberMeText">Remember Me</span></label>
+                        </div>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <div id="recaptcha_div"></div>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <div class="submit clearfix">
+                            <input type="submit" value="login" style='display:none;' />
+                            <input type="hidden" name="command" value="login" />
+                            <input type="hidden" name="skip_login" value="true" />
+                            <input type="hidden" name="encoded" value="false" />
+                            <input type="submit" value="login now" style="position:absolute;left:-1000px;top:-1000px;" />
+                            <a class="button" id="btnLogin" href="javascript:void(0);">
+                                <span id="LoginButtonText">Login</span>
+                            </a>
+                        </div>
+                        <p class="lostpassword">
+                            <a href="javascript:emailPassword();" id="ForgotPasswordLinkText">I forgot my password, email it to me.</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+            <form id="changePassForm" method="post" target="dummyIframe" action="/WebInterface/function/" onSubmit="doLogin();">
+                <div id="changepasswordPanel" style="display:none;margin-bottom:10px;">
+                    <div class="clearfix branding" style="clear:both;">
+                        <a id="defaultLogoLink" href="javascript:void();">
+                            <img id="imgLogo" src="/WebInterface/images/centrify.png" style="border-width:0px;float:left;margin:3px 0px 10px 0px;" />
+                        </a>
+                    </div>
+                    <h2 class="popupHeader" style="clear:both;margin-top:15px;" id="ChangePasswordHeaderText">
+                    Change your password
+                    </h2>
+                    <div class="passwordChangeNote" id="ChangePasswordNoteText">
+                        You must change your password to continue
+                    </div>
+                    <div class="buttonPanel">
+                        <label for="current_password" id="CurrentPasswordText">Current Password:</label>
+                        <input id="current_password" class="textbox" type="password" />
+                        <br />
+                        <br />
+                        <label for="new_password1" id="NewPasswordText">New Password:</label>
+                        <input id="new_password1" class="textbox" type="password" />
+                        <br />
+                        <br />
+                        <label for="new_password2" id="ConfirmPasswordText">Confirm Password:</label>
+                        <input id="new_password2" class="textbox" type="password" />
+                        <div style="text-align:right;margin-top:10px;">
+                            <a id="btnChangePasswordCancel" class="button" href="javascript:void(0);">
+                                <span id="CancelButtonText">Cancel</span>
+                            </a>
+                            <a id="btnChangePassword" class="button" href="javascript:void(0);">
+                                <span id="ChanngePasswordButtonText">Change Password</span>
+                            </a>
+                        </div>
+                        <div style="clear:both"></div>
+                        <div class="spacing">
+                            <br />
+                            <hr />
+                            <br />
+                        </div>
+                        <div>
+                            <a id="btnGeneratePassword" class="button" href="javascript:void(0);" style="float:left">
+                                <span id="GeneratePasswordButtonText">Generate password</span>
+                            </a>
+                            <div id="passwordGeneratePanel" style="display:none;">
+                                <br />
+                                <br />
+                                <input id="generated_password" type="text" class="textboxSmall" style="float:left;" />
+                                <a id="usePassword" class="button" href="javascript:void(0);" style="float:left">
+                                    <span id="GeneratePasswordUseButtonText">Use this</span>
+                                </a>
+                                <a id="cancelPassword" class="button" href="javascript:void(0);" style="float:left">
+                                    <span id="GeneratePasswordCancelButtonText">Cancel</span>
+                                </a>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="OTPBox" style="display:none;">
+            <img class="closeButton" alt="close" src="/WebInterface/jQuery/images/cancel.png"
+            onclick="$.unblockUI();"/>
+            <h2 class="popupHeader" id="OTPDialogHeaderText">
+            Enter your OTP here
+            </h2>
+            <div class="buttonPanel">
+                <div style="width:100%;">
+                    <input id="otp" type="password" style="width:95%;padding:5px;" />
+                </div>
+                <br />
+                <br />
+                <div style="text-align: right; margin-top: 10px;">
+                    <button id="btnSubmitOTP">
+                    <span id="OTPSubmitButtonText">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <iframe id="dummyIframe" name="dummyIframe" src="javascript:false;" style="display:none;"></iframe>
+    </body>
+</html>

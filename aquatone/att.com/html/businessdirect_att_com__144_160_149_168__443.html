@@ -1,0 +1,723 @@
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+    
+        
+            
+        
+
+
+
+
+
+
+ 
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+    
+		
+		
+		    
+		    
+		      
+		
+		    
+		    
+		    
+		        
+					
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>AT&T BusinessDirect&reg</title>
+<!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/layout.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+        <script src="/js/jquery.min.js" type="text/javascript" ></script>
+
+    <script src="/js/customJs.js"></script>
+    <script src="/js/login_form.js"></script>
+    <script src="/js/Util.js"></script>
+
+<script>/*scope of the below array is global.More comments on the significance of this array is decribed below*/
+
+var textFieldDetailarray1=["UserID:Username","Password:Password"];
+
+/*function preset() {
+document.getElementById("Password").defaultValue = "Password";
+}*/
+
+$(document).ready(function () {
+           $('Password').bind('copy paste', function (e) {
+              e.preventDefault();
+           });
+        });
+
+
+        $(document).ready(function() {
+
+
+
+
+    // cache references to the input elements into variables
+    var passwordField = $('input[name=password]');
+
+
+if (document.getElementById("elog") != null && document.getElementById("elog") != 'undefined')
+{
+ passwordField.after('<input id="field" type="text" name="field" value="Password"  class="passwordBox invalidPassword" autocomplete="off" />');
+
+}
+else
+{
+ passwordField.after('<input id="field" type="text" name="field" value="Password"  class="passwordBox" autocomplete="off" />');
+
+}
+    // add a password placeholder field to the html
+
+    var passwordPlaceholder = $('#field');
+
+    // show the placeholder with the prompt text and hide the actual password field
+    passwordPlaceholder.show();
+    passwordField.hide();
+
+    // when focus is placed on the placeholder hide the placeholder and show the actual password field
+    passwordPlaceholder.focus(function() {
+        passwordPlaceholder.hide();
+        passwordField.show();
+        passwordField.focus();
+    });
+    // and vice versa: hide the actual password field if no password has yet been entered
+    passwordField.blur(function() {
+        if(passwordField.val() == '') {
+            passwordPlaceholder.show();
+            passwordField.hide();
+        }
+    });
+
+});
+
+function alertMsgPopup1() {
+   location.href='/portal/alertmsg_banner.jsp?prelogin=true';
+}
+        </script>
+
+        <style>
+        @media   (min-height: 800px) and (max-height: 1024px) {
+        .footer-main { margin-top:180px !important;}
+    .formwrapper { margin-top:40px;}
+        }
+        @media   (min-height:1024px)  {
+        .footer-main { position:absolute !important; width:100%; bottom:0; margin-top:40px;}
+    .formwrapper { margin-top:40px;}
+        }
+        .footer-main { margin-top:100px;}
+    .formwrapper { margin-top:50px;}
+
+
+
+        #createTicketButton {background:url('/images/Right.png') no-repeat right; padding-right:12px;}
+        .lmore {background:url('/images/Right.png') no-repeat right center; padding-right:13px;}
+        .errorMsg_wrap { border: solid 1px #c93333; padding: 10px; border-radius: 10px 10px 0 0; -moz-border-radius: 10px 10px 0 0;
+         font-size: 11px; background:#c93333; color:white; line-height:1.4em; margin-bottom:-5px;}
+
+        </style>
+
+
+</head>
+
+
+<body onLoad="doubleClickControlFunction();eccUserCookie();">
+
+
+
+<!-- redirection to the intermediate page/ User id consolidation -->
+
+
+
+
+
+
+<div  id="background_image"></div>
+    <div class="formwrapper">
+     <form id="loginArea" name="Login Form" action="/portal/login_form.jsp?_DARGS=/portal/login_form.jsp" class="login_form" method="post"><input name="_dyncharset" value="ISO-8859-1" type="hidden"></input><input name="_dynSessConf" value="-3632543218784077842" type="hidden"></input>
+
+            <div class="att_logoimg"></div>
+<h1 style="text-indent: -9999px; font-size:1px; padding:0; margin:0;">Log On</h1>
+ 
+    
+    
+        
+ 
+    
+    
+        
+            <input name="/atg/userprofiling/ProfileFormHandler.loginSuccessURL" value="/portal/index.jsp?fromlogin=true" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.loginSuccessURL" value=" " type="hidden">
+        
+ 
+ <p>
+<input name="/atg/userprofiling/ProfileFormHandler.bookmarkPageURL" value="" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.bookmarkPageURL" value=" " type="hidden">
+ 
+    
+     <!-- end of formError.true -->
+        
+
+    
+     <!-- end of formError.true -->
+        
+ <!-- end of switch on formError -->
+                <label for="UserID">Username</label>
+                 
+                                
+        <input id="UserID" maxlength="100" placeholder="Username" name="login" onblur="if(this.value == ''){this.value ='Username'}" value="" tabindex="0" class="userNameBox" onfocus="if(this.value == 'Username') {this.value=''}" type="text"><input name="_D:login" value=" " type="hidden">
+                                <label for="Password">Password</label>
+
+                
+        <input id="Password" title="password" maxlength="24" name="password" value="" tabindex="0" class="passwordBox" onfocus="if(this.value == 'Password') {this.value='';}" onkeypress="return submitenter(this,event,textFieldDetailarray1)" type="password" autocomplete="off"><input name="_D:password" value=" " type="hidden"><br>
+        <div class="frgt_row">&nbsp;Forgot your <a href="/portal/exclude/aerequestuserlogin.jsp?fromBD=true" title="username">username</a> or <a href="/portal/forgot_password.jsp" title="Password">password</a>?</div>
+                <div class="login_row">
+                 <table width="100%">
+                  <tbody>
+                    <td align="left"><input type="button" title="Log in" alt="Log in" onclick="reSetPlaceHolder(textFieldDetailarray1)" id="loginToBD"
+                                                                value="Login" class="btn_blue" tabindex="0" /> <input name="/atg/userprofiling/ProfileFormHandler.login" value="" type="hidden"><input name="_D:/atg/userprofiling/ProfileFormHandler.login" value=" " type="hidden"></td>
+                            <td align="left">Not enrolled?<br>
+                                                        <a href="http://www.att.com/eservicing" title="Learn how to enroll in AT&T BusinessDirect&reg" alt="Learn how to enroll in AT&T BusinessDirect" class="lmore">Learn more</a></td>
+                        </tr>
+                  </tbody>
+                 </table>
+                </div>
+<input name="_DARGS" value="/portal/login_form.jsp" type="hidden"></input></form>
+ <form name="doubleClickControlForm" action="#" method="post" style="margin:0; padding:0;">
+                        <input type="hidden" name="secondclick" value="false">
+                </form>
+
+
+
+
+        
+                        
+
+                
+
+    <div class="ticket_footer"><h1 style="font-size:22px; margin:0;">AT&T Express Ticketing</h1>
+        <table width="100%" style="margin-top:10px">
+            <tbody>
+            <tr><td align="left" width="55%" height="10px" style="border-right:solid 1px #333333;"><a href="#!" title="View ticket Status" id="vts" class="summarydown" onClick="callPlaceHolder();">View ticket status</a></td>
+                <td align="right" width="45%"><a  title="Create a ticket" id="createTicketButton" href="#!" title="Create a Ticket ">Create a ticket</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div style=" width:100%;display: none; margin-top: 15px; " id="et_toggle">
+        <div class="errorMsg_wrap" tabindex="0" id="tckn1" style="display:none;outline:none;">
+                <img alt="Ticket validation alert" src="/images/img_icon_form_error_15x15.gif"/>
+                <span id="tktmsg" style="display:none;">Error : Please enter Ticket Number.</span>
+                <span id="stmsg" style="display:none; padding-left:19px;">Error : Please enter State.</span>
+        </div>
+            <label for="ticketNumber" style="display:none">ticketNumber</label> <input type="text" style="font-size: 12px !important;" id="ticketNumber" name="ticketNumber" placeholder="Ticket Number" value="Ticket Number" class="ticketstatus" onfocus="if(this.value == 'Ticket Number') {this.value=''}" onblur="if(this.value == ''){this.value ='Ticket Number'}">
+                        <label id="cntry" for="scc" style="display:none">Country</label>
+            <select type="text" aria-labelledby="cntry scc" style="font-size: 12px !important;color: #666666 !important; width: 50% !important;float: left;border-bottom-right-radius: 0px !important;padding-left: 5px;" id="scc" class="smallts" >
+
+
+
+                            <option value="Afghanistan">Afganistan</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
+                <option value="Angola">Angola</option>
+                <option value="Anguilla">Anguilla</option>
+                <option value="Antigua">Antigua</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Aruba">Aruba</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Belize">Belize</option>
+                <option value="Benin">Benin</option>
+                <option value="Bermuda">Bermuda</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Bosnia">Bosnia</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Brazil">Brazil</option>
+                <option value="British Virgin Isles">British Virgin Isles</option>
+                <option value="Brunei">Brunei</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burma">Burma</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Canada">Canada</option>
+                <option value="Cape Verde">Cape Verde</option>
+                <option value="Cayman Islands">Cayman Islands</option>
+                <option value="Chad">Chad</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Congo">Congo</option>
+                <option value="Cook Island">Cook Island</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Curacao">Curacao</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Diego Garcia">Diego Garcia</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominica">Dominica</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="French Antilles">French Antilles</option>
+                <option value="French Guinea">French Guinea</option>
+                <option value="French Polynesia">French Polynesia</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambia">Gambia</option>
+                <option value="Germany, Federal Rep">Germany, Federal Rep</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Gibraltar">Gibraltar</option>
+                <option value="Greece">Greece</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guadeloupe">Guadeloupe</option>
+                <option value="Guam">Guam</option>
+                <option value="Guantanamo Bay">Guantanamo Bay</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guinea">Guinea</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iran">Iran</option>
+                <option value="Iraq">Iraq</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Ivory Coast">Ivory Coast</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Japan">Japan</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Korea">Korea</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libyan Arab Republic">Libyan Arab Republic</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Macao">Macao</option>
+                <option value="Macedonia">Macedonia</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali Republic">Mali Republic</option>
+                <option value="Malta, Republic of">Malta, Republic of</option>
+                <option value="Marshall Islands">Marshall Islands</option>
+                <option value="Martinique">Martinique</option>
+                <option value="Mauritania">Mauritania</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Midway">Midway</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="New Caledonia">New Caledonia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Norfolk Island">Norfolk Island</option>
+                <option value="Norway">Norway</option>
+                <option value="Oman">Oman</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palau">Palau</option>
+                <option value="Panama">Panama</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Peru</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Poland">Poland</option>
+                <option value="Ponapei">Ponapei</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Romania">Romania</option>
+                <option value="Russia (USSR)">Russia (USSR)</option>
+                <option value="Rwanda Republic">Rwanda Republic</option>
+                <option value="Saipan">Saipan</option>
+                <option value="Sao Tome and Prin.">Sao Tome and Prin.</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Senegal Republic">Senegal Republic</option>
+                <option value="Sierra Leone">Sierra Leone</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Solomon Islands">Solomon Islands</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Spain">Spain</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="St. Kitts">St. Kitts</option>
+                <option value="St. Kitts &amp; Nevis">St. Kitts &amp; Nevis</option>
+                <option value="St. Lucia">St. Lucia</option>
+                <option value="St. Maarten">St. Maarten</option>
+                <option value="St. Vincent">St. Vincent</option>
+                <option value="Sudan">Sudan</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Swaziland">Swaziland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Syrian">Syrian</option>
+                <option value="Taiwan">Taiwan</option>
+                <option value="Tanzania United Rep">Tanzania United Rep</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Togolese Republic">Togolese Republic</option>
+                <option value="Tonga Islands">Tonga Islands</option>
+                <option value="Trinidad &amp; Tobago">Trinidad &amp; Tobago</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Turks &amp; Caicos Isles">Turks &amp; Caicos Isles</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="USA" selected="selected">USA</option>
+                <option value="Vanuatu Island">Vanuatu Island</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Wake">Wake</option>
+                <option value="Western Samoa">Western Samoa</option>
+                <option value="Yeman Arab Republic">Yemen Arab Republic</option>
+                <option value="Yugoslavia">Yugoslavia</option>
+                <option value="Zaire">Zaire</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+            </select>
+             <label for="sst" id="stat" style="display:none">State</label>
+            <select type="text" aria-labelledby="stat sst" style="font-size: 12px !important;color: #666666 !important; width: 50% !important;float: left;border-bottom-left-radius: 0px !important; padding-left: 5px; border-left: hidden !important;" id="sst" class="smallts" >
+                <option selected="selected" value="">State</option>
+                <option value="AL" prefix="WAL">Alabama</option>
+                <option value="AK" prefix="null">Alaska</option>
+                <option value="AS" prefix="null">American Samoa</option>
+                <option value="AZ" prefix="null">Arizona</option>
+                <option value="AR" prefix="WMW">Arkansas</option>
+                <option value="CA" prefix="null">California</option>
+                <option value="CO" prefix="null">Colorado</option>
+                <option value="CT" prefix="WCT">Connecticut</option>
+                <option value="DE" prefix="null">Delaware</option>
+                <option value="DC" prefix="null">District Of Columbia</option>
+                <option value="FM" prefix="null">Federated States of Micronesia</option>
+                <option value="FL" prefix="null">Florida</option>
+                <option value="GA" prefix="WGA">Georgia</option>
+                <option value="GU" prefix="null">Guam</option>
+                <option value="HI" prefix="null">Hawaii</option>
+                <option value="ID" prefix="null">Idaho</option>
+                <option value="IL" prefix="WIL">Illinois</option>
+                <option value="IN" prefix="WIN">Indiana</option>
+                <option value="IA" prefix="null">Iowa</option>
+                <option value="KS" prefix="WMW">Kansas</option>
+                <option value="KY" prefix="WAL">Kentucky</option>
+                <option value="LA" prefix="WLM">Louisiana</option>
+                <option value="ME" prefix="null">Maine</option>
+                <option value="MH" prefix="null">Marshall Islands</option>
+                <option value="MD" prefix="null">Maryland</option>
+                <option value="MA" prefix="null">Massachusetts</option>
+                <option value="MI" prefix="WMI">Michigan</option>
+                <option value="MN" prefix="null">Minnesota</option>
+                <option value="MS" prefix="WLM">Mississippi</option>
+                <option value="MO" prefix="WMW">Missouri</option>
+                <option value="MT" prefix="null">Montana</option>
+                <option value="NE" prefix="null">Nebraska</option>
+                <option value="NV" prefix="WPN">Nevada</option>
+                <option value="NH" prefix="null">New Hampshire</option>
+                <option value="NJ" prefix="null">New Jersey</option>
+                <option value="NM" prefix="null">New Mexico</option>
+                <option value="NY" prefix="null">New York</option>
+                <option value="NC" prefix="WCA">North Carolina</option>
+                <option value="ND" prefix="null">North Dakota</option>
+                <option value="MP" prefix="null">Northern Mariana Islands</option>
+                <option value="OH" prefix="WOH">Ohio</option>
+                <option value="OK" prefix="WMW">Oklahoma</option>
+                <option value="OR" prefix="null">Oregon</option>
+                <option value="PW" prefix="null">Palau</option>
+                <option value="PA" prefix="null">Pennsylvania</option>
+                <option value="RI" prefix="null">Rhode Island</option>
+                <option value="SC" prefix="WCA">South Carolina</option>
+                <option value="SD" prefix="null">South Dakota</option>
+                <option value="TN" prefix="WTN">Tennessee</option>
+                <option value="TX" prefix="WTX">Texas</option>
+                <option value="UT" prefix="null">Utah</option>
+                <option value="VT" prefix="null">Vermont</option>
+                <option value="VI" prefix="null">Virgin Islands</option>
+                <option value="VA" prefix="null">Virginia</option>
+                <option value="WA" prefix="null">Washington</option>
+                <option value="WV" prefix="null">West Virginia</option>
+                <option value="WI" prefix="WWI">Wisconsin</option>
+                <option value="WY" prefix="null">Wyoming</option>
+            </select>
+            <div style="clear:both"></div>
+            <div><input type="button" style="margin-top: 20px;" id="getStatusButton" value="View Status" class="btn_blue" alt="View Status" title="View Status" ></div>
+        </div>
+    </div>
+
+    </div>
+
+<script>
+
+
+$(document).ready(function(){
+    $("[rel='tooltip']").tooltip();
+
+    $('#vts').click(function(){
+        $(this).toggleClass('summaryup','summarydown');
+        $('#et_toggle').toggle(500);
+    });
+
+});
+
+
+
+$(function() {
+    $('#ticketNumber').val('');
+    $('#sst').val('');
+});
+
+$('#createTicketButton').on('click', function(e) {
+    e.preventDefault();
+    window.open('https://expressticketing.acss.att.com/expressticketing/index.html?createTicket=newTicket');
+});
+
+$('#scc').on('change', function(e) {
+    if ($('#scc').val() != 'USA') {
+        $('#sst').attr('disabled', true);
+    } else {
+        $('#sst').attr('disabled', false);
+    }
+});
+
+
+
+$('#getStatusButton').on('click', function(e) {
+    e.preventDefault();
+    var t = $('#ticketNumber').val(),
+        st = $('#sst').val(),
+        cc = $('#scc').val(),
+        validation;
+
+    if (t == '' || t == null || t == 'Ticket Number') {
+        $('#ticketNumber').removeClass('ticketstatus');
+        $('#ticketNumber').addClass('ticketerror');
+        $('#tktmsg').css('display','inline-block');
+        validation = 1;
+    } else {
+      //  $('#ticketNumber').css('box-shadow', '0 0 5px green');
+        $('#ticketNumber').css('border', '2px solid');
+        $('#tktmsg').css('display','none');
+        validation = 0;
+    }
+    if (cc == '' || cc == null) {
+        $('#scc').css('border', '2px solid #c93333');
+        validation = 1;
+    } else {
+       // $('#scc').css('box-shadow', '0 0 5px green');
+        $('#scc').css('border-top', '2px solid #c93333');
+        validation = 0;
+    }
+
+    if (cc == 'USA') {
+        if (st == '' || st == null || cc != 'USA') {
+            $('#sst').removeClass('smallts');
+            $('#sst').addClass('smalltserror');
+
+            $('#sst').css('border', '2px solid #c93333');
+            $('#stmsg').css('display','inline-block');
+            validation = 1
+        } else {
+           // $('#sst').css('box-shadow', '0 0 5px green');
+            $('#sst').css('border', '2px solid');
+            $('#stmsg').css('display','none');
+            validation = 0;
+        }
+    }
+
+
+
+if ((t == '' || t == null || t == 'Ticket Number') || ( (st == '' || st == null ) && (cc == 'USA')) )
+{
+               $('#tckn1').css('display','block');
+               validation = 1;
+document.getElementById('tckn1').focus();
+               }
+   else {
+         window.location.reload();
+}
+    if (validation == 0) {
+        window.open('https://expressticketing.acss.att.com/expressticketing/index.html?t='+t+'&st='+st+'&cc='+cc+'&ticketStatus=ticketStatus');
+    }
+});
+if(msieversion() < 10)
+        {
+
+        setPlaceHolder(textFieldDetailarray1);
+
+        }
+
+if (document.getElementById("elog") != null && document.getElementById("elog") != 'undefined'){
+
+   errorPanel();
+
+
+
+$("#Password").val('');
+
+  }
+</script>
+
+
+
+    
+    
+
+
+
+
+
+
+
+    
+    
+    
+
+<!--  footer starts -->
+<script language=javascript>
+
+
+function popFullWin(theURL,winName) {
+
+  var mywin = window.open(theURL,winName);
+  mywin.focus();
+}
+
+</script>
+       <div class="footer-main" style="position:relative; bottom:0; ">
+ <div class="footer-wrap">
+       <div class="lower-block" align="left">
+        <div class="tnc-nav">
+                                        <a
+                                                href="javascript:popFullWin('http://www.att.com/gen/general?pid=11561','')" title="Terms & Conditions">Terms & Conditions</a> | <a
+                                                href="javascript:popFullWin('http://www.att.com/privacy','')"
+                                                title="Privacy Policy">Privacy Policy</a> | <a
+                                                href="javascript:popFullWin('http://www.att.com/contact','' )"
+                                                title="Contact us">Contact us</a>
+                                </div>
+         <div class="lower-block-a">
+           &copy; 2015 AT&T Intellectual Property. All rights reserved. AT&T, Globe logo and Mobilizing Your World and other marks are trademarks of AT&T Intellectual Property. All other marks are the property of their respective owners.
+
+                 </div>
+         <div class="lower-block-b" align="right">
+<a href="javascript:popFullWin('http://uverse.com/sports/network/teamusa','')" title="TeamUSA"><img src="/images/footer_icon1.png" alt="TeamUSA"></a>
+                   <a href="javascript:popFullWin('http://www.ctia.org/','')" title="CTIA"><img src="/images/footer_icon2.png" alt="CTIA"></a>
+                   <a href="javascript:popFullWin('http://www.yellowpages.com/','')" title="Yellow Pages"><img src="/images/footer_icon3.png" alt="Yellow Pages"></a>
+                   <a href="javascript:popFullWin('https://www.truste.com/','')" title="TRUSTe Powering Compliance and Trust"><img src="/images/footer_icon4.png" alt="TRUSTe Powering Compliance and Trust"></a>
+                   <a href="javascript:popFullWin('http://www.bbb.org/atlanta/business-reviews/telephone-companies/atandt-in-atlanta-ga-7935','')" title="BBB Business Review"><img src="/images/footer_icon5.png" alt="BBB Business Review"></a>
+
+ </div>
+                 <br clear="all" />
+      </div>
+
+  </div>
+</div>
+
+        <script>
+                function callPlaceHolder() {
+
+                        var textFieldDetailarr = [ "ticketNumber:Ticket Number" ];
+
+                        if (msieversion() < 10) {
+                                setPlaceHolder(textFieldDetailarr);
+                        }
+                }
+        </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    <script src="/js/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+
+
+		      
+		
+    
+    
+
+
+
+
+
+    
+    
+
+
+

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!-- Copyright (C) 2015 IBM Corporation -->
+<!-- Copyright (C) 2000 Tivoli Systems, Inc. -->
+<!-- Copyright (C) 1999 IBM Corporation -->
+<!-- Copyright (C) 1998 Dascom, Inc. -->
+<!-- All Rights Reserved. -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IBM Security Access Manager</title>
+    <style>
+
+      em {
+        font-style:inherit;
+        font-weight:700;
+      }
+
+      body {
+        background-color:#555;
+        font-face:Helvetica, Arial, sans-serif;
+        -moz-font-smoothing:antialiased;
+        -ms-font-smoothing:antialiased;
+        -o-font-smoothing:antialiased;
+        unicode-bidi:embed;
+        -webkit-font-smoothing:antialiased;
+        -webkit-locale:en;
+        margin:0;
+        padding:0;
+      }
+
+      html {
+        height:100%;
+        min-height:400px;
+        background:url(data:img/png;base64,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) repeat;
+        background-size:50%;
+      }
+
+      strong {
+        font-weight:700;
+      }
+
+      a {
+       color:inherit;
+        text-decoration:inherit;
+      }
+
+      article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,.universal-menu-home-logo {
+        display:block;
+      }
+
+      button,input[type="submit"] {
+        font-face:inherit;
+        border:none;
+        display:block;
+        sfont-face:inherit;
+        margin:0;
+        width:120px;
+      }
+
+    .login-container {
+      position:absolute;
+      left:50%;
+      top:44%;
+      width:440px;
+      color:#FFF;
+      background-color:rgba(0,0,0,0.33);
+      box-sizing:border-box;
+      margin:-180px 0 0 -220px;
+      padding:32px 64px;
+    }
+
+    .button-1 {
+      color:#FFF;
+      background-color:#4178BE;
+      cursor:pointer;
+      float:right;
+      font-size:12px;
+      font-weight:700;
+      width:104px;
+      padding:12px 16px;
+    }
+
+    .button-1:hover {
+      background-color:#FFF;
+      color:#121212;
+    }
+
+    .ease-in-anim-fast {
+      transition:all 200ms cubic-bezier(0.25, 0.25, 0, 0.995) 0s;
+    }
+
+    .login-container h2 {
+      font-weight:inherit;
+      font-size:20px;
+      margin:0 0 32px;
+    }
+
+    .forgot-password {
+      font-size:10px;
+      color:#FFF;
+      position:relative;
+      top:12px;
+    }
+
+    .forgot-password:hover {
+      text-decoration:underline;
+    }
+
+    input[type="text"],input[type="password"],input[type="email"] {
+      font-size:14px;
+      height:40px;
+      -moz-border-top-colors:none;
+      -moz-border-right-colors:none;
+      -moz-border-bottom-colors:none;
+      -moz-border-left-colors:none;
+      border-image:none;
+      border-radius:0;
+      box-sizing:border-box;
+      display:block;
+      font-face:"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      position:relative;
+      width:100%;
+      border-color:transparent;
+      border-style:solid;
+      border-width:1px 1px 1px 5px;
+      margin:0 0 16px;
+      padding:11px;
+    }
+
+    input[type='text']:hover,input[type='text']:focus,input[type='password']:hover,input[type='password']:focus,input[type='email']:hover,input[type='email']:focus {
+      border:1px solid #999;
+      border-left:5px #07B solid;
+    }
+
+    #password {
+      margin:0 0 32px;
+    }
+
+    .footer {
+      position:fixed;
+      bottom:0;
+      color:#FFF;
+      background-color:rgba(0,0,0,0.44);
+      width:100%;
+      box-sizing:border-box;
+      height:80px;
+      padding:0 24px;
+    }
+
+@media screen and (max-height: 500px) {
+  .footer{
+    display: none; 
+  } 
+}
+
+    .footer .ibm-logo {
+      height:24px;
+      float:left;
+      margin:28px 0 0;
+    }
+
+    .footer #clock {
+      float:right;
+      font-size:36px;
+      height:36px;
+      line-height:0;
+      position:relative;
+      top:42px;
+      padding:0;
+    }
+
+    .login-inputs {
+      clear:both;
+      overflow:hidden;
+    }
+    .error-box img {
+      margin:0 0 0 0;
+      padding-bottom: 20px;
+	  padding-right: 20px;
+    }
+    #errId {
+      overflow:hidden;
+      position: relative;
+      top: -6px;
+      margin: 0 0 0 8px;
+    }
+    .error-box.active {
+      display:block;
+    }
+    .error-box {
+      display:none;
+	  overflow: hidden;
+      font-size:14px;
+      background-color:#FFF;
+      color:#DE0000;
+      clear:both;
+      float:none;
+      position:relative;
+      bottom:-32px;
+      margin:0 -64px 0 -64px;
+      padding:26px 26px 10px 26px;
+      min-height:50px;
+      box-sizing:border-box;
+    }
+
+@media screen and (max-height: 500px) {
+  .footer{
+    display: none; 
+  } 
+}
+
+    @media all and (max-width: 480px){
+      .login-container {
+        width:300px;
+        margin:-190px 0 0 -150px;
+        padding:32px 24px;
+      }
+      .error-box {
+        margin:0 -24px 0 -24px;
+        padding:26px 24px 0 24px;
+      }
+  .footer{
+    display: none; 
+  } 
+    }
+
+
+    </style>
+    <script type="text/javascript">
+    	function onLoadPage() {
+    		showError();
+    		setFocus();
+    	}
+    	function showError() {
+    		var elem = document.getElementById("error-box");
+    		if ("" == "") {	
+          elem.setAttribute("class", "error-box");
+    		} else {
+    			elem.setAttribute("class", "error-box active");
+    		}
+    	}
+    	function setFocus() {
+    		document.getElementById("username").focus();
+    	}	
+    </script>
+
+    <!-- ClickJack projection from: 
+         https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet
+      -->
+
+    <style id="antiClickjack">body{display:none !important;}</style>
+
+    <script type="text/javascript">
+        if (self === top) {
+            var antiClickjack = document.getElementById("antiClickjack");
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            top.location = self.location;
+        }
+    </script>
+
+  </head>
+  <body onload="onLoadPage()">
+    <div class="content">
+      <!-- DO NOT TRANSLATE OR MODIFY any part of the hidden parameter(s) -->
+
+      <!--
+        The following block of code provides users with a warning message
+        if they do not have cookies configured on their browsers.  
+        If this environment does not use cookies to maintain login sessions, 
+        simply remove or comment out the block below.
+      -->
+
+      <!-- BEGIN Cookie check block -->
+      <!--
+      DO NOT TRANSLATE anything inside the SCRIPT tag except the quoted 
+      string warningString and the first line of the JavaScript redirection 
+      instruction beginning with "// Uncomment the following ..." 
+
+      i.e.	var warningString = "Translate this string";
+      -->
+      <script type="text/javascript">
+        var warningString = "";
+        document.cookie = 'acceptsCookies=yes';
+        if(document.cookie == ''){
+          document.write(warningString);
+        }
+        else{
+          document.cookie = 'acceptsCookies=yes; expires=Fri, 13-Apr-1970 00:00:00 GMT';
+          // Uncomment the following line for JavaScript redirection
+          // document.cookie = 'ISAMOriginalURL=' + encodeURIComponent(window.location) + "; Path=/;";
+        }
+      </script>
+      <noscript>
+        <b>WARNING:</b> To maintain your login session, make sure that<br/>
+        your browser is configured to accept Cookies.
+      </noscript>
+      <!-- END Cookie check block -->
+
+      <form class="login-container" method="POST" action="/pkmslogin.form">
+        <h2>IBM Security <em>Access Manager</em></h2>
+        <div class="login-inputs">
+          <label for="username">Username:</label>
+          <input class="ease-in-anim-fast" placeholder="Username" id="username" type="text" name="username">
+          <label for="password">Password:</label>
+          <input class="ease-in-anim-fast" placeholder="Password" id="password" type="password" name="password" autocomplete="off">
+          <input TYPE="hidden" NAME="login-form-type" VALUE="pwd">
+          <input TYPE="hidden" NAME="token" VALUE="Unknown">
+          <input class="submitButton button-1 ease-in-anim-fast" type="submit" value="Login">
+        </div>
+        <div class="error-box" id="error-box">
+          <img style="float:left" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAMAAADpVnyHAAAAb1BMVEUAAADcAADeAADaAADdAADaAADMAADdAADeAADeAADcAADeAADdAADeAADdAADdAADcAADdAADeAADeAADdAADdAADdAADdAADKAADdAADeAADeAADcAADdAADcAADaAADdAADeAADdAADbAADeAAB3WaKjAAAAJHRSTlMAUPopZBQF6dhxDsWtqEo+MePQurWbiH8J8O3Ok41XIh5rW1b9BCPkAAAAxElEQVQoz3WR2RKDMAhFMcZ917rVte39/29sYurYaLwPwHAyQID+1Tp0I5vVd+gB5GaSwkdkJK7P7BizCQUYaWFFdyVO/3SIGrRXVCMQNvTYeiY5fFd6juSMIqRkVSJdItPJjIrohYIow6CRrmA20QeliGNwbXkYt36xsAvzwoOsTA5OIRoSajAdKEGweY+T+oC9k+w3OHXKcTx2NCBVC0neKlHKhHpUqcBCdJTRS7t87xGr5hMi66wAvSOvDqNqefUb5V/3/RGXZ5OWvQAAAABJRU5ErkJggg=="/>
+          <div id="errId"></div>
+        </div>
+      </form>
+      <div class="footer">
+        <img alt="IBM" class="ibm-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAMAAACRH25gAAAAk1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ROyVeAAAAMHRSTlMA1PS3x6zkTTEhiwVepnpaAXaSCxuaomlGErKDzr2gbU80hlctKRfZc2M63MT27T6WmvvRAAABd0lEQVQ4y6WS2XKCQBRE26hsIhIWQXEB9y0J//91uVfuLDGp+OB5mDndVVPVhWLhaMYIHMN1kDQgclXc0JGoYoH5QJMgElOcAWx08sHEfZXneIlpX7PBWsxQI9I+jMFLdJ7i+KaZIxGzu7EJXwDSTx2PeJU6IC4S9hzObDu2is0LhBFwEnXVt2+JtYSSw5xty3Zkm7RCjUxpgo6ZT6QSUg6HRxNmtnY0IbGXkE1sunF+qEi3ypq/ZrutjQs9e8FHIGZm713Cl3BwLRpZw+7pdnc/1FKPmElIPYtMPsrd+TSSPZ39cTGzV76Uk8KeXUZEI8F/twnB7CPCRRHdST0+S3TEIyJ+CL+NL3PH//9JararmY2D/AA/ZodjQs3YcTixeVNiFZNduCuAiq7pCCXHEK+y7GlyVGJ2F4htgHTR63nAVprls8ehflwByHu32H78EvlQE6EQU5wBnMQLEKsMQClNDqfVLJG3hjdnWMcAhpJXICoQhTTON2ZNPI1DLzcCAAAAAElFTkSuQmCC"/>
+        <div id="clock">
+            12:55 PM
+        </div>
+        <script>
+          function updateClock(){var e=new Date,t=e.getHours(),a=e.getMinutes(),n=e.getSeconds();a=(10>a?"0":"")+a,n=(10>n?"0":"")+n;var o=12>t?"AM":"PM";t=t>12?t-12:t,t=0==t?12:t;var c=t+":"+a+" "+o;document.getElementById("clock").firstChild.nodeValue=c}updateClock(),setInterval("updateClock()",1e3);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"  manifest="labworx.appcache">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,edge"> 
+        <meta charset="utf-8">
+        <script>
+            document.write('<base href="' + document.location + '" />');
+        </script>
+        <title>LabWorx</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/icon">
+        <!--<link rel="stylesheet" href="lib/att/css/sandbox-styles.css"/>--> 
+        <link rel="stylesheet" href="lib/att/css/global_styles.css" />
+        <link rel="stylesheet" href="css/fonts.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <!--       <link rel="stylesheet" href="css/labworx_site.min.css" />-->
+        <!--[if lte IE 8]>
+          <link rel="stylesheet" href="css/ie.css" />
+        <![endif]-->
+        <script src="lib/respond.src.js"></script>
+        <script src="lib/jquery/jquery.min.js"></script>
+        <!--[if lt IE 9]>
+            <script>
+            document.createElement('header');
+            document.createElement('footer');
+            </script>
+        <![endif]-->
+    </head>
+    <body ng-app="labWorxSiteApp"  style="background-color: #e0e0e0;"  >
+        <!--    <base href='http://localhost:8383/AMIT%20LABWORX%20BRANCH%201010/app/index.html'>-->
+        <script>
+                var host = window.location.host;    
+                if (host === "labworx.att.com")
+                {
+                    window.location = 'https://www.e-access.att.com/labworx';
+                }
+                else{
+                    $('html').attr('data-signed-in','true');
+                }           
+        </script>
+
+        <div id="wrapper">
+            <!-- BEGIN header container -->
+            <header class="{{mobileHeader}}">
+                <div ng-include="'partials/global/header.html'"></div>
+            </header>
+            <!-- END header container -->
+
+            <!-- BEGIN main container -->
+            <div id="main" ng-view > </div>
+            <!--     <div id="main" ng-view hm-swipe-left="swipeLeft();" hm-swipe-up="swipeUp();" hm-swipe-down="swipeDown();" hm-swipe-right="swipeRight();"></div>-->
+            <!-- END main container -->
+
+            <!-- BEGIN Footer container -->
+            <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/ie.css" />
+            <div class="footer-left" style="padding-top: 20px;background-color:lightgray;width:100%;">
+            <div style="padding-left:6%;">
+            <a href="http://wiki.web.att.com/display/DETS/Digital+Experience+Technology+Services+Home">
+                <img src="images/logo-DETS.png" alt="" align="left" />
+            </a>
+        
+            <div id="footer-text" style="padding-top:0%;width:50%;">
+                <p>Designed and Developed by LabWorx
+                    <br />
+                    <span>AT&T Digital Experience Technology Services | LabWorx</span>
+                    <br/>
+                    <a style="color:grey;" href="http://www.att.com/gen/privacy-policy?pid=2587"><span>&copy 2015 AT&T Intellectual Property. All rights reserved.</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+        
+        <div class="footer-right" style="margin-right:7%;padding-top:0%;background-color:lightgray;width:10%;">
+            <a href="http://www.att.com">
+                <img id="attLogoiE" src="images/logo-att.png" alt="" align="right" />
+            </a>
+        </div>
+          </div>
+        <![endif]-->
+
+            <div class="hideFooter">
+                <footer style="background-color:lightgray;">
+                    <div ng-include="'partials/global/footer.html'"></div>
+                </footer></div>
+            <!-- END Footer container -->
+
+
+            <script src="lib/att/js/global_sandbox.js"></script>
+            <script src="lib/att/js/global_rwd.js"></script>
+            <script src="lib/angular/angular.min.js"></script>
+            <script   src="lib/angular/angular-animate.js"></script>
+            <script src="lib/angular/angular-route.min.js"></script>
+            <script src="lib/ui-bootstrap-tpls-0.11.0.js"></script>
+            <script src="js/app.js"></script>
+            <!--   <script src="js/labworx_site.min.js"></script>-->
+            <!-- changing the routing depending on browsers-->
+            <!--[if gte IE 10 | !IE ]><!-->   
+            <script src="js/routing/labWorxSiteAppRouting.js"></script>
+            <![endif]-->
+            <!--[if lte IE 10]>
+                <script src="js/routing/labWorxSiteAppRoutingForIE.js"></script>
+             <![endif]-->
+            <!-- changing the routing depending on browsers block ends-->
+            <script src="js/directives/directives.js"></script>
+            <script src="js/controllers/controllers.js"></script>
+            <script src="lib/angular/angular-touch.min.js"></script>
+            <!-- <script src="lib/angular/gestures.js"></script>-->
+            <!--<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"  type="text/javascript"></script>
+            <script type="text/javascript" src="js/angular-file-upload.js"></script>
+            <script type="text/javascript" src="js/main.js"></script>
+            <script type="text/javascript" src="js/recorderWorker.js"></script>-->
+            <div class='clear_fix' style=''></div>
+        </div>
+
+    </body>
+
+</html>

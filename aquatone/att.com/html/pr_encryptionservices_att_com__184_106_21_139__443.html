@@ -1,0 +1,819 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE; IE=9; IE=8;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" >
+<head>
+	<title>Welcome to Encrypted Mail Exchange</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta name="robots" content="nofollow" />
+	
+
+
+
+
+
+
+
+
+	
+		
+				
+	
+	
+
+
+<link rel="stylesheet" type="text/css" href="/javascripts/css/emx.css?bId=201705051106B93"/>
+
+	<link rel="stylesheet" type="text/css" href="/branding/custom/emx/style_blue.css?bId=201705051106B93" />
+
+<link rel="stylesheet" type="text/css" href="/branding/custom/emx/custom.css?bId=201705051106B93-1C792F5A209274944780B541AFB17801--"/>
+<link rel="stylesheet" type="text/css" href="/branding/custom/emx/enterprise.css?bId=201705051106B93"/>
+<link rel="stylesheet" href="/javascripts/font-awesome/css/font-awesome.min.css?bId=201705051106B93"/>
+			
+
+
+
+<!--[if lte IE 8]>
+<style>
+	.messageList {
+		border-top:1px solid #ddd;
+	}
+	.listAttribute {
+		border-bottom:1px solid #ddd;
+	}
+	#userLocale, #selectLanguage, .loginLanguage, #localeCombo {
+		height:20px !important;
+		}
+</style>
+<![endif]-->
+		<script type="text/javascript" src="/javascripts/jquery/jquery-1.7.1.min.js?bId=201705051106B93"></script>
+<script type="text/javascript" src="/javascripts/jquery/jquery-ui-1.8.17.custom.min.js?bId=201705051106B93"></script>
+<!-- style-related files -->
+<link rel="stylesheet" media="screen" href="/javascripts/jquery/redmond/jquery-ui-1.8.13.custom.css?bId=201705051106B93"/>
+
+<script> 
+	$(document).ready(function(){
+		
+	    //Status
+		$('#userStatus').click( function (){loadUserStatusDialog()} );
+	
+	    //Brand Management page opens
+		$('#menuBrandManagement').click( 
+				function (){loadWaitDialog("Encrypted Mail Exchange is preparing the data...", "/branding/custom/emx")} );
+	
+	    //Enterprise Management page opens
+		$('#menuEnterpriseManagement').click( 
+				function (){loadWaitDialog("Encrypted Mail Exchange is preparing the data...", "/branding/custom/emx")} );
+	
+	    //Login page: user login dialog
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("login")>0)
+	    {
+	       	$('#userLogin').click( 
+	   			function (){loadWaitDialog("Logging in to Encrypted Mail Exchange", "/branding/custom/emx")} );
+	    }
+	
+	    //Compose page: Contact List popups
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("compose")>0)
+	    {
+		    $('#composeTo').click( function (){loadSelectContactsDialog()} );
+		    $('#composeCc').click( function (){loadSelectContactsDialog()} );
+		    $('#composeBcc').click( function (){loadSelectContactsDialog()} );
+	    }
+	
+	    //Admin page: Links to pages popups
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("admin")>0)
+	    {
+	       	$('#adminOpenBrandManagement').click( 
+	   			function (){loadWaitDialog("Encrypted Mail Exchange is preparing the data...", "/branding/custom/emx")} );
+	       	$('#adminOpenEnterpriseManagement').click( 
+	       			function (){loadWaitDialog("Encrypted Mail Exchange is preparing the data...", "/branding/custom/emx")} );
+	    }
+	
+	    // Brand Management page
+	    // Help popups
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("brandManagement")>0)
+	    {
+			//Save branding popup
+	       	$('#saveBranding').click( 
+	       			function (){loadWaitDialog("Synchronizing files from the branding server - this may take several minutes.", "/branding/custom/emx")} );
+			$('#saveBranding2').click( 
+	       			function (){loadWaitDialog("Synchronizing files from the branding server - this may take several minutes.", "/branding/custom/emx")} );
+	    }
+	
+	    //Advanced Branding page: Synchronize Wait dialog
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("brandingSettings")>0)
+	    {
+	       	$('#synchronizeEnterprise').click( 
+	   			function (){loadWaitDialog("Synchronizing files from the branding server - this may take several minutes.", "/branding/custom/emx")} );
+	    }
+	
+	    //Add-Edit Enterprise page: Add/Edit dialog
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("addEditEnterprise")>0)
+	    {
+	       	$('#addEditEnterprise').click( 
+	   			function (){loadWaitDialog("Saving enterprise in progress...", "/branding/custom/emx")} );
+			$('#addEditEnterprise2').click( 
+	   			function (){loadWaitDialog("Saving enterprise in progress...", "/branding/custom/emx")} );
+	    }
+	
+	    //Configuration Management page
+	    if ('/WEB-INF/jsp/login.jsp'.indexOf("configurationManagement")>0)
+	    {
+	        var i = 0;
+	        while (document.getElementById('fieldHelpControl_'+i) != null) 
+	        {
+	            if(document.getElementById('fieldHelpControl_'+i)==null) break;
+	        	var helpEltCtr = document.getElementById('fieldHelpControl_'+i);
+	        	
+	        	$('#fieldHelpControl_'+i)
+	        		.click(function (){
+	            		var idx= (new String(this.id)).substring(17);
+	            		loadFieldHelpDialog(document.getElementById('fieldHelp_'+idx).innerHTML)
+	   	   			});
+	   	        	i++;
+	        }
+	    }
+	});
+
+   function loadWaitDialog(message, brandUrl)
+   {
+   	$('<div class="dialogMessage"><span>'+message+'</span><div class="putSpinnerHere"><div class="spinner"><div class="sp3n"></div><div class="spacer"></div><div class="sp2n"></div><div class="spacer"></div><div class="sp1n"></div></div></div></div>')
+	.dialog({
+        title: null,
+        modal: true,
+        autoOpen: false,
+        minHeight: 120,
+        minWidth: 300,
+        width: 500,
+        resizable: false,
+        dialogClass: "no_toolbar"
+	})
+  	.dialog("open");
+   	return false;
+   }
+
+   function loadUserStatusDialog()
+   {
+   	$('<div></div>')
+		.dialog({
+	        title: "User Status",
+	        closeText: "",
+	        modal: true,
+	        autoOpen: false,
+	        height: 200,
+	        width: 400,
+	        resizable: false,
+	        dialogClass: "centered"
+		})
+	   		.load("/profile/ajaxCheckStatus.html")
+	   		.dialog("open");
+   	return false;
+   }
+
+	function loadFieldHelpDialog(message)
+   {
+      	$('<div class="fieldHelp">'+message+'</div>')
+		.dialog({
+	        title: "Help",
+	        closeText: "",
+	        modal: true,
+	        autoOpen: false,
+	        height: 200,
+	        width: 300,
+	        position: [event.clientX,event.clientY],
+	        resizable: false
+		})
+	   		.dialog("open");
+   	return false;
+   }
+
+    function loadSelectContactsDialog()
+    {
+    	$('<div id="contactsDialogContent" style="width: 570px;"></div>')
+		.dialog({
+	        title: "Select Contacts",
+	        closeText: "",
+	        modal: true,
+	        autoOpen: false,
+	        height: 400,
+	        width: 600,
+	        resizable: false,
+	        position: 'bottom',
+			buttons: {
+				"Add recipient": function() {
+					insertAddresses();
+					showCcBcc();
+				}
+			},
+			close: function(event, ui) {
+				$(this).dialog('destroy').remove()
+			}
+		}
+		)
+    		.load("/user/ajaxContactList.html?offset=1")
+    		.dialog("open");
+    	return false;
+    }
+
+    $(function() {
+		if(false)
+		{
+			$( "#" ).dialog({
+		        title: "Warning",
+				minHeight: 100,
+				modal: true,
+		        resizable: false
+			});
+		}
+	});
+		
+</script>
+<style>
+	.no_toolbar .ui-dialog-titlebar { display:none; }
+	.no_toolbar .ui-dialog-content  { text-align: center;}
+</style>
+
+<script type="text/javascript">
+	// take a password field and return the matching hidden input field. //
+	// If the matchinghidden input field doesn't exist, create it //
+	function makeDupe(elem) {
+		if (!document.getElementById(elem.id + 'dupe')) {
+			var dupe = document.createElement("input");
+			dupe.setAttribute ('type','text');
+			dupe.setAttribute ('id', elem.id + 'dupe');
+			dupe.setAttribute ('class',elem.className);
+			dupe.setAttribute ('style','display:none');
+			dupe.setAttribute ('value',elem.value);
+			dupe.setAttribute ('onChange','syncPW(this)');
+			var activeDupe = elem.parentNode.insertBefore(dupe,elem.nextSibling);
+			return activeDupe;
+		} else {
+			return document.getElementById(elem.id + 'dupe');
+		}
+	}
+	
+	// hide the password field and show the dupe (and vise-versa) //
+	function togglePW(fieldId) {
+		var f1 = document.getElementById(fieldId);
+		var f2 = makeDupe(document.getElementById(fieldId));
+		if (f1.style.display == 'none') {
+			f1.parentNode.firstChild.setAttribute ('onmouseout','');
+			f1.style.display = 'inline-block';
+			f2.style.display = 'none';
+			} else {
+			syncPW(f1);
+			f1.style.display = 'none';
+			f2.style.display = 'inline-block';
+			f1.parentNode.firstChild.setAttribute ('onmouseout','togglePW("' + f1.id + '")');
+			}
+		}	
+		
+	// keep the password field and the dupe in sync //
+	function syncPW(field) {
+		if (field.id.indexOf('dupe') < 0) {
+			var f = makeDupe(field);
+		} else {
+			var fieldId = field.id;
+			var f = document.getElementById(fieldId.replace('dupe',''));
+		}
+		f.value = field.value;
+		}
+
+	//eyesWaiting becomes true when an eye is not drawn because a password field is not visible 
+	var eyesWaiting = eyesWaiting || false;
+	
+	//mutationObserver compatibility 
+	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+	//when an element's class attribute changes, if eyes aren't drawn yet, try to draw them.
+	var observer = new MutationObserver(function(mutations, observer) {	
+		if (eyesWaiting == true){
+			makeEyes();
+			eyesWaiting = false;
+			}
+	});
+	
+	// trigger callback when an element's class attribute changes
+	observer.observe(document, {
+		subtree: true,
+		attributes: true,
+		attributeFilter: ['class']
+	});
+		
+	// find every password field on the page. Add the eye button and sync/toggle functions //
+	function makeEyes() {
+		var pwFields = document.querySelectorAll('input[type="password"]');
+			for (i = 0; i < pwFields.length; i++) {
+				if ($(pwFields[i]).is(":visible")) {
+					pwFields[i].removeAttribute('onclick');
+					if ($(pwFields[i]).prev("i").length < 1){
+						if (!pwFields[i].id){pwFields[i].id = 'tempId' + i;}
+						pwFields[i].setAttribute ('onChange','syncPW(this)');
+						var pwToggleBtn = document.createElement("i");
+						var parentDiv = document.createElement("div");
+						parentDiv.setAttribute ('class','showPw');
+						pwToggleBtn.setAttribute ('class','fa fa-eye');
+						pwToggleBtn.setAttribute ('onmousedown','togglePW("' + pwFields[i].id + '")');
+						pwToggleBtn.setAttribute ('onmouseup','togglePW("' + pwFields[i].id + '")');
+						pwToggleBtn.setAttribute ('title','Show Password');
+						pwFields[i].parentNode.replaceChild(parentDiv,pwFields[i]);
+						parentDiv.appendChild(pwFields[i]);
+						var pwtb = pwFields[i].parentNode.insertBefore(pwToggleBtn,pwFields[i]);
+						var fieldWidth = Math.max($(pwFields[i]).width(), pwFields[i].offsetWidth);
+						pwToggleBtn.setAttribute ('style','margin-left:' + (fieldWidth - 25) + 'px');
+					} else {
+						var fieldWidth = Math.max($(pwFields[i]).width(), pwFields[i].offsetWidth);
+						$(pwFields[i]).prev("i").css('margin-left', (fieldWidth - 25) + 'px');
+					}				
+				} else {
+					pwFields[i].setAttribute('onclick', 'makeEyes();this.focus();');
+					eyesWaiting = true;
+				}
+			}
+		}	
+
+	$(window).resize(function(){
+		setTimeout(function(){ makeEyes(); }, 200);  
+	});		
+	
+	$(function() {
+		makeEyes();	
+	});	
+</script>
+	<link rel="shortcut icon" href="/branding/custom/emx/images/favicon.ico" type="image/x-icon"/>
+	<script type="text/javascript" src="/javascripts/emx.js?bId=201705051106B93"></script>
+	<!--[if lt IE 7]>
+	    <style media="screen" type="text/css">
+	    .col1 {
+		    width:100%;
+		}
+		.mainHeaderSubCon {margin-top:150px;}
+		#login {top:44px;}
+		.login-header {top:44px;}
+		#languageBar {list-style-type:none}
+		.login-header {width:45%;}
+		#loginLanguageBar li {float:right}
+	    </style>
+	<![endif]-->
+	<script type="text/javascript">
+		var inactiveTimeInterval;
+	    
+	    function timerDecrement() {
+	        if (inactiveTimeInterval > 0) {
+	       		inactiveTimeInterval = inactiveTimeInterval - 60;
+	       		window.setTimeout("timerDecrement()", 60000);
+	        }
+	    }
+	    
+	    function startInactiveTimeIntervalTimer() {
+	    	inactiveTimeInterval = document.getElementById("maxInactiveIntervalId").value;
+	    	if (inactiveTimeInterval !== null && inactiveTimeInterval > 0) {
+	    		$( document ).bind( "mousemove keypress", function () {
+	    	    	if (inactiveTimeInterval == 0) {
+	    	    		inactiveTimeInterval = document.getElementById("maxInactiveIntervalId").value;
+	    	    		window.location.reload();
+	    	    	}
+	    	    });
+	    		window.setTimeout("timerDecrement()", 60000);
+	    	} 
+	    }
+	        
+		$(function() {
+			$("#requestVerificationCodeResultMsg").dialog({
+				modal : true,
+				autoOpen : false,
+				resizeable : false,
+				buttons : {
+					Ok : function() {
+						$(this).dialog('close');
+					}
+				}
+			});
+		});
+		
+		function updateVerificationCode(questionId, contextPath) {
+	   
+			$.ajax({
+				url: contextPath + '/ajaxUpdateVerificationCode.json',
+				data: ({
+					questionId: questionId
+				}),
+				dataType: 'json',
+				cache: false,
+				error: function(xhr, status) {
+				},
+				success: function() {
+					var msg = 'New Verification code has been sent to the message sender.';
+					$('#requestVerificationCodeResultMsg').text(msg).dialog('open');
+				}
+			});
+		}
+	</script>
+<style type="text/css">
+#containerDivider {
+	background:none;
+	}
+</style>
+
+<!--[if lte IE 9]>
+	<style type="text/css">
+		.loginPage li.loginLabel, .loginPage li.outdentForm {
+			display:block;
+			}	
+		.loginPage li {
+			padding:2px 0px;
+			}
+		body.loginPage {overflow:hidden;}
+	</style>
+<![endif]-->
+
+</head>
+<body onload="javascript:loadFocus();javascript:startInactiveTimeIntervalTimer();" class="backgroundColor loginPage ">
+<form id="logon" action="j_spring_security_check" method="post">
+<input type="hidden" id="maxInactiveIntervalId" value="300" />
+<div id="container" style="z-index:0;">
+	<div id="loginLanguageBar">
+		<ul id="languageBar" class="loginPage">
+			<li><div id="helpLink">
+					<a class="headerLinks" id="helpLogin" tabindex="7"
+						href="https://pr.encryptionservices.att.com/brand?act=download&entp=custom&locale=en_US&cat=Resource_Center&f=emx/help/index.html"target="_blank"  
+						title="Help">
+						Help</a>
+				</div>
+			</li>
+			<!--<li class="loginLabel"><label>Select language:</label></li>-->
+			<li id="selectLanguage">
+				<select class="loginLanguage" 
+					onchange="changeLanguageRegistration(this.value);"
+					tabindex="1">
+						
+						<option value="it_IT" >
+							italiano (Italia)</option>
+						
+						<option value="ru_RU" >
+							русский (Россия)</option>
+						
+						<option value="el_GR" >
+							Ελληνικά (Ελλάδα)</option>
+						
+						<option value="fr_CA" >
+							français (Canada)</option>
+						
+						<option value="pl_PL" >
+							polski (Polska)</option>
+						
+						<option value="ro_RO" >
+							română (România)</option>
+						
+						<option value="tr_TR" >
+							Türkçe (Türkiye)</option>
+						
+						<option value="pt_BR" >
+							português (Brasil)</option>
+						
+						<option value="iw_IL" >
+							עברית (ישראל)</option>
+						
+						<option value="fr_FR" >
+							français (France)</option>
+						
+						<option value="ja_JP" >
+							日本語 (日本)</option>
+						
+						<option value="cs_CZ" >
+							čeština (Česká republika)</option>
+						
+						<option value="de_DE" >
+							Deutsch (Deutschland)</option>
+						
+						<option value="hu_HU" >
+							magyar (Magyarország)</option>
+						
+						<option value="zh_TW" >
+							中文 (台灣)</option>
+						
+						<option value="ko_KR" >
+							한국어 (대한민국)</option>
+						
+						<option value="en_US" selected>
+							English (United States)</option>
+						
+						<option value="zh_CN" >
+							中文 (中国)</option>
+						
+						<option value="es_ES" >
+							español (España)</option>
+						
+						<option value="nl_NL" >
+							Nederlands (Nederland)</option>
+						
+						<option value="pt_PT" >
+							português (Portugal)</option>
+					
+				</select>
+				<div class="languageArrow">
+					<img class="arrow down"/>
+				</div>
+			</li>
+			<!--<li id="selectLanguage">
+				<a class="showPopUp field">
+				<div class="popUp" style="width:150px;">
+					<span>Note that changing your web portal language also changes the language of all subsequent email notifications</span>			
+				</div>
+				<select class="loginLanguage" 
+					onchange="changeLanguageRegistration(this.value);"
+					tabindex="1">
+						
+						<option value="it_IT" >
+							italiano (Italia)</option>
+						
+						<option value="ru_RU" >
+							русский (Россия)</option>
+						
+						<option value="el_GR" >
+							Ελληνικά (Ελλάδα)</option>
+						
+						<option value="fr_CA" >
+							français (Canada)</option>
+						
+						<option value="pl_PL" >
+							polski (Polska)</option>
+						
+						<option value="ro_RO" >
+							română (România)</option>
+						
+						<option value="tr_TR" >
+							Türkçe (Türkiye)</option>
+						
+						<option value="pt_BR" >
+							português (Brasil)</option>
+						
+						<option value="iw_IL" >
+							עברית (ישראל)</option>
+						
+						<option value="fr_FR" >
+							français (France)</option>
+						
+						<option value="ja_JP" >
+							日本語 (日本)</option>
+						
+						<option value="cs_CZ" >
+							čeština (Česká republika)</option>
+						
+						<option value="de_DE" >
+							Deutsch (Deutschland)</option>
+						
+						<option value="hu_HU" >
+							magyar (Magyarország)</option>
+						
+						<option value="zh_TW" >
+							中文 (台灣)</option>
+						
+						<option value="ko_KR" >
+							한국어 (대한민국)</option>
+						
+						<option value="en_US" selected>
+							English (United States)</option>
+						
+						<option value="zh_CN" >
+							中文 (中国)</option>
+						
+						<option value="es_ES" >
+							español (España)</option>
+						
+						<option value="nl_NL" >
+							Nederlands (Nederland)</option>
+						
+						<option value="pt_PT" >
+							português (Portugal)</option>
+					
+				</select>
+			</a></li>-->
+			
+		</ul>
+	</div>
+	<div class="login-header"><!-- HEADER BRANDING include - START-->
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+		
+		
+		
+			
+			
+				<div class="backgroundColor" style="margin: 0;">
+				<div class="mainHeaderCon">
+				<div style="margin: 0;">
+				<div class="mainHeaderSubCon">
+					<!--***Moved to include.jspf*** spring:message code="custom.header" arguments="/branding/custom/emx,?1507282821851" text="default" var="customHeader" -->
+					
+						
+							<div class="mainHeaderLogo"><img src="/branding/custom/emx/images/web_logo.gif?1507282821851" border="0" title="logo"/></div><div class="mainHeaderTitle"><span class="textColor">Encrypted Mail Exchange</span></div></div>
+						
+						
+					
+				</div>
+				<div class="headerMainEnd"></div>
+				</div>
+				</div>
+			
+		
+	
+
+
+
+
+
+<!-- HEADER BRANDING include - END -->
+</div>
+	
+	
+		<div id="login">
+		<!--[if lte IE 7]>
+		<div style="position:absolute; top:20px; z-index:200; margin-left:20px;"><span style="color:red">Encrypted Mail Exchange does not support Internet Explorer 7. Your experience will be degraded.</span></div>
+		<![endif]-->		
+		<input type="hidden" name="_csrf" value="7025720b-eda8-4d26-b00b-e22eeae29f47" />
+		    <div id="loginBox"  >
+				<div id="loginSocial" class="clearfix">
+					
+						<ol id="socialButtons">
+							<!-- Social Sign In Buttons -->
+							
+						</ol>
+					
+				</div>
+				<div id="loginMainTitle"> 
+				
+					
+						
+							
+								
+								
+								
+									
+										
+										
+										
+										
+										
+											<span >To log into Encrypted Mail Exchange, enter your email address and password.</span>
+										
+									
+								
+							
+						
+						
+					
+				</div>
+				<div class="loginErrorCon">
+					
+						
+							
+							
+								
+								
+								
+								
+								
+								
+								
+								
+						
+						
+					
+				</div>
+				
+				
+				<div id="loginInfoCon">
+						
+					<div id="loginAcct">
+						<!--Language Selector-->
+						
+							
+						
+						
+							
+								
+									<ol class="loginPage">
+											
+										
+											
+												<!-- regular EMX user -->
+												<li class="loginLabel"><label for="j_username"> 
+													Email Address:</label></li>
+												<li class="loginField"><input id="j_username" tabindex="2" type="text" placeholder="Email Address:" name="j_username"
+													class="email" value="" /></li>
+												<input type="hidden" name="msgRegularUserId" 
+														value=""/>
+												<input type="hidden" name="enterprise" value="" />
+											
+											
+										 
+									</ol>
+									<ol class="loginPage">
+										<li class="loginLabel">
+												<label for="j_password">Password:</label>
+										</li>
+										<li class="loginField"><input type="password" name="j_password" placeholder="Password:"
+											id="j_password" autocomplete="off" class="password" tabindex="3"
+											onKeyPress="return submitenter(event,
+											'Logging in to Encrypted Mail Exchange', '/branding/custom/emx')">
+											
+										</li>
+									</ol>
+								
+								
+							
+							
+							
+								
+								
+									<ol id="loginButton">
+										<li class="loginLabel"></li>
+										<li class="loginField">
+											<div id="loginButton">
+												<a id="loginButtonAnchor" class="ovalbutton" tabindex="4" title="Login" 
+													href="javascript: userLogin('Logging in to Encrypted Mail Exchange', '/branding/custom/emx')">
+													<span>Login</span>
+												</a>
+											</div>
+										</li>
+									</ol>
+								
+							
+								
+						
+					</div>
+				</div>
+				
+				<ul id="loginInfo">	
+					
+						<li id="loginOptions" class="clearfix">
+							<div id="forgotPasswordLogin">
+								
+								<a class="headerLinks" title="Forgot your password?" href="/rrPasswordRecover.html" tabindex="6"
+								
+								
+								>
+								Forgot your password?
+								</a>
+							</div>
+						</li>
+					
+				</ul>
+			</div>
+			<div id="footer">
+				<!-- FOOTER BRANDING include - START -->
+
+
+<div style="height:100%; padding-top:10px;"><span>
+
+
+	
+		<font class="footer"/>&copy; 2008-16 Echoworx <br/> All rights reserved</font>
+	
+	
+
+</span>
+<!-- FOOTER BRANDING include - END -->
+			</div>
+	
+		</div>
+	
+</div>
+		<div>
+<input type="hidden" name="_csrf" value="7025720b-eda8-4d26-b00b-e22eeae29f47" />
+</div></form>
+<div id="container-footer">
+
+</div>
+<div id="requestVerificationCodeResultMsg" title="Verification Code Sent"></div>
+</body>
+
+</html>

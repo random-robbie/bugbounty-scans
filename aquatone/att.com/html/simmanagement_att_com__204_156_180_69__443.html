@@ -1,0 +1,947 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>Welcome to the Control Center!</title>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon" type="image/ico" href="/provision/images/favicon.ico?v=3"/>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    
+
+
+
+
+    
+        
+            
+            
+                <link rel="stylesheet" type="text/css" href="/provision/combined.css.h824417315.pack" charset="utf-8"/>
+            
+        
+    
+    
+
+
+
+    
+
+    
+
+
+<script type="text/javascript">
+var msIE = false;          //true when client is Internet Explorer
+</script>
+
+<!-- Use IE-only Conditional Comments to detect Internet Explorer. -->
+<!--[if IE]>
+<script type="text/javascript">
+    msIE = true;
+    // Create the oPopup object, used in infoBalloon(..) below.
+    oPopup = window.createPopup();
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+var oXMLHTTP = false;      //XML HTTP Request object for asyncronous server calls - http://developer.apple.com/internet/webcontent/xmlhttpreq.html
+var oPopup, oBalloon, oArrow, oHiddenSelect;
+
+/*
+ * Initialize the XML HTTP Request object for IE, Mozilla 1.0, Netscape 7.1
+ */
+if (window.XMLHttpRequest) { //Mozilla 1.0, Netscape 7.1, IE 7
+    try {
+        oXMLHTTP = new XMLHttpRequest();
+    } catch(e) {
+        oXMLHTTP = false;
+    }
+} else if (window.ActiveXObject) { //IE 5, IE 6
+    try {
+        oXMLHTTP = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch(e) {
+        try {
+            oXMLHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e) {
+            oXMLHTTP = false;
+        }
+    }
+}
+if (!oXMLHTTP) {
+    alert("???common.jstext.browserRequirement???");
+}
+
+//creates a unique id
+function createUniqueId() {
+    var arr = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9";
+    arr = arr.split(",");
+    var l = arr.length;
+    var a = parseInt(Math.random() * l);
+    var b = parseInt(Math.random() * l);
+    var c = parseInt(Math.random() * l);
+    var d = parseInt(Math.random() * l);
+    var sId = "id_" + arr[a] + arr[b] + arr[c] + arr[d];
+    while (document.getElementById(sId)) {
+        a = parseInt(Math.random() * l);
+        b = parseInt(Math.random() * l);
+        c = parseInt(Math.random() * l);
+        d = parseInt(Math.random() * l);
+        sId = "id_" + arr[a] + arr[b] + arr[c] + arr[d];
+    }
+    return sId;
+}
+
+function getClientLeft(oElement) {
+    var left = 0;
+    while (oElement.tagName != "BODY") {
+        left += oElement.offsetLeft;
+        oElement = oElement.offsetParent;
+    }
+    return left;
+}
+function getClientTop(oElement) {
+    var top = 0;
+    while (oElement.tagName != "BODY") {
+        top += oElement.offsetTop;
+        oElement = oElement.offsetParent;
+    }
+    return top;
+}
+
+/*
+ * Balloon tip functions for displaying a brief message related to some UI component
+ * sMessage - text or HTML message to display.
+ * sElementId - the id of the element to which the message applies
+ * leaveExistingInfoBalloons - if true existing infoBalloons are not closed
+ */
+function infoBalloon(sMessage, sElementId, leaveExistingInfoBalloons) {
+    var l, t, w, h;
+    var screenW = (window.innerWidth)? window.innerWidth:document.body.offsetWidth;
+    var screenH = (window.innerHeight)? window.innerHeight:document.body.offsetHeight;
+    var sArrowId = createUniqueId();
+    var oClose, sCloseId = createUniqueId();
+    var oElement = null;
+    var oTip = document.createElement("DIV");
+    oTip.className = "infoBalloon";
+    oTip.style.top = "0px";
+    oTip.style.left = "0px";
+    if (sElementId) {
+        oElement = document.getElementById(sElementId);
+    }
+
+    //IE cannot display a normal HTML element over a SELECT object so we will use
+    //the IE only POPUP element to create a window that can be displayed over anything
+    if (msIE) {
+        oTip.innerHTML = sMessage;
+        oTip.style.padding = "10px";
+        oTip.style.border = "1px solid black";
+        oTip.style.visibility = "hidden";
+        document.body.appendChild(oTip);
+        h = oTip.offsetHeight;
+        w = oTip.offsetWidth;
+        oTip.removeNode(true);
+        if (oElement) {
+            l = getClientLeft(oElement) - w / 2 + oElement.offsetWidth / 2;
+            t = getClientTop(oElement) - h - 15;
+        } else {
+            l = (document.body.offsetWidth - w) / 2;
+            t = (document.body.offsetHeight - h) / 2;
+        }
+        if (l + w > document.body.clientWidth) {
+            l = document.body.clientWidth - w + 2;
+        }
+        oPopup.document.body.innerHTML = sMessage;
+
+        var oPopupStyle = oPopup.document.body.style;
+        oPopupStyle.fontSize = "70%";
+        oPopupStyle.fontFamily = "arial,tahoma";
+        oPopupStyle.backgroundColor = "rgb(255,255,225)";
+        oPopupStyle.borderTop = "1px solid black";
+        oPopupStyle.borderLeft = "1px solid black";
+        oPopupStyle.borderRight = "1px solid black";
+        oPopupStyle.padding = "7pt";
+        oPopupStyle.cursor = "default";
+
+        oBalloon = document.createElement("DIV");
+        oBalloon.style.position = "absolute";
+        oBalloon.style.left = l - 2;
+        oBalloon.style.top = t + h - 2;
+        oBalloon.style.width = w;
+        oBalloon.style.height = 21;
+        oBalloon.style.zIndex = 99999;
+        oBalloon.style.borderTop = "1px solid black";
+        oArrow = document.createElement("IMG");
+        oArrow.src = "/provision/images/infoBalloonArrowDwn.png";
+        oArrow.style.position = "absolute";
+        oArrow.style.top = t + h - 3;
+        oArrow.style.left = l + w / 2 - 12;
+        oArrow.style.zIndex = 999999;
+        oHiddenSelect = document.elementFromPoint(l + w / 2 - 5, t + h + 10);
+        if (oHiddenSelect && oHiddenSelect.tagName == "SELECT") {
+            oHiddenSelect.runtimeStyle.visibility = "hidden";
+        } else {
+            oHiddenSelect = null;
+        }
+        document.body.appendChild(oBalloon);
+        document.body.appendChild(oArrow);
+        oPopup.show(l, t, w, h, document.body);
+        setTimeout(hideBalloonArrow, 100);
+    } else {
+        if (leaveExistingInfoBalloons != true) {
+            closeBalloons();
+        }
+        //remove any existing balloons
+        var sHTML = '<table cellpadding="0" cellspacing="0"><tr>'
+        sHTML += '<td valign="top" style="padding:6px 10px 12px 10px"></td>'
+        sHTML += '<td valign="top" style="padding-top:3px; padding-right:5px"><img src="';
+        sHTML += '/provision/images/infoBalloonClose.png';
+        sHTML += '" id="' + sCloseId + '">';
+        sHTML += '</td></tr></table><img src="';
+        sHTML += '/provision/images/infoBalloonArrowDwn.png';
+        sHTML += '" style="position:relative; top:-1" id="' + sArrowId + '">';
+        oTip.innerHTML = sHTML;
+        var oCell = oTip.getElementsByTagName("TD")[0];
+        oCell.innerHTML = sMessage;
+
+        document.body.appendChild(oTip);
+        oArrow = document.getElementById(sArrowId);
+        w = oTip.offsetWidth;
+        h = oTip.offsetHeight;
+        if (oElement) {
+            l = getClientLeft(oElement) - w / 2 + oElement.offsetWidth / 2;
+            t = getClientTop(oElement) - h + 2;
+        } else {
+            l = (screenW - w) / 2;
+            t = (screenH - h) / 2;
+        }
+        if (l + w > screenW) {
+            l = screenW - w;
+        }
+        if (l < 0) {
+            l = 0;
+        }
+        if (t + h > screenH) {
+            t = screenH - h;
+        }
+        if (t < 0) {
+            t = 0;
+        }
+        oTip.style.left = l + "px";
+        oTip.style.top = t + "px";
+        oArrow.style.left = w / 2 - 10;
+
+        oClose = document.getElementById(sCloseId);
+        oClose.addEventListener("mouseover", doCloseMouseOver, false);
+        oClose.addEventListener("mouseout", doCloseMouseOut, false);
+        oClose.addEventListener("click", doCloseClick, false);
+    }
+}
+function hideBalloonArrow() {
+    if (oPopup.isOpen) {
+        setTimeout(hideBalloonArrow, 50);
+    } else {
+        if (oBalloon) {
+            oBalloon.removeNode();
+        }
+        if (oArrow) {
+            oArrow.removeNode();
+        }
+        if (oHiddenSelect) {
+            oHiddenSelect.runtimeStyle.visibility = "";
+        }
+    }
+}
+//removes all balloon tips
+function closeBalloons() {
+    if (msIE) {
+        oPopup.hide();
+        hideBalloonArrow();
+    } else {
+        var coll = document.getElementsByTagName("DIV"), i;
+        for (i = 0; i < coll.length; i++) {
+            if (coll[i].className == "infoBalloon") {
+                coll[i].parentNode.removeChild(coll[i]);
+            }
+        }
+    }
+}
+function doCloseMouseOver(e) {
+    if (msIE) {
+        event.srcElement.src = "/provision/images/infoBalloonCloseActive.png";
+    } else {
+        e.target.src = "/provision/images/infoBalloonCloseActive.png";
+    }
+}
+function doCloseMouseOut(e) {
+    if (msIE) {
+        event.srcElement.src = "/provision/images/infoBalloonClose.png";
+    } else {
+        e.target.src = "/provision/images/infoBalloonClose.png";
+    }
+}
+function doCloseClick(e) {
+    var oTip;
+    if (msIE) {
+        oTip = event.srcElement.parentNode;
+    } else {
+        oTip = e.target.parentNode;
+    }
+    while (oTip.tagName != "DIV") {
+        oTip = oTip.parentNode;
+    }
+    oTip.parentNode.removeChild(oTip);
+}
+
+//Checks/unchecks all of the checkboxes in the specified list
+function checkAll(sCheckId, sListId) {
+    var flag = document.getElementById(sCheckId).checked;
+    var oList = document.getElementById(sListId);
+    var coll = oList.getElementsByTagName("INPUT");
+    var n = coll.length, i;
+
+    for (i = 1; i < n; i++) {
+        if (coll[i].type == "checkbox" && coll[i].id != sCheckId) {
+            if (coll[i].disabled != true) {
+                coll[i].checked = !flag;
+                coll[i].click();
+                //this somewhat convoluted approach is needed so that IE will change the row color
+            }
+        }
+    }
+}
+
+//returns the number of selected items in a list
+function getSelectionCount(sId) {
+    var oList = document.getElementById(sId);
+    var coll = oList.getElementsByTagName("INPUT");
+    var n = 0, i;
+
+    for (i = 1; i < coll.length; i++) {
+        if (coll[i].checked) {
+            n++;
+        }
+    }
+    return n;
+}
+
+function doResize(w,h) {
+
+    var oBody = document.getElementById("bodyBand");
+    if (oBody == null) {
+        oBody = document.getElementById("bodyIframe");
+    }
+    if (oBody == null) {
+        return;
+    }
+
+
+    if (msIE) {
+        h = h - oBody.offsetTop;
+    } else {
+        h = h - oBody.offsetTop - 1;
+    }
+    Ext.get(oBody).setHeight(Math.max(h, 100));
+
+    var oList = document.getElementById("list");
+    if (oList != null) {
+        var inTab = false;
+        var parent = oList.parentNode;
+        while (parent != null && parent.tagName != "BODY") {
+            if (parent.className.indexOf("dojoTabPane") != -1
+                    || parent.className.indexOf("tabBlock") != -1) {
+                inTab = true;
+                break;
+            }
+            parent = parent.parentNode;
+        }
+
+        if (!inTab) {
+            var listHeight;
+            if (msIE) {
+                listHeight = oBody.offsetHeight - oList.offsetTop;
+            } else {
+                listHeight = window.innerHeight - oList.offsetTop;
+            }
+            w -= oList.offsetLeft;
+            oList.style.height = Math.max(listHeight, 50) + "px";
+            oList.style.width = Math.max(w, 100) +"px";
+            oList.style.visibility = "visible";
+        }
+    }
+}
+
+//automatically underlines access keys for all buttons on a page
+function underscoreAccessKeys() {
+    var coll = document.getElementsByTagName("BUTTON"), sHTML, n, i, j, c;
+
+    for (i = 0; i < coll.length; i++) {
+        if (coll[i].accessKey != "" && coll[i].getElementsByTagName("U").length == 0) {
+            sHTML = coll[i].innerHTML;
+            n = sHTML.length;
+            a = coll[i].accessKey.toLowerCase();
+            inTag = false;
+            for (j = 0; j < n; j++) {
+                c = sHTML.charAt(j);
+                if (inTag) {
+                    if (c == ">") inTag = false;
+                } else if (c == "<") {
+                    inTag = true;
+                } else if (a == c.toLowerCase()) {
+                    sHTML = sHTML.substring(0, j) + "<u style='accelerator:true'>" + c + "</u>" + sHTML.substring(j + 1, n);
+                    break;
+                }
+            }
+            coll[i].innerHTML = sHTML;
+        }
+    }
+}
+
+//for showing and hiding dialog boxes
+function showDlg(sId) {
+    if (msIE) {
+        document.getElementById(sId).show();
+    } else {
+        showDialog(sId);
+    }
+}
+
+function hideDlg(sId) {
+   hideDlgWithDefaults(sId,'true');
+}
+
+function hideDlgWithDefaults(sId,defaults) {
+    if (msIE) {
+        document.getElementById(sId).hide();
+    } else {
+        hideDialog(sId);
+    }
+    if (defaults == 'true')
+        clearCriteria(sId);
+}
+
+
+//For displaying model dialog in Mozilla & Netscape
+var oModalDiv, oDialogBox;
+function showDialog(sId) {
+    var oDlg = document.getElementById(sId);
+    var oDlgTitle = oDlg.getElementsByTagName("DIV")[0];
+    var oDlgBody = oDlg.getElementsByTagName("DIV")[1];
+    var oTable = oDlg.getElementsByTagName("TABLE")[0];
+    oDlg.style.left = "0px";
+    oDlg.style.top = "0px";
+    oDlg.style.width = window.innerWidth + "px";
+    oDlg.style.height = window.innerHeight + "px";
+    var iMargin = (oTable.offsetTop - oDlgBody.offsetTop) * 2;
+    var w = oTable.offsetWidth + (oTable.offsetLeft * 2);
+    var h = oTable.offsetHeight + oDlgTitle.offsetHeight + iMargin;
+
+    oModalDiv = document.createElement("DIV");
+    oModalDiv.className = "modalBackground";
+    oModalDiv.style.width = window.innerWidth + "px";
+    oModalDiv.style.height = window.innerHeight + "px";
+    document.body.appendChild(oModalDiv);
+
+    oDlg.style.width = w;
+    oDlg.style.height = h;
+    oDlg.style.left = (window.innerWidth - oDlg.offsetWidth) / 2;
+    oDlg.style.top = (window.innerHeight - oDlg.offsetHeight) / 2;
+    oDlg.style.visibility = "visible";
+    oDialogBox = oDlg;
+    setTimeout(setDlgFocus, 10);
+}
+//set focus to the first editable input in the dialog box after it has resized itself
+//since the dialog itself cannot have focus in Mozilla
+function setDlgFocus() {
+    focusFirstFormControl(oDialogBox);
+}
+
+function focusFirstFormControl(parent) {
+    var coll = parent.getElementsByTagName("*"), n = coll.length, sTag, i;
+    for (i = 0; i < n; i++) {
+        sTag = coll[i].tagName;
+        if (sTag == "INPUT" || sTag == "SELECT" || sTag == "TEXTAREA" || sTag == "BUTTON" && !coll[i].readOnly) {
+            coll[i].focus();
+            break;
+        }
+    }
+}
+
+function hideDialog(sId) {
+    var oDlg = document.getElementById(sId);
+    oDlg.style.visibility = "hidden";
+    document.body.removeChild(oModalDiv);
+}
+
+function showLoadingIndicator() {
+    document.body.style.cursor = 'progress';
+    var loadingInd = document.getElementById("loadingIndicator");
+    if (loadingInd != null) {
+        loadingInd.style.visibility = "visible";
+    }
+}
+
+function hideLoadingIndicator() {
+    document.body.style.cursor = 'default';
+    var loadingInd = document.getElementById("loadingIndicator");
+    if (loadingInd != null) {
+        loadingInd.style.visibility = "hidden";
+    }
+}
+
+function initDojoDialog(dojoDlg) {
+    // Once the dialog is loaded and shown, we need to do some postprocessing,
+    // like resizing the dialog, etc.
+    // "onLoad" could come after "show" if we are using Dojo's autoloading feature.
+    dojo.event.connect(dojoDlg, "onLoad",
+        function(event) { _afterDojoDialogShow(dojoDlg); });
+    dojo.event.connect(dojoDlg, "show",
+        function(event) { _afterDojoDialogShow(dojoDlg); });
+}
+
+function _afterDojoDialogShow(dojoDlg) {
+    if (dojoDlg.isLoaded && dojoDlg.isShowing()) {
+        resizeDojoDlgToContents(dojoDlg);
+        focusFirstFormControl(dojoDlg.containerNode);
+    }
+}
+
+function showDojoDialog(dojoDlg) {
+    if (typeof(dojoDlg) == 'string') {
+        dojoDlg = dojo.widget.byId(dojoDlg);
+    }
+
+    // To avoid showing a small dialog with a "Loading..." message, explicitly
+    // load the contents using dojoDlg.refresh() before dojoDlg.show().
+    showLoadingIndicator();
+    dojoDlg.showModalDialog(); // darkens the background
+    dojo.event.connect(dojoDlg, "onLoad",
+            function() {
+                hideLoadingIndicator();
+                dojoDlg.show();
+            });
+    dojoDlg.refresh();
+}
+
+function resizeDojoDlgToContents(dojoDlg) {
+    var dlgBodyTable = dojoDlg.containerNode.getElementsByTagName("table")[0];
+    var marginBox = dojo.html.getMarginBox(dlgBodyTable);
+    var parentPadBorder = dojo.html.getPadBorder(dlgBodyTable.parentNode);
+    var containerPadBorder = dojo.html.getPadBorder(dojoDlg.containerNode);
+    var titleBarMarginBox = dojo.html.getMarginBox(dojoDlg.titleBar);
+
+    var w = marginBox.width + parentPadBorder.width + containerPadBorder.width ;
+    var h = marginBox.height + parentPadBorder.height + containerPadBorder.height + titleBarMarginBox.height;
+
+    dojoDlg.resizeTo(w,h);
+}
+
+/*
+ * Switches from basic to advanced search
+ */
+function advancedSearch() {
+    document.getElementById("basicSearch").style.display = "none";
+    document.getElementById("advancedSearch").style.display = "block";
+    document.getElementById("searchMode").value = "advanced";
+//    doResize();
+}
+function basicSearch() {
+    document.getElementById("basicSearch").style.display = "block";
+    document.getElementById("advancedSearch").style.display = "none";
+    document.getElementById("searchMode").value = "basic";
+//    doResize();
+}
+
+
+/*
+ * For the DHTML tab strip control
+ * Hides the active tab and sets/displays the clicked tab as the active tab
+*/
+function tabClick(sId) {
+    var oTab = document.getElementById(sId), i;
+    if (!oTab || oTab.className == "tabActive") return false;
+    var oTabBox = document.getElementById(oTab.getAttribute("for"));
+    if (!oTabBox) return false;
+    var oParent = oTab.parentNode;
+    while (oParent.nodeName != "TABLE") {
+        oParent = oParent.parentNode;
+    }
+    var tabs = oParent.rows[0].cells;
+    for (i = 0; i < tabs.length; i += 2) {
+        tabs[i].className = "tab";
+        tabs[i + 1].className = "tabRight";
+    }
+    while (oParent.nodeName != "DIV") {
+        oParent = oParent.parentNode;
+    }
+    var boxes = oParent.getElementsByTagName("DIV");
+    for (i = 0; i < boxes.length; i++) {
+        if (boxes[i].className == "tabBlock") {
+            boxes[i].style.display = "none";
+        }
+    }
+    oTab.className = "tabActive";
+    tabs[oTab.cellIndex + 1].className = "tabActiveRight";
+    oTabBox.style.display = "block";
+}
+
+/*
+ * Removes all of the options (OPTION elements) from a drop-down list (SELECT element)
+ * oList - a reference to the SELECT element
+ */
+function clearList(oList) {
+    while (oList.options.length > 0) {
+        oList.removeChild(oList.getElementsByTagName("OPTION")[0]);
+    }
+}
+/*
+ * Appends an option (OPTION element) to a drop-down list (SELECT element)
+ * oList - a reference to the SELECT element
+ * sText - the text attribute for the option (string)
+ * sValue - the value attribute for the option (string) Optional - defaults to sText if unspecified
+ */
+function addItem(oList, sText, sValue) {
+    var oOption = document.createElement("OPTION");
+
+    oOption.text = sText;
+    oOption.value = (sValue)? sValue:sText;
+    if (msIE) {
+        oList.options.add(oOption);
+    } else {
+        oList.appendChild(oOption);
+    }
+}
+
+
+// sort by column; current sort column; current ascending
+function sort(col, curCol, curAscending, nestedActionFormName, defaultAscending) {
+    var attributePrefix = (empty(nestedActionFormName) ? "" : (nestedActionFormName + "."));
+    var orderByName = document.getElementById(attributePrefix+"orderByName");
+    var ascending = document.getElementById(attributePrefix+"ascending");
+    orderByName.value = col;
+    if (col == curCol) {
+        if (curAscending == "true") {
+            ascending.value = "false";
+        } else {
+            ascending.value = "true";
+        }
+    } else {
+        ascending.value = !empty(defaultAscending) ? defaultAscending : "true";
+        // default true
+    }
+    clearPageNumber(nestedActionFormName);
+    document.forms[0].submit();
+    // assume one form per page only
+}
+
+function setPageNumber(i, nestedActionFormName) {
+    var attributePrefix = (empty(nestedActionFormName) ? "" : (nestedActionFormName + "."));
+    var pageNumber = document.getElementById(attributePrefix+"pageNumber");
+    pageNumber.value = i;
+    document.forms[0].submit();
+}
+
+// reset all the search criteria
+function clearSearch() {
+    clearCriteria("basicSearch");
+    clearCriteria("advancedSearch");
+}
+
+function submitSearch(form, nestedActionFormName) {
+    clearPageNumber(nestedActionFormName);
+    form.submit();
+}
+
+
+function restoreSearchParams() {
+    // resets all the search params and if there was a search mode changed
+    // we display the correct search mode as well.
+     if  (searchParams['searchMode'] != null) {
+         // user changed the search mode after doing the export and did not execute the search
+         if ( document.getElementById("searchMode").value != searchParams['searchMode']) {
+            document.getElementById("searchMode").value =    searchParams['searchMode'];
+            if ( searchParams['searchMode'] == 'basic') {
+                basicSearch();
+            } else if ( searchParams['searchMode'] == 'advanced') {
+                advancedSearch();
+            }
+        }
+    }
+
+     // get the all other search params and reset them to the original values
+     var searchElement = document.getElementById(searchParams['searchMode']+'Search');
+     for (i in searchParams) {
+       var searchParam = document.getElementById(i);
+        if (searchParam != null ) {
+           searchParam.value = searchParams[i];
+       } // end of if loop
+     }
+ }
+
+
+function clearPageNumber(nestedActionFormName) {
+    var attributePrefix = (empty(nestedActionFormName) ? "" : (nestedActionFormName + "."));
+    var pageNumber = document.getElementById(attributePrefix+"pageNumber");
+    if (pageNumber != null) {
+        pageNumber.value = 1;
+    }
+}
+
+function clearCriteria(sId) {
+    var theDiv = document.getElementById(sId);
+    if (theDiv != null) {
+        var inputs = theDiv.getElementsByTagName("INPUT");
+        var i = 0;
+        while (i < inputs.length) {
+            var theInput = inputs[i];
+            if (! theInput.readOnly) {
+                theInput.value = "";
+            }
+            i++;
+        }
+        var selects = theDiv.getElementsByTagName("SELECT");
+        i = 0;
+        while (i < selects.length) {
+            var theSelect = selects[i];
+            if (! theSelect.readOnly) {
+                theSelect.selectedIndex = 0;
+            }
+            i++;
+        }
+        var labels = theDiv.getElementsByTagName("TD");
+        i = 0;
+        while (i < labels.length) {
+            var theLabel = labels[i];
+            if (theLabel.className == "errorMsg") {
+                theLabel.className = "";
+            }
+            i++;
+        }
+        var tas = theDiv.getElementsByTagName("TEXTAREA");
+        i = 0;
+        while (i < tas.length) {
+            var theTa = tas[i];
+            if (! theTa.readOnly) {
+                theTa.value = "";
+            }
+            i++;
+        }
+    }
+}
+
+function exportClick(nestedActionFormName) {
+    // restores the search parameters that were used to generate the data on the screen
+    // it does not use the current search paramters, because the current search parameters may not be submitted.
+    // we want to use the search params that generated the current data.
+    restoreSearchParams();
+    var attributePrefix = (empty(nestedActionFormName) ? "" : (nestedActionFormName + "."));
+    document.getElementById(attributePrefix+"export").value = "true";
+    document.forms[0].submit();
+    document.getElementById(attributePrefix+"export").value = "false";
+}
+
+// pick options from a template Select and add them to a select element
+function addOptions(select, template) {
+    var options = document.getElementById(template);
+    for (var i = 0; i < options.length; i++) {
+        var cur = options[i];
+        var theOption = document.createElement("OPTION");
+        theOption.setAttribute("value", cur.value);
+        theOption.appendChild(document.createTextNode(cur.text));
+        theOption.selected = false;
+        if (i == 0) {
+            theOption.selected = true;
+        }
+        select.appendChild(theOption);
+    }
+}
+
+/**
+ * Escapes any special XML characters (&<>") in the given string.
+ **/
+function escapeXml(str) {
+    return (str == null) ? null : str.replace(/&/gm, "&amp;").replace(/</gm, "&lt;")
+        .replace(/>/gm, "&gt;").replace(/"/gm, "&quot;");
+}
+
+// Returns true if the string or array is null or has a length of 0.
+function empty(value) {
+    return (value == null || value.length == 0);
+}
+
+function nvl(value, valueIfNull) {
+    return (value == null) ? valueIfNull : value;
+}
+</script>
+
+
+    <script>
+        function forgotPassword() {
+            showDlg("passwordDlg");
+        }
+    </script>
+    <style>
+        
+        .login, .login label {
+            color: #FFFFFF !important
+        }
+        
+        
+        .errorMsg {
+            color: #FFFFFF !important
+        }
+        
+        
+        .login a {
+            color: #009FDB !important
+        }
+        
+    </style>
+    <!-- pd11scl009-c04 -->
+</head>
+
+<body onload="document.getElementById('j_username').focus();">
+
+<form action="/provision/j_acegi_security_check" method="POST">
+
+    <table border=1 cellpadding="0" cellspacing="0" width="100%" height="100%" data-awt="loginContainer">
+        <tr>
+            <td align="center" valign="middle">
+                <table cellpadding="0" cellspacing="0" width="673" height="429"
+                    style="background-image:url(/provision/action/downloadCobrandImage?cobrandId=5122&imageType=LOGON_IMAGE)"
+                    class="login">
+                    <tr>
+                        <td align="center" valign="bottom">
+                            <table border=0 align="right">
+                                <tr>
+                                    <td align="center" width="222px">
+                                        <table border=0 cellpadding="0" cellspacing="0" style="margin-bottom:95px">
+                                            <tr>
+                                                <td colspan="2" class="errorMsg">
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                
+                                            </tr>
+                                            <tr>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" height="27px">&nbsp;</td>
+                                            </tr>
+                                            <tr><td><label>User Name</label></td>
+                                                <td><input type="text" name="j_username" id="j_username" size="19" data-awt="userName">
+                                                </td></tr>
+                                            <tr><td colspan="2" height="3"></td></tr>
+                                            <tr><td><label>Password</label></td>
+                                                <td><input type="password" name="j_password" id="j_password" size="19" data-awt="password" autocomplete="off"></td></tr>
+                                            <tr><td colspan="2" height="3"></td></tr>
+                                            <tr>
+                                                <td align="right" colspan="2" class="forgotPassword"><a href="javascript:forgotPassword()" data-awt="forgotPassword">Forgot password?</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" align="right">
+                                                    <input type="submit" value="Log on" style="margin-right:20px; margin-top:30px" data-awt="logonSubmit">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<div class="dlgHTC" id="passwordDlg" okBtn="btnOk" cancelBtn="btnCancel" data-awt="passwordDialog">
+    <div class="dlgTitle">Forgot Password</div>
+
+    <div class="dlgBody">
+        <form name="resetForm" action="/provision/unassistedResetPassword.do" method="POST">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="2">Please specify your user name and email address.<br>You will receive an email message with instructions<br>on how to reset your password.</td>
+                </tr>
+                <tr><td colspan="2" height="10"></td></tr>
+                <tr>
+                    <td width="80"><label>User Name:</label></td>
+                    <td><input type="text" name="resetLogin" id="resetLogin" size="30" maxlength="50" data-awt="resetLogin"></td>
+                </tr>
+                <tr>
+                    <td width="80"><label>Email:</label></td>
+                    <td><input type="text" name="resetEmail" id="resetEmail" size="30" maxlength="320" data-awt="resetEmail"></td>
+                </tr>
+                <tr><td colspan="2" height="15"></td></tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <button type="button" onclick="document.resetForm.submit();" class="dlg" id="btnOk" data-awt='buttonOk'>
+                            Ok</button>
+                        <button type="button" onclick="hideDlg('passwordDlg')" class="dlg" id="btnCancel" data-awt="buttonCancel">
+                            Cancel</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+

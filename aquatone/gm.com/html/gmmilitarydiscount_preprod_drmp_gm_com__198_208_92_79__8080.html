@@ -1,0 +1,127 @@
+<!DOCTYPE html> 
+<html xmlns:ng="http://angularjs.org" lang="en" id="ng-app" class="no-js" data-ng-app="vppApp" data-ng-controller="MainController as ctrl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+        <meta name="fragment" content="!">
+        <meta name="description" id="ngapp" content="{{ metaDescription}}">
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+        <meta name="keywords" content="">
+        <meta data-ng-if="siteCode === 'mpp'" name="google-site-verification" content="r7B2yeXBNsrNZnaFQjjTHOAkRaBARw8Iny-8_uxmcyM">
+        <meta data-ng-if="siteCode === 'cgp'" name="google-site-verification" content="vZSEWrv8Ka0wv558FuEwm5AWuXhepjgLJbppTyjcFnU">
+        <meta data-ng-if="siteCode === 'sup'" name="google-site-verification" content="TXAh4BRx6hsEecz4VkJM1pKfJA3w2628K60KaiEMh3M">
+        <meta data-ng-if="siteCode === 'gmed'" name="google-site-verification" content="327jZO-eOriJRWAl2TlG44PXansPycFlRSZetCN7pfU">
+        <meta name="msvalidate.01" content="05E0452BB17B38D918F550A9FE7E652B">
+        <title data-ng-bind="pageTitle"></title>
+        <base id="baseName" href="/" />
+        <link rel="shortcut icon" type="image/x-icon" data-ng-href="/content/img/icons/{{siteCode}}/favicon.ico" >
+        <link rel="canonical" data-ng-href="{{ canonical}}">
+        <link rel="stylesheet" href="/content/css/main.min.css?rel=1501700733619">
+        <link rel="stylesheet" type="text/css" href="//cloud.typography.com/650614/754828/css/fonts.css" />
+        <link rel="stylesheet" href="/content/css/style.min.css?rel=1501700733619">
+        <script src="/non-content/js/main.min.js?rel=1501700733619"></script>
+        <script src="//assets.adobedtm.com/81e75e0d225e65a4860f48466627a6b696b9fc66/satelliteLib-f4157e9c383c9f73ae45b5daf35584d0086db103-staging.js"></script>
+        <script>
+                   var digitalData = window.digitalData || {
+                     pageInfo: {}
+                   };
+              setTimeout(function () {
+                   /* site content */
+                   digitalData.siteSectionsLevel1 = "index";
+
+
+                   // digitalData.pageInfo.universalID = "";
+                   digitalData.url = window.location.href;
+                   digitalData.seoStrategyPageName = "seoStrategyPageName";
+                   digitalData.pageType = "general";
+
+                   /* website indentification */
+                   digitalData.languageSelected = "EN";
+                   digitalData.brand = "";
+                   digitalData.country = "us";
+                   digitalData.siteName = "";
+                   digitalData.region = "gmna";
+
+                   /* responsive design */
+                   var trackRenderedExperience = function () {
+                     if (window.matchMedia(Foundation.media_queries.large).matches) {
+                       digitalData.renderedExperience = "large";
+                     } else if (window.matchMedia(Foundation.media_queries.medium).matches) {
+                       digitalData.renderedExperience = "medium";
+                     } else if (window.matchMedia(Foundation.media_queries.small).matches) {
+                       digitalData.renderedExperience = "small";
+                     }
+                   };
+
+                   var trackViewportSize = function () {
+                     digitalData.viewport = window.innerWidth + "x" + window.innerHeight;
+                   };
+
+                   var trackOrientation = function () {
+                     if (window.innerWidth > window.innerHeight) {
+                       digitalData.orientation = "landscape";
+                     } else {
+                       digitalData.orientation = "portrait";
+                     }
+                   };
+                   trackViewportSize();
+                   trackOrientation();
+                 }, 1000);
+        </script>
+    </head>
+    <body class="{{siteCode}}" data-ng-class="$state.current.name">
+        <!-- top nav Desktop-->
+        <div class="nav-margins" data-ng-class="{ 'subnav-present': hasSubNav }">
+          <div data-ng-if="!small" class="page-wrapper nav-container">
+              <div class="nav-wrapper-logo"><a data-ui-sref="index"><img data-ng-src="{{ logoPath }}"/></a></div>
+              <div class="nav-wrapper-utility" data-ng-include="'/content/html/partials/global/nav-utility.html'"></div>
+              <div class="nav-wrapper-primary" data-ng-include="'/content/html/partials/global/nav-primary.html'"></div>
+              <div class="nav-wrapper-subnav" data-ui-view="subNav"></div>
+          </div>
+        </div>
+        <!-- top nav Mobile -->
+        <div data-ng-if="small" class="page-wrapper nav-container-mobile clear">
+            <div class="nav-wrapper-logo"><a data-ui-sref="index"><img data-ng-src="{{ logoPathMobile}}"/></a></div>
+            <div class="nav-wrapper-primary-mobile" data-ng-include="'/content/html/partials/global/nav-primary-mobile.html'"></div>
+        </div>
+        <!-- brand bar -->
+        <div class="page-wrapper brand-bar clear" data-ng-class="{'nav-mobile' : small, 'subnav-present': hasSubNav}" data-ui-view="brandBar"></div>
+        <div class="page-wrapper clear" data-ui-view="brandBar-sub"></div>
+
+        <!-- main content view -->
+        <div data-ui-view class="page-wrapper wrapper" data-ng-class="$state.current.name"></div>
+
+        <div data-ng-if="siteCode == 'cgp' && !small || siteCode == 'sup' && !small || siteCode == 'mpp' && !small || siteCode == 'gmed' && !small" data-ng-include="'/content/html/partials/chat/' + siteCode + '/chat.html'"></div>
+
+        <div data-ng-include="'/content/html/partials/global/footer.html'"></div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-touch.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+        <script src="/non-content/js/vendor/Hammer.min.js"></script>
+        <script src="/non-content/js/vendor/v-accordion.min.js"></script>     
+        <script src="/non-content/js/vendor/angular-base64.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMFNnTSReTrTLBYw-vEJ4bYKTyQzo_UI8"></script>
+        <script src="//players.brightcove.net/3113179986001/ByFTuOqR_default/index.min.js"></script><!-- brightcove video dependency -->
+        <script src="/non-content/js/vpp-config.min.js?rel=1501700733619"></script>
+        <script src="/non-content/js/vpp.min.js?rel=1501700733619"></script>
+        <script type="text/javascript">_satellite.pageBottom();</script>
+        
+        <!--BEGIN QUALTRICS SITE INTERCEPT-->
+            <script type='text/javascript'>
+            (function(){var g=function(e,h,f,g){
+            this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+            this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+            this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+            this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g+ "&t=" + (new Date()).getTime();document.body&&document.body.appendChild(a)}};
+            this.start=function(){var a=this;window.addEventListener?window.addEventListener("load",function(){a.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){a.go()})}};
+            try{(new g(100,"r","QSI_S_SI_5yFBAdECE6vBKbr","//zn5cfoezj2kv4n9ub-generalmotors.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_SIID=SI_5yFBAdECE6vBKbr&Q_LOC="+encodeURIComponent(window.location.href))).start()}catch(i){}})();
+            </script><div id='SI_5yFBAdECE6vBKbr'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+        <!--END SITE INTERCEPT-->
+    </body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mozilla X-Ray Goggles</title>
+    <script src="authtoken.js"></script>
+    <link rel="stylesheet" href="stylesheets/homepage/userbar.css">
+    <link rel="stylesheet" href="stylesheets/homepage/style.css">
+    <link rel="icon" href="/img/goggles-logo.png">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-49796218-41', 'auto');
+      ga('send', 'pageview');
+    </script>    
+    <script src="/bower/ua-parser-js/dist/ua-parser.min.js"></script>
+    <script>
+    (function() {
+      var ua = UAParser();
+      var html = document.querySelector("html");
+      html.setAttribute("data-os", ua.os.name.toLowerCase());
+      html.setAttribute("data-browser", ua.browser.name.toLowerCase());
+    }());
+    </script>
+  </head>
+  <body>
+    
+  <div id="mobile-overlay" class="inactive">
+    <p class="notice">
+      X-Ray Goggles was designed as a desktop experience, and
+      relies on the bookmark bar. Please install and try them
+      in your desktop browser.
+    </p>
+  </div>
+  <script>
+  (function() {
+    var overlay = document.getElementById("mobile-overlay");
+    var html = document.querySelector("html");
+    var mobileBrowsers = ["android", "ios"];
+    if (mobileBrowsers.indexOf(html.getAttribute("data-os")) !== -1) {
+      overlay.setAttribute("class", "active");
+    }
+    overlay.addEventListener("click", function() {
+      overlay.parentNode.removeChild(overlay);
+    });
+  }());
+  </script>
+
+
+    
+  <!-- webmaker user bar -->
+  <nav class="navbar-goggles container-flex">
+    <div id="navbar-left" class="container-flex">
+      <div class="navbar-logo-container">
+        <a href="/en-US" class="logo">
+          <img src="/img/goggles-logo.png" class="goggles-logo">
+          <span class="logo-text">X-Ray Goggles</span>
+          <span class="logo-by">by</span>
+          <span class="mozilla-word-mark">mozilla</span>
+        </a>
+      </div>
+    </div>
+
+    <div id="navbar-right" class="container-flex">
+      <div id="navbar-login">
+        <div id="navbar-login-inner">
+
+        <script type="text/html" class="loggedin">
+          <ul id="navbar-logged-in">
+            <li>
+              <img class="avatar" src="%avatar%">
+              <span>Hi, <span class="username"></span></span>
+              <img class="icon-arrow-down" src="/img/icon/dropdown-arrow.svg">
+
+              <ul class="hidden dropdown">
+
+                <!--
+                <li>
+                  <a id="new-project-link" class="dropdown-link">
+                    <img src="/img/icon/new-project.svg" class="dropdown-icon">
+                    New Project
+                  </a>
+                </li>
+                -->
+
+                <!--
+                <li>
+                  <a href="/projects/%queryString%" class="dropdown-link" target="_self">
+                    <img src="/img/icon/your-projects.svg" class="dropdown-icon">
+                    Your Projects
+                  </a>
+                </li>
+                -->
+
+                <li>
+                  <a href="" id="logout-link" class="dropdown-link logout region">
+                    <img src="/img/icon/sign-out.svg" class="dropdown-icon">
+                    Sign Out
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </script>
+
+        <script type="text/html" class="loggedout">
+          <div id="navbar-anonymous">
+            <a title="Log in to Goggles with your Webmaker account" class="navbar-login login-link">Sign in</a>
+            or
+            <a title="Create a new Webmaker account" class="navbar-login signup-link">Create an Account</a>
+          </div>
+        </script>
+
+        <script type="text/html" class="publish"></script>
+
+        <span class="status placeholder"></div>
+    <script src="publication.js"></script>
+  </nav>
+
+
+    
+
+    <section class="main-cta">
+      <div class="content-wrapper">
+
+        <h1>Remix Any Page on the Web</h1>
+
+        <p>
+          X-Ray Goggles makes it easy to see and remix the code behind your favorite web pages. <br>
+          The best part: you don't need any prior coding experience! Just activate Goggles, click on a section, <br>
+          and edit. Then, share your remixes with others.
+        </p>
+
+      </div>
+    </section>
+
+
+
+    <section class="steps">
+      <div class="content-wrapper">
+        <div class="step">
+          <figure class="example">
+            <img class="toolbar" src="img/bookmark-windows-firefox@2x.png" width="100%">
+          </figure>
+          <script>
+          (function() {
+            var img = document.querySelector("img.toolbar");
+            var html = document.querySelector("html");
+            var os = html.getAttribute("data-os");
+            var browser = html.getAttribute("data-browser");
+            // OS/Browser we have pictures for?
+            if (["mac os", "windows"].indexOf(os) === -1) os = "windows";
+            if (["safari", "ie", "firefox", "chrome", "opera"].indexOf(browser) === -1) browser = "firefox";
+            var src = ["/img/instructions/bookmark1", os, browser].join('-') + "@2x.png";
+            img.src = src;
+          }());
+          </script>
+          <div class="description">
+            <h2>Open Your Bookmark Toolbar</h2>
+            <p class="toolbar">
+              If you're using Firefox on a Mac, look at your top menu bar,
+              click <em>View</em>, and make sure <em>Bookmark Toolbar</em> is selected.
+            </p>
+          </div>
+          <script>
+          (function() {
+            var p = document.querySelector("p.toolbar");
+            var html = document.querySelector("html");
+            var instructions = {
+              "mac os": {
+                "firefox": "If you're using Firefox on a Mac, look at your top menu bar, click <em>View</em>, and make sure <em>Bookmark Toolbar</em> is selected.",
+                "chrome": "If you're using Chrome on a Mac, look at your top menu bar, click <em>View</em>, and make sure <em>Always View Bookmarks Bar</em> is selected.",
+                "safari": "If you're using Safari on a Mac, look at your top menu bar, click <em>View</em>, and make sure <em>Show Favorites Bar</em> is selected.",
+                "opera": "If you're using Opera on a Mac, look at your top menu bar, click <em>View</em>, and make sure <em>Show Bookmarks Bar</em> is selected."
+              },
+              "windows": {
+                "firefox": "If you're using Firefox on Windows, look next to your Search bar for the bookmarks clipboard icon, click it, then navigate to <em>Bookmarks Toolbar</em>, then make sure <em>View Bookmarks Toolbar</em> is selected.",
+                "chrome": "If you're using Chrome on Windows, click the options icon to the right of your URL bar, select <em>Bookmarks</em>, then make sure <em>Show bookmarks bar</em> is selected.",
+                "opera": "If you're using Opera on Windows, click the opera button, select <em>Bookmarks</em>, then make sure <em>Show bookmarks bar</em> is selected.",
+                "ie": "If you're using Internet Explorer on Windows, right-click on the main tabs bar, then make sure <em>Favorites bar</em> is selected."
+              },
+              "unknown": {
+                "firefox": "If you're using Firefox, look next to your Search bar for the bookmarks clipboard icon, click it, then navigate to <em>Bookmarks Toolbar</em>, then make sure <em>View Bookmarks Toolbar</em> is selected.",
+                "chrome": "If you're using Chrome, click the options icon to the right of your URL bar, select <em>Bookmarks</em>, then make sure <em>Show bookmarks bar</em> is selected.",
+                "opera": "If you're using Opera, click the opera button, select <em>Bookmarks</em>, then make sure <em>Show bookmarks bar</em> is selected.",
+                "ie": "If you're using Internet Explorer, right-click on the main tabs bar, then make sure <em>Favorites bar</em> is selected.",
+                "safari": "If you're using Safari, look at your top menu bar, click <em>View</em>, and make sure <em>Show Favorites Bar</em> is selected."
+              }
+            };
+
+            var os = html.getAttribute("data-os");
+            var browser = html.getAttribute("data-browser");
+
+            // OS/Browser we have pictures for?
+            if (["mac os", "windows"].indexOf(os) === -1) os = "unknown";
+            if (["safari", "ie", "firefox", "chrome", "opera"].indexOf(browser)===-1) browser = "firefox";
+
+            p.innerHTML = instructions[os][browser];
+          }());
+          </script>
+        </div>
+
+        <div class="step">
+          <figure class="example">
+            <img class="dragging" src="img/install-windows-firefox@2x.png" width="100%">
+          </figure>
+          <script>
+          (function() {
+            var img = document.querySelector("img.dragging");
+            var html = document.querySelector("html");
+            var os = html.getAttribute("data-os");
+            var browser = html.getAttribute("data-browser");
+            // OS/Browser we have pictures for?
+            if (["mac os", "windows"].indexOf(os) === -1) os = "windows";
+            if (["safari", "ie", "firefox", "chrome", "opera"].indexOf(browser) === -1) browser = "firefox";
+            var src = ["/img/instructions/bookmark2", os, browser].join('-') + "@2x.png";
+            img.src = src;
+          }());
+          </script>
+          <div class="description">
+            <h2>Install Goggles</h2>
+            <p>
+              Click and drag this button to your bookmark toolbar to install X-Ray Goggles.
+            </p>
+            <a class="goggles-bookmark" href="javascript:"><span class="dragme fa fa-arrows"></span><span class="label">X-Ray Goggles</span></a>
+
+            <!-- autogenerate the goggles bookmarklet code, immediately -->
+            <script src='js/bindgogglesbutton.js'></script>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="sample">
+      <div class="content-wrapper">
+        <img src="img/forest@2x.png">
+        <div class="overlay">
+          <div class="inlay">
+            <div class="description">
+              <h2>Try a Sample Activity</h2>
+
+              <p>Once you've installed X-Ray Goggles in your bookmark bar, you can begin remixing.</p>
+
+              <p>Start with our step-by-step tutorial.</p>
+
+              <a href="/ftu" class="remix-button">Sample activity page <span class="follow fa fa-long-arrow-right "></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="remix-projects">
+      <div class="content-wrapper">
+
+        <div class="remixable-header">
+          <h2 class="projects-heading">Use X-Ray Goggles to Teach</h2>
+          <p>Now that you have mastered X-Ray Goggles, use these activities to teach others how to code.</p>
+        </div>
+
+          <div class="remixable-projects">
+
+
+            <div class="project hack-the-news">
+              <h2 class="title">Remix the News</h2>
+              <div class="thumbnail">
+                <a href="https://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html" class="image"></a>
+              </div>
+              <p class="description">
+                Use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to remix something new.
+              </p>
+              <a href="https://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html" class="remix-button">Try this activity <span class="follow fa fa-long-arrow-right "></span></a>
+            </div>
+
+
+            <div class="project hack-my-media">
+              <h2 class="title">Hack My Media</h2>
+              <div class="thumbnail">
+                <a href="https://thimbleprojects.org/stephguthrie/48361" class="image"></a>
+              </div>
+              <p class="description">
+                Participants will think critically about their identities and the media. They will use this to create their first webpage by tinkering with an existing webpage.
+              </p>
+              <a href="https://thimbleprojects.org/stephguthrie/48361" class="remix-button">Try this activity <span class="follow fa fa-long-arrow-right "></span></a>
+            </div>
+
+
+            <div class="project all-the-stickers">
+              <h2 class="title">#allthestickerz</h2>
+              <div class="thumbnail">
+                <a href="https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session04-all-the-stickerz.html" class="image"></a>
+              </div>
+              <p class="description">
+                Create and publish pixel art stickers, then use them to annotate and remix the Web.
+              </p>
+              <a href="https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session04-all-the-stickerz.html" class="remix-button">Try this activity <span class="follow fa fa-long-arrow-right "></span></a>
+            </div>
+
+
+          </div>
+      </div>
+    </section>
+
+
+
+    
+    <footer>
+      <div class="content-wrapper">
+        <ul class="social-links">
+          <li><a title="Stuck? Get help!" class="help" href="https://support.mozilla.org/en-US/products/webmaker/x-ray-goggles"><span class="icon"></span>Stuck? Get help!</a></li>
+          <li><a title="Talk to us on Twitter" class="twitter" href="https://twitter.com/mozteach"><span class="icon"></span>Talk to us on Twitter</a></li>
+          <li><a title="Contribute on Github" class="github" href="https://github.com/mozilla/goggles.webmaker.org"><span class="icon"></span>Contribute on Github</a></li>
+          <li><a title="Terms of Service" class="terms" href="https://beta.webmaker.org/#/legal"><span class="icon"></span>Terms of Service</a></li>
+          <li><a title="Privacy Policy" class="privacy" href="https://www.mozilla.org/en-US/privacy/websites"><span class="icon"></span>Privacy Policy</a></li>
+        </ul>
+
+        <div class="project-info">
+          <a class="mozilla-logo" title="Mozilla" href="https://www.mozilla.org/en-US/"><img alt="Mozilla" src="img/mozilla-logo.svg"></a>
+          <p class="goggles-context">
+            X-Ray Goggles is part of the Mozilla Learning Network. <br>
+            Learn to teach like mozilla at <a href="http://teach.mozilla.org">teach.mozilla.org</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+  </body>
+</html>

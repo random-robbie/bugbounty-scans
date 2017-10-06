@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+	<title>Alexa AT&T Support Skill Setup</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1.0,user-scalable=yes' name='viewport'>
+
+	
+
+    <!-- jquery and bootstrap js -->
+	<script src="js/jquery-1.12.4.min.js"></script>
+    <script src="https://lprod.code-api-att.com/public_files/js/bootstrap.min.js"></script>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://lprod.code-api-att.com/public_files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://lprod.code-api-att.com/public_files/css/bootstrap-theme.min.css">
+
+	<!-- custom js -->
+	<script src="js/alexa.js"></script>
+ 	<script src="js/placeholders.js"></script>
+
+    <!-- sandbox js -->
+	<script src="//0.ecom.attccc.com/styles/att/assets3.2.0/js/global-sandbox.min.js"></script>
+
+    <!-- sandbox css -->
+ 	<link href="//0.ecom.attccc.com/styles/att/assets3.2.0/css/sandbox-styles.min.css" rel="stylesheet">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="https://lprod.code-api-att.com/public_files/css/custom.css" >
+
+	<style>
+
+
+		h1{
+			
+			color:0568ae;
+			font-size:27px;
+		}
+
+
+
+
+		form { margin: 5px;}
+		.bar {
+			height: 4px;
+			background-color: #0574ac;
+		}
+
+ 
+
+		::-webkit-input-placeholder { /* WebKit browsers */
+   			color: #666666 !important;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    		color: #666666 !important;
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+    		color: #666666 !important;
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10+ */
+    		color: #666666 !important;
+		}
+
+    	.form-control:focus {
+		  border-color: black;
+		  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+		}
+
+		.btn:hover{
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+			border-color: black;
+			border-width: 2px;
+		}
+		.btn:focus{
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+			border-color: black;
+			border-width: 2px;
+		}
+		.btn:active{
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  		    border-color: black;
+			border-width: 2px;
+		}
+
+
+
+		.blue-button
+		{
+		    background: #0568ae;
+		    color: #fff !important;
+		    cursor: pointer;
+		    font-family: arial,sans-serif !important;
+		}
+
+		.text-xs-left { text-align: left; }
+		.text-xs-right { text-align: right; }
+		.text-xs-center { text-align: center; }
+		.text-xs-justify { text-align: justify; }
+
+		@media (min-width: @screen-sm-min) {
+		  .text-sm-left { text-align: left; }
+		  .text-sm-right { text-align: right; }
+		  .text-sm-center { text-align: center; }
+		  .text-sm-justify { text-align: justify; }
+		}
+
+		@media (min-width: @screen-md-min) {
+		  .text-md-left { text-align: left; }
+		  .text-md-right { text-align: right; }
+		  .text-md-center { text-align: center; }
+		  .text-md-justify { text-align: justify; }
+		}
+
+		@media (min-width: @screen-lg-min) {
+		  .text-lg-left { text-align: left; }
+		  .text-lg-right { text-align: right; }
+		  .text-lg-center { text-align: center; }
+		  .text-lg-justify { text-align: justify; }
+		}
+
+		img{
+			max-width:none !important;
+		}
+
+		.row{
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+		}
+
+	</style>
+
+    <!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="css/ie.css"/>
+	<![endif]-->
+
+</head>
+<body>
+	<div class="container">
+	
+		<div id="consent">
+			<div class="row">
+				<div class="text-center col-xs-12">
+					<h1>
+						<strong>Alexa AT&amp;T Support Skill Setup</strong>
+					</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="text-center col-xs-12">
+					Welcome! Please provide the information requested below to configure the AT&T Support Skill on your Amazon Alexa device. Once finished, click "Submit" to continue
+				</div>
+			</div>
+
+            <div class="bar row"></div>
+
+			<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+			<form id="form" accept-charset="UTF-8" action="index.cfm" class="consent_allow" method="post" autocomplete="off">
+ 			<input type="hidden" name="token" value="4F50B4B207FC211EDC33A45DB865DCF3F70C4812" />
+			   <div id="div-alert" role="alert" class="alert alert-error hide" tabindex="-1">
+			      <h4><i class="cssIcon-error" role="img"></i> Please correct the issues below:</h4>
+			      <ul class="bullet">
+    			    <li id="auth_id-ERROR-MSG" class="hide"><a href="#auth_id">A valid member id is required</a></li>
+					<li id="billing_acct_number-ERROR-MSG" class="hide"><a href="#billing_acct_number">A valid billing account number is required</a></li>
+					<li id="mobile_device-ERROR-MSG" class="hide"><a href="#mobile_device">A valid telephone number is required</a></li>
+					<li id="mobile_device_verify-ERROR-MSG" class="hide"><a href="#mobile_device_verify">Please verify the telephone numbers match</a></li>
+			      </ul>
+			   </div>
+			   <div class="content-pad">
+			   <span class="pull-right"><strong>* All Fields are Required</strong></span>
+				   <div class="form-row" id="auth_id-ROW">
+     				  <label class="control-label" for="auth_id">Member ID:*</label>
+			         <div class="field-group tooltip-onfocus">
+				      <input autofocus class="span3 form-control" type="email" aria-required="true" aria-describedby="tooltipMemberId" name="login" id="auth_id" placeholder="Ex: you@att.net"/
+				        
+						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+					      <button class="reset-field" type="button">Reset text field</button>
+					      <div class="helpertext" id="tooltipMemberId" role="tooltip" aria-live="polite" aria-atomic="false">
+					         <div class="popover-title">What is this?</div>
+					         <div class="popover-content">
+					            <p>Your Member ID is the primary email address associated with your AT&T Internet account. Example: you@att.net</p>
+					            <p class="hidden-spoken">Swipe to close help message.</p>
+					         </div>
+					      </div>
+				     </div>
+				   </div>
+
+				   <div class="form-row" id="billing_acct_number-ROW">
+    				 <label class="control-label" for="billing_acct_number">Billing Account Number:*</label>
+			         <div class="field-group tooltip-onfocus">
+				      <input class="span3 form-control" aria-required="true" aria-describedby="tooltipBan" type="text" name="ban" id="billing_acct_number" placeholder="Ex: 987654321"
+	    				
+						pattern="^[0-9]{9}$">
+					      <button class="reset-field" type="button">Reset text field</button>
+					      <div class="helpertext" id="tooltipBan" role="tooltip" aria-live="polite" aria-atomic="false">
+					         <div class="popover-title">What is this?</div>
+					         <div class="popover-content">
+					            <p>The billing account number can be found on your Uverse bill.  Example: 987654321</p>
+					            <p class="hidden-spoken">Swipe to close help message.</p>
+					         </div>
+					      </div>
+				     </div>
+				   </div>
+
+				   <div class="form-row" id="mobile_device-ROW">
+    				 <label class="control-label" for="mobile_device">Telephone Number:*</label>
+			         <div class="field-group tooltip-onfocus">
+						<input class="span3 form-control" aria-required="true" aria-describedby="tooltipMobileDevice" type="text" id="mobile_device" name="mobile_tn" placeholder="Ex: (111) 222-3333"
+	    				
+						pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$">
+					      <button class="reset-field" type="button">Reset text field</button>
+					      	<div class="helpertext" id="tooltipMobileDevice" role="tooltip" aria-live="polite" aria-atomic="false">
+					         <div class="popover-title">What is this?</div>
+					         <div class="popover-content">
+					            <p>The Telephone Number Associated with your account.  Example: (111) 222-3333</p>
+					            <p class="hidden-spoken">Swipe to close help message.</p>
+					         </div>
+					      </div>
+				     </div>
+				   </div>
+
+				   <div class="form-row" id="mobile_device_verify-ROW">
+    				 <label class="control-label" for="mobile_device_verify">Verify Telephone Number:*</label>
+			         <div class="field-group tooltip-onfocus">
+						<input class="span3 form-control" aria-required="true" aria-describedby="tooltipMobileDeviceVerify" type="text" id="mobile_device_verify" name="mobile_tn_verify" placeholder="Ex: (111) 222-3333"
+	    				
+						pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$">
+					      <button class="reset-field" type="button">Reset text field</button>
+					       <div class="helpertext" id="tooltipMobileDeviceVerify" role="tooltip" aria-live="polite" aria-atomic="false">
+					         <div class="popover-title">What is this?</div>
+					         <div class="popover-content">
+					            <p>The Telephone Number Associated with your account.  Example: (111) 222-3333</p>
+					            <p class="hidden-spoken">Swipe to close help message.</p>
+					         </div>
+					      </div>
+				     </div>
+				   </div>
+
+			   </div>
+
+				<div class="row consent_standard" id="off_network_consent">
+                       <div class="actions text-center">
+						By entering your Telephone Number you are giving AT&T permission to send you a text message to complete the Alexa AT&T Support Skill Setup and get general help.
+					</div>
+				</div>
+
+                <div class="content-pad form-group col-xs-12 text-center" style="z-index:2;">
+						
+					<div class="col-xs-12 text-center">
+						<button type="button" id="btnValidate" class="btn blue-button">Submit</button>
+					</div>
+				</div>
+			</form>
+			<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+			<div class="bar row"></div>
+			<br/>
+			<div class="row">
+				<div class="text-sm-left col-sm-6">
+					<div class="col-sm-1">
+						<a class="brand" href="https://att.com" target="_blank">
+							<img alt="AT&amp;T" src="https://developer.att.com/static-assets/images/logo-globe.png">
+						</a>
+					</div>
+					<div class="col-sm-11">
+						<p>
+							<small>
+								<a href="https://www.att.com/legal/terms.attWebsiteTermsOfUse.html" target="_blank">Terms of Use</a>
+								<a href="https://www.att.com/privacy" target="_blank">Privacy Policy</a>
+								<br> &reg; 2017 AT&amp;T Intellectual Property. All rights reserved.
+							</small>
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-6 left-border" style="padding-left:30px;">
+					<p class="text-sm-right">
+						<small> AT&amp;T, the AT&amp;T logo and all other AT&amp;T marks contained herein are trademarks of AT&amp;T Intellectual Property and/or AT&amp;T affiliated companies. AT&amp;T 36USC220506
+						</small>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

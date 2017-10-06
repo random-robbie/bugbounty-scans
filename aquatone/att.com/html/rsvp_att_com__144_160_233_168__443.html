@@ -1,0 +1,345 @@
+
+	
+
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-3.3.5/css/bootstrap.min.css">
+	<script src="/assets/javascripts/lib/jquery.1.11.3.min.js"></script>
+	<script src="/assets/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	<script src="/assets/javascripts/lib/respond.src.js"></script>
+	<script src="/assets/javascripts/all.js"></script>  
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/stylesheets/trace.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/stylesheets/override.css">
+	<title></title>
+	
+	
+<!-- Google Analytics -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-13057993-11', 'auto');
+
+</script>
+<!-- End Google Analytics -->
+</head>
+<body>
+	<div id="TraceContainer" class="TraceContainer">
+		<div id="TraceConsole" class="Trace">
+		</div>
+	</div>
+	<div class="container-fluid top-most-container height100">
+		
+	<!-- Loading page div -->
+	<div class="loading-page height100 " style="display:block">
+		
+	<div class="row height100 dark-overlay centered-element-container">
+		<div class="loading-container loading-indicator centered-element">
+			<div aria-describedby="loadingMessage" class="loading-img loading-sprite"></div>
+			<p id="loadingMessage" class="loading-msg">Loading conference details…</p>
+		</div>
+		<div class="loading-container centered-element failed-loading" role="alert">
+			<div aria-describedby="failedLoadingMessage" class="exclamation-mark"></div>
+			<div class="loading-msg">
+				<p id="failedLoadingMessage">Failed to load conference details. For more information, please consult with the arranger of this meeting.</p>
+				<!--  
+				<p id="failedLoadingMessage">Failed to load conference details.</p>
+				<p id="failedLoadingMessage">For more information, please consult with the arranger of this meeting.</p>
+				-->
+			</div>
+			<div class="fail-loading-link-dev">
+				<a id="btnTryAgain" class="green" href="#">Try again</a>
+			</div>
+		</div>
+	</div>
+		
+
+	</div>
+	
+	<div class="conference-page" style="display:none">
+		
+<div class="row height100">
+	<div class="col-md-offset-1 col-md-4 conference-details-column height100">
+		
+
+<div class="conference-details-container conference-info" role="alert" aria-labelledBy="conference-page-title-id hostName arrangerName">
+	<h1 class="conference-title large-title dark bold-text"  id="conference-page-title-id"></h1>
+	<div>
+		<span class="conference-start-time"></span> | <span class="conference-timezone"></span>
+	</div>
+	<div class="host-name-row">
+		<label class="host-name-label" for="hostName">Host:&nbsp;</label><span id="hostName" class="host-name bold-text word-wrap"></span> 
+	</div>
+	<div class="arranger-name-row">
+		<label class="arranger-name-label" for="arrangerName">Arranger:&nbsp;</label><span id="arrangerName" class="arranger-name bold-text word-wrap"></span> 
+	</div>
+	<div class="bottom-links-container">
+		<div>
+			<a class="link" href="http://www.att.com/legal/terms.attWebsiteTermsOfUse.html" target="_blank">Terms &amp; conditions</a><span class="green"> | </span><a class="link" href="http://www.att.com/gen/privacy-policy?pid=2506" target="_blank">Privacy policy</a>
+		</div>
+		<div class="row">
+			<div class="col-md-1" aria-hidden="true"><img class="att-logo" src="assets/images/logo_attsphere.png" alt="Att logo" /></div>
+			<div class="col-md-11 small-text copyrights" aria-hidden="true"><span class="green bold-text">© 2015 AT&amp;T Intellectual Property.</span> All rights reserved. AT&amp;T, the Globe logo and all other AT&amp;T marks contained herein are trademarks of AT&amp;T Intellectual Property and/or AT&amp;T affiliated companies.</div>
+		</div>   
+	</div>
+</div>
+	</div>
+	<div class="col-md-6 page-content-column height100">
+		<div class="right-column-container registration-container-js" aria-labelledBy="titlePreRegisterationNoDashes">
+	<h1 id="titlePreRegisterationNoDashes" class="display-none sr-only">Conference pre registration</h1>
+		<!--  h1 class="large-title" aria-hidden="true">Conference pre-registration</h1><h1 class="sr-only">Conference pre registration</h1>-->
+		<h1 class="large-title" aria-hidden="true">Conference pre-registration</h1>
+		
+		<div class="row registration-row">
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label" for="txtFirstName" aria-hidden="true">First Name</label>
+				<textarea class="registration-input" id="txtFirstName" aria-label="First Name" rows="1" spellcheck="false" autocomplete="on" data-maxlength="20"></textarea>
+				<div class="registration-error" id="txtFirstNameError">&nbsp;</div>
+			</div>
+		</div>
+		<div class="row registration-row">
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label" for="txtLastName" aria-hidden="true">Last Name</label>
+				<textarea class="registration-input" id="txtLastName" aria-label="Last Name" rows="1" spellcheck="false" autocomplete="on" data-maxlength="30"></textarea>
+				<div class="registration-error" id="txtLastNameError">&nbsp;</div>
+			</div>
+		</div>
+		<div class="row registration-row">
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label" for="txtEmail" aria-hidden="true">Email</label>
+				<textarea class="registration-input" id="txtEmail" aria-label="Email" rows="1" spellcheck="false" autocomplete="on" name="email" data-maxlength="60"></textarea>
+				<div class="registration-error" id="txtEmailError">&nbsp;</div>
+			</div>
+		</div>
+		<div class="row registration-row">
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label" aria-hidden="true" for="txtReEnterEmail">Re-enter Email</label>
+				<textarea class="registration-input" id="txtReEnterEmail" rows="1" spellcheck="false" autocomplete="on" aria-label="Re enter Email" data-maxlength="60"></textarea>
+				<div class="registration-error" id="txtReEnterEmailError">&nbsp;</div>
+			</div>
+		</div>
+		<div class="row registration-submit-row">	
+			<div class="col-md-8">
+				<button type="button" class="btn" id="btnSubmit">Submit</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="templates">
+		<div class="row registration-row " id="registrationInputTemplate" >
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label word-wrap" aria-hidden="true"></label>
+				<textarea class="registration-input js-answer" rows="1" spellcheck="false" autocomplete="on" data-maxlength="100"></textarea>
+				<div class="registration-error">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	
+
+		<div class="right-column-container thankyou-container-js" role="alert" aria-labelledBy="txtThankYouTitle" >
+	<h1 id="txtThankYouTitle" class="large-title js-thank-you-title" >Thank you, <span id="participantName"></span></h1>
+	<div>
+		<div class="row thankyou-row ">
+			<div id="txtSuccessfullyRegistered" class="col-md-8 thankyou-msg" >You have successfully registered to the conference.
+			</div>
+			<div id="txtMailWillBeSent" class="col-md-8 thankyou-msg" >An invitation email with the conference access information will be sent to you shortly.
+			</div>
+		</div>
+		<div class="row thankyou-button-row">
+			<div class="col-md-8">
+				<button type="button" class="btn light" id="btnResendInvitation">Resend invitation email</button>
+			</div>
+		</div>
+		<div class="row thankyou-button-row">
+			<div class="col-md-8">
+				<button type="button" class="btn light" id="btnRegisterAnother">Pre-register another user</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+		<div class="right-column-container unregistration-container-js">
+		<h1 class="large-title" aria-hidden="true">Unregister</h1>
+		
+		<div class="row registration-row">
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label" aria-hidden="true" for="txtEmailUnreg">Email</label>
+				<p class="help-text">Enter the email address you pre-registered with.</p>
+				<textarea class="registration-input" id="txtEmailUnreg" rows="1" spellcheck="false" autocomplete="on" aria-label="Re enter Email" data-maxlength="60"></textarea>
+				<div class="registration-error" id="txtEmailUnregError">&nbsp;</div>
+			</div>
+		</div>
+		<div class="row registration-row">
+			<div class="registration-input-wrapper col-md-8">
+				<label class="registration-label" for="txtAttendeeId">Attendee ID</label>
+				<p class="help-text">Enter the attendee ID from the invitation email you received after pre-registration.</p>
+				<textarea class="registration-input" id="txtAttendeeId" rows="1" spellcheck="false" aria-label="Attendee ID"  data-maxlength="20"></textarea>
+				<div class="registration-error" id="txtAttendeeIdError">&nbsp;</div>
+			</div>
+		</div>
+		<div class="row registration-submit-row">	
+			<div class="col-md-8">
+				<button type="button" class="btn" id="btnSubmitUnreg">Submit</button>
+			</div>
+		</div>
+	</div>
+		
+
+		
+
+
+<div class="right-column-container notice-container-js" id="registration-failed-notice" role="alert" aria-labelledby="notice-title-registration-failed-notice notice-msg-registration-failed-notice">
+	<h1 id="notice-title-registration-failed-notice" class="large-title">Sorry, but pre-registration cannot be completed.</h1>
+	<h2 id="notice-msg-registration-failed-notice" class="small-subtitle tight">For more information, please consult with the arranger of this meeting.
+		
+	</h2>	
+</div>
+
+
+
+
+<div class="right-column-container notice-container-js" id="unregistration-ok-notice" role="alert" aria-labelledby="notice-title-unregistration-ok-notice notice-msg-unregistration-ok-notice">
+	<h1 id="notice-title-unregistration-ok-notice" class="large-title">You have successfully unregistered from the conference.</h1>
+	<h2 id="notice-msg-unregistration-ok-notice" class="small-subtitle loose">Bye bye (for now...)
+		
+			<img class="notice-image" src="/assets/images/smilySmall.png" /> 
+		
+	</h2>	
+</div>
+
+
+
+
+<div class="right-column-container notice-container-js" id="unregistration-failed-notice" role="alert" aria-labelledby="notice-title-unregistration-failed-notice notice-msg-unregistration-failed-notice">
+	<h1 id="notice-title-unregistration-failed-notice" class="large-title">Sorry, but cannot cancel pre-registration.</h1>
+	<h2 id="notice-msg-unregistration-failed-notice" class="small-subtitle tight">
+		
+	</h2>	
+</div>
+
+
+
+		
+	<div class="bottom-links-container bottom-link-text">
+		<div class="unregisterLinkDiv-js">Already registered and want to&nbsp;<a class="link" href="javascript:void(0)" id="unregisterLink">unregister</a>?   </div>
+		<div class="registerLinkDiv-js">Click here to <a class="link" href="javascript:void(0)" id="registerLink">pre-register</a>&nbsp;to this conference.   </div>
+	</div>
+		
+		
+		<div class="hidden">
+			<div class="empty-field">Field cannot be empty. Please try again.</div>
+			<div class="name-invalid-format">Sorry. We can only process names consisting of basic Latin letters, numbers, dashes or spaces. Please try again.</div>
+			<div class="name-missing-letters">Sorry. Names must contain at least one basic Latin letter or number. Please try again.</div>
+			<div class="mail-invalid-format">Sorry. This is not a valid email address. Please try again.</div>
+			<div class="mail-mismatch">Email address fields must match. Please try again.</div>
+			<div class="answer-with-dbl-quotes">Sorry. Answers may include basic Latin letters, numbers and special characters (with the exception of double quotes). Please try again.</div>
+			<div class="attendee-id-invalid-format">Sorry. Attendee id may include only numbers. Please try again.</div>
+			<div class="attendee-id-exceeds-max">Sorry. Attendee id is invalid. Please try again.</div>
+		</div>
+	</div>
+</div>
+	</div>
+
+	</div>
+	
+	<!-- For the dialogs to look good in IE8, we are encouraged to leaves them outside other containers.
+		For more information: http://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background 
+	-->
+	
+
+<!-- Modal -->
+<div class="modal fade" id="dlgEmailResent" tabindex="-1" role="dialog" aria-labelledby="dlgEmailResentModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+    <!--  
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="modal-close"></span></button>
+        <h4 class="modal-title">&nbsp;</h4>
+      </div>
+      -->
+      <div class="modal-body">
+      	<div class="modal-icon envelope"></div>
+        <h4 class="modal-title" id="dlgEmailResentModalLabel">Invitation email was re-sent.</h4>
+        <button type="button" class="btn modal-ok" data-dismiss="modal" id="ok-btn-dlgEmailResent" role="menuitem">OK</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="dlgEmailWasNoSent" tabindex="-1" role="dialog" aria-labelledby="dlgEmailWasNoSentModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+    <!--  
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="modal-close"></span></button>
+        <h4 class="modal-title">&nbsp;</h4>
+      </div>
+      -->
+      <div class="modal-body">
+      	<div class="modal-icon error"></div>
+        <h4 class="modal-title" id="dlgEmailWasNoSentModalLabel">Failed to re-send the invitation email.</h4>
+        <button type="button" class="btn modal-ok" data-dismiss="modal" id="ok-btn-dlgEmailWasNoSent" role="menuitem">OK</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="dlgRegistartionFailed" tabindex="-1" role="dialog" aria-labelledby="dlgRegistartionFailedModalLabel dlgRegistartionFailedTryAgain">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+    <!--  
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="modal-close"></span></button>
+        <h4 class="modal-title">&nbsp;</h4>
+      </div>
+      -->
+      <div class="modal-body">
+      	<div class="modal-icon error"></div>
+        <h4 class="modal-title" id="dlgRegistartionFailedModalLabel">Pre-registration failed.</h4>
+        <h4 class="modal-title" id="dlgRegistartionFailedTryAgain">Please try again.</h4>
+        <button type="button" class="btn modal-ok" data-dismiss="modal" id="ok-btn-dlgRegistartionFailed" role="menuitem">OK</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="dlgUnregistartionFailed" tabindex="-1" role="dialog" aria-labelledby="dlgUnregistartionFailedModalLabel dlgUnregistartionFailedTryAgain">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+    <!--  
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="modal-close"></span></button>
+        <h4 class="modal-title">&nbsp;</h4>
+      </div>
+      -->
+      <div class="modal-body">
+      	<div class="modal-icon error"></div>
+        <h4 class="modal-title" id="dlgUnregistartionFailedModalLabel">Failed to cancel pre-registration.</h4>
+        <h4 class="modal-title" id="dlgUnregistartionFailedTryAgain">Please try again.</h4>
+        <button type="button" class="btn modal-ok" data-dismiss="modal" id="ok-btn-dlgUnregistartionFailed" role="menuitem">OK</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+
+	
+</body>
+</html>		

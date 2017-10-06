@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>AT&T Bug Bounty - Welcome</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/splash.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/custom.css">
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<!-- CSOBBOUNTY-227  -->
+		<script src="/js/jquery-3.2.1.min.js"></script>
+		<!-- <script src="/js/jquery-1.11.3.min.js"></script> -->
+
+		<script src="/js/bootstrap.min.js"></script>
+		<style id="antiClickjack">body{display:none !important;}</style>
+		<style>
+			.dropdown-submenu {
+				position: relative;
+			}
+
+			.dropdown-submenu .dropdown-menu {
+				top: 0;
+				left: 100%;
+				margin-top: -1px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+	<div class="row">
+		<div class="col-md-4"><img src="/img/att_2016_globe.png"></div>
+		<div class="col-md-8">
+			<ul class="nav navbar-nav navbar-right">
+				<li class='active'><a href="/index.php">Home</a></li>
+				<li ><a href="/rewards.php">Rewards</a></li>
+				<li ><a href="/bugform.php" class="highlighted">Report Bug</a></li>
+				<li ><a href="/hof.php">Hall of Fame</a></li>
+								<li  ><a href="/faq.php">FAQ</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Guest!<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+												<li><a href="/login.php">Login</a></li>
+						<li><a href="/register.php">Register</a></li>
+											</ul>
+				</li>
+			</ul>
+		</div><!-- .col -->
+	</div><!-- .row -->
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+
+<!-- CSOBBOUNTY-61 -->
+<!-- <div class="banner">
+	<span class="announcement">Now accepting Security Researcher findings for DIRECTV!</span>
+	<img class="splash-img" src="img/dtv_splash.jpg" alt="Welcome DIRECTV to the AT&T family">
+</div> -->
+	<!-- End of CSOBBOUNTY-61 -->
+
+			<div class="row">
+				&nbsp;
+			</div>
+
+			<div class="row">
+				<div class="col-md-5">
+					<img src="/img/graphic.jpg" class="img-responsive">
+				</div>
+				<div class="col-md-7">
+					<p class="lead">Welcome to the AT&amp;T Bug Bounty Program! This program encourages and rewards contributions by developers and security researchers who help make AT&amp;T's online environment more secure. Through this program AT&amp;T provides monetary rewards and/or public recognition for security vulnerabilities responsibly disclosed to us.</p>
+					<p class="lead">The following explains the details of the program. If you are new to our Program, please be sure to review the <a href="#guidelines">Program Guidelines</a>, <a href="#exclusions">Program Exclusions</a>, and <a href="#terms">Terms and Conditions</a>, as well as the <a href="rewards.php">Reporting and Awarding Process</a> prior to making a <a alt="Report Bug" href="bugform.php">submission</a>.</p>
+					<a href="bugform.php" class="btn btn-primary btn-lg" role="button">Report Bug</a>
+				</div>
+			</div>
+
+			<br>
+
+			<a name="guidelines"></a>  
+			<h2>Guidelines</h2>
+
+			<p>The AT&amp;T Bug Bounty Program applies to security vulnerabilities found within AT&amp;T's public-facing online environment. This includes, but is not limited to, AT&amp;T’s websites, exposed APIs, mobile applications, and devices.</p>
+			<p>A security bug is an error, flaw, mistake, failure, or fault in a computer program or system that impacts the security of a device, system, network, or data. Any security bug may be considered for this program; however, it must be a new, previously unreported, vulnerability in order to be eligible for reward or recognition. Typically the in-scope submissions will include high impact bugs; however, any vulnerability that could realistically place the online security of AT&amp;T, our customers, or the public at large at risk is in scope and might be rewarded.</p>
+			<p>Bugs which directly or indirectly affect the confidentiality or integrity of user data or privacy are prime candidates for a reward.  Some characteristics that are considered when "qualifying" bugs include those that:</p>
+			<ul>
+				<li style="list-style:disc">Directly or indirectly affect the confidentiality or integrity of user data or privacy</li>
+				<li style="list-style:disc">Compromise the integrity of the system</li>
+				<li style="list-style:disc">Enable unauthorized access to significant data or resources</il>
+				<li style="list-style:disc">Enable the running of unauthorized code</il>
+				<li style="list-style:disc">Increase privileges or access beyond that which is intended</il>
+				<li style="list-style:disc">Interfere with or bypass security controls or mechanisms</il>
+				<li style="list-style:disc">Are exploitable (i.e. not purely theoretical)</il>
+				<li style="list-style:disc">Can be launched remotely</il>
+				<li style="list-style:disc">Could cause damage to a user's system</il>
+			</ul>
+			<p>AT&amp;T Bug Bounty Program Board members, at their sole discretion, determine which bugs are considered as candidates for a reward, as well as the final reward recipients. See the <a alt="Bug Bounty Rewards" href="rewards.php">Awarding Process</a> for further details.</p>
+
+			<br>
+			<br>
+
+			<a name="exclusions"></a>  
+			<h2>Program Exclusions</h2>
+			<p>There are categories of bugs which are definitively excluded from reward in the AT&amp;T Bug Bounty Program:</p>
+			<ul>
+			<li style="list-style:disc">Attacks against AT&amp;T infrastructure</li>
+			<li style="list-style:disc">Social engineering and physical attacks</li>
+			<li style="list-style:disc">Distributed Denial of Service attacks that require large volumes of data</li>
+			<li style="list-style:disc">Provisioning and/or usability issues</li>
+			<li style="list-style:disc">Violations of licenses or other restrictions applicable to any vendor's product</li>
+			<li style="list-style:disc">Security bugs in third-party products or websites that are not under AT&amp;T’s direct control</li>
+			<li style="list-style:disc">Duplicate reports of security issues, including security issues that have already been identified internally</li>
+			<li style="list-style:disc">Tenant/cloud systems executing in an Internet Data Center (IDC), where AT&amp;T is simply acting as the site host</li>
+			<li style="list-style:disc">Employee Resource Group (ERG) websites</li>
+			<li style="list-style:disc">Clickjacking reports against unauthenticated pages and/or static content resources</li>
+			<li style="list-style:disc">Reports of missing SPF records for domains with no MX record</li>
+			<li style="list-style:disc">Vulnerabilities that are a result of malware</li>
+			<li style="list-style:disc">Theoretical security issues with no realistic exploit scenario(s) or attack surfaces, or issues that would require complex end user interactions to be exploited, <i>may</i> be excluded</li>
+			<li style="list-style:disc">Issues determined to be low impact <i>may</i> be excluded</li>
+			</ul>
+			<p>In addition, the submitter:</p>
+			<ul>
+			<li style="list-style:disc">Must not be the author of the code with the vulnerability</li>
+			<li style="list-style:disc">Must not be employed by AT&amp;T directly or indirectly</li>
+			</ul>
+			<p>Vulnerabilities that are disclosed to any party other than AT&amp;T, including vulnerability brokers, will usually not qualify for Bug Bounty reward. This includes both full public disclosure and limited private release.</p>
+			<p><a href="#top">Back to top</a></p>
+
+			<br>
+			<br>
+
+			<a name="terms"></a>
+			<h2>Terms &amp; Conditions</h2>
+			<p>There are constraints on who may participate in the AT&amp;T Bug Bounty Program (the "Program"). In addition, there may be additional restrictions depending upon applicable local laws.</p>
+			<ol start="1" type="1">
+			<li>The parties to this agreement are you and AT&amp;T Services.</li>
+			<li>"AT&amp;T Services" refers to AT&amp;T Services, Inc., and "AT&amp;T" refers to AT&amp;T Services and its affiliates.</li>
+			<li>You must abide by the law.</li>
+			<li>AT&amp;T employees, contractors, and their families are not eligible for rewards.</li>
+			<li>By submitting the vulnerability, you affirm that you have not disclosed and agree that you will not disclose the bug or your submission to anyone other than AT&amp;T via the AT&amp;T Bug Bounty Process. Absent AT&amp;T's prior written consent, any disclosure outside of this process would violate this Agreement. It is understood and agreed that money damages would not be a sufficient remedy for any breach of this paragraph by you or your representative(s) and that AT&amp;T shall be entitled to specific performance as a remedy for any such breach, including injunctive relief. Such remedy shall not be deemed to be the exclusive remedy for any such breach but shall be in addition to all other remedies available at law or equity to AT&amp;T.</li> 
+			<li>Submissions selected for rewards, and the individuals who submitted the vulnerabilities will receive appropriate recognition at the discretion of AT&amp;T.</li>
+			<li>By submitting information about a potential vulnerability, you are agreeing to these terms and conditions and granting AT&amp;T a worldwide, royalty-free, non-exclusive license to use your submission for the purpose of addressing vulnerabilities. Only the first report of a given issue that AT&amp;T had not yet identified is eligible. In the event of a duplicate submission, only the earliest received report is considered.</li>
+			<li>Eligibility for rewards and determination of the recipients and amount of reward is left up to the discretion of AT&amp;T.</li>
+			<li>The Program is focused predominantly on: Internet-facing AT&amp;T websites executing on internet domains that provide significant business value to AT&amp;T, and are supported directly by AT&amp;T and its suppliers; AT&amp;T-branded mobile applications; AT&amp;T-branded devices; and the AT&amp;T API Platform. Vulnerabilities submitted outside this scope are generally less likely to receive recognition or rewards under this Program.</li>
+			<li>You are responsible for all taxes associated with and imposed on any reward you may receive from AT&amp;T Services. You must submit to AT&amp;T Services, prior to a reward payment being processed, a valid Form W-8BEN, W-8BEN-E, W-8ECI, W-8EXP, W-8IMY, or W-9 (or any successor form prescribed by the IRS). If you are not a US national, you must also submit to AT&amp;T Services, prior to a reward payment being processed, a completed Foreign Vendor Questionnaire.  AT&amp;T may reduce any reward by the amount of any tax imposed on you that AT&amp;T is required to pay directly to a taxing or other governmental authority.  Reward payments are made via EFT (domestic) or SWIFT (international) so appropriate routing and/or SWIFT account information along with documented banking information for the account funds are being transferred to must be submitted to AT&amp;T Services prior to a reward payment being processed. Payments may also be processed via PayPal, however you will be responsible for all fees associated with this service.</li>
+			<li>You are responsible for notifying AT&amp;T of any changes to your contact information, including but not limited to your email address. Failure to do so may lead to the forfeiture of Bounty Awards.</li>
+			<li>You have 60 days from the date of initial notification to respond to Bounty Award notifications and provide completed tax forms. Failure to respond within 60 days will lead to the forfeiture of Bounty Awards.</li>
+			<li>AT&amp;T Services reserves the right to discontinue the Program at any time without notice.</li>
+			<li>If you or your bank are on a sanctions lists or are in a country on a sanctions list (e.g. Cuba, Iran, North Korea, Sudan and Syria), then you are ineligible to receive a reward payment. </li>
+			<li>You may only exploit, investigate, or target vulnerabilities against your own accounts. Testing must not violate any law, or disrupt or compromise any data or access data that is not yours; intentional access of customer data other than your own is expressly prohibited.</li>
+			<li>If you inadvertently access proprietary customer, employee, or business related information during your testing, the information must not be used, disclosed, stored, or recorded in any way. Inadvertent access of the data must be declared within your submission.</li>
+			<li>Your testing activities must not negatively impact AT&amp;T, or AT&amp;T's online environment availability or performance.</li>
+			<li>AT&amp;T reserves the right of non-remediation at its sole discretion.</li>
+			<li>This agreement constitutes the entire agreement of the parties with respect to the items listed above. This agreement may be amended or modified only by a subsequent agreement in writing.</li>
+			<li>If any portion of this agreement is found to be illegal or unenforceable, then the parties shall be relieved of their responsibilities arising under such portion, but only to the extent that such portion is illegal or unenforceable.</li>
+			</ol>
+
+			<p><a href="#top">Back to top</a></p>
+			<br>
+<br>
+<br>
+<br>
+<div style="text-align:center">
+<a href="/index.php">Home</a> | <a href="/rewards.php">Rewards</a> | <a href="/bugform.php">Report Bug</a> | <a href="/hof.php">Hall of Fame</a> | <a href="/faq.php">FAQ</a>
+</div>
+<hr>
+<small>
+<a href="http://www.att.com/gen/privacy-policy?pid=2587">©2017 AT&amp;T Intellectual Property.</a>All rights reserved.
+</small>
+
+<br>
+<br>
+<script src="/js/framebuster.js"></script>
+		</div>
+			</body>
+</html>

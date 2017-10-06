@@ -1,0 +1,232 @@
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+<title>Oracle iPlanet Web Server Admin Console</title>
+<script type="text/javascript" src="/admingui/com_sun_web_ui/js/browserVersion.js"></script>
+<script type="text/javascript" src="/admingui/js/wsadmin.js"></script>
+<SCRIPT type="text/javascript">
+<!--
+    // Check if this is a popup and showing the login page
+    if(window.opener != null)
+    {
+        window.location.href = "/admingui/jsp/popupLoginErrorTop.jsp";
+    }
+        
+theURL = document.location.href;
+if (theURL.indexOf("?") == -1) {
+    browserCheck();
+}
+
+function browserCheck() {
+    var is_firefox = agt.indexOf("firefox") != -1;
+    var is_netscape = agt.indexOf("netscape") != -1;
+    var wrongBrowser = false;
+    if(is_netscape)
+    {
+        var version = agt.substring(agt.lastIndexOf("netscape/")+9);
+        if(parseFloat(version) < 7.0)
+        {
+                wrongBrowser = true;
+        }
+    }
+    else if(is_firefox)
+    {
+        var version = agt.substring(agt.indexOf("firefox/")+8);
+        if(parseFloat(version) < 1.0)
+            wrongBrowser = true;
+    }
+    else if(is_gecko)
+    {
+        var rvIndex = agt.indexOf("rv:");
+        var version = agt.substring(rvIndex+3, agt.lastIndexOf(")"));
+        if(parseFloat(version) < 1.7)
+            wrongBrowser = true;
+    }
+    else if(is_ie)
+    {
+        if(!is_ie6up)
+            wrongBrowser = true;
+    }
+    else if(is_nav && is_major<5)
+    {
+        wrongBrowser = true;
+    }
+    else if(!is_nav)
+    {
+        wrongBrowser = true;
+    }
+    if(wrongBrowser)
+    {
+        top.location.href = "/admingui/jsp/browserError.jsp";
+    }
+}
+
+// -->
+</SCRIPT>
+<link rel="stylesheet" type="text/css" href="/admingui/com_sun_web_ui/css/css_ns6up.css" />
+<meta name="Copyright" content="Copyright &copy; 2007, 2010, Oracle and/or its affiliates. All rights reserved. " />
+<link rel="shortcut icon" href="/admingui/com_sun_web_ui/images/favicon/favicon.ico" type="image/x-icon"></link>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="LogBdy"
+      onLoad="javascript: document.forms[0].j_username.focus(); return true;">
+<form method="POST" name="loginform" action="j_security_check" >
+
+
+  <table border="0" cellpadding="0" cellspacing="0" align="center" title="">
+    <tr>
+      <td width="50%"><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="1" height="1" alt="" /></td>
+      <td><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="728" height="1" alt="" /></td>
+      <td width="50%"><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="1" height="1" alt="" /></td>
+    </tr>
+    <tr class="LogTopBnd" style="background-image: url(../images/gradlogtop.jpg); background-repeat: repeat-x; background-position: left top;">
+      <td><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="1" height="30" alt="" /></td>
+      <td nowrap="nowrap" valign="middle">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" title="">
+          <tr>
+            <td align='left'>
+                <a href="../version/Version?&productNameSrc=../images/VersionProductName.png&versionFile=../version/copyright&productNameHeight=42&productNameWidth=221&__token__=96257872-2e4a-4ed1-9fba-b3629435ac43"
+            name="Header2.versionLink" class="MstLnk" target="versionWindow" 
+            title="Product Version. (Opens a New Window)" 
+            onclick="javascript:var win = window.open('','versionWindow','height=400,width=650,top='+
+            ((screen.height-(screen.height/1.618))-(400/2))+',left='+((screen.width-650)/2)+',scrollbars,resizable');win.focus()" 
+            onmouseover="javascript:window.status='Product Version. (Opens a New Window)'; return true" 
+            onmouseout="javascript: window.status=''; return true" onblur="javascript: window.status=''; return true" 
+            onfocus="javascript:window.status='Product Version. (Opens a New Window)'; return true">
+            Version</a>
+
+        </td>
+        <td align="right">
+          <a href="../cchelp2/Help2Nav6up?appName=admingui&mastheadTitle=..%2Fimages%2FSecondaryProductName.png&pageTitle=help2.pageTitle&firstLoad=true&helpLogoHeight=23&helpLogoWidth=228"
+            title="Display Help for This Page. (Opens a New Window)"
+            class="MstLnk" target="help2_Window_admingui" 
+            onclick="javascript: var win = window.open('','help2_Window_admingui','height=500,width=750,top='+((screen.height-(screen.height/1.618))-(500/2))+',left='+((screen.width-750)/2)+',resizable');win.focus()">
+            Help
+          </a>
+            </td>
+       </tr>
+     </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="LogMidBnd" style="background-image: url(../images/gradlogsides.jpg);background-repeat:repeat-x;background-position:left top;">&nbsp;</td>
+      <td class="LogCntTd" style="background-image: url(../images/login-backimage.jpg);background-repeat:no-repeat;background-position:left top;" height="435" align="center" valign="middle">
+        <table border="0" background="/admingui/com_sun_web_ui/images/other/dot.gif" cellpadding="0" cellspacing="0" width="100%" title="" alt="">
+          <tr>
+            <td width="260"><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="248" height="40" alt="" /></td>
+            <td width="415" bgcolor="#FFFFFF" valign="top" align="left">&nbsp;
+                <img name="Login.welcomeImg" src="../images/LoginProductName.png"
+                     alt="Oracle iPlanet Web Server" border="0" height="42" width="226" />
+
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+<SCRIPT language = "Javascript">
+<!--
+ 
+if (!isCookieEnabled())
+{
+  document.write("<div class=\"logErr\">");
+  document.write("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">");
+  document.write("<tr>");
+  document.write("<td valign=\"top\"><img src=\"../images/warning_16_padded.gif\" alt=\"Warning\" vspace=\"3\" />&#160;&#160;</td>");
+  document.write("<td><span class=\"AlrtWrnTxt\">Cookies may not be enabled on your browser, please");
+  document.write(" enable.</span></td></tr>");
+  document.write("</table>");
+  document.write("</div>");
+ 
+}
+
+// -->
+</SCRIPT>
+
+                  </td>
+                </tr>
+
+                <tr>
+                  <td nowrap="nowrap"><div class="logLbl">
+                    &nbsp;<span class="LblLev2Txt">
+                    <label for="Login.servername">Server Name: </label></span></div></td>
+                  <td>
+                    <div class="logInp">wlth016.cingular.com</div></td>
+                </tr>
+                <tr>
+                  <td nowrap="nowrap"><div class="logLbl">
+                    &nbsp;<span class="LblLev2Txt">
+                    <label for="Login.username">User Name: </label></span></div></td>
+                  <td>
+                      <div class="logInp">
+                          <input type="text" name="j_username" id="Login.username" tabindex="1" autocomplete="off">
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+
+                  <td nowrap="nowrap"><div class="logLblLst">
+                    &nbsp;<span class="LblLev2Txt">
+                    <label for="Login.password">Password: </label></span></div></td>
+                  <td>
+                      <div class="logInpLst">
+                          <input type="password" name="j_password" id="Login.password" tabindex="2" autocomplete="off">
+                      </div>
+                  </td>
+                </tr>
+
+<!-- The button that submits this form once the user hits enter or -->
+<!-- clicks on it. Unless you have a really good reason do not change -->
+<!-- this botton tag. -->
+                  <tr>
+                    <td><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="1" height="15" alt="" /></td>
+                    <td><div class="logBtn">
+                    <div class="logBtn"> <input type="submit"
+ class="Btn1Def" value="Log In"
+ title="Log in to Oracle iPlanet Web Server Admin Console" tabindex="3"
+ onmouseover="javascript: this.className='Btn1DefHov'"
+ onmouseout="javascript: this.className='Btn1Def'"
+ onblur="javascript: this.className='Btn1Def'"
+ onfocus="javascript: this.className='Btn1DefHov'"> </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+          <tr>
+            <td><img src="/admingui/com_sun_web_ui/images/other/dot.gif" width="1" height="33" alt="" /></td>
+                <td>&nbsp;</td>
+          </tr>
+              </table>
+            </td>
+
+<!-- Do not insert any authentication specific HTML/JSP after this comment. -->
+<!-- The rest of the code is common to all login presentation -->
+<!-- layers to preserve HCI look and feel and consistency among these pages  -->
+
+          <td>&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+      <td class="LogMidBnd" 
+          style="background-image: url(../images/gradlogsides.jpg);background-repeat:repeat-x;background-position:left top;">&nbsp;</td>
+    </tr>
+    <tr class="LogBotBnd" style="background-image: url(../images/gradlogbot.jpg);background-repeat:repeat-x;background-position:left top;">
+      <td>&nbsp;</td>
+      <td><div class="logCpy"><span class="logTxtCpy">
+    Copyright &copy; 2007, 2010, Oracle and/or its affiliates. All rights reserved.<br>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</div>
+      </span></div>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+        <input type="hidden" name="__token__" id="__token__" value='96257872-2e4a-4ed1-9fba-b3629435ac43'/>
+</form>
+</body>
+</html>

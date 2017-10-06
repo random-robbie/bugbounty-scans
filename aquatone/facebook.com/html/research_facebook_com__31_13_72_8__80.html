@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://research.fb.com/wp-content/themes/fb-research/images/gui/facebook.ico" />
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://research.fb.com/xmlrpc.php">
+<title>Facebook Research &#8211; At Facebook, research permeates everything we do. We believe the most interesting research questions are derived from real world problems.</title>
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Facebook Research &raquo; Feed" href="https://research.fb.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Facebook Research &raquo; Comments Feed" href="https://research.fb.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/research.fb.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='all-css-0' href='https://research.fb.com/_static/??-eJyNzUEKAjEMBdAL2YnSEXQhnqXWP061aUuTcfD2VtSFCOIm5MPLD83F+JwUSUlHMISGg6kQuOpHuiIdc6WhCeNmSGZ8hI5D6rzIgn73iN4i/oGvhxKDvzzn1xVPpsTpFJLQGVpcg4289wff8261Xvab3lq7vQPNDlN0' type='text/css' media='all' />
+<script type='text/javascript' src='https://research.fb.com/_static/??-eJyFysEORTAQheEXUkNowuLGs4wa1bptaUfE2+uCtdXJn/PBuQkVPJNn4IUcJZhHESkRRrWAzYmKxhDW0qYCPrVGwahfa7z6H1NW+bH7QfF65hMIZ3REptIZn/HgfrWsZCf7vm3sDd1gQc4='></script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?ver=1'></script>
+<link rel='https://api.w.org/' href='https://research.fb.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://research.fb.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://research.fb.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.2" />
+<link rel="canonical" href="https://research.fb.com/" />
+<link rel='shortlink' href='https://wp.me/P8aqAf-g' />
+<link rel="alternate" type="application/json+oembed" href="https://research.fb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch.fb.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://research.fb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch.fb.com%2F&#038;format=xml" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style><meta name="description" content="At Facebook, research permeates everything we do. We believe the most interesting research questions are derived from real world problems. Working on cutting edge research with a practical focus, we push product boundaries every day. At the same time, we publish papers, give talks, and collaborate broadly with the academic community."><meta property="og:description" content="At Facebook, research permeates everything we do. We believe the most interesting research questions are derived from real world problems. Working on cutting edge research with a practical focus, we push product boundaries every day. At the same time, we publish papers, give talks, and collaborate broadly with the academic community." /><meta property="og:title" content="Facebook Research" /><meta property="og:image" content="https://research.fb.com/wp-content/uploads/2016/11/fb-research-og.png" /><meta property="og:url" content="https://research.fb.com" /><meta property="og:site_name" content="Facebook Research" /><meta property="og:type" content="website" />		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		</head>
+
+<body class="home page-template-default page page-id-16 page-parent">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBDNKV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="page" class="page-wrap">
+	<div class="top-menu" role="banner">
+		<div class="grid align-between">
+			<div>
+				<a href="https://research.fb.com/" rel="home" class="logo">
+					<img src="https://research.fb.com/wp-content/themes/fb-research/images/branding/fb-research-logo-2x.png" alt="Facebook Research">
+				</a>
+			</div>
+			<div>
+				<nav role="navigation">
+					<ul id="primary-menu" class="menu"><li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-34"><a href="https://research.fb.com/research-areas/">Research Areas</a>
+<span class='dropdown'><i class='fa fa-angle-down'></i><i class='fa fa-angle-up'></i></span><ul class="sub-menu">
+	<li id="menu-item-41" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-41"><a href="https://research.fb.com/category/applied-machine-learning/">Applied Machine Learning</a></li>
+	<li id="menu-item-44" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-44"><a href="https://research.fb.com/category/connectivity/">Connectivity</a></li>
+	<li id="menu-item-43" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-43"><a href="https://research.fb.com/category/computer-vision/">Computer Vision</a></li>
+	<li id="menu-item-45" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-45"><a href="https://research.fb.com/category/data-science/">Data Science</a></li>
+	<li id="menu-item-46" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-46"><a href="https://research.fb.com/category/economics-and-computation/">Economics &#038; Computation</a></li>
+	<li id="menu-item-47" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-47"><a href="https://research.fb.com/category/facebook-ai-research-fair/">Facebook AI Research (FAIR)</a></li>
+	<li id="menu-item-48" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-48"><a href="https://research.fb.com/category/human-computer-interaction-and-ux/">Human Computer Interaction &#038; UX</a></li>
+	<li id="menu-item-49" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49"><a href="https://research.fb.com/category/natural-language-processing-and-speech/">Natural Language Processing &#038; Speech</a></li>
+	<li id="menu-item-50" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50"><a href="https://research.fb.com/category/security-and-privacy/">Security &#038; Privacy</a></li>
+	<li id="menu-item-51" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51"><a href="https://research.fb.com/category/systems-and-networking/">Systems &#038; Networking</a></li>
+	<li id="menu-item-52" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52"><a href="https://research.fb.com/category/virtual-reality/">Virtual Reality</a></li>
+</ul>
+</li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://research.fb.com/publications/">Publications</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="https://research.fb.com/people/">People</a></li>
+<li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-39"><a href="https://research.fb.com/programs/">Programs</a>
+<span class='dropdown'><i class='fa fa-angle-down'></i><i class='fa fa-angle-up'></i></span><ul class="sub-menu">
+	<li id="menu-item-65" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-65"><a href="/programs/fellowship/">The Facebook Fellowship Program</a></li>
+	<li id="menu-item-66" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66"><a href="/programs/emerging-scholars">Emerging Scholars</a></li>
+	<li id="menu-item-67" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-67"><a href="/programs/faculty-awards">Faculty Awards</a></li>
+	<li id="menu-item-1898" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1898"><a href="/programs/research-collaborations/">Research Collaborations</a></li>
+	<li id="menu-item-1899" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1899"><a href="/programs/post-docs-and-sabbaticals/">Post-docs and Sabbaticals</a></li>
+	<li id="menu-item-4376" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4376"><a href="/programs/research-awards/">Research Awards</a></li>
+</ul>
+</li>
+<li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37"><a href="https://research.fb.com/downloads/">Downloads</a></li>
+<li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38"><a href="https://research.fb.com/careers/">Careers</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="https://research.fb.com/blog/">Blog</a></li>
+</ul>				</nav><!-- navigation -->
+			</div>
+			<div>
+				<!-- TODO: replace logo with a good image/ accouting for 2x retina resolutions -->
+				<div class="toogle-menu">
+					<!-- <i class="fa fa-bars" aria-hidden="true"></i> -->
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<a href="javascript:void(0)" class="search">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+	</div><!-- top-menu -->
+	<div class="top-menu-shim"></div>
+	<div id="overlay_box">
+	</div>
+	<div class="top_search">
+		<div class="search-wrapper">
+			<form action="/" method="get">
+	<label for="search screen-reader-text"></label>
+	<input type="text" placeholder="Search" name="s" id="search" value="" >
+</form>
+			<a href="javascript:void(0)" class="search_close"></a>
+		</div>
+	</div>
+<div class="container container--extended-width">
+<div class="featured-gallery">
+		<a href="https://research.fb.com/a-conversation-with-dr-joelle-pineau-head-of-new-fair-lab-in-montreal/" title="A conversation with Dr. Joëlle Pineau, head of new FAIR lab in Montreal" >
+		<div class="featured-gallery--item animator" id="item-1">
+			<figure style="
+							background-image:url('https://research.fb.com/wp-content/uploads/2017/10/joelle.jpg');
+						"></figure>
+			
+			<div class="overlay"></div>
+			<div class="item-info">
+				<h1 class="item-title">A conversation with Dr. Joëlle Pineau, head of new FAIR lab in Montreal</h1>			</div><!-- end of item-info-->
+		</div><!-- end of featured gallery item -->
+	</a>
+		<a href="https://research.fb.com/the-2017-facebook-phd-fellows-workshop/" title="The 2017 Facebook PhD Fellows Workshop" >
+		<div class="featured-gallery--item animator" id="item-2">
+			<figure style="
+							background-image:url('https://research.fb.com/wp-content/uploads/2017/09/facebookfellows_web_portraits_sept2017_jenniferleahyphotography-35-of-48.jpg');
+						"></figure>
+			
+			<div class="overlay"></div>
+			<div class="item-info">
+				<h2 class="item-title">The 2017 Facebook PhD Fellows Workshop</h2>			</div><!-- end of item-info-->
+		</div><!-- end of featured gallery item -->
+	</a>
+		<a href="https://research.fb.com/using-social-media-data-to-help-measure-smoke-exposure/" title="Using social media data to help measure smoke exposure" >
+		<div class="featured-gallery--item animator" id="item-3">
+			<figure style="
+							background-image:url('https://research.fb.com/wp-content/uploads/2017/09/posterimage.jpg');
+						"></figure>
+						<div class="video">
+				<video loop preload="metadata" src="https://research.fb.com/wp-content/uploads/2017/09/map_slow.mp4" type="video/mp4"></video>
+			</div>
+			
+			<div class="overlay"></div>
+			<div class="item-info">
+									<div class="video-icon"><i class="fa fa-play fa-2x" aria-hidden="true"></i></div>
+				<h2 class="item-title">Using social media data to help measure smoke exposure</h2>			</div><!-- end of item-info-->
+		</div><!-- end of featured gallery item -->
+	</a>
+		</div><!-- end of featured-gallery -->
+</div>
+<div class="page-content">
+		<section class="grid no-bottom-padding">
+		<div class="col-12 animator">
+			<h2 class="section-header">News</h2>
+		</div>
+				<div class="col-12 col-4-med blog-panel animator">
+		<div class="grid-panel grid-panel--blog">
+	<div class="panel-info">
+		<a href="https://research.fb.com/a-conversation-with-dr-joelle-pineau-head-of-new-fair-lab-in-montreal/" title="A conversation with Dr. Joëlle Pineau, head of new FAIR lab in Montreal" >
+			<h6 class="panel-date">October 3, 2017</h6>
+			<h4>A conversation with Dr. Joëlle Pineau, head of new FAIR lab in Montreal</h4>		</a>
+	</div>
+	<a href="https://research.fb.com/a-conversation-with-dr-joelle-pineau-head-of-new-fair-lab-in-montreal/" title="A conversation with Dr. Joëlle Pineau, head of new FAIR lab in Montreal"  >
+		<figure class="panel-image" style="
+					background-image:url('https://research.fb.com/wp-content/uploads/2017/10/joelle.jpg');
+				"></figure>
+	</a>
+</div>
+		</div>
+				<div class="col-12 col-4-med blog-panel animator">
+		<div class="grid-panel grid-panel--blog">
+	<div class="panel-info">
+		<a href="https://research.fb.com/the-2017-facebook-phd-fellows-workshop/" title="The 2017 Facebook PhD Fellows Workshop" >
+			<h6 class="panel-date">September 28, 2017</h6>
+			<h4>The 2017 Facebook PhD Fellows Workshop</h4>		</a>
+	</div>
+	<a href="https://research.fb.com/the-2017-facebook-phd-fellows-workshop/" title="The 2017 Facebook PhD Fellows Workshop"  >
+		<figure class="panel-image" style="
+					background-image:url('https://research.fb.com/wp-content/uploads/2017/09/facebookfellows_web_portraits_sept2017_jenniferleahyphotography-35-of-48.jpg');
+				"></figure>
+	</a>
+</div>
+		</div>
+				<div class="col-12 col-4-med blog-panel animator">
+		<div class="grid-panel grid-panel--blog">
+	<div class="panel-info">
+		<a href="https://code.facebook.com/posts/321924918276649/slam-bringing-art-to-life-through-technology-/" title="SLAM: Bringing art to life through technology" target="_blank" >
+			<h6 class="panel-date">September 21, 2017</h6>
+			<h4>SLAM: Bringing art to life through technology</h4>		</a>
+	</div>
+	<a href="https://code.facebook.com/posts/321924918276649/slam-bringing-art-to-life-through-technology-/" title="SLAM: Bringing art to life through technology"  target="_blank" >
+		<figure class="panel-image" style="
+					background-image:url('https://research.fb.com/wp-content/uploads/2017/09/slam-hero.jpg');
+				"></figure>
+	</a>
+</div>
+		</div>
+				<div class="col-12 bump-up animator">
+			<div class="more-posts">
+				<a href="https://research.fb.com/blog/"><h5><i class="fa fa-long-arrow-right" aria-hidden="true"></i> View All</h5></a>
+			</div>
+		</div>
+	</section>
+		<section class="grid">
+		<div class="col-12 animator">
+			<h2 class="section-header">Latest Publications</h2>
+		</div>
+				<div class="col-12 col-6-med animator blog-panel">
+		<div class="grid-panel grid-panel--pub">
+			<a href="https://research.fb.com/publications/fine-pointing-concepts-for-optical-intersatellite-links">
+	
+		<h6 class="panel-date">
+		ICSOS 2017 / November 14, 2017		</h6>
+		<h3>Fine Pointing Concepts for Optical Intersatellite Links</h3>		<p><small>Eric Miller, Kevin Birnbaum, Chien-Chung Chen, Andrew Grier, Matt Hunwardsen, Dominic Jandrain</small><p>
+	</a>
+</div>
+		</div>
+				<div class="col-12 col-6-med animator blog-panel">
+		<div class="grid-panel grid-panel--pub">
+			<a href="https://research.fb.com/publications/crowd-intelligence-enhances-automated-mobile-testing">
+	
+		<h6 class="panel-date">
+		ASE 2017 / October 30, 2017		</h6>
+		<h3>Crowd Intelligence Enhances Automated Mobile Testing</h3>		<p><small>Ke Mao, Mark Harman, Yue Jia</small><p>
+	</a>
+</div>
+		</div>
+				<div class="col-12 col-6-med animator blog-panel">
+		<div class="grid-panel grid-panel--pub">
+			<a href="https://research.fb.com/publications/dodecapen-accurate-6dof-tracking-of-a-passive-stylus">
+	
+		<h6 class="panel-date">
+		UIST 2017 / October 25, 2017		</h6>
+		<h3>DodecaPen: Accurate 6DoF Tracking of a Passive Stylus</h3>		<p><small>Po-Chen Wu, Robert Wang, Kenrick Kin, Christopher Twigg, Shangchen Han, Ming-Hsuan Yang, Shao-Yi Chien</small><p>
+	</a>
+</div>
+		</div>
+				<div class="col-12 col-6-med animator blog-panel">
+		<div class="grid-panel grid-panel--pub">
+			<a href="https://research.fb.com/publications/mask-r-cnn">
+	
+		<h6 class="panel-date">
+		ICCV 2017 / October 22, 2017		</h6>
+		<h3>Mask R-CNN</h3>		<p><small>Kaiming He, Georgia Gkioxari, Piotr Dollar, Ross Girshick</small><p>
+	</a>
+</div>
+		</div>
+				<div class="col-12 animator bump-up">
+			<div class="more-posts">
+				<a href="https://research.fb.com/publications/"><h5><i class="fa fa-long-arrow-right" aria-hidden="true"></i> View All</h5></a>
+			</div>
+		</div>
+	</section>
+		<section class="grid no-bottom-padding">
+			<div class="col-12 col-6-med program-panel animator">
+			
+<a href="https://research.fb.com/research-areas/">
+<figure style="
+			background-image:url('https://research.fb.com/wp-content/uploads/2016/11/listing-research-area1.jpg');
+		"></figure>
+</a>
+<h3>Research Areas</h3><p>Giving people the power to share and connect requires constant innovation. At Facebook, research permeates everything we do. </p>
+<div class='btn-wrapper'>
+		<a class="btn btn--blue" href="https://research.fb.com/research-areas/">Learn More</a>
+		</div>
+		</div>
+				<div class="col-12 col-6-med program-panel animator">
+			
+<a href="https://research.fb.com/programs/">
+<figure style="
+			background-image:url('https://research.fb.com/wp-content/uploads/2016/11/listing-academic-programs1.jpg');
+		"></figure>
+</a>
+<h3>Academic Programs</h3><p>From fellowships and faculty awards, to opportunities for engagement, discussion and collaboration, we offer a number of ways for academics to engage with researchers at Facebook.</p>
+<div class='btn-wrapper'>
+		<a class="btn btn--blue" href="https://research.fb.com/programs/">Learn More</a>
+		</div>
+		</div>
+			</section>
+
+
+		<section class="grid no-bottom-padding">
+		<div class="col-6">
+			<h2 class="section-header">Conferences and Events</h2>
+		</div>
+		<div class="col-12">
+			<div class="gallery slider">
+				<ul class="js-slick-slider events-carousel">
+										<li><div class="grid-panel grid-panel--pub  animator">
+		<a href="https://sigmobile.org/mobicom/2017/" target="_blank">
+			<h6>
+			October 16, 2017		</h6>
+		<h4>Conference on Mobile Computing and Networking (MOBICOM)</h4>		</a>
+	</div>
+</li>
+										<li><div class="grid-panel grid-panel--pub  animator">
+		<a href="http://www.clocate.com/conference/International-Conference-on-Computer-Vision-ICCV-2017/59171/" target="_blank">
+			<h6>
+			October 22, 2017		</h6>
+		<h4>International Conference on Computer Vision (ICCV)</h4>		</a>
+	</div>
+</li>
+										<li><div class="grid-panel grid-panel--pub  animator">
+		<a href="https://www.sigops.org/sosp/sosp17/" target="_blank">
+			<h6>
+			October 29, 2017		</h6>
+		<h4>ACM Symposium on Operating Systems Principles (SOSP)</h4>		</a>
+	</div>
+</li>
+										<li><div class="grid-panel grid-panel--pub  animator">
+		<a href="https://nips.cc/Conferences/2017" target="_blank">
+			<h6>
+			December 4, 2017		</h6>
+		<h4>Neural Information Processing Systems (NIPS)</h4>		</a>
+	</div>
+</li>
+									</ul>
+			</div>
+		</div>
+	</section>
+		<section class="grid adbox-section">
+				<div class="col-12 col-4-med animator">
+			<iframe style="border: none; overflow: hidden;" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Facademics&amp;tabs&amp;width=306&amp;height=214&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="306" height="214" frameborder="0" scrolling="no"></iframe>		</div>
+		<div class="col-12 col-8-med animator">
+			<div class="career-box" style="background-image:url('https://research.fb.com/wp-content/themes/fb-research/images/gui/career-background.jpg');">
+	<h6 class="box-header">CAREERS</h6>
+	<div class="tagline">
+		<h3>Want to solve some of the most challenging technology problems?</h3>
+		<a href="https://research.fb.com/careers/" class="btn btn--transparent">Join our Team!</a>
+	</div>
+</div>
+		</div>
+			</section>
+</div><!-- .entry-content -->
+</div><!-- #page -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="grid align-between-med">
+			<div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-3178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3178"><a target="_blank" href="https://research.fb.com/feed/">RSS Feed</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="https://www.facebook.com/facebook">About</a></li>
+<li id="menu-item-2611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2611"><a href="https://www.facebook.com/careers/university/">Careers</a></li>
+<li id="menu-item-57" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57"><a href="https://www.facebook.com/about/privacy">Privacy</a></li>
+<li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58"><a href="https://www.facebook.com/help/cookies">Cookies</a></li>
+<li id="menu-item-59" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59"><a href="https://www.facebook.com/policies">Terms</a></li>
+<li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60"><a href="https://www.facebook.com/help">Help</a></li>
+</ul></div>			<div class="site-info col-12 order-first-med col-3-med">
+				<p>&copy; 2017 Facebook</p>
+			</div><!-- .site-info -->
+		</div>
+	</footer><!-- #colophon -->
+
+
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201740'></script>
+<script type='text/javascript' src='https://research.fb.com/_static/??-eJyVjkEOwjAMBD9EahBUogfEW9LEoW4Tp4rdwvMJghsHysXSame0hvtsXGZFVtABEwqE3hQUtMUNMAqwXelmlTI3o+zgJy8TzSYSTyZkt4gJ9NgmBoqKpVolNYk2rr1os9pI3mouG70V2ecCEslN72vqp5r/2P3miV1cfCVrWyOmHv2nv6bLod2357brTsfxCa6ciJQ='></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201740.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.4',blog:'120696159',post:'16',tz:'-7',srv:'research.fb.com'} ]);
+	_stq.push([ 'clickTrackerInit', '120696159', '16' ]);
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"949ceaf672","applicationID":"21895681","transactionName":"MQZWYhAFXhdYAUBfWwhMdVUWDV8KFgRGWVoSTkRXBQE=","queueTime":0,"applicationTime":112,"atts":"HUFBFFgfTUgbAxYMTxse","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

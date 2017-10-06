@@ -1,0 +1,436 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app">
+    <head ng-cloak>
+        <title>AT&#38;T Business Center</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        
+        
+        
+        
+            
+                
+
+
+
+
+
+	
+
+
+
+
+
+
+
+  
+      <script type="text/javascript" src="/ebiz/dynatrace/js/dtagent_ICA23STVgjpqrt_7000000021011.js" data-dtconfig="agentUri=/ebiz/dynatrace/js/dtagent_ICA23STVgjpqrt_7000000021011.js|rid=RID_272881989|rpid=-791383787|domain=att.com|rt=10000|lastModification=1501819624244|lab=1|tp=300,50,10,1,10|reportUrl=/ebiz/dynatrace/js/dynaTraceMonitor|app=BCSERVICE"></script><link rel="stylesheet" type="text/css" href="/ebiz/commonui/web/common/css/bcHeader-bundle.min.css?v=20171002220729">
+  
+  
+
+<script type="text/javascript"> if(typeof jQuery == "undefined"){ document.write('<script type="text/javascript" src="/ebiz/commonui/web/common/js/vendor/jquery-1.10.2/jquery-1.10.2.js?v=20171002220729">\x3C/script>'); } </script>
+
+  
+    <script type="text/javascript" src="/ebiz/commonui/web/common/js/vendor/angular-1.4.8/angular-bundle.min.js?v=20171002220729"></script>
+    <script type="text/javascript" src="/ebiz/commonui/web/common/bcCommons/bcCommons-login-bundle.min.js?v=20171002220729"></script>
+    <script defer type="text/javascript" src="/ebiz/commonui/web/common/bcCommons/bcCommons-login-defer-bundle.min.js?v=20171002220729" async></script>
+
+  
+  
+
+
+<script type="text/javascript">
+        window.commonuiContext = "/ebiz/commonui"; 
+        var profile='';
+        var billingMenuIdsMap; //Billing megamenu url suffixes
+        var isSalesFlow = "";
+        // TODO: Use the isIE class added to html tag instead of custom code
+        var IEVersion = getIEVersion();
+        function getIEVersion(){
+          var rv = -1;
+          if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(ua) != null)
+              rv = parseFloat( RegExp.$1 );
+            }
+            return rv;
+        }
+</script>
+
+<!-- time interval for updation of shopping car-->
+<script type="text/javascript">     
+      var authErrorCode = "";
+      var authErrorMessage = "";  
+      var userIDError = "";
+      var maskEmail = "";
+      var maskMobileNumber = "";
+      var maskUserId = "";
+      var maskTwoFactorSmsPreference = "";
+      console.log(authErrorCode+'*********************'+authErrorMessage);
+      var isHalobAuthenticationFlag = "false".toLowerCase() === "true";
+      var isHalobAuthenticationDevFlag = "false".toLowerCase() === "true";
+      var resetPasswordSuccessMessage = "Your password has been reset successfully.";
+      var activationSuccessMessage = "Profile Activation is completed, Please login to continue. If you need help, contact us at 844.ATT.eBIZ  (844.288.3249), Mon. through Fri., 9 a.m. to 6 p.m. ET.";
+      var halobProxyHost = "TBD";
+      var halobAuthEndpointUrl = "TBD";
+      var halobLogoutEndpointUrl = "TBD";
+      var halobAuthAppName = "TBD";
+      
+      var setShoppingCartInterval = "60";
+      var cpDomainUrl ="https://www.synaptic.att.com";         
+</script>
+    
+<!-- /* Start of definition of the Click 2 Chat object, "inqCustData" .*/  -->
+<script type="text/javascript">
+        var hideActivePromoMsg = "";
+        var billingMenuIdsMapsession=billingMenuIdsMapsession||{};
+        var billingMenuIdsMapTemp='null';
+        if(billingMenuIdsMapTemp != null && billingMenuIdsMapTemp != 'null')
+        {
+                billingMenuIdsMapsession = billingMenuIdsMapTemp;
+                sessionStorage.setItem('billingMenuIdsMapsessionstorage', billingMenuIdsMapsession);
+        }
+        var inqCustData=inqCustData||{};
+        inqCustData = {
+          "firstName": "",
+          "lastName": "",
+          "email": "",
+          "phoneNumber": "",
+          "company": "",
+          "User": "",
+          "ATTUID": "",
+          "products": "",
+          "companyCreationDate": "",
+          "Skill": "BDS-CFD",
+          "url": "",
+          "TicketNumber": "",
+          "SkillCodes": {
+            "unauthenticated": "BDS-CFDPreLogin",
+            "dashboard": "BDS-CFD",
+            "emaintenance": "BDS-CFDMap",
+            "billing": "BDS-CFDeBill",
+            "ordering": "BDS-CFDeOrder",
+            "gamma": "ABS-UA",
+            "registration": "BDS-CFDReg",
+            "support": "BDS-CFD",
+            "em_support": "expressticketingaotsua",
+                "trinity_eorder" : "BDS-Trinity_eOrder"     
+          }
+        };
+        //* End of definition of the Click 2 Chat object, "inqCustData" .*/ 
+        
+        // set Click 2 Chat variables depending on registration data of user
+        inqCustData.firstName = "";
+        inqCustData.lastName = "";
+        inqCustData.email = "";
+        inqCustData.phoneNumber = "";
+        inqCustData.company = "";
+        inqCustData.User = "";
+        inqCustData.ATTUID = "";
+        inqCustData.products = "";
+        inqCustData.companyCreationDate = "";
+        inqCustData.url = window.location.href;
+        inqCustData.TicketNumber = "there was a problem retriving Ticket Number";
+        
+        // set Click 2 Chat Skill Code depending on URL
+        // does not include logic for EM routing, which is handled by M5 tool in the EM workstream code
+        if(inqCustData.url.indexOf("registration/login") > -1
+          || inqCustData.url.indexOf("registration/viewForgotPassword") > -1
+          || inqCustData.url.indexOf("registration/registrationUserSetupServlet") > -1
+          || inqCustData.url.indexOf("registration/addContactInfo") > -1
+          || inqCustData.url.indexOf("registration/previousToContactPage") > -1
+          || inqCustData.url.indexOf("registration/addAgreementInfo") > -1) {
+          inqCustData.Skill = inqCustData.SkillCodes.unauthenticated;
+        } else if(inqCustData.url.indexOf("emTicketDetails") > -1){
+          inqCustData.Skill = inqCustData.SkillCodes.em_support;
+        } else if(inqCustData.url.indexOf("emaintenance") > -1){
+          inqCustData.Skill = inqCustData.SkillCodes.emaintenance;
+        } else if(inqCustData.url.indexOf("avpnmacd.jsp") > -1){
+          inqCustData.Skill = inqCustData.SkillCodes.ordering;
+        } else if(inqCustData.url.indexOf("sdnom/ui") > -1){
+          inqCustData.Skill = inqCustData.SkillCodes.gamma;
+        } else if(inqCustData.url.indexOf("userDetailsPage.jsp") > -1
+          || inqCustData.url.indexOf("companyProfile.jsp") > -1
+          || inqCustData.url.indexOf("createNewUserGroup.jsp") > -1
+          || inqCustData.url.indexOf("userGroups.jsp") > -1
+          || inqCustData.url.indexOf("addNewUser") > -1
+          || inqCustData.url.indexOf("registration/home.jsp") > -1
+          || inqCustData.url.indexOf("registration/index") > -1 ) {
+          inqCustData.Skill = inqCustData.SkillCodes.registration;
+        } else if(inqCustData.url.indexOf("eBCSupport.jsp") > -1){
+          inqCustData.Skill = inqCustData.SkillCodes.support;
+        } else if(inqCustData.url.indexOf("estatus") > -1  
+                || inqCustData.url.indexOf("ordertrinity") > -1){
+                inqCustData.Skill = inqCustData.SkillCodes.trinity_eorder;
+        } else if(inqCustData.url.indexOf("ebiz/billing") > -1){
+                  inqCustData.Skill = inqCustData.SkillCodes.billing;
+        }
+</script>
+        <!-- // End of all Click 2 Chat code -->
+
+
+
+	
+	<script type="text/javascript">
+		/*Default Async Load for Login Page*/
+		var loadType = 'sync';
+		/*Setting for usage of Async Load feature*/
+		var configAdobeAsyncLoadFlag = "{adobeAnalyticsAsyncLoad}";
+		if(configAdobeAsyncLoadFlag==="true") {
+			loadType='async';
+			/*Runtime force to Sync for performance or functional testing*/
+			var tempForcedSyncLoad = sessionStorage.getItem("forcedSyncLoad");
+			if (typeof tempForcedSyncLoad !== 'undefined'
+					&& tempForcedSyncLoad !== null) {
+				loadType = 'sync';
+				}
+		}
+		/*Parameter for Adobe Framework Files to be downloaded in async*/
+		var detmScriptLoadType = loadType;
+	</script>
+	<script type="text/javascript"
+		src="//www.att.com/scripts/adobe/prod/detm-container-hdr.js"  data-trigger="detmLoadTrigger"></script>
+
+
+            
+            
+        
+        <script type="text/javascript">
+            window.jsMinificationEnabled = "true";
+            var ipflexEnableFlag ="false";
+        </script>
+
+        
+
+        
+
+                
+                     
+                        <link rel="stylesheet" type="text/css" href="_generated/web/migrated_css/regCommon.min.css?v=1506984134405">
+                        <link rel="stylesheet" type="text/css" href="/ebiz/commonui/web/common/css/digital-ng-library/digital-ng-library-bundle.min.css?v=20171002220729">
+                        <link rel="stylesheet" type="text/css" href="/ebiz/commonui/web/common/css/b2b-angular/b2b-angular.min.css?v=20171002220729">
+                        <link rel="stylesheet" type="text/css" href="/ebiz/commonui/web/common/css/ds2integration.min.css?v=20171002220729">
+                        <link rel="stylesheet" type="text/css" href="web/css/responsive.css?v=1506984134405">
+                        <link rel="stylesheet" type="text/css" href="web/migrated_css/businessLogin.css?v=1506984134405">
+                     
+                     
+                
+
+                
+                <script type="text/javascript" charset="UTF-8" src="/ebiz/commonui/web/common/js/logging-script-error/stacktrace/stacktrace.js?v=20171002220729"></script>
+
+
+                
+                    
+                        <script data-main="_generated/app/mainLogin.js?v=1506984134405" src="/ebiz/commonui/web/common/js/vendor/requirejs/require.js?v=20171002220729"></script>
+                    
+                    
+                
+
+    </head>
+    <body ng-cloak>
+        
+<script type="text/javascript">
+	function getIEVersion(){
+		var rv = -1; // Return value assumes failure.
+		if (navigator.appName == 'Microsoft Internet Explorer') {
+			var ua = navigator.userAgent;
+			var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+			if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+		}
+		return rv;
+	}
+
+	function checkVersion() {
+		var ver = getIEVersion();
+		if (ver > -1) {
+			if ( ver <= 8.0 ) {
+				var img="<img src='/ebiz/commonui/web/common/images/browser/icon-IE.png' height='30' width='30' alt='Internet Explorer' title='Internet Explorer'/>";
+				document.getElementById("IEIconDiv").innerHTML = img;	
+				var img1 = "<img src='/ebiz/commonui/web/common/images/browser/icon-X.png' height='110' width='36' onclick='hideBrowserWarn();' role='button' tabindex='0' aria-label='Close Notification' alt='Close Notification' title='Close Notification'/>";
+				document.getElementById("IEIconDiv1").innerHTML = img1;	
+				document.getElementById("browserWarning").style.display = "block";
+				if (document.getElementById("headerContainer")) {
+					document.getElementById("headerContainer").style.position = "static";
+				}
+				if (document.getElementById("successBox")) {
+					document.getElementById("successBox").style.marginTop = "195px";
+				}
+				if (document.getElementById("dbBodyContainer")) {
+					document.getElementById("dbBodyContainer").style.paddingTop = "65px";
+				}
+		  	}
+		}
+	}
+
+	function hideBrowserWarn() {
+		if (document.getElementById("browserWarning")) {
+			document.getElementById("browserWarning").style.display = "none";
+			document.getElementById("headerContainer").style.position = "fixed";
+		}
+		if (document.getElementById("successBox")) {
+			document.getElementById("successBox").style.marginTop = "55px";
+		}
+		if (document.getElementById("dbBodyContainer")) {
+			document.getElementById("dbBodyContainer").style.paddingTop = "120px";
+		}
+	}
+
+	/* set fade option of browser warning in 10 seconds   */
+	$(document).ready(function() {
+		setTimeout(function() {
+			$("#browserWarning").fadeOut().empty();
+			$("#headerContainer").css('position', 'fixed');
+			$("#browserWarning").css('display', 'none');
+			$("#successBox").css('margin-top', '55px');
+			$("#dbBodyContainer").css('padding-top', '120px');
+		}, 10000);
+	});
+</script>
+
+<style>
+	.browser {
+	    float:left;
+	    margin-left: 30px;
+	}
+	
+	.browserDiv {
+		border:1px solid #666;
+	    padding:8px;
+	    position:static;
+	    clear:both;
+	    width:100%;
+	}
+</style>
+<div id="browserWarning" class="browserDiv" style="display:none;">
+    <div style="float:left;">
+        <div class="text">
+            <h3 style="font-weight:bold;">Time to upgrade your browser?</h3>
+            <p>Looks like your browser isn't the latest version. Upgrade your browser to get the most from your visit.</p>
+        </div>
+        <div class="browser">
+            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" title="Click to upgrade Internet Explorer" target="_blank" rel="nofollow"> <div id='IEIconDiv'> </div>&nbsp;Internet Explorer&#174;</a>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div id="IEIconDiv1" style="float:right;">
+    </div>
+    <div style="clear:both;"></div>
+</div>
+        
+            
+                <div class="header" id="header" ng-controller="eHeaderCtrlLogin">
+                    <div ng-include="'/ebiz/commonui/web/common/bcCommons/partials/bcHeader.html'"></div>
+                </div>
+            
+            
+        
+        <div class="bodyContainer pt0-xs" bc-shift-tab>
+            <div class="loading-container" ng-show="loadingData">
+              <div class="img-loading-dots"></div>
+                <div tabindex="0" style="font-size:24px;">
+                    <p>The content is currently loading, </p>
+                    <p>Please wait...</p>
+                </div>
+            </div>
+            <div ui-view="" class="viewWrapper" ng-hide="loadingData"></div>
+        </div>
+        <div class="footer" id="footer">
+        
+            
+                
+	
+		<link rel="stylesheet" type="text/css" href="/ebiz/commonui/web/common/css/bcFooter-bundle.min.css?v=20171002220729">
+	
+	
+
+	
+		<script type="text/javascript" src="/ebiz/commonui/web/common/bcCommons/controllers/eFooterCtrlLogin.js?v=20171002220729"></script>
+
+
+<script type="text/javascript">
+    var txId = 'EBIZ_Registration_c05742d2-68e5-455f-9cf0-51de1a24c7b6';                         
+</script>
+
+<div ng-controller="eFooterCtrlLogin">
+	<div class="feedbackButtonDiv_Fixed" ng-if="(!profile.sdnomUser && profile!='')" >
+		<button class="btn btn-alt" style="width:150px;bottom:22px;left:95px;line-height: 12px;" b2b-accessibility-click="13,32" ng-click="feedbackclick();" bc-shift-tab>
+			<!-- <span class="icon-forum" style="font-size:20px;"> -->
+			<i class="icoBubble-messagesL" style="font-size: 20px;color: white;font-weight: bolder;"></i>
+			</span>&nbsp;&nbsp;<span class="feedbacktext">Feedback</span>
+		</button>
+    </div>
+	<div ng-include="'/ebiz/commonui/web/common/bcCommons/partials/bcFooter.html'"></div>
+</div>
+<!-- Added for per metrics -->
+<!--[if !IE 8]><!-->
+<!--<![endif]-->
+
+<script defer type='text/javascript'  src="/ebiz/commonui/web/common/js/vendor/tealeaf/tealeaf.min_4.0.1607.BCService.js?v=20171002220729" async></script>
+<script defer type='text/javascript'  src="/ebiz/commonui/web/common/js/ua-parser.js?v=20171002220729" async></script>
+<script defer type='text/javascript'  src="/ebiz/commonui/web/common/js/uiloggingscript.js?v=20171002220729" async></script>
+<script>
+
+(function() {
+   	var loadevent = performance.timing.loadEventEnd > 0 ? performance.timing.loadEventEnd : performance.timing.responseEnd ;
+	var navigationStart = performance.timing.navigationStart;
+	if((loadevent-navigationStart)>0) {
+		window.setTimeout(downloadChat,(loadevent-navigationStart));
+	} else {
+		window.setTimeout(downloadChat,500);
+	}
+	function downloadChat() {
+		var chatScriptElement = document.createElement("script");
+		chatScriptElement.src = "https://att.inq.com/chatskins/launch/inqChatLaunch10004119.js";
+		document.getElementsByTagName("body")[0].appendChild(chatScriptElement)
+	}
+
+})();	
+</script>
+
+
+
+
+
+<script>
+	if(typeof DataMappingInterface !== 'undefined')
+		{
+			DataMappingInterface.disableAutoPageLoad();
+		}
+	var delayTime = 1;
+	var tempForcedDelayTime = sessionStorage.getItem("forcedDelayTime");
+	if (typeof tempForcedDelayTime !== 'undefined'
+			&& tempForcedDelayTime !== null) {
+		delayTime = parseInt(tempForcedDelayTime) || 1;
+	}
+	setTimeout(function(){ document.dispatchEvent(new CustomEvent('detmLoadTrigger')); }, delayTime);
+
+(function() {
+   	var loadevent = performance.timing.loadEventEnd > 0 ? performance.timing.loadEventEnd : performance.timing.responseEnd ;
+	var navigationStart = performance.timing.navigationStart;
+	if((loadevent-navigationStart)>0) {
+		window.setTimeout(downloadAdobeScript,(loadevent-navigationStart));
+	} else {
+		window.setTimeout(downloadAdobeScript,500);
+	}
+	function downloadAdobeScript() {
+		var adobeScriptElement = document.createElement("script");
+		adobeScriptElement.src = "//www.att.com/scripts/adobe/prod/detm-container-ftr.js";
+		document.getElementsByTagName("body")[0].appendChild(adobeScriptElement)
+	}
+
+})();
+</script>
+
+            
+            
+        
+        </div>
+    </body>
+</html>

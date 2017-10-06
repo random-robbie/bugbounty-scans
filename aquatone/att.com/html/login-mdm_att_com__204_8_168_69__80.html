@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Sign In to AT&T</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="resources/whitelabel/att/img/favicon.ico"/>
+    <script src="lib/angular/angular.min.js"></script>
+            <link rel="stylesheet" href="resources/common/css/polarisui.min.css"/>
+        <style type="text/css">
+        * {border: 0 none; margin: 0; padding: 0;}
+        html, body {width: 100%; height: 100%; background-color: #ECEEEF; font-family: Arial, "Helvetica Neue", Verdana, Helvetica, sans-serif; font-size: 13px; line-height: 18px;}
+        a, a:link {text-decoration: none;}
+        p {margin: 0 0 18px 0;}
+        .browser {min-height: 48px; padding: 3px 0 0 50px;}
+        .browser .heading {font-size: 16px;}
+        .browser small {color:  #6D6C71;}
+        .browser .btn {margin-top: -17px;}
+    </style>
+    <link rel="stylesheet" href="resources/whitelabel/att/css/master.css"/>
+</head>
+
+<body>
+<div style="" id="loginForm" class="login-wrapper loginWrapper">
+    <div class="loginVert">
+        <div class="loginBox">
+            <div class="login-inner">
+                <div class="brand mbl"></div>
+                <form action="user/polaris/login" method="post" autocomplete="off" name="loginForm">
+                    <div id="login" class="login-options mbl ptm pbl">
+                        <p>
+                            <label>Username</label>
+                            <input class="text-input" type="email" name="user_id" autocomplete="off" ng-model="userId"
+                                   ng-pattern="/^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))+|\[(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}\]|\[(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))\])$/" autofocus required
+                                   value=""/>
+                        </p>
+                        <button class="btn" type="submit" ng-disabled="loginForm.$invalid">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="http://www.mobileiron.com/" target="_blank"></a> <a
+                href="http://www.mobileiron.com/en/support" target="_blank" style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Support</a>
+            Copyright © 2013-2017 MobileIron, Inc. All rights reserved.</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function showLoginForm() {
+        document.getElementById('browserSupportedDivId').style.display = 'none';
+        document.getElementById('loginForm').style.display = '';
+    }
+
+    function onChromeDownloadClick() {
+        window.open('https://www.google.com/intl/en/chrome/browser/', '_blank');
+    }
+
+    function onFirefoxDownloadClick() {
+        window.open('http://www.mozilla.org/en-US/firefox/new/', '_blank');
+    }
+
+    function onAppleSafariDownloadClick() {
+        window.open('http://support.apple.com/downloads/#safari/', '_blank');
+    }
+
+</script>
+</body>
+</html>
+

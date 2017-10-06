@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+		bc = {"appContext":"/","version":"6.10.1.4.820686","reportContext":"/report","extjsContext":"/ext","role":"","currencyId":"USD","costPerGB":0.5,"applianceReportingEnabled":false,"csrfToken":"9ch9j62nn983279lmjbsmodjc9","devMode":false,"serverIPAddress":"37.59.43.35","helpLink":"http://cloudwebsecurity.att.com/","cplLineLengthLimit":8000,"customCompanyName":"AT&T","customProductName":"Web Security","privacyPolicyUrl":"http://www.bluecoat.com/eu-privacy-policy","userLocales":["en-us","en"],"entitlement":{},"userContext":{},"report_dashboard_persistDateFilter":false,"features_disable":["QUOTA","GOOGLE_AUTH","EAR_REPORTING"],"trackerAcct":"UA-12862063-1","bypass_max":10000};</script>
+
+	
+
+        <link rel="shortcut icon" href="/favicon/att-cloud-portal-theme.ico"/>
+        
+
+
+
+
+<script type="text/javascript" src="/bc/core/Locale-static.js?1507113968648" charset="utf-8"></script>
+
+<script type="text/javascript" src="locale/locale-en-us.min.js?1507113968648"></script>
+<script type="text/javascript" src="locale/locale-en.min.js?1507113968648"></script>
+<script type="text/javascript" src="locale/locale-root.min.js?1507113968648"></script>
+
+        <script type="text/javascript">
+    bc.Locale.addOverrideBundle("ROOT", "customer", {
+        contactSupport: '<h2>Contact Support</h2>' +
+                '<p>View the <a class="bc-link" target="new" title="Customer Expectation Guide" href="http://cloudwebsecurity.att.com/docs/ATT_WSS_CustExpGd.pdf">Customer Expectations Guide</a>.</p>' +
+                '<p>For immediate assistance, call 855.565.6723.</p>' +
+                '<p>To create a support case, visit <a class="bc-link" target="new" title="Blue Touch Online" href="https://bto.bluecoat.com/">Blue Touch Online</a>' + ' and click <b>Cases</b>.</p>' +
+                '<p>To gain access to Blue Touch Online, submit a ' + '<a class="bc-link" target="new" title="Customer Care" href="https://www.bluecoat.com/forms/contact">Customer Care</a> request.</p>' +
+                '<ul><li>From the <b>Reason</b> dropdown, select <b>Support Portal Login</b> credential request.</li>' +
+                '<li>The request requires the account <b>Subscription ID</b>, which is available on the <a class="bc-link" title="Account Provisioning" href="#service|portal|accountProvisioning">Account Provisioning</a> tab.</li></ul>',
+        "troubleshooting": '<p>For troubleshooting help, view the ' +
+                '<a class="bc-link" target="new" title="Troubleshooting Guide" href="http://cloudwebsecurity.att.com/docs/ATT_WSS_TSGd.pdf">Troubleshooting Guide</a>' +
+                ' or visit the ' +
+                '<a class="bc-link" target="new" title="<%companyName%> Support Knowledge Base" href="https://kb.bluecoat.com"><%companyName%> Support Knowledge Base</a>.</p>' +
+                '<p>To request a site be categorized or have its category changed, visit ' +
+                '<a class="bc-link" title="Request a site categorization" target="new" href="http://sitereview.bluecoat.com/sitereview.jsp">Site Review</a></p>'
+    });
+
+    bc.Locale.addOverrideBundle("ROOT", "main", {
+        "loginWarningMessage": "<br/><b>Warning Notice</b><br />This system is restricted to AT&T authorized users for business purposes. Unauthorized access is a violation of the law. This service may be monitored for administrative and security reasons. By proceeding, you consent to this monitoring.",
+        "techSupportDetails": "<br/>408.541.3210<br/>855.565.6723 (toll-free)",
+        "loginSubtitle": "Please log in with your <%companyName%> <%productName%> account credentials.",
+        "serviceName": "Cloud Service"
+    });
+
+    bc.Locale.addOverrideBundle("ROOT", "partner", {
+        "firewallDetails": "Details for all AT&T VPN Gateway Firewalls managed by AT&T are available in the table below.",
+        "importVPNGateway": "Import AT&T VPN Gateway Firewall Locations"
+    });
+
+    bc.Locale.addOverrideBundle("ROOT", "onboard", {
+        eulaTitle : '<%companyName%> <%productName%> Service Agreement',
+        eulaToolTipMsg : "Click to read the <%companyName%> <%productName%> Service Agreement"
+    });
+</script>
+
+
+
+<link rel="stylesheet" href="login-att-cloud-portal-theme/production/resources/login-att-cloud-portal-theme-all-820686.css"/>
+<script type="text/javascript" src="login-att-cloud-portal-theme/production/login-att-cloud-portal-theme-820686.js"></script>
+
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            // Set our locale
+            bc.Locale.setLocale(["en-us","en"]);Ext.Loader.loadScript({url: 'locale/ext-lang-en.min.js'});
+
+            document.title = bc.Locale.getString("main", "loginPageTitle");
+
+            // Instantiate our application
+            Ext.create('bc.common.login.LoginHome', {
+                url:"/login",
+                renderTo:"header",
+                redirectUrl:bc.appContext
+            });
+
+        });
+    </script>
+</head>
+<body id="login" style="background-color: white;">
+
+</body>
+</html>
+

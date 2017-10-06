@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if lt IE 7]> <html xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://www.splunk.com/xhtml-extensions/1.0" xml:lang="en" lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://www.splunk.com/xhtml-extensions/1.0" xml:lang="en" lang="en" class="no-js ie7 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://www.splunk.com/xhtml-extensions/1.0" xml:lang="en" lang="en" class="no-js ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9]>    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://www.splunk.com/xhtml-extensions/1.0" xml:lang="en" lang="en" class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://www.splunk.com/xhtml-extensions/1.0" xml:lang="en" lang="en" class="no-js"> <!--<![endif]-->
+<!-- live to code, code to live... -->
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9, chrome=IE8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-language" content="en_US" />
+        <meta http-equiv="imagetoolbar" content="no" />
+        <meta name="author" content="Splunk Inc." />
+        <link rel="apple-touch-icon" href="/en-US/static/@140437/img/iosicon.png" />
+        <link rel="shortcut icon" href="/en-US/static/@140437/img/favicon.ico" />
+        <title>
+        Login -     
+    Splunk</title>
+        <script type="text/javascript">
+            window.$C = {"SERVER_ZONEINFO": "", "MRSPARKLE_PORT_NUMBER": 8000, "UI_INACTIVITY_TIMEOUT": 60, "FORM_KEY": "7861591188662558952"}
+        </script>
+        
+    
+	
+                    <script type="text/javascript">
+                        var DISABLE_MESSENGER = true;
+                    </script>
+                <script type="text/javascript" src="/en-US/static/@140437/js/common.min.js"></script>                 
+
+        
+    
+    
+            <link rel="stylesheet" href="/en-US/static/@140437/css/login.css" />             
+
+    
+    
+	
+
+
+        
+        
+    </head>
+    <body>
+        
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    var hasLoggedIn = Splunk.util.normalizeBoolean('True');
+        
+    $(function() {
+        // Check that cookies are enabled and Javascript can see them
+        var c = $.cookie('cval');
+        var cescape = escape(c);
+        var toffset = (new Date().getTime()/1000) - 1507282593;
+        if (!c) {
+            $('.error').hide();
+            $('#jserror').text(_('No cookie support detected.  Check your browser configuration.')).show();
+        } else if (cescape != 1322555019) {
+            $('.error').hide();
+            $('#jserror').text(_('Invalid cookie detected.  Try reloading this page or restarting your browser.')).show();
+        } else if (Math.abs(toffset) > 86400) {
+            if (!$('#tplerror').length) {
+                $('#jserror').text(_('Warning: The time on the server differs significantly from this machine which may cause login problems and other errors.')).show();
+            }
+        }
+
+        // attach event handlers for password hint link popup
+        $("a#passwordHint").click(passwordHintClick);
+        $(document).bind('keypress', function(evt){
+           if (evt.keyCode == 27) {
+                hidePasswordHint();
+            }
+        });
+        $('#protrialClose').click(hidePasswordHint); 
+        
+        if(!hasLoggedIn) {
+            var t = setTimeout(function(){$("#protrial").fadeIn('slow');}, 1000);
+        }
+        
+        $('#loginForm').show();
+    });
+    
+    
+</script>
+
+
+
+
+<div id="layout" class="">
+    <div id="userMessaging"></div> 
+    
+    <div id="protrial">
+        <div id="protrialClose"></div>
+        <div id="protrialContent">
+           <p><span>First time logging in?</span> Splunk's default credentials are </p><p>username: <span>admin</span><br />password: <span>changeme</span></p><p>If you've forgotten your username or password, please contact your Splunk administrator.</p>
+        </div>                             
+    </div>
+
+    
+    <div id="authWrapper">
+        <div id="splunkLogo">
+        </div>
+        <div id="authContainer">
+        	<noscript>
+        	
+			<p>Splunk relies on JavaScript to function properly. Please enable JavaScript and then refresh the page to login.</p>
+			</noscript>
+        
+        
+        	<div id="loginForm" style="display: none">
+        	
+	            <p id="jserror" class="error" style="display: none"></p>
+	
+	            <div id="mainPanel" >
+	                <form action="/en-US/account/login" class="loginForm" method="post" autocomplete="off">
+	                    <input type="hidden" name="cval" value="1322555019">
+	                        <input type="hidden" name="return_to" value="/en-US/">
+	    
+	                    <p>
+	                        <label for="username">Username</label><br />
+	                        <input type="text" name="username" id="username"  />
+	                    </p>
+	                    <p>
+	                        <label for="password">Password</label><br />
+	                        <input type="password" name="password" id="password"  />
+	                    </p>
+	            
+	                    <p class="loginButtonRow">
+	                        <input class="splButton-primary" type="submit" value="Sign in"  />
+	                    </p>
+	                </form>
+	            </div>
+	            
+            </div>
+            
+            
+            <div id="freeUpdateCheckerContainer" class="subContainer">
+                <iframe frameborder="0" id="freeUpdateChecker" name="freeUpdateChecker" ALLOWTRANSPARENCY="true" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+            <div id="freeMessageContainer" class="subContainer"></div>
+        </div><!-- authContainer -->
+    </div><!-- authWrapper -->
+    
+    <div id="tipsCheckerContainer" class="subContainer">
+        <iframe frameborder="0" id="tipsChecker" name="tipsChecker" ALLOWTRANSPARENCY="true"></iframe>
+        
+        <div class="tipsCheckerContinueLink"><a href="/" class="splButton-primary"><span>Continue &raquo;</span></a></div>
+    </div>
+    
+    <div id="infoContainer">
+        <div id="updateCheckerContainer" class="subContainer">
+            <iframe frameborder="0" id="updateChecker" name="updateChecker" ALLOWTRANSPARENCY="true" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+        <div id="connectError">
+            <p>Your browser could not connect to Splunk.com.</p>
+            <p>You need to be connected to the Internet to find out when updates to your Splunk software are available.</p>
+        </div>
+    </div>
+    
+    <p class="footer">&copy; 2005-2017 Splunk Inc. Splunk 4.3.5 build 140437.</p>
+
+    <script type="text/javascript" language="Javascript1.3">
+        // assemble config for the checker system
+        var CONFIG = {"licenseType": "pro", "os_name": "Windows", "locale": "en-US", "license_desc": "pro", "hasErrorMessage": false, "versionNumber": "4.3.5", "skin": "basic", "guid": "F380F613-E5EB-4CFD-B01E-963A1AA00504", "updateCheckerBaseURL": "https://quickdraw.splunk.com/js/", "cpu_arch": "x64", "return_to": "/en-US/", "updateCheckerCannotConnectBannerPath": "/en-US/static/@140437/img/nagware/updater_pro_paid_login_cannot_connect.gif", "installType": "prod_slave", "tipsCheckerCannotConnectBannerPath": "/en-US/static/@140437/img/nagware/updater_free_cannot_connect.gif"};
+
+
+        window.onload = function() {
+            // focus on username
+            document.getElementById('username').focus();
+            document.getElementById('username').select();
+
+            var hashPos = window.location.href.indexOf('#');;
+
+            if (hashPos != -1) {
+	        var sel = $("input[name='return_to']");
+
+	        if (sel && sel.val()) {
+	            sel.val(sel.val() + window.location.href.substr(hashPos));
+                }
+            }
+
+                // start checker
+                initUpdateChecker();
+        }
+    </script>
+
+</div>
+
+
+
+        
+        
+
+
+        <div class="splClearfix"></div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

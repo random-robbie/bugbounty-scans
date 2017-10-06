@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentication and Access Control</title>
+    <style type="text/css">
+	html {
+    	    height: 100%;
+	}
+	html body {
+    	    background: none repeat scroll 0 0 #999999;
+    	    margin: 0;
+    	    height: 100%;
+	}
+        html body #form-body {
+	    margin: 0 auto;
+            min-height: 100%;
+            overflow: auto;
+            position: relative;
+	    background-color: #405F8D;
+            background-image: -moz-linear-gradient(center top , #405F8D, #001133);
+        }
+
+	html .form-signin-logo {
+	    height: 35%;
+    	    left: 0;
+    	    position: absolute;
+    	    right: 0;
+    	    top: 15px;
+	    z-index: 103; 
+	}
+
+	html .form-signin-outer {
+	    bottom: 0;
+    	    left: 0;
+    	    position: absolute;
+    	    right: 0;
+    	    top: 35%;
+    	    width: 100%;
+    	    z-index: 103; 
+	}
+
+	table {
+    	    border-collapse: collapse;
+    	    border-spacing: 0;
+	}
+
+	html .form-signin-wrapper {
+    	    vertical-align: top;
+    	    width: 100%;
+	}
+
+	html .form-signin {
+    	    background-color: #F7F7F7;
+    	    background-image: -moz-linear-gradient(center top , #F8F8F8, #E7E7E7);
+    	    border-radius: 10px 10px 10px 10px;
+    	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    	    font: 12px helvetica neue,helvetica,arial;
+    	    left: 50%;
+    	    margin-left: -260px;
+    	    position: relative;
+    	    width: 520px;
+	}
+
+	html .form-page-title {
+	    background-color: #D8D8DD;
+    	    background-image: -moz-linear-gradient(center top , #D8D8DD, #E3E3E6);
+            color: #000000;
+            font: bold 18px/20px arial !important;
+            height: 20px;
+            margin-bottom: -1px;
+            padding: 10px 15px;
+	}
+
+	html .form-signin h2 {
+    	    border-top-left-radius: 10px;
+    	    border-top-right-radius: 10px;
+	}
+
+	input[type="text"], input[type="password"] {
+    	    border: 1px solid #DDDDDD;
+    	    border-radius: 3px 3px 3px 3px;
+    	    /*color: #333333;*/
+	}
+
+/*	html .form-signin .form-page-content, html .form-signin .page_content {
+    	    position: static;
+	}
+*/
+	html #form-login-page {
+	    overflow: hidden;
+	    padding: 15px 30px !important;
+	}
+
+	html .form-field-text, .form-field-password {
+	    background-image: -webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#fff));
+            background-image: -moz-linear-gradient(top,#f8f8f8,#fff);
+    	    cursor: text;
+    	    display: block;
+    	    font: 18px/24px helvetica neue,helvetica,arial;
+    	    margin: 15px 0;
+    	    padding: 5px 10px;
+    	    position: relative;
+    	    width: 95%;
+    	    z-index: 1;
+	}
+
+	html .form-field-submit[type="submit"] {
+	    background: #004e9e;
+    	    background: -webkit-gradient(linear, left top, left bottom, from(#0079be), to(#004e9e));
+    	    background: -moz-linear-gradient(top, #0079be, #004e9e);
+	    border: medium none;
+    	    border-radius: 5px 5px 5px 5px;
+    	    color: #FFFFFF;
+    	    display: inline-block;
+    	    font: 18px/38px helvetica neue,helvetica,arial;
+    	    height: 40px;
+    	    opacity: 0.9;
+    	    padding: 0 20px;
+	    margin: 0 0 10px;
+	    cursor: pointer;
+    	    position: relative;
+    	    text-decoration: none;
+    	    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+	}
+
+	html .form-field-submit[type="submit"]:hover, .form-field-submit:hover, .form-field-submit:focus, .form-field-submit:active {
+	    opacity: 1;
+	}
+
+	html .form-field-align-right {
+	    float: right;
+	}
+
+	html .form-field-submit .form-field-align-right {
+	    margin: 15px 0;
+	}
+
+    </style>
+</head>
+<body>
+    <div id="form-body">
+	<div id="form-content">
+	<!--    <style>
+	    	html .form-signin-logo { background:url(/barracuda-660.png) center center no-repeat !important;}
+	    </style>
+	-->
+	    <div class="form-signin-logo">
+	    </div>
+	    <table class="form-signin-outer">
+		<tr>
+		    <td class="form-signin-wrapper">
+			<div class="form-signin">
+			    <h2 class="form-page-title">Authentication and Access Control</h2>
+			    <div id="form-page-content" class="form-page-content">
+				<form id="form-login-page" action="/nclogin.submit" method="POST">
+				    <div id="form-page-fields">
+					Please provide your username and password to access restricted applications.
+					<input type="text" name="f_username" id="username_entry" value=""  class="form-field-text" placeholder="Username" autocomplete="off">
+					<input type="password" name="f_passwd" id="password_entry" value="" class="form-field-password" placeholder="Password" autocomplete="off">
+					<input type="hidden" name="f_method" id="method_entry" value="LOGIN" class="form-field-text" placeholder="Method" autocomplete="off">
+					<input id="Submit" class="form-field-submit form-field-align-right" type="submit" value="Sign in" name="Submit">
+				    </div>
+				</form>
+			    </div>
+			</div>
+		    </td>
+		</tr>
+	    </table>
+	</div>
+    </div>
+</body>
+</html>

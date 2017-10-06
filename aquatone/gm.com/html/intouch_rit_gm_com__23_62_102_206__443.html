@@ -1,0 +1,434 @@
+
+
+
+<html>
+	<!--default-->
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    <head>
+        <title>GlobalConnect Logon</title>
+
+            
+
+            <link rel="stylesheet" href="/usmentosso/css/usmstyles.css" type="text/css" />
+            <script language="JavaScript" src="/usmentosso/js/browserVersion.js"></script>
+            <script language="JavaScript" src="/usmentosso/js/auth.js"></script>
+            <script language="JavaScript" src="/usmentosso/js/usmauth.js"></script>
+
+            <script language="JavaScript">
+                
+                    var defaultBtn = 'Submit';
+                    var elmCount = 0;
+
+                    /** submit form with default command button */
+                    function defaultSubmit() {
+                        LoginSubmit(defaultBtn);
+                    }
+
+                    /**
+                     * submit form with given button value
+                     *
+                     * @param value of button
+                     */
+                    function LoginSubmit(value) {
+                        var LoginValue=document.frm1.IDToken1.value;
+                        var PassValue=document.frm2.IDToken2.value;
+                        if(LoginValue == 0 & PassValue == 0 )  {
+                                document.getElementById('errorID1').innerHTML='GC_WPS_0003 : Security Details Incomplete. Please Try Again.';
+                        } else if(LoginValue == 0 || PassValue == 0 )  {
+                            if(LoginValue == 0 ) {
+                                    document.getElementById('errorID1').innerHTML='GC_WPS_0001 : Userid Must Be Completed. Please Try Again.';
+                            } else {
+                                    document.getElementById('errorID1').innerHTML='GC_WPS_0002 : Password Must Be Completed. Please Try Again.';
+                            }
+                        } else {
+                            aggSubmit();
+                            var hiddenFrm = document.forms['Login'];
+                            hiddenFrm.elements
+                            if (hiddenFrm != null) {
+                                hiddenFrm.elements['IDButton'].value = value;
+                                if (this.submitted) {
+                                }
+                                else {
+                                        check();
+                                this.submitted = true;
+                                        hiddenFrm.submit();
+                                }
+                            }
+                        }
+                    }
+
+                    //onload script changes  *** starts ***
+                    var expDate=new Date();
+                    expDate.setTime (expDate.getTime() + 24 * 60 * 60 * 365 * 1000);
+
+                    function loadyear() {
+                        var currdate = new Date();
+                        var curryear = currdate.getFullYear();
+                        var bversion = getInternetExplorerVersion();
+                        if(bversion != -1) {
+                                document.getElementById("cpyear").innerHTML= curryear;
+                        } else {
+                                document.getElementById("cpyear").innerHTML= "";
+                        }
+
+                    }
+
+                    function check() {
+                        var referrerURL = 'https://intouch.rit.gm.com:443/';
+                        if(getCookie("dmsUser") != null) {
+                            setCookie("dmsUser",getCookie("dmsUser"),null,"/");
+                        }
+
+                        if(document.URL.substr(0,5)=="https") {
+                            setCookie("accesstype", 2 , expDate, "/", null, true);
+                            setCookie("refererurl", 'https://intouch.rit.gm.com:443/' , expDate, "/", null, true);
+                        } else {
+                            setCookie("accesstype", 1 , expDate, "/");
+                        }
+                        
+                        if (window != top) top.location.href = parent.document.location;
+                        //	replacemsg();
+                        //var referrerURL = gotoval;
+                        if(getCookie("dmsvepcookie") != null && referrerURL!=null && referrerURL.toLowerCase().indexOf("ohpjn")!=-1) {
+                            setCookie("dmsvepcookie", getCookie("dmsvepcookie") , null, "/");
+                            setCookie("vepdmsurl", 'https://intouch.rit.gm.com:443/' , expDate, "/");
+                        }
+                        
+                        if(getCookie("dmswebpgcookie") != null && referrerURL!=null && referrerURL.toLowerCase().indexOf("ohpjn")!=-1) {
+                            setCookie("dmswebpgcookie", getCookie("dmswebpgcookie"), null, "/");
+                            setCookie("webpgdmsurl", 'https://intouch.rit.gm.com:443/' , expDate, "/");
+                        }
+                        
+                        if(getCookie("dmswebpgcookie") != null && referrerURL!=null && referrerURL.toLowerCase().indexOf("webpgjn")!=-1) {
+                            setCookie("dmswebpgcookie", getCookie("dmswebpgcookie"), null, "/");
+                            setCookie("webpgdmsurl", 'https://intouch.rit.gm.com:443/' , expDate, "/");
+                        }
+                        
+                        if(referrerURL!=null && referrerURL.toLowerCase().indexOf("epcjn/weblogic/sporef/verifyaccepc")!=-1) {
+                            setCookie("dmsepccookie", "true" , null, "/");
+                            setCookie("epcdmsurl", 'https://intouch.rit.gm.com:443/' , expDate, "/");
+                        }
+                    }
+
+
+                    function browCheck(){
+                        var bver = getInternetExplorerVersion();
+                        //var bdi = document.getElementById('brow');
+                        allDocForms = document.getElementsByTagName("input");
+                        //allFormNames = document.getElementsByTagName("form");
+                        var buttonSubmit;
+                        //var linkForgotPass;
+
+                        //var loginValue = 'LogIn';
+                        var loginValue = 'LOG IN'
+                        if (allDocForms) {
+                            for (i=0;i<allDocForms.length;i++) {
+                                if(allDocForms[i].name=='Login.Submit') {
+                                    buttonSubmit = allDocForms[i];
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (buttonSubmit) {
+                            if( bver==-1) {
+                                var isStringsEquals = false;
+                                if (buttonSubmit.value.trim().length == loginValue.trim().length) {
+                                    isStringsEquals = true;	
+                                    if (buttonSubmit.value.trim() != loginValue.trim()) {
+                                        isStringsEquals = false;
+                                    }
+                                }
+								
+								// added to show all the components hidden below	4/25/2016
+								isStringsEquals = false; 
+                                if (isStringsEquals) {
+                                    document.getElementById("fp").style.visibility = 'hidden';
+                                    document.getElementById("wc").style.visibility = 'hidden';
+                                    document.getElementById("usage1").style.visibility = 'hidden';
+                                    document.getElementById("usage2").style.visibility = 'hidden';
+                                    document.getElementById("tou").style.visibility = 'hidden';
+                                    //document.getElementById("cpyear").style.visibility = 'hidden';
+
+                                    buttonSubmit.value='Non IE browser detected. Please use the return/enter/go key from the keyboard to Login. Thanks.';
+                                    buttonSubmit.disabled = true;
+                                    return;
+                                }
+								
+                            }
+                        }
+                    }
+                    //onload script changes *** ends ***
+							
+                    function forgotpassword () {
+                        var LoginValue=document.frm1.IDToken1.value;
+                        if(LoginValue == 0) {
+                            document.getElementById('errorID1').innerHTML='GC_WPS_0001 : Userid Must Be Completed. Please Try Again.';
+                        } else {
+                            document.forgotpassword.username.value=LoginValue;
+                            document.forgotpassword.submit(); 
+                        }
+                    } 
+                
+            </script>
+            <script type="text/javascript"><!--// Empty script so IE5.0 Windows will draw table and button borders
+                //-->
+            </script>
+        </head>
+
+        <body BGCOLOR="#FFFFFF" TEXT="#000000" marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 style="margin:0; padding:0" onload="placeCursorOnFirstElm();loadyear();loadTopWindow();breakout();">
+            <table style='font-size:0;left:0;top:0;background-color:#e5eaf7;width:776px;height:516px;margin:0; padding:0' border="0" cellpadding="0" cellspacing="0">
+                <tr valign=top>
+                    <td height=30 valign="TOP">
+                        <div style='height:68px;width:786px;font-size:0;background-color:#9ea8c1'>
+                            <img src="/usmentosso/images/gm_logo.gif" border="0" style='top:10;left:11;position:absolute;'>
+                        </div>
+                        <div style='height:12px;width:776px;background-color:#e5eaf7'>&nbsp;</div>
+                        <table>
+                            <tr>
+                                <td width=10>&nbsp;</td>
+                                <td>
+                                    <div id="wc" style='color:#333333;font-family:Arial;font-size:16px;font-weight:600;'> Welcome to General Motors</div>
+                                    <hr align=left style='width:772px'/>
+                                    <div id="usage1" style='color:#333333;font-family:Arial;font-size:10px;font-weight:400;height:30px;width:700px'>Please enter your User Name and Password and click on the LOG IN button. If you have forgotten your password or need a password reset, please enter your User Name and click on "Forgot password?" link below.
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width=10>&nbsp;</td>
+                                <td>
+                                    <table width=342px height=80px style='font-size:0;background-color:#ffffff'>
+                                        <tr>
+							<td colspan=2>
+                                                <div style="FONT-WEIGHT: 400; FONT-SIZE: 10px; COLOR: red; FONT-FAMILY: Arial; TEXT-ALIGN: left">
+                                                        <label id="errorID1">
+
+                                                        </label>	
+                                                </div>
+                                        </td>
+					</tr>
+                                     <tr>
+                                            <!-- display authentication scheme -->
+                                            
+                                                
+                                                <script language="javascript">
+                                                    elmCount++;
+                                                </script>
+                                                
+                                                
+
+                                                
+                                                <!-- end of tiledCallbacks -->
+                                            
+                                                <script language="javascript">
+                                                    elmCount++;
+                                                </script>
+                                                
+                                                    <!-- text box display -->
+                                                    <td>
+                                                        <table>
+                                                            <form name="frm1" action="blank" onSubmit="defaultSubmit(); return false;" method="post">
+                                                                <tr>
+                                                                    <td width=4>&nbsp;</td>
+                                                                    <td nowrap="nowrap">
+                                                                        <div style='color:#333333;font-family:Arial;font-size:12px;font-weight:600;text-align:Left;'>
+                                                                            <label for="IDToken1">
+                                                                                
+                                                                                Username
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width=4>&nbsp;</td>
+                                                                    <td>
+                                                                        <input size="20" type="text" name="IDToken1" id="IDToken1" value="">
+                                                                    </td>
+                                                                </tr>
+                                                            </form>
+                                                        </table>
+                                                    </td>
+                                                    <!-- end of textBox -->
+                                                
+                                                
+
+                                                
+                                                <!-- end of tiledCallbacks -->
+                                            
+                                                <script language="javascript">
+                                                    elmCount++;
+                                                </script>
+                                                
+                                                
+                                                    <!-- password display -->
+                                                    <td>
+                                                        <table>
+                                                            <form name="frm2" action="blank" onSubmit="defaultSubmit(); return false;" method="post">
+                                                                <tr>
+                                                                    <td width=4>&nbsp;</td>
+                                                                    <td nowrap="nowrap">
+                                                                        <div style='color:#333333;font-family:Arial;font-size:12px;font-weight:600;text-align:Left;'>
+                                                                            <label for="IDToken2">
+                                                                                Password
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width=4>&nbsp;</td>
+                                                                    <td>
+                                                                        <input size="20" type="password" autocomplete="off" name="IDToken2"id="IDToken2" value="">
+                                                                    </td>
+                                                                </tr>
+                                                            </form>
+                                                        </table>
+                                                    </td>
+                                                    <!-- end of password -->
+                                                
+
+                                                
+                                                <!-- end of tiledCallbacks -->
+                                            
+                                            <!-- end of validContent -->
+                                        
+                                        <tr>
+                                            <td> &nbsp; </td>
+                                            <td>
+                                                <table>
+                                                  <form name="forgotpassword" action="/webservicejn/gmewebservice/ForgotPasswordServlet">
+						    <tr>
+                                                        <input type='hidden' id='username' name='username' value=''/>
+                                                        <input type='hidden' id='preferredlanguage' name='preferredlanguage' value='en_US'/>
+                                                        <td width=4>&nbsp;</td>
+                                                        <td>
+                                                            <a id="fp" class="forgotpassword"  href="javascript:forgotpassword()">
+                                                                Forgot Password?
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                  </form>	
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=2 style="padding-left:10px; padding-right:10px;"><hr/></td>
+                                        </tr>
+                                        
+
+                                        
+
+                                        
+
+                                        
+                                            <!-- Submit button -->
+
+                                            
+
+                                
+                                    <tr>
+                                        <td ><img src="/usmentosso/images/dot.gif"
+                                                  width="1" height="10" alt="" /></td>
+                                    <script language="javascript">
+                                        markupVSPButton(
+                                        'LOG IN',
+                                        "javascript:LoginSubmit('LOG IN')");
+                                    </script>
+                                    <td> &nbsp; </td>
+                        </tr>
+                        <!-- end of hasNoButton -->
+                    
+
+                    <!-- end of ContentButtonLogin -->
+                
+                <tr>
+                    <td><img src="/usmentosso/images/dot.gif"
+                             width="1" height="5" alt="" /></td>
+                </tr>
+                <tr>
+                    <td><img src="/usmentosso/images/dot.gif"
+                             width="1" height="5" alt="" /></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=bottom>
+<table >
+<tr valign=bottom height=5>
+<td width=10>&nbsp;</td>
+<td valign=bottom>
+<div id="usage3" style='color:#333333;font-family:Arial;font-size:10px;font-weight:400;height:10px;width:700px'>For other ID or password assistance, please contact your Outlet Administrator. If you are an Outlet Administrator, please contact your NSC.</div><br>
+<div id="usage4" style='color:#333333;font-family:Arial;font-size:10px;font-weight:400;height:30px;width:700px'>If none of the above mentioned works, please send an email to the DAC from the email address that is populated in your GC profile.</div><br>
+<div id="usage5" style='color:#333333;font-family:Arial;font-size:10px;font-weight:400;height:50px;width:700px'>For Further assistance contact the
+                                        <a id="usage6" class="usagelink"  href='/usmentosso/html/HelpDesk.html'>
+                                            DAC
+                                        </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign=bottom>
+    <td valign="BOTTOM" height=16>
+        <div style='font-size:0;background-color:#cbd1e8;width:786px;height:16px;'>
+            <table>
+                <tr>
+                    <td width=180 align=left>
+                        <a id="tou" class="usageterms"  href='/usmentosso/html/TermsOfUse.html'>
+                            Terms of Use
+                        </a>
+                    </td>
+                    <td align=right valign="MIDDLE" width=340>
+                        <div style='color:#333333;font-family:Arial;font-size:9px;font-weight:400;text-decoration:None'>
+						&copy;
+							<label id="cpyear"></label>
+							<span style="padding-left:3px"></span>
+						General Motors. All Rights Reserved.
+						</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </td>
+</tr>
+
+
+    <form   name="Login"  action="/usmentosso/UI/Login?usmgmAMAuth=AQIC5wM2LY4Sfcygii%2FmsIG63GVnZjesPW8GJ9ehfY4fyBo%3D%40AAJTSQACMDQAAlMxAAIwMQ%3D%3D%23"  method="post">
+
+        <script language="javascript">
+            if (elmCount != null) {
+                for (var i = 0; i < elmCount; i++) {
+                    document.write(
+                    "<input name=\"IDToken" + i + "\" type=\"hidden\">");
+                }
+                document.write("<input name=\"IDButton"  + "\" type=\"hidden\">");
+            }
+        </script>
+        <input type="hidden" name="goto" value="aHR0cHM6Ly9pbnRvdWNoLnJpdC5nbS5jb206NDQzL3BvcnRhbGpuL2dtZXBvcnRhbC9sb2dpbi5kbw==">
+        <input type="hidden" name="encoded" value="true">
+
+    <input type="hidden" name="gx_charset" value="UTF-8"></form>
+
+</table>
+</body>
+
+
+<script language='javascript'>
+browCheck();
+</script>
+
+</html>

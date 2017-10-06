@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!--git version -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Office@Hand Meetings</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+		<meta name="keywords" content="RingCentral Meetings">
+		<meta name="description" content="RingCentral Meetings">
+		<link href="./images/att/favicon.ico" type="image/vnd.microsoft.icon" rel="shortcut icon">
+		<link href="./images/att/favicon.ico" type="image/vnd.microsoft.icon" rel="icon">
+		<link rel="canonical" href="https://meetings-officeathand.att.ringcentral.com/join" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/att-wrapper.css" />
+		<script src="./js/inc/s_code.js"></script>
+		<script src="js/libs/modernizr.custom.js" type="text/javascript"></script>
+		<style>
+			.rc-main {
+				margin:0;
+			}
+			.rc-content {
+				font-size:16px
+			} 
+			.rc-content label{font-size: 1.1em !important;}
+			.video_meeting_div { 
+				padding: 31px 36px;
+			}
+			.video_meeting_div input {
+				border: 1px solid #e3e3e3;
+				border-radius: 6px;
+				width: 254px;
+				padding: 11px 3px;
+				position: relative;
+				margin-left:0;
+				margin-right:11px;
+			}
+			.video_meeting_div button {height:38px;line-height:38px;border-radius:38px;padding-left:30px;padding-right:36px;color:#FFF;font-size:14px;font-weight:normal;
+									   border:none;
+									   background:url(images/att/att_arr.gif) no-repeat right center #073f5c;)
+			}
+			.video_meeting_span {font-size:12px; color: #969caf}
+			.rc-main.frameLoaded .meetingFormBlock
+			{
+				display: none;
+			}
+			.rc-main.frameLoading .zoomFrameSpinner
+			{
+				display: block;
+			}
+			.rc-main.frameLoaded .zoomFrameSpinner
+			{
+				display: none;
+			}
+			.rc-main{position:relative;}
+			.zoomFrameSpinner
+			{
+				position: absolute;
+				display: none;
+				background: url("images/att/loader_yellow.gif") no-repeat scroll center center transparent;
+				width: 32px;left:50%;margin-left:-16px;top:50px;
+				height: 300px;
+				overflow: hidden;
+				margin: 0;
+				border: 0 none;
+			}
+			.rc-main.frameLoaded .zoomFrameBlock
+			{
+				display: block;
+			}
+			.zoomFrameBlock
+			{
+				display: none;
+				width: 100%;
+				height: 493px;
+				overflow: hidden;
+				border: 0 none;
+			}
+			.zoomFrameBlock iframe
+			{
+				display: block;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				border: none!important;
+			}
+
+			.meetingFormBlock{background:url(images/att/join_bg.jpg) no-repeat right top #fcfcfc;border:1px solid #e0e2e4;border-radius:5px;height:230px;margin-top:39px;margin-bottom:51px;}
+
+			.inputs_block{padding-top:22px;}
+			.text_block{border-top: 1px solid #E2E2E2;margin-top: 36px;padding-top: 23px;width: 432px;}
+		</style>
+		<script src="js/jquery/jquery-1.8.3.min.js"></script>
+	</head>
+	<body class="page_8261 ">
+		<div class="wrapp">
+			<div class="rc-wrapper">
+				<header class="att-header">
+                    <div class="logo">
+                        <a href="https://meetings-officeathand.att.com/"></a>
+                    </div>
+                    <div class="topTitle"></div>
+                </header>
+				<div class="rc-content">
+					<aside class="rc-sidebar" role="complementary">
+					</aside>
+					<div class="rc-main" role="main">
+						<div class="zoomFrameSpinner"></div>
+						<div id="tempMeetingForm" class="meetingFormBlock">
+							<div class="video_meeting_div">
+								<form>
+									<label>Video Meeting ID: </label>
+									<div class="inputs_block">
+										<input maxlength="12" id="tempInput" type="text" />
+										<button id="tempMeetingButton" class="meetingButton">Join Meeting</button>
+									</div>
+									<div class="text_block">
+										<p>What is a Video Meeting ID?</p>
+										<span class='video_meeting_span'>Your Meeting ID is a 10 digit number.</span>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div id="tempFrameBlock" class="zoomFrameBlock"></div>
+						<div style="display: none"><image src="images/att/loader_yellow.gif"></div>
+						<script>
+							(function($) {
+								if (!jQuery().caret) {
+									$.fn.caret = function(pos) {
+										var target = this[0];
+										var isContentEditable = target && target.contentEditable === 'true';
+										if (arguments.length == 0) {
+											//get
+											if (target) {
+												//HTML5
+												if (window.getSelection) {
+													//contenteditable
+													if (isContentEditable) {
+														target.focus();
+														var range1 = window.getSelection().getRangeAt(0),
+															range2 = range1.cloneRange();
+														range2.selectNodeContents(target);
+														range2.setEnd(range1.endContainer,
+															range1.endOffset);
+														return range2.toString().length;
+													}
+													//textarea
+													return target.selectionStart;
+												}
+												//IE<9
+												if (document.selection) {
+													target.focus();
+													//contenteditable
+													if (isContentEditable) {
+														var range1 = document.selection.createRange(),
+															range2 = document.body.createTextRange();
+														range2.moveToElementText(target);
+														range2.setEndPoint('EndToEnd', range1);
+														return range2.text.length;
+													}
+													//textarea
+													var pos = 0,
+														range = target.createTextRange(),
+														range2 = document.selection.createRange().
+														duplicate(),
+														bookmark = range2.getBookmark();
+													range.moveToBookmark(bookmark);
+													while (range.moveStart('character', - 1) !== 0)
+														pos++;
+													return pos;
+												}
+												// Addition for jsdom support
+												if (target.selectionStart)
+													return target.selectionStart;
+											}
+											//not supported
+											return;
+										}
+										//set
+										if (target) {
+											if (pos == -1)
+												pos = this[isContentEditable ? 'text' : 'val']().length;
+											//HTML5
+											if (window.getSelection) {
+												//contenteditable
+												if (isContentEditable) {
+													target.focus();
+													window.getSelection().collapse(target.firstChild, pos);
+												}
+												//textarea
+												else
+													target.setSelectionRange(pos, pos);
+											}
+											//IE<9
+											else if (document.body.createTextRange) {
+												if (isContentEditable) {
+													var range = document.body.createTextRange();
+													range.moveToElementText(target);
+													range.moveStart('character', pos);
+													range.collapse(true);
+													range.select();
+												} else {
+													var range = target.createTextRange();
+													range.move('character', pos);
+													range.select();
+												}
+											}
+											if (!isContentEditable)
+												target.focus();
+										}
+										return this;
+									}
+								}
+							})(jQuery);
+
+							(function() {
+								var id;
+								function isAppleOsFrom9() {
+									var matches = navigator.userAgent.match(/(iPhone|iPad|iPod).* OS (\d+)_\d/);
+									if (null == matches) {
+										return false;
+									}
+
+									if (8 < matches[2]) {//ios 9, 10 and so on
+										return true;
+									}
+
+									return false;
+								}
+								
+								function loadFrame(id, pwd)
+								{
+									var url = '//ringcentral-officeathand-att.zoom.us/j/v2/' + id;
+									if (null != pwd) {
+										url += '?pwd=' + pwd;
+									}
+
+									if (isAppleOsFrom9()) {
+										window.location = url;
+										return;
+									}
+									var html = '<iframe onload="$(\'.rc-main:first\').removeClass(\'frameLoading\');" width="100%" height="493px" marginwidth="0" marginheight="0" src="' + url + '" frameborder="0"></iframe>';
+									var frameBlock = document.getElementById('tempFrameBlock');
+									var $contentBlock = $('.rc-main:first');
+									$contentBlock.addClass('frameLoading');
+									document.getElementById('tempMeetingForm').style.display = 'none';
+									frameBlock.innerHTML = html;
+									frameBlock.style.display = 'block';
+								}
+								var query = location.search;
+								var regex = /[\&\?]{1}mid\=(\d+)/;
+								var matches = regex.exec(query);
+								if (null != matches) {
+									var id = matches[1];
+									var pwd = null;
+									regex = /[\&\?]{1}pwd\=([^&]+)/;
+									matches = regex.exec(query);
+									if (null != matches) {
+										pwd = matches[1];
+									}
+									loadFrame(id, pwd);
+								}
+
+								function formatId(digits)
+								{
+									var result = '';
+									for (var i = 0; i < digits.length; i++) {
+										result += digits[i];
+										if (
+											2 == i
+											|| 5 == i
+											) {
+											result += ' ';
+										}
+									}
+									return result;
+								}
+								//set handlers
+								var previousLength = 0;
+								var previousValue = '';
+								var previousPosition = 0;
+								$('#tempInput').on('input', function() {
+									var that = this;
+									var value = $(that).val();
+									var digits = value.replace(/\D/g, '');
+									var position = $(that).caret();
+									var currentLength = value.length;
+									var allowedValue = value.replace(/[^ \d]/g, '');
+
+									if (currentLength != allowedValue.length) {
+										$(that).val(previousValue);
+										$(that).caret(previousPosition);
+										return;
+									}
+
+									if (4 == position || 8 == position) {
+										if (currentLength <= previousLength) {
+											if (' ' == value[position - 1]) {
+												value = value.substr(0, position - 1) + ' ' + value.substr(position);
+												$(that).val(value);
+												$(that).caret(position - 1);
+											}
+										} else {
+											value = formatId(digits);
+											$(that).val(value);
+											$(that).caret(position + 1);
+										}
+									}
+									previousLength = currentLength;
+									previousValue = value;
+									previousPosition = $(that).caret();
+								});
+								$('#tempMeetingButton').on('click', function() {
+									var value = $('#tempInput').val();
+									var id = value.replace(/\D/g, '') + '';
+									if (10 != id.length) {
+										alert('Your Meeting ID should be a 10 digit number.');
+										return false;
+									}
+									loadFrame(id);
+									return false;
+								});
+							})();
+						</script>
+						<div style="display: none" class="copy1"></div>
+					</div>
+				</div>
+				<footer class="att-footer brands">
+                    <div class="brandLogo clearfix">
+                        <p class="leftLogo"></p>
+                        <p class="rightLogo"></p>
+                    </div>
+					<p class="first">By subscribing to and/or using RingCentral Office@Hand from AT&amp;T,
+						you acknowledge agreement to AT&amp;T’s
+						<a class="blLink" href="http://www.att.com/officeathandpolicy" target="_blank">Terms Of Service</a>
+						and RingCentral’s
+						<a class="blLink" href="http://support-officeathand.att.com/eula" target="_blank">End User License Agreement</a>.</p>
+					<p>&copy; 2015 - <span class="updateWithServerYear">2016</span> AT&amp;T Intellectual Property. All Rights Reserved.</p>
+					<p>AT&amp;T and the AT&amp;T logo are trademarks of AT&amp;T Intellectual Property.</p>
+					<p>Box, Dropbox, Google Drive, Microsoft, Salesforce are trademarks of Box, Dropbox, Google Drive, Microsoft, Salesforce.com respectively and are used with permission.</p>
+					<p>All other marks, logos, designs and otherwise are the trademarks and intellectual property of RingCentral, Inc.</p> 
+				</footer>
+			</div></div>
+		<script>
+			//update year
+			(function() {
+				function getServerDate()
+				{
+					var xmlHttp;
+					try {
+						//FF, Opera, Safari, Chrome
+						xmlHttp = new XMLHttpRequest();
+					}
+					catch (err1) {
+						//IE
+						try {
+							xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
+						}
+						catch (err2) {
+							try {
+								xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+							}
+							catch (eerr3) {
+								//AJAX not supported, use client time
+								return new Date();
+							}
+						}
+					}
+					xmlHttp.open('HEAD', window.location.href.toString(), false);
+					xmlHttp.setRequestHeader('Content-Type', 'text/html');
+					xmlHttp.send('');
+					return new Date(xmlHttp.getResponseHeader('Date'));
+				}
+
+				function updateWithServerYear()
+				{
+					var year = new Date(getServerDate()).getFullYear();
+					if (2016 > year) {
+						year = 2016;
+					}
+					$('.updateWithServerYear').html(year);
+				}
+				updateWithServerYear();
+			})();
+		</script>
+
+		<!-- BEGIN omniture code -->
+		<!-- SiteCatalyst code version: H.27.4.
+		Copyright 1996-2015 Adobe, Inc. All Rights Reserved
+		More info available at http://www.omniture.com -->
+		<script><!--
+		/* You may give each page an identifying name, server, and channel on
+		 the next lines. */
+			var FireThirdPartyTags = /(^|; )gw_forcetags=(.*?)(;|$)/i.exec(
+				document.cookie) || ('meetings-officeathand.att.com' == window.location.hostname);
+			if ((typeof (FireThirdPartyTags) != "undefined") && FireThirdPartyTags) {
+				s.pageName = window.location.protocol + '//' + window.location.host + window.location.pathname;
+				s.server = ""
+				s.channel = "Meetings";
+				s.pageType = ""
+				s.prop1 = ""
+				s.prop2 = ""
+				s.prop3 = ""
+				s.prop4 = ""
+				s.prop5 = "";
+				try {
+					if (document.querySelector("link[rel='canonical']").getAttribute("href").substr(-8) === '404.html') {
+						s.pageType = "errorPage";
+					}
+				} catch (e) {
+				}
+				/* Conversion Variables */
+				s.campaign = ""
+				s.state = ""
+				s.zip = ""
+				s.events = ""
+				s.products = ""
+				s.purchaseID = ""
+				s.eVar1 = ""
+				s.eVar2 = ""
+				s.eVar3 = ""
+				s.eVar4 = ""
+				s.eVar5 = ""
+				/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+				var s_code = s.t();
+				if (s_code)
+					document.write(s_code)//-->
+			}
+		</script>
+		<script><!--
+				if (navigator.appVersion.indexOf('MSIE') >= 0)
+				document.write(unescape('%3C') + '\!-' + '-')
+//--></script><noscript><img src="http://ringcentral.112.2o7.net/b/ss/rc-3/1/H.27.4--NS/0?[AQB]&cdp=3&[AQE]"
+								height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+		<!-- End SiteCatalyst code version: H.27.4. -->
+		<!-- END omniture code -->
+	</body>
+</html>

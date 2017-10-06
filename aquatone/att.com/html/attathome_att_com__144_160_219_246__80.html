@@ -1,0 +1,325 @@
+
+
+
+
+<html>
+<head>
+<title>AT&#38;T - Employee At Home Sign In</title>
+
+<!-- 
+***********************************************************************************************
+*  Name        : Employee At Home  - Sign In Page
+*
+*  Location    : 
+*
+*  Author      : 
+*
+*  Purpose     : Login into Employee At Home Web Site  -
+*
+*  Execution   :   url  on local host , e.g.  http://localhost.sbc.com:9080/SiteUtil/layoutServlet?applinkid=16,367&bcrmlist=211,1&disphelp=1&dispmyacct=1&dispofrcde=1&dispsurftxt=1&eshtype=1&lnavtyp=2&transformId=101
+*
+*  Modification History:
+*
+*  mm/dd/yyyy - attuid
+*               WR 6011151  - CR XX - 
+*  xx/xx/xxxx - Created. 
+**************************************************************************************************
+-->
+	
+<!-- <BASE HREF="https://swot.sbc.com/swot/"></BASE> -->
+<!--site-util:html-head-->
+<!-- GTM SiteUtil String -->
+
+
+
+
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+
+<SCRIPT LANGUAGE="Javascript" SRC="/rfsoedocs/athome/browserSniffer.js" TYPE="text/javascript"></SCRIPT>
+	
+<!-- MANDATORY CSS FILES -->
+<link href="/rfsoedocs/athome/style/global.css" rel="stylesheet" type="text/css">
+
+<link href="/rfsoedocs/athome/style/sbc_old_winie.css" rel="stylesheet" type="text/css">
+
+
+<!-- OPTIONAL CSS FILES -->
+
+<!-- insert column CSS 
+<link href="/Common/att_rev1/css/three_column.css" rel="stylesheet" type="text/css">  -->
+<link href="/rfsoedocs/athome/style/two_column.css" rel="stylesheet" type="text/css">
+
+<!-- insert page type CSS  -->
+<!-- <link href="/Common/att_rev1/css/residential.css" rel="stylesheet" type="text/css"> -->
+<link href="/rfsoedocs/athome/style/athome.css" rel="stylesheet" type="text/css">  
+
+	<style type="text/css">
+	#header { width: 750px; }
+	#pageContentShell { width: 750px; }
+	</style>
+
+<SCRIPT LANGUAGE="Javascript" TYPE="text/javascript">
+	if (is_win) {
+		if (is_ie) {
+			document.write("<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_winie.css'>");
+		} else if (is_nav) {
+			document.write("<link rel='stylesheet'; type='text/css' href='/rfsoedocs/athome/style/swot_winnav.css'>");
+		} else {
+		document.write("<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_winie.css'>");
+		}
+	} else if (is_mac) {
+		if (is_ie) {
+			document.write("<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_macie.css'>");
+		} else if (is_nav || is_safari) {
+			document.write("<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_macnav.css'>");
+		} else {
+			document.write("<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_macie.css'>");
+		}
+	} else {
+		document.write("<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_winie.css'>");
+	}
+</SCRIPT>
+<SCRIPT language="javascript">
+	function validate() {
+    	var userTypeSelected = false;
+    	for (var i=loginForm.userType.length-1; i > -1; i--) {
+        	if (loginForm.userType[i].checked) 
+				userTypeSelected = true;
+    	}
+    	var telcoBilledSelected = false;
+    	for (var i=loginForm.telcoBilled.length-1; i > -1; i--) {
+        	if (loginForm.telcoBilled[i].checked) 
+				telcoBilledSelected = true;
+    	}
+		if(!userTypeSelected){
+			alert("Missing input!\nPlease indicate if you are a retiree or an employee.");
+			return false;
+		} else if(!telcoBilledSelected){
+			alert("Missing input!\nPlease indicate if you have AT&T local phone service at home.");
+			return false;
+		} else{
+			return true;
+		}
+	}
+  
+</SCRIPT>
+<link rel='stylesheet' type='text/css' href='/rfsoedocs/athome/style/swot_winie.css'>
+</head>
+
+<body>
+
+<!-- html-body-top-->
+<div id="pageAlignWrapper">
+
+<div id="header">
+<div id="logo">
+  
+
+<a href="#content"><img src="/rfsoedocs/athome/images/spacer.gif" width="1" height="1" border="0" alt="Jump to content."></a><a href="http://www.att.com"><img src="/rfsoedocs/athome/images/att_header_logo.gif" alt="AT&amp;T"  height="75" border="0"></a>
+</div>
+<TABLE id="headerLinks" cellpadding="0" cellspacing="0">
+	<TR>
+		<TD>&nbsp;</TD>
+	</TR>
+	<TR>
+		<TD></TD>
+	</TR>
+</TABLE>
+</div>
+
+<TABLE id="pageContentShell" cellpadding="0" cellspacing="0">
+	<TR>
+		<TD id="leftNav">
+		<div id="primaryNav" style="width:147px" ></div>
+		<!-- BEGIN: left nav column -->
+
+			<!-- BEGIN: primary navigation 
+			
+			<div class="button"id="highlight"><a href="index.htm">Home</a></div>
+			<div class="leftnavHorizDivider"><img src="/Common/att_rev1/images/spacer.gif" width="1" height="4" border="0" alt=""></div>
+			<div class="button"><a href="http://www.att.com/gen/landing-pages?pid=3311">Program Summary</a></div>
+			<div class="leftnavHorizDivider"><img src="/Common/att_rev1/images/spacer.gif" width="1" height="4" border="0" alt=""></div>
+			<div class="button"><a href="http://www.business.att.com/?segment=ent_biz">Product Catalog</a></div>
+			<div class="leftnavHorizDivider"><img src="/Common/att_rev1/images/spacer.gif" width="1" height="4" border="0" alt=""></div>
+			<div class="button"><a href="http://www.att.com/gen/landing-pages?pid=3312">Customer Support</a></div>
+			<div class="leftnavHorizDivider"><img src="/Common/att_rev1/images/spacer.gif" width="1" height="4" border="0" alt=""></div>
+			<div class="button"><a href="http://www.att.com/gen/landing-pages?pid=3309">Helpful Numbers</a></div>
+			<div class="leftnavHorizDivider"><img src="/Common/att_rev1/images/spacer.gif" width="1" height="4" border="0" alt=""></div>
+
+			END: primary navigation -->
+	
+		<!-- END: left nav column -->
+		</TD>
+		
+		<TD id="contentAreaWrapper">
+			<!-- ANCHOR FOR JUMP TO CONTENT LINK IN HEADER -->
+			<a name="content"></a>
+			<div id="breadcrumbVertSpacer" style="width: 584px; height: 5px"><img src="/rfsoedocs/athome/images/shim.gif" width="1" height="5" border="0" alt=""/></div>	
+				
+		<!-- BEGIN: breadcrumb -->
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td>
+						<div id="breadcrumb" style="padding-left: 10px">&nbsp;</div>
+					</td>
+				</tr>
+			</table>			
+		<!-- END: breadcrumb -->
+			
+		<!-- BEGIN: main content area -->	
+			<div id="contentArea" style="padding-left: 2px;padding-right: 5px">
+
+			<table border="0" cellspacing="0" cellpadding="0" >
+				<tr valign="top">
+					<td></td>
+					<td nowrap="y" width="0px">&nbsp;</td>
+					<td width="0%">&nbsp;</td>
+					<td width="100%">
+						<script LANGUAGE="JavaScript">
+							var userAgent = navigator.userAgent.toLowerCase();
+							var browserVersion = parseInt(navigator.appVersion);
+							var isNavigator = (userAgent.indexOf('mozilla')!=-1);  // mozilla or netsacpe
+							var isInternetExplorer = (userAgent.indexOf("msie") != -1);
+							
+							var isNavigator6Up = (isNavigator && (browserVersion >= 5));
+							var isNavigator4Up = (isNavigator && (browserVersion >= 4));
+							var isInternetExplorer4Up  = (isInternetExplorer && (browserVersion >= 4));
+													        
+							function hideErrorLayer()
+							{
+								if(isInternetExplorer4Up||isNavigator6Up) 
+								{						    	
+							    	document.getElementById('errorLayer').style.visibility = "hidden";
+								}
+							  	else if(isNavigator4Up) 
+							  	{
+								  	document.errorLayer.visibility = "hide";
+							  	}
+							}
+						</script>
+							
+						<script language="javascript">
+							if(isInternetExplorer4Up||isNavigator6Up)
+							{
+				 				document.write("<DIV id=\"errorLayer\">");	
+							}
+							else if(isNavigator4Up)
+							{
+								document.write("<LAYER id=errorLayer>");
+							}
+						</script>
+						
+						<script language="javascript">
+							if(isInternetExplorer4Up||isNavigator6Up)
+							{
+								document.write("</DIV>");
+							}
+							else if(isNavigator4Up)
+							{
+								document.write("</LAYER>");
+							}
+						</script>   
+       
+						<table cellspacing="0" cellpadding="0" border="0" width="98%"  >		
+							<tr>
+								<td valign="top" >
+									<br>
+									<table border="0"  cellpadding="2" cellspacing="0" bgcolor="#FF7200" width="100%">
+										<tr>
+											<td height="1" valign="top"><img width="1" src="/rfsoedocs/athome/images/spacer.gif" alt="" height="1"><span class="phead" style="color: #FFFFFF;font-size: 12px">Sign In</span></td>
+										</tr>
+									</table>
+									<!-- <div style="padding-top: 4px; padding-bottom: 4px">  -->
+									<FORM name="loginForm" action="/athome_web/AthomeServlet">
+										<INPUT type="hidden" name="fromFormCd" value="userTypeForm">
+										<INPUT type="hidden" name="action" value="ATHOME_LOGIN">
+									<table cellspacing="0" cellpadding="0" border="0"  bgcolor="#F1F4F4" width="100%" >
+										<tr >
+											<td>
+											
+												<br><br>
+												<span class="DefaultGrayText" style="font-weight: bold;">Are you an employee or retiree?</span><br>
+												<input type="radio" name="userType" value="employee" >Employee &nbsp;&nbsp;<input type="radio" name="userType" value="retiree">&nbsp;Retiree
+											</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td><p><span class="DefaultGrayText" style="font-weight: bold;">Is your current local phone service provided by AT&T?</span><br>
+											<input type="radio" name="telcoBilled" value="Y">Yes &nbsp;&nbsp;<input type="radio" name="telcoBilled" value="N">&nbsp;No</p>			
+											</td>												
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+										</tr>
+									</table>
+									   
+									<table>
+										<tr>
+											<td><br>
+												<table width="100%" border="0">
+													<tr >
+														<td align="right"><A href="javascript:document.loginForm.submit();"><img  src="/rfsoedocs/athome/images/btn_continue_on.gif" border="0"></A></td>
+													</tr>
+												</table>
+												<hr color="#DBDEE4" size="1">
+											</td>
+										</tr>
+										<tr>
+											<td>	
+												<span class="phead" style="font-size:15px;color:#FF0000"><b><u>IMPORTANT</u></b>:  As a result of the recent Internet repricing notifications, the Employee and Retiree Sales and Service center is experiencing long wait times for calls.  Please submit your requests for internet speed changes via this site as directed in the notification.</span><br/><br/>
+												<span class="phead" style="font-size:15px;color:#FF0000">Also please allow up to 1-2 bill cycles for your order request to be processed.  Please do not contact the Employee and Retiree Sales and Service center to inquire about status of your request.  You will receive an order confirmation once your request has been processed.  Thank you for your patience and cooperation.</span><br/><br/>
+												<p>
+												<span class="DefaultGrayText"  style="font-size: 10px;">This site is for the use by eligible AT&amp;T  employees and retirees who wish to obtain employee discount information on approved AT&amp;T products and services as well as guidance on attaining the discount. Participant and program eligibility may vary within each program and are governed by:  policy, guidelines, terms and conditions. Product and service participation is dependent upon ability of employee or retiree to be able to acquire the AT&amp;T product or service. If the service is not available to the employee or retiree, it may not be listed in the Products and Services section on the site menu. </span>
+												</p>
+												
+												<p>
+												<span class="DefaultGrayText"  style="font-size: 10px;">
+												<b>UNABLE TO LOG ON?</b>  Some employees and retirees may not be eligible to access this site if you are or were employed with an AT&amp;T company or organization that does not participate in these programs. Please contact HROneStop or your assigned Employee Relations Manager (ERM) if you are unable to access this site.</span>
+												</p>
+												
+											</td>
+										</tr>
+									</table>								
+								</td>
+							</tr>
+						</table>
+						<br>			
+						<br xmlns:date="http://exslt.org/dates-and-times" clear="all">
+						<table align="left" border="0" cellspacing="0" cellpadding="0"  >
+							<tr>
+								<td><span style="font-size:10px"></span></td>
+							</tr>
+						</table>
+					</td>					
+				</tr>
+			</table>
+		<!-- END: main content area -->
+		</div>
+	
+		</TD>
+	</TR>
+</TABLE>
+
+	<div id="footer" align="" >
+<table width="550">
+	<tr>
+		<td align="center"><div style="font-size: 10px">
+	<a href="http://www.att.com/gen/privacy-policy?pid=2587" target="_blank">Copyright(C) 2011 AT&#38;T Intellectual Property.</a> 
+	<br/>
+	All rights reserved. AT&#38;T, the AT&#38;T logo and all other AT&#38;T marks contained herein are trademarks of AT&#38;T Intellectual Property and/or AT&#38;T affiliated companies. AT&amp;T 36USC220506 
+	<br/>
+	<a href="http://www.att.com/privacy" target="_blank">Privacy Policy</a>
+</div></td>
+	</tr>
+</table>
+</div>	
+		
+</div>
+<!-- :html-body-bottom-->
+
+</body>
+</html>
+

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- This fixes display on IE compatibility view -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta X-Content-Type-Options="nosniff" />
+
+        <link rel="shortcut icon" type="image/png" href="/Content/Images/gm/favicon.png">
+
+    <title>
+        Overview - Loyalty Program
+    </title>
+
+    <link href="/Content/css?v=xv-J8rHeUEY0G27otCtPbdGE8sHTfb8pxFV-qskRo0c1" rel="stylesheet"/>
+     <!-- Need to be able to override some global nav styles, will refactor to have only global nav styles here and not the whole thing :( -->
+    <link href="/Content/gm?v=B28A6dAtIhGnaCtfhst-McrYmimlkiavHBj0kVuwFvI1" rel="stylesheet"/>
+
+
+    <script src='/bundles/jquery?v=ol70lPBD3l5eFgXiUBJn0H5GdTwQi2X2dvYmG3xDnkk1'> </script>
+    <script src='/bundles/bootstrap?v=T8dNcCaWUaIEjNYaJMgX91xta__uXY1p9f-obw_7xVc1'> </script>
+
+</head>
+
+
+<body>
+    <nav id="banner-nav-1" class="navbar navbar-default">
+    
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="navbar-left hidden-xs col-sm-6 col-md-6 col-lg-6">
+                <a id="aTopLogo" href="/EN/Home" title="Home">
+                    <img src="/Content/Images/gm/loyalty-logo.png" alt="Home" />
+                </a>
+            </div>
+            <div class="navbar-left col-xs-4 hidden-sm hidden-md hidden-lg">
+                <a id="aTopLogo" href="/EN/Home" title="Home">
+                    <img src="/Content/Images/gm/loyalty-logo-small.png" alt="Home" />
+                </a>
+            </div>
+        <div class="navbar-right col-xs-8 col-sm-6">
+            
+<ul class="nav nav-pills pull-right">
+
+            <li>
+                <a class="btn login-btn" href="/EN/Home/Login" title="Log In">Log In</a>
+            </li>
+            <li>
+                <a class="btn btn-default" href="/EN/Home/SignUp" title="SignUp">Sign Up</a>
+            </li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="row loginContainer hidden-xs">
+        <div class="loginHoverLeft hidden-xs col-sm-5 col-md-7 col-lg-9">
+            <span>concept vehicle shown</span>
+        </div>
+        <div class="loginHover col-xs-12 col-sm-7 col-md-5 col-lg-3">
+            
+<form action="/EN/Home/Login" class="form-vertical" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="azvZnEiYprEA3Yt0X2oO4LbR9fdMusjEaP-cWQqGo0uFBIZe9AFzwUOWUEc6kjjpHzKiTo2mE-_8uVfCNeZBUS1IdQk1" />    <div id="loginTitle">
+        <text>Log in to <span class="login-text-brand login-color-text">MY</span><span class="login-color-text-brand login-text-brand"> REWARDS</span></text>
+    </div>
+    <!--error message-->
+    <!--username-->
+    <div class="form-group">
+            <input class="form-control select-GM-styling" data-val="true" data-val-email="Please enter a valid email address. This is also your login ID." data-val-length="Please enter a valid email address. This is also your login ID." data-val-length-max="50" data-val-required="Please enter a valid email address. This is also your login ID." id="txtLoginUsername" name="Username" placeholder="Email" type="text" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+    </div>
+    <!--password-->
+    <div class="form-group">
+            <input class="form-control select-GM-styling" data-val="true" data-val-length="Please enter a valid password." data-val-length-max="32" data-val-length-min="8" data-val-regex="Passwords must contain at least 1 number." data-val-regex-pattern="^(?=.*\d)[a-zA-Z0-9%$#@!_-]{8,32}$" data-val-required="Please enter a valid password." id="Password" name="Password" placeholder="Password" type="password" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+    </div>
+    <!--login button-->
+    <div class="form-group" id="divLoginSubmit">
+            <input type="submit" value="Log In" class="btn btn-default loginField gmc-btn gm-btn chevy-btn"/>
+    </div>
+    <!--forgot password link-->
+    <div>
+        <a href="/EN/Home/ForgotPassword">Forgot Password?</a>
+
+    </div>
+    <div>
+        <a id="forgot-pwd-popover" title="">Forgot Username?</a>
+    </div>
+    <br />
+    <!--create account label-->
+    <div>
+        Don&#39;t have an existing login?
+    </div>
+    <!--create account link-->
+    <div>
+        <a href="/EN/Home/SignUp">Create an account.</a>
+    </div>
+</form>
+        </div>
+    </div>
+
+
+    
+<ul id="gm-rewards-menu" class="gm-rewards-menu col-xs-12">
+    <li class="gm-rewards-menu-link Overview Home"><a href="/" title="Overview">Overview</a></li>
+    <li class="gm-rewards-menu-link Earn"><a href="/EN/Home/Earn" title="Earn Rewards">Earn Rewards</a></li>
+    <li class="gm-rewards-menu-link Redeem GetVoucher"><a href="/EN/Redeem" title="Redeem">Redeem Points</a></li>
+</ul>
+          
+ <script>
+    //highlight current page
+    var name = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+    if (name === "") {
+        name = "Overview";
+    } else if ( name === "PersonalProfileSettingsMobile" ) {
+        name = "ProfileSettings"
+    }
+    
+    var elements = document.getElementsByClassName(name)
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].className += " active";
+    }
+
+    //scroll functions
+    function menuScroll(direction) {
+        if (direction === 'l') {
+            $("#gm-rewards-menu").animate({ scrollLeft: $("#gm-rewards-menu").scrollLeft() - 80 }, "fast");
+        } else {
+            $("#gm-rewards-menu").animate({ scrollLeft: $("#gm-rewards-menu").scrollLeft() + 80 }, "fast");
+        }
+    }
+</script>
+          
+</nav>
+<nav id="banner-nav-2" class="navbar navbar-default navbar-fixed-top invisible">
+    
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="navbar-left hidden-xs col-sm-6 col-md-6 col-lg-6">
+                <a id="aTopLogo" href="/EN/Home" title="Home">
+                    <img src="/Content/Images/gm/loyalty-logo.png" alt="Home" />
+                </a>
+            </div>
+            <div class="navbar-left col-xs-4 hidden-sm hidden-md hidden-lg">
+                <a id="aTopLogo" href="/EN/Home" title="Home">
+                    <img src="/Content/Images/gm/loyalty-logo-small.png" alt="Home" />
+                </a>
+            </div>
+        <div class="navbar-right col-xs-8 col-sm-6">
+            
+<ul class="nav nav-pills pull-right">
+
+            <li>
+                <a class="btn login-btn" href="/EN/Home/Login" title="Log In">Log In</a>
+            </li>
+            <li>
+                <a class="btn btn-default" href="/EN/Home/SignUp" title="SignUp">Sign Up</a>
+            </li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+    
+<ul id="gm-rewards-menu" class="gm-rewards-menu col-xs-12">
+    <li class="gm-rewards-menu-link Overview Home"><a href="/" title="Overview">Overview</a></li>
+    <li class="gm-rewards-menu-link Earn"><a href="/EN/Home/Earn" title="Earn Rewards">Earn Rewards</a></li>
+    <li class="gm-rewards-menu-link Redeem GetVoucher"><a href="/EN/Redeem" title="Redeem">Redeem Points</a></li>
+</ul>
+          
+ <script>
+    //highlight current page
+    var name = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+    if (name === "") {
+        name = "Overview";
+    } else if ( name === "PersonalProfileSettingsMobile" ) {
+        name = "ProfileSettings"
+    }
+    
+    var elements = document.getElementsByClassName(name)
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].className += " active";
+    }
+
+    //scroll functions
+    function menuScroll(direction) {
+        if (direction === 'l') {
+            $("#gm-rewards-menu").animate({ scrollLeft: $("#gm-rewards-menu").scrollLeft() - 80 }, "fast");
+        } else {
+            $("#gm-rewards-menu").animate({ scrollLeft: $("#gm-rewards-menu").scrollLeft() + 80 }, "fast");
+        }
+    }
+</script>
+          
+</nav>
+<nav id="banner-nav-3" class="navbar navbar-default navbar-fixed-top invisible">
+    
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="navbar-left hidden-xs col-sm-6 col-md-6 col-lg-6">
+                <a id="aTopLogo" href="/EN/Home" title="Home">
+                    <img src="/Content/Images/gm/loyalty-logo.png" alt="Home" />
+                </a>
+            </div>
+            <div class="navbar-left col-xs-4 hidden-sm hidden-md hidden-lg">
+                <a id="aTopLogo" href="/EN/Home" title="Home">
+                    <img src="/Content/Images/gm/loyalty-logo-small.png" alt="Home" />
+                </a>
+            </div>
+        <div class="navbar-right col-xs-8 col-sm-6">
+            
+<ul class="nav nav-pills pull-right">
+
+            <li>
+                <a class="btn login-btn" href="/EN/Home/Login" title="Log In">Log In</a>
+            </li>
+            <li>
+                <a class="btn btn-default" href="/EN/Home/SignUp" title="SignUp">Sign Up</a>
+            </li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+</nav>
+
+
+    <div id="body" class="container body-content">
+        
+
+
+<div class="row overview-row">
+
+
+    <div class="col-lg-6 col-md-6 col-md-push-6 col-lg-push-6 col-sm-12 col-xs-12 overview-img">
+        <img alt="Earn Image" class="image-stretch" src="/Content/Images/gm/overview2.jpg" />
+    </div>
+    <div class="col-lg-6 col-md-6 col-lg-pull-6 col-md-pull-6 col-sm-12 col-xs-12 overview-font">
+                    <h1 class="text-uppercase">
+                        Earn
+                    </h1>
+                        <p class="overview-text">
+                            Earning points is easy…whether you’re buying  a new car,  stopping by your dealer for service or rocking out to SiriusXM.
+                            Points must be earned and redeemed by 12/31/18.
+                        </p>
+                        <a href="/EN/Home/Earn">
+                            <div>
+                                <span class="overview-text">Explore the Road to Rewards today!</span>
+                            </div>
+                        </a>
+        
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 overview-img">
+        <img alt="Redeem Image" class="image-stretch" src="/Content/Images/gm/overview3.jpg" />
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 overview-font">
+                    <h1 class="text-uppercase">
+                        Enjoy
+                    </h1>
+                        <p class="overview-text">
+                            Enjoy rewards that you choose, like discounts on vehicle accessories and other services.  The options are endless and uniquely available to Members.
+                        </p>
+                        <a href="/EN/Redeem">
+                            <div>
+                                <span class="overview-text">Enjoy the Road to Rewards today!</span>
+                            </div>
+                        </a>
+        
+    </div>
+
+        <div class="col-lg-6 col-md-6 col-md-push-6 col-lg-push-6 col-sm-12 col-xs-12 overview-img">
+            <img alt="Enroll Image" class="image-stretch" src="/Content/Images/gm/overview1.jpg" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-lg-pull-6 col-md-pull-6 col-sm-12 col-xs-12 overview-font">
+                        <h1 class="text-uppercase">
+                            Enroll
+                        </h1>
+                        <p class="overview-text">
+                            At GM, we value our owners and have designed a rewards program to enhance the ownership experience.  Discover the power and possibilities.
+                        </p>
+                        <a href="/EN/Home/SignUp">
+                            <div>
+                                <span class="overview-text">Get on the Road to Rewards today!</span>
+                            </div>
+                        </a>
+
+        </div>
+
+</div>
+    </div>
+
+    
+
+<footer id ="theFooter" class="footer">
+
+    <div class="row footer-top">
+        <div class="vcenter" id="center-links">
+            <div>
+                <a href="/EN/About/Copyright" target="_blank">&#169; General Motors 2017</a>
+            </div>
+            <div>
+                <a href="/Content/Downloads/EN/Terms_and_Privacy_Statement.pdf" title="Terms and Privacy Statement" target="_blank">
+                    Terms &amp; Conditions
+                </a>
+            </div>
+            <div>
+                <a href="/EN/About/PrivacyStatement" target="_blank" title="Contact Us">GM Privacy Statement</a>
+            </div>
+            <div>
+                <a href="/EN/About/ContactUs" title="Contact Us">Contact Us</a>
+            </div>
+            <div>
+                <a href="/EN/About/FAQ" title="FAQ">FAQ</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+        <div class="vcenter" > 
+            <!--
+        <div class="row"> -->
+            
+            <div class="col-sm-6 col-xs-12" style="display: none;">
+                <p>
+                    &#42;
+                    The Chevrolet Sonic, Chevrolet Tahoe, Chevrolet Silverado HD,
+                    and Chevrolet Camaro received the highest numerical scores in their respective segments in the J.D. Power 2017 U.S. Vehicle Dependability Study,
+                    based on responses from 35,186 U.S. original owners of 2014 model-year vehicles after three years of ownership and problems experienced in the past 12 months,
+                    surveyed in October-December 2016. The Chevrolet Malibu, Chevrolet Equinox, Chevrolet Silverado HD, and Chevrolet Camaro received the highest numerical scores in their respective segments in the J.D. Power 2016 U.S. Vehicle Dependability Study.
+                    Your experiences may vary.
+                    Visit <a href="http://www.jdpower.com/cars">jdpower.com/cars</a>.
+                </p>
+            </div>
+            <!--
+            <div class="col-sm-6 col-xs-12" id="footer-links-image">
+                -->
+
+            <div id="footer-links-image">
+                <!--
+                coords="x1,y1,x2,y2"
+                x1=top left X coordinate
+                y1=top left Y coordinate
+                x2=bottom right X coordinate
+                y2=bottom right Y coordinate
+                -->
+
+                    <!--
+                    default: gm     
+                    
+                    coords="x1,y1,x2,y2"
+                    relative to image itself
+                    x1=top left X coordinate of image
+                    y1=top left Y coordinate
+                    x2=bottom right X coordinate
+                    y2=bottom right Y coordinate
+                    -->
+                    <div>
+                        <img src="/Content/Images/GM/loyalty-logo.png" alt="Home" id="gm-site-link"/>
+                    </div>
+                    <!--
+                    <map id="multi-brand" name="brands-map">
+                        <area alt="Chevrolet" shape="rect" coords="0,0,47,24" href="http://chevrolet.com">
+                        <area alt="Buick" shape="rect" coords="48,0,77,24" href="http://buick.com">
+                        <area alt="GMC" shape="rect" coords="78,0,129,24" href="http://gmc.com">
+                        <area alt="Cadillac" shape="rect" coords="130,0,164,24" href="http://cadillac.com">
+                    </map>
+                        -->
+
+
+            </div>
+            
+        </div>
+    
+    </div>
+    
+
+</footer>
+
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="glyphicon glyphicon-refresh gly-ani"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src='/bundles/SiteScripts?v=X58fb3Wjk_JDtrGjNMCsmHIIN1xyUOTlkKIQF2_Dozo1'> </script>
+    <script src='/bundles/LayoutHelper?v=Pca-l69gRNpOLGwrjo3FmGj_p1U6gmvLUmUCqLe3HC81'> </script>
+    
+    <!-- Adobe Analytics Scripts -->
+<script language="JavaScript" type="text/javascript" src="/Scripts/AdobeAnalytics/VisitorAPI.js"></script>
+<script language="JavaScript" type="text/javascript" src="/Scripts/AdobeAnalytics/AppMeasurement.js"></script>
+
+<!-- Adobe Analytics Code -->
+<script language="JavaScript" type="text/javascript">
+
+        /* You may give each page an identifying name, server, and channel on the next lines. */
+        s.pageName  = document.title                /* The name of the page. Uniquely identifies the page and URL in plain English */
+        s.server    = window.location.hostname      /* The server name or vanity domain to be tracked. */
+        s.channel   = "FAQ,Earn,Voucher"            /* The section of the site, or channel */
+        s.pageType  = "FAQ,Earn,Vouche"            /* Used on 404-Page Not Found error pages */
+        s.prop1     = "GM Confidential"             /* GM Classification for data as per ILM */
+        s.prop2     = "Not Business Critical"
+        s.prop3     = "Not Financial"
+        s.prop4     = ""
+        s.prop5     = ""
+        /* Conversion Variables */
+        s.events    = "FAQ,Earn,Vouche"
+        s.eVar1     = "FAQ,Earn,Vouches"
+        s.eVar2 = '198.208.12.42'
+        s.campaign = ""
+        s.state=""
+        s.zip=""
+        s.products=""
+        s.purchaseID=""
+        s.eVar2=""                               /* TODO ADD USER ID */
+        s.eVar3=""
+        s.eVar4=""
+        s.eVar5=""
+        var s_code = s.t(); if (s_code) document.write(s_code)//--></script>
+<!-- END OF: Adobe Analytics Code -->
+
+    
+</body>
+</html>

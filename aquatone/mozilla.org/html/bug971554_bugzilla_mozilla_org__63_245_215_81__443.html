@@ -1,0 +1,3529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head><meta property="og:type" content="website">
+<meta property="og:image" content="https://bugzilla.mozilla.org/extensions/OpenGraph/web/moz-social-bw-rgb-1200x1200.png">
+<meta property="og:title" content="971554 - [System2] Instantiable SoundManager">
+<meta property="og:url" content="https://bugzilla.mozilla.org/show_bug.cgi?id=971554">
+
+    <meta name="bugzilla-global" content="dummy"
+        id="bugzilla-global" data-bugzilla="{&quot;api_token&quot;:&quot;&quot;,&quot;string&quot;:{&quot;short_desc_required&quot;:&quot;You must enter a Summary for this bug&quot;,&quot;description_required&quot;:&quot;You must enter a Description for this bug&quot;,&quot;version_required&quot;:&quot;You must select a Version for this bug&quot;,&quot;component_required&quot;:&quot;You must select a Component for this bug&quot;,&quot;attach_desc_required&quot;:&quot;You must enter a Description for this attachment.&quot;},&quot;constant&quot;:{&quot;COMMENT_COLS&quot;:80},&quot;param&quot;:{&quot;maxusermatches&quot;:&quot;50&quot;,&quot;cookiepath&quot;:&quot;/&quot;}}">
+    <title>971554 - [System2] Instantiable SoundManager</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <meta name="robots" content="noindex" />
+<link rel="Top" href="https://bugzilla.mozilla.org/">
+
+  
+
+
+  
+    <link rel="Show" title="Dependency Tree"
+          href="showdependencytree.cgi?id=971554&amp;hide_resolved=1">
+      <link rel="Show" title="Dependency Graph"
+            href="showdependencygraph.cgi?id=971554">
+
+      <link rel="Show" title="Bug Activity"
+            href="show_activity.cgi?id=971554">
+      <link rel="Show" title="Printer-Friendly Version"
+            href="show_bug.cgi?format=multiple&amp;id=971554">
+
+<link href="data/assets/6e2950a6b430e66beb45b46958cb75b7.css?1507037554" rel="stylesheet" type="text/css">
+
+
+
+    
+<script nonce="qaHmM1IVJFr8Ys4pP8mYmI6ty0ysxDfQCoyYJRGxds8hoFBl" type="text/javascript" src="data/assets/f0d8f806b435d5c1c42cd109e6626548.js?1507037554"></script>
+
+      <script nonce="qaHmM1IVJFr8Ys4pP8mYmI6ty0ysxDfQCoyYJRGxds8hoFBl">
+          YAHOO.namespace('bugzilla');
+          if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+              YAHOO.util.Event._simpleRemove(window, "unload",
+                                             YAHOO.util.Event._unload);
+          }BUGZILLA.value_descs = JSON.parse('{\"bug_status\":{},\"resolution\":{\"\":\"---\"}}');
+
+  
+    var tracking_flags_str = "{\"types\":[\"tracking\",\"blocking\"],\"flags\":{\"blocking\":{\"cf_b2g_ota_blocker\":\"---\"},\"tracking\":{\"cf_status_firefox_esr52\":\"---\",\"cf_tracking_firefox57\":\"---\",\"cf_blocking_fx\":\"---\",\"cf_status_firefox57\":\"---\",\"cf_tracking_firefox_esr52\":\"---\",\"cf_tracking_firefox_relnote\":\"---\",\"cf_tracking_firefox56\":\"---\",\"cf_status_firefox56\":\"---\"}},\"comments\":{\"cf_tracking_firefox57\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_relnote\":{\"?\":\"Release Note Request (optional, but appreciated)\\n[Why is this notable]:\\n[Affects Firefox for Android]:\\n[Suggested wording]:\\n[Links (documentation, blog post, etc)]:\"},\"cf_tracking_firefox56\":{\"?\":\"[Tracking Requested - why for this release]:\"},\"cf_tracking_firefox_esr52\":{\"?\":\"[Tracking Requested - why for this release]:\"}}}";
+    var TrackingFlags = $.parseJSON(tracking_flags_str);
+
+  
+
+  
+  BUGZILLA.bug_id = 971554;
+  BUGZILLA.bug_title = '971554 - [System2] Instantiable SoundManager';
+  BUGZILLA.user = {
+    id: 0,
+    login: '',
+    is_insider: false,
+    is_timetracker: false,
+    can_tag: false,
+    settings: {
+      quote_replies: 'quoted_reply',
+      zoom_textareas: true,
+      remember_collapsed: true,
+      autosize_comments: false
+    }
+  };
+
+  BUGZILLA.bug_secure = false;
+      </script>
+<script nonce="qaHmM1IVJFr8Ys4pP8mYmI6ty0ysxDfQCoyYJRGxds8hoFBl" type="text/javascript" src="data/assets/f45fcff1319be4ab156441393c02d012.js?1507037554"></script>
+
+    
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+                       title="Bugzilla@Mozilla" href="./search_plugin.cgi">
+    <meta name="referrer" content="origin-when-crossorigin"><link rel="shortcut icon" href="extensions/BMO/web/images/favicon.ico">
+<link id="shorturl" rev="canonical" href="https://bugzil.la/971554"><meta name="robots" content="noarchive">
+  </head>
+
+
+
+  <body
+        class="bugzilla-mozilla-org
+               skin-standard bug_modal yui-skin-sam">
+
+
+
+<div id="header">
+
+  <div class="wrapper">
+    <table border="0" cellspacing="0" cellpadding="0" id="titles">
+    <tr>
+      <td id="title">
+        <a href="./" title="Home">Bugzilla@Mozilla</a>
+      </td>
+      <td>
+      </td>
+      <td id="moz_login">
+          <ul class="login-links">
+              <li id="moz_new_account_container_top"><a href="createaccount.cgi">New&nbsp;Account</a>
+              </li>
+
+                <li id="mini_login_container_top">
+  <span class="separator">| </span>
+  <a id="login_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=971554&amp;GoAheadAndLogIn=1"
+     class='show_mini_login_form' data-qs-suffix="_top">Log In</a>
+<span id="github_mini_login_top" class="bz_default_hidden mini_login_top">
+    <form method="post" action="https://bugzilla.mozilla.org/github.cgi">
+      <input type="hidden" name="github_secret" value="jSpdXCroDNxKSJmG">
+      <input type="hidden" name="target_uri" value="https://bugzilla.mozilla.org/show_bug.cgi?id=971554">
+      <input type="image" src="extensions/GitHubAuth/web/images/sign_in.png" height="22" width="75" align="absmiddle"
+             alt="Sign in with GitHub"
+             title="Sign in with GitHub"> or
+    </form>
+  </span>
+  
+  <form action="https://bugzilla.mozilla.org/show_bug.cgi?id=971554" method="POST" 
+        class="mini_login bz_default_hidden "
+        id="mini_login_top"
+        data-qs-suffix="_top"
+  >
+    
+    <input id="Bugzilla_login_top" 
+           class="bz_login"
+           name="Bugzilla_login"
+           title="Login"
+           placeholder="email address"
+           type="email"
+           required
+    >
+    <input class="bz_password"
+           id="Bugzilla_password_top" 
+           name="Bugzilla_password"
+           type="password"
+           title="Password"
+           required
+    >
+    <input class="bz_password bz_default_hidden bz_mini_login_help" type="text" 
+           id="Bugzilla_password_dummy_top" value="password"
+           title="Password"
+    >
+      <input type="checkbox" id="Bugzilla_remember_top" 
+             name="Bugzilla_remember" value="on" class="bz_remember"
+                 checked>
+      <label for="Bugzilla_remember_top">Remember</label>
+    <input type="hidden" name="Bugzilla_login_token"
+           value="1507276908-c8b0e3e668d9ac627464e776f9ba639d">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in"
+           class="check_mini_login_fields"
+            id="log_in_top">
+    <a href="#" id="hide_mini_login_top" 
+       class="hide_mini_login_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+<li id="forgot_container_top">
+  <span class="separator">| </span>
+  <a id="forgot_link_top" href="https://bugzilla.mozilla.org/show_bug.cgi?id=971554&amp;GoAheadAndLogIn=1#forgot"
+     class='show_forgot_form'
+     data-qs-suffix="_top">Forgot Password</a>
+  <form action="token.cgi" method="post" id="forgot_form_top"
+        class="mini_forgot bz_default_hidden">
+    <label for="login_top">Login:</label>
+    <input type="text" name="loginname" size="20" id="login_top">
+    <input id="forgot_button_top" value="Reset Password" 
+           type="submit">
+    <input type="hidden" name="a" value="reqpw">
+    <input type="hidden" id="token_top" name="token" value="1507276908-2b6ee141d2c16c5bcc7c4fd22fbb8fc7">
+    <a href="#" class="hide_forgot_form" data-qs-suffix="_top">[x]</a>
+  </form>
+</li>
+          </ul>
+      </td>
+      <td id="moz_tab">
+        <a href="https://www.mozilla.org/" title="Mozilla - Home of the Mozilla Project">
+          <img src="images/tabzilla.png" border="0" height="42" width="154"></a>
+      </td>
+    </tr>
+    </table>
+
+    
+<ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_top" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_top"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+
+  </div>
+</div> 
+
+<div id="bugzilla-body">
+
+
+<div id="message">If you think a bug might affect users in the 57 release, please <a href="https://wiki.mozilla.org/Bugmasters/Marking_bugs_for_the_Firefox_57_release">set the correct tracking and status flags for Release Management</a>.</div><div id="xhr-error" style="display:none"></div>
+<div id="floating-message" style="display:none">
+  <div id="floating-message-text"></div>
+</div>
+<section class="module"
+>
+  <div class="module-content"
+  >
+  <div id="summary-container">
+    <div class="field indent"
+>
+
+  
+    <div class=" container">
+      <div id="field-value-bug_id">
+        <a id="this-bug" href="show_bug.cgi?id=971554">Bug 971554</a>
+      </div>
+    </div>
+
+  
+</div><div class="field indent edit-hide"
+>
+
+  
+    <div class=" container">
+      <h1 id="field-value-short_desc">[System2] Instantiable SoundManager</h1>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-alias" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#alias" id="alias-help-link" class="help">Alias:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-alias">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-short_desc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#short_desc" id="short_desc-help-link" class="help">Summary:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-short_desc">
+            [System2] Instantiable SoundManager
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field indent edit-hide" id="field-status_summary"
+>
+
+  
+    <div class="value">
+        <span id="field-value-status_summary">
+      <b>RESOLVED
+        FIXED
+      </b>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+
+  
+
+  <div id="mode-container">
+    <div>
+    </div>
+    <div class="button-row">
+      <div class="dropdown">
+        <button type="button" id="action-menu-btn" aria-haspopup="true" aria-label="Actions Menu"
+          aria-expanded="false" aria-controls="action-menu" class="dropdown-button minor">&#9662;</button>
+        <ul class="dropdown-content" id="action-menu" role="menu" style="display:none;">
+          <li role="presentation">
+            <a id="action-reset" role="menuitem" tabindex="-1">Reset Sections</a>
+          </li>
+          <li role="presentation">
+            <a id="action-expand-all" role="menuitem" tabindex="-1">Expand All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-collapse-all" role="menuitem" tabindex="-1">Collapse All Sections</a>
+          </li>
+          <li class="dropdown-separator" role="presentation">
+            <a id="action-last-comment" role="menuitem" tabindex="-1">Last Comment</a>
+          </li>
+          <li role="presentation">
+            <a id="action-history" role="menuitem" tabindex="-1">History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="user-guide">
+      <a title="User guide for Bugzilla" href="https://wiki.mozilla.org/BMO/UserGuide">Get help with this page</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section class="module" id="module-status"
+>
+    <header id="module-status-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Status section"
+           data-label-collapsed="Expand Status section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-status-content"
+             aria-expanded="true"
+             aria-labeledby="module-status-title"
+             aria-describedby="module-status-subtitle"></div>
+        <h2 class="module-title" id="module-status-title">Status</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-status-content"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-product"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Firefox%20OS" id="product-help-link" class="help">Product:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-product">
+      <span aria-owns="product-name product-latch">
+        <span role="button" aria-label="show product information" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="product-latch" data-latch="product" data-for="product">&#9656;</span>
+        <div title="show product information" tabindex="0" class="spin-toggle"
+             id="product-name" data-latch="product" data-for="product">Firefox OS
+        </div>
+        <div id="product-info" style="display:none">FirefoxOS, or Boot2Gecko (B2G) is Mozilla's operating system built on web standards. (<a href="https://wiki.mozilla.org/B2G">more info</a>)
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-component"
+>
+    <div class="name">
+        <a href="describecomponents.cgi?product=Firefox%20OS&component=Gaia%3A%3ASystem#Gaia%3A%3ASystem" id="component-help-link" class="help">Component:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-component">
+      <span aria-owns="component-name component-latch">
+        <span role="button" aria-label="show component description" aria-expanded="false" tabindex="0"
+              class="spin-latch" id="component-latch" data-latch="component" data-for="component">&#9656;</span>
+        <div title="show component information" tabindex="0" class="spin-toggle" id="component-name"
+             data-latch="#component-latch" data-for="component">Gaia::System
+        </div>
+        <div id="component-info" style="display:none">
+          <div>Bugs related to Gaia's System app except the lockscreen and window management.</div>
+          <a href="buglist.cgi?component=Gaia%3A%3ASystem&amp;product=Firefox%20OS&amp;bug_status=__open__" target="_blank">Other Bugs</a>
+        </div>
+      </span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#priority" id="-help-link" class="help">
+        <label for="priority">Importance:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-priority"
+>
+
+  
+    <div class="value">
+        <span id="field-value-priority">
+            --
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-bug_severity"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_severity">
+            normal
+
+        </span>
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-hide" id="field-status-view"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-view-help-link" class="help">
+        <label for="bug_status">Status:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-view">RESOLVED
+        FIXED
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-creation_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#creation_ts" id="creation_ts-help-link" class="help">Reported:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-creation_ts"><span class="rel-time" title="2014-02-11 21:57 PST" data-time="1392184653">4 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-delta_ts"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#delta_ts" id="delta_ts-help-link" class="help">Modified:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-delta_ts"><span class="rel-time" title="2014-08-07 00:07 PDT" data-time="1407395268">3 years ago</span>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-status-edit" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugStatuses" id="status-edit-help-link" class="help">Status:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-status-edit"><div class="field inline" id="field-bug_status"
+>
+
+  
+    <div class="value">
+        <span id="field-value-bug_status">
+            RESOLVED
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-resolution"
+>
+
+  
+    <div class="value">
+        <span id="field-value-resolution">
+            FIXED
+
+        </span>
+    </div>
+
+  
+</div>
+    <div id="assigned-container" style="display:none">
+      <button type="button" class="minor" id="mark-as-assigned-btn">
+        Mark as Assigned
+      </button>
+    </div>
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-people"
+>
+    <header id="module-people-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse People section"
+           data-label-collapsed="Expand People section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-people-content"
+             aria-expanded="false"
+             aria-labeledby="module-people-title"
+             aria-describedby="module-people-subtitle"></div>
+        <h2 class="module-title" id="module-people-title">People</h2>
+          <h3 class="module-subtitle" id="module-people-subtitle">
+            (Reporter: alive, Assigned: johnhu)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-people-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field edit-hide" id="field-assigned_to"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to"><div class="vcard vcard_469651" ><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+        </span>
+    </div>
+
+  
+</div><div class="field edit-show" id="field-assigned_to" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#assigned_to" id="assigned_to-help-link" class="help">Assignee:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-assigned_to">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-assignee" name="set_default_assignee" class="set-default"
+          value="1" data-for="assigned_to">
+        <label for="set-default-assignee">Reset Assignee to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-bug_mentors" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_mentor" id="bug_mentors-help-link" class="help">Mentors:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_mentors">---
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-qa_contact" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#qa_contact" id="qa_contact-help-link" class="help">QA Contact:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-qa_contact">
+      <div class="set-default-container" style="display:none">
+        <input type="checkbox" id="set-default-qa-contact" name="set_default_qa_contact" class="set-default"
+          value="1" data-for="qa_contact">
+        <label for="set-default-qa-contact">Reset QA Contact to default</label>
+      </div>
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-reporter"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#reporter" id="reporter-help-link" class="help">Reporter:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-reporter">
+            <div class="vcard vcard_445020" ><a class="email " href="user_profile?user_id=445020" > <span class="fna">(inactive after 6/18) Alive Kuo [:alive]</span></a>
+</div>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-triage_owner"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#triage_owner" id="triage_owner-help-link" class="help">Triage Owner:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-triage_owner">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#cc" id="-help-link" class="help">CC:
+        </a>
+    </div>
+
+  
+    <div class=" container">
+
+
+        <span aria-owns="cc-summary cc-latch">
+          <span role="button" tabindex="0" id="cc-summary" data-count="14">14 people
+          </span>
+        </span>
+
+
+        <div id="cc-list" style="display:none"></div>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+<section class="module" id="module-tracking"
+>
+    <header id="module-tracking-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Tracking section"
+           data-label-collapsed="Expand Tracking section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-tracking-content"
+             aria-expanded="false"
+             aria-labeledby="module-tracking-title"
+             aria-describedby="module-tracking-subtitle"></div>
+        <h2 class="module-title" id="module-tracking-title">Tracking</h2>
+          <h3 class="module-subtitle" id="module-tracking-subtitle">
+            (Blocks: 1 bug)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-tracking-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-version"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#version" id="version-help-link" class="help">Version:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-version">
+            unspecified
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-target_milestone"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#target_milestone" id="target_milestone-help-link" class="help">Target:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-target_milestone">
+            ---
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#rep_platform" id="-help-link" class="help">
+        <label for="rep_platform">Platform:
+        </label>
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="field inline" id="field-rep_platform"
+>
+
+  
+    <div class="value">
+        <span id="field-value-rep_platform">
+            ARM
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline" id="field-op_sys"
+>
+
+  
+    <div class="value">
+        <span id="field-value-op_sys">
+            Gonk (Firefox OS)
+
+        </span>
+    </div>
+
+  
+</div><div class="field indent inline"
+>
+
+  
+    <div class=" container">
+    </div>
+
+  
+</div>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-keywords" style="display:none"
+>
+    <div class="name">
+        <a href="describekeywords.cgi" id="keywords-help-link" class="help">Keywords:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-keywords">---
+        </span>
+    </div>
+
+  
+</div>
+
+
+
+</div><div class="fields-rhs">
+
+    <div class="field" id="field-dependson"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#dependson" id="dependson-help-link" class="help">Depends on:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-dependson">
+            <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - [B2G][Audio][Headphones]Pressing volume down button causes volume to increase when headphones are plugged in"
+   href="show_bug.cgi?id=991385">991385</a>
+
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field" id="field-blocked"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#blocks" id="blocked-help-link" class="help">Blocks:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-blocked">
+            <a class="bz_bug_link 
+          bz_status_NEW "
+   title="NEW - [Meta][system] System App Modularization"
+   href="show_bug.cgi?id=912952">system-app-v2</a>, <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Enable audio channel change Gaia UI Tests checking"
+   href="show_bug.cgi?id=1011000">1011000</a>
+
+        </span>
+    </div>
+
+  
+</div>
+<div class="field edit-hide"
+>
+    <div class="name">
+    </div>
+
+  
+    <div class=" container">
+        Dependency <a href="showdependencytree.cgi?id=971554&amp;hide_resolved=1">tree</a>
+        / <a href="showdependencygraph.cgi?id=971554">graph</a>
+    </div>
+
+  
+</div>
+
+    
+
+    <div class="field edit-show" id="field-bug_flags" style="display:none"
+>
+    <div class="name">Bug Flags:
+    </div>
+
+  
+    <div class=" container">
+        <span id="field-value-bug_flags"><div id="bug-flags" class="flags">
+  <table class="layout-table">
+    <tbody class="edit-show" style="display:none"><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature." for="flag_type-835">a11y&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-835-dirty">
+      <select id="flag_type-835" name="flag_type-835"
+        title="This flag used to ask the accessibility team to look over a bug. Typically used if a bug has the potential to affect accessibility, regresses accessibility, and/or is a new user facing feature."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue." for="flag_type-916">webcompat</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-916-dirty">
+      <select id="flag_type-916" name="flag_type-916"
+        title="Bugs in Core components that affect (and will improve) web compatibility
+
+? - Needs prioritization
++ - Is a high-priority compatibility/interop bug or feature request
+- - Is either a low-priority compatibility/interop bug or feature request, meaning it should be treated as a regular bug or feature request. OR not considered to be a compat issue."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Used to ask the security team to look over a feature or bug." for="flag_type-791">sec&#8209;review</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-791-dirty">
+      <select id="flag_type-791" name="flag_type-791"
+        title="Used to ask the security team to look over a feature or bug."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-791-container" style="display:none"><input
+    name="requestee_type-791"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-791" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug." for="flag_type-803">sec&#8209;bounty</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-803-dirty">
+      <select id="flag_type-803" name="flag_type-803"
+        title="Flag is used to track security bug bounty nominations. Mail security(at)mozilla.org to nominate a bug."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame." for="flag_type-913">sec&#8209;bounty&#8209;hof</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-913-dirty">
+      <select id="flag_type-913" name="flag_type-913"
+        title="Flag is used to track whether the bug report is eligible for inclusion in the Bug Bounty Hall of Fame."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-787">in&#8209;qa&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-787-dirty">
+      <select id="flag_type-787" name="flag_type-787"
+        title="Whether the bug has a testcase in the qa test suite or not. Set it to &quot;in-qa-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-qa-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-qa-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+      <td class="flag-requestee">
+        <div id="requestee_type-787-container" style="display:none"><input
+    name="requestee_type-787"
+    value="" class="requestee bz_autocomplete_user"  id="requestee_type-787" 
+  >
+        </div>
+      <td>
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword." for="flag_type-37">in&#8209;testsuite</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-37-dirty">
+      <select id="flag_type-37" name="flag_type-37"
+        title="Whether the bug has a testcase in the test suite or not. Set it to &quot;in-testsuite?&quot; if the bug needs a testcase (only set this if the bug actually *needs* a testcase - not all bugs do, even layout bugs!), set it to &quot;in-testsuite+&quot; if the bug has an appropriate testcase, and set it to &quot;in-testsuite-&quot; if the bug doesn't need an explicit testcase (e.g. for code cleanup bugs). Only QA actively working on test cases in the component should use this keyword."
+        class="bug-flag">
+          <option value="X"></option>
+            <option value="?" >?</option>
+            <option value="+" >+</option>
+            <option value="-" >-</option>
+      </select>
+    </td>
+
+
+  </tr><tr>
+    <td class="flag-setter">
+    </td>
+
+    <td class="flag-name">
+      <label title="QA verification tracking." for="flag_type-864">qe&#8209;verify</label>
+    </td>
+
+    <td class="flag-value">
+      <input type="hidden" id="flag_type-864-dirty">
+      <select id="flag_type-864" name="flag_type-864"
+        title="QA verification tracking."
+          disabled
+        class="bug-flag">
+          <option value="X"></option>
+      </select>
+    </td>
+
+
+  </tr>
+    </tbody>
+  </table>
+</div>
+        </span>
+    </div>
+
+  
+</div>
+</div>
+  </div>
+</section>
+
+
+  
+<section class="module" id="module-firefox-tracking-flags"
+>
+    <header id="module-firefox-tracking-flags-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Firefox Tracking Flags section"
+           data-label-collapsed="Expand Firefox Tracking Flags section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-firefox-tracking-flags-content"
+             aria-expanded="false"
+             aria-labeledby="module-firefox-tracking-flags-title"
+             aria-describedby="module-firefox-tracking-flags-subtitle"></div>
+        <h2 class="module-title" id="module-firefox-tracking-flags-title">Firefox Tracking Flags</h2>
+          <h3 class="module-subtitle" id="module-firefox-tracking-flags-subtitle">
+            (Not tracked)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-firefox-tracking-flags-content" style="display:none"
+  ><div class="fields-lhs">
+
+        <p class="edit-hide">
+          This bug is not currently tracked.
+        </p>
+
+        <div class="field edit-show" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide#Tracking_Flags" id="-help-link" class="help">Tracking Flags:
+        </a>
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <th></th>
+        <th>Tracking</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">blocking-fx</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_blocking_fx-dirty">
+  <select id="cf_blocking_fx" name="cf_blocking_fx">
+        <option value="---"
+          id="v505_cf_blocking_fx" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">relnote-firefox</td>
+          <td class="tracking-flag-tracking"></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_tracking_firefox_relnote-dirty">
+  <select id="cf_tracking_firefox_relnote" name="cf_tracking_firefox_relnote">
+        <option value="---"
+          id="v539_cf_tracking_firefox_relnote" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox-esr52</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox_esr52-dirty">
+  <select id="cf_tracking_firefox_esr52" name="cf_tracking_firefox_esr52">
+        <option value="---"
+          id="v3103_cf_tracking_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox_esr52-dirty">
+  <select id="cf_status_firefox_esr52" name="cf_status_firefox_esr52">
+        <option value="---"
+          id="v3132_cf_status_firefox_esr52" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox56</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox56-dirty">
+  <select id="cf_tracking_firefox56" name="cf_tracking_firefox56">
+        <option value="---"
+          id="v3271_cf_tracking_firefox56" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox56-dirty">
+  <select id="cf_status_firefox56" name="cf_status_firefox56">
+        <option value="---"
+          id="v3276_cf_status_firefox56" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+      <tr>
+        <td class="tracking-flag-name">firefox57</td>
+          <td class="tracking-flag-tracking"><input type="hidden" id="cf_tracking_firefox57-dirty">
+  <select id="cf_tracking_firefox57" name="cf_tracking_firefox57">
+        <option value="---"
+          id="v3286_cf_tracking_firefox57" selected
+        >---
+        </option>
+  </select></td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_status_firefox57-dirty">
+  <select id="cf_status_firefox57" name="cf_status_firefox57">
+        <option value="---"
+          id="v3291_cf_status_firefox57" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+        <div class="field edit-show" style="display:none"
+>
+    <div class="name">Blocking Flags:
+    </div>
+
+  
+    <div class=" container"><div class="flags edit-show" style="display:none">
+  <table class="layout-table tracking-flags">
+      <tr>
+        <td class="tracking-flag-name">b2g-ota-blocker</td>
+        <td class="tracking-flag-status"><input type="hidden" id="cf_b2g_ota_blocker-dirty">
+  <select id="cf_b2g_ota_blocker" name="cf_b2g_ota_blocker">
+        <option value="---"
+          id="v2597_cf_b2g_ota_blocker" selected
+        >---
+        </option>
+  </select></td>
+      </tr>
+  </table>
+</div>
+    </div>
+
+  
+</div>
+
+</div>
+  </div>
+</section>
+
+
+
+<section class="module" id="module-details"
+>
+    <header id="module-details-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Details section"
+           data-label-collapsed="Expand Details section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-details-content"
+             aria-expanded="false"
+             aria-labeledby="module-details-title"
+             aria-describedby="module-details-subtitle"></div>
+        <h2 class="module-title" id="module-details-title">Details</h2>
+          <h3 class="module-subtitle" id="module-details-subtitle">
+            (Whiteboard: [in-bubble-tea])
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-details-content" style="display:none"
+  ><div class="fields-lhs">
+
+    <div class="field" id="field-status_whiteboard"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/Whiteboard" id="status_whiteboard-help-link" class="help">Whiteboard:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-status_whiteboard">[in-bubble-tea]
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#votes" id="-help-link" class="help">Votes:
+        </a>
+    </div>
+
+  
+    <div class=" container">0
+        votes
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-cf_qa_whiteboard" style="display:none"
+>
+    <div class="name">QA Whiteboard:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_qa_whiteboard">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+</div><div class="fields-rhs">
+
+    <div class="field edit-show" id="field-bug_file_loc" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#bug_file_loc" id="bug_file_loc-help-link" class="help">URL:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-bug_file_loc"><a href="" target="_blank"
+     rel="noreferrer" title=""
+     class="bug-url" data-safe="0"
+  ></a>
+        </span>
+    </div>
+
+  
+</div>
+
+    <div class="field edit-show" id="field-see_also" style="display:none"
+>
+    <div class="name">
+        <a href="https://wiki.mozilla.org/BMO/UserGuide/BugFields#see_also" id="see_also-help-link" class="help">See Also:
+        </a>
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-see_also">
+        ---
+        </span>
+    </div>
+
+  
+</div>
+</div>
+
+  <div class="field edit-show" id="field-cf_crash_signature" style="display:none"
+>
+    <div class="name">Crash Signature:
+    </div>
+
+  
+    <div class="value">
+        <span id="field-value-cf_crash_signature">
+        </span>
+    </div>
+
+  
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-security"
+>
+    <header id="module-security-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Security section"
+           data-label-collapsed="Expand Security section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-security-content"
+             aria-expanded="false"
+             aria-labeledby="module-security-title"
+             aria-describedby="module-security-subtitle"></div>
+        <h2 class="module-title" id="module-security-title">Security</h2>
+          <h3 class="module-subtitle" id="module-security-subtitle">
+            (public)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-security-content" style="display:none"
+  ><div class="groups edit-hide">
+    This bug is publicly visible.
+</div>
+
+<div class="groups edit-show" style="display:none">
+
+
+</div>
+  </div>
+</section>
+
+
+<section class="module edit-show" style="display:none" id="module-user-story" data-non-stick="1"
+>
+    <header id="module-user-story-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse User Story section"
+           data-label-collapsed="Expand User Story section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-user-story-content"
+             aria-expanded="false"
+             aria-labeledby="module-user-story-title"
+             aria-describedby="module-user-story-subtitle"></div>
+        <h2 class="module-title" id="module-user-story-title">User Story</h2>
+      </div>
+    </header>
+  <div class="module-content" id="module-user-story-content" style="display:none"
+  >
+    <pre id="user-story"></pre>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="module" id="module-attachments"
+>
+    <header id="module-attachments-header" class="module-header">
+      <div class="module-latch"
+           data-label-expanded="Collapse Attachments section"
+           data-label-collapsed="Expand Attachments section">
+        <div class="module-spinner" role="button" tabindex="0"
+             aria-controls="module-attachments-content"
+             aria-expanded="true"
+             aria-labeledby="module-attachments-title"
+             aria-describedby="module-attachments-subtitle"></div>
+        <h2 class="module-title" id="module-attachments-title">Attachments</h2>
+          <h3 class="module-subtitle" id="module-attachments-subtitle">
+            (2 attachments, 3 obsolete attachments)
+          </h3>
+      </div>
+    </header>
+  <div class="module-content" id="module-attachments-content"
+  ><table role="table" class="layout-table" id="attachments">
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8381167">patch for bubble tea</a>
+        </div>
+        <div>
+            <a href="#c4" class="attach-time activity-ref"><span class="rel-time" title="2014-02-24 22:35 PST" data-time="1393310134">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_469651" ><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">46 bytes,
+          text/x-github-pull-request        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_445020" ><span class="fn">alive</span>
+</div>:
+              <a href="#c9"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1393382340"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8381167&amp;action=edit">Details</a>&#x0020; |
+  <a href="attachment.cgi?id=8381167">Review</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=971554&attachment=8381167">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8381170">PR for master</a>
+        </div>
+        <div>
+            <a href="#c5" class="attach-time activity-ref"><span class="rel-time" title="2014-02-24 22:38 PST" data-time="1393310335">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_469651" ><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">46 bytes,
+          text/x-github-pull-request        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8381170&amp;action=edit">Details</a>&#x0020; |
+  <a href="attachment.cgi?id=8381170">Review</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=971554&attachment=8381170">Splinter Review</a>
+    </tr>
+    <tr class=" attach-obsolete attach-patch
+    " style="display:none">
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8395483">mozilla-b2g:master PR#17494</a>
+        </div>
+        <div>
+            <a href="#c11" class="attach-time activity-ref"><span class="rel-time" title="2014-03-23 18:50 PDT" data-time="1395625817">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_463371" ><a class="email " href="user_profile?user_id=463371" > <span class="fna">Fred Lin [:gasolin]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">46 bytes,
+          text/x-github-pull-request        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8395483&amp;action=edit">Details</a>&#x0020; |
+  <a href="attachment.cgi?id=8395483">Review</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=971554&attachment=8395483">Splinter Review</a>
+    </tr>
+    <tr class=" attach-patch
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8402483">patch for master</a>
+        </div>
+        <div>
+            <a href="#c25" class="attach-time activity-ref"><span class="rel-time" title="2014-04-07 00:01 PDT" data-time="1396854110">4 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_469651" ><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">46 bytes,
+          text/x-github-pull-request        </div>
+      </td>
+      <td>
+          <div class="attach-flag"><div class="vcard vcard_445020" ><span class="fn">alive</span>
+</div>:
+              <a href="#c26"
+                  class="flag-name-status rel-time-title activity-ref"
+                  title="4 years ago"
+              data-time="1396854110"
+            >
+              review+</a>
+          </div>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8402483&amp;action=edit">Details</a>&#x0020; |
+  <a href="attachment.cgi?id=8402483">Review</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=971554&attachment=8402483">Splinter Review</a>
+    </tr>
+    <tr class=" attach-patch
+    " >
+      <td class="attach-desc-td">
+        <div class="attach-desc">
+            <a href="attachment.cgi?id=8464486">sound_manager_test.patch</a>
+        </div>
+        <div>
+            <a href="#c35" class="attach-time activity-ref"><span class="rel-time" title="2014-07-29 23:34 PDT" data-time="1406702051">3 years ago</span></a>
+          <span class="attach-author"><div class="vcard vcard_493875" ><a class="email " href="user_profile?user_id=493875" > <span class="fna">ankit93040</span></a>
+</div></span>
+        </div>
+        <div class="attach-info">4.41 KB,
+          patch        </div>
+      </td>
+      <td>
+      </td>
+      <td class="attach-actions">
+        <a href="attachment.cgi?id=8464486&amp;action=edit">Details</a>
+          | <a href="attachment.cgi?id=8464486&amp;action=diff">Diff</a>&#x0020; |
+  <a href="https://bugzilla.mozilla.org/page.cgi?id=splinter.html&bug=971554&attachment=8464486">Splinter Review</a>
+    </tr>
+</table>
+
+<div id="attachments-actions">
+    <button type="button" id="attachments-obsolete-btn" class="minor">Show Obsolete Attachments</button>
+</div>
+  </div>
+</section>
+
+
+
+<script nonce="qaHmM1IVJFr8Ys4pP8mYmI6ty0ysxDfQCoyYJRGxds8hoFBl">
+  init_module_visibility();
+</script>
+
+
+
+
+
+
+<div id="comment-actions">
+    <button type="button" id="bottom-btn" class="minor">Bottom &darr;</button>
+  <div class="dropdown">
+    <button type="button" id="comment-tags-btn" arai-haspopup="true" aria-label="Tags Menu"
+      aria-expanded="false" aria-controls="comment-tags-menu" class="dropdown-button minor">Tags &#9662;</button>
+    <ul id="comment-tags-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a role="menuitem" tabindex="-1" data-comment-tag="">Reset</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button type="button" id="view-menu-btn" arai-haspopup="true" aria-label="View Menu"
+      aria-expanded="false" aria-controls="view-menu" class="dropdown-button minor">View &#9662;</button>
+    <ul id="view-menu" role="menu" tabindex="0" class="dropdown-content" style="display:none">
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-reset" role="menuitem" tabindex="-1">Reset</a>
+      </li>
+      <li role="presentation">
+        <a id="view-collapse-all" role="menuitem" tabindex="-1">Collapse All</a>
+      </li>
+      <li role="presentation">
+        <a id="view-expand-all" role="menuitem" tabindex="-1">Expand All</a>
+      </li>
+      <li class="dropdown-separator" role="presentation">
+        <a id="view-comments-only" role="menuitem" tabindex="-1">Comments Only</a>
+      </li>
+      <li role="presentation">
+        <a id="view-toggle-cc" role="menuitem" tabindex="-1">Show CC Changes</a>
+      </li>
+    </ul>
+   </div>
+</div>
+<div class="change-set" id="c0"><div class="comment" data-id="8408111" data-no="0">
+    
+    <table class="layout-table change-head reporter" id="ch-0">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_445020" ><img src="https://secure.gravatar.com/avatar/58dc2f52eb8a5ae33ecb1ed36164de1f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_445020" ><a class="email " href="user_profile?user_id=445020" > <span class="fna">(inactive after 6/18) Alive Kuo [:alive]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-0">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-0" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c0">Description</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-11 21:57 PST" data-time="1392184653">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-0">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-0">We need sound_manager.js to be instantiable and let bootstrap or its parent module to instantiate it.
+Also jsdoc + unit test improvement wanted.</pre></div><div class="change-set" id="a425552_447500"><div class="change" id="aa425552_447500">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_447500" id="a425552_447500"><img src="https://secure.gravatar.com/avatar/a05695832bb6991d893d5f49ce1394a9?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_447500" id="a425552_447500"><a class="email " href="user_profile?user_id=447500" > <span class="fna">Evelyn Hung [:evelyn]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a425552_447500">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a425552_447500">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a425552_447500">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-16 20:10 PST" data-time="1392610205">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Assignee: nobody &rarr; johu</div><div class="change cc-only" style="display:none">CC: ehung</div></div></div><div class="change-set" id="c1"><div class="comment" data-id="8446296" data-no="1">
+    
+    <table class="layout-table change-head assignee" id="ch-1">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a425552_447500"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a425552_447500"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-1">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-1" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c1">Comment 1</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-20 19:35 PST" data-time="1392953750">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-1">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-1">Alive,
+
+I found the mute behavior is inconsistent at [1]. It only mutes notification while muting but unmutes both notification and content while unmuting.
+
+Should we mute both of them and unmuting both of them?
+
+[1] <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/blob/f1f99c6f880d2adbf5886a8dbe6345141c2d5626/apps/system/js/sound_manager.js#L29-L50">https://github.com/mozilla-b2g/gaia/blob/f1f99c6f880d2adbf5886a8dbe6345141c2d5626/apps/system/js/sound_manager.js#L29-L50</a></pre></div><div class="change-set" id="a769478_469651"><div class="change" id="aa769478_469651">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a769478_469651">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a769478_469651">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a769478_469651">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-20 19:42 PST" data-time="1392954131">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change cc-only" style="display:none">CC: alive</div><div class="change">Flags: needinfo?(alive)</div></div></div><div class="change-set" id="c2"><div class="comment" data-id="8446749" data-no="2">
+    
+    <table class="layout-table change-head assignee" id="ch-2">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-2">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-2" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c2">Comment 2</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-20 23:10 PST" data-time="1392966638">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-2">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-2">A WIP patch can be found here:
+<a rel="nofollow" href="https://github.com/huchengtw-moz/gaia/commit/4e2b4eb3a363f2ee644a0d963032153cddb25de9">https://github.com/huchengtw-moz/gaia/commit/4e2b4eb3a363f2ee644a0d963032153cddb25de9</a></pre></div><div class="change-set" id="c3"><div class="comment" data-id="8453140" data-no="3">
+    
+    <table class="layout-table change-head reporter" id="ch-3">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_445020" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/58dc2f52eb8a5ae33ecb1ed36164de1f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_445020" id="a769478_469651"><a class="email " href="user_profile?user_id=445020" > <span class="fna">(inactive after 6/18) Alive Kuo [:alive]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-3">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-3" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c3">Comment 3</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-23 18:25 PST" data-time="1393208751">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-3">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-3">Please do not change the behavior, it's by design.</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(alive)</span></div></div></div><div class="change-set" id="c4"><div class="comment" data-id="8458683" data-no="4">
+    
+    <table class="layout-table change-head assignee" id="ch-4">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-4">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-4" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c4">Comment 4</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-24 22:35 PST" data-time="1393310134">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-4">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-4">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8381167" name="attach_8381167" title="patch for bubble tea">attachment 8381167</a> <a href="attachment.cgi?id=8381167&amp;action=edit" title="patch for bubble tea">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381167'>[review]</a>
+patch for bubble tea</pre></div><div class="change-set" id="c5"><div class="comment" data-id="8458688" data-no="5">
+    
+    <table class="layout-table change-head assignee" id="ch-5">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-5">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-5" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c5">Comment 5</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-24 22:38 PST" data-time="1393310335">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-5">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-5">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8381170" name="attach_8381170" title="PR for master">attachment 8381170</a> <a href="attachment.cgi?id=8381170&amp;action=edit" title="PR for master">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381170'>[review]</a>
+PR for master
+
+These two PR are exactly the same but for different branch.
+
+Change items:
+1. rewrap the SoundManager as a class, no behavior changed.
+2. add about 20 unit tests for SoundManager
+3. update bootstrap.js and bootstrap_test.js
+4. add MockSoundManager
+5. fix jshint of SoundManager</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381170&amp;action=edit"
+           title="PR for master"
+           class=""
+        >Attachment #8381170</a> -
+        Flags: review?(alive)</div></div></div><div class="change-set" id="c6"><div class="comment" data-id="8458775" data-no="6">
+    
+    <table class="layout-table change-head assignee" id="ch-6">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-6">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-6" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c6">Comment 6</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-24 23:22 PST" data-time="1393312966">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-6">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-6">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8381170" name="attach_8381170" title="PR for master">attachment 8381170</a> <a href="attachment.cgi?id=8381170&amp;action=edit" title="PR for master">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381170'>[review]</a>
+PR for master
+
+clear review flag for checking the jsdoc parts.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381170&amp;action=edit"
+           title="PR for master"
+           class=""
+        >Attachment #8381170</a> -
+        Flags: <span class="activity-deleted">review?(alive)</span></div></div></div><div class="change-set" id="c7"><div class="comment" data-id="8463712" data-no="7">
+    
+    <table class="layout-table change-head assignee" id="ch-7">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-7">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-7" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c7">Comment 7</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-25 18:39 PST" data-time="1393382340">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-7">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-7">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8381167" name="attach_8381167" title="patch for bubble tea">attachment 8381167</a> <a href="attachment.cgi?id=8381167&amp;action=edit" title="patch for bubble tea">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381167'>[review]</a>
+patch for bubble tea
+
+Hi alive,
+
+I had changed the patch to enable the jsdoc generation of SoundManager. Please review this version. Thanks.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381167&amp;action=edit"
+           title="patch for bubble tea"
+           class=""
+        >Attachment #8381167</a> -
+        Flags: review?(alive)</div></div></div><div class="change-set" id="c8"><div class="comment" data-id="8463715" data-no="8">
+    
+    <table class="layout-table change-head assignee" id="ch-8">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-8">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-8" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c8">Comment 8</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-25 18:39 PST" data-time="1393382369">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-8">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-8">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8381170" name="attach_8381170" title="PR for master">attachment 8381170</a> <a href="attachment.cgi?id=8381170&amp;action=edit" title="PR for master">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381170'>[review]</a>
+PR for master
+
+Since our patches go to bubble tea, we don't need this one.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381170&amp;action=edit"
+           title="PR for master"
+           class=""
+        >Attachment #8381170</a> -
+        Attachment is obsolete: true</div></div></div><div class="change-set" id="c9"><div class="comment" data-id="8464332" data-no="9">
+    
+    <table class="layout-table change-head reporter" id="ch-9">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_445020" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/58dc2f52eb8a5ae33ecb1ed36164de1f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_445020" id="a769478_469651"><a class="email " href="user_profile?user_id=445020" > <span class="fna">(inactive after 6/18) Alive Kuo [:alive]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-9">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-9" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c9">Comment 9</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-25 22:33 PST" data-time="1393396403">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-9">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-9">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8381167" name="attach_8381167" title="patch for bubble tea">attachment 8381167</a> <a href="attachment.cgi?id=8381167&amp;action=edit" title="patch for bubble tea">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381167'>[review]</a>
+patch for bubble tea
+
+Nice big work. r+ with nits. Thanks!</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381167&amp;action=edit"
+           title="patch for bubble tea"
+           class=""
+        >Attachment #8381167</a> -
+        Flags: review?(alive) &rarr; review+</div></div></div><div class="change-set" id="c10"><div class="comment" data-id="8470312" data-no="10">
+    
+    <table class="layout-table change-head assignee" id="ch-10">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-10">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-10" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c10">Comment 10</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-02-26 22:32 PST" data-time="1393482737">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-10">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-10">merged to bubble-tea:
+<a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/99fcb153535a3e846f0df2a8b0752d85cc1f975e">https://github.com/mozilla-b2g/gaia/commit/99fcb153535a3e846f0df2a8b0752d85cc1f975e</a></pre><div class="activity"><div class="change">Whiteboard: [in-bubble-tea]</div></div></div><div class="change-set" id="c11"><div class="comment" data-id="8568463" data-no="11">
+    
+    <table class="layout-table change-head " id="ch-11">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_463371" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/db033259add09db2b156b0b658fa847b?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_463371" id="a769478_469651"><a class="email " href="user_profile?user_id=463371" > <span class="fna">Fred Lin [:gasolin]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-11">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-11" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c11">Comment 11</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-23 18:50 PDT" data-time="1395625817">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-11">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-11">Created <span class="bz_obsolete"><a href="attachment.cgi?id=8395483" name="attach_8395483" title="mozilla-b2g:master PR#17494">attachment 8395483</a> <a href="attachment.cgi?id=8395483&amp;action=edit" title="mozilla-b2g:master PR#17494">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8395483'>[review]</a>
+mozilla-b2g:master PR#17494</pre></div><div class="change-set" id="c12"><div class="comment" data-id="8568506" data-no="12">
+    
+    <table class="layout-table change-head " id="ch-12">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_463371" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/db033259add09db2b156b0b658fa847b?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_463371" id="a769478_469651"><a class="email " href="user_profile?user_id=463371" > <span class="fna">Fred Lin [:gasolin]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-12">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-12" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c12">Comment 12</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-23 19:21 PDT" data-time="1395627685">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-12">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-12">travis all green, merged <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/c377f41d017d4b099e92fd7ecf67d9cd1cee1292">https://github.com/mozilla-b2g/gaia/commit/c377f41d017d4b099e92fd7ecf67d9cd1cee1292</a></pre><div class="activity"><div class="change">Status: NEW &rarr; RESOLVED</div><div class="change cc-only" style="display:none">CC: gasolin</div><div class="change">Last Resolved: <span class="rel-time" title="2014-03-23 12:21 PDT" data-time="1395602485">4 years ago</span></div><div class="change">Resolution: --- &rarr; FIXED</div></div></div><div class="change-set" id="c13"><div class="comment" data-id="8568548" data-no="13">
+    
+    <table class="layout-table change-head assignee" id="ch-13">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-13">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-13" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c13">Comment 13</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-23 19:35 PDT" data-time="1395628500">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-13">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-13">Thanks Fred,
+
+This is a hard bug....</pre></div><div class="change-set" id="c14"><div class="comment" data-id="8568766" data-no="14">
+    
+    <table class="layout-table change-head " id="ch-14">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_308534" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/a4e84853704b23feb5ccb8558a0110b8?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_308534" id="a769478_469651"><a class="email " href="user_profile?user_id=308534" > <span class="fna">Wes Kocher (:KWierso)</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-14">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-14" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c14">Comment 14</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-23 22:08 PDT" data-time="1395637698">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-14">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-14">I had to revert this in <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/34cdf08e963c1fde841828b69ae02fab43828573">https://github.com/mozilla-b2g/gaia/commit/34cdf08e963c1fde841828b69ae02fab43828573</a> for breaking gaia-unit tests on TBPL:
+
+<a rel="nofollow" href="https://tbpl.mozilla.org/php/getParsedLog.php?id=36588967&amp;tree=B2g-Inbound">https://tbpl.mozilla.org/php/getParsedLog.php?id=36588967&amp;tree=B2g-Inbound</a></pre><div class="activity cc-only" style="display:none"><div class="change">CC: kwierso</div></div></div><div class="change-set" id="c15"><div class="comment" data-id="8579926" data-no="15">
+    
+    <table class="layout-table change-head assignee" id="ch-15">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-15">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-15" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c15">Comment 15</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-26 01:24 PDT" data-time="1395822259">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-15">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-15">Reopen it because of <a href="show_bug.cgi?id=971554#c14">comment 14</a>.</pre><div class="activity"><div class="change">Status: RESOLVED &rarr; REOPENED</div><div class="change">Resolution: FIXED &rarr; ---</div></div></div><div class="change-set" id="c16"><div class="comment" data-id="8585194" data-no="16">
+    
+    <table class="layout-table change-head assignee" id="ch-16">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-16">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-16" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c16">Comment 16</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-26 21:04 PDT" data-time="1395893062">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-16">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-16">Comment on <span class="bz_obsolete"><a href="attachment.cgi?id=8381170" name="attach_8381170" title="PR for master">attachment 8381170</a> <a href="attachment.cgi?id=8381170&amp;action=edit" title="PR for master">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8381170'>[review]</a>
+PR for master
+
+Rebase to master.
+
+travis all green: <a rel="nofollow" href="https://travis-ci.org/mozilla-b2g/gaia/builds/21645503">https://travis-ci.org/mozilla-b2g/gaia/builds/21645503</a></pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381170&amp;action=edit"
+           title="PR for master"
+           class=""
+        >Attachment #8381170</a> -
+        Attachment is obsolete: false</div></div></div><div class="change-set" id="c17"><div class="comment" data-id="8590568" data-no="17">
+    
+    <table class="layout-table change-head " id="ch-17">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_463371" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/db033259add09db2b156b0b658fa847b?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_463371" id="a769478_469651"><a class="email " href="user_profile?user_id=463371" > <span class="fna">Fred Lin [:gasolin]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-17">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-17" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c17">Comment 17</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-27 20:41 PDT" data-time="1395978077">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-17">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-17">merged <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/9df14421065bcc5fcb94735f6ab7cb34d6ddc643">https://github.com/mozilla-b2g/gaia/commit/9df14421065bcc5fcb94735f6ab7cb34d6ddc643</a>
+
+thanks!</pre><div class="activity"><div class="change">Status: REOPENED &rarr; RESOLVED</div><div class="change">Last Resolved: <span class="rel-time" title="2014-03-23 12:21 PDT" data-time="1395602485">4 years ago</span> &rarr; <span class="rel-time" title="2014-03-27 13:41 PDT" data-time="1395952877">4 years ago</span></div><div class="change">Resolution: --- &rarr; FIXED</div></div></div><div class="change-set" id="c18"><div class="comment" data-id="8590580" data-no="18">
+    
+    <table class="layout-table change-head " id="ch-18">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_75935" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/a10f7f199c75a9a5a1eb347730524a7a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_75935" id="a769478_469651"><a class="email " href="user_profile?user_id=75935" > <span class="fna">Ryan VanderMeulen [:RyanVM]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-18">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-18" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c18">Comment 18</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-27 20:48 PDT" data-time="1395978505">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-18">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-18">Sorry, I accidentally committed some bad changesets to the Gaia repo which you had the misfortunate of pushing on top of. Rather than trying to rebase it all around, I ended up just reverting to the last good changeset, which means your push got lost. I'm *VERY* sorry for the inconvenience I've caused you :(</pre><div class="activity"><div class="change">Status: RESOLVED &rarr; REOPENED</div><div class="change">Resolution: FIXED &rarr; ---</div></div></div><div class="change-set" id="c19"><div class="comment" data-id="8598016" data-no="19">
+    
+    <table class="layout-table change-head assignee" id="ch-19">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-19">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-19" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c19">Comment 19</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-30 21:12 PDT" data-time="1396239127">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-19">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-19">reland to master:
+<a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/eee964fc7e8dc519218dee6b72595ad0f7dd8231">https://github.com/mozilla-b2g/gaia/commit/eee964fc7e8dc519218dee6b72595ad0f7dd8231</a></pre><div class="activity"><div class="change">Status: REOPENED &rarr; RESOLVED</div><div class="change">Last Resolved: <span class="rel-time" title="2014-03-27 13:41 PDT" data-time="1395952877">4 years ago</span> &rarr; <span class="rel-time" title="2014-03-30 14:12 PDT" data-time="1396213927">4 years ago</span></div><div class="change">Resolution: --- &rarr; FIXED</div></div></div><div class="change-set" id="c20"><div class="comment" data-id="8598344" data-no="20">
+    
+    <table class="layout-table change-head " id="ch-20">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_277293" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/8378311bf1bd5e9eddc7896a07688876?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_277293" id="a769478_469651"><a class="email " href="user_profile?user_id=277293" > <span class="fna">Carsten Book [:Tomcat]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-20">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-20" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c20">Comment 20</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-31 00:22 PDT" data-time="1396250546">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-20">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-20">(In reply to John Hu [:johnhu][:johu][:醬糊小弟] from <a href="show_bug.cgi?id=971554#c19">comment #19</a>)
+<span class="quote">&gt; reland to master:
+&gt; <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/">https://github.com/mozilla-b2g/gaia/commit/</a>
+&gt; eee964fc7e8dc519218dee6b72595ad0f7dd8231</span >
+
+i think this have broken marionette tests again</pre><div class="activity"><div class="change">Status: RESOLVED &rarr; REOPENED</div><div class="change cc-only" style="display:none">CC: cbook</div><div class="change">Resolution: FIXED &rarr; ---</div></div></div><div class="change-set" id="c21"><div class="comment" data-id="8598348" data-no="21">
+    
+    <table class="layout-table change-head " id="ch-21">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_277293" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/8378311bf1bd5e9eddc7896a07688876?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_277293" id="a769478_469651"><a class="email " href="user_profile?user_id=277293" > <span class="fna">Carsten Book [:Tomcat]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-21">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-21" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c21">Comment 21</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-31 00:27 PDT" data-time="1396250846">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-21">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-21">yeah red mnw tests results started with this push - <a rel="nofollow" href="https://tbpl.mozilla.org/php/getParsedLog.php?id=36982015&amp;tree=B2g-Inbound">https://tbpl.mozilla.org/php/getParsedLog.php?id=36982015&amp;tree=B2g-Inbound</a></pre></div><div class="change-set" id="c22"><div class="comment" data-id="8598392" data-no="22">
+    
+    <table class="layout-table change-head assignee" id="ch-22">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-22">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-22" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c22">Comment 22</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-03-31 00:42 PDT" data-time="1396251732">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-22">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-22">the commit eee964fc7e8dc519218dee6b72595ad0f7dd8231 is reverted.</pre></div><div class="change-set" id="c23"><div class="comment" data-id="8603729" data-no="23">
+    
+    <table class="layout-table change-head assignee" id="ch-23">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a769478_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a769478_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-23">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-23" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c23">Comment 23</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-04-01 00:28 PDT" data-time="1396337282">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-23">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-23">PR: <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/pull/17807">https://github.com/mozilla-b2g/gaia/pull/17807</a>
+
+reland to master: <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/3c23b5013e62d6f059d9a0b9f9e8c8db0c3aa2fe">https://github.com/mozilla-b2g/gaia/commit/3c23b5013e62d6f059d9a0b9f9e8c8db0c3aa2fe</a>
+
+
+travis is all green: <a rel="nofollow" href="https://travis-ci.org/mozilla-b2g/gaia/builds/21990686">https://travis-ci.org/mozilla-b2g/gaia/builds/21990686</a>
+
+I had tried try-server. But it gives me timed-out all the time:
+<a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED WORKSFORME - Intermittent TEST-UNEXPECTED-FAIL | test_sms_add_contact.py test_sms_add_contact.TestSmsAddContact.test_sms_add_contact | (after TimeoutException: TimeoutException: Timed out after 10.0 seconds)"
+   href="show_bug.cgi?id=982995">Bug 982995</a> - Intermittent TEST-UNEXPECTED-FAIL | test_sms_add_contact.py test_sms_add_contact.TestSmsAddContact.test_sms_add_contact | (after TimeoutException: TimeoutException: Timed out after 10.0 seconds)
+TEST-UNEXPECTED-FAIL | test_context_menu_activity_picker.py test_context_menu_activity_picker.TestContextMenuActivityPicker.test_context_menu_activity_picker |</pre></div><div class="change-set" id="a4152639_469651"><div class="change" id="aa4152639_469651">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a4152639_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_469651" id="a4152639_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a4152639_469651">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a4152639_469651">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a4152639_469651">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-04-01 00:28 PDT" data-time="1396337292">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Status: REOPENED &rarr; RESOLVED</div><div class="change">Last Resolved: <span class="rel-time" title="2014-03-30 14:12 PDT" data-time="1396213927">4 years ago</span> &rarr; <span class="rel-time" title="2014-03-31 17:28 PDT" data-time="1396312092">4 years ago</span></div><div class="change">Resolution: --- &rarr; FIXED</div></div></div><div class="change-set" id="a4362053_432443"><div class="change" id="aa4362053_432443">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_432443" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/fba16ea71cd5ef27991fcea651e8cd56?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_432443" id="a4362053_432443"><a class="email disabled" href="user_profile?user_id=432443" > <span class="fna">Jason Smith [:jsmith]</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a4362053_432443">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a4362053_432443">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a4362053_432443">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-04-03 10:38 PDT" data-time="1396546706">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Depends on: <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - [B2G][Audio][Headphones]Pressing volume down button causes volume to increase when headphones are plugged in"
+   href="show_bug.cgi?id=991385">991385</a></div></div></div><div class="change-set" id="c24"><div class="comment" data-id="8618046" data-no="24">
+    
+    <table class="layout-table change-head " id="ch-24">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_75935" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/a10f7f199c75a9a5a1eb347730524a7a?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_75935" id="a4362053_432443"><a class="email " href="user_profile?user_id=75935" > <span class="fna">Ryan VanderMeulen [:RyanVM]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-24">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-24" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c24">Comment 24</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-04-03 10:54 PDT" data-time="1396547695">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-24">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-24">Reverted for causing <a class="bz_bug_link 
+          bz_status_VERIFIED  bz_closed"
+   title="VERIFIED FIXED - [B2G][Audio][Headphones]Pressing volume down button causes volume to increase when headphones are plugged in"
+   href="show_bug.cgi?id=991385">bug 991385</a>.
+<a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/d9a574284d672f532f7c562a091bb01f531202b1">https://github.com/mozilla-b2g/gaia/commit/d9a574284d672f532f7c562a091bb01f531202b1</a></pre><div class="activity"><div class="change">Status: RESOLVED &rarr; REOPENED</div><div class="change">Resolution: FIXED &rarr; ---</div></div></div><div class="change-set" id="c25"><div class="comment" data-id="8626519" data-no="25">
+    
+    <table class="layout-table change-head assignee" id="ch-25">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a4362053_432443"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-25">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-25" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c25">Comment 25</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-04-07 00:01 PDT" data-time="1396854110">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-25">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-25">Created <span class=""><a href="attachment.cgi?id=8402483" name="attach_8402483" title="patch for master">attachment 8402483</a> <a href="attachment.cgi?id=8402483&amp;action=edit" title="patch for master">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8402483'>[review]</a>
+patch for master
+
+Request to review the patch because a regression of previous patch is fixed.
+
+The change between this one and <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/pull/17807">https://github.com/mozilla-b2g/gaia/pull/17807</a> is at line 349[1] which calls this.headsetVolumeup() only when user volumes up and the headset is plugged in.
+
+[1] <a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/pull/18007/files#diff-6cb5950c74c73ee2f0c39a8b418d1548R349">https://github.com/mozilla-b2g/gaia/pull/18007/files#diff-6cb5950c74c73ee2f0c39a8b418d1548R349</a></pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8381167&amp;action=edit"
+           title="patch for bubble tea"
+           class=""
+        >Attachment #8381167</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8381170&amp;action=edit"
+           title="PR for master"
+           class=""
+        >Attachment #8381170</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8395483&amp;action=edit"
+           title="mozilla-b2g:master PR#17494"
+           class=""
+        >Attachment #8395483</a> -
+        Attachment is obsolete: true</div><div class="change">
+        <a href="attachment.cgi?id=8402483&amp;action=edit"
+           title="patch for master"
+           class=""
+        >Attachment #8402483</a> -
+        Flags: review?(alive)</div></div></div><div class="change-set" id="c26"><div class="comment" data-id="8632159" data-no="26">
+    
+    <table class="layout-table change-head reporter" id="ch-26">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_445020" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/58dc2f52eb8a5ae33ecb1ed36164de1f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_445020" id="a4362053_432443"><a class="email " href="user_profile?user_id=445020" > <span class="fna">(inactive after 6/18) Alive Kuo [:alive]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-26">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-26" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c26">Comment 26</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-04-07 23:43 PDT" data-time="1396939399">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-26">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-26">Comment on <span class=""><a href="attachment.cgi?id=8402483" name="attach_8402483" title="patch for master">attachment 8402483</a> <a href="attachment.cgi?id=8402483&amp;action=edit" title="patch for master">[details]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8402483'>[review]</a>
+patch for master
+
+r+ if you have unit tests for the failure.</pre><div class="activity"><div class="change">
+        <a href="attachment.cgi?id=8402483&amp;action=edit"
+           title="patch for master"
+           class=""
+        >Attachment #8402483</a> -
+        Flags: review?(alive) &rarr; review+</div></div></div><div class="change-set" id="c27"><div class="comment" data-id="8767920" data-no="27">
+    
+    <table class="layout-table change-head " id="ch-27">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_41385" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/e1bf03a82ed2535581f4b2d57cbfacfe?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_41385" id="a4362053_432443"><a class="email " href="user_profile?user_id=41385" > <span class="fna">Alexandre LISSY :gerard-majax</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-27">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-27" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c27">Comment 27</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-08 06:52 PDT" data-time="1399557150">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-27">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-27">This is r+, Travis green, and it may be blocking/conflicting with <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - [hamachi][2.0]Not possible to change volume level after voice call"
+   href="show_bug.cgi?id=1006356">bug 1006356</a>, what are we waiting to land this?</pre><div class="activity cc-only" style="display:none"><div class="change">CC: lissyx+mozillians</div></div></div><div class="change-set" id="c28"><div class="comment" data-id="8769029" data-no="28">
+    
+    <table class="layout-table change-head " id="ch-28">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_314734" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/1ab9ae817c429c697626739e4d222c88?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_314734" id="a4362053_432443"><a class="email " href="user_profile?user_id=314734" > <span class="fna">Gregor Wagner [:gwagner]</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-28">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-28" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c28">Comment 28</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-08 10:42 PDT" data-time="1399570942">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-28">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-28">(In reply to Alexandre LISSY :gerard-majax from <a href="show_bug.cgi?id=971554#c27">comment #27</a>)
+<span class="quote">&gt; This is r+, Travis green, and it may be blocking/conflicting with bug
+&gt; 1006356, what are we waiting to land this?</span >
+
+1006356 is a cert blocker for 1.3 so we shouldn't delay it with merging this in the next 24 hours. Lets coordinate if you want to land this in the next few days.</pre></div><div class="change-set" id="c29"><div class="comment" data-id="8771424" data-no="29">
+    
+    <table class="layout-table change-head assignee" id="ch-29">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a4362053_432443"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a4362053_432443"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-29">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-29" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c29">Comment 29</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-08 18:58 PDT" data-time="1399600735">4 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-29">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-29">We got a call to post-pone the landing of System2. We will try to resolve it after <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - [hamachi][2.0]Not possible to change volume level after voice call"
+   href="show_bug.cgi?id=1006356">bug 1006356</a> landed.</pre></div><div class="change-set" id="a7980571_41385"><div class="change" id="aa7980571_41385">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_41385" id="a7980571_41385"><img src="https://secure.gravatar.com/avatar/e1bf03a82ed2535581f4b2d57cbfacfe?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_41385" id="a7980571_41385"><a class="email " href="user_profile?user_id=41385" > <span class="fna">Alexandre LISSY :gerard-majax</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a7980571_41385">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a7980571_41385">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a7980571_41385">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-05-15 07:47 PDT" data-time="1400165224">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Blocks: <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Enable audio channel change Gaia UI Tests checking"
+   href="show_bug.cgi?id=1011000">1011000</a></div></div></div><div class="change-set" id="c30"><div class="comment" data-id="9016528" data-no="30">
+    
+    <table class="layout-table change-head " id="ch-30">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_41385" id="a7980571_41385"><img src="https://secure.gravatar.com/avatar/e1bf03a82ed2535581f4b2d57cbfacfe?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_41385" id="a7980571_41385"><a class="email " href="user_profile?user_id=41385" > <span class="fna">Alexandre LISSY :gerard-majax</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-30">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-30" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c30">Comment 30</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-04 07:41 PDT" data-time="1404484886">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-30">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-30">I'm concerned this has not yet landed ; it's blocking writing new tests, as of <a class="bz_bug_link 
+          bz_status_RESOLVED  bz_closed"
+   title="RESOLVED FIXED - Enable audio channel change Gaia UI Tests checking"
+   href="show_bug.cgi?id=1011000">bug 1011000</a>.</pre><div class="activity"><div class="change cc-only" style="display:none">CC: johu</div><div class="change">Flags: needinfo?(johu)</div></div></div><div class="change-set" id="c31"><div class="comment" data-id="9019887" data-no="31">
+    
+    <table class="layout-table change-head assignee" id="ch-31">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a7980571_41385"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a7980571_41385"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-31">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-31" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c31">Comment 31</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-06 23:47 PDT" data-time="1404715642">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-31">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-31">Alexandre,
+
+The PR had rebased. I had discussed this one with Tim. We will not land this patch until the gaia-try green, and I will dogfeed this patch at least a week before landing it.
+
+It is welcome that you may help to test this patch on your site.</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(johu)</span></div></div></div><div class="change-set" id="c32"><div class="comment" data-id="9048216" data-no="32">
+    
+    <table class="layout-table change-head assignee" id="ch-32">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a7980571_41385"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a7980571_41385"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-32">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-32" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c32">Comment 32</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-13 22:40 PDT" data-time="1405316412">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-32">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-32">merged to master:
+
+<a rel="nofollow" href="https://github.com/mozilla-b2g/gaia/commit/9d822c4666c507da8ffe9967df530aa6980acbf8">https://github.com/mozilla-b2g/gaia/commit/9d822c4666c507da8ffe9967df530aa6980acbf8</a></pre><div class="activity"><div class="change">Status: REOPENED &rarr; RESOLVED</div><div class="change">Last Resolved: <span class="rel-time" title="2014-03-31 17:28 PDT" data-time="1396312092">4 years ago</span> &rarr; <span class="rel-time" title="2014-07-13 15:40 PDT" data-time="1405291212">3 years ago</span></div><div class="change">Resolution: --- &rarr; FIXED</div></div></div><div class="change-set cc-only" id="a13311030_493875" style="display:none"><div class="change" id="aa13311030_493875">
+    <table class="layout-table change-head ">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_493875" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/42613b5affcd4fd71990a48f358f775e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_493875" id="a13311030_493875"><a class="email " href="user_profile?user_id=493875" > <span class="fna">ankit93040</span></a>
+</div>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a13311030_493875">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a13311030_493875">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a13311030_493875">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-16 00:28 PDT" data-time="1405495683">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">CC: ankit93040</div></div></div><div class="change-set" id="c33"><div class="comment" data-id="9059740" data-no="33">
+    
+    <table class="layout-table change-head " id="ch-33">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_493875" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/42613b5affcd4fd71990a48f358f775e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_493875" id="a13311030_493875"><a class="email " href="user_profile?user_id=493875" > <span class="fna">ankit93040</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-33">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-33" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c33">Comment 33</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-16 00:36 PDT" data-time="1405496164">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-33">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-33">Hi Alive
+
+Why don't you uplift this to V2.0 as well?
+
+thanks!</pre><div class="activity"><div class="change">Flags: needinfo?(alive)</div></div></div><div class="change-set" id="c34"><div class="comment" data-id="9059779" data-no="34">
+    
+    <table class="layout-table change-head reporter" id="ch-34">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_445020" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/58dc2f52eb8a5ae33ecb1ed36164de1f?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_445020" id="a13311030_493875"><a class="email " href="user_profile?user_id=445020" > <span class="fna">(inactive after 6/18) Alive Kuo [:alive]</span></a>
+</div>
+            <span class="user-role">(Reporter)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-34">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-34" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c34">Comment 34</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-16 00:48 PDT" data-time="1405496923">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-34">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-34">This is not a 2.0 feature but pure engineering work item.</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(alive)</span></div></div></div><div class="change-set" id="c35"><div class="comment" data-id="9117120" data-no="35">
+    
+    <table class="layout-table change-head " id="ch-35">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_493875" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/42613b5affcd4fd71990a48f358f775e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_493875" id="a13311030_493875"><a class="email " href="user_profile?user_id=493875" > <span class="fna">ankit93040</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-35">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-35" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c35">Comment 35</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-29 23:34 PDT" data-time="1406702051">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-35">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-35">Created <span class=""><a href="attachment.cgi?id=8464486" name="attach_8464486" title="sound_manager_test.patch">attachment 8464486</a> <a href="attachment.cgi?id=8464486&amp;action=edit" title="sound_manager_test.patch">[details]</a> <a href="attachment.cgi?id=8464486&amp;action=diff" title="sound_manager_test.patch">[diff]</a></span> <a href='https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=971554&amp;attachment=8464486'>[review]</a>
+sound_manager_test.patch
+
+Hi Alive,John
+
+I need little help from you. I am not good at unit test cases.
+I was trying to write Unit test case for v2.0 for sound_manager.
+I almost copied John's Unit test case file for sound_manager.
+Here is the problem I am facing - 
+1.&gt; Even after volumeup/down/mute/unmute the volume of the channel is not changing.
+Will you please help!
+
+thanks!
+Ankit</pre><div class="activity"><div class="change">Flags: needinfo?(im)</div><div class="change">Flags: needinfo?(alive)</div></div></div><div class="change-set" id="c36"><div class="comment" data-id="9117126" data-no="36">
+    
+    <table class="layout-table change-head " id="ch-36">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_493875" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/42613b5affcd4fd71990a48f358f775e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_493875" id="a13311030_493875"><a class="email " href="user_profile?user_id=493875" > <span class="fna">ankit93040</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-36">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-36" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c36">Comment 36</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-29 23:36 PDT" data-time="1406702204">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-36">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-36">In addition to <a href="show_bug.cgi?id=971554#c35">comment#35</a>
+
+If I have initialized the volume for a channel to 5 then even after mute/unmute it reamins 5.
+If I have initialized the volume for a channel to 1 then even after volume up/down it reamins same.</pre></div><div class="change-set" id="c37"><div class="comment" data-id="9117670" data-no="37">
+    
+    <table class="layout-table change-head assignee" id="ch-37">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a13311030_493875"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-37">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-37" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c37">Comment 37</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-30 02:53 PDT" data-time="1406714011">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-37">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-37">Ankit93040,
+
+Would you mind to share your code with us? Without the code, we cannot find the real problem.</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(im)</span></div><div class="change">Flags: <span class="activity-deleted">needinfo?(alive)</span></div></div></div><div class="change-set" id="c38"><div class="comment" data-id="9128712" data-no="38">
+    
+    <table class="layout-table change-head " id="ch-38">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_493875" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/42613b5affcd4fd71990a48f358f775e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_493875" id="a13311030_493875"><a class="email " href="user_profile?user_id=493875" > <span class="fna">ankit93040</span></a>
+</div>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-38">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-38" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c38">Comment 38</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-31 22:58 PDT" data-time="1406872689">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-38">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-38">Hi John
+
+I want to know one thing when we say - window.dispatchEvent(new CustomEvent('volumeup'));
+
+Have we defined this volumeup event somewhere else in some other file? (i mean in mock/test file)
+
+Actually what ever Unit test I uploaded :- 
+<a rel="nofollow" href="https://bug971554.bugzilla.mozilla.org/attachment.cgi?id=8464486">https://bug971554.bugzilla.mozilla.org/attachment.cgi?id=8464486</a>
+when i tested it against mozilla v2.0 sound_manager.js file there are many errors.
+
+One of the errors it shows when I wrote this - window.dispatchEvent(new CustomEvent('mute'));
+The error was &quot;currentVolume is undefined&quot;.
+I feel that mute event looks into currentVolume.
+
+So, I wanted to know have you defined these volumeup events in some file?
+
+thanks!</pre><div class="activity"><div class="change">Flags: needinfo?(im)</div></div></div><div class="change-set" id="c39"><div class="comment" data-id="9128782" data-no="39">
+    
+    <table class="layout-table change-head assignee" id="ch-39">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a13311030_493875"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a13311030_493875"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-39">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-39" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c39">Comment 39</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-31 23:35 PDT" data-time="1406874931">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-39">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-39">Thanks. I will test it when I am free. Keep ni in myself to remind me.</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(im)</span></div></div></div><div class="change-set" id="a14690289_469651"><div class="change" id="aa14690289_469651">
+    <table class="layout-table change-head assignee">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a14690289_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+        <td class="change-author"><div class="vcard vcard_469651" id="a14690289_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="as-a14690289_469651">-</button>
+        </td>
+      </tr>
+      <tr id="ar-a14690289_469651">
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#a14690289_469651">Updated</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-07-31 23:35 PDT" data-time="1406874942">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div><div class="activity"><div class="change">Flags: needinfo?(im)</div></div></div><div class="change-set" id="c40"><div class="comment" data-id="9152275" data-no="40">
+    
+    <table class="layout-table change-head assignee" id="ch-40">
+      <tr>
+        <td rowspan="2" class="change-gravatar"><div class="vcard vcard_469651" id="a14690289_469651"><img src="https://secure.gravatar.com/avatar/d399c6ee89030571fa9330299582dc3e?d=mm&amp;size=64" class="gravatar" width="32" height="32">
+</div>
+        </td>
+
+        <td class="change-author"><div class="vcard vcard_469651" id="a14690289_469651"><a class="email " href="user_profile?user_id=469651" > <span class="fna">John Hu [:johnhu][:johu][:醬糊小弟]</span></a>
+</div>
+            <span class="user-role">(Assignee)</span>
+        </td>
+
+        <td class="comment-actions">
+          <button type="button" class="change-spinner minor" id="cs-40">-</button>
+        </td>
+      </tr>
+
+      <tr id="cr-40" >
+        <td colspan="2">
+          <h3 class="change-name">
+            <a href="show_bug.cgi?id=971554#c40">Comment 40</a>
+          </h3>
+          &bull;
+          <div class="change-time"><span class="rel-time" title="2014-08-07 00:07 PDT" data-time="1407395268">3 years ago</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr id="ctag-40">
+        <td colspan="2" class="comment-tags">
+        </td>
+      </tr>
+    </table>
+
+    
+  </div><pre class="comment-text " id="ct-40">Ankit,
+
+I had checked your test case. The main difference between us is that:
+* I create my local-owned sound manager and testing with it. And you are trying to use the window.soundManager. It depends on the l10n.once or l10n.ready. The main reason your version won't work is that l10n is loaded after the &quot;sound_manager&quot;.
+
+The suggestion to fix it is that you may move the require('sound_manager.js') into the first suiteSetup(). After that you may need to change the suiteSetup() to suiteSetup(done) and require('.../sound_manager.js', done);</pre><div class="activity"><div class="change">Flags: <span class="activity-deleted">needinfo?(im)</span></div></div></div><div id="new-comment-notice">
+          You need to <a href="show_bug.cgi?id=971554&amp;GoAheadAndLogIn=1">log in</a>
+          before you can comment on or make changes to this bug.
+        </div>
+
+
+
+<div id="bottom-actions">
+  <div id="bottom-right-actions">
+    <button type="button" id="top-btn" class="minor">Top &uarr;</button>
+    <div class="dropdown">
+      <button type="button" id="format-btn" aria-haspopup="true" aria-label="Format Bug Menu"
+        aria-expanded="false" aria-controls="format-menu" class="dropdown-button minor">Format Bug &#9652;</button>
+      <ul class="dropdown-content menu-up" id="format-menu" role="menu" style="display:none;">
+        <li role="presentation">
+          <a href="show_bug.cgi?format=multiple&amp;id=971554" role="menuitem" tabindex="-1">For Printing</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?ctype=xml&amp;id=971554" role="menuitem" tabindex="-1">XML</a>
+        </li>
+        <li role="presentation">
+          <a href="show_bug.cgi?format=default&amp;id=971554" role="menuitem" tabindex="-1">Legacy</a>
+        </li>
+          <li role="presentation">
+            <a href="rest/bug/971554" role="menuitem" tabindex="-1">JSON</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+
+
+<div id="footer">
+  <div class="intro"></div>
+
+
+
+
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li><a href="./">Home</a></li>
+  <li><span class="separator">| </span><a href="enter_bug.cgi">New</a></li>
+  <li><span class="separator">| </span><a href="describecomponents.cgi">Browse</a></li>
+  <li><span class="separator">| </span><a href="query.cgi">Search</a></li>
+
+  <li class="form quicksearch_form">
+    <span class="separator">| </span>
+    <form action="buglist.cgi" method="get"
+      class='quicksearch_check_empty'>
+    <input class="txt" type="text" id="quicksearch_bottom" name="quicksearch"
+           title="Quick Search" value="">
+    <input class="btn" type="submit" value="Search"
+           id="find_bottom"></form>
+    [<a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">help</a>]
+  </li>
+
+  <li><span class="separator">| </span><a href="report.cgi">Reports</a></li>
+
+
+</ul>
+  </li>
+
+  
+    
+
+  
+
+
+  
+</ul>
+
+  <div class="outro"><div id="policy_links">
+  <ul>
+    <li id="privacy_notice">
+      <a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Notice</a> |
+    </li>
+    <li id="legal_terms">
+      <a href="https://www.mozilla.org/about/legal/terms/mozilla" target="_blank">Legal Terms</a>
+    </li>
+  </ul>
+</div></div>
+</div>
+
+
+</body>
+</html>

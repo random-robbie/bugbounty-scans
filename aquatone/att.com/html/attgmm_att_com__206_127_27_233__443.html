@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <!-- Internet Explorer 10 Standards Mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" >   
+	<title>Login</title>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	<link id="COMMANDSTYLES3" rel="stylesheet" type="text/css" href="../style/command_application_2.css?v=09/08/2017 02:43 AM" />
+	<link id="COMMANDSTYLES4" rel="stylesheet" type="text/css" href="../style/command.1.0.2.css?v=09/08/2017 02:43 AM" />
+    <link id="COMMANDSTYLES5" rel="stylesheet" type="text/css" href="../style/command_style_new.css?v=09/08/2017 02:43 AM" />
+	
+	
+		
+		
+			
+				<link rel="stylesheet" type="text/css" href="../style/command.1.0.2.css" />
+			
+		
+	
+
+
+
+
+
+   	<!--[if IE]>
+	<style type="text/css">
+	.tngoBtn, .tngoSecondaryBtn
+	{
+	border-width:0px !important;
+	ie-dummy: expression(this.hideFocus=true);
+	}
+	</style>
+	<![endif]-->
+
+    <!--[if !IE 7]>
+        <style type="text/css">
+            .container {display:table;height:100%}
+        </style>
+    <![endif]-->	
+</head>
+
+
+
+<script type="text/javascript" src="../javascript/UIUtil.js?v=09/08/2017 02:43 AM" ></script>
+<script language="JavaScript" type="text/javascript" src="../javascript/browser_check_util.js?v=09/08/2017 02:43 AM"></script>
+
+<script LANGUAGE="JavaScript">
+	var AlertWasDisplayed = false;
+	var isNav4 = false;
+	var isIE4 = false;
+	var form;
+
+	if (navigator.appName == "Netscape"){	
+	 isNav4 = true; 
+	 }
+	else{	
+	 isIE4 = true;
+	 }
+	 
+	 
+	 function onPageLoad() {
+    	form = document.loginForm;
+
+    }
+
+	function validateNoSpaces(fieldValue){
+	var i;
+	for(i = 0; i < fieldValue.length; i++){
+		if (fieldValue.charAt(i) == ' '){
+			return false;
+		}
+	}
+	return true;
+	} 
+
+
+	var submitted = false;
+	
+	function KeyUpEvent(e) {
+	var keyPressed;
+
+	keyPressed = "";
+	if (isNav4) {
+		keyPressed = String.fromCharCode(e.which);
+	}
+	else if (isIE4) {
+		keypressed = String.fromCharCode(window.event.keyCode);
+	}
+	if (keyPressed == "\r" || keyPressed == "\n") {
+		if (isNav4) {
+			if (AlertWasDisplayed) {
+				AlertWasDisplayed = false;
+			}
+			else {
+				if (frmLogon_onsubmit()) {
+					if (!window.chrome && submitted == false) {
+						submitted = true;
+						document.loginForm.submit();
+					}
+				}
+			}
+		}
+	}
+	else if (keyPressed == "\b") {
+	}
+	}		
+
+
+	if (isNav4) {
+	window.document.captureEvents(Event.KEYUP);
+	window.document.onkeyup = KeyUpEvent;
+	}	
+
+	function window_onload() {
+        // need to get the browser locale
+        document.loginForm.userName.setAttribute( "autocomplete", "off" );
+        document.loginForm.password.setAttribute( "autocomplete", "off" );
+		document.loginForm.setAttribute( "autocomplete", "off" );
+        document.title = "Login";
+		document.loginForm.userName.focus();
+		document.loginForm.password.value="";
+	 }
+
+	function logonName_onchange() {		
+		return true;	
+	 }
+
+	function password_onchange() {
+        var passwordMsg = "MSG002001 Spaces are not allowed in the Password field.";
+		if(!validateNoSpaces(document.loginForm.password.value)){
+			alert(passwordMsg);
+			//document.form1.Password.value="";
+			document.loginForm.password.focus();
+			document.loginForm.password.select();
+			return false;
+		  }
+		return true;	
+	 }
+
+	function frmLogon_onsubmit() {
+        
+        var loginIdMsg = "MSG002005 Please enter your Login ID.";
+
+		if ((document.loginForm.userName.value =="") ) {
+			alert(loginIdMsg);
+			AlertWasDisplayed = true;
+			document.loginForm.userName.focus();
+			return false;
+		}
+		var passwordMsg = "MSG002004 Please enter your Password.";
+		if ((document.loginForm.password.value =="")) {
+		  	alert(passwordMsg);
+			AlertWasDisplayed = true;
+			document.loginForm.userName.focus();
+			return false;
+		}
+		  
+		return true;
+	 }
+	 
+	 function doSubmit() {
+	 	if (frmLogon_onsubmit() && submitted == false) {
+	 		submitted = true;
+			document.loginForm.Login.disabled=true;
+			document.loginForm.am.value = "doLogin";
+		} else {
+			return false;
+		}
+	}
+	 
+
+	 function genericBrowserCheck() {
+		 //alert(window.location.href.indexOf("logout"));
+		 if (window.location.href.indexOf("logout") == -1) {
+			
+				try {
+					//alert(window.parent);
+					//alert(typeof window.parent["browserCheckCounter"]);
+					//alert(browserCheckCounter);
+					if (window.parent && (typeof window.parent["browserCheckCounter"] == "undefined" || typeof window.parent["browserCheckCounter"] == "unknown" )
+							|| "false" == "true"  ) {
+							//alert("test");
+							var browserCheckCounter = 0;
+							
+							IeVersion("MSG20455: Please use Chrome, Firefox, Internet Explorer 11 with document mode 10 or above.  Other browsers may not be compatible.",
+									browserCheckCounter, true);
+							browserCheckCounter++;
+							
+							jQuery.ajax({
+					            type: 'POST',
+					            async: true,
+							    dataType: "html",
+							    cache: false,
+					            url: '../organize/userprofile.trq?am=setBrowserCheck',
+					            success: function (data) {
+					            	
+					            } 
+					        });
+					}
+						
+				} catch(e){
+				   //console.log(e);
+				}
+			
+		 }
+	}
+	 	
+	 
+</script>
+
+<body onLoad="window_onload(); genericBrowserCheck();">
+
+
+
+
+<div class="container">
+	
+
+
+
+
+
+
+<div class="page-header">
+    <div id="logoBox" class="left-logo-box">
+        
+            
+        
+        
+    </div>
+
+    
+        
+        
+            <div class="banner-box">
+                <div class="banner-title">
+                    Premium Mobile
+                </div>
+                <div class="banner-subtitle">
+                    
+                </div>
+            </div>
+        
+    
+
+
+    <div class="right-logo-box">
+ 	    
+        
+    </div>
+</div>
+    <div class="nav-container"></div>
+	<div class="login-screen">
+	
+		
+		
+
+	     <div class="login-box">
+		     <div class="login-form-box">
+				<form name="loginForm" method="post" action="doLogin.trq"  onsubmit="return doSubmit()"><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="b0dd3b130de55c2e2a5a80a9882c97e0">
+					<input name="am" type="hidden"/>
+			        <input name="browserLocale" type="hidden"/>
+			        <input type="hidden" name="first_login" value="true"/>
+			        
+					<input type="hidden" name="redirectUrl" value=""/>
+					<input type="hidden" name="cc" value=""/>
+					
+					
+					
+					
+					<div class="login-form login-welcome-message">
+					 Welcome to Premium Mobile
+					</div>
+					
+					<div class="login-form login-form-main">
+					     <div class="login-username-form">
+	                              <div class="login-field-label">
+	                               Login Id
+	                              </div>
+	                              <div>
+	                                 <input type="text" name="userName" maxlength="100" size="25" tabindex="1" value="" onchange="return logonName_onchange()" class="login-text-field">
+	                              </div>
+	                              
+					     </div>
+					     
+					     <div class="login-password-form">
+	                           <div class="login-field-label">
+	                            Password
+	                           </div>
+	                           <div>
+	                              <input type="password" name="password" maxlength="30" size="25" tabindex="2" value="" onchange="return password_onchange()" class="login-text-field">
+	                           </div>
+	                           
+	                      </div>
+	                  </div>
+	                         
+	                  <div class="login-form login-form-footer">
+	                      <div>
+	                          
+	                      </div>
+	                      <div class="login-button-container">
+	                          <input type="submit" value="Login" name="Login" class="cmd-button login-button"/>
+	                      </div>
+	                      <div class="login-authorized-msg">
+	                          Do not login unless you are an authorized user. Unauthorized access is prohibited by law.
+	                      </div>
+	                  </div>
+				</form>
+			</div>
+            
+
+		</div>
+	</div>
+</div>
+<div class="login-footer">
+    
+        <div class="login-browser">
+            This site is optimized for Internet Explorer 11, Firefox and Chrome browsers.
+        </div>
+    
+    
+	
+		
+		
+	
+    
+    <div class="login-links">
+        <a href="http://web.ita.doc.gov/safeharbor/shlist.nsf/webPages/safe+harbor+list">
+            We self-certify compliance with
+        </a>
+        <a href="http://export.gov/safeharbor">
+            <img class="safeHarbor-img-small" src="../images/safeHarbor.jpg" alt="Safe Harbor Logo" border="0" />
+        </a>
+    </div>
+</div>
+</body>
+</html>

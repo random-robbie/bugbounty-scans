@@ -1,0 +1,281 @@
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>Firefox Hardware Report</title>
+    <meta name="description" content="The Firefox Hardware Report is a public weekly report of the hardware used by a representative sample of the population from Firefox's release channel on desktop. This information can be used by developers to improve the Firefox experience for users." />
+
+    <meta property="og:title" content="Firefox Hardware Report" />
+    <meta property="og:description" content="The Firefox Hardware Report is a public weekly report of the hardware used by a representative sample of the population from Firefox's release channel on desktop. This information can be used by developers to improve the Firefox experience for users." />
+    <meta property="og:image" content="https://hardware.metrics.mozilla.com/images/preview.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hardware.metrics.mozilla.com/" />
+    <meta property="og:site_name" content="Firefox Hardware Report" />
+
+    <meta name="google-site-verification" content="YG61noZtCoZSUnSTYOkgdyYFK3HFXZSG8-ZMMnfGugU" />
+
+    <script src='build/js/bundle.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="node_modules/metrics-graphics/dist/metricsgraphics.css" rel="stylesheet" type="text/css" id="light">
+    <link href="css/metricsgraphics-dark.css" rel="stylesheet" type="text/css" id="dark">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-35433268-14', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <div class='container container-charts'>
+      <header class='row'>
+        <div class='col-lg-12'>
+          <h1 class='text-center'>Firefox Hardware Report</h1>
+          <p>The Firefox Hardware Report is a public weekly report of the hardware used by a representative sample of the population from Firefox's release channel on desktop. This information can be used by developers to improve the Firefox experience for users.</p>
+        </div>
+      </header>
+
+      <main>
+        <div id="reports">
+          <div id="options">
+            <div id='date-options'>
+              <a href='#' id='hero-first'>&#x276E;&#x276E;</a>
+              <a href='#' id='hero-backward'>&#x276E;</a>
+              <select id="date-select-box" name="date"></select>
+              <a href='#' id='hero-forward'>&#x276F;</a>
+              <a href='#' id='hero-last'>&#x276F;&#x276F;</a>
+            </div>
+          </div>
+
+          <!-- stacked bar charts -->
+          <div class='row hero'>
+            <div class='col-lg-5 hero-p'><p><h2>Graphics</h2> Data on GPU vendor and model market share. <a href='#goto-graphics' class='category'><br />More&nbsp;details&nbsp;&rsaquo;</a></p></div>
+            <div class='col-lg-1'></div>
+            <div class='col-lg-6 text-center' id='pc-video-card'><svg></svg></div>
+          </div>
+          <div class='row hero'>
+            <div class='col-lg-5 hero-p'><p><h2>Processor</h2> Data on CPU vendors, cores, and speeds. <a href='#goto-cpu-and-memory' class='category'><br />More&nbsp;details&nbsp;&rsaquo;</a></p></div>
+            <div class='col-lg-1'></div>
+            <div class='col-lg-6 text-center' id='processor'><svg></svg></div>
+          </div>
+          <div class='row hero'>
+            <div class='col-lg-5 hero-p'><p><h2>Operating System</h2> Data on operating system market share. <a href='#goto-os-and-architecture' class='category'><br />More&nbsp;details&nbsp;&rsaquo;</a></p></div>
+            <div class='col-lg-1'></div>
+            <div class='col-lg-6 text-center' id='operating-systems'><svg></svg></div>
+          </div>
+          <div class='row hero'>
+            <div class='col-lg-5 hero-p'><p><h2>Flash</h2> Data on Flash availability on Firefox. <a href='#goto-plugins' class='category'><br />More&nbsp;details&nbsp;&rsaquo;</a></p></div>
+            <div class='col-lg-1'></div>
+            <div class='col-lg-6 text-center' id='flash'><svg></svg></div>
+          </div>
+          <div class='row hero'>
+            <div class='col-lg-5 hero-p'></div>
+            <div class='col-lg-1'></div>
+            <div class='col-lg-6 text-center data-last-updated'>Data last updated on <span></span></div>
+          </div>
+
+          <!-- time-series charts -->
+          <div class='row graphics chart'>
+            <div class='col-lg-12 detail-header' id='goto-graphics'></div>
+            <div class='col-lg-6 text-center graphic' id='detail-gpu-model'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose hidden-sm'>
+              <p>Lines marked with an asterisk (*) are NVIDIA GPUs, those marked with a dagger (†) are AMD GPUs, and unmarked ones are Intel integrated GPUs.</p>
+              <p>The <i>Other</i> category&mdash;not shown&mdash;is around 30% and consists primarily of AMD and NVIDIA GPUs that have a share of less than 1%.</p>
+
+              Show
+              <a href='#' class='intel-toggle showing pill active'>Intel</a>
+              <a href='#' class='nvidia-toggle showing pill active'>NVIDIA</a>
+              <a href='#' class='amd-toggle showing pill active'>AMD</a>
+              <br /><br />
+
+              <a class='save-as-png' data-chart='detail-gpu-model' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row graphics chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-pc-video-card'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>The share of GPU vendors shows little change over the course of 2016, with Intel chipsets making up nearly two-thirds of all GPUs.</p>
+              <a class='save-as-png' data-chart='detail-pc-video-card' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row graphics chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-display-resolution'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>Two display resolutions&mdash;1366x768px and 1920x1080px&mdash;stand out as the most highly used resolutions, with the latter showing an upward trend.</p>
+              <a class='save-as-png' data-chart='detail-display-resolution' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row cpu-and-memory chart'>
+            <div class='col-lg-12 detail-header' id='goto-cpu-and-memory'></div>
+            <div class='col-lg-6 text-center graphic' id='detail-processor'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>The share of CPU vendors shows little change over the course of 2016, with Intel making up nearly 86% of all CPUs.</p>
+              <a class='save-as-png' data-chart='detail-processor' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row cpu-and-memory chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-processor-cores'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>Nearly 70% of users have machines with two physical cores.</p>
+              <a class='save-as-png' data-chart='detail-processor-cores' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row cpu-and-memory chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-processor-speed'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>A quarter of users have processors with clock speeds between 2.3 GHz and 2.69 GHz.</p>
+              <a class='save-as-png' data-chart='detail-processor-speed' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row cpu-and-memory chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-ram'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>A third of users have 4GB of memory, trending up. The number of users with 8GB of memory is also trending up.</p>
+              <a class='save-as-png' data-chart='detail-ram' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row os-and-architecture chart'>
+            <div class='col-lg-12 detail-header' id='goto-os-and-architecture'></div>
+            <div class='col-lg-6 text-center graphic' id='detail-operating-systems'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>Users on Windows 10 showed a noticeable increase in the first half of 2016. Only Ubuntu and Mozilla builds of Linux are currently being tracked.</p>
+              <a class='save-as-png' data-chart='detail-operating-systems' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row os-and-architecture chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-browser-share-32-64'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>The share of 32-to-64-bit browsers showed no remarkable change during 2016.</p>
+              <a class='save-as-png' data-chart='detail-browser-share-32-64' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row os-and-architecture chart'>
+            <div class='col-lg-6 text-center graphic' id='detail-browser-share-os-32-64'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>The share of 32-to-64-bit operating systems showed no remarkable change during 2016. Note that this metric likely undercounts non-Windows OSs, seeing as it relies on the <i>environment.system.isWow64</i> Telemetry field.</p>
+              <a class='save-as-png' data-chart='detail-browser-share-os-32-64' href='#'>Save Chart</a>
+            </div>
+          </div>
+          <div class='row plugins chart'>
+            <div class='col-lg-12 detail-header' id='goto-plugins'></div>
+            <div class='col-lg-6 text-center graphic' id='detail-flash'></div>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-4 detail-prose'>
+              <p>Flash availability on Firefox shows a downward trend.</p>
+              <a class='save-as-png' data-chart='detail-flash' href='#'>Save Chart</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class='container container-prose'>
+      <h2>How is the report created?</h2>
+      <p>The data for this report comes from Firefox’s built-in Telemetry data system.  Firefox automatically collects information about desktop hardware and operating system configurations and sends this to Mozilla roughly daily, unless users disable this collection. This raw data is processed to remove corrupted or inaccurate entries and is then aggregated. This aggregation anonymizes the data, removing indicators that might be used to identify individual users.</p>
+      <p>During the aggregation step, less common screen resolutions and OS versions are handled as special cases—resolutions are rounded to the nearest hundred and version numbers are collapsed together in a generic group. Any reported configurations that account for less than 1% of the data are grouped together in an “Other” bucket. At the end of the process, the aggregated, anonymized data is exported to a public JSON file and published on the Mozilla Metrics website.</p>
+      <p>&nbsp;</p>
+
+      <h2>The team</h2>
+      <p>To learn more about this report, take a look at our <a href='https://hacks.mozilla.org/2016/12/firefox-hardware-report/'>blog post</a>. The website's code is <a href='https://github.com/mozilla/firefox-hardware-report'>available on GitHub</a>. For contributors to successive releases of the hardware report, take a look at the project's GitHub page.</p>
+
+      <div class='row team'>
+
+        <div class="active clearfix">
+          <div class='col-sm-3 text-center'>
+            <div class='profile-photo'>
+              <a href='https://mozillians.org/u/avrignaud/'>
+                <img src='images/headshots/avrignaud.jpg' alt='Andre Vrignaud' title='Andre Vrignaud' />
+              </a>
+            </div>
+            <span class="name">Andre Vrignaud</span>
+            <span class="role">Product manager, Games strategy</span>
+            <a class="social" href='https://twitter.com/andrevrignaud'>@andrevrignaud</a>
+          </div>
+
+          <div class='col-sm-3 text-center'>
+            <div class='profile-photo'>
+              <a href='https://mozillians.org/u/rweiss/'>
+                <img src='images/headshots/rweiss.jpg' alt='Rebecca Weiss' title='Rebecca Weiss' />
+              </a>
+            </div>
+            <span class="name">Rebecca Weiss</span>
+            <span class="role">Manager, Product data science</span>
+            <a class="social" href='https://github.com/rjweiss'>@rjweiss</a>
+          </div>
+
+          <div class='col-sm-3 text-center'>
+            <div class='profile-photo'>
+              <a href='https://mozillians.org/u/fbertsch/'>
+                <img src='images/headshots/fbertsch.jpg' alt='Frank Bertsch' title='Frank Bertsch' />
+              </a>
+            </div>
+            <span class="name">Frank Bertsch</span>
+            <span class="role">Data engineering</span>
+            <a class="social" href='https://github.com/fbertsch'>@fbertsch</a>
+          </div>
+
+          <div class='col-sm-3 text-center'>
+            <div class='profile-photo'>
+              <a href='https://mozillians.org/u/openjck/'>
+                <img src='images/headshots/jkarahalis.jpg' alt='John Karahalis' title='John Karahalis' />
+              </a>
+            </div>
+            <span class="name">John Karahalis</span>
+            <span class="role">Web development</span>
+            <a class="social" href='https://github.com/openjck'>@openjck</a>
+          </div>
+        </div>
+
+        <div class="alumni clearfix">
+          <h3>Alumni</h3>
+          <div class='col-sm-3 text-center'>
+            <div class='profile-photo'>
+              <a href='https://mozillians.org/u/alessio.placitelli/'>
+                <img src='images/headshots/alessio.jpg' alt='Alessio Placitelli' title='Alessio Placitelli' />
+              </a>
+            </div>
+            <span class="name">Alessio Placitelli</span>
+            <span class="role">Data engineering</span>
+            <a class="social" href='https://twitter.com/dexterp37'>@dexterp37</a>
+          </div>
+
+          <div class='col-sm-3 text-center'>
+            <div class='profile-photo'>
+              <a href='https://mozillians.org/u/almossawi/'>
+                <img src='images/headshots/almossawi.jpg' alt='Ali Almossawi' title='Ali Almossawi' />
+              </a>
+            </div>
+            <span class="name">Ali Almossawi</span>
+            <span class="role">Data visualization</span>
+            <a class="social" href='https://twitter.com/alialmossawi'>@alialmossawi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='container text-center'>
+      <div class='credits'>
+        <a href='https://mozilla.org'>
+          <img src='images/moz-wordmark-light.svg' alt='Mozilla' title='Mozilla'>
+        </a>
+        <p class='legal'>
+        <a href='https://www.mozilla.org/privacy/websites'>Privacy</a> &nbsp;
+        <a href='https://www.mozilla.org/about/legal/terms/mozilla'>Legal</a> &nbsp;
+        <a href='https://www.mozilla.org/en-US/privacy/websites/#cookies'>Cookies</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Google Moon</title>
+
+    <script src="//maps.googleapis.com/maps/api/js?v=3.7&client=google-moon&sensor=false&libraries=geometry" type="text/javascript"></script>
+
+    <script type="text/javascript" src="javascript/base.js"></script>
+    <script type="text/javascript" src="javascript/layer.js"></script>
+    <script type="text/javascript" src="javascript/util.js"></script>
+
+    <script type="text/javascript" src="javascript/search.js"></script>
+    <script type="text/javascript" src="javascript/sidebar.js"></script>
+
+    <script type="text/javascript" src="javascript/apollo.js"></script>
+    <script type="text/javascript" src="javascript/apollo_data.js"></script>
+    <script type="text/javascript" src="javascript/browser.js"></script>
+    <script type="text/javascript" src="javascript/chartmapcontrol.js"></script>
+    <script type="text/javascript" src="javascript/charts.js"></script>
+    <script type="text/javascript" src="javascript/config.js"></script>
+    <script type="text/javascript" src="javascript/constants.js"></script>
+    <script type="text/javascript" src="javascript/lunar.js"></script>
+    <script type="text/javascript" src="javascript/togglebutton.js"></script>
+    <script type="text/javascript" src="javascript/main.js"></script>
+    <script type="text/javascript" src="javascript/mapsearch.js"></script>
+    <script type="text/javascript" src="javascript/markermanager.js"></script>
+    <script type="text/javascript" src="javascript/placenames.js"></script>
+    <script type="text/javascript" src="javascript/promo.js"></script>
+    <script type="text/javascript" src="javascript/scalebar.js"></script>
+    <script type="text/javascript" src="javascript/throttle.js"></script>
+
+<link link href="moon.css" type="text/css" rel="stylesheet">
+<link link href="apollo.css" type="text/css" rel="stylesheet">
+</head>
+
+<body onload="loadApplication()" onresize="resizeMap()">
+
+<div id="header">
+    <table class="border"><tr>
+      <td>
+        <a href="//www.google.com/moon" id="logo">
+          <img src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png" srcset="//www.google.com/images/branding/googlelogo/2x/googlelogo_color_116x41dp.png 2x">
+        </a>
+      </td>
+      <td id="search" valign=middle width=100%>
+        <table class="form" width=100%>
+        <tr><td valign=top>
+          <form action="javascript:doSearch()" style="margin: 0px;">
+            <input type=text id="searchtext" size=50>
+            <button class="blue-button">
+              Search
+              <input type="hidden" value="Search" id="searchsubmit" onClick="doSearch()">
+            </button>
+          </form>
+          </td>
+          <td valign=absmiddle width="15px">
+            <img border=0 src="images/bar_icon_link.gif" valign=top /></td>
+          <td valign=absmiddle><a href="/link" id="link">Link this view</a></td>
+          <td valign=absmiddle width="15px"><a href="http://earth.google.com/moon">
+            <img border=0 src="earthsmall.png" valign=top /></a></td>
+          <td valign=absmiddle width="100px"><a href="http://earth.google.com/moon">
+            View Moon with Google Earth</a></td>
+          <td valign=absmiddle><a href="about.html"><span>About</span></a></td>
+        </tr>
+        </table>
+      </td>
+    </tr></table>
+</div>
+
+<div id="page">
+    <div id="map">Loading Moon Maps...</div>
+
+    <div id="sidebar" style="visibility: hidden;">
+        <div id="srt">
+          <table width=100% class="t1">
+              <tr>
+              <td><div id="srtResults"></div></td>
+              <td><div id="srClose">
+                  <img src="//www.google.com/intl/en_us/mapfiles/iw_close.gif"
+                  onclick="closeSidebar();"
+              ></div></td>
+              </tr>
+          </table>
+          <table width=100% class="t2">
+              <tr>
+              <td><div id="srtFound"></div></td>
+              <td style="vertical-align: bottom;">
+              </td>
+              </tr>
+          </table>
+        </div>
+            <div id="srBody"></div>
+            <div id="srPage">
+                <img src="//maps.gstatic.com/mapfiles/ridefinder-images/mm_20_red.png" alt="">
+                <img src="//maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png" alt="">
+                <img src="//maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png" alt="">
+                <img src="//maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png" alt="">
+            </div>
+    </div>
+</div>
+<div id="iconpanel">
+  <iframe id="iconpanelframe" style="width: 100%; height: 85px; overflow: hidden;"></iframe>
+</div>
+
+</body>
+</html>
