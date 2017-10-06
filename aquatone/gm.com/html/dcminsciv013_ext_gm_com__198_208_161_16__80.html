@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="third_party/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    </head>
+    <body class="clearfix">
+    <div id="top" class="clearfix">
+        <div id="head">
+        <img src="images/cisco-meraki.png" width="120">
+        </div>
+        <header id="status">
+        <i class="icon-check-circled green" id="healthy_check" style="display: none;"></i>
+        <h1 id="healthy_status" style="display: none;">Healthy</h1>
+        <h2 id="healthy_message" style="display: none;">This <a class='device_noun'></a>&nbsp;is functioning normally</h2>
+        <i class="icon-alert" id="alert_x"style="display: none; color: #FFD700;"></i>
+        <h1 id="alert_status" style="display: none">Something's not right</h1>
+        <div id="status-text">
+            <h2 id="lan_check_text_scan_status" style="display: none;">
+                This <a class='device_noun'></a>&nbsp;is trying to join a network or find a working ethernet connection.
+            </h2>
+            <h2 id="lan_check_text_ipconflict_status" style="display: none;">
+                This <a class='device_noun'></a>&nbsp;has detected an IP conflict on its uplink connection with another machine.
+            </h2>
+            <h2 id="internet_check_text_bad_status" style="display: none;">
+                This <a class='device_noun'></a>&nbsp;is not connected to the Internet.
+            </h2>
+            <h2 id="internet_check_text_nodns_status" style="display: none;">
+                This <a class='device_noun'></a>&nbsp;does not have a working DNS server.
+            </h2>
+            <h2 id="config_check_text_bad_status" style="display: none;">
+                This <a class='device_noun'></a>&nbsp;is not connected to the Cisco Meraki cloud.
+            </h2>
+            <h2 id="config_check_text_mtunnel_bad_status" style="display: none;">
+                Make sure you can send outgoing traffic to UDP port 7351 through your firewall.
+            </h2>
+            <h2 id="config_check_text_config_bad_status" style="display: none;">
+                Make sure you can send outgoing traffic to TCP port 7734 through your firewall.
+            </h2>
+                </div>
+                <i class="icon-alert green" id="site_survey_alert" style="display: none;"></i>
+                <h1 id="site_survey_status" style="display: none;">Site Survey</h1>
+                <h2 id="site_survey_message" style="display: none;">This <a class='device_noun'></a>&nbsp;is in site survey mode. You can disable site survey mode on the Configure tab.</h2>
+            </header>
+        </div>
+        <div id="margin-clear">.</div>
+        <div id="details" data-spy="affix" data-offset-top="333" style="display:none;">
+        <div class="simple-tabs-container">
+            <ul class="simple-tabs container" style="white-space:nowrap;"><li class="connection_tab" style="display: none;">Connection</li><li class="neighbors_tab" style="display: none;">Neighbors</li><li class="configure_tab">Configure</li><li class="ethernet_tab" style="display: none;">Ethernet</li><li class="swports_status_tab" style="display: none;">Switch ports status</li><li class="swports_conf_tab" style="display: none;">Switch ports configuration</li></ul>
+            <ul class="simple-tabs-content container">
+                <!-- Connection -->
+                <li>
+                    <section id="connection">
+                        <div class="sub-section">
+                            <h1>Your client connection</h1>
+                            <table>
+                                <tr id="your_ip_line" class="your_hideable_connection_info" style="display: none;">
+                                    <th scope="row">Client IP</th><td id="your_ip"></td>
+                                </tr>
+                                <tr id="your_mac_line" class="your_hideable_connection_info" style="display: none;">
+                                    <th scope="row">Client MAC</th><td id="your_mac"></td>
+                                </tr>
+                                <tr id="your_vlan_line" class="your_hideable_connection_info" style="display: none;">
+                                    <th scope="row">VLAN</th><td id="your_vlan"></td>
+                                </tr>
+                                    <tr id="your_port_line" class="your_hideable_connection_info" style="display: none;">
+                                    <th scope="row">Port</th><td id="your_port"></td>
+                                </tr>
+                                    <tr id="your_radio_line" style="display: none;">
+                                    <th scope="row">AP radio</th><td id="your_radio"></td>
+                                </tr>
+                                    <tr id="your_channel_line" style="display: none;">
+                                    <th scope="row">Channel</th><td id="your_channel"></td>
+                                </tr>
+                                    <tr id="your_mode_line" style="display: none;">
+                                    <th scope="row">Mode</th><td id="wireless_mode"></td>
+                                </tr>
+                                    <tr id="your_max_bitrate_line" style="display: none;">
+                                    <th scope="row">Max bitrate</th><td id="max_device_bitrate"></td>
+                                </tr>
+                                    <tr id="your_signal_line" style="display: none;">
+                                    <th scope="row">Signal</th>
+                                    <td><span id="signal_strength"></span>
+                                        <div class="meter" id="rssi_graph">
+                                            <div class="meter-bar" id="rssi_graph_bar"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="speed-test" class="sub-section" style="display: none;">
+                            <h1>Speed test</h1>
+                            <p>Run a browser-based speed test to check your connection to this <a class='device_noun'></a>.</p>
+                            <div id="toggle_speed_test" class="button button_speed_test" style="margin-right: 1%;"><span id="speed_test_button_text">Run speed test</span></div>
+                            <div id="speed_test_spinner" style="height: 7px; width: 25px; display: none;"></div>
+                            <div id='speed_test_out'></div>
+                        </div>
+                        <div class="sub-section">
+                            <h1><a class='device_noun_camel'></a> details</h1>
+                                <table>
+                                <tr id="device_name_row_container" style="display: none;">
+                                    <th>Name</th><td id='device_name'></td>
+                                </tr>
+                                <tr>
+                                    <th>Network name</th><td id='device_network_name'></td>
+                                </tr>
+                                <tr>
+                                    <th>Hardware address</th><td class='device_mac'></td>
+                                </tr>
+                                <tr id="product_model_details" style="display: none;">
+                                    <th>Product model</th><td id='product_model_text'></td>
+                                </tr>
+                                <tr id="radio_1_util" style="display: none;">
+                                    <th id="radio_1_text"></th>
+                                    <td>
+                                        <span>
+                                            <div id="radio_1_wifi_text"></div>
+                                        </span>
+                                        <div class="meter">
+                                            <div class="meter-bar" id="radio_1_wifi_bar" style="background:#880000; float:left;"></div>
+                                            <div class="meter-bar" id="radio_1_non_wifi_bar" style="float:left;"></div>
+                                        </div>
+                                        <div id="radio_1_non_wifi_text"></div>
+                                    </td>
+                                </tr>
+                                <tr id="radio_2_util" style="display: none;">
+                                    <th id="radio_2_text"></th>
+                                    <td>
+                                        <span>
+                                            <div id="radio_2_wifi_text"></div>
+                                        </span>
+                                        <div class="meter">
+                                            <div class="meter-bar" id="radio_2_wifi_bar" style="background:#880000; float:left;"></div>
+                                            <div class="meter-bar" id="radio_2_non_wifi_bar" style="float:left;"></div>
+                                        </div>
+                                        <div id="radio_2_non_wifi_text"></div>
+                                    </td>
+                                </tr>
+                                <tr id="tr_ethernet_connectivity" style="display: none;">
+                                    <th>Ethernet</th>
+                                        <td>
+                                            <div id="lan_check_text_gateway" style="display: none;">
+                                                This <a class='device_noun'></a>&nbsp;is directly connected to a local network.
+                                                <div><span class="wired_nat_details">Primary&nbsp;</span>IP address: <span class="wired_ip"></span>&nbsp;</div>
+                                            </div>
+                                            <div id="lan_check_text_node" style="display: none;">
+                                                <div><span class="wired_nat_details">Primary&nbsp;</span>IP address: <span class="wired_ip"></span>&nbsp;</div>
+                                                This <a class='device_noun'></a>&nbsp;is acting as a repeater and has not detected a uplink connection on an Ethernet port.
+                                            </div>
+                                            <div id="lan_check_text_scan" style="display: none;">
+                                                This <a class='device_noun'></a>&nbsp;is trying to join a network or find a working Ethernet connection.
+                                            </div>
+                                            <div id="lan_check_text_ipconflict" style="display: none;">
+                                                <div><span class="wired_nat_details">Primary&nbsp;</span>IP address: <span class="wired_ip"></span>&nbsp;</div>
+                                                This <a class='device_noun'></a>&nbsp;has detected an IP conflict on its uplink connection with another machine.
+                                            </div>
+                                            <div class="details wired_nat_details" id="ip_details"></div>
+                                        </td>
+                                </tr>
+                                <tr id="tr_internet_check" style="display: none;">
+                                    <th>Internet</th>
+                                    <td>
+                                        <div id="internet_check_text_good" style="display: none;">
+                                            This <a class='device_noun'></a>&nbsp;is connected to the Internet.
+                                        </div>
+                                        <div id="internet_check_text_bad" style="display: none;">
+                                            This <a class='device_noun'></a>&nbsp;is not connected to the Internet.
+                                        </div>
+                                        <div id="internet_check_text_nodns" style="display: none;">
+                                            This <a class='device_noun'></a>&nbsp;does not have a working DNS server.
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Cisco Meraki cloud</th>
+                                    <td>
+                                        <div id="config_check_text_bad" style="display: none;">
+                                            This <a class='device_noun'></a>&nbsp;is not connected to the Cisco Meraki cloud.
+                                        </div>
+                                        <div id="config_check_text_mtunnel_bad" style="display: none;">
+                                            Make sure you can send outgoing traffic to UDP port 7351 through your firewall.
+                                        </div>
+                                        <div id="config_check_text_config_bad" style="display: none;">
+                                            Make sure you can send outgoing traffic to TCP port 7734 through your firewall.
+                                        </div>
+                                        <div id="config_check_text_good" style="display: none;">
+                                            This <a class='device_noun'></a>&nbsp;is successfully connected to the <a id="node_link" href="http://dashboard.meraki.com">Cisco Meraki cloud</a>.
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr id="firmware_check_text" style="display:none;">
+                                    <th>Firmware</th>
+                                    <td>
+                                        <div id="firmware_check_text_updating" style="display:none;"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="stacking_status" class="sub-section" style="display:none;">
+                          <h1>Stacking Status</h1>
+                          <table id="stack_info" class="flip-table">
+                            <thead>
+                              <tr>
+                                <th> Hardware Addresss </th>
+                                <th> Product Model </th>
+                                <th> Current </th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
+                          </table>
+                        </div>
+                    </section>
+                </li>
+
+                <!-- Neighbors -->
+                <li>
+                    <section id="meraki_peers" style="display:none;">
+                        <h1>Meraki peers</h1>
+                        <table class="flip-table sortable">
+                            <thead>
+                                <tr>
+                                    <th class="ssid_m" scope="col"><span style="cursor:pointer">SSID</span></th>
+                                    <th class="bssid_m" scope="col"><span style="cursor:pointer">BSSID</span></th>
+                                    <th class="channel_m" scope="col"><span style="cursor:pointer">Channel</span></th>
+                                    <th class="signal_m" scope="col" data-defaultsort='dsc'><span style="cursor:pointer">Signal (dB)</span></th>
+                                    <th class="mode_m" scope="col"><span style="cursor:pointer">Mode</span></th>
+                                    <th class="encryption_m" scope="col"><span style="cursor:pointer">Encryption</span></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </section>
+                    <section id="neighbors">
+                        <h1>Neighbors</h1>
+                        <table class="flip-table sortable">
+                            <thead>
+                                <tr>
+                                    <th class="ssid" scope="col"><span style="cursor:pointer">SSID</span></th>
+                                    <th class="bssid" scope="col"><span style="cursor:pointer">BSSID</span></th>
+                                    <th class="channel" scope="col"><span style="cursor:pointer">Channel</span></th>
+                                    <th class="signal" scope="col" data-defaultsort='dsc'><span style="cursor:pointer">Signal (dB)</span></th>
+                                    <th class="mode" scope="col"><span style="cursor:pointer">Mode</span></th>
+                                    <th class="encryption" scope="col"><span style="cursor:pointer">Encryption</span></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </section>
+                </li>
+
+                <!-- Configure -->
+                <li>
+
+                <form class="clearfix" id="configure_form">
+
+                <section id="wired-uplink-config">
+                  <h1>Uplink configuration</h1>
+                  <p>Configure the uplink Internet connection on this <a class='device_noun'></a>.</p>
+                    <fieldset id="ip_config" class="ip_config" style='height:100%'>
+                      <h2>Internet 1</h2>
+                      <ul>
+                        <li>
+                          <label for='vlan_tagging_enabled'>VLAN tagging</label>
+                          <select class='vlan_tagging_enabled' name='vlan_tagging_enabled'>
+                            <option value='disabled'>Don't use VLAN tagging</option>
+                            <option value='enabled'>Use VLAN tagging</option>
+                          </select>
+                        </li>
+
+                        <li class='vlan_id_config'>
+                          <label for='vlan_tag'>VLAN ID</label>
+                          <input id='vlan_tag' name='vlan_tag' type='text' size='5' />
+                        </li>
+
+                        <li class='connection_type_select_row' class='ip_config_group'>
+                          <label for='connection_type_select'>Connection type</label>
+                          <select class='connection_type_select' name='connection_type'>
+                            <option id='connection_type_direct' value='direct'>Direct</option>
+                            <option id='connection_type_pppoe' value='pppoe'>PPPoE</option>
+                          </select>
+                        </li>
+
+
+                        <li class="direct_op direct_connection_options">
+                          <label for='direct_ip_assignment_select'>IP assignment</label>
+                          <select class='direct_ip_assignment_select' name='direct_ip_assignment'>
+                            <option value='dhcp'>DHCP</option>
+                            <option value='static'>Static</option>
+                          </select>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_ip'>Address</label>
+                          <input type='text' class='direct_op' name='static_wired_ip' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_netmask'>Netmask</label>
+                          <input type='text' class='direct_op' name='static_wired_netmask' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_gateway'>Gateway</label>
+                          <input type='text' class='direct_op' name='static_wired_gateway' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_dns1'>DNS server 1</label>
+                          <input type='text' class='direct_op' name='static_wired_dns1' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_dns2'>DNS server 2</label>
+                          <input type='text' class='direct_op' name='static_wired_dns2' size=15 value=''>
+                        </li>
+
+                        <li class="pppoe_op">
+                          <label for="pppoe_authentication_enabled_select">Authentication</label>
+                          <select class="pppoe_authentication_enabled_select" name='pppoe_authentication_enabled'>
+                            <option value='false'>No authentication</option>
+                            <option value='true'>Use authentication</option>
+                          </select>
+                        </li>
+
+                        <li class="pppoe_op pppoe_auth_op">
+                          <label for='pppoe_authentication_username'>Username</label>
+                          <input type='text' name='pppoe_authentication_username' size=15 value=''>
+                        </li>
+
+                        <li class="pppoe_op pppoe_auth_op">
+                          <label for='pppoe_authentication_password'>Password</label>
+                          <input type='password' name='pppoe_authentication_password' size=15 value=''>
+                        </li>
+
+                        <li class="pppoe_op">
+                          <label for="pppoe_ip_assignment_select">IP assignment</label>
+                          <select class="pppoe_ip_assignment_select" name='pppoe_ip_assignment'>
+                            <option value='dynamic'>Dynamic</option>
+                            <option value='static'>Static</option>
+                          </select>
+                        </li>
+
+                        <li class="pppoe_op pppoe_ip_op">
+                          <label for='pppoe_static_ip'>Address</label>
+                          <input type='text' id='pppoe_static_ip' name='pppoe_static_ip' size=15 value=''>
+                        </li>
+                      </ul>
+
+                    </fieldset>
+
+                    <fieldset id="ip_config_1" class="ip_config" style='height:100%'>
+                      <h2>Internet 2</h2>
+
+
+                      <ul>
+                        <li id="wan1_role_op" class="wan1_enabled_op">
+                          <label for='wired_wan1_enabled'>Role</label>
+                          <select class='wired_wan1_enabled' name='wired_wan1_enabled'>
+                            <option value='enabled'>Internet</option>
+                            <option value='disabled'>LAN</option>
+                          </select>
+                        </li>
+
+                        <li>
+                          <label for='vlan_tagging_enabled'>VLAN tagging</label>
+                          <select class='vlan_tagging_enabled' name='vlan_tagging_enabled_1'>
+                            <option value='disabled'>Don't use VLAN tagging</option>
+                            <option value='enabled'>Use VLAN tagging</option>
+                          </select>
+                        </li>
+
+                        <li class='vlan_id_config'>
+                          <label for='vlan_tag'>VLAN ID</label>
+                          <input id='vlan_tag' name='vlan_tag_1' type='text' size='5' />
+                        </li>
+
+                        <li class='connection_type_select_row' class='ip_config_group'>
+                          <label for='connection_type_select'>Connection Type</label>
+                          <select class='connection_type_select' name='connection_type_1'>
+                            <option id='connection_type_direct' value='direct'>Direct</option>
+                            <option id='connection_type_pppoe' value='pppoe'>PPPoE</option>
+                          </select>
+                        </li>
+
+                        <li class="direct_op direct_connection_options">
+                          <label for='direct_ip_assignment_select'>IP assignment</label>
+                          <select class='direct_ip_assignment_select' name='direct_ip_assignment_1'>
+                            <option value='dhcp'>DHCP</option>
+                            <option value='static'>Static</option>
+                          </select>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_ip'>Address</label>
+                          <input type='text' name='static_wired_ip_1' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_netmask'>Netmask</label>
+                          <input type='text' name='static_wired_netmask_1' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_gateway'>Gateway</label>
+                          <input type='text' name='static_wired_gateway_1' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_dns1'>DNS server 1</label>
+                          <input type='text' name='static_wired_dns1_1' size=15 value=''>
+                        </li>
+
+                        <li class="direct_op direct_static_op">
+                          <label for='static_wired_dns2'>DNS server 2</label>
+                          <input type='text' name='static_wired_dns2_1' size=15 value=''>
+                        </li>
+
+                        <li class="pppoe_op">
+                          <label for="pppoe_authentication_enabled_select">Authentication</label>
+                          <select class="pppoe_authentication_enabled_select" name='pppoe_authentication_enabled_1'>
+                            <option value='false'>No authentication</option>
+                            <option value='true'>Use authentication</option>
+                          </select>
+                        </li>
+
+                        <li class="pppoe_op pppoe_auth_op">
+                          <label for='pppoe_authentication_username'>Username</label>
+                          <input type='text' name='pppoe_authentication_username_1' size=15 value=''>
+                        </li>
+
+                        <li class="pppoe_op pppoe_auth_op">
+                          <label for='pppoe_authentication_password'>Password</label>
+                          <input type='password' name='pppoe_authentication_password_1' size=15 value=''>
+                        </li>
+
+                        <li class="pppoe_op">
+                          <label for="pppoe_ip_assignment_select">IP assignment</label>
+                          <select class="pppoe_ip_assignment_select" name='pppoe_ip_assignment_1'>
+                            <option value='dynamic'>Dynamic</option>
+                            <option value='static'>Static</option>
+                          </select>
+                        </li>
+
+                        <li class="pppoe_op pppoe_ip_op">
+                          <label for='pppoe_static_ip'>Address</label>
+                          <input type='text' id='pppoe_static_ip' name='pppoe_static_ip_1' size=15 value=''>
+                        </li>
+                      </ul>
+
+                  </section>
+
+                  <section id="uplink-config">
+                        <h1>Uplink configuration</h1>
+                        <p>Configure the uplink Internet connection on this <a class='device_noun'></a>.</p>
+                        <form class="clearfix">
+                            <fieldset>
+                                <h2>IP configuration</h2>
+                                <ul>
+                                    <li>
+                                        <label for="direct_ip_assignment_select">IP assignment</label>
+                                        <select class="direct_ip_assignment_select" id="direct_ip_assignment_select" name="direct_ip_assignment">
+                                            <option value="dhcp">DHCP</option>
+                                            <option value="static">Static</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <label for="static_wired_vid">VLAN</label>
+                                        <input type="text" id="static_wired_vid" name="static_wired_vid" placeholder="vlan">
+                                    </li>
+                                    <li class="static_settings" style="display:none;">
+                                      <label for="static_wired_ip">Address</label>
+                                      <input type="text" id="static_wired_ip" name="static_wired_ip" placeholder="0.0.0.0">
+                                    </li>
+                                    <li class="static_settings" style="display:none;">
+                                      <label for="static_wired_netmask">Netmask</label>
+                                      <input type="text" id="static_wired_netmask" name="static_wired_netmask" placeholder="255.255.255.0">
+                                    </li>
+                                    <li class="static_settings" style="display:none;">
+                                      <label for="static_wired_gateway">Gateway</label>
+                                      <input type="text" id="static_wired_gateway" name="static_wired_gateway" placeholder="0.0.0.0">
+                                    </li>
+                                    <li class="static_settings" style="display:none;">
+                                      <label for="static_wired_dns1">DNS server 1</label>
+                                      <input type="text" id="static_wired_dns1" name="static_wired_dns1" placeholder="0.0.0.0">
+                                    </li>
+                                    <li class="static_settings" style="display:none;">
+                                      <label for="static_wired_dns2">DNS server 2</label>
+                                      <input type="text" id="static_wired_dns2" name="static_wired_dns2" placeholder="0.0.0.0">
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <fieldset id="site_survey_ctrl" style="display:none;">
+                              <h2>Site survey</h2>
+                              <p>In site survey mode, the AP will always broadcast the open SSID site_survey-&lt;MAC address&gt; and will not check for connectivity with the Cisco Meraki cloud.
+                                This mode should only be used to perform a site survey, not for serving wireless clients.</p>
+                              <ul>
+                                <li>
+                                  <label for="site_survey_select">Survey mode?</label>
+                                  <select id="site_survey_select" name="site_survey">
+                                    <option value="false">Disable</option>
+                                    <option value="true">Enable</option>
+                                  </select>
+                                </li>
+                              </ul>
+                            </fieldset>
+                            <div id="power_adjust" style="display:none;"></div>
+                  </section>
+
+                  <section class="non-first-section" id="shared-config">
+                  <fieldset>
+                    <h2>Web proxy</h2>
+                    <p>HTTP will be used for the device to communicate with the Cisco Meraki cloud if UDP communication is blocked</p>
+                    <ul>
+                      <li>
+                        <label for="backend_access_proxy_enabled_select">Use a proxy?</label>
+                        <select id="backend_access_proxy_enabled_select" name="backend_access_proxy_enabled">
+                          <option value="false">No</option>
+                          <option value="true">Yes</option>
+                        </select>
+                      </li>
+                      <li class="proxy_op" style="display:none;">
+                        <label for="backend_access_proxy_server">Hostname or IP</label>
+                        <input type="text" class="backend_access_proxy_server" name="backend_access_proxy_server" placeholder="0.0.0.0">
+                      </li>
+                      <li class="proxy_op" style="display:none;">
+                        <label for="backend_access_proxy_port">Port</label>
+                        <input type="text" class="backend_access_proxy_port" name="backend_access_proxy_port" onkeypress="return numbersonly(this, event)" placeholder="Port #">
+                      </li>
+                      <li class="proxy_op" style="display:none;">
+                        <label for="backend_access_proxy_userpwd_enabled_select">Authentication</label>
+                        <select id="backend_access_proxy_userpwd_enabled_select" name="backend_access_proxy_userpwd_enabled">
+                          <option value="false">No authentication</option>
+                          <option value="true">Use authentication</option>
+                        </select>
+                      </li>
+                      <li class="proxy_op proxy_auth_op" style="display:none;">
+                        <label for="backend_access_proxy_user">Username</label>
+                        <input type="text" name="backend_access_proxy_user" placeholder="Username">
+                      </li>
+                      <li class="proxy_op proxy_auth_op" style="display:none;">
+                        <label for="backend_access_proxy_password">Password</label>
+                        <input type="password" name="backend_access_proxy_password" placeholder="Password">
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <div class="save_button button button_configure">
+                    <span>Save</span>
+                  </div>
+                  <span class="save_config_text" style="display:none;"></span>
+                  </section>
+
+                  </form>
+                </li>
+                <li>
+                  <section id='link_neg_section'>
+                    <h1>Ethernet configuration</h1>
+                    <p>Use this page to configure physical link settings on the Ethernet ports.</p>
+                    <form action='/configure/set_link_neg.cgi' method='post'>
+                      <table id='link_neg_table' class='table table-bordered table-striped'></table>
+                      <div class="save_button button button_configure">
+                        <span>Save</span>
+                      </div>
+                      <span class="save_config_text" style="display:none;"></span>
+                    </form>
+                  </section>
+                </li>
+               <!-- Switch port status -->
+                <li>
+                    <section id="swports_status" style="display:none;">
+                        <h1>Switch ports status</h1>
+                        <table class="flip-table sortable" >
+                            <thead>
+                                <tr>
+                                    <th class="port" scope="col" data-defaultsort='dsc'><span style="cursor:pointer">Port</span></th>
+                                    <th class="native_vlan" scope="col"><span style="cursor:pointer">Native VLAN</span></th>
+                                    <th class="allowed_vlans" scope="col"><span style="cursor:pointer">Allowed VLANs</span></th>
+                                    <th class="flags" scope="col"><span style="cursor:pointer">Flags</span></th>
+                                    <th class="status" scope="col"><span style="cursor:pointer">Status</span></th>
+                                    <th class="bytes_in" scope="col"><span style="cursor:pointer">Bytes in</span></th>
+                                    <th class="bytes_out" scope="col"><span style="cursor:pointer">Bytes out</span></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </section>
+                </li>
+
+               <!-- Switch port adjust -->
+                <li>
+                    <section id="swports_adjust" class = "swports_adjust_section" style="display:none;">
+                        <form action='/configure/swports_adjust.cgi' method='post'>
+                        <h1>Switch ports configuration</h1>
+                          <div style='margin:1em 0'>
+                            </div>
+
+                        <div id='error_message'>Invalid VLAN number. VLAN must be a value between 1 and 4094, or "none" for trunk ports<br></div>
+                        <table class="flip-table sortable">
+                            <thead>
+                                <tr>
+                                    <th class="port" scope="col">Port</th>
+                                    <th class="port_name" scope="col">Port&nbsp;Name</th>
+                                    <th class="port_availability" scope="col">Enabled</th>
+                                    <th class="port_schedule" scope="col">Port&nbsp;Schedule</th>
+                                    <th class="access_policy" scope="col">Access&nbsp;Policy</th>
+                                    <th class="native_vlan" scope="col">Native&nbsp;VLAN</th>
+                                    <th class="allowed_vlans" scope="col">Allowed&nbsp;VLANs</th>
+                                    <th class="link_negotiation" scope="col">Link&nbsp;Negotiation</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <br>
+                            <div  class="save_button button button_configure">
+                                <span>Save</span>
+                            </div>
+                            <span id='or_cancel' class="changed_setting_swports_adjust" style='display:none;'> or <a href="#swports_adjust" onclick="cancel_link()">cancel</a></span>
+                            <span class="save_config_text" style="display:none;"></span>
+                        </form>
+                    </section>
+                </li>
+
+                <li>
+                  <section id="error-401">
+                    <h1>Incorrect password</h1>
+                    <h2>You've entered incorrect login credentials. The default login is the serial number (e.g. Qxxx-xxxx-xxxx), with no password. The serial number is on the bottom or back of the device.</h2>
+                    <label></label>
+                    <div id="try_config_again" class="button button_configure">
+                      <span>Try again</span>
+                    </div>
+                  </section>
+                </li>
+
+            </ul>
+        </div>
+        <footer>
+            <div class="container">
+                &copy; Cisco Systems, Inc.
+            </div>
+        </footer>
+        </div>
+
+        <script src="third_party/jquery/jquery-1.10.1.min.js"></script>
+        <script src="my.min.js"></script>
+        <script src="third_party/spin/spin.min.js" type="text/javascript"></script>
+        <script src="third_party/bootstrap-sortable/bootstrap-sortable.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            Mkilocal = window.Mkilocal || {};
+            Mkilocal.page_name = "/";
+            Mkilocal.bootstrap = true;
+            Mkilocal.active_subtab = "nav-index";
+            jQuery(index_js.init);
+            $(document).ready(function() {
+                $('.save_button').click(function() {
+                    $('.save_config_text').hide();
+                    var form = $(this).parents('form:first');
+                    var form_data = $(form).serialize();
+                    var url = form.attr('action') ? form.attr('action') : '/set_new_config.cgi';
+                    $('.editable').removeClass('changed_setting_swports_adjust');
+                    $.ajax({type: 'post',
+                            data: form_data,
+                            url: url,
+                            success: function(data) {
+                                var message = "&nbsp;&nbsp;&nbsp;";
+                                if (!data.error_msg) {
+                                    $('#or_cancel').css('display', 'none');
+                                    message += "Configure changes saved";
+                                }
+                                else {
+                                    message += "<font color='red'>";
+                                    message += data.error_msg;
+                                    message += "</font>";
+                                }
+                                $('.save_config_text').html(message);
+                                $('.save_config_text').fadeIn();
+                                setTimeout(function() {
+                                    $('.save_config_text').fadeOut();
+                                }, 8000);
+                            }
+                          });
+                    });
+            });
+
+            $('.direct_ip_assignment_select').on('change', function() {
+                $(this).parents('section').find('.static_settings').toggle($(this).val() != "dhcp");
+            });
+        </script>
+        <script type="text/javascript">
+            function cancel_link(){
+                $('.save_config_text').hide();
+                jQuery(swports_adjust_js.init);
+            }
+        </script>
+    </body>
+</html>

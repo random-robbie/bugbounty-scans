@@ -1,0 +1,243 @@
+
+<!--
+ This page was created by the
+ SAP Internet Transaction Server (ITS, Version 6200.1045.13027.11, Build 1384417 WIN64, Virtual Server COS, Add. service info none, WGate-AGate Host DCMIMVMITS003.edc.nam.gm.com, WGate-Instance MER)
+ All rights reserved.
+ Creation time:  Fri Oct 06 08:13:44 2017
+ Charset:        utf-8
+ Template:       merlin/99/login
+-->
+
+  <!-- No session management -->
+
+
+
+<html>
+<head>
+<title>Please enter you Login details</title>
+
+<link href="/sap/its/mimes/merlin/99/styles/merlin.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/sap/its/mimes/merlin/99/scripts/merlin.js"></script>
+</head>
+<body class="pagebody" link="#FFFFFF" alink="#FFFFFF" vlink="#FFFFFF">
+<!--  Navigation Bar Starts -->
+<table cellspacing=0 cellpadding=0 width=100% border=0>
+<tr valign=top>
+  <td width=4><img class="gmlogo" src="/sap/its/mimes/merlin/99/images/gmlogo.bmp"></td>
+  <td class="topline1">GM Africa & Middle East</td>
+</tr>
+</table>
+
+
+
+
+<table cellspacing=0 cellpadding=0 width=100% border=0>
+<tr>
+	<td class="topline2">Please enter your Login Details</td>
+</tr>
+</table>
+
+<br>
+<table width="100%">
+<tr align="center">
+	<td><font color="#EE0000"></font></td>
+</tr>
+</table>
+
+
+
+
+<script language="Javascript" src="/sap/its/mimes/webgui/99/scripts/wgu_utils.js"></script>
+
+<!-- sw/2002/8/20/inputrequiredfield -->
+<style type="text/css">
+input.withicon {
+ background-image:url(/sap/its/mimes/webgui/99/images/checkbox/edit_input_field.gif);
+ background-repeat:no-repeat;
+ background-position:left center;
+}
+input.without{
+ bachground-image:"";
+}
+</style>
+
+<script language="Javascript">
+<!--
+function input_icon( in_id, in_action )
+{
+ var field = document.getElementById(in_id);
+ if (field.value == "?" || field.value == "" || field.value == " ") {
+    if (in_action == "1")
+    {
+        field.className = "without";
+    }
+    else {
+        field.className = "withicon";
+    }
+ }
+ return true;
+}
+
+function first_focus()
+{
+ var field = document.getElementById("login");
+ if (field.value == "?" || field.value == "" || field.value == " "){ 
+ 	field.focus();
+ }
+}
+//-->
+</script>
+<!--Commented Out: Mohit
+<script>document.body.onload=first_focus</script>
+-->
+<!-- end -->
+<br>
+<form name="loginform" method="post" action="/scripts/wgate/merlin4c3d5c96/">
+	<input type="hidden" name="~SERVICEUNIQUE" value="merlin4c3d5c96" />
+
+<table width=100%>
+<!-- Commented Out: Mohit
+<tr>
+	<td class="labelleft">Service</td>
+	<td class="midspace"></td>
+	<td class="textright">`~Service`</td>
+</tr>
+-->
+
+
+	<!-- sw/input required field -->
+	
+<tr>
+	<td class="labelleft">Login</td>
+	<td class="midspace"></td>
+	<td class="textright">
+		<input name="~login" size=12 maxlength=12 value="" onChange="javascript:this.value=this.value.toUpperCase();">
+		<input name="~logininput" type="hidden" value="1">
+	</td>
+</tr>
+
+
+<tr>
+	<td class="labelleft">Password</td>
+	<td class="midspace"></td>
+	<td class="textright">
+		<input type="password" name="~password" value="" size=8 maxlength=8>
+		<input name="~passwdinput" type="hidden" value="1">
+	</td>
+</tr>
+
+
+
+<!--
+`if (~language=="" || ~messageline != "")`
+<tr>
+	<td class="labelleft">Language</td>
+	<td class="midspace"></td>
+	<td class="textright">
+		<select name="~language">
+		`if (getLanguages ("langId", "langDesc") == 0)
+			sel = "";
+			repeat with i from 1 to langId.dim;
+			if (~language != "" && ~language == langId[i])
+				sel = "X";`
+				<option value="`langId[i]`" selected>`langDesc[i]`</option>
+			`else`
+				<option value="`langId[i]`">`langDesc[i]`</option>
+			`end;
+			end;
+			else`
+				<option value="en">No allowed languages specified! Using English as default.</option>
+			`end;
+			if (~language != "" && sel != "X")`
+				<option value="`~language`" selected>`~language`</option>
+			`end;`
+			</select>
+	</td>
+</tr>
+`end`;
+-->
+
+<!-- /tj/2002-04-04/ -->
+<!-- /tj/ABP/2002-03-26/ show accessibility checkbox -->
+
+	<script language="Javascript">
+	var gmycookie	= new wguObjCookie();
+	var gisacc	= (0 || gmycookie.Get( "~accessibility"));
+	function setacclabeltext( in_label )
+		{
+		var e = document.getElementById( in_label);
+		var isacc = document.loginform.elements["~accessibility"].checked;
+		e.firstChild.data = "Turn accessibility mode " + (isacc ? "off" : "on");
+		}
+
+	function setacccookie()
+		{
+		var isacc = document.loginform.elements["~accessibility"].checked;
+		if (isacc == true)
+			{
+			document.loginform.elements["~accessibility"].value = "1";
+			var exp = gmycookie.EvalExpDays( 7);
+			gmycookie.Set( "~accessibility", "1", exp);
+			}
+		else
+			{
+			document.loginform.elements["~accessibility"].value = "0";
+			gmycookie.Delete( "~accessibility");
+			}
+		//setacclabeltext( "acclabel");
+		return true;
+		}
+	</script>
+<!-- Commented Out: Mohit
+	<tr>
+		<td class="labelleft">Accessibility</td>
+		<td class="midspace"></td>
+		<td class="textright">
+			<input id="acc" type="checkbox" name="~accessibility" value="0" onclick="return setacccookie();"/>
+-->
+			<!-- label id="acclabel" style="display:none; visibility:hidden" for="acc">Toggle Accessibility mode</label-->
+<!-- Commented Out: Mohit
+			<input name="~accessibilityinput" type="hidden" value="1">
+		</td>
+	</tr>
+-->
+	<script language="Javascript" defer>
+	if (gisacc != null)
+		{
+		document.loginform.elements["~accessibility"].value = gisacc;
+		document.loginform.elements["~accessibility"].checked = (gisacc == "1") ? true : false;
+		}
+	//setacclabeltext( "acclabel");
+	</script>
+
+</table>
+
+
+
+<table>
+<tr>
+	<td valign="top">
+		
+	</td>
+</tr>
+</table>
+<br>
+<table width=100%>
+<tr align="center">
+	<td><input type=submit class=button name="~OkCode=/0" value="Login"></td>
+<!-- Commented Out: Mohit
+	`if (strnicmp (~xgateway, "sapxgwfc", 8) != 0)`
+		<td><input type=submit name="~OkCode=/16" value="Logoff"></td>
+	`end`
+	`if (~clientCert != "2" && ~login=="" && ~password=="")`
+		<td><input type=submit name="~OkCode=RESE" value="New Password"></td>
+	`end`
+--> 
+</tr>
+</table>
+</form>
+
+
+
+<script type="text/javascript" id="SEC_SESSTOKEN" src="/sap/its/mimes/system/99/script/sap_secu.js" value="5E8061FC238DDEF7"></script></body>
+</html>

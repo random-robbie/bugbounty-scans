@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <soapenv:Fault>
+            <faultcode>soapenv:Server</faultcode>
+            <faultstring>Error in assertion processing</faultstring>
+            <faultactor>https://198.208.74.184/</faultactor>
+            <detail>
+                <l7:policyResult
+                    status="HTTP method GET not allowed: https://198.208.74.184/"
+                    xmlns:l7="http://www.layer7tech.com/ws/policy/fault" xmlns:l7p="http://www.layer7tech.com/ws/policy">
+                    <l7:additionalInfo>
+                        <l7:detailMessage id="-4" ordinal="0">Policy Fragment: SOAP Fault</l7:detailMessage>
+                        <l7:detailMessage id="-4" ordinal="1">/</l7:detailMessage>
+                        <l7:detailMessage id="-4" ordinal="2">text/xml; charset=utf-8</l7:detailMessage>
+                        <l7:detailMessage id="7101" ordinal="3">Comparison did not match: ${request.url.path} is equal to /V2/ESAService.asmx</l7:detailMessage>
+                        <l7:detailMessage id="7101" ordinal="4">Comparison did not match: ${request.url.path} is equal to /CaspService.asmx</l7:detailMessage>
+                        <l7:detailMessage id="3021" ordinal="6">HTTP method GET not allowed for service ebXML_Outbound</l7:detailMessage>
+                        <l7:detailMessage id="-4" ordinal="7">Policy Fragment: Finalize Log Control</l7:detailMessage>
+                        <l7:detailMessage id="7101" ordinal="8">Comparison did not match: ${gateway.custom.logPolicyID} contains |${service.oid}| (case sensitive)</l7:detailMessage>
+                        <l7:detailMessage id="3017" ordinal="9">Policy evaluation for service ebXML_Outbound [bd9efd4c68b5c1870000000004d00001] resulted in status -1 (Undefined)</l7:detailMessage>
+                    </l7:additionalInfo>
+                </l7:policyResult>
+            </detail>
+        </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>

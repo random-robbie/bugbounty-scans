@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Welcome to Oracle Fusion Middleware</title>
+
+    <link href="css/fmw.css" rel="stylesheet" type="text/css">
+    <link href="css/fmw_top_frame_welcome_area.css" rel="stylesheet" type="text/css">
+    <link href="css/fmw_bottom_area.css" rel="stylesheet" type="text/css">
+
+    <script src="JSLibrary/fmw_all.js" language="javascript"></script>
+	<script src="JSLibrary/educational_text.js" language="javascript"></script>
+    <script language="JavaScript" type="text/javascript" src="JSLibrary/DHTMLAPI.js"></script>
+	<script language="JavaScript" type="text/javascript" src="JSLibrary/coneEventHandeler.js"></script>
+	<script language="JavaScript" type="text/javascript" src="JSLibrary/GeneratePopup.js"></script>
+	<script language="JavaScript" type="text/javascript" src="JSLibrary/getIllustration.js"></script>
+
+	<script type="text/javascript">
+
+		var oldIllu;
+		var newIllu;
+
+		function EM_button_over (id) {
+			document.getElementById(id).style.background = 'url(welcome_images/go_fusion_mw_over.png)';
+		}
+		function EM_button_out (id) {
+			document.getElementById(id).style.background = 'url(welcome_images/go_fusion_mw.png)';
+		}
+		
+		
+		//---------------------------------------------------------------------------------------------
+		// Mouse over effect for finger tabs on the left hand side (e.g SOA, WebCenter, Application Server, etc)
+		//---------------------------------------------------------------------------------------------
+		function button_tab_mouse_over (id) {
+			document.getElementById(id).className="tab_text_over";
+			document.getElementById(id).style.background = 'url(welcome_images/FingerTab_Over.png)';
+		}
+		function button_tab_mouse_out (id) {
+			if (id != newIllu){
+				document.getElementById(id).style.background = 'url(welcome_images/FingerTab.png)';
+				document.getElementById(id).className="tab_text_original";
+			}
+		}
+
+		//---------------------------------------------------------------------------------------------
+		// Mouse over effect for documents and toturial buttons
+		//---------------------------------------------------------------------------------------------
+		function doc_tab_mouse_over (id) {
+			document.getElementById(id).className="tab_text_over";
+			document.getElementById(id).style.background = 'url(welcome_images/document_background_over.png)';
+		}
+		function doc_tab_mouse_out (id) {
+			if (id != newIllu){
+				document.getElementById(id).style.background = 'url(welcome_images/document_background.png)';
+				document.getElementById(id).className="tab_text_original";
+			}
+		}
+
+		//---------------------------------------------------------------------------------------------
+		// Set the finger tab of the current displayed graphic to selected state
+		//---------------------------------------------------------------------------------------------
+		function button_tab_select (id) {
+			if(oldIllu == null)
+			{
+				oldIllu = id;
+				newIllu = id;
+				button_tab_mouse_over (id)
+			}
+			else {
+				oldIllu = newIllu;
+				newIllu = id;
+				//alert('set new tab to be white: '+ newIllu);
+				button_tab_mouse_over (id);
+				//alert('set old tab to be blue: '+ oldIllu);
+				button_tab_mouse_out (oldIllu);
+			}
+		}
+	</script>
+</head>
+
+<body onLoad="initDHTMLAPI(); ajaxpage('welcome_soa.html', 'graphics_area'); loadobjs('css/soa.css'); button_tab_select('soa'); initDrag(); positionKnob(); " onResize="positionKnob()">
+	<div id="oracle_logo"><img src="welcome_images/oracle_logo_red.png" width="112" height="24" /></div>
+	<div id="top_window">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" id="top_table">
+			<tr>
+				<td width="1000" valign="top" style="background-color:#0D4988;" >
+					<div id="top_left_tab_area">
+                        <div id="top_left_tab_empty";">
+               			</div>
+					</div>
+		  	     </td>
+				<td valign="top" > 
+                	<div id="welcome"> WELCOME</div>
+                  <div id="welcome_text">TO ORACLE<strong> FUSION MIDDLEWARE 11g</strong> </div>
+          
+        <table border="0" cellpadding="0" cellspacing="0" id="message_area" width="1063">
+          <colgroup> <col width="200" style="width:200px; min-width:200px";/> 
+          <col /> </colgroup> 
+          <tr> 
+            <td style="border-bottom:1px; border-bottom-style:solid; border-bottom-color:#CCCCCC; height:35px; min-width: 200px;">&nbsp;</td>
+            <td style="border-bottom:1px; border-bottom-style:solid; border-bottom-color:#CCCCCC;">&nbsp;</td>
+          </tr>
+          <!--<tr>
+                                <td width="300">MODERN PLATFORM</td>
+                                <td>Run a unified infrastructure for applications, processes, content and business intelligence.</td>
+                            </tr>-->
+          <tr> 
+            <td> 
+              <div class="key_message_text">UNIFIED, STANDARDS-BASED INFRASTRUCTURE</div>
+            </td>
+            <td> 
+              <div class="key_message_des">Complete, integrated, hot-pluggable, 
+                and best of breed middleware to develop and deploy applications.</div>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <div class="key_message_text">AGILE AND ADAPTIVE BUSINESS APPLICATIONS</div>
+            </td>
+            <td> 
+              <div class="key_message_des">Unified business process platform, 
+                common enterprise portal, model driven SOA development.</div>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <div class="key_message_text">MODERN DATA CENTERS</div>
+            </td>
+            <td> 
+              <div class="key_message_des">Leverage new hardware and software 
+                architectures to improve efficiency, enhance manageability, increase 
+                security, and reduce cost.</div>
+            </td>
+          </tr>
+          <tr> 
+            <td style="height: 10px;">&nbsp;</td>
+            <td></td>
+          </tr>
+        </table>
+	      	  	</td>
+				<!--<td valign="top">
+					<div id="right_side_menu">
+						<div id="top_right_white">&nbsp;aaaaa</div>
+						<div class="style8" id="top_right_tab"></div>
+				  	</div>
+		      </td>-->
+			</tr>
+	  </table>
+	<div id="line"></div>
+	</div>
+	<div id="botton_window">
+
+		<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" id="botton_table">
+			<tr>
+				<td width="246" valign="top" id="botton_line">
+					<div id="explore_interactive">
+                    	<div id="content">
+                                <div id="go"><span class="style7">EXPLORE</span></div>
+                                <div id="FMW_control">&nbsp;&nbsp;&nbsp;<span class="style5">INTERACTIVE <strong>OVERVIEWS</strong></span></div>
+                       	</div>
+                  </div>
+					<div id="finger_tabs">
+						<div id="soa" onmouseover="button_tab_mouse_over('soa');" onmouseout="button_tab_mouse_out('soa');" onclick="javascript:ajaxpage('welcome_soa.html', 'graphics_area'); loadobjs('css/soa.css');  button_tab_select('soa');">
+                        	<div id="tab_text">SOA</div>
+                        </div>
+						<div id="webcenter" onmouseover="button_tab_mouse_over('webcenter');" onmouseout="button_tab_mouse_out('webcenter');" onclick="javascript:ajaxpage('welcome_webcenter.html', 'graphics_area'); loadobjs('css/webcenter.css');  button_tab_select('webcenter'); " >
+                        	<div id="tab_text">WebCenter</div>
+                      </div>
+						<div id="appserver" onmouseover="button_tab_mouse_over('appserver');" onmouseout="button_tab_mouse_out('appserver');" onclick="javascript:ajaxpage('welcome_as.html', 'graphics_area'); loadobjs('css/as.css');   button_tab_select('appserver'); " >
+                        	<div id="tab_text">WebLogic Server</div>
+                      </div>
+						<div id="idm" onmouseover="button_tab_mouse_over('idm');" onmouseout="button_tab_mouse_out('idm');" onclick="javascript:ajaxpage('welcome_idm.html', 'graphics_area'); loadobjs('css/idm.css');  button_tab_select('idm'); " >
+                        	<div id="tab_text">Identity Management</div>
+                      </div>
+						<div id="em" onmouseover="button_tab_mouse_over('em');" onmouseout="button_tab_mouse_out('em');" onclick="javascript:ajaxpage('welcome_em.html', 'graphics_area'); loadobjs('css/em.css');  button_tab_select('em'); " >
+                        	<div id="tab_text">Enterprise Manager</div>
+                      </div>
+						<div id="grid" onmouseover="button_tab_mouse_over('grid');" onmouseout="button_tab_mouse_out('grid');" onclick="javascript:ajaxpage('welcome_grid.html', 'graphics_area'); loadobjs('css/grid.css'); button_tab_select('grid'); " >
+                        	<div id="tab_text">Grid Infrastructure</div>
+                      </div>
+						<div id="classic" onmouseover="button_tab_mouse_over('classic');" onmouseout="button_tab_mouse_out('classic');" onclick="javascript:ajaxpage('welcome_classic.html', 'graphics_area'); loadobjs('css/classic.css');  button_tab_select('classic'); " >
+                        	<div id="tab_text">Portal, Forms, Reports & Discoverer</div>
+                        </div>
+                        <div id="document" onmouseover="doc_tab_mouse_over('document');" onmouseout="doc_tab_mouse_out('document');" onclick="window.open('http://download.oracle.com/docs/cd/E12839_01/index.htm
+', '_blank')" >
+                        	<div id="doc_text" onclick="window.open('http://download.oracle.com/docs/cd/E21764_01/index.htm', '_blank');">Online Documentation</div>
+                      </div>
+
+				  </div>
+
+
+                    </td>
+				<td valign="top" style="background-color:#FFFFFF;">
+                	<div id="graphics_area"></div>
+				</td>
+			</tr>
+	  </table>
+      <div id="line"></div>
+      <div id="bottom_links">
+      	<a href="http://www.oracle.com/corporate/index.html" target="_blank" id="bottom">About Oracle</a> |
+        <a href="http://www.oracle.com/rss/index.html" target="_blank" id="bottom"> RSS </a> |
+        <a href="http://www.oracle.com/sitemaps/sitemaps.html" target="_blank" id="bottom">Doc Site Map</a> |
+        <a href="http://www.oracle.com/html/copyright.html" target="_blank" id="bottom">Legal Notices</a> |
+        <a href="http://www.oracle.com/html/terms.html" target="_blank" id="bottom">Terms of Use</a> |
+        <a href="http://www.oracle.com/html/privacy.html"target="_blank" id="bottom">Privacy</a>
+      </div>
+      <div id="copyright">
+      Copyright @ 2009, Oracle. All rights reserved.
+      </div>
+</div>
+</body>
+</html>

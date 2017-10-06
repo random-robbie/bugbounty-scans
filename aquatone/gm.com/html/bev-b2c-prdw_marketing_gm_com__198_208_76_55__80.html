@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+        <link rel="stylesheet" type="text/css" href="https://bv-assets.static-gm.com/css/app.css?v-1f0751f37471062bfe28e30b36557afe">
+    
+    <!-- Adobe Analytics -->
+    <script>
+        var adobeAnalyticsHelper = {
+            getBreakPoint: function () {
+                var screenWidth = document.querySelector('body').getClientRects().item(0).width;
+
+                if (screenWidth <= 786)
+                    return "Phone";
+                else if (screenWidth > 786 && screenWidth <= 992)
+                    return "Tablet";
+                else if (screenWidth > 992)
+                    return "Desktop";
+                else
+                    return "Unable to determine";
+            },
+            getOrientation: function () {
+                if (window.innerWidth > window.innerHeight)
+                    return "landscape";
+                else
+                    return "portrait";
+            },
+            addEvent: function (element, type, handler) {
+                if (element.attachEvent)
+                    element.attachEvent('on' + type, handler);
+                else
+                    element.addEventListener(type, handler);
+            },
+            getPostalCode: function () {
+                if (getCookie('inventory-search') === null ||
+                    getCookie('inventory-search') === undefined ||
+                    getCookie('inventory-search') === "" ||
+                    typeof (getCookie('inventory-search')) !== "object" ) {
+                    return "";
+                }
+                var cookieObj = JSON.parse(atob(getCookie('inventory-search')));
+                return cookieObj.PostalCode;
+            }
+        }
+
+        //Adobe Analytics Data Layer
+        var digitalData = window.digitalData ||
+            {
+                pageInfo: {},
+                vehicleInfo: {},
+                visitorProfile: {}
+            };
+
+        var sectionInfo = window.location.pathname.split('/').filter(function (s) { return s !== ''; });
+
+        digitalData.pageInfo.siteSectionLevel1 = sectionInfo[0] == null ? 'index' : sectionInfo[0];
+        digitalData.pageInfo.siteSectionLevel2 = sectionInfo[1] == null ? '' : sectionInfo[1];
+        digitalData.pageInfo.siteSectionLevel3 = sectionInfo[2] == null ? '' : sectionInfo[2];
+
+        var sectionInfoArray = [
+            digitalData.pageInfo.siteSectionLevel1,
+            digitalData.pageInfo.siteSectionLevel2,
+            digitalData.pageInfo.siteSectionLevel3].filter(function (s) { return s !== ''; })
+
+        digitalData.pageInfo.siteSectionLevel5 = sectionInfoArray.join(':');
+
+        digitalData.pageInfo.pageName = 'ch:na:us:en:bolt-ev:' + digitalData.pageInfo.siteSectionLevel5;
+        digitalData.pageInfo.url = window.location.href;
+        digitalData.pageInfo.seoStrategyPageName = document.getElementsByTagName('title')[0].innerHTML;
+        digitalData.pageInfo.languageSelected = 'en';
+        digitalData.pageInfo.siteName = 'boltEv_us';
+        digitalData.pageInfo.brand = 'Chevrolet';
+        digitalData.pageInfo.country = 'US';
+        digitalData.pageInfo.region = 'North America';
+        
+        document.onreadystatechange = function () {
+
+            //if (document.readyState === 'complete') {
+
+                digitalData.pageInfo.renderedExperience = adobeAnalyticsHelper.getBreakPoint();
+                digitalData.pageInfo.viewport = window.innerWidth + 'x' + window.innerHeight;
+                digitalData.pageInfo.orientation = adobeAnalyticsHelper.getOrientation();
+
+                var vehicleInfo = document.getElementById('vehicle-info');
+                if (vehicleInfo) {
+                    digitalData.vehicleInfo.bodyStyle = vehicleInfo.dataset.bodyStyle;
+                    digitalData.vehicleInfo.vehicleType = vehicleInfo.dataset.vehicleType;
+                    digitalData.vehicleInfo.trimLevel = vehicleInfo.dataset.trimLevel;
+                    digitalData.vehicleInfo.vin = vehicleInfo.dataset.vin;
+                }
+                else {
+                    digitalData.vehicleInfo.bodyStyle = '';
+                    digitalData.vehicleInfo.vehicleType = '';
+                    digitalData.vehicleInfo.trimLevel = '';
+                    digitalData.vehicleInfo.vin = '';
+                }
+                digitalData.visitorProfile.zipcodeUS = adobeAnalyticsHelper.getPostalCode();
+         //   }
+       }
+       
+    </script>
+    <script src="//assets.adobedtm.com/81e75e0d225e65a4860f48466627a6b696b9fc66/satelliteLib-920859b06f0229b8ed4a1a0d486465632d61cbe5.js"></script>
+    <!--[if IE 9]>
+        <script type="text/javascript" src="/js/base64.js"></script>
+        <script>
+            if (!window.btoa) window.btoa = Base64.encode;
+            if (!window.atob) window.atob = Base64.decode;
+        </script>
+    <![endif]-->
+</head>
+<body>
+<div id="main-content" class="body-content ">
+    
+
+<div class="row">
+    <div class="small-12 columns">
+        <P> Bolt EV Pages</P>
+        <ul>
+            <li>
+                <a href="/SaveVehicle/TopBanner">Top Banner</a> <br />
+                <a href="/Vehicle/InventoryWidget">Vehicle Inventory Widget</a> <br/>
+                <a href="/SaveVehicle">Save Vehicle</a> <br/>
+                <a href="/Dealer">Dealer Information</a> <br/>
+                <a href="/Vehicle">Vehicle Search Result</a> <br/>
+                <a href="/Vehicle/Detail">Vehicle Detail Page</a> <br/>
+            </li>
+        </ul>
+
+        <br/>
+    </div>
+</div>
+</div>
+        <script type="text/javascript" src="https://bv-assets.static-gm.com/js/vendor/vendors.js?v-d785f7abdbf509e9569ff17fe6cf7dea"></script>
+        <script type="text/javascript" src="https://bv-assets.static-gm.com/js/app.js?v-92f297b3e90076c84450b87a1820349c"></script>
+        <script type="text/javascript" src="https://bv-assets.static-gm.com/js/site.min.js?v-a38f68ca2a6a5f1a5ccff73da4cb8ea7"></script>
+    
+
+    <script type="text/javascript">_satellite.pageBottom();</script>
+</body>
+</html>

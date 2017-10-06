@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+~ Licensed Materials - Property of IBM
+~ IBM Sterling Secure Proxy
+~ (c) Copyright IBM Corp.  2003, 2011 All Rights Reserved.
+~ US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="no-cache" http-equiv="Cache-Control"/>
+<meta content="no-store" http-equiv="Cache-Control"/>
+<meta content="max-age=0" http-equiv="Cache-Control"/>
+<meta content="1" http-equiv="Expires" />
+
+<title>IBM Sterling Secure Proxy - Single Sign-on</title>
+<script>
+var ssoMsgText = "Login Required.";
+var ssoMsgTitle= "";
+var ssoMsgType = "info";
+
+<!-- change the changePwURL value to change password page. -->
+var changePwURL = "changepw.html";
+
+function changePassword() {
+	window.location = changePwURL;
+}
+
+</script>
+
+<script type="text/javascript" src="resources/login.js"></script>
+
+<link id="link1" rel="stylesheet" type="text/css" href="resources/stylesheet.css" />
+</head>
+
+<body id="body1" style="" onload="initPage('user');">
+
+<!-- header -->
+<div class="headerdiv" style="">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+		<tr>
+			<td class="headerTitleDiv">
+				IBM Sterling Secure Proxy
+			</td>
+			<td class="header_right">
+				<a href="http://www.ibm.com" target="_blank">
+					<img src="resources/hdr_logo.gif" alt="IBM" border="0" width="93" height="66"></img>
+				</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<table cellspacing="10" cellpadding="10" style="width:100%; padding:5px;">
+<tr>
+<td>
+	<!-- warn the user if Javascript is not enabled -->
+	<noscript>
+	<div id="alertNoScript" class="alertBox">
+		<table border="0" cellspacing="0" cellpadding="0" title="" class="alertTable">
+			<tr><td class="alertTitleCell">
+					<img src="resources/error_large.gif" alt="" height="21" width="21" border="0" />
+			</td><td class="alertTitleCell">
+					<span class="alertTitleText">JavaScript Error!</span>
+			</td></tr>
+		</table>
+		<div class="alertMessageText">Your current browser does not have JavaScript enabled. Please enable it and refresh this page.</div>
+	</div>
+	</noscript>
+
+	<!-- alert message -->
+	<div id="alertBox" class="alertBox" style="visibility:hidden">
+		<table border="0" cellspacing="0" cellpadding="0" title="" class="alertTable">
+			<tr><td class="alertTitleCell">
+					<img id="alertImg" alt="" height="21" width="21" border="0" />
+			</td><td class="alertTitleCell">
+					<span id="alertTitle" class="alertTitleText"></span>
+			</td></tr>
+		</table>
+		<div id="alertMessage" class="alertMessageText"></div>
+	</div>
+</td>
+</tr>
+<tr>
+<td>
+	<!-- logon content -->
+	<form id="form1" method="post" action="/Signon/login" >
+	<div style="visibility: hidden; height: 200px; " class="logonBox" id="logonContent">
+		<div class="logonBoxHeader">
+			<span class="logonBoxTitle" style="left: 0px; top: 0px; ">
+				SSP Sign in Portal
+			</span>
+		</div>
+		<div style="position:absolute; width:300px;">
+			<div id = "loginPanel" >
+
+
+				<label class="logonBoxText" style="left: 10px; top: 45px; position: absolute;">
+					User ID:
+				</label>
+				<input autocomplete="off" size="20" id="user" name="user" title="User ID is required" style="left: 120px; top: 45px; position: absolute; width: 144px;" value="" type="text">
+
+				<label class="logonBoxText" style="left: 10px; top: 75px; position: absolute; ">
+					Password:
+				</label>
+				<input autocomplete="off" size="20" id="password" name="password" title="Password is required" style="left: 120px; top: 75px; position: absolute; width: 144px;" value="" type="password">
+
+				<input name="form1:logonButton" title="Click to Sign In" style="left: 80px; top: 125px; position: absolute; width: 60px;" type="submit" value="Sign In">
+				<a href="javascript:popupMessage('popupMessage', 'loginPanel');" class="logonBoxText" style="left: 80px; top: 155px; position: absolute;" >
+					Forgot your user ID or password?
+				</a>
+			</div>
+			<div id="popupMessage" class="popupMessageBox" style="position:absolute; left: 5px; top:5px; visibility:hidden;" >
+				<span style="position:absolute; width:100%; height:18px; border-bottom: 1px solid #aaa;">
+					<a href="javascript:popupMessage('loginPanel', 'popupMessage');" style="position:absolute;right:5px;">close</a>
+				</span>
+				<span id="popupMessageText" style="width:280px;position:absolute;top:20px;padding:5px;overflow-x:hidden;overflow:auto;height:130px;">
+
+
+				<!--  place your forget password message here -->
+ 				<p>Please contact you administrator to reset your password.  If an automated mechanism is in place external to SSP and EA to reset the password and email the customer, those instructions will be on this page along with the fields the customer must supply.   For advanced features, redirecting to an external Sign in portal that has full functionality should be considered.
+				<center>Contact Information (877) 555-5555</center>
+				<!-- end message -->
+
+
+				</span>
+			</div>
+		</div>
+
+	</div>
+	</form>
+</td>
+</tr>
+</table>
+
+<!-- footer -->
+<div style="" class="footerDivLogin">
+	<script>
+		function openCopyrightNotice()
+		{
+		  window.open("copyright.html","copyright","height=800,width=680,left=100,top=100,menubar=no,toolbar=no,resizable=yes,scrollbars=yes");
+		}
+	</script>
+	<table id="copyTable" class="copyTable" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td id="copyTableElement" class="copyTableElement">
+				<div class="sterlingCopyright">&#169 Copyright IBM Corp. 2003, 2017 All Rights Reserved.</div>
+				<div class="sterlingCopyright">IBM and the IBM logo are Trademarks of International Business Machines.</div>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+
+</div>
+
+</body>
+
+
+</html>

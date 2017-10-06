@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>e-billing</title>
+<SCRIPT language=Javascript>
+      //Validar que el usuario presione solo numeros y letras.
+      function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+
+         if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122 ))
+
+            return false;
+         return true;
+      }
+	  //Validar que el campo de formulario contenga sólo números
+	  function validacion(f)  {
+		 //borrar=f;
+         //if (isNaN(f)) {
+          //alert("Error:\nEste campo debe tener sólo números.");
+		  //borrar=' ';
+          //}
+      }
+	 
+	function ver_password()//permite ver o no el password 
+	{
+  	var passwd_valor = document.form1.input_pass.value;
+ 
+    document.getElementById('passwd_sitio').innerHTML
+        = (document.form1.input_ver.checked)
+        ? '<input type="text"     name="input_pass" value=""  class="cajas" maxlength="12">'
+        : '<input type="password" name="input_pass" value=""  class="cajas" maxlength="12">'
+        ;
+ 
+    document.form1.input_pass.value = passwd_valor;
+	}
+	function password() {
+    document.getElementById('passwd_sitio').innerHTML='<input type="password" name="pass" id="pass" value=""  class="cajas" maxlength="32" autocomplete="off">';
+	document.getElementById('pass').focus();
+	document.form1.pass.focus();
+	}
+   </SCRIPT>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	width:100%;
+	height:100%;
+}
+.txt1 {	
+	font-family: "Arial", Gadget, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #333;
+	text-decoration: none;
+}
+.txt2 {	
+	font-family: "Arial", Gadget, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: black;
+	text-decoration: none;
+}
+.cajas2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+	width: 175px;
+	height: 18px;
+	border: thin solid #666;
+}
+.cajas {
+	font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+	text-align:center;
+	width: 175px;
+	height: 20px;
+	border:none;
+	border-style:none;
+	color:#8d8d8d;
+	outline:none;
+}
+</style>
+</head>
+<body onload="MM_preloadImages('imagenes/btn_ingresar_hover.png')" oncontextmenu='return false'>
+
+</p>
+<p>&nbsp;</p>
+<p>&nbsp; </p>
+
+  <table width="318" border="0" align="center" cellpadding="0" cellspacing="1">
+    <tr>
+    <tr><td align="center"><img src="imagenes/logo_gmobb.png" border="0"/></td></tr>
+    <tr><td align="center" style="padding:10px" ><span style="font-family:Arial; font-size:15px; color:#7b7b7b; font-weight:bold">Ingreso a e-billing</span></td></tr>
+    <td width="318" height="404" align="center" valign="top" style="background:url(imagenes/background_login.jpg); background-repeat:no-repeat">
+        <form action="acciones.php?acc=login" method="post" enctype="application/x-www-form-urlencoded" name="form1" target="_self" id="form1">
+          <table width="260" border="0" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td height="24" width="210" align="left" valign="bottom">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="42" align="center" valign="middle" style="background:url(imagenes/caja_texto_ruc.jpg); background-repeat:no-repeat; background-position:center center"><input name="user" type="text" class="cajas" onchange="validacion(this.value)" onkeypress="return isNumberKey(event)" id="user" onBlur="if(this.value=='')this.value='identificación'"  onClick="if(this.value=='identificación')this.value='';" value="identificación" maxlength="13" autocomplete="off"/></td>
+        </tr>
+        <tr>
+          <td height="20">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="42" align="center" valign="middle" style="background:url(imagenes/caja_texto_contrasena.jpg); background-repeat:no-repeat; background-position:center center" ><span id="passwd_sitio"><input name="pass"  type="text" class="cajas" id="pass" value="contraseña" maxlength="32" onclick="password(); document.getElementById('pass').focus()" onkeypress="password(); document.getElementById('pass').focus()" onkeydown="password(); document.getElementById('pass').focus()" autocomplete="off"/></span></td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle" height="24" style="padding-top:10px"><span style="font-family:Arial; color:#8d8d8d; font-size:12px">&nbsp; </span>&nbsp;<a href="#" onClick="document.getElementById('recordar1').style.display='block'" style="text-decoration:none"><span style=" font-family:Arial; font-size:12px; color:#7aa4d0">Cual es mi Contrase&ntilde;a?</span></a></td>
+        </tr>
+        <tr>
+          <td height="62" align="center" valign="middle" ><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('ingresar','','imagenes/btn_ingresar_hover.png',0)"><img src="imagenes/boton_ingresar.jpg" name="ingresar" border="0" onClick="if(document.getElementById('user').value!='' && document.getElementById('pass').value!=''){document.getElementById('form1').submit()}"></a></td>
+        </tr>
+      </table>
+      <input type='hidden' name='_nonce' id='_nonce' value='82c9bb996c' />        </form>
+        <table width="318" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="318" height="15" align="center" valign="middle" >&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="27" align="left">
+            <div id="recordar1" style="display:none" >
+<form action="acciones.php?acc=recordar" method="post"  enctype="application/x-www-form-urlencoded" target="_self" id="form2">
+  <table width="318" height="260" border="0" align="center" cellpadding="0" cellspacing="0" style="background:url(imagenes/background_resetear.jpg); background-repeat:no-repeat">
+  <tr><td height="24"> </td></tr>
+    <tr>
+      <td width="318" height="40" align="center" style="background:url(imagenes/caja_texto_login.jpg); background-repeat:no-repeat; background-position:center center;"><input name="ruc" onchange="validacion(this.value)" type="text" onBlur="if(this.value=='')this.value='identificación'" onkeypress="return isNumberKey(event)" class="cajas" id="ruc" onClick="this.value='';" value="identificación" maxlength="13" autocomplete="off" /></td>
+    </tr>
+    
+    <tr><td height="80" align="center" valign="middle">
+    <table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+    	<td width="103" align="right" style="padding-left:20px" >
+    		<img src="php_captcha.php"></td>
+      <td width="187" height="40" align="center" style="background:url(imagenes/caja_captcha.jpg); background-repeat:no-repeat; background-position:center center;"><input name="captcha" onchange="validacion(this.value)" type="text" onkeypress="return isNumberKey(event)" class="cajas" id="captcha" onClick="this.value='';" value="ingresa el texto" maxlength="13" style="width:90px; font-size:10px" autocomplete="off" /></td><td width="28">&nbsp;</td>
+    </tr>
+    </table>
+    </td></tr>
+    <tr>
+      <td height="40" align="center"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('btn_recordar','','imagenes/btn_recordar_hover.png',1)"><img src="imagenes/boton_resetear.jpg" name="btn_recordar"  border="0" id="btn_recordar" onClick="document.getElementById('form2').submit()"/></a></td>
+    </tr>
+    <tr><td height="100%"> </td></tr>
+  </table>
+  <input type='hidden' name='_nonce' id='_nonce' value='c1ddde726d' />  </form>
+</div>
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+  <table>
+  <tr>
+  <td style="font-family:Arial, Helvetica, sans-serif; font-size:smaller; color:#666; padding-left:20px; padding-right:20px"><b>AVISO LEGAL DE CONFIDENCIALIDAD:</b>
+Este sistema es propiedad de General Motors. Es sólo para usuarios autorizados únicamente. Los usuarios (autorizados o no autorizados) no tienen implícita privacidad.
+El uso y documentos adjuntos de este sistema pueden ser interceptados, monitoreados, grabados, copiados, auditados, inspeccionados y divulgados por personal legal y estatal autorizado, así como el personal autorizado de otros organismos de ley. Para el uso de este sistema, el usuario está consciente de lo anteriormente descrito.
+El uso no autorizado o inapropiado de este sistema podría dar lugar a acciones disciplinarias, civiles y penales.
+Al continuar con el uso de este sistema indica su conocimiento y aceptación de los  términos y condiciones de uso. No continúe usando el sistema si Ud. No está de acuerdo con las condiciones indicadas en este aviso.
+
+  </td>
+  </tr>
+  </table>
+</body>
+</html>

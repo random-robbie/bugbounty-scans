@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html style="height:100%;width:100%;">
+<head>
+
+<title>SSL VPN Service</title>
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=500,user-scalable=no" />
+<script>
+if(self != top) top.location.href="/+CSCOE+/logon.html";
+
+
+
+var blinkCounter=0;
+var dap;
+
+function scrollToLogonForm() {
+    document.location.hash = "form_title_text";
+}
+
+function dap_message(){
+
+      if(!dap) return;
+      
+      if(dap.style.visibility == "visible"){
+         dap.style.visibility = "hidden"
+      }else{
+         dap.style.visibility = "visible"
+      }
+      blinkCounter++;
+      if(dap.style.visibility == "visible" && blinkCounter > 5)
+	      clearInterval(dap_interval)
+} 
+
+function blinkDapMessage(){
+        dap=document.getElementById("dap");
+        if(dap){
+           dap_interval = setInterval('dap_message()',1000)
+        }
+}
+
+function showDapMessage(){
+        obj=document.getElementById("dap_message");
+        if(obj){
+           obj.style.visibility = "visible"
+           obj.style.top = (document.body.clientHeight - obj.clientHeight)/2+"px"
+           obj.style.left = (document.body.clientWidth - obj.clientWidth)/2+"px"
+        }
+
+        obj1=document.getElementById("dap_message_shield");
+        if(obj1){
+           obj1.style.visibility = "visible"
+           obj1.style.top = (document.body.clientHeight - obj.clientHeight)/2+"px"
+           obj1.style.left = (document.body.clientWidth - obj.clientWidth)/2+"px"
+           obj1.style.height = obj.clientHeight+"px"
+           obj1.style.width = obj.clientWidth+"px"
+        }
+} 
+
+function hideDapMessage(){
+        obj=document.getElementById("dap_message");
+        if(obj){
+           obj.style.visibility = "hidden"
+        }
+
+        obj1=document.getElementById("dap_message_shield");
+        if(obj1){
+           obj1.style.visibility = "hidden"
+        }
+} 
+
+
+
+
+
+
+
+
+
+function base64_encode(data) {
+  var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  var o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+    ac = 0,
+    enc = '', 
+    tmp_arr = []; 
+  if (!data) {
+    return data;
+  }
+  do {
+    // pack three octets into four hexets
+    o1 = data.charCodeAt(i++);
+    o2 = data.charCodeAt(i++);
+    o3 = data.charCodeAt(i++);
+    bits = o1 << 16 | o2 << 8 | o3; 
+    h1 = bits >> 18 & 0x3f;
+    h2 = bits >> 12 & 0x3f;
+    h3 = bits >> 6 & 0x3f;
+    h4 = bits & 0x3f;
+    // use hexets to index into b64, and append result to encoded string
+    tmp_arr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+  } while (i < data.length);
+  enc = tmp_arr.join('');
+  var r = data.length % 3;
+  return (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3); 
+}
+function updateLogonForm(group,reload){
+
+    if(reload[group]){
+    	var obj=document.getElementById("login");
+    	if(obj) {
+           obj.disabled=true
+        }
+         
+        document.cookie = "tg=1" + base64_encode(group) + "; path=/; secure";
+    	document.location = "/+CSCOE+/logon.html";
+        return
+    }
+}
+function PrefillError() {
+      var obj = document.getElementById("logon_message_text");
+      if (obj) {
+         obj.innerHTML="Your certificate is invalid for the selected group";
+         obj.style.fontWeight="bold";
+         obj.style.color="red";
+      }
+      obj = document.getElementById("Login");
+      if (obj) {
+         obj.disabled=true;
+      }
+}
+</script>
+
+
+<link href="/+CSCOU+/portal.css" rel="stylesheet" type="text/css">
+<link href="/+CSCOE+/logon_custom.css" rel="stylesheet" type="text/css">
+<style>
+     .auth-page-title {color:#800000;font-size:larger;font-weight:bold;background-image:url('/+CSCOU+/gradient.gif?r=255&g=255&b=255');}
+.auth-page-form-title {background-color:#666666;color:#ffffff;}
+
+</style>
+
+<script src="/+CSCOE+/win.js"></script>
+<script>
+function CSCO_Format(fmt) {
+var i;
+	for(i=1; i < arguments.length; i++) {
+		var r = new RegExp("\\%("+i+"\\$)?.", "i");
+		fmt=fmt.replace(r, arguments[i])
+	}
+	return fmt;
+}
+document.cookie="webvpnlogin=1; path=/; secure";
+function disableButton(){
+        try{
+                obj=document.getElementById("submit_button");
+                if(obj){
+                        obj.disabled=true;
+                }
+        }
+        catch (e) {
+
+        }
+
+}
+</script>
+
+
+</head>
+
+
+<body style="background-color:#ffffff; overflow:auto;height:100%; width:100%; " onload="scrollToLogonForm();blinkDapMessage();">
+<table style="width:100%; height: 100%" cellSpacing="0" cellPadding="0" >
+<tr><td vAlign="top">
+<table style="width:100%;"  cellspacing=0 cellpadding=0>
+
+<tr>
+<td style="border-bottom:1px solid #aaaaaa;vertical-align:top; " colspan=2>    
+
+<table   style="width:100%" border="0" cellpadding="0" cellspacing="0" class="cuesHeaderBg">
+<tr width=100%>
+<td class="cuesHeaderAccent" width=100% colspan=2></td>
+
+</tr>
+   <tr id="title" width=100% >
+      <td colspan=2 class="auth-page-title" style="height:40px; padding: 8px" width="100%"><img src="/+CSCOU+/csco_logo.gif"  align="absmiddle" alt="Logo"  title="Logo">&nbsp;&nbsp;SSL VPN Service</td>
+<!-- <td class="auth-page-title" style="heigh:40px; padding: 8px" align="right">
+
+
+</td> -->
+</tr>
+</table>
+
+ 
+</td>
+</tr>
+
+<tr style="height:40px">
+<td align="right" colspan="2">
+
+</td>
+</tr>
+<tr align="center">
+
+<script>
+function formSubmit() {
+     disableButton();
+
+     return true;
+
+}
+</script>
+
+<td id=form_panel align=middle >
+<div style="margin-top:100px;padding:3em;">
+<form id="unicorn_form"
+      method="POST"
+      onsubmit="return formSubmit();"
+      autocomplete="off"
+      action="/+webvpn+/index.html">
+
+<input name="tgroup" type=hidden value="">
+<input name="next" type=hidden value="">
+<input name="tgcookieset" type=hidden value="">
+
+<table style="width:350px; border:0px !important;padding:0px;" id=form_table cellspacing=0 cellpadding=0 border=0>
+
+<tr border=0>
+    <td colspan=2 id="logon" align="middle" valign="top" border=0 style="padding:0px">
+    <!-- <table style="color:#ffffff; ;background-color:#666666;; border-bottom: 1px solid #858A91; width:100%" id="form_title" cellspacing=0  border="0"> -->
+	<table style="background-color:rgba(0,0,0,0);padding:0px;border:0px;" id="form_title" cellspacing=0 cellpadding=0 border=0 >
+	    <tr height=40>
+	   	<td id="form_title_text" align="left" nowrap style="padding: 0px; border:0px;background-color:rgba(0,0,0,0);" width=51><img src="/+CSCOU+/login-header-icon.jpg" width=51  style="display:block;" ></td>
+		<td width=100% nowrap style="background-color: #ffffff; border:0px;" border=0>
+			<table style="width:100%" cellspacing=0 cellpadding=0 border=0>
+				<tr>
+					<td colspan=2 height=16 style="background-color: #ffffff;border:0px;"></td>
+				</tr>
+				<tr>
+					<td width=100% align=left nowrap style="background: url('/+CSCOU+/login-header-middle.jpg'); color: #7d8184;font-weight: bold;border:0px;padding-right:30px;text-align:center;">Login</td>
+					<td width=1 style="border:0px;"><img src="/+CSCOU+/login-header-end.jpg" width=1 style="display:block;" ></td>
+				</tr>
+			</table>
+		</td>
+    	</tr>
+    	</table>
+    </td>
+</tr>
+
+<tr align="center">
+<td colspan=2 align=middle style="color:#000000; background-color:#ffffff;border-left:1px solid #858A91;border-right:1px solid #858A91;"><div id="logon_message_text" style="margin-right:15px;margin-left:15px;margin-top:15px; margin-bottom:5px">Please enter your username and password.</div></td>  </tr> 
+<tr align="center"><td colspan=2 align=middle style="color:#000000; background-color:#ffffff;border:1px solid #858A91;border-top: 0px;">
+<div  style="margin-left:20;margin-right:20;">
+<table border=0 style="color:#000000; background-color:#ffffff;; text-align:left;" >
+<tr><td colspan=2 style="margin-left:40">&nbsp;</td></tr>
+
+<tr>
+    <td>
+    GROUP:
+    </td>
+    <td>
+    <div><select id="group_list"  name="group_list" style="z-index:1; float:left;" onchange="updateLogonForm(this.value,{'NAM-SUPPLIER1':true,'game2tunnel':true})">
+    
+    <option value="NAM-SUPPLIER1" selected>nam-supplier1</option>
+
+    <option value="game2tunnel" >zgame2tunnel</option>
+
+    </select>
+    </div>
+    </td>
+</tr>
+
+    <tr height=20>
+    <td nowrap id="username_field">
+    USERNAME:
+    </td>
+    <td>
+    <input autocomplete="off" id="username" name="username"   style="border:1px solid gray; " value="">
+    </td>
+    </tr>
+
+    <tr>
+    <td nowrap id="password_field">
+    PASSWORD:
+    </td>
+    <td>
+    <input autocomplete="off" id="password_input" name="password"  style="border:1px solid gray;" type=password>
+    </td>
+    </tr>
+
+
+<tr height=40 align="center">
+<td colspan=2 align="middle">
+<input style="font-weight: bold; cursor: pointer;" type="submit" name="Login" value="Login" />
+</td>
+</tr>
+
+</table>
+</td></tr></table>
+</div>
+</form>
+<script>
+
+function set_focus() {
+     var name="username";
+     if (!name) {
+          <!-- If there are no form fields, select the login button -->
+          name = "Login";
+     }
+     if (name) {
+          var obj = document.getElementById(name);
+          if(obj){
+               obj.focus();
+          }
+     }
+}
+set_focus();
+
+</script>
+</td>
+
+</tr>
+</table>
+</td></tr>
+
+</table>
+
+<iframe style="top:0px;left:0px;position:absolute; visibility:hidden; width: 500px;" id=dap_message_shield src="/+CSCOE+/blank.html"></iframe>
+<div style="top:0px;left:0px;position:absolute; visibility:hidden; width: 500px; background-color: #ffffff; border: 1px solid #000000" id=dap_message>
+<table cellspacing=0 >
+<tr>
+<td height=40 style="margin:10px; background-color: #dbdbdb;">
+<div style="margin:10px;">
+<br>Your system administrator provided the following information to help understand and remedy the security conditions: 
+</div>
+</td>
+</tr>
+<tr>
+<td height=40>
+<div style="margin:10px">
+
+</div>
+</td>
+</tr>
+<tr>
+<td align=right height=40 style="border-top: 1px dotted #aaaaaa;">
+<a href="javascript:hideDapMessage()">Close</a>&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</div>
+
+
+
+</body>
+</HTML>

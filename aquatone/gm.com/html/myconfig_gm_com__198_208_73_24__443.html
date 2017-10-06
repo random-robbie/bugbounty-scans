@@ -1,0 +1,123 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>myConfigTool - Configuration Tool - 1.8.1.25</title>
+<link rel="stylesheet" type="text/css" href="stil.css" />
+<link rel="stylesheet" type="text/css" href="jquery/ui-configtool/jquery-ui-custom.css" />
+<link rel="shortcut icon" href="img/configtool.ico" />
+
+<script src="jquery/jquery-1.4.2.min.js"></script>
+<script src="jquery/jquery.backstretch.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$(".fail,.info").hide();
+		
+		$("#login").submit(function() {
+			$(".fail").html("").hide();
+			if (!$.browser.msie) {
+				$.post("login.jsp", {user:$("#user").val(),password:$("#password").val(),csrftoken:$("#csrftoken").val()}, function(html) {
+					var answer = $.trim(html);
+					if (answer == "true")
+						$(".fail").hide("slow",function(){
+							window.location = "status.jsp"+window.location.hash;
+						});
+					else if (answer == "move") {
+						$(".fail").html("You will not be able to use this site until June 15th 2011.");
+						$(".fail").slideDown("slow");
+					}
+					else if (answer == "inactive") {
+						$(".fail").html("This member is inactive! Contact GM operations to activate.");
+						$(".fail").slideDown("slow");
+					}
+					else if (answer == "hack") {
+						$(".fail").html("Don't hack us!");
+						$(".fail").slideDown("slow");
+					}
+					else {
+						$(".fail").html("You entered invalid user-name or password.");
+						$(".fail").slideDown("slow");
+					}
+				});
+			}
+			else {
+				$(".fail").html("We have found security issues with Internet Explorer. Thus you are no longer allowed to use this browser. We recomend Mozilla Firefox.");
+			    
+				$(".fail").css("text-align","left").slideDown("slow");
+			}
+			return false;
+		});
+		$("#submit").hover(function() {
+			$(this).toggleClass("ui-state-hover");
+		});
+		
+		$(".help").hover(function() {
+			$(this).toggleClass("ui-state-hover");
+		}).click(function() {
+			$(".info").slideToggle("slow");
+		});
+		/*
+		 $.backstretch([
+		                "/img/mokka1.jpg"
+		              , "/img/mokka2.jpg"
+		              , "/img/adam1.jpg"
+		              , "/img/adam2.jpg"
+		            ], {duration: 3000, fade: 750});*/
+	});
+</script>
+ 
+</head>
+<body bgcolor="#FFFFFF" style="background-color:#FFFFFF" class="local">
+   <div>
+		<h1>myConfigTool - Configuration Tool - 1.8.1.25</h1>
+	</div>
+	<div id="main" style="margin: 200px auto; width: 400px; position: relative; text-align: center; left: auto;">
+		<div id="logincontainer">
+			<form id="login" action="#" autocomplete="off">
+				<input type="text" id="user" maxlength="50" autocomplete="off"/>
+				<input type="password" id="password" maxlength="25" autocomplete="off"/>
+				<input type="hidden" id="csrftoken" value="[B@608295c2">
+				<div>
+					<input type="submit" id="submit" class="ui-state-default ui-corner-all" value="Sign in"/>
+				</div>
+				<div class="fail ui-state-error ui-corner-all p" style="">
+					.
+				</div>
+				
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>
+

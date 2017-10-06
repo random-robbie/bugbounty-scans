@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- version 4 -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>GM Login</title>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #0060a9;   
+        font-family: arial, helvetica, sans-serif;
+    }
+    .gm-login {
+        border: 4px solid #414042;
+        background-color: #ffffff;   
+        text-align: center;
+        margin: 40px auto 0px auto;
+        padding: 25px 25px 25px 25px;
+    }
+    .input-wrapper input {
+        background-color: #e6e7e8;
+        border: none;
+        text-align: center;
+        font-size: 17px;
+        color: #a7a9ac;
+        padding: 7px 0px;
+        margin: 3px 0px;
+        width: 95%;
+        font-style: italic;
+        vertical-align: middle;
+    }
+    .input-wrapper input:-webkit-autofill {
+        /* override webkit yellow input highlights */
+        -webkit-box-shadow: 0 0 0px 1000px #e6e7e8 inset;
+    }     
+    .btn {
+        border: none;
+        padding: 7px 0px;
+        font-size: 16px;
+        color: #ffffff;
+        width: 151px;
+        cursor: pointer;
+        float: left;
+    }   
+    .btn-reset {
+        background-color: #86bbe5;
+    }
+    .btn-login {
+        background-color: #1c75bc;
+    }
+    a:link, a:visited {
+        color: #0060a9;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .buttons {
+        padding: 10px 0px 10px 10px;
+        text-align: left;
+    }
+    .support {
+        font-size: 14px;
+        padding: 10px 0px 5px 0px;
+    }
+    .disclaimer {
+        font-size: 11px;
+        color: #414042;
+        text-align: justify;
+        padding: 0px 10px 0px 10px;
+    }
+    .gm-logo {
+        max-width: 320px;
+        height: auto;
+    }
+    #js-pass {
+        background-image: none;
+    }    
+    #js-pass.pristine {
+        background-image:url(data:image/png;base64,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);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    @media screen and (max-width: 360px) {
+        .gm-login {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        .btn {
+            width: 140px;
+        }
+        .gm-logo {
+            max-width: 290px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .disclaimer br {
+            display: none;
+        }
+    }    
+</style>
+<script>
+function inputFocus(elem) {
+    if (elem.value === elem.defaultValue) {
+        elem.value = '';
+    }
+}
+function inputBlur(elem) {
+    if (elem.value === '') {
+        elem.value = elem.defaultValue;
+    }
+}
+function passwordFocus(elem) {
+    elem.className = '';
+}
+function passwordBlur(elem) {
+    if (elem.value === '') {
+        elem.className = 'pristine';
+    }
+}
+function inputClear() {
+    var user = document.getElementById('js-user');
+    var pass = document.getElementById('js-pass');
+    user.value = user.defaultValue;
+    pass.value = pass.defaultValue;
+}
+function checkAutoFill() {
+    var pass = document.getElementById('js-pass');
+    if (pass.value !== '') {
+        pass.className = '';
+    }
+}
+</script>
+</head>
+<body onload="checkAutoFill()">
+    <form action="j_security_check" method="post">
+        <table class="gm-login">
+            <tr>
+                <td colspan="2" class="input-wrapper">
+                    <input name="j_username" type="text" size="25" value="GMID" onfocus="inputFocus(this)" onblur="inputBlur(this)" id="js-user">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="input-wrapper">
+                    <input name="j_password" type="password" size="25" class="pristine" value="" id="js-pass" onfocus="passwordFocus(this)" onblur="passwordBlur(this)" onchange="checkAutoFill()" />   
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="buttons">
+                    <button type="reset" name="resetButton" class="btn btn-reset" onclick="inputClear()">Reset</button>
+                    <button type="submit" name="submitButton" class="btn btn-login">Sign In</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="disclaimer">
+                    By clicking "Sign In", you agree to General Motors Acceptable<br />Use Policy. For more information visit the <a href="https://gmid.gm.com/gmidStatic/policy_center/index.html">Policy Center</a>.
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="support">
+                    <a href="http://gmid.gm.com/">Password Management &amp; Support</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="data:image/png;base64,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" class="gm-logo" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
