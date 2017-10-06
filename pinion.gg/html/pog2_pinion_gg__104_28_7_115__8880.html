@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="author" content="Crionis" />
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <base href="/">
+    <title>Pot of Gold - Pinion</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    <script src="https://use.typekit.net/oxs8qyz.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <script>
+        window.pog_env = 'production';
+        window.pog_prefix = '';
+        window.apiUrl = 'https://unikrn.com/apiv2';
+        window.apiUrlv1 = 'https://unikrn.com/apiv1';
+        window.apiUrlPin = 'https://cp-ng.pinion.gg/api-v2';
+        window.pinApiKey = 'dfsd9kljk83IH983hU83kjhkjhnewe89d';
+    </script>
+    
+    <!-- BEGIN TRACKJS -->
+    <script type="text/javascript">
+        window._trackJs = { token: '97d538c0474344bea8947cfe6e6a747f', application: "pinion-pog2" };
+    </script>
+    <script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
+    <!-- END TRACKJS -->
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', 'GTM-PT4D6T');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- injector:css -->
+<link rel="stylesheet" href="assets/css/libs.988c2ce9.css">
+<link rel="stylesheet" href="assets/css/main.min.32036025.css">
+<!-- endinjector -->
+
+</head>
+
+<body ng-app="pog">
+   <div id="main-layout" class="layout">
+        <div id="navbar" ng-controller="NavbarCtrl" ng-class="{'show': !$state.is('legal') && !$state.is('privacy') && !$state.is('home') && !$state.is('login')}">   
+            <div class="nav-wrapper">
+                <div class="default-links">
+                    <a class="link responsive-text lg" ng-repeat="l in links" ui-sref="{{l.sref}}"
+                       ng-bind="l.display" ng-class="{active: $state.is(l.sref)}"
+                       gtm-trigger ga-category="{{$root.view()}}" ga-action="goTo{{l.display}}"></a>
+                </div>
+                <div class="user" ng-show="isLoggedIn()" ng-include="'components/sidebar/user.html'"></div>
+            </div>
+        </div>
+
+        <div id="content" class="content" ng-class="{'content_loading': isLoading, 'full_height': $state.is('home'), 'no_navbar': $state.is('home') || $state.is('legal') || $state.is('privacy')}">
+            <div ng-controller="WrapperCtrl" ng-class="{'iscroll-on': iScrollState.useIScroll, 'iscroll-off': !iScrollState.useIScroll}">
+                <div class="iscroll-wrapper" iscroll>
+                    <div class="iscroll-scroller">
+                        <div ui-view="" class="app_wrapper"></div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+
+
+<!-- injector:js -->
+<script src="assets/js/libs.min.8846d095.js"></script>
+<script src="assets/js/bundle.min.a1cf4639.js"></script>
+<!-- endinjector -->
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 ie"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9 ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <title>Braintree Control Panel</title>
+
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- CSS -->
+    <link rel="stylesheet" media="screen" href="/stylesheets/vendor/reset.css" />
+    <link rel="stylesheet" media="screen" href="/stylesheets/style.css" />
+    <link rel="stylesheet" media="screen" href="/stylesheets/vendor/uniform.default.css" />
+    <link rel="stylesheet" media="screen" href="/stylesheets/jquery-ui-1.8.13.custom.css" />
+
+  <!-- JS -->
+  <script src="/assets/vendor/jquery-1.10.2.min-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js"></script>
+  <script>
+//<![CDATA[
+
+    var jQuery_1_10_2 = $.noConflict(true);
+
+//]]>
+</script>    <script src="/javascripts/gateway.js"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon"  href="/favicon.ico"/>
+
+</head>
+
+<body lang="en" class='no-nav login-body'>
+  <noscript>
+    <div class='alert error'>
+        <div class='detail'>
+        <h6>Error</h6>
+        <p>You need JavaScript enabled to use this application.</p>
+      </div>
+    </div>
+  </noscript>
+
+
+  
+<div class="login-header main-header-wrapper create-form-header">
+  <div class="main-header-inner">
+      <a href="/" class="logo">Braintree</a>
+      <div class="header-login text-right"><a href="http://staging.braintreepayments.com/get-started">Sign up</a></div>
+  </div>
+</div>
+
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="authorization-container vertical-center-block">
+  <div class="vertical-center">
+    <div class="authorization-content">
+
+      <div class="authorization-option log-in-with-braintree">
+        <h2>
+          Log in to your account
+        </h2>
+        <form class="no_autocomplete" action="/session" accept-charset="UTF-8" method="post"><div style="margin:0;padding:0;display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="+WbwIsciafxItHq+lu3eVurxWQ+nK9RI0toAUboNH+rRHBjnLMd+UMMmyCNgH3l38FHGwHz4lTEqLqSPxOtunw==" /></div>          <div class="text-input-wrapper">
+            <ul class="form-row">
+              <li class="full border-top input-block">
+                <label class="input-label">
+                  <span class="label-title">Username</span>
+                  <div class="bt-tooltip-container vertical-align-middle">
+                    <img class="bt-tooltip-trigger noblock" src="/images/question.svg" data-fallback="/images/question.png">
+                    <div class="bt-tooltip right zero">A username can be either:
+                      <ul>
+                        <li>A unique identifier designated by you at signup (e.g. yourusername100)</li>
+                        <li>The email you signed up with (e.g. example@email.com)</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span class="inline-error-message"></span>
+                  <input type="text" id="login" name="login" placeholder="Your username" required="required" tabindex="1">
+                </label>
+              </li>
+            </ul>
+            <ul class="form-row">
+              <li class="full input-block">
+                <label class="input-label">
+                  <span class="label-title">Password</span>
+                  <a id="forgot-password-link" class="label-addon" tabIndex="-1" href="/forgot_password">Forgot?</a>
+                  <span class="inline-error-message"></span>
+                  <input type="password" id="password" name="password" placeholder="Your Password" required="required" tabindex="2">
+                </label>
+              </li>
+            </ul>
+          </div>
+          <input type="submit" name="commit" value="Log In" class="btn btn_primary btn_full_width login-submit-button" tabindex="3" />
+</form>      </div>
+
+      <div class="authorization-divider">
+        <div class="authorization-divider-label">or</div>
+      </div>
+
+      <div class="authorization-option log-in-with-paypal">
+        <img src="/images/logos/paypal-monogram.svg" alt="PayPal">
+        <a class="activate-login-with-paypal btn btn_full_width login-with-paypal-button" href="https://www.sandbox.paypal.com/signin/authorize?client_id=AYQaw68g2uM-SMcWZwJLrMuVgKZV4KUGsXJNUd9wugj_o7Kr3m0YGcbAhE2D417UdaD9Ne7LHfSqgg67&amp;redirect_uri=https%3A%2F%2Fgateway.qa.braintreepayments.com%2Flogin_with_paypal_redirect&amp;response_type=code&amp;scope=openid+email&amp;state=login-CS1gkcbkAtNPm55c1TKGh%2FPy4nmjFvi%2B3lD4JSJXT0shV4hULQEVf8QJLMEjwCGm6VJ9tnjFuccmpFz7XLE%2BPg%3D%3D-%2Flogin">Log In with PayPal</a>
+
+        <p>Want to access Braintree using your PayPal account? <a href="https://articles.braintreepayments.com/control-panel/basics/users-roles#log-in-with-paypal" target="_blank">Learn more</a></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.input-block input').focus(function() {
+      $(this).parent().addClass('has-focus');
+  });
+  $('.input-block input').blur(function() {
+      $(this).parent().removeClass('has-focus');
+  });
+</script>
+
+
+</body>
+</html>

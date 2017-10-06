@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <meta property="og:title" content="Техносфера@Mail.ru"/>
+
+    <meta property="og:image" content="/static_gtp/core/pub/sphere/images/og-image.png"/>
+    
+        <meta property="og:description"
+              content="Cовместный образовательный проект Mail.Ru Group и факультета ВМК МГУ имени М. В. Ломоносова, реализующий практико-ориентированное бесплатное дополнительное обучение студентов и аспирантов МГУ силами сотрудников Mail.Ru Group."/>
+    <meta name="cmsmagazine" content="6b918355ad4ec31e713e8eefe2a5b74c" />
+
+    <link rel="icon" href="/static_gtp/core/pub/sphere/images/favicon.ico">
+    <title>Техносфера@Mail.ru</title>
+
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/sphere/css/style.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/sphere/css/fonts.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/sphere/css/rt-tmpl.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css"
+          href="/static_gtp/core/pub/sphere/css/jquery.notifier.css?v=5.27.0">
+    <link rel="stylesheet" type="text/css" href="/static_gtp/core/pub/sphere/css/slick.mod.css?v=5.27.0">
+
+
+    
+    
+
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.cookie.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.form.js?v=5.27.0"></script>
+    <script type="text/javascript"
+            src="/static_gtp/lib/js/jquery/jquery-ui/jquery-ui.min.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.notifier.js?v=5.27.0"></script>
+    <script type="text/javascript"
+            src="/static_gtp/lib/js/jquery.maskedinput/jquery.maskedinput.min.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/jquery/jquery.tmpl.min.js?v=5.27.0"></script>
+    <script type="text/javascript"
+            src="/static_gtp/core/pub/sphere/js/jquery.datePicker.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/lib/js/msg.js?v=5.27.0"></script>
+
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/browser.min.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/f.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/reminder.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/script.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/tabs.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/main.js?v=5.27.0"></script>
+    <script type="text/javascript" src="/static_gtp/core/pub/sphere/js/window_login.js?v=5.27.0"></script>
+
+    <link rel="apple-touch-icon" href="/static_gtp/core/pub/sphere/images/apple-touch-icon.png"/>
+    <link rel="image_src" href="/static_gtp/core/pub/sphere/images/og-image.png"/>
+    
+    <script type="text/javascript" src="/static_gtp/events/pub/sphere/js/event.js?v=5.27.0"></script>
+
+
+    <script>
+        $(function () {
+            $('.trigger-logout').on('click', function (e) {
+                e.preventDefault();
+                $('#logout_form').submit();
+            });
+        });
+    </script>
+</head>
+
+    <body>
+
+
+    <div id="popup-login" class="popup popup-login popup-login-restore">
+    <input type="hidden" class="gtp-login-url" value="/gtp_login/">
+    <input type="hidden" class="gtp-mode" value="True">
+
+    <span class="sferapopup__close"></span>
+
+    <div class="sferapopup__title">Войти</div>
+
+
+    <div class="sferaform sferaform_login">
+        
+            
+            <form action="/login/" id="popup-login-form" class="pl-login form-required no-disable"
+                  method="POST">
+                <input type='hidden' name='csrfmiddlewaretoken' value='MXgXuSl7o2WuvzQvzqtuKMPtaUGkLTl6' />
+                <div style="color: #ff003c;">
+                    <span class="error-message validate-error-hide validate-error-login"></span></div>
+
+                <div class="login-input">
+                    <div class="login-loader"></div>
+                    <p><input type="text" name="login" class="sferaform__input textInput-placeholder required"
+                              value="Логин или эл. почта"></p>
+
+                    <p><input type="password" name="password" class="sferaform__input textInput-placeholder"
+                              value="Пароль"></p>
+                </div>
+
+                <p class="save cf">
+                    <span class="sferaform__box">
+                        <input type="checkbox" class="sferaform__box__check" checked name="remember" id="remember">
+                        <label class="sferaform__box__label" for="remember">Запомнить меня</label>
+                    </span>
+                    <span id="passwd-restore" class="pseudo-link sferaform__fieldslist__row__link sferaform__fieldslist__row__link_right"
+                          style="color: #4ba6c0; text-decoration: none;border-bottom: none;">Восстановление пароля</span>
+                </p>
+                <p class="registration-button-row">
+                    
+                    <a href="/registration/short/" class="sferaform__fieldslist__row__link login-registration-link">Регистрация</a>
+                </p>
+
+                <p class="submit-row">
+
+                    
+                        <button class="sferaform__button" style="padding: 15px 45px; margin-right: 10px"
+                                name="submit_login"
+                                type="submit" id="popup-login-form-submit">Войти
+                        </button>
+                    
+                </p>
+            </form>
+
+            
+            <form action="/password_reset/" id="popup-reminder-form" class="pl-restore form-required"
+                  method="POST">
+                <input type='hidden' name='csrfmiddlewaretoken' value='MXgXuSl7o2WuvzQvzqtuKMPtaUGkLTl6' />
+                <span style="color: #ff003c;" class="error-message validate-error-hide validate-error-reminder"></span>
+
+                <script type="text/javascript">
+                     $(function () {
+                         $('#popup-reminder-form').submit(function (event) {
+                             $('#popup-reminder-form-submit').addClass('disabled');
+                             $('#popup-reminder-form-submit').attr('disabled', 'disabled');
+                         });
+                     });
+                 </script>
+
+                <p><input type="text" class="sferaform__input textInput-placeholder required required-email" name="mail"
+                          value="Ваш e-mail"></p>
+
+                <p class="submit">
+                    <button class="sferaform__button" style="padding: 15px 45px;display:block;" name="submit_reminder"
+                            type="submit" id="popup-reminder-form-submit">Восстановить пароль
+                    </button>
+                </p>
+            </form>
+
+            <div id="popup-reminder-form" class="pl-restored form-required">
+                 <span class="close" title="Закрыть"></span>
+
+                 <p id="mail_recovered_text"></p>
+
+                 <p class="submit">
+                     <button class="sferaform__button button_close" style="padding: 15px 45px;display:block;" name="submit_reminder"
+                                 type="submit" id="popup-reminder-form-submit">Ок
+                     </button>
+                 </p>
+             </div>
+        
+
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+
+
+
+
+    <div id="popup-bug-report" class="popup">
+    <span class="sferapopup__close"></span>
+
+    <p class="heading">Обратная связь</p>
+    <div class="popup-bug-report__content" style="min-height: 450px">
+
+    </div>
+
+</div>
+
+
+    <div class="sferauser-panel">
+
+        <div class="sferauser-panel__center">
+
+            <div class="sferauser-panel__columns">
+                <div class="сolumn-left" style="width: 40%;">
+                    
+                            <ul>
+                                
+                                    <li><a href="#" class="login trigger-login">Вход для участников</a>
+                                
+                            </ul>
+                    
+                </div>
+
+                <div class="сolumn-right" style="width: 60%;">
+                    <ul>
+                        
+
+                        
+                        
+                            <li><a href="/faq/" class="sel-faq">Есть вопросы?</a>
+                        
+                        
+                            <li><a href="/alumni/" class="sel-alumni">Выпуски</a>
+                        
+                        
+                            <li><a href="/contacts/" class="sel-contacts">Контакты</a>
+                        
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="sferaheader sferaheader_main"><div class="stuff main-page"><canvas id="can"></canvas></div><div class="sferaheader__center"><div class="sferaheader__center__top"><a href="/" class="sferaheader__logo"><img class="sferaheader__logo__img" src="/static_gtp/core/pub/sphere/img/logo.png"
+         alt="Логотип Техносферы"></a><ul class="sferaheader__nav"><li class="sferaheader__nav__item  sel-about"><a href="/pages/about/" class="sferaheader__nav__link">О проекте</a></li><li class="sferaheader__nav__item  sel-howto"><a href="/pages/forapplicants/" class="sferaheader__nav__link">Как поступить</a></li><li class="sferaheader__nav__item  sel-program"><a href="/curriculum/program/main/" class="sferaheader__nav__link">Программа</a></li><li class="sferaheader__nav__item  sel-schedule"><a href="/schedule/front/" class="sferaheader__nav__link">Расписание</a></li><li class="sferaheader__nav__item  sel-video"><a href="/materials/video/" class="sferaheader__nav__link">Видео</a></li><li class="sferaheader__nav__item  sel-events"><a href="" class="sferaheader__nav__link">Мероприятия</a></li></ul><script type="text/javascript"
+                            src="/static_gtp/core/pub/sphere/js/slider.js?v=5.27.0"></script><ul class="sferaheader__goals-list"><li class="sferaheader__goals-list__item">Решать<br/> реальные задачи</li><li class="sferaheader__goals-list__item">Развивать<br/> свой потенциал</li><li class="sferaheader__goals-list__item">Повысить свою конкурентоспособность<br/> при
+                            устройстве на&nbsp;работу
+                        </li></ul></div><div class="sferaheader__logotest"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 300 45" enable-background="new 0 0 300 45"><g fill="#fff"><path d="M11.1 7h-10.5v-6.5h28.7v6.5h-10.5v28.5h-7.7v-28.5zM44.3 36.2c-2 0-3.8-.3-5.4-1-1.6-.6-3-1.5-4.1-2.7-1.1-1.2-2-2.6-2.6-4.2-.6-1.6-.9-3.4-.9-5.4 0-1.9.3-3.7.9-5.3.6-1.6 1.5-3 2.6-4.2 1.1-1.2 2.5-2.1 4.1-2.8 1.6-.7 3.3-1 5.3-1s3.8.4 5.4 1.1c1.6.8 2.8 1.8 3.9 3 1 1.3 1.8 2.7 2.3 4.4.5 1.7.8 3.4.8 5.2v1.4h-18.2c.1 2.3.7 3.9 1.7 4.9 1 1 2.6 1.5 4.5 1.5 1.4 0 2.6-.4 3.6-1.1 1-.7 1.6-1.4 1.9-2.2h6.1c-1 3-2.5 5.2-4.5 6.5-2 1.2-4.5 1.9-7.4 1.9zm5.4-16.1c-.3-1.8-.9-3.1-1.7-4-.8-.9-2.1-1.4-3.8-1.4-1.1 0-2.1.2-2.8.6-.7.4-1.3.8-1.7 1.4-.4.6-.8 1.1-.9 1.8-.2.6-.3 1.2-.3 1.7h11.2zM67.2 22.2l-8.3-12h7.9l4.5 6.6 4.4-6.6h7.7l-8.3 11.9 9.4 13.5h-7.9l-5.3-8-5.3 8h-7.8l9-13.4zM87.1 10.2h7v9.2h9.9v-9.2h7v25.4h-7v-10.7h-9.9v10.6h-7v-25.3zM128.5 36.2c-2 0-3.8-.3-5.4-.9-1.6-.6-3-1.5-4.1-2.7-1.1-1.2-2-2.6-2.6-4.2-.6-1.6-.9-3.5-.9-5.5s.3-3.9.9-5.5c.6-1.7 1.5-3.1 2.6-4.2 1.1-1.2 2.5-2.1 4.1-2.7s3.4-1 5.4-1c2 0 3.8.3 5.4 1s3 1.5 4.1 2.7c1.1 1.2 2 2.6 2.6 4.2.6 1.7.9 3.5.9 5.5s-.3 3.9-.9 5.5c-.6 1.6-1.5 3-2.6 4.2-1.1 1.2-2.5 2.1-4.1 2.7-1.6.6-3.4.9-5.4.9zm0-5.2c1.2 0 2.2-.2 3-.7.8-.5 1.4-1.1 1.9-1.8.5-.8.8-1.6 1-2.6.2-1 .3-2 .3-3s-.1-2-.3-3c-.2-1-.5-1.8-1-2.6s-1.1-1.4-1.9-1.8c-.8-.5-1.8-.7-3-.7s-2.2.2-2.9.7c-.8.5-1.4 1.1-1.9 1.8-.5.8-.8 1.6-1 2.6-.2 1-.3 2-.3 3s.1 2 .3 3c.2 1 .5 1.8 1 2.6s1.1 1.4 1.9 1.8c.7.5 1.7.7 2.9.7zM158.2 36.2c-1.9 0-3.7-.3-5.2-1-1.6-.6-2.9-1.5-4-2.7-1.1-1.1-2-2.5-2.6-4.1-.6-1.6-.9-3.3-.9-5.2 0-2 .3-3.8.9-5.5.6-1.7 1.4-3.1 2.5-4.4 1.1-1.2 2.5-2.2 4.1-2.9 1.6-.7 3.4-1 5.5-1 1.5 0 3 .2 4.3.6 1.4.4 2.6 1 3.7 1.8s2 1.8 2.7 3c.7 1.2 1.1 2.6 1.2 4.2h-6.8c-.5-2.9-2.2-4.4-5.2-4.4-1.1 0-2 .3-2.8.8-.8.5-1.4 1.2-1.8 2-.5.8-.8 1.7-1 2.7-.2 1-.3 1.9-.3 2.8 0 .9.1 1.8.3 2.8.2.9.5 1.8 1 2.6.4.8 1 1.4 1.8 1.9s1.7.7 2.7.7c1.7 0 2.9-.5 3.8-1.4.9-.9 1.5-2.2 1.7-3.8h6.7c-.5 3.4-1.8 5.9-3.9 7.7s-5.1 2.8-8.4 2.8zM189.2 33.8h-.2c-.5.6-1.2 1.2-2.2 1.6s-2 .7-3 .7c-1.9 0-3.5-.4-4.8-1.2-1.3-.8-2.4-1.8-3.2-3s-1.4-2.7-1.7-4.4c-.4-1.7-.5-3.4-.5-5.1 0-2 .2-3.8.7-5.4.5-1.6 1.1-3 2-4.1.8-1.1 1.9-2 3.1-2.6 1.2-.6 2.6-.9 4.1-.9 1.5 0 2.7.3 3.6.8.9.5 1.6 1.1 2 1.8h.1v-11.5h7v11.6h.1c.4-.7 1-1.3 2-1.8.9-.5 2.2-.8 3.6-.8 1.5 0 2.9.3 4.1.9 1.2.6 2.3 1.5 3.1 2.6.8 1.1 1.5 2.5 2 4.1.5 1.6.7 3.4.7 5.4 0 1.8-.2 3.5-.5 5.1-.4 1.7-.9 3.1-1.7 4.4s-1.9 2.3-3.2 3c-1.3.8-2.9 1.2-4.8 1.2-1 0-2.1-.2-3-.7-1-.5-1.7-1-2.2-1.6h-.1v10.6h-7v-10.7zm-3.8-2.8c1 0 1.9-.2 2.6-.7s1.1-1.1 1.2-1.7v-11.2c-.3-1-.9-1.7-1.7-2.1-.8-.4-1.6-.6-2.3-.6-1.7 0-2.9.7-3.6 2.1-.7 1.4-1.1 3.3-1.1 5.8 0 1 .1 2.1.2 3.1s.4 1.9.8 2.7c.4.8.9 1.4 1.5 1.9s1.4.7 2.4.7zm14.5 0c1 0 1.8-.2 2.4-.7.6-.5 1.1-1.1 1.5-1.9.4-.8.6-1.7.8-2.7.1-1 .2-2 .2-3.1 0-2.5-.4-4.4-1.1-5.8-.7-1.4-1.9-2.1-3.6-2.1-.8 0-1.5.2-2.3.6-.8.4-1.3 1.1-1.7 2.1v11.1c.1.7.5 1.2 1.2 1.7s1.6.8 2.6.8zM228 36.2c-2 0-3.8-.3-5.4-1-1.6-.6-3-1.5-4.1-2.7s-2-2.6-2.6-4.2c-.6-1.6-.9-3.4-.9-5.4 0-1.9.3-3.7.9-5.3.6-1.6 1.5-3 2.6-4.2 1.1-1.2 2.5-2.1 4.1-2.8 1.6-.7 3.3-1 5.3-1s3.8.4 5.4 1.1c1.6.8 2.8 1.8 3.9 3 1 1.3 1.8 2.7 2.3 4.4s.8 3.4.8 5.2v1.4h-18.3c.1 2.3.7 3.9 1.7 4.9 1 1 2.6 1.5 4.5 1.5 1.4 0 2.6-.4 3.6-1.1 1-.7 1.6-1.4 1.9-2.2h6.1c-1 3-2.5 5.2-4.5 6.5-2 1.2-4.4 1.9-7.3 1.9zm5.4-16.1c-.3-1.8-.9-3.1-1.7-4-.8-.9-2.1-1.4-3.8-1.4-1.1 0-2.1.2-2.8.6-.7.4-1.3.8-1.7 1.4-.4.6-.8 1.1-.9 1.8-.2.6-.3 1.2-.3 1.7h11.2zM244.4 10.2h6.6v3.2h.1c.8-1.4 1.9-2.4 3.2-3 1.3-.6 2.7-.9 4.3-.9 2 0 3.7.4 5.2 1.1 1.4.8 2.6 1.8 3.6 3 .9 1.2 1.7 2.7 2.1 4.3.5 1.7.7 3.4.7 5.2 0 1.7-.2 3.3-.7 4.9-.5 1.6-1.2 3-2.1 4.2s-2.1 2.2-3.5 2.9c-1.4.7-3 1.1-4.9 1.1-1.6 0-3-.3-4.3-1-1.3-.6-2.4-1.6-3.3-2.8h-.1v12h-7v-34.2zm12.8 20.8c1.1 0 2.1-.2 2.9-.7.8-.5 1.4-1.1 1.9-1.8s.8-1.6 1-2.6c.2-1 .3-2 .3-3s-.1-2-.3-3c-.2-1-.6-1.9-1.1-2.6-.5-.8-1.1-1.4-1.9-1.9-.8-.5-1.7-.7-2.8-.7-1.1 0-2.1.2-2.9.7-.8.5-1.4 1.1-1.9 1.8-.5.8-.8 1.6-1 2.6-.2 1-.3 2-.3 3s.1 2.1.3 3c.2 1 .6 1.8 1 2.6.5.7 1.1 1.3 1.9 1.8.8.6 1.8.8 2.9.8zM282 36.2c-1.2 0-2.3-.1-3.4-.4-1-.3-2-.8-2.7-1.4-.8-.6-1.4-1.4-1.8-2.4s-.7-2.1-.7-3.4c0-1.4.3-2.6.8-3.6.5-.9 1.2-1.7 2-2.2.8-.6 1.7-1 2.7-1.3 1-.3 2.1-.5 3.1-.7s2.1-.3 3.1-.4 1.9-.2 2.7-.4c.8-.2 1.4-.5 1.9-.9s.7-.9.6-1.6c0-.7-.1-1.3-.4-1.8-.2-.5-.6-.8-1-1.1-.4-.2-.9-.4-1.4-.5-.5-.1-1.1-.1-1.7-.1-1.4 0-2.5.3-3.2.9-.8.6-1.2 1.6-1.4 2.9h-7c.1-1.6.5-3 1.2-4 .7-1.1 1.6-2 2.7-2.6 1.1-.7 2.4-1.1 3.7-1.4 1.4-.3 2.8-.4 4.2-.4 1.3 0 2.6.1 3.9.3 1.3.2 2.5.5 3.6 1.1 1.1.5 2 1.3 2.6 2.2.7.9 1 2.2 1 3.7v13.2c0 1.1.1 2.2.2 3.3.1 1 .4 1.8.7 2.4h-7l-.3-1.2s-.1-.8-.2-1.3c-1.1 1.1-2.4 1.9-3.9 2.4s-3.1.7-4.6.7zm2.6-4.6c1.4 0 2.4-.2 3.2-.7.8-.5 1.3-1 1.7-1.6.4-.6.6-1.3.7-1.9.1-.7.1-1.2.1-1.6v-2.6c-.3.3-.7.5-1.1.6-.4.1-.9.3-1.4.4-.5.1-1.1.2-1.6.2l-1.7.2s-1.1.2-1.6.4-.9.4-1.3.7c-.4.3-.7.6-.9 1.1-.2.4-.3 1-.3 1.6 0 .7.1 1.2.3 1.6.2.4.5.7.9 1s.8.4 1.4.5c.5 0 1 .1 1.6.1z"></path></g></svg></div><!-- <h1 class="sferaheader__maintitle">Техносфера</h1>--><p class="sferaheader__middle__description sferaheader__middle__description_mainpage">Cовместный
+                    образовательный проект<br/><strong class="sferaheader__title-description__strong">Mail.Ru
+                        Group</strong> и факультета <strong class="sferaheader__title-description__strong">ВМК МГУ<br/>
+                        имени М. В. Ломоносова</strong>, реализующий<br/> практико-ориентированное бесплатное<br/>
+                    дополнительное обучение студентов<br/> старших курсов и аспирантов МГУ силами<br/> сотрудников
+                    Mail.Ru Group.</p></div></div><div class="sferapage__content"><div class="sferapage__part"><div class="sferapage__part__center sferapage__part__center_standart"><div class="sferaopening"><h2 class="sferaopening__titleh1">Что &laquo;Техносфера&raquo;<br/>даёт студентам?</h2><ul class="sferaopening__tabs"><li class="sferaopening__tabs__item sferaopening__tabs__item_active sferaopening__tabs__item_goal"
+                                data-name="goal"><span class="sferaopening__tabs__item__text">Цель</span></li><li class="sferaopening__tabs__item sferaopening__tabs__item_process" data-name="process"><span class="sferaopening__tabs__item__icon"></span><span
+                                    class="sferaopening__tabs__item__text">Процесс</span></li><li class="sferaopening__tabs__item sferaopening__tabs__item_result" data-name="result"><span class="sferaopening__tabs__item__icon"></span><span
+                                    class="sferaopening__tabs__item__text">Итог</span></li></ul><div class="sferaopening__content"><ul class="sferaopening__list sferaopening__list_goal sferaopening__list_active"
+                                data-name="goal"><li class="sferaopening__list__item sferaopening__list__item_no-bullet">Получить
+                                    возможность стажировки в&nbsp;Mail.Ru Group.
+                                </li><li class="sferaopening__list__item">Получить дополнительную специальность и&nbsp;попробовать
+                                    себя в&nbsp;современной веб-разработке.
+                                </li><li class="sferaopening__list__item sferaopening__list__item_no-bullet">Получить
+                                    солидный опыт для будущего резюме.
+                                </li><li class="sferaopening__list__item">Стать частью проекта и реально влиять на&nbsp;проект.</li><li class="sferaopening__list__item">Получить практический опыт разработки и&nbsp;проектирования,
+                                    поработать над реальными проектами.
+                                </li><li class="sferaopening__list__item">Постоянное общение с преподавателями&nbsp;&mdash;
+                                    известными и&nbsp;признанными экспертами.
+                                </li></ul><ul class="sferaopening__list sferaopening__list_process " data-name="process"><li class="sferaopening__list__item sferaopening__list__item_no-bullet">Поступить может
+                                    студент МГУ 3-5&nbsp;курсов, независимо от&nbsp;того, на&nbsp;каком факультете он&nbsp;учится.
+                                </li><li class="sferaopening__list__item">Есть другие формы работы: экскурсии, мероприятия,
+                                    конкурсы, стажировки.
+                                </li><li class="sferaopening__list__item sferaopening__list__item_no-bullet">Обучение в&nbsp;виде
+                                    лекций и&nbsp;семинаров 3-4 раза в&nbsp;неделю, после основных занятий, прямо в&nbsp;Университете.
+                                </li><li class="sferaopening__list__item">Также помогает опубликовать научные статьи,
+                                    связанные с&nbsp;веб-разработкой.
+                                </li><li class="sferaopening__list__item">На&nbsp;лекциях разбирается теория, семинары
+                                    проходят в&nbsp;форме групповой работы над реальным проектом.
+                                </li><li class="sferaopening__list__item">Это бесплатно</li></ul><ul class="sferaopening__list sferaopening__list_result" data-name="result"><li class="sferaopening__list__item sferaopening__list__item_no-bullet">Сертификат
+                                    Mail.Ru Group.
+                                </li><li class="sferaopening__list__item sferaopening__list__item_hidden"></li><li class="sferaopening__list__item sferaopening__list__item_no-bullet">Практические
+                                    навыки и&nbsp;реальный опыт решения сложных задач.
+                                </li><li class="sferaopening__list__item sferaopening__list__item_hidden"></li><li class="sferaopening__list__item">Больше возможностей успешного трудоустройства.</li></ul></div></div></div></div><div class="sferapage__part sferapage__part_blue sferapage__ceo"><div class="sferapage__part__center sferapage__part__center_blue"><div class=""><div class="sferapage__part sferapage__part_blue"><div class="sferapage__part__ceo"><div class="slider"><div class="sferaslider__center slide-list"><div class="sferaslider__list slide-wrap"><div class="slide-item sphereslider__list__item"><div class="sferapage__part__ceo__col"><img
+                                                        src="/static_gtp/core/pub/sphere/img/grishin_photo.jpg"
+                                                        class="sferapage__part__ceo__photo" alt="Дмитрий Гришин"
+                                                        height="570" width="320"/><div class="sferapage__part__ceo__title">Дмитрий Гришин</div><div class="sferapage__part__ceo__subtitle">Председатель совета директоров Mail.Ru Group
+                                                    </div></div><div class="sferapage__part__ceo__text">Такие проекты как <strong class="sferapage__part__ceo__text__strong">Техносфера</strong> важны и&nbsp;для рынка в&nbsp;целом, и&nbsp;в&nbsp;первую очередь&nbsp;&mdash; для самих студентов. У&nbsp;молодых специалистов должна быть возможность общаться с&nbsp;экспертами отрасли, пробовать свои силы в&nbsp;реальных проектах, иметь перед глазами вдохновляющие примеры.
+                                                </div><span class="sferapage__part__ceo__mol sferapage__part__ceo__mol_lt"></span><span class="sferapage__part__ceo__mol sferapage__part__ceo__mol_rt"></span></div><div class="slide-item sphereslider__list__item"><div class="sferapage__part__ceo__col"><img
+                                                        src="/static_gtp/core/pub/sphere/img/fedotov_photo.png"
+                                                        class="sferapage__part__ceo__photo sferapage__part__ceo__photo_non_standard"
+                                                        alt="Михаил Федотов" height="570" width="495"/><div class="sferapage__part__ceo__title">Михаил Федотов</div><div class="sferapage__part__ceo__subtitle">Зам. декана по учебной
+                                                        работе<br/> факультета ВМК <br/>МГУ им. М.В. Ломоносова
+                                                    </div></div><div class="sferapage__part__ceo__text">Бесспорный плюс проекта <strong class="sferapage__part__ceo__text__strong">Техносфера</strong><br/>состоит в том, что студенты факультета ВМК МГУ, получая отличную фундаментальную подготовку в рамках учебного плана факультета, имеют возможность на занятиях проекта Техносфера обучаться самым современным технологиям, используемым <br/>в ИТ-индустрии. Это безусловно повышает их ценность как ИТ-специалистов.
+                                                </div><span class="sferapage__part__ceo__mol sferapage__part__ceo__mol_lt"></span><span class="sferapage__part__ceo__mol sferapage__part__ceo__mol_rt"></span></div></div></div></div><span name="next"
+                                      class="navy next-slide sferaslider__icon sferaslider__icon_right"></span><span
+                                    name="prev" class="navy prev-slide sferaslider__icon sferaslider__icon_left"></span></div></div></div></div></div><div class="sferapage__part"><div class="sferapage__part__center"><div class="sferaevents sferaevents_events"><h3 class="sferaevents__titleh3">Мероприятия</h3><ul class="sferaevents__list"><li class="sferaevents__list__row  sferaevents__list__row_last"><div class="sferaevents__list__row__title-wrap"><a href="/news/9936/highload-cup-vyisokie-nagruzki-1/" class="sferaevents__list__row__title">HighLoad Cup. Высокие нагрузки</a></div><div class="sferaevents__list__row__col"><div class="sferaevents__list__row__date"></div><div class="sferaevents__list__row__description">
+            31 августа завершился тестовый чемпионат <a href="https://highloadcup.ru/" target="_blank">HighLoad Cup</a> - соревнование разработчиков высоконагруженных систем. Лучшим среди более чем 2000 программистов стал студент Технотрека Никита Уваров. В этой статье мы расскажем о чемпионате в целом, а через неделю опубликуем интервью с победителем - Никита расскажет о фишке своего решения и поведает, как ему удалось выиграть в условиях нехилой конкуренции со стороны опытных разработчиков, в том числе, ребят из Mail.Ru.<br><br><img src="https://track.mail.ru/media_gtp/uploads/track/topics/2017/10/b1bea264adc630c465dd2c4b0ca0d271a71b1b8e0676c75312df276b505b40bd.jpeg" title=""><br><strong><br>HighLoad Cup - это:<br></strong><br><ul><li>3 недели</li><li>2000 участников</li><li>50 финалистов</li><li>over 30 000 решений</li><li>over 8 языков (C++, Go, Java, Rust, Scala, Perl, PHP, Python…)</li></ul><br><strong>Условия</strong><br><br>Участвовать в чемпионате мог любой желающий. В рамках соревнования участникам было предложено создать автономное отзывчивое серверное приложение, собрать его в docker-контейнер и залить в хранилище, а затем обстрелять на выданных боевых данных.<br><br>В процессе решения можно было использовать любые языки и серверные технологии. Решения проверялись автоматически системой CodeHub-CodeRunner, разработанной сотрудниками лаборатории Технопарка Mail.Ru Group. Для победы в конкурсе необходимо было выдать за время чемпионата лучшее решение по подготовленной для чемпионата метрике.<br><br><strong>Призы</strong><br><br>Мы не оставили наших победителей без наград:<br><ul><li>Apple iPad Air 2 Cellular 16GB за первое место;</li><li>WD MyCloud 6TB за второе и третье места;</li><li>WD MyPassport Ultra 2TB за 4-6 места.</li></ul><br>Кроме того, 20 лучших участников получили наш традиционный приз - футболки с символикой чемпионата.<br><br><strong>Система обстрела</strong><br><br>Система проверки изначально создавалась для другого соревнования под названием <a href="http://russianaicup.ru/" target="_blank">Russian AI Cup</a> и была доработана для проведения Highload-соревнований. Внутри запускается yandex-танк с движком phantom, который ведет обстрел в несколько потоков с линейно растущим профилем нагрузки (специфично для задачи). Перед началом обстрела у пользовательского решения есть несколько минут (точное время зависит от задачи), чтобы обработать данные из полученного JSON-файла. Корректная работа с этими данными - необходимое условие победы. Обстрела два - короткими и длинными данными.<br><br>Ниже представлена схема серверных компонент.<br><br><img src="https://track.mail.ru/media_gtp/uploads/track/topics/2017/10/ab10cde3f4b319229a9cbd2fac7867bef9804ca303c3d7c1eee19e93ce8e6956.png" title=""><br><br>Чемпионат стартовал настолько успешно, что мы планируем повторить. Если ты хочешь попробовать свои силы в новом HighLoad Cup, пиши <a href="https://sphere.mail.ru/profile/i.styitsenko/">Илье Стыценко</a>. А в следующий понедельник читай интервью с победителем чемпионата - о том, что позволило топам вырваться вперед, как подготовиться к высоким нагрузкам и за счет чего вентилятор компьютера становится вертолетом.
+        </div></div></li><li class="sferaevents__list__row  sferaevents__list__row_last"><div class="sferaevents__list__row__title-wrap"><a href="/news/9868/hakaton-messendzher-za-dve-nedeli-1/" class="sferaevents__list__row__title">Хакатон: мессенджер за две недели</a></div><div class="sferaevents__list__row__col"><div class="sferaevents__list__row__date"></div><div class="sferaevents__list__row__description">
+            Недавно мы <a href="https://sphere.mail.ru/blog/topic/view/9745/" target="_blank">рассказывали</a> об интенсивном курсе по СУБД в высоконагруженных проектах. Напомним, это был один из трех интенсивов, которые мы провели этим летом для студентов образовательных проектов и стажеров Mail.Ru. В этом посте делимся впечатлениями о том, как прошел хакатон - второй интенсив летней серии.<br><br><img src="https://track.mail.ru/media_gtp/uploads/track/topics/2017/9/42385c84cabaaed2fde27799abaeec63a9f7c218c675aed194cc8e6c3f7650ea.jpeg" title=""><br><br>Базой для участия в хакатоне было знание С++, умение пользоваться git и понимание того, как работает интернет. Чтобы присоединиться к команде, нужно было выполнить тестовое задание. Нам прислали более сорока тестовых заданий, мы отобрали 34 лучшие работы, и в итоге интенсив завершили 19 ребят - все они получили отличный опыт. О том, что еще можно было почерпнуть из хакатона, читай в рассказах самих участников и преподавателя Максима Тремпольцева.<br></div></div></li><li class="sferaevents__list__row  sferaevents__list__row_last"><div class="sferaevents__list__row__title-wrap"><a href="/news/9759/zaschityi-proektov-28-avgusta-kak-eto-byilo/" class="sferaevents__list__row__title">Защиты проектов 28 августа: как это было</a></div><div class="sferaevents__list__row__col"><div class="sferaevents__list__row__date"></div><div class="sferaevents__list__row__description">
+            Друзья,<br><br>Мы опубликовали на канале «Технострим» видеозаписи с защит итоговых проектов.<br><br>Посмотреть полную версию и оценить презентации со стороны можно <a href="https://www.youtube.com/watch?v=3AATtc7T2r4" target="_blank">здесь</a>.<br><br>Официальный фотоотчёт тоже готов: он лежит в <a href="https://vk.com/album-64913393_249091382" target="_blank">нашей группе VK</a> — смотрите и подписывайтесь, чтобы вовремя узнавать про все новости и анонсы.<br><br>Отличной недели!<br><br><img src="https://sphere.mail.ru/media_gtp/uploads/sphere/topics/2017/9/5b822d4027c7b6ab428427a20b512d73bf0fd344f68b5a08d52f8658c09a14d6.jpeg" title=""></div></div></li></ul></div></div></div></div>
+
+
+        <div class="sferafooter">
+            <div class="sferapage__part__center">
+                <div class="sferafooter__columns">
+                    <div class="sferafooter__columns-left">
+                        <p class="footer-logo">Техносфера</p>
+                        <p class="copy">© Mail.Ru Group, 2011–2017</p>
+                        <p class="mistake"><a href="#" class="trigger-bug">Обратная связь</a></p>
+                    </div>
+
+                    <div class="sferafooter__columns-center">
+                        <p>Присоединяйся:</p>
+                        <a href="https://vk.com/tsmailru" target="_blank" class="vk-group">Группа ВКонтакте</a>
+                    </div>
+
+                    <div class="sferafooter__columns-right">
+                        <ul>
+                            <li>Дизайн:<br>
+                                <a href="http://nimax.ru" target="_blank"><span>Nimax</span></a>
+                            </li><li>Разработка:<br>
+                                <span class="sferafooter__brand_text">Лаборатория<br>технопарка</span>
+                        </li></ul>
+                        <div class="version">
+                        Версия портала - 5.27.0
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    
+    
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    
+        ga('create', 'UA-62753080-2', 'auto');
+    
+
+    ga('send', 'pageview');
+
+    var loginPopup = false;
+
+    $('.trigger-login').on('click', function (e) {
+        loginPopup = true;
+        ga('send', 'event', 'signup-popup', 'open');
+    });
+
+    $('#popup-login').on('click', '.sferapopup__close', function (e) {
+        if (loginPopup) {
+            ga('send', 'event', 'signup-popup', 'close');
+            loginPopup = false;
+        }
+    });
+
+    $('#passwd-restore').on('click', function () {
+        ga('send', 'event', 'signup-popup', 'open-restore');
+    });
+
+    $('#popup-reminder-form').submit(function (e) {
+        ga('send', 'event', 'signup-popup', 'send-restore');
+    });
+
+    $('.it-login-link').on('click', function (e) {
+        ga('send', 'event', 'signup-popup', 'signup-itmailru');
+    });
+
+    $('#short-registration-form').submit(function (e) {
+        ga('send', 'event', 'signup-form', 'sent');
+    });
+
+    $('#registration-step-1').submit(function (e) {
+        ga('send', 'event', 'signup-about-form', 'send-1screen');
+    });
+
+
+    $('.field_development_experience_add').on('click', function (e) {
+        ga('send', 'event', 'signup-about-form', ' add-tech-field');
+    });
+
+    $('#registration-step-2').submit(function (e) {
+        ga('send', 'event', 'signup-add-form', 'send-2screen');
+    });
+
+    $('#registration-step-3').submit(function (e) {
+        ga('send', 'event', 'signup-add-form', 'send-3screen');
+    });
+
+
+</script>
+
+<script type="text/javascript">
+    var _tmr = _tmr || [];
+    _tmr.push({id: "2655010", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w) {
+        var ts = d.createElement("script");
+        ts.type = "text/javascript";
+        ts.async = true;
+        ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+        var f = function () {
+            var s = d.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(ts, s);
+        };
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window);
+</script>
+<noscript>
+    <div style="position:absolute;left:-10000px;">
+        <img src="//top-fwz1.mail.ru/counter?id=2655010;js=na" style="border:0;" height="1" width="1"
+             alt="Рейтинг@Mail.ru"/>
+    </div>
+</noscript>
+
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter30317702 = new Ya.Metrika({id: 30317702,
+                    webvisor: true,
+                    clickmap: true,
+                    accurateTrackBounce: true});
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div><img src="//mc.yandex.ru/watch/30317702" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+
+
+    </body>
+
+</html>

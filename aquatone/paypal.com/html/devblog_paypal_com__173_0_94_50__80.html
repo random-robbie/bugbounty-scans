@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!--
+
+
+/$$$$$$$                     /$$$$$$$           /$$
+| $$__  $$                   | $$__  $$         | $$
+| $$  \ $$ /$$$$$$  /$$   /$$| $$  \ $$ /$$$$$$ | $$
+| $$$$$$$/|____  $$| $$  | $$| $$$$$$$/|____  $$| $$
+| $$____/  /$$$$$$$| $$  | $$| $$____/  /$$$$$$$| $$
+| $$      /$$__  $$| $$  | $$| $$      /$$__  $$| $$
+| $$     |  $$$$$$$|  $$$$$$$| $$     |  $$$$$$$| $$
+|__/      \_______/ \____  $$|__/      \_______/|__/
+                    /$$  | $$
+                    |  $$$$$$
+                    \______/
+
+Like this code? Want to work here? Email uiejobs@paypal.com
+
+
+-->
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>PayPal Engineering Blog | Engineering</title>
+<link rel="shortcut icon" href="https://www.paypal-engineering.com/favicon.ico?v=3" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://www.paypal-engineering.com/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://www.paypal-engineering.com/wp-content/themes/paypal/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//platform.linkedin.com' />
+<link rel='dns-prefetch' href='//www.paypalobjects.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="PayPal Engineering Blog &raquo; Feed" href="https://www.paypal-engineering.com/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.paypal-engineering.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5f130ab02080674636a020707dcf3a85"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='paypal-css'  href='https://www.paypal-engineering.com/wp-content/themes/paypal/style.css?ver=5f130ab02080674636a020707dcf3a85' type='text/css' media='all' />
+<link rel='stylesheet' id='really_simple_share_style-css'  href='https://www.paypal-engineering.com/wp-content/plugins/really-simple-facebook-twitter-share-buttons/style.css?ver=5f130ab02080674636a020707dcf3a85' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://www.paypal-engineering.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.paypal-engineering.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.paypal-engineering.com/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='https://www.paypal-engineering.com/0' />
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//www.paypal-engineering.com/?wordfence_logHuman=1&hid=6CC0FA0DA0714E9125B1EC02D9FA8087');
+</script></head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+        <h1 class="site-title"><a href="https://www.paypal-engineering.com/" title="PayPal Engineering Blog" rel="home"><img src="https://www.paypal-engineering.com/wp-content/uploads/2015/08/pp_h_rgb.png" width="165" height="40" alt="PayPal Engineering Blog" /></a></h1>
+        <h2 class="site-description">Engineering</h2>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<form role="search" method="get" id="searchform" class="searchform" action="https://www.paypal-engineering.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form>		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+		
+										
+	<article id="post-2105" class="post-2105 post type-post status-publish format-standard hentry category-tutorials tag-android tag-code tag-java tag-tutorial">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/10/03/creating-a-paypal-credit-card-payment-within-an-android-application/" rel="bookmark">Creating a PayPal / Credit Card Payment within an Android Application</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/176e3f9bef225e41e31f5968d75573c6?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/176e3f9bef225e41e31f5968d75573c6?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/10/03/creating-a-paypal-credit-card-payment-within-an-android-application/#author" title="View more about Ankit Rathi" rel="author">Ankit Rathi</a> and <a class="url fn n" href="https://www.paypal-engineering.com/2017/10/03/creating-a-paypal-credit-card-payment-within-an-android-application/#author" title="View more about Nas Kavian" rel="author">Nas Kavian</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-10-03T21:20:19+00:00">October 3, 2017</time></span>
+
+                <div class="entry-details-tags">
+                    <a href="https://www.paypal-engineering.com/tag/android/" rel="tag">Android</a> <a href="https://www.paypal-engineering.com/tag/code/" rel="tag">Code</a> <a href="https://www.paypal-engineering.com/tag/java/" rel="tag">Java</a> <a href="https://www.paypal-engineering.com/tag/tutorial/" rel="tag">tutorial</a>                </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>In this tutorial we&#8217;re going to learn how to set up the PayPal Android SDK to process a simple payment via either a PayPal payment or a credit card purchase. At the end of this example, you should have a simple button in an application that, when clicked, will forward the user to PayPal to confirm a set payment, then return the user back to the application and log the confirmation of payment. The complete application code for this example is available in the PayPal Developer Github Repository. Let&#8217;s get started. The first step is to obtain and add the… <a class="moretag" href="https://www.paypal-engineering.com/2017/10/03/creating-a-paypal-credit-card-payment-within-an-android-application/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-2130" class="post-2130 post type-post status-publish format-standard hentry category-announcements category-api category-design">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/09/08/announcing-the-latest-api-style-guide/" rel="bookmark">API Style Guide and Patterns: The Evolutionary Journey Continues</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo avatar-default' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/09/08/announcing-the-latest-api-style-guide/#author" title="View more about acolson" rel="author">acolson</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-09-08T20:04:58+00:00">September 8, 2017</time></span>
+
+                <div class="entry-details-tags">
+                                    </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>APIs as Products Around four years ago, we began the journey at PayPal to transform all of PayPal&#8217;s core capabilities into a platform of discoverable, well-encapsulated, reusable API-driven products. We have used a customer-oriented approach to go from a very monolithic and siloed architecture to a much more loosely coupled set of over 150 services with well designed, modern APIs. We framed this transformational exercise as an organizational change initiative, with the goal of bringing a fundamental shift in how we design and build APIs. We made it a priority to identify and serve all key &#8220;customer&#8221; constituencies – developers… <a class="moretag" href="https://www.paypal-engineering.com/2017/09/08/announcing-the-latest-api-style-guide/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-2035" class="post-2035 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/08/16/autoscaling-applications-paypal/" rel="bookmark">Autoscaling applications @ PayPal</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/fde8f2adb32503ea38bbc60749195b86?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/fde8f2adb32503ea38bbc60749195b86?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/08/16/autoscaling-applications-paypal/#author" title="View more about Suresh Mathew" rel="author">Suresh Mathew</a>, <a class="url fn n" href="https://www.paypal-engineering.com/2017/08/16/autoscaling-applications-paypal/#author" title="View more about Vaibhav Desai" rel="author">Vaibhav Desai</a> and <a class="url fn n" href="https://www.paypal-engineering.com/2017/08/16/autoscaling-applications-paypal/#author" title="View more about Shankar Jothi" rel="author">Shankar Jothi</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-08-16T00:44:10+00:00">August 16, 2017</time></span>
+
+                <div class="entry-details-tags">
+                                    </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>PayPal’s infrastructure has grown tremendously over the past few years hosting multitudes of applications serving billions of transactions every year. Our strong belief in decoupling the infrastructure and the app development layer enables us to independently evolve quicker. With more than 2500 internal applications and more than 100k instances across our entire infrastructure, we are committed in ensuring high availability of our applications and optimal resource utilization. In our previous post, we discussed in detail about Nyx, an automated remediation system for our infrastructure. The underlying modular architecture of Nyx is designed to listen to a spectrum of signals from… <a class="moretag" href="https://www.paypal-engineering.com/2017/08/16/autoscaling-applications-paypal/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1983" class="post-1983 post type-post status-publish format-standard hentry category-java category-open-source category-performance">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/06/29/democratizing-experimentation-data-for-product-innovations/" rel="bookmark">Democratizing Experimentation Data for Product Innovations</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/df35aab3b98915a65752fbde3f09ef32?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/df35aab3b98915a65752fbde3f09ef32?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/06/29/democratizing-experimentation-data-for-product-innovations/#author" title="View more about Chung-Ho Chen" rel="author">Chung-Ho Chen</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-06-29T16:39:18+00:00">June 29, 2017</time></span>
+
+                <div class="entry-details-tags">
+                                    </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>This blog is organized as follows: Introduction to A/B Testing Next Generation PayPal Experimentation Platform Next Generation PayPal Experimentation Analytics Platform Hypothesis Testing Null Hypothesis Z-Test Z-Score Two-Sample Z-Test P-Value P-Value of a Two-Tailed Z-Test Druid Druid Post Aggregators zscore2sample pvalue2tailedztest Implementation of Druid Post Aggregator for Two-Sample Z-test Druid Query Evaluation of Post Aggregators A Druid Query Example using Zscore and Pvalue Post Aggregators Next Step in furthering Druid Performance of Post Aggregators Concluding Remarks Acknowledgements Introduction to A/B Testing A/B Testing (also known as experimentation or bucket testing), enables the product teams to gain more insights and understandings of PayPal users,… <a class="moretag" href="https://www.paypal-engineering.com/2017/06/29/democratizing-experimentation-data-for-product-innovations/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1923" class="post-1923 post type-post status-publish format-standard hentry category-java category-reactive category-scala tag-akka tag-reactive-streams">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/06/05/releasing-squbs-0-9-0/" rel="bookmark">Releasing squbs 0.9.0</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/7162d8ac249a0e2c9deb1befa21bd77b?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/7162d8ac249a0e2c9deb1befa21bd77b?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/06/05/releasing-squbs-0-9-0/#author" title="View more about Akara Sucharitakul" rel="author">Akara Sucharitakul</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-06-05T16:50:16+00:00">June 5, 2017</time></span>
+
+                <div class="entry-details-tags">
+                    <a href="https://www.paypal-engineering.com/tag/akka/" rel="tag">Akka</a> <a href="https://www.paypal-engineering.com/tag/reactive-streams/" rel="tag">Reactive Streams</a>                </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>squbs (pronounced “sqewbs” and rhymes with “cubes”) has already made past headlines (details) for its great performance and scalability. squbs 0.9 is the biggest update to squbs yet. It paves the road towards squbs 1.0. The updates in squbs 0.9 covers the following areas: Full migration from Spray to Akka HTTP Support for HTTP end-to-end streaming and back-pressure with the new low-level FlowDefinition API for service definitions Ultimate resiliency Lowest-possible latency Brand-new streaming HTTP client With integrated client configuration and circuit breaker Java API as first class citizens (besides the solid, powerful Scala API) enabling end-to-end Java use cases Rich set… <a class="moretag" href="https://www.paypal-engineering.com/2017/06/05/releasing-squbs-0-9-0/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1932" class="post-1932 post type-post status-publish format-standard hentry category-performance tag-apache-beam tag-performance tag-profiling">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/05/30/beam-me-up-profiling-a-beam-over-spark-app/" rel="bookmark">Beam Me Up &#8211; Profiling a Beam-over-Spark Application</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/332c5a295808752effaf228c95c30acb?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/332c5a295808752effaf228c95c30acb?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/05/30/beam-me-up-profiling-a-beam-over-spark-app/#author" title="View more about Stas Levin" rel="author">Stas Levin</a> and <a class="url fn n" href="https://www.paypal-engineering.com/2017/05/30/beam-me-up-profiling-a-beam-over-spark-app/#author" title="View more about Kobi Salant" rel="author">Kobi Salant</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-05-30T18:46:48+00:00">May 30, 2017</time></span>
+
+                <div class="entry-details-tags">
+                    <a href="https://www.paypal-engineering.com/tag/apache-beam/" rel="tag">apache beam</a> <a href="https://www.paypal-engineering.com/tag/performance/" rel="tag">Performance</a> <a href="https://www.paypal-engineering.com/tag/profiling/" rel="tag">profiling</a>                </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>As we move forward with adopting Apache Beam for some of our streaming needs, our Beam applications need to be tested for stability. Such tests are aimed at ensuring performance does not degrade over time, and applications are capable of maintaining desired performance characteristics (e.g., latency) as they run over long periods of time. When we ran a Beam-over-Spark application (Beam 0.7.0-SNAPSHOT ; Spark 1.6.2) for a period of several hours, the batch processing time was increasing unexpectedly (e.g., regardless of traffic seasonality). In this post we share the steps and methods we used to diagnose the performance degradation we witnessed in our application’s (batch) processing time, a diagnosis which ultimately led… <a class="moretag" href="https://www.paypal-engineering.com/2017/05/30/beam-me-up-profiling-a-beam-over-spark-app/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1914" class="post-1914 post type-post status-publish format-standard hentry category-open-source tag-braintree tag-bt-tn tag-hardware tag-open-source">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/05/17/paypal-bttn-for-commerce/" rel="bookmark">PayPal bttn for Commerce</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/0dc8a6dbeadcb34b3f73a77a8ea65542?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/0dc8a6dbeadcb34b3f73a77a8ea65542?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/05/17/paypal-bttn-for-commerce/#author" title="View more about Greg Vannoni" rel="author">Greg Vannoni</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-05-17T17:33:26+00:00">May 17, 2017</time></span>
+
+                <div class="entry-details-tags">
+                    <a href="https://www.paypal-engineering.com/tag/braintree/" rel="tag">Braintree</a> <a href="https://www.paypal-engineering.com/tag/bt-tn/" rel="tag">bt.tn</a> <a href="https://www.paypal-engineering.com/tag/hardware/" rel="tag">hardware</a> <a href="https://www.paypal-engineering.com/tag/open-source/" rel="tag">Open Source</a>                </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>In my first rotation of PayPal&#8217;s Technology Leadership Program (TLP), I was fortunate enough to work on our Western Europe region out of our Paris office. The team there wanted to tap into the Internet of Things (IoT) market and with PayPal&#8217;s strategic movement from just a button on a website to existing across all contexts – including the offline world &#8212; it was clear that a physical button that integrates with our Braintree APIs was something worth investigating. After some investigation, we found bt.tn, a start-up that has an innovative approach to buttons and is based out of Helsinki, Finland.… <a class="moretag" href="https://www.paypal-engineering.com/2017/05/17/paypal-bttn-for-commerce/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1353" class="post-1353 post type-post status-publish format-standard hentry category-case-studies tag-brainstorming tag-design-thinking tag-innovation tag-intern tag-product-management tag-user-interviews">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/04/10/design-thinking-pm/" rel="bookmark">Design Thinking: Out of the Classroom, Into the Fire</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo avatar-default' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/04/10/design-thinking-pm/#author" title="View more about ainatarajan" rel="author">ainatarajan</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-04-10T18:28:17+00:00">April 10, 2017</time></span>
+
+                <div class="entry-details-tags">
+                    <a href="https://www.paypal-engineering.com/tag/brainstorming/" rel="tag">Brainstorming</a> <a href="https://www.paypal-engineering.com/tag/design-thinking/" rel="tag">Design Thinking</a> <a href="https://www.paypal-engineering.com/tag/innovation/" rel="tag">innovation</a> <a href="https://www.paypal-engineering.com/tag/intern/" rel="tag">intern</a> <a href="https://www.paypal-engineering.com/tag/product-management/" rel="tag">Product Management</a> <a href="https://www.paypal-engineering.com/tag/user-interviews/" rel="tag">User Interviews</a>                </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>Aishwarya Natarajan and Dana Li, both Stanford University graduates, spent the summer of 2016 training with the PayPal Online Payment Product team as Product Management interns. They are coming back as full-time PayPal employees in Product Management in 2017, having successfully completed their Masters degrees in Management Science and Engineering from Stanford University. Below they discuss their experiences on the PayPal Online Payment Product team. &#8220;You&#8217;re a Product Manager? Great. So what do you actually do?&#8221; One of the great challenges of product management (PM) is explaining the elusive profession to those outside the tech world. Product managers wear a… <a class="moretag" href="https://www.paypal-engineering.com/2017/04/10/design-thinking-pm/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-2129" class="post-2129 post type-post status-publish format-standard hentry category-carts category-case-studies category-partners category-woocommerce">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/03/03/how-woocommerce-and-developer-agencies-optimize-payments-for-small-businesses-with-paypal/" rel="bookmark">How WooCommerce and Developer Agencies Optimize Payments for Small Businesses with PayPal</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo avatar-default' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/03/03/how-woocommerce-and-developer-agencies-optimize-payments-for-small-businesses-with-paypal/#author" title="View more about acolson" rel="author">acolson</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-03-03T21:17:33+00:00">March 3, 2017</time></span>
+
+                <div class="entry-details-tags">
+                                    </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>We recently had the opportunity to meet up with Michael Tieso, Developer Advocate at WooCommerce, and Jonathan Martin, President and Founder of Coolblueweb, an ecommerce development agency and gold level Woo Expert Developer. Developer agencies are an important part of our partner ecosystem to provide the best payment experiences for merchants around the globe. WooCommerce is a highly customizable, open source e-commerce plugin for WordPress that is free to use. They work with merchants and business owners providing the flexibility to create online stores with numerous plugins and extensions that adds a variety of features to their store. Merchants choose… <a class="moretag" href="https://www.paypal-engineering.com/2017/03/03/how-woocommerce-and-developer-agencies-optimize-payments-for-small-businesses-with-paypal/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-2128" class="post-2128 post type-post status-publish format-standard hentry category-announcements category-api tag-announcement tag-apis tag-payee tag-rest">
+				<header class="entry-header">
+									<h1 class="entry-title">
+				<a href="https://www.paypal-engineering.com/2017/01/03/setting-payee/" rel="bookmark">New REST API Feature: Setting a Receiver for Payments</a>
+			</h1>
+			
+			<div class="entry-details">
+                                <span class="entry-details-avatar"><img alt='' src='https://secure.gravatar.com/avatar/176e3f9bef225e41e31f5968d75573c6?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/176e3f9bef225e41e31f5968d75573c6?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /></span>
+                				<span class="entry-details-author">By <a class="url fn n" href="https://www.paypal-engineering.com/2017/01/03/setting-payee/#author" title="View more about Ankit Rathi" rel="author">Ankit Rathi</a> and <a class="url fn n" href="https://www.paypal-engineering.com/2017/01/03/setting-payee/#author" title="View more about Nas Kavian" rel="author">Nas Kavian</a></span>
+				<span class="entry-details-date"><time class="entry-date" datetime="2017-01-03T15:45:20+00:00">January 3, 2017</time></span>
+
+                <div class="entry-details-tags">
+                    <a href="https://www.paypal-engineering.com/tag/announcement/" rel="tag">announcement</a> <a href="https://www.paypal-engineering.com/tag/apis/" rel="tag">APIs</a> <a href="https://www.paypal-engineering.com/tag/payee/" rel="tag">payee</a> <a href="https://www.paypal-engineering.com/tag/rest/" rel="tag">REST</a>                </div>
+			</div>
+
+
+					</header><!-- .entry-header -->
+
+				<div class="entry-summary">
+			<p>Until recently, if you have been using the PayPal REST APIs to process payments, you will have seen that the money transacted is always paid to the app owner, known as the payee or receiver. The ability to change the receiver of funds in a transaction by setting a different payee has been a highly requested feature by our developer community. With that said, we&#8217;re happy to share that you can now set the payment receiver when making direct payments in the REST APIs. When setting your payment transaction details, before starting the payment, simply add a payee object and… <a class="moretag" href="https://www.paypal-engineering.com/2017/01/03/setting-payee/">Read more</a></p>
+		</div><!-- .entry-summary -->
+		
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+			
+					<nav id="nav-below" class="navigation" role="navigation">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="https://www.paypal-engineering.com/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #nav-below .navigation -->
+	
+		
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="text-3" class="widget widget_text">			<div class="textwidget"><div class="widget_rss">
+<h3 class="widget-title" tabindex="-1">
+<a class="rsswidget" href="https://twitter.com/paypaleng">
+<img style="border:0" width="20" height="16" src="/wp-content/uploads/2015/08/twitter.png" alt="Twitter"></a> 
+<a class="rsswidget" href="https://twitter.com/paypaleng">
+Follow @paypaleng
+</a>
+</h3>
+</div></div>
+		</aside><aside id="rss-4" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.paypal-engineering.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="https://www.paypal-engineering.com/wp-includes/images/rss.png" alt="RSS" /></a> <a class="rsswidget" href="https://www.paypal-engineering.com/">Recent Posts</a></h3><ul><li><a class='rsswidget' href='https://www.paypal-engineering.com/2017/10/03/creating-a-paypal-credit-card-payment-within-an-android-application/'>Creating a PayPal / Credit Card Payment within an Android Application</a> <span class="rss-date">October 3, 2017</span></li><li><a class='rsswidget' href='https://www.paypal-engineering.com/2017/09/08/announcing-the-latest-api-style-guide/'>API Style Guide and Patterns: The Evolutionary Journey Continues</a> <span class="rss-date">September 8, 2017</span></li><li><a class='rsswidget' href='https://www.paypal-engineering.com/2017/08/16/autoscaling-applications-paypal/'>Autoscaling applications @ PayPal</a> <span class="rss-date">August 16, 2017</span></li><li><a class='rsswidget' href='https://www.paypal-engineering.com/2017/06/29/democratizing-experimentation-data-for-product-innovations/'>Democratizing Experimentation Data for Product Innovations</a> <span class="rss-date">June 29, 2017</span></li><li><a class='rsswidget' href='https://www.paypal-engineering.com/2017/06/05/releasing-squbs-0-9-0/'>Releasing squbs 0.9.0</a> <span class="rss-date">June 5, 2017</span></li></ul></aside><aside id="text-2" class="widget widget_text">			<div class="textwidget"><div class="widget_rss">
+<h3 class="widget-title" tabindex="-1">
+<a class="rsswidget" href="https://github.com/paypal/">
+<img style="border:0" width="20" height="20" src="/wp-content/uploads/2015/08/github.png" alt="RSS"></a> 
+<a class="rsswidget" href="https://github.com/paypal/">
+Code at PayPal
+</a>
+</h3>
+</div></div>
+		</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+		    <nav>
+                <ul>
+                    <li><a href="https://www.paypal.com/" title="PayPal Website">PayPal</a></li>
+                    <li><a href="https://developer.paypal.com/" title="PayPal Developer Website">PayPal Developer</a></li>
+                </ul>
+            </nav>
+			<div id="copyright">Copyright © 1999-2017 PayPal. All rights reserved.</div>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type="text/javascript">
+        //<![CDATA[
+        
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+      
+      window.___gcfg = {lang: "en"};
+		  (function() {
+		    var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+		    po.src = "https://apis.google.com/js/plusone.js";
+		    var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+		  })();
+      
+        //]]>
+  		</script>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=550837551661371&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script><script type='text/javascript' src='https://platform.linkedin.com/in.js?ver=5f130ab02080674636a020707dcf3a85'></script>
+<script type='text/javascript' src='https://www.paypal-engineering.com/wp-content/plugins/skip-to/js/skipToInit.js?ver=1.1'></script>
+<script type='text/javascript' src='//www.paypalobjects.com/webstatic/uie/SkipTo.min.js?ver=2.0.0'></script>
+<script type='text/javascript' src='https://www.paypal-engineering.com/wp-includes/js/wp-embed.min.js?ver=5f130ab02080674636a020707dcf3a85'></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40239886-1', 'paypal-engineering.com');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="ru-RU"><head><meta charset="UTF-8"/><link rel="shortcut icon" href="/favicon.ico?2"/><link rel="alternate" lang="en" href="https://mediator.media/en/"/><link rel="alternate" lang="ru" href="https://mediator.media/ru/"/><title>Медиатор - инструмент для издателей и редакций - Медиатор Mail.Ru</title><link rel="alternate" media="only screen and (max-width: 768px)" href=""/><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="description" content="Медиатор - сервис редакционной аналитики, помогает создавать материалы, востребованные аудиторией и рекламодателями"/><meta property="og:site_name" content="Медиатор Mail.Ru"/><meta property="og:url" content="mediator.media"/><meta name="mrc__share_title" content="Медиатор - инструмент для издателей и редакций - «Медиатор Mail.Ru»"/><meta property="og:title" content="Медиатор - инструмент для издателей и редакций - «Медиатор Mail.Ru»"/><meta name="mrc__share_description" content="Медиатор - сервис редакционной аналитики, помогает создавать материалы, востребованные аудиторией и рекламодателями"/><meta property="og:description" content="Медиатор - сервис редакционной аналитики, помогает создавать материалы, востребованные аудиторией и рекламодателями"/><meta property="og:image" content="https://mediator.media/ru/img/common/mediator_shares.png"/><meta name="twitter:url" content="mediator.media"/><meta name="twitter:title" content="Медиатор - инструмент для издателей и редакций - «Медиатор Mail.Ru»"/><meta name="twitter:description" content="Медиатор - сервис редакционной аналитики, помогает создавать материалы, востребованные аудиторией и рекламодателями"/><meta name="twitter:image" content="https://mediator.media/ru/img/common/mediator_shares.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:widgets:csp" content="on"/><meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, initial-scale=1.0, minimum-scale=1.0"/><meta name="csrf-token" content="AG_gvEsFQh6pl1uiCYKV4GaI"/><meta name="lang" content="ru"/></head><link rel="stylesheet" href="/-/20fc50b5/bem/web/web.bundles/common/_common.css"/><script>(function (window) {
+	"use strict";
+
+	var OPTIONS = window.SCREEN_SIZE_OPTIONS || {};
+	// wrapper + options.padding * 2
+	var sizeList = [980,1220,1340];
+	var nameList = ['small', 'medium', 'large'];
+	var sizesLength = sizeList.length;
+	var isBranding = false;
+	var htmlElement = document.documentElement;
+	var lastState, className;
+	var options = {
+		padding: 20,
+		sideWidth: 140,
+		largeSideWidth: 240,
+		bannerStub: sizeList[0],
+		minBranding: OPTIONS.minBranding || sizeList[1],
+		maxBranding: 1920,
+		classRe: /\s*screen_(\S+)/gi,
+		classPrefix: 'screen_'
+	};
+
+	// ширина экрана для больших ушей, когда они полностью помещаются для самого большого экрана
+	var widthForLargeSide = sizeList[sizeList.length - 1] + (options.largeSideWidth + options.padding) * 2;
+
+	function screenSize(branding) {
+		var windowWidth = window.innerWidth;
+		var actualWidth = windowWidth;
+		var sideWidth, canBranding, canBrandingStub, size, result, state;
+
+		// запоминаем состояние последнего вызова, например screenSize(true) в слоте п-брендинга
+		if (typeof branding === 'boolean') {
+			isBranding = branding;
+		}
+
+		if (isBranding) {
+			sideWidth = windowWidth > widthForLargeSide && options.largeSideWidth || options.sideWidth;
+
+			// используем 20 отступы по бокам под брендирование
+			if (sideWidth) {
+				actualWidth -= (sideWidth + options.padding) * 2;
+			}
+		}
+
+		canBranding = windowWidth >= options.minBranding && windowWidth <= options.maxBranding;
+
+		// не показываем брендинг на экраны меньше 1024 и больше 1900
+		if (!canBranding) {
+			actualWidth = windowWidth;
+		}
+
+		canBrandingStub = actualWidth >= options.bannerStub && actualWidth < options.minBranding;
+
+		// подбираем экран под окно пользователя с учетом брендинга
+		for (var sizeNo = 1; sizeNo < sizesLength; sizeNo++) {
+			if (actualWidth < sizeList[sizeNo]) {
+				size = nameList[sizeNo - 1];
+				break;
+			}
+		}
+
+		if (!size) {
+			size = nameList[nameList.length - 1];
+		}
+
+		state = [size, isBranding, canBranding, canBrandingStub, sideWidth].join();
+
+		if (lastState != state) {
+			lastState = state;
+
+			className = htmlElement.className.replace(options.classRe, '').split(' ');
+			className.push(options.classPrefix + size);
+
+			if (isBranding) {
+				className.push(options.classPrefix + 'branding-p_need');
+				if (canBranding) {
+					className.push(options.classPrefix + 'branding-p');
+					className.push(options.classPrefix + 'branding-p_' + sideWidth);
+				} else if (canBrandingStub) {
+					className.push(options.classPrefix + 'branding-p_banner-stub');
+				}
+			}
+
+			htmlElement.className = className.join(' ');
+			try {
+				window.dispatchEvent(new Event('resize'));
+			} catch (ex) {}
+		}
+	}
+
+	/**
+	 * Создает функцию, игнорирующую вызовы происходящие чаще заданого интервала
+	 * @param originalFn функция, частоту вызова которой необходимо ограничить
+	 * @param [timeout = 100] интервал
+	 * @param [callImmediately = false] флаг, указывающий что функция должна выполняться в начале группы вызовов
+	 * @returns {Function}
+	 */
+	function debounce (originalFn, timeout, callImmediately) {
+		var timer = null;
+		return function debounced () {
+			var context = this,
+				args = arguments;
+
+			function delayed () {
+				if (!callImmediately) {
+					originalFn.apply(context, args);
+				}
+				timer = null;
+			}
+
+			if (timer !== null) {
+				clearTimeout(timer);
+			} else if (callImmediately) {
+				originalFn.apply(context, args);
+			}
+			timer = setTimeout(delayed, timeout || 100);
+		};
+	}
+
+	screenSize();
+	window.screenSize = screenSize;
+	if (window.addEventListener) {
+		window.addEventListener("resize", debounce(screenSize), false);
+	} else if (window.attachEvent) {
+		window.attachEvent("onresize", debounce(screenSize));
+	}
+})(this);
+</script><body><div class="overlay overlay_adaptive js-popup"><div class="overlay__box js-popup_close"><a class="overlay__close overlay__close_hidden js-popup_close" href="#"><i class="icon icon_close"></i></a><div class="overlay__cell"><div class="overlay__inner"><div class="overlay__loader js-popup_loader loading"><svg class="loader loader_large" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-10 -10 220 220"><defs><linearGradient id="transparent" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(38, 192, 84, 0)" stop-opacity="0"></stop><stop offset="100%" stop-color="rgba(38, 192, 84, 0)" stop-opacity="0"></stop></linearGradient><linearGradient id="one" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(38, 192, 84, 0)" stop-opacity="0"></stop><stop offset="100%" stop-color="rgba(38, 192, 84, .33)"></stop></linearGradient><linearGradient id="two" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="rgba(38, 192, 84, .33)"></stop><stop offset="100%" stop-color="rgba(38, 192, 84, .66)"></stop></linearGradient><linearGradient id="three" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="rgba(38, 192, 84, .66)"></stop><stop offset="100%" stop-color="rgba(38, 192, 84, 1)"></stop></linearGradient><linearGradient id="four" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="rgba(38, 192, 84, 1)"></stop><stop offset="100%" stop-color="rgba(38, 192, 84, 1)"></stop></linearGradient><linearGradient id="five" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(38, 192, 84, 1)"></stop><stop offset="100%" stop-color="rgba(38, 192, 84, 1)"></stop></linearGradient></defs><g fill="none" stroke-width="40" transform="translate(100,100)"><path d="M 81.6,-40 A 90,90 0 0,1 81.6,40" stroke="url(#transparent)"></path><path d="M 81.6,40 A 90,90 0 0,1 0,90" stroke="url(#one)"></path><path d="M 0,90 A 90,90 0 0,1 -81.6,40" stroke="url(#two)"></path><path d="M -81.6,40 A 90,90 0 0,1 -81.6,-40" stroke="url(#three)"></path><path d="M -81.6,-40 A 90,90 0 0,1 0,-90" stroke="url(#four)"></path><path d="M 0,-90 A 90,90 0 0,1 81.6,-40" stroke="url(#five)" stroke-linecap="round"></path></g></svg></div><div class="overlay__content js-popup_blocks"></div></div></div></div></div><div class="layout layout_full-height layout_adaptive_wrapper js-module" data-module="AsyncFormsCont.LoginPage"><div class="p-menu js-module" data-module=""><div class="wrapper"><div class="p-menu__inner"><div class="p-menu__item p-menu__item_logo"><a class="p-menu__logo" href="https://mediator.media/ru/"><img class="p-menu__logo-img" src="/-/16a6a483/ru/img/common/logo.png" height="30"/></a></div><div class="p-menu__item p-menu__item_slogan"><h1 class="text text_fixed text_light_normal">Инструмент редакционной аналитики для интернет–изданий</h1></div><div class="p-menu__item p-menu__item_auth p-menu__item_auth_hide-on-touch"><div class="p-menu__auth"><a class="link link_underline link_pointer color_white" href="https://mediator.media/ru/auth/"><span class="link__text">Войти</span></a></div></div><div class="p-menu__item p-menu__item_slogan p-menu__item_width_1 align_right"><button class="button button_color_project button_nowrap js-show_form" data-module="AsyncForms.Request.Info.LoginPage" data-formid="request-join" data-send-url="/ajax/add_email/" onclick="return {&quot;AsyncForms&quot;:{&quot;options&quot;:{&quot;templateParams&quot;:{&quot;uiText&quot;:{&quot;send&quot;:&quot;Отправить&quot;,&quot;manager_contact&quot;:&quot;Менеджер свяжется с вами в течение двух рабочих дней и расскажет о ценах на сервисы «Медиатора»&quot;,&quot;mobile_version&quot;:&quot;Мобильная версия&quot;,&quot;fill_highlight&quot;:&quot;Необходимо заполнить выделенные поля&quot;,&quot;promo_code&quot;:&quot;Промо-код&quot;,&quot;email&quot;:&quot;E-mail&quot;,&quot;close&quot;:&quot;Закрыть&quot;,&quot;traffic&quot;:&quot;Трафик&quot;,&quot;send_error&quot;:&quot;Произошла ошибка отправки, попробуйте позже.&quot;,&quot;auth_themes&quot;:&quot;Авторы или Темы&quot;,&quot;application&quot;:&quot;Заявка&quot;,&quot;name&quot;:&quot;Имя&quot;,&quot;adaptive&quot;:&quot;Адаптивный&quot;,&quot;phone&quot;:&quot;Телефон&quot;,&quot;more_about&quot;:&quot;Хочу узнать подробности о сервисе&quot;,&quot;analytics&quot;:&quot;Аналитика&quot;,&quot;site_url&quot;:&quot;URL сайта&quot;,&quot;media_name&quot;:&quot;Название медиа&quot;,&quot;mobile_site&quot;:&quot;Мобильный сайт&quot;,&quot;cancel&quot;:&quot;Отмена&quot;,&quot;dont_know&quot;:&quot;Не знаю&quot;},&quot;user&quot;:{}}}}}"><span class="button__inner"><div class="button__text">Попробуйте бесплатно</div></span></button></div><div class="p-menu__item p-menu__item_lang"><div class="p-menu__lang"><svg class="hidden"><defs><g id="ru-icon" fill="none" fill-rule="evenodd"><path fill="#D52B1E" d="M0 120h192V0H0"></path><path fill="#0039A6" d="M0 80h192V40H0"></path><path fill="#FFF" d="M0 40h192V0H0"></path><path stroke="#000" stroke-opacity=".2" d="M.5.5h191v119H.5z"></path></g><g id="en-icon" fill="none" fill-rule="evenodd"><path fill="#00247D" d="M0 120h192V0H0"></path><path fill="#FFF" d="M171.115 0L96.19 46.723 21.267 0H.336L0 .837v12.64l74.752 46.615L0 106.706v13.234h21.657L96.19 73.46l74.535 46.48H192v-13.472l-74.37-46.376L192 13.716V0"></path><path fill="#CF142B" d="M.11.27v8.65l82.52 51.662 2.868-7.157L.59.27M177.932 0l-72.565 45.43 2.87 7.156L192 .146V0M.834 119.793l.06.148h14.005l78.065-48.874-2.87-7.155M112.077 60.978l-2.87 7.157 82.75 51.806H192v-8.925"></path><path fill="#FFF" d="M79.992 0v39.98H0v39.98h79.992v39.98h32V79.96h79.99V39.98h-79.99V0"></path><path fill="#CF142B" d="M86.4 0v48.006H0v23.988h86.4V120h19.2V71.994H192V48.006h-86.4V0"></path><path stroke="#000" stroke-opacity=".2" d="M.5.5h191v119H.5z"></path></g></defs></svg><div class="tooltip js-module p-menu__tooltip" data-module="Dropdown.Tooltip"><div class="tooltip__wrapper"><div class="p-menu__lang-select js-tooltip"><div class="p-icon margin_right_5"><svg class="p-icon__svg p-icon__svg_ru" viewBox="0 0 192 120"><use class="" xlink:href="#ru-icon"></use></svg></div><div class="p-menu__lang-text">Рус</div><i class="icon icon_arrow_down-triangle icon_size_10 p-menu__icon margin_left_5"></i></div></div><div class="tooltip__box"><div class="tooltip__inner"><div class="tooltip__content"><div class="p-menu__lang-item"><div class="p-icon margin_right_5"><svg class="p-icon__svg p-icon__svg_en" viewBox="0 0 192 120"><use class="" xlink:href="#en-icon"></use></svg></div><a class="link link_black p-menu__lang-link link-holder" href="https://mediator.media/en/"><span class="link__text">Eng</span></a></div></div></div></div></div></div></div></div></div></div><div class="block block_bg_primary"><div class="p-promo-about"><div class="p-promo-about__layout p-promo-about__layout_preview"><div class="wrapper"><div class="p-promo-about__slogan">Инструмент редакционной аналитики для интернет–изданий</div><div class="p-promo-about__screenshot"><img src="/-/4b85c62e/bem/web/web.blocks-project/p-promo-about/__screenshot-image/_browser/p-promo-about__screenshot-image_browser.png" alt="" class="p-promo-about__screenshot-image"/><img src="/-/b4a34f44/bem/web/web.blocks-project/p-promo-about/__screenshot-image/p-promo-about__screenshot-image-ru.gif" alt="" class="p-promo-about__screenshot-image"/></div><button class="button button_color_project button_nowrap p-promo-about__request align_center js-show_form" data-module="AsyncForms.Request.Info.LoginPage" data-formid="request-join" data-send-url="/ajax/add_email/" onclick="return {&quot;AsyncForms&quot;:{&quot;options&quot;:{&quot;templateParams&quot;:{&quot;uiText&quot;:{&quot;send&quot;:&quot;Отправить&quot;,&quot;manager_contact&quot;:&quot;Менеджер свяжется с вами в течение двух рабочих дней и расскажет о ценах на сервисы «Медиатора»&quot;,&quot;mobile_version&quot;:&quot;Мобильная версия&quot;,&quot;fill_highlight&quot;:&quot;Необходимо заполнить выделенные поля&quot;,&quot;promo_code&quot;:&quot;Промо-код&quot;,&quot;email&quot;:&quot;E-mail&quot;,&quot;close&quot;:&quot;Закрыть&quot;,&quot;traffic&quot;:&quot;Трафик&quot;,&quot;send_error&quot;:&quot;Произошла ошибка отправки, попробуйте позже.&quot;,&quot;auth_themes&quot;:&quot;Авторы или Темы&quot;,&quot;application&quot;:&quot;Заявка&quot;,&quot;name&quot;:&quot;Имя&quot;,&quot;adaptive&quot;:&quot;Адаптивный&quot;,&quot;phone&quot;:&quot;Телефон&quot;,&quot;more_about&quot;:&quot;Хочу узнать подробности о сервисе&quot;,&quot;analytics&quot;:&quot;Аналитика&quot;,&quot;site_url&quot;:&quot;URL сайта&quot;,&quot;media_name&quot;:&quot;Название медиа&quot;,&quot;mobile_site&quot;:&quot;Мобильный сайт&quot;,&quot;cancel&quot;:&quot;Отмена&quot;,&quot;dont_know&quot;:&quot;Не знаю&quot;},&quot;user&quot;:{}}}}}"><span class="button__inner"><div class="button__text">Попробуйте бесплатно</div></span></button></div></div><div class="p-promo-about__layout p-promo-about__layout_text"><div class="p-promo-about__layout-inner"><div class="wrapper"><span class="text text_bold_huge text_block margin_bottom_20">Помогает делать медиа, которое любят читатели и рекламодатели</span><div class="p-promo-about__whom"><div class="p-promo-about__whom-item"><div class="p-promo-about__whom-title">Журналистам</div><div class="p-promo-about__whom-text">рассказывать историю, так, чтобы быть услышанным — в каждой опубликованной статье</div></div><div class="p-promo-about__whom-item"><div class="p-promo-about__whom-title">Редакторам</div><div class="p-promo-about__whom-text">видеть тренды, проводить тонкую настройку редполитики и грамотно работать с авторами</div></div><div class="p-promo-about__whom-item"><div class="p-promo-about__whom-title">Менеджерам</div><div class="p-promo-about__whom-text">понимать, что происходит в редакции, ставить адекватные KPI и развивать издание</div></div></div></div></div></div></div></div><div class="block"><div class="wrapper"><div class="p-promo-feature"><div class="p-promo-feature__item"><div class="p-promo-feature__item-inner"><img src="/-/bacd2547/bem/web/web.blocks-project/p-promo-feature/__image/_monitoring/p-promo-feature__image_monitoring.svg" alt="Мониторинг" class="p-promo-feature__image"/><div class="p-promo-feature__badge"><span class="badge"><span class="badge__text">Бесплатно</span></span></div><div class="hdr hdr_bold_huge"><div class="hdr__wrapper"><span class="hdr__text"><span class="hdr__inner">Мониторинг</span></span></div></div><div class="p-promo-feature__description">В режиме реального времени показывает, как пользователи потребляют контент: что читают, а что пролистывают. Нужен, чтобы спасти материал.</div></div></div><div class="p-promo-feature__item"><div class="p-promo-feature__item-inner"><img src="/-/5916860a/bem/web/web.blocks-project/p-promo-feature/__image/_analytic/p-promo-feature__image_analytic.svg" alt="Аналитика" class="p-promo-feature__image"/><div class="hdr hdr_bold_huge"><div class="hdr__wrapper"><span class="hdr__text"><a class="hdr__inner color_green" href="/ru/analysis/">Аналитика</a></span></div></div><div class="p-promo-feature__description">Покажет, какие материалы принесли вовлеченных читателей, а что было пустой тратой времени и ресурсов.</div></div></div><div class="p-promo-feature__item"><div class="p-promo-feature__item-inner"><img src="/-/2b9a9b5e/bem/web/web.blocks-project/p-promo-feature/__image/_author/p-promo-feature__image_author.svg" alt="Авторы" class="p-promo-feature__image"/><div class="hdr hdr_bold_huge"><div class="hdr__wrapper"><span class="hdr__text"><a class="hdr__inner color_green" href="/ru/author/">Авторы</a></span></div></div><div class="p-promo-feature__description">Редактору поможет трезво оценивать эффективность журналистов, с которыми работает издание. А автору — вырасти профессионально.</div></div></div><div class="p-promo-feature__item"><div class="p-promo-feature__item-inner"><img src="/-/d5232a37/bem/web/web.blocks-project/p-promo-feature/__image/_traffic/p-promo-feature__image_traffic.svg" alt="Траффик" class="p-promo-feature__image"/><div class="hdr hdr_bold_huge"><div class="hdr__wrapper"><span class="hdr__text"><a class="hdr__inner color_green" href="/ru/traffic/">Траффик</a></span></div></div><div class="p-promo-feature__description">Определит, какие источники приносят медиа читателей, а какие — просмотры и быстрые отказы. В первые стоит инвестировать, а от вторых лучше отказаться.</div></div></div><div class="p-promo-feature__item"><div class="p-promo-feature__item-inner"><img src="/-/2809995a/bem/web/web.blocks-project/p-promo-feature/__image/_theme/p-promo-feature__image_theme.png" alt="Темы" class="p-promo-feature__image"/><div class="hdr hdr_bold_huge"><div class="hdr__wrapper"><span class="hdr__text"><a class="hdr__inner color_green" href="/ru/theme/">Темы</a></span></div></div><div class="p-promo-feature__description">Поможет узнать, какие темы из тех, что освещает редакция, вовлекают больше читателей.</div></div></div></div></div></div><div class="block"><div class="wrapper"><div class="p-promo-review"><div class="hdr hdr_bold_huge"><div class="hdr__wrapper"><span class="hdr__text"><span class="hdr__inner">Уже пользуются «Медиатором»</span></span></div></div><div class="p-promo-review__list"><div class="p-promo-review__item"><div class="p-promo-review__item-inner"><div class="p-promo-review__image-wrapper"><img class="p-promo-review__image" src="/-/8137d9a7/bem/web/web.blocks-project/p-promo-review/__image/_russiatoday/p-promo-review__image_russiatoday.png" alt=""/></div><div class="p-promo-review__text">Благодаря «Медиатору» мы приблизились к объективной оценке материалов. Мы увидели, что делаем неправильно. И как делать лучше.<br/><br/>Алексей Фуксин, руководитель интернет-проектов RT на испанском языке</div></div></div><div class="p-promo-review__item"><div class="p-promo-review__item-inner"><div class="p-promo-review__image-wrapper"><img class="p-promo-review__image" src="/-/80117310/bem/web/web.blocks-project/p-promo-review/__image/_bankiru/p-promo-review__image_bankiru.png" alt=""/></div><div class="p-promo-review__text">Такой инструмент давно был нужен нашей редакции. Он позволяет лучше понимать аудиторию, производить более качественный контент и тестировать новые направления работы.<br/><br/>Дмитрий Асафьев, директор по развитию Банки.Ру</div></div></div><div class="p-promo-review__item"><div class="p-promo-review__item-inner"><div class="p-promo-review__image-wrapper"><img class="p-promo-review__image" src="/-/3f1ab86c/bem/web/web.blocks-project/p-promo-review/__image/_mailru/p-promo-review__image_mailru.png" alt=""/></div><div class="p-promo-review__text">Редметрики — это мощная обратная связь от читателя. Она меняет мировосприятие. Материал казался редактору крутым, а читателю он «так себе». Надо разбираться, почему, дорабатывать статью.<br/><br/>Надежда Сокирская, главный редактор проекта Леди Mail.Ru</div></div></div></div></div></div></div><div class="block block_collapse_bottom"><div class="wrapper"><div class="p-promo-subscribe js-module" data-module="AsyncFormsCont.Price"><div class="p-promo-subscribe__wrapper"><div class="p-promo-subscribe__content"><a class="text text_bold_huge js-show_form_price color_green" data-module="AsyncForms.Request.Info.Price" data-formid="request-price" data-send-url="/ajax/request_price/" onclick="return {&quot;AsyncForms&quot;:{&quot;options&quot;:{&quot;templateParams&quot;:{&quot;uiText&quot;:{&quot;calculate_price&quot;:&quot;Рассчитать стоимость&quot;,&quot;send&quot;:&quot;Отправить&quot;,&quot;manager_contact&quot;:&quot;Менеджер свяжется с вами в течение двух рабочих дней и расскажет о ценах на сервисы «Медиатора»&quot;,&quot;fill_highlight&quot;:&quot;Необходимо заполнить выделенные поля&quot;,&quot;contact_person&quot;:&quot;Контактное лицо&quot;,&quot;email&quot;:&quot;E-mail&quot;,&quot;close&quot;:&quot;Закрыть&quot;,&quot;authors&quot;:&quot;Авторы&quot;,&quot;traffic&quot;:&quot;Трафик&quot;,&quot;themes&quot;:&quot;Темы&quot;,&quot;send_error&quot;:&quot;Произошла ошибка отправки, попробуйте позже.&quot;,&quot;phone&quot;:&quot;Телефон&quot;,&quot;analytics&quot;:&quot;Аналитика&quot;,&quot;additional_services&quot;:&quot;Интересующие дополнительные сервисы&quot;,&quot;site_url&quot;:&quot;Site URL&quot;,&quot;cancel&quot;:&quot;Отмена&quot;},&quot;user&quot;:{}}}}}" href="#">Сколько стоит</a><span class="text text_bold_huge text_block">подписка на «Медиатор»?</span></div><img class="p-promo-subscribe__img" src="/-/28261af4/ru/img/common/promo/subscription_bg.png" width="277"/></div></div></div></div><div class="p-menu js-module" data-module=""><div class="wrapper"><div class="p-menu__inner"><div class="p-menu__item align_center color_white padding_vertical_20"><div class="p-promo-about__request-text">Готовы прокачать свою редакцию?</div><button class="button button_color_project button_nowrap js-show_form" data-module="AsyncForms.Request.Info.LoginPage" data-formid="request-join" data-send-url="/ajax/add_email/" onclick="return {&quot;AsyncForms&quot;:{&quot;options&quot;:{&quot;templateParams&quot;:{&quot;uiText&quot;:{&quot;send&quot;:&quot;Отправить&quot;,&quot;manager_contact&quot;:&quot;Менеджер свяжется с вами в течение двух рабочих дней и расскажет о ценах на сервисы «Медиатора»&quot;,&quot;mobile_version&quot;:&quot;Мобильная версия&quot;,&quot;fill_highlight&quot;:&quot;Необходимо заполнить выделенные поля&quot;,&quot;promo_code&quot;:&quot;Промо-код&quot;,&quot;email&quot;:&quot;E-mail&quot;,&quot;close&quot;:&quot;Закрыть&quot;,&quot;traffic&quot;:&quot;Трафик&quot;,&quot;send_error&quot;:&quot;Произошла ошибка отправки, попробуйте позже.&quot;,&quot;auth_themes&quot;:&quot;Авторы или Темы&quot;,&quot;application&quot;:&quot;Заявка&quot;,&quot;name&quot;:&quot;Имя&quot;,&quot;adaptive&quot;:&quot;Адаптивный&quot;,&quot;phone&quot;:&quot;Телефон&quot;,&quot;more_about&quot;:&quot;Хочу узнать подробности о сервисе&quot;,&quot;analytics&quot;:&quot;Аналитика&quot;,&quot;site_url&quot;:&quot;URL сайта&quot;,&quot;media_name&quot;:&quot;Название медиа&quot;,&quot;mobile_site&quot;:&quot;Мобильный сайт&quot;,&quot;cancel&quot;:&quot;Отмена&quot;,&quot;dont_know&quot;:&quot;Не знаю&quot;},&quot;user&quot;:{}}}}}"><span class="button__inner"><div class="button__text">Попробуйте бесплатно</div></span></button></div></div></div></div><!-- mr_counter type="topmail" id="2811999" --><!--Rating@Mail.ru counter--><script type="text/javascript">var _tmr = _tmr || [];
+				_tmr.push({id: "2811999", type: "pageView", start: (new Date()).getTime()});
+				(function (d, w, id) {
+				if (d.getElementById(id)) return;
+				var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+				ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+				var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+				if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+				})(document, window, "topmailru-code");</script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id=2811999;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru"/></div></noscript><!--//Rating@Mail.ru counter--><!-- /mr_counter --></div><script src="/-/4de4c0c8/js/cmpld/web/common.js"></script><script src="/-/8f4ddaa0/js/cmpld/web/page-index-no-auth.js"></script></body></html>

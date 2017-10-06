@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Небеса</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="description" content="Все мечтают иметь собственный летающий остров, мы дарим Вам мечту!" name="description">
+		<meta http-equiv="cache-control" content="public">
+		
+		<script type="text/javascript" src="//connect.mail.ru/js/loader.js"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/ktg-min.js" type="text/javascript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/jquery.cookie-min.js" type="text/javascript" ></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/jquery.md5.min.js" type="text/javascript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/swfobject.js" type="text/javascript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/scripts-min.js" type="text/javascript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/mozvisibility-min.js" type="text/javascript" language="JavaScript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/visibility-min.js" type="text/javascript" language="JavaScript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/gmm_actions.js" type="text/javascript" language="JavaScript"></script>
+		<script src="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/common/js/datapipe.js" type="text/javascript" language="JavaScript"></script>
+		<link  href="https://mm-nebogame-2reallife.netdna-ssl.com/files/site/files/css/style-min.css" media="screen" rel="stylesheet">
+		
+		<style>
+			#login_img{
+				height:100%;
+				width:100%; 
+				position:fixed;
+				cursor:pointer; 
+				background:url(https://mm-nebogame-2reallife.netdna-ssl.com/files/preloader_m_bg.jpg) center center no-repeat black;
+			}
+			#login_btn{
+				width:356px;
+				height:107px;
+				position:absolute;
+				left:50%;
+				cursor:pointer;
+				margin-left:-178px;
+				bottom:7%;
+				background:url(https://mm-nebogame-2reallife.netdna-ssl.com/files/preloader_mm_button.png);
+			}
+		</style>
+		
+		
+	</head>
+<body>
+<script src="http://games.mail.ru/js/game_headers/app712386.js" type="text/javascript"></script>
+
+
+ <div  id="login_img"></div>
+<div id="login_btn" ></div>
+
+<div id="gameExt"></div>
+<!--
+backgrounf:url(https://mm-nebogame-2reallife.netdna-ssl.com/files/preloader_mm_button.png);
+
+-->
+
+
+<script type="text/javascript">// <![CDATA[
+	$( document ).ready(function() {
+		$.get(document.location.protocol + "//" +document.location.host+'/do.php?p=gm&action=logPgr&ref='+document.referrer,function(result){});
+	});
+
+	var URL;
+
+    mailru.loader.require('api', function() {
+     mailru.connect.init(712386, 'f8ecb420d7434be7329c2beeb9a90162', true);
+     mailru.events.listen(mailru.connect.events.login, function(session){
+      window.location.reload();
+     });
+     mailru.events.listen(mailru.connect.events.logout, function(){
+      window.location.reload();
+     });
+     mailru.connect.getLoginStatus(function(result) {
+      if (result.is_app_user != 1) {
+	   $('#login_img').show().click(function(){
+           mailru.connect.login();
+       });
+	    $('#login_btn').show().click(function(){
+           mailru.connect.login();
+       });
+      } else {
+       mailru.common.users.getInfo(function(result){
+			URL = document.location.protocol + "//" +document.location.host+'/get_iframe.php?p=gm&'+$.param(mailru.session);
+			
+			$('#login_img').hide();
+			$('#login_btn').hide();
+			//$('#main_iframe').show().attr('src', url);
+			
+			
+			$.get(URL,function (result){
+				$('body').addClass('game_bg');
+				$("body").css({"background-position":"center -21px", "height":"1700px"});
+				$('#gameExt').html(result);
+				
+			});
+			
+			
+		});
+      }
+     });
+    });
+// ]]></script>
+
+</body>
+</html>

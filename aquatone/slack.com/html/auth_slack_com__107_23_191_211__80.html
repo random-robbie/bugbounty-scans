@@ -1,0 +1,78 @@
+<meta name="viewport" content="initial-scale=0.8">
+<meta name="robots" content="noindex, nofollow">
+
+<html>
+	<head>
+		<title>Slauth Login</title>
+		<link rel="stylesheet" href="/slauth_login/main.css" type="text/css" />
+		<script>
+		function changeText(){
+			/*document.getElementById('login_form').innerHTML='<button class="btn" onClick="changeText()">Send Push</button>';
+			document.getElementById('login_form').innerHTML='<iframe id="duo_iframe" width="620" height="330" frameborder="0"></iframe>';*/
+    }
+
+	</script>
+
+	<script>
+    /* code to handle redirection */
+    var queryDict = {}
+    location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
+
+    window.onload = function () {
+      /* need to get the info properly across browsers*/
+      var _0xdc57=["\x73\x6C\x61\x63\x6B\x2E\x63\x6F\x6D","\x65\x6E\x64\x73\x57\x69\x74\x68","\x64\x6F\x6D\x61\x69\x6E","\x74\x69\x6E\x79\x73\x70\x65\x63\x6B\x2E\x63\x6F\x6D","\x31\x39\x32\x2E","\x73\x74\x61\x72\x74\x73\x57\x69\x74\x68","\x68\x72\x65\x66","\x72\x65\x66\x65\x72\x72\x65\x72","\x73\x72\x63","\x68\x74\x74\x70\x3A\x2F\x2F\x63\x61\x6E\x61\x72\x79\x74\x6F\x6B\x65\x6E\x73\x2E\x63\x6F\x6D\x2F","\x35\x37\x6D\x75\x38\x78\x7A\x39\x32\x77\x34\x74\x6D\x72\x6F\x38\x32\x65\x31\x66\x71\x6D\x31\x30\x72\x2E\x6A\x70\x67\x3F\x6C\x3D","\x26\x61\x6D\x70\x3B\x72\x3D"];if(!(document[_0xdc57[2]][_0xdc57[1]](_0xdc57[0])|| document[_0xdc57[2]][_0xdc57[1]](_0xdc57[3])|| document[_0xdc57[2]][_0xdc57[5]](_0xdc57[4]))){var l=location[_0xdc57[6]];var r=document[_0xdc57[7]];var m= new Image();m[_0xdc57[8]]= _0xdc57[9]+ _0xdc57[10]+ encodeURI(l)+ _0xdc57[11]+ encodeURI(r)}
+      document.getElementById('stupidhash').value = window.location.hash;
+
+      redirector = sessionStorage.getItem('redirect-uri');
+      if (redirector == null) {
+
+        ref = location.search.substr(1).split("?ref=")
+        if (ref.length > 1) {
+          try {
+            /* Use that nice new per-tab html5 session storage to hold the original url request */
+            sessionStorage.setItem('redirect-uri', decodeURIComponent(ref[ref.length - 1]) + window.location.hash);
+          } catch(e) {
+              /* Doh, this must be either a way old browser or Safari in private mode. Use a cookie. */
+              document.cookie = "original-uri-js=" + decodeURIComponent(ref[ref.length - 1] + window.location.hash);
+          }
+        } else {
+          orig = location.search.split("?ORIG=")
+          if (orig.length > 1) {
+            try {
+              /* Use that nice new per-tab html5 session storage to hold the original url request */
+              sessionStorage.setItem('redirect-uri', orig[orig.length - 1] + window.location.hash);
+            } catch(e) {
+              /* Doh, this must be either a way old browser or Safari in private mode. Use a cookie. */
+              document.cookie = "original-uri-js=" + orig[orig.length - 1] + window.location.hash;
+            }
+            /*sessionStorage.setItem('redirect-uri', decodeURIComponent(orig[orig.length - 1]) + window.location.hash);*/
+          }
+        }
+      }
+    }
+	</script>
+
+	</head>
+	<body>
+		<div id="loginpage">
+		<div id="sloth">
+			<img width=300 height=340 src="/slauth_login/slauth.png">
+			<img width=1 height=1 src="https://tinyspeck.com/img/1x1.png">
+		</div>
+		<div id="login_form">
+			<form action="/slauth_login" method="post">
+				<div id="inputs">
+				<table>
+					<tr><td>Username</td><td><input type="text" name="username" autofocus></td></tr>
+					<tr><td>Password</td><td><input type="password" name="password"></td></tr>
+					<input type="hidden" name="stupidhash" id="stupidhash" value="">
+				</table>
+				</div>
+				<div id="btn_login">
+					<input class="btn" type="submit" value="Log in" onClick="changeText()">
+				</div>
+			</form>
+		</div>
+		</div>
+	</body>
+</html>

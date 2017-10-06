@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+	<link type="text/css" rel="stylesheet" href="https://stormriders.mail.ru/cdn/css/styles.css?20170825114854">
+	<link type="text/css" rel="stylesheet" href="https://stormriders.mail.ru/cdn/css/fengyun.css?20170825114854">
+    <script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/jquery.min.js"></script>
+	<script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/easyxdm/easyXDM.min.js"></script>
+	<script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/jquery.jscrollpane.min.js"></script>
+	<script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/main.js?20170825114854"></script>
+	<script type="text/javascript" src="//universal-client.101xp.com/scripts/app.js?v=1"></script>
+	<script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/zeroclipboard/ZeroClipboard.min.js"></script>
+
+        <script type="text/javascript">
+            MAPI.translate = {"title_select_server":"\u0412\u044b\u0431\u043e\u0440 \u0441\u0435\u0440\u0432\u0435\u0440\u0430","title_all_server":"\u0412\u0441\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044b","my_servers":"\u041c\u043e\u0438 \u0441\u0435\u0440\u0432\u0435\u0440\u044b","popular_servers":"\u041f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u044b\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044b","btn_all":"\u0412\u0441\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044b","btn_back":"\u0412\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u043d\u0430\u0437\u0430\u0434","bonus_sign":"\u0411\u043e\u043d\u0443\u0441","gold_sign":"\u0427\u0435\u043a\u043e\u0432","search_placeholder":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u0430","search_error":"\u041d\u0435\u0442 \u0442\u0430\u043a\u043e\u0433\u043e \u0441\u0435\u0440\u0432\u0435\u0440\u0430","region_error":"\u0414\u043b\u044f \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u0440\u0435\u0433\u0438\u043e\u043d\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u043e\u0432 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e","maintenance_title":"\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0440\u0430\u0431\u043e\u0442\u044b","maintenance_text":"<p>\u0423\u0432\u0430\u0436\u0430\u0435\u043c\u044b\u0435 \u0438\u0433\u0440\u043e\u043a\u0438!<\/p><p>\u041d\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0435 \u043f\u0440\u043e\u0432\u043e\u0434\u044f\u0442\u0441\u044f \u043f\u043b\u0430\u043d\u043e\u0432\u044b\u0435<br>\u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0440\u0430\u0431\u043e\u0442\u044b.<\/p><p>\u041f\u0440\u0438\u043d\u043e\u0441\u0438\u043c \u0441\u0432\u043e\u0438 \u0438\u0437\u0432\u0438\u043d\u0435\u043d\u0438\u044f \u0437\u0430 \u043d\u0435\u0443\u0434\u043e\u0431\u0441\u0442\u0432\u0430.<\/p>","move_account_title":"\u041f\u0435\u0440\u0435\u043d\u043e\u0441 \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441\u0430","move_account_text":"<p>\u0423 \u0412\u0430\u0441 \u0443\u0436\u0435 \u0435\u0441\u0442\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u0436 \u0432 \u0441\u043e\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0439 \u0441\u0435\u0442\u0438.<\/p><p>\u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u0435\u0440\u0435\u043d\u0435\u0441\u0442\u0438 \u0438\u0433\u0440\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0446\u0435\u0441\u0441 \u043d\u0430 \u043f\u043e\u0440\u0442\u0430\u043b 101XP.com.<\/p><p>\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435! \u0412 \u044d\u0442\u043e\u043c \u0441\u043b\u0443\u0447\u0430\u0435 \u0432\u044b \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u0441\u043c\u043e\u0436\u0435\u0442\u0435 \u0438\u0433\u0440\u0430\u0442\u044c \u0437\u0430 \u0441\u0432\u043e\u0435\u0433\u043e \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u0436\u0430 \u0432 \u0441\u043e\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0439 \u0441\u0435\u0442\u0438.<\/p>","move_account_btn_agree":"\u041f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c!","move_account_btn_return":"\u041d\u0430\u0447\u0430\u0442\u044c \u043d\u043e\u0432\u0443\u044e \u0438\u0433\u0440\u0443","payment_title":"\u041f\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u0441\u0447\u0435\u0442","payment_btn":"\u0420\u0443\u0431\u043b\u0435\u0439","payment_VAT":"","payment_secure_text":"\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435","promo_codes_block_title":"\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u0432\u0430\u0448 \u043f\u0440\u043e\u043c\u043e\u043a\u043e\u0434","promo_codes_block_button":"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c","promo_codes_copied":"\u0412\u0430\u0448 \u043f\u0440\u043e\u043c\u043e\u043a\u043e\u0434 \u0441\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d","promo_codes_time":"\u0412\u0440\u0435\u043c\u044f \u043d\u0430 \u0430\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u044e","days_short":"\u0434","payment_preloader":"\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430\u0445. \u043f\u043e\u0434\u043e\u0436\u0434\u0438\u0442\u0435 \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430","payment_pleloader_load_error":"\u041e\u0448\u0438\u0431\u043a\u0430! \u041f\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0443 \u0438 \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u043f\u043e\u0437\u0436\u0435","payment_exit_to_fullscreen_notice":"\u0414\u043b\u044f \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0435\u043d\u0438\u044f \u0412\u0430\u043c \u043d\u0443\u0436\u043d\u043e \u0432\u044b\u0439\u0442\u0438 \u0438\u0437 \u043f\u043e\u043b\u043d\u043e\u044d\u043a\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u0440\u0435\u0436\u0438\u043c\u0430"};
+            MAPI.server_id = "";
+        </script>
+        <script type="text/javascript" src="//connect.mail.ru/js/loader.js"></script>
+<script type="text/javascript">
+	history.pushState('data', '', 'https://' + window.location.host + location.search);
+	jQuery(document).ready(function($){
+		var gameBlock      = $('#game'),
+			paymentsBlock  = $('#payments');
+		mailru.loader.require('api', function(){
+				mailru.connect.init(736977, "5ad0610f3b86e9e6bc2b1a56e1bea5c1", true);
+				if(gameBlock.length){
+					gameBlock.removeClass('hidden');
+//					gameBlock.css({height: '895px'});
+				}
+				mailru.events.listen(mailru.connect.events.login, function(session){
+					window.location.reload();
+				});
+				mailru.events.listen(mailru.connect.events.logout, function(){
+					window.location.reload();
+				});
+				mailru.connect.getLoginStatus(function(result){
+					if(result.is_app_user != 1){
+						$('body').css({"overflow": "hidden"});
+						$('#gmr_landing').show();
+						$('#single_button').on('click', function(){
+							mailru.connect.login();
+						});
+					} else if(!$('#servers,#game').length){
+						window.location.reload();
+					}
+				});
+				// эта функция будет вызываться при открытии и закрытии диалога
+				mailru.events.listen(mailru.app.events.paymentDialogStatus, function(event) {
+
+				});
+				// эта функция будет вызываться после совершения оплаты
+				mailru.events.listen(mailru.app.events.incomingPayment, function(event) {
+					showSelectionPayments();
+                });
+			},
+			function(){
+				window.location.reload();
+			}
+		);
+		paymentsBlock.find('.close').click(showSelectionPayments);
+        paymentsBlock.on('click', '.buy', function(){
+			mailru.app.payments.showDialog({
+				service_id:    $(this).data('id'),
+				service_name:  $(this).data('title'),
+				mailiki_price: $(this).data('price')
+			});
+		});
+	});
+
+</script>
+
+</head>
+<body>
+<div id="uniframe-region-top"></div>
+<script type="text/javascript" src="https://stormriders.mail.ru/cdn/js/fancybox/jquery.fancybox.pack.js?20170825114854"></script>
+<link rel="stylesheet" type="text/css" href="https://stormriders.mail.ru/cdn/js/fancybox/jquery.fancybox.css?20170825114854" />
+<script src="//games.mail.ru/js/game_headers/app736977.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    /* Настройки ГМР тулбара */
+    var portal_games_headline_transparent = false;
+    var portal_games_headline_fixed = false;
+    /*----------------------*/
+</script>
+<script>
+    $(document).ready(function () {
+        $(".youtube").fancybox({
+            padding: [3, 3, 3, 3],
+            maxWidth: 900,
+            maxHeight: 506,
+            fitToView: false,
+            width: '98%',
+            height: '98%',
+            autoSize: false,
+            closeClick: false,
+            openEffect: 'none',
+            closeEffect: 'none',
+            helpers: {
+                overlay: {
+                    locked: false
+                    // отключаем блокировку overlay
+                }
+            }
+        });
+    });
+</script>
+
+<div id="gmr_landing">
+    <video class="video-bg" autoplay="autoplay" loop="loop" poster="">
+        <source type="video/webm" src="https://stormriders.mail.ru/cdn/images/fengyun/gmr/video-bg/bg.webm?20170825114854"></source>
+        <source type="video/mp4" src="https://stormriders.mail.ru/cdn/images/fengyun/gmr/video-bg/bg.mp4?20170825114854"></source>
+    </video>
+    <div class="rating">
+        <img src="https://stormriders.mail.ru/cdn/images/16plus.png?20170825114854">
+    </div>
+    <div id="landing">
+        <div class="game-logo"></div>
+        <div class="text">Скорость, зрелищность, PvP-зоны, крутая графика - все это сочетают в себе "Властелины стихий". Готовься воевать за локации, управлять силами природы и стать частью удивительной истории.</div>
+
+        <a href="https://www.youtube.com/embed/yosw_I_TnNw?autoplay=1" class="cboxElement fancybox.iframe video youtube">
+            <img src="http://img.youtube.com/vi/yosw_I_TnNw/mqdefault.jpg" alt=""/>
+        </a>
+
+        <div id="single_button" class="button"></div>
+    </div>
+    <div id="shadow"></div>
+</div>
+<div id="uniframe-region-bottom"></div>
+<div class="preloader"></div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8befe7bc8d","applicationID":"28808083","transactionName":"M1BRYRBWWhUCBU0IXwoaclYWXlsITA==","queueTime":0,"applicationTime":10,"atts":"HxdSF1hMSRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

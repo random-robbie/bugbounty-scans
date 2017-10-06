@@ -1,0 +1,124 @@
+    <!DOCTYPE html>  
+    <html class="no-js">  
+    <head>  
+        <meta charset="utf-8">  
+       	<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="https://wechat.united.com/html/assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+            <title>纵览精彩</title>
+    </head>  
+    <body > 
+    	<header class="una-header una-LogoTop">
+    				<img src="assets/i/header.jpg" class="una-logo"/>
+    	</header>
+       <div class="am-container se-container">
+       	<div class="am-g">
+       		<div class="am-u-sm-12">
+       		<h2 class="una-pageTitle color-003399">纵览精彩</h2>
+       		<!-- <h3 class="una-pageTitleEn">Though The Splendidness</h3> -->
+       		</div>
+       	</div> 
+
+       	<div class="se-block blue"> 
+                   <div class="am-u-sm-12"><h1 class="se-pageTitle">热门目的地</h1></div>
+                   <div class="am-u-sm-12"><h2 class="se-pageTitleEn">Top Destinations</h2></div>
+                  <div class="am-u-sm-12 blue">
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="newyork"  data-track="DES1.1_NY" class="intro"><img src="assets/i/01.jpg" class="am-img-responsive" /></a></div>
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="chicago" class="intro" data-track="DES1.2_CHICAGO"><img src="assets/i/02-1.jpg" class="am-img-responsive" /></a></div>
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="san" class="intro" data-track="DES1.3_SF"><img src="assets/i/03.jpg" class="am-img-responsive" /></a></div>
+                  </div>
+                  <div class="am-u-sm-12 blue">
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="losangeles" class="intro" data-track="DES1.4_LA"><img src="assets/i/04.jpg" class="am-img-responsive" /></a></div>
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="washington" class="intro" data-track="DES1.5_WA"><img src="assets/i/05.jpg" class="am-img-responsive" /></a></div>
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="las" class="intro" data-track="DES1.6_LV"><img src="assets/i/06.jpg" class="am-img-responsive" /></a></div>
+                  </div>
+
+                   <div class="am-u-sm-12 blue">
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="huston" class="intro" data-track=""><img src="assets/i/09.jpg" class="am-img-responsive" /></a></div>
+                        <div class="am-u-sm-4 am-text-center"><a href="#" data-id="denver" class="intro" data-track=""><img src="assets/i/10.jpg" class="am-img-responsive" /></a></div>
+                        <div class="am-u-sm-4 am-u-end am-text-center"><a  href="#" data-track="DES1.8_All" class="routemap"><img src="assets/i/08.jpg" class="am-img-responsive" /></a></div> 
+                  </div>
+
+                  <div class="">
+                    <img class="am-img-responsive new-session-img-padding" src="assets/i/se2-1.jpg" />
+                  </div>
+                  <div class="se-rt">
+                        <!-- <img src="assets/i/right-.png" /> -->
+                  </div>
+       	</div> 
+       </div>
+      <div class="una-footer am-text-right">
+        <img src="assets/i/footer.jpg">
+      </div>
+	
+		
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<script src="assets/js/jquery.min.js"></script>
+	<!--<![endif]-->
+	<!--[if lte IE 8 ]>
+	<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+	<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+	<![endif]-->
+	<script src="assets/js/amazeui.min.js"></script>
+	<script src="assets/js/jquery.scrollTo.min.js"></script>
+        <script src="assets/js/util.js"></script>
+     <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+	<script src="assets/js/wx.js"></script>
+	<script src="assets/js/wechat.js"></script>
+	<script>
+		$(function() {
+                    $('.intro').click(function(e){
+                        var data_id = $(this).attr('data-id');
+                        var data_track =   $(this).attr('data-track');
+                        doTrack(data_track);
+                        setTimeout(function () {
+                            
+                            trackCity(data_id).done(function(){
+                                 window.location.href = 'intro.html#'+data_id;;
+                            })
+                           
+                        }, 1000);
+                        
+                    })
+                    
+                    $('.routemap').click(function(e){
+                       // var data_id = $(this).attr('data-id');
+                        var data_track =   $(this).attr('data-track');
+                        doTrack(data_track);
+                        setTimeout(function () {
+                            window.location.href = 'routemap.php';
+                        }, 1000);
+                        
+                    })
+                    
+                });
+                
+                function trackCity(city_name) {
+                    var dtd = $.Deferred(); // 新建一个deferred对象
+                      $.ajax({
+                        url: '../api/member/visitCity',
+                        cache: false,
+                            type: "post",
+                            dataType: "json",
+                            data:{city_name:city_name,page_name:"session"},
+                            success: function(response) {
+                                
+                                dtd.resolve(); // 改变deferred对象的执行状态
+                             },
+                             error:function(data) 
+                                             { 
+                                                 dtd.reject(); // 改变deferred对象的执行状态
+                                                alert("error");
+                                              }
+
+                     })
+
+                     
+                    return dtd;
+                }
+		
+	</script>
+    </body>  
+    </html>  

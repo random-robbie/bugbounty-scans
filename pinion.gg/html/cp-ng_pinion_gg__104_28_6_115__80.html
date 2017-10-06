@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta name="author" content="Pinion" />
+  <meta charset="UTF-8">
+  <base href="/">
+  <title>Pinion</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <!-- rev-hash -->
+<link rel="stylesheet" href="assets/css/vendor.css?v=eca85c40dad4f5f8b9fcc0226ea52909"/>
+<link rel="stylesheet" href="assets/css/main.css?v=eb95becf90cf72ab7a8eeaa9bf5947ae"/>
+<!-- end -->
+
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="300x300" href="300.png" />
+
+  <style type="text/css">
+   .ng-cloak {
+    display: none !important;
+  }
+</style>
+<script type="text/javascript">
+      window._trackJs = {  // Just ensure the global variable is initialized before the tracker script loads.
+        token: '97d538c0474344bea8947cfe6e6a747f',
+        application: "pinion-cp",
+        enabled: true
+      };
+    </script>
+    <script src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
+    <!-- END TRACKJS -->
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    </script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PT4D6T"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PT4D6T');</script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body ng-app="pinion">
+
+   <div ng-include="'templates/navigation.html'"></div>
+
+   <div class="main_bg full_height"></div>
+
+   <div class="app-wrapper" ui-view ng-class="{'app-wrapper_full-height': ('login' | isState) || ('forgot-password' | isState) || ('register.thankyou' | isState)}"></div>
+
+   <footer id="footer" class="ng-cloak">
+
+    <div class="container">
+      <div class="row">
+        <div class="footer_col">
+          <img class="footer_logo" src="assets/images/global/footer_logo.png" alt="Pinion">
+        </div>
+        <div class="footer_col">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a ui-sref="dashboard.stats">Dashboard</a></li>
+            <li><a ui-sref="invoices">Invoices</a></li>
+            <li><a ui-sref="settings.profile">Settings</a></li>
+            <li><a ui-sref="support">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <h3>HEADQUARTERS</h3>
+          <ul>
+            <li>10400 NE 4th St. - Suite 500</li>
+            <li>Bellevue, Washington 98004</li>
+          </ul>
+        </div>
+        <div class="footer_col contact_col">
+          <h3>CONTACT</h3>
+          <ul>
+            <li><span>PHONE: </span><a href="tel:1-224-338-6457">1-224-338-6457</a></li>
+            <!-- <li><span>PHONE US: </span><a href="tel:+1 888 269 9828">+1 888 269 9828</a></li> -->
+            <li><span>EMAIL: </span><a href="mailto:SUPPORT@PINION.GG">SUPPORT@PINION.GG</a></li>
+          </ul>
+        </div>
+        <div class="footer_col social_col">
+          <h3>Follow us on</h3>
+          <a href="https://www.facebook.com/unikrnco" rel="noreferrer"><i class="icon-facebook"></i></a>
+          <a href="https://www.twitter.com/unikrnco" rel="noreferrer"><i class="icon-twitter"></i></a>
+          <a href="https://www.instagram.com/unikrnco" rel="noreferrer"><i class="icon-instagram"></i></a>
+          <a href="http://twitch.tv/unikrn" rel="noreferrer"><i class="icon-twitch"></i></a>
+        </div>
+      </div>
+      <p class="copy" ng-controller="FooterCtrl">Copyright &copy; {{year}} all rights reserved by <a href="https://unikrn.com" target="_blank">Unikrn</a>. No portion of this site may be reproduced or duplicated without the explicit permission.</p>
+      <div class="terms">
+        <a ui-sref="privacy">PRIVACY POLICY</a>
+        <a ui-sref="tos">TERMS OF USE</a>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="assets/js/new_relic.js"></script>
+  <script src="assets/js/modernizr.min.js"></script>
+  <!-- rev-hash -->
+<script src="assets/js/vendor.js?v=170e0ed7e18b362a0c57d8229d1b56a1"></script>
+<script src="assets/js/app.js?v=2f7282e8389a8bcf28aad58d0a2cf386"></script>
+<!-- end -->
+
+</body>
+</html> 
+

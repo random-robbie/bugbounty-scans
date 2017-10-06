@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="CocuSocial" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="CocuSocial" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="CocuSocial" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="CocuSocial" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title ng-bind="pageTitle + ' - CocuSocial - Cooking Like a Party'"></title>
+  <meta name="description" content="Discover Popular Cooking Classes in NYC. Don't just learn to cook, get social with our entertaining chefs and fun-loving guests. We make it affordable to master new techniques and learn the culture behind different cuisines. Book your class and we'll take care of everything you need for a seamless cooking party.">
+  <meta >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- fb share meta -->
+  <meta property="og:title"              content="CocuSocial" />
+  <meta property="og:description"        content="Cooking like a party" />
+  <meta property="og:image"              content="https://www.cocusocial.com/assets/img/ccsocial-logo.png" />
+  <!-- End fb share meta -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"  href="./assets/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/lib/date-picker/bootstrap-datepicker3.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="app.css">
+  <!-- Google Analytics -->
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99305638-1', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+  <!-- End Google Analytics -->
+
+  <!-- Mixpanel -->
+  <script src="./assets/lib/mixpanel.js"></script>
+  <script type="text/javascript">
+      mixpanel.track('home page visit', {
+          meta: 'data'
+      });
+  </script>
+  <!-- End Mixpanel -->
+
+
+  <!-- Begin Inspectlet Embed Code -->
+  <script type="text/javascript" id="inspectletjs">
+      if (window.location.hostname.toLowerCase().search('cocusocial.com') >= 0) {
+          window.__insp = window.__insp || [];
+          __insp.push(['wid', 1951099148]);
+          (function() {
+              function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+              setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+          })();
+      }
+
+  </script>
+</head>
+<body global-click-trigger ng-controller="AppCtrl as App">
+
+  <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+<div class="modal-overlay" ng-show="modal"></div>
+
+<cocu-social-header></cocu-social-header>
+
+<div style="min-height: 400px;">
+  <div ng-show="launchFailed" class="container color-error" style="padding-top: 100px">
+    <h2>We are currently having issue with system, please try again later</h2>
+  </div>
+  <div class="body-view responsive" ng-view autoscroll="true" ng-if="appLaunched()"></div>
+</div>
+
+<cocu-social-footer></cocu-social-footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.min.js"></script>
+  <script src="./assets/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./assets/lib/date-picker/bootstrap-datepicker.min.js"></script>
+  <script src="./assets/lib/angular-social-share/angular-socialshare.min.js"></script>
+  <script src="./assets/lib/ngStorage.min.js"></script>
+  <script src="./assets/lib/ng-global-click.js"></script>
+  <!--<script src="./assets/lib/ng-infinite-scroll.js"></script>-->
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+
+  <script src="ccsocial.min.js"></script>
+
+</body>
+</html>

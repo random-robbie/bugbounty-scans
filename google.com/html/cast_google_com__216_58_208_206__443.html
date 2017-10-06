@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" locale="en_US">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  <script src="//www.gstatic.com/external_hosted/modernizr/modernizr.js"></script>
+  <link href="//fonts.googleapis.com/css?family=Roboto:700,500,400,300,100&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet">
+  <link href="/chromecast/built-in/static/css/cast-a.css" rel="stylesheet">
+  <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+  <script>new gweb.analytics.AutoTrack({profile: 'UA-52202106-1'});</script>
+  <title>Chromecast built-in</title>
+  <meta content="Chromecast built-in is a technology that lets you cast your favorite entertainment and apps from your phone, tablet or laptop right to your TV or speakers." name="description">
+  <link rel="shortcut icon" href="/chromecast/built-in/static/images/favicon.ico">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-touch.min.js"></script>
+</head>
+<!-- {% set_tidy "off" %} -->
+<body ng-app="cast" ng-controller="CastController as ctrl" ng-class="{'ie': ctrl.ie == true, 'mobile': ctrl.mobile == true}">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC7Z3D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC7Z3D');</script>
+<!-- End Google Tag Manager -->
+<header class="navbar clearfix" ng-class="{'active': ctrl.offsetTop > 0 || ctrl.ie == true || ctrl.mobile == true}">
+  <div class="logo">
+    <a href="/chromecast/built-in/"><img alt="Chromecast built-in" src="/chromecast/built-in/static/images/chromecast-built-in-logo.svg" /></a>
+    <a class="teleport" href="#content">Skip to content</a>
+  </div>
+  <a class="mobile-nav-button" ng-class="{'active': showNav}" ng-click="showNav = !showNav"></a>
+  <nav class="nav" ng-class="{'active': showNav}">
+    <ul class="nav-list">
+      <li class="whats-cast"><a href="/chromecast/built-in/" class="active"><span>What's Chromecast built-in</span></a></li>
+      <li><a href="/chromecast/built-in/tv/" class=""><span>TV</span></a></li>
+      <li><a href="/chromecast/built-in/audio/" class=""><span>Audio</span></a></li>
+      <li><a href="/chromecast/built-in/apps/" class=""><span>Apps</span></a></li>
+      <li class="last"><a href="/chromecast/built-in/learn/" class=""><span>Learn</span></a></li>
+    </ul>
+  </nav>
+
+</header> <!-- close .header -->
+<div id="content" class="content">
+<div class="homepage">
+	<div class="intro container">
+		<h1>Meet Chromecast built-in</h1>
+		<p>Chromecast built-in is a technology that lets you stream your favorite entertainment and apps from your phone, tablet or laptop right to your TV or speakers.</p>
+	</div>
+	<div class="device" ng-init="ctrl.selectedPanel = 'tv'">
+		<a class="tv panel" href="/chromecast/built-in/tv/" ng-class="{'active': ctrl.selectedPanel == 'tv'}" ng-mouseover="ctrl.selectedPanel = 'tv'">
+			<div class="title">
+				<h2>See TVs with Chromecast built-in</h2>
+				<span class="button">Go</span>
+			</div>
+			<div class="animation">
+				<img src="/chromecast/built-in/static/images/home/tv-size.png" class="screen-fit" alt="" />
+				<img src="/chromecast/built-in/static/images/home/tv-ready-cast.jpg" class="screen" alt="" />
+				<img src="/chromecast/built-in/static/images/home/tv.jpg" class="tv-screen screen" alt="" />
+				<div class="copyright">
+					Watch Manchester by the Sea on Google Play
+				</div> <!-- close .copyright -->
+				<div class="copyright-2">
+					© 2017 Lions Gate Entertainment Inc. All Rights Reserved.
+				</div> <!-- close .copyright -->
+			</div> <!-- close .animation -->
+			<div class="hand">
+				<div class="cast-icon">
+					<div class="sound-wave"></div>
+				</div>
+				<img src="/chromecast/built-in/static/images/home/tv-hand.png" alt="" />
+			</div> <!-- close .hand -->
+		</a> <!-- close .tv panel -->
+		<a class="audio panel" href="/chromecast/built-in/audio/" ng-class="{'active': ctrl.selectedPanel == 'audio'}" ng-mouseover="ctrl.selectedPanel = 'audio'">
+			<div class="title">
+				<h2>See speakers with <span class="nowrap">Chromecast built-in</span></h2>
+				<span class="button">Go</span>
+			</div> <!-- close .title -->
+			<div class="animation">
+				<div class="speaker">
+				<div class="speaker-position">
+					<img src="/chromecast/built-in/static/images/home/speaker.png" alt="Speaker" />
+				</div>
+				</div> <!-- close .speaker -->
+			</div> <!-- close .animation -->
+			<div class="hand">
+				<div class="cast-icon">
+					<div class="sound-wave"></div>
+				</div>
+				<img src="/chromecast/built-in/static/images/home/audio-hand.png" alt="" />
+			</div> <!-- close .hand -->
+		</a> <!-- close .audio panel -->
+	</div>
+</div>
+</div> <!-- close .content -->
+
+<footer class="footer">
+  <div class="footnotes-container">
+
+    <div class="footer-nav container clearfix">
+      <ul class="footer-logo">
+        <li>
+          <img alt="Chromecast built-in" src="/chromecast/built-in/static/images/chromecast-built-in-logo.svg" />
+        </li>
+      </ul>
+      <ul class="support">
+        <span class="title">Support</span>
+          <li><a href="//support.google.com/googlecast/?hl=en_US#topic=6187486">Help Center</a></li>
+          <li><a href="//productforums.google.com/forum/?hl=en_US#!forum/chromecast/">Help Forum</a></li>
+          <li><a href="//support.google.com/chromecast/troubleshooter/2995236/?hl=en_US">Troubleshooter</a></li>
+          <li><a href="//support.google.com/chromecast/troubleshooter/6292095/?hl=en_US">Audio Troubleshooter</a></li>
+      </ul>
+      <ul class="news">
+        <span class="title">Latest News</span>
+          <li><a href="https://blog.google/products/chromecast/?hl=en_US" target="_blank">Chromecast Blog</a></li>
+          <li><a href="//www.youtube.com/channel/UCIG1k8umaCIIrujZPzZPIMA?hl=en_US" target="_blank">YouTube channel</a></li>
+          <li><a href="//twitter.com/Chromecast/?hl=en_US" target="_blank">Twitter page</a></li>
+      </ul>
+      <ul class="last">
+        <span class="title">Chromecast</span>
+          <li><a href="//chromecast.com" target="_blank">Learn about Chromecast</a></li>
+          <li><a href="//developers.google.com/cast/?hl=en_US" target="_blank">Cast for developers</a></li>
+      </ul>
+    </div> <!-- close .footer-nav -->
+
+    <div class="footnotes container clearfix">
+      <div class="hdmi">
+        <img src="/chromecast/built-in/static/images/hdmi-logo.png" class="hdmi-logo" alt="HDMI" />
+      </div>
+      <div class="footnotes-copy">
+        <p>Subscriptions may be required to access certain content. Performance of certain Cast features, services and applications depends on the device you use with Cast and your internet connection. Certain Cast features, services and applications may not be available in all areas. Cast is compatible with WiFi-enabled Android smartphones and tablets; iPhone<sup>®</sup>, iPad<sup>®</sup>, and iPod<sup>®</sup>; Chrome for Mac<sup>®</sup> and Chrome for Windows<sup>®</sup>; and ChromeOS. Full compatibility information is available at <a href="//g.co/cast/req" target="_blank">g.co/cast/req</a>.</p>
+      </div> <!-- close .footnotes-copy -->
+    </div> <!-- close .footnotes -->
+  </div> <!-- close .footnotes-footer -->
+
+  <div class="container footer-nav-extra clearfix">
+    <ul>
+        <li><a href="//www.google.com/">Google</a></li>
+        <li><a href="//www.google.com/about/">About Google</a></li>
+        <li><a href="//www.google.com/policies/">Privacy &amp; Terms</a></li>
+    </ul>
+    <div class="locale-switcher">
+      <select onchange="window.location=this.options[this.selectedIndex].value">
+          <option value="/intl/da_dk/chromecast/built-in/"
+            >dansk (Danmark)
+          <option value="/intl/de_de/chromecast/built-in/"
+            >Deutsch (Deutschland)
+          <option value="/intl/de_ch/chromecast/built-in/"
+            >Deutsch (Schweiz)
+          <option value="/intl/de_at/chromecast/built-in/"
+            >Deutsch (Österreich)
+          <option value="/intl/en_au/chromecast/built-in/"
+            >English (Australia)
+          <option value="/intl/en_ca/chromecast/built-in/"
+            >English (Canada)
+          <option value="/intl/en_ie/chromecast/built-in/"
+            >English (Ireland)
+          <option value="/intl/en_nz/chromecast/built-in/"
+            >English (New Zealand)
+          <option value="/intl/en_uk/chromecast/built-in/"
+            >English (United Kingdom)
+          <option value="/chromecast/built-in/"
+selected            >English (United States)
+          <option value="/intl/es_es/chromecast/built-in/"
+            >español (España)
+          <option value="/intl/es-419_mx/chromecast/built-in/"
+            >español (México)
+          <option value="/intl/fr_be/chromecast/built-in/"
+            >français (Belgique)
+          <option value="/intl/fr_ca/chromecast/built-in/"
+            >français (Canada)
+          <option value="/intl/fr_fr/chromecast/built-in/"
+            >français (France)
+          <option value="/intl/fr_ch/chromecast/built-in/"
+            >français (Suisse)
+          <option value="/intl/it_it/chromecast/built-in/"
+            >italiano (Italia)
+          <option value="/intl/it_ch/chromecast/built-in/"
+            >italiano (Svizzera)
+          <option value="/intl/nl_be/chromecast/built-in/"
+            >Nederlands (België)
+          <option value="/intl/nl_nl/chromecast/built-in/"
+            >Nederlands (Nederland)
+          <option value="/intl/no_no/chromecast/built-in/"
+            >norsk bokmål (Norge)
+          <option value="/intl/pt_pt/chromecast/built-in/"
+            >português (Portugal)
+          <option value="/intl/fi_fi/chromecast/built-in/"
+            >suomi (Suomi)
+          <option value="/intl/sv_se/chromecast/built-in/"
+            >svenska (Sverige)
+          <option value="/intl/zh-TW_tw/chromecast/built-in/"
+            >中文 (繁體, 台灣)
+          <option value="/intl/ja_jp/chromecast/built-in/"
+            >日本語 (日本)
+          <option value="/intl/ko_kr/chromecast/built-in/"
+            >한국어 (대한민국)
+      </select>
+    </div>
+  </div> <!-- close .container -->
+</footer>
+
+<script src="/chromecast/built-in/static/js/cast-a.min.js"></script>
+
+<script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=pcbtl5yrcj26huntpxodki67sq"></script>
+</body>
+</html>
