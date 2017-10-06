@@ -1,0 +1,1950 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+<script src="https://board-prd.nam1.lbx.gm.com/dvclient/flash.js" language="javascript"></script>
+<script src="https://board-prd.nam1.lbx.gm.com/dvclient/rightClick.js" language="javascript"></script>
+<script src="https://board-prd.nam1.lbx.gm.com/dvclient/extMouseWheel.js" language="javascript"></script>
+
+
+
+<title>Login</title>
+
+<script language="Script" type="text/javascript">
+    window.history.forward(1);
+</script>
+<style>
+body { margin: 0px; overflow:hidden }
+</style>
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 10;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Minor version of Flash required
+var requiredRevision = 0;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+</head>
+
+
+
+<body scroll="no" onload="onBodyLoad()" onMouseDown="updateAccessFlag()" onDblClick="updateAccessFlag()" onKeyDown="updateAccessFlag()">
+<div id="flashContainerDiv">
+<script language="JavaScript" type="text/javascript">
+<!--
+// Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
+var hasProductInstall = DetectFlashVer(6, 0, 65);
+var clientCertificate = "";
+var installationStatus = "";
+var token = "";
+var key = "";
+var cert = "";
+// Version check based upon the values defined in globals
+var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+if ( hasProductInstall && !hasRequestedVersion ) 
+{
+    // DO NOT MODIFY THE FOLLOWING FOUR LINES
+    // Location visited after installation is complete if installation is required
+    var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+    var MMredirectURL = encodeURI(window.location);
+    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+    var MMdoctitle = document.title;
+
+    AC_FL_RunContent(
+        "src", "playerProductInstall",
+        "FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+        "width", "100%",
+        "height", "100%",
+        "align", "middle",
+        "id", "DVantage",
+        "quality", "high",
+        "bgcolor", "#ffffff",
+        "name", "DVantage",
+        "allowScriptAccess","samedomain",
+        "type", "application/x-shockwave-flash",
+        "pluginspage", "https://www.adobe.com/go/getflashplayer"
+    );
+    
+    if(isIE)
+        top.location.href = "/portlet/flashplayer/install.html";
+    else
+        top.location.href = "/portlet/flashplayer/express/playerProductInstall.html";
+} 
+else if (hasRequestedVersion) 
+{
+    // if we've detected an acceptable version
+    // embed the Flash Content SWF when all tests are passed
+        AC_FL_RunContent(
+            "src", "https://board-prd.nam1.lbx.gm.com/dvclient/DVantage?swf-version=EC.13.5.20161208.163241",
+            "width", "100%",
+            "height", "100%",
+            "align", "middle",
+            "id", "DVantage",
+            "quality", "high",
+            "bgcolor", "#ffffff",
+            "wmode", "opaque",
+            "name", "DVantage",
+            "menu", "false",
+            "external", "false",
+            "allowScriptAccess","samedomain",
+            "allowFullScreen","true",
+            "type", "application/x-shockwave-flash",
+            "pluginspage", "https://www.adobe.com/go/getflashplayer",
+            "FlashVars", "parameter=login&localeType=en-US"
+        );
+        
+  } 
+  
+  function onBodyLoad() 
+  {
+	  RightClick.init('DVantage','flashContainerDiv');
+
+	  var browser = navigator.userAgent.toLowerCase();
+	  if ((browser.indexOf('mozilla') != -1) || (browser.indexOf('firefox') != -1)) {
+			var fullVersion  = ''+parseFloat(navigator.appVersion); 
+			var nAgt = navigator.userAgent;
+			var verOffset = nAgt.indexOf("Firefox")
+			
+			fullVersion = nAgt.substring(verOffset+8);
+
+			if ((ix=fullVersion.indexOf(";"))!=-1)
+				   fullVersion=fullVersion.substring(0,ix);
+			if ((ix=fullVersion.indexOf(" "))!=-1)
+			   fullVersion=fullVersion.substring(0,ix);
+
+			var majorVersion = parseInt(''+fullVersion,10);
+
+			if (majorVersion >= 37 && navigator.appVersion.indexOf("Mac") !=-1)
+			{
+				return;
+			}					
+		}	  
+
+	    setTimeout("focusApp()",1000);    
+  }
+  
+  function focusApp()
+    {
+        var obj = document.getElementById("DVantage");
+        if(obj != null)
+            obj.focus();
+    }
+    
+  	function forceAppFocus()
+    {
+//         var obj = document.getElementById("DVantage");
+//         if(obj != null) {
+//             obj.focus();
+            
+
+//             	//alert('not IE');
+// 	            window_handle = window.open('abc');
+// 	            window_handle.focus();
+// 	            window_handle.close();
+//             }
+            
+//             obj.focus();
+//         }
+    }
+    
+    function redirectTo(url)
+    {
+        top.location.href= url;
+    }
+    
+    function logoff()
+    {   
+        top.location.href = "/portlet/logout.jsp";
+    }
+    
+    var accessFlag = false;
+        
+    function updateAccessFlag()
+    {
+        accessFlag = true;
+    }
+    
+    function getAccessFlag()
+    {
+        return accessFlag;
+    }
+    
+    function resetAccessFlag()
+    {
+        accessFlag = false;
+    }   
+
+    function installJavaPrompt()
+    {
+        var swfApplication = top.document.getElementById("DVantage");
+        if( swfApplication != null )
+        {
+            swfApplication.installJavaPrompt();
+        }
+    }
+    
+    function isJavaInstalledAndEnabled()
+    {
+        var installed=deployJava.getJREs().toString();        		
+        var enabled=navigator.javaEnabled(); // This incorrectly returned false after the first time, on Firefox Mac. Ignore for now.
+        //alert("installed:" + installed + ", enabled:" + enabled);
+        //if( installed == null || installed == '' || enabled == null || enabled == '' )
+        if( installed == null || installed == '')
+        {
+            return 'false';
+        }
+        else
+        {
+            return 'true';
+        }
+    }
+   function generateCertificate(bvsessid)
+   {       
+       if( "true" != isJavaInstalledAndEnabledEx() )
+       {
+           installJavaPromptEx();
+           return;
+       }
+            
+       var appletHtml= getCertApplet('zrrdsaUuU554xgs','generate-csr', bvsessid);
+       var newdiv = document.createElement("div");
+       newdiv.innerHTML = appletHtml;            
+       document.body.appendChild(newdiv);
+   }
+   function installJavaPromptEx()
+    {
+        var swfApplication = top.document.getElementById("DVantage");
+        if( swfApplication != null )
+        {
+            swfApplication.installJavaPrompt();
+        }
+    }
+    function isJavaInstalledAndEnabledEx()
+    {
+        var installed=deployJava.getJREs().toString();
+        var enabled=navigator.javaEnabled(); // This incorrectly returned false after the first time, on Firefox Mac. Ignore for now.       
+        //alert("installed:" + installed + ", enabled:" + enabled);
+        //if( installed == null || installed == '' || enabled == null || enabled == '' )
+        if( installed == null || installed == '')
+        {
+            return 'false';
+        }
+        else
+        {
+            return 'true';
+        }
+    }
+    function installJavaEx()
+    {
+   		deployJava.installLatestJRE();
+    }
+
+    function getCertificateValue()
+    {  
+    	clientCertificate = document.forms[0].clientCertificate.value;
+    	if(clientCertificate != null)
+    	{
+			return clientCertificate;
+    	}
+    	return "";
+    }
+    function getCertInstallationStatus()
+    {  
+    	installationStatus = document.forms[0].installationStatus.value;
+    	if(installationStatus != null)
+    	{
+			return installationStatus;
+    	}
+    	return "";
+    }
+    
+    function getTokenValue()
+    {  
+    	token = document.forms[0].token.value;
+    	if(token != null)
+    	{
+			return token;
+    	}
+    	return "";
+    }
+    
+    function setKeyCertValue(keyValue, certValue)
+    {   
+  		document.forms[0].key.value=keyValue;
+  		document.forms[0].cert.value=certValue;
+    }
+    
+    function getKeyValue()
+    {  
+    	key = document.forms[0].key.value;
+    	if(key != null)
+    	{
+			return key;
+    	}
+    	return "";
+    }
+    
+    function getCertValue()
+    {
+    	cert = document.forms[0].cert.value;
+    	if(cert != null)
+    	{
+    		return cert;
+    	}
+    	return "";
+    }
+    
+    function clearKeyCertValue()
+    {
+    	key="";
+    	cert="";
+    }
+    
+    function setCertificateValue(certificateValue)
+    {   
+  		document.forms[0].clientCertificate.value=certificateValue;
+    }
+    function setTokenValue(tokenValue)
+    {   
+  		document.forms[0].token.value=tokenValue;
+    }
+    function clearTokenValue()
+    {
+    	token="";
+    }
+    function clearCertificateValue()
+    {
+    	clientCertificate="";
+    }
+    function clearCertInstallationStatus()
+    {
+    	installationStatus="";
+    }
+    function installationDone(installationStatus)
+    {   
+  		document.forms[0].installationStatus.value = installationStatus;
+    }
+    
+    function getCertificate(userid,certIds,displayDateFormat)
+    { 
+        if( "true" != isJavaInstalledAndEnabledEx() )
+        {		
+        	setCertificateValue("nojava");
+            installJavaPromptEx();
+            return;
+        } 
+        var appletHtml= getAppletTagEx(userid,'get-certs',certIds,displayDateFormat);        
+   	    var newdiv = document.createElement("div");
+        newdiv.innerHTML = appletHtml;
+        document.body.appendChild(newdiv);
+    }
+    
+    function decryptToken(userid,token,serial)
+    {  
+    
+        var appletHtml= getAppletTagToken(userid,'decrypt-token',token,serial);        
+   	    var newdiv = document.createElement("div");
+        newdiv.innerHTML = appletHtml;
+        document.body.appendChild(newdiv);        
+    }
+    function getAppletTagToken(baseuuid,processName,token,serial)
+    {
+        var appletHtml= "<applet  name='"+baseuuid+processName+"' id='"+baseuuid+processName+"' codebase='/dvclient/' archive='js.jar,proxy-vole_20131209.jar' ";                
+        appletHtml += "code='com.boardvantage.dv.applet.core.SingleContentProcessor.class' width='1' height='1' mayscript>";
+        appletHtml += "<param name='cache_archive' value='dvvault.jar'/>";
+        appletHtml += "<param name='useruuid' value='"+baseuuid+"'/>";
+        appletHtml += "<param name='certtoken' value='"+token+"'/>";
+        appletHtml += "<param name='certserial' value='"+serial+"'/>";
+        appletHtml += "<param name='baseuuid' value='base'/>";
+	    appletHtml += "<param name='jsessionid' value='N+jNLly+Pkue4V8BG9yB4g9z.hc2'/>";
+        appletHtml += "<param name='processName' value='"+processName+"'/>";
+        appletHtml += "</applet>";
+     	return appletHtml;
+    }
+    function getAppletTagEx(baseuuid,processName,certIds,dateformat)
+    {
+        var appletHtml= "<applet  name='"+baseuuid+processName+"' id='"+baseuuid+processName+"' codebase='/dvclient/' archive='js.jar,proxy-vole_20131209.jar' ";                
+        appletHtml += "code='com.boardvantage.dv.applet.core.SingleContentProcessor.class' width='1' height='1' mayscript>";
+        appletHtml += "<param name='cache_archive' value='dvvault.jar'/>";
+        appletHtml += "<param name='useruuid' value='"+baseuuid+"'/>";
+        appletHtml += "<param name='baseuuid' value='base'/>";
+	    appletHtml += "<param name='jsessionid' value='N+jNLly+Pkue4V8BG9yB4g9z.hc2'/>";
+        appletHtml += "<param name='processName' value='"+processName+"'/>";
+        appletHtml += "<param name='certificateids' value='"+certIds+"'/>";
+        appletHtml += "<param name='dateformat' value='"+ dateformat +"'/>";
+        
+        appletHtml += "</applet>";
+     	return appletHtml;
+    }
+    
+    function getCertApplet(baseuuid, processName, bvsessid)
+    {
+    	var appletHtml= "<applet  name='"+baseuuid+processName+"' id='"+baseuuid+processName+"' codebase='/dvclient/' archive='js.jar,proxy-vole_20131209.jar' ";                
+        appletHtml += "code='com.boardvantage.dv.applet.core.SingleContentProcessor.class' width='1' height='1' mayscript>";
+        appletHtml += "<param name='cache_archive' value='dvvault.jar'/>";
+        appletHtml += "<param name='processName' value='"+processName+"'/>";
+		appletHtml += "<param name='jsessionid' value='N+jNLly+Pkue4V8BG9yB4g9z.hc2'/>";
+		appletHtml += "<param name='ecxsessionid' value='"+bvsessid+"'/>";
+		appletHtml += "<param name='baseuuid' value='"+baseuuid+"'/>";
+        appletHtml += "</applet>";
+        return appletHtml;
+    }
+            
+	    function getOutlookAddIn()
+	    {
+		    var protocol=top.location.protocol;
+		    var host=top.location.hostname;
+		    var port=top.location.port;
+		    var urlstart=protocol + "//" + host + ":" + port;
+	    
+		    var content= "<form name='getoutlookfrm' action='" + urlstart + "/services/outlookinstallservlet' method='post'>";
+		    content +=   "    <input type='hidden' name='msitype' value='outlookaddin'/>";
+		    content +=   "</form>";
+
+	        var jnlpFrame=document.getElementById("jnlpFrame");
+	        if( false )
+	        {
+	        	jnlpFrame.contentWindow.document.body.innerHTML=content;
+	        	jnlpFrame.contentWindow.document.forms["getoutlookfrm"].submit();
+	        }
+	        else
+	        {
+	        	jnlpFrame.contentDocument.body.innerHTML=content;
+	        	jnlpFrame.contentDocument.getoutlookfrm.submit();
+	        }
+	    }
+	    
+
+    
+// -->
+</script>
+
+<noscript>
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+            id="DVantage" width="100%" height="200"
+            codebase="https://download.macromedia.com/pub/shockwave/cabs/director/sw.cab#version=10,1,0,11">
+            <!--codebase="https://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">-->
+            <param name="movie" value="https://board-prd.nam1.lbx.gm.com/dvclient/DVantage.swf?swf-version=EC.13.5.20161208.163241&push-number=11" />
+            <param name="quality" value="high" />
+            <param name="bgcolor" value="#869ca7" />
+            <param name="allowScriptAccess" value="samedomain" />
+            <param name="allowFullScreen" value="true"/>
+            <param name="FlashVars" value="parameter=login" />
+            <embed src="https://board-prd.nam1.lbx.gm.com/dvclient/DVantage.swf?swf-version=EC.13.5.20161208.163241&push-number=11" quality="high" bgcolor="#ffffff"
+                width="100%" height="100%" name="DVantage" align="middle"
+                play="true"
+                loop="false"
+                quality="high"
+                allowScriptAccess="samedomain"
+                allowFullScreen="true"
+                type="application/x-shockwave-flash"
+                pluginspage="https://www.adobe.com/go/getflashplayer">
+            </embed>
+    </object>
+</noscript>
+
+<form name="portalFrm" action="" method="POST">
+    <input type="hidden" name="ecxportalid"/>
+    <input type="hidden" name="ecxcompanyid"/>
+    <input type="hidden" name="flexModule"/>
+    <input type="hidden" name="clientCertificate"/>
+    <input type="hidden" name="installationStatus"/>
+    <input type="hidden" name="key"/>
+    <input type="hidden" name="cert"/>
+    <input type="hidden" name="token"/>
+</form>
+
+<script language="javascript">
+    function doSend(o)
+    {
+        //alert('o.portalObjectBaseuuid:' + o.portalObjectBaseuuid);
+        //alert('o.companyObjectBaseuuid:' + o.companyObjectBaseuuid);
+        
+        document.portalFrm.ecxportalid.value = o.portalObjectBaseuuid;
+        document.portalFrm.flexModule.value = flexModule;
+        document.portalFrm.ecxcompanyid.value = o.companyObjectBaseuuid;
+        document.portalFrm.action = "/portlet/portal.jsp";
+        document.portalFrm.submit();
+    }
+    
+    
+</script>
+<table border="0" width="100%" height="80%">
+    <tr>
+        <td valign="middle" align="center">
+            <font face="verdana" size="2"><div id="flashMessage"></div></font>
+        </td>
+    </tr>
+</table>
+<Script language="javascript">
+    function changeURL()
+   {
+     top.location.href = 'https://www.adobe.com/go/getflash';
+     return true;
+   }
+
+    if(!hasProductInstall)
+    {  // flash is too old or we can't detect the plugin
+        
+        var alternateContent = "<img src='/portlet/images/bvlogo.gif' /><br/><br/>This content requires the Adobe Flash Player. ";
+        alternateContent = alternateContent + "<a href='javascript:changeURL()'/>Get Flash here</a>";
+        //document.write(alternateContent);  // insert non-flash content
+        document.getElementById("flashMessage").innerHTML = alternateContent;
+    
+    }
+</Script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://board-prd.nam1.lbx.gm.com/dvclient/jquery.min.js" ></script>
+<script src="https://board-prd.nam1.lbx.gm.com/dvclient/BVECXVaultApp.js" ></script>
+<script language="javascript">
+
+	var js_portalid;
+	var js_companyid;
+	
+	var js_username;
+	var js_userbaseid;
+	var js_companyshortname;
+	var js_runtime_exec;
+	var docWindowReference;
+	
+	function sessionDetails(o)
+	{
+		js_portalid 		= o.portalid;
+		js_companyid 		= o.companyid;
+		js_username 		= o.username;
+		js_userbaseid 		= o.userbaseid;
+		js_companyshortname = o.companyshortname;
+		js_installdirectory = o.installdirectory;
+		js_defaultsn		= o.defaultsn;
+		js_runtime_exec 	= o.runtimeexec;
+		js_token			= o.token;
+		if(document.title == "Login"){
+			if(o.isProfile == true){
+				var name = (o.portalName).split(" ");
+				document.title = name[0] + "'s Space";
+				oldTitle = document.title;
+			}
+			else{
+	   			document.title = o.portalName + ", " + o.companyName;
+				oldTitle = document.title;
+			}
+		}
+	}
+	function redirectHTML()
+	{
+		top.location.href = "/html";
+	}
+	
+	function redirectBrowserNotSupportJavaVersion()
+	{
+    	top.location.href = "/portlet/browsernotsupportedJava";
+	}
+	
+	function redirectBrowserNotSupportFlashVersion()
+	{
+		top.location.href = "/portlet/browsernotsupportedFlash";
+	}
+
+	function redirectBrowserNotSupportHTMLErrorPage()
+	{
+		top.location.href = "/portlet/browsernotsupported";
+	}
+	function areCookiesEnabled()
+	{
+	    var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+
+	    if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled)
+	    { 
+	        document.cookie="testcookie";
+	        cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false;
+	    }
+	    return (cookieEnabled);
+	}
+
+	if(!areCookiesEnabled())
+	{
+		alert("Please make sure cookies are enabled in your browser settings");
+	}
+
+</script>
+
+<script src="https://board-prd.nam1.lbx.gm.com/dvclient/deployJava.js" language="javascript"></script>
+<div style="display:none">
+    <form name="viewContentFrm" action="/services/viewdocument/" method="post">
+            <input type="hidden" name="versionUuid" />
+			<input type="hidden" name="ecxportalid"/>
+			<input type="hidden" name="ecxcompanyid"/>
+			<input type="hidden" name="ECXSESSIONID"/>
+			<input type="hidden" name="sp"/>
+			<input type="hidden" name="printAnnot"/>
+    </form>
+</div>
+
+
+
+<script language="javascript">
+
+		var launchFullScreen;
+		var documentNameFullScreen;		
+		
+        // Pop up a window and then size it based on graphical content.
+        // TODO: Rename to pictureFit and make it called unconditionally. Make it do nothing for non-graphical content.
+        // That way, it will work even in Inbox, when you click a link and do not know the document name.
+        function pictureView(versionUuid, documentName)
+        {
+            var picURL="/services/viewdocument/" + documentName + "?versionUuid=" + versionUuid
+            + "&ecxportalid="+js_portalid+"&ecxcompanyid="+js_companyid;
+    
+            // The convoluted setInterval method is needed to work around a Safari bug.
+            var str = "";
+            str += "<html><head><title>DVantage</title></head>";
+            str += "<body>";
+            str += "<img src='" + picURL + "' border='0' id='myimage' onload='startFitting()'/>";
+            str += "<script language='javascript'>";
+            str += "var intervalId;";
+            str += "function fit()";
+            str += "{";
+            str += "    if(document.images['myimage'].width == 0)";
+            str += "        return;";
+            str += "    if( document.images['myimage'].width < (screen.width-150) ";
+            str += "    &&  document.images['myimage'].height < (screen.height-150) )"; 
+            str += "    {";
+            str += "        window.resizeTo(document.images['myimage'].width + 50, document.images['myimage'].height + 100);";
+            str += "        clearInterval(intervalId);";
+            str += "    }";
+            str += "}";
+            str +="function startFitting()";
+            str += "{";
+            str += "    intervalId=setInterval( 'fit()', 100 );";
+            str += "}";
+            str += "<\/script>";
+            str += "</body>";
+            str += "</html>";
+    
+            var width = screen.width - 150;
+            var height = screen.height - 150;
+    
+            var launch = window.open("/portlet/blank.html","_blank","width="+ width +",height="+ height +",toolbar=0,location=0,left=40,top=45,status=0,menubar=0,personalbar=no,scrollbars=1,resizable=1");
+    
+            if(launch == null)
+            	alert("A new window cannot be opened. Please check your browser's pop-up blocker settings.");
+            	// alert("Cannot open new window, possibly due to pop-up blocker settings."); 
+                    
+            launch.name="DVantage";
+            launch.document.write(str);
+            launch.document.close();
+        }
+  	
+        function flexView(versionUuid)
+        {
+            var width = 600;
+            var height = 350;
+            
+            if( versionUuid.match("^1DOTU:")=="1DOTU:" || versionUuid.match("^1DOTE:")=="1DOTE:" )
+            {
+                width = 750;
+                height = 450;
+            }
+            
+            if( versionUuid.match("^1DOXP:")=="1DOXP:" )
+            {
+                width = 820;
+                height = 450;
+            }          
+            
+            document.viewContentFrm.action = "/services/webservlet?impl=FlexViewer&versionUuid=" + versionUuid + "&height=" + height + "&width=" + width;
+            document.viewContentFrm.ecxportalid.value = js_portalid;
+            document.viewContentFrm.ecxcompanyid.value = js_companyid;
+            posttonewwindow("viewContentFrm",width,height);
+        }
+        
+        function loginPage()
+        {
+        	top.location.href= "/portlet/login";
+        }
+        
+        function redirectToURL(loginId, companyId, portalId)
+        {
+        	top.location.href = "/portlet/redirect?token=" + loginId + "&token_c=" + companyId + "&token_p=" + portalId;
+        }
+        
+        function viewContent(versionUuid, documentName)
+        {
+            document.viewContentFrm.versionUuid.value = versionUuid;
+            if(documentName == null || documentName == "")
+                documentName = versionUuid;
+                
+            //alert(versionUuid);
+                
+            // If the versionUuid indicates a calendar event, let the
+            // flexView function handle it. That will use a FlexViewer component in a popup window.
+            if( versionUuid.match("^1DOCE:")=="1DOCE:" || versionUuid.match("^1DOTU:")=="1DOTU:" 
+                || versionUuid.match("^1DOXP:")=="1DOXP:" || versionUuid.match("^1DOTE:")=="1DOTE:")
+            {
+                flexView(versionUuid);
+                return;
+            }
+            
+            if( versionUuid.match("^1DODA:")=="1DODA:")
+            {
+            	agendaView(versionUuid, documentName);
+            	return;
+			}
+
+            // If the filename indicates a picture, let the pictureView function handle it.
+            // That function includes some "resize popup to fit the graphic" functionality.
+            // Note: It doesn't work in Inbox, apparently because the documentName isn't passed.
+            // See TODO in pictureView function for a fix.
+            if(  (documentName.toLowerCase().match(".jpg$")==".jpg")
+                || (documentName.toLowerCase().match(".jpeg$")==".jpeg")
+                || (documentName.toLowerCase().match(".gif$")==".gif" )
+                || (documentName.toLowerCase().match(".png$")==".png" ) )
+            {
+                pictureView(versionUuid, documentName);
+                return;
+            }
+
+            if(documentName.indexOf(".") != -1)
+            {
+                documentName = documentName.substring(0, documentName.indexOf("."));
+            }
+            document.viewContentFrm.action = "/services/viewdocument/"+encodeURI(documentName);
+            document.viewContentFrm.ecxportalid.value = js_portalid;
+            document.viewContentFrm.ecxcompanyid.value = js_companyid;
+            
+            var width = screen.width;
+            var height = screen.height;
+            
+            posttonewwindow("viewContentFrm",width-150,height-150);
+        }
+        
+        function posttonewwindow(frmName,width,height)
+        {      
+            var fObj;
+            eval("fObj = document." + frmName +";");
+            if (fObj == null)
+                 fObj = document.forms[0];
+            var str = "";
+            str += "<html><head><title>DVantage</title></head>";
+            str += "<body onLoad='document.forms[0].submit();'>";
+            str += "<table width='100%' height='100'><tr><td align='center' valign='middle' class='panelTitle'>";
+            str += "<font color='#757692' face='arial'><b>Processing request ....</b></font></td></tr></table>";
+            str += "<form action='"+fObj.action+"' method='post' target='_self'>";
+            for(i=0;i<fObj.length;i++){
+                var iobj = fObj[i];
+                var blnadd = true;
+	             if(blnadd){
+	                value = iobj.value;             
+	                value = value.replace(/'/gi,"\\'");
+	                str += "<input type='hidden' value='"+value+"' name='"+iobj.name+"'>";
+	            }
+            }
+
+            str += "</form>";
+            str += "<script type='text/javascript' language='javascript'>document.forms[0].submit();<\/script>";
+            str += "</body></html>";
+            if (isNaN(width)) width = 700;
+            if (isNaN(height)) height = 450;
+            
+            var launch = window.open("/portlet/blank.html","_blank","width="+ width +",height="+ height +",toolbar=0,location=0,left=40,top=45,status=0,menubar=0,personalbar=no,scrollbars=1,resizable=1");
+            if(launch == null)
+            	alert("A new window cannot be opened. Please check your browser's pop-up blocker settings.");
+                // alert("Cannot open new window, possibly due to pop-up blocker settings."); 
+            var browser = navigator.userAgent.toLowerCase();
+            if ((browser.indexOf('msie') != -1) || (browser.indexOf('trident') != -1)) 
+            {
+                launch.name="DVantage";
+                launch.document.write(str);
+                launch.document.close();
+            }
+            else 
+            {    
+                launch.addEventListener ( "load",
+        		  function () {
+            	   	   try {
+            			   var destDoc = launch.document;
+            			   destDoc.open ();
+            			   destDoc.write (str);
+            			   destDoc.close ();
+					   } catch(err) {
+						   alert("ERROR MESSAGE: "+err.message);
+						   return;
+					   } 
+        		   }, false
+        	     );
+            }
+        }
+
+        var viewportwidth;
+        var viewportheight;
+        
+        function calculateSize()
+        {
+             // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+             
+             if (typeof window.innerWidth != 'undefined')
+             {
+                  viewportwidth = window.innerWidth;
+                  viewportheight = window.innerHeight;
+             }
+             
+            // IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)
+            
+             else if (typeof document.documentElement != 'undefined'
+                 && typeof document.documentElement.clientWidth !=
+                 'undefined' && document.documentElement.clientWidth != 0)
+             {
+                   viewportwidth = document.documentElement.clientWidth;
+                   viewportheight = document.documentElement.clientHeight;
+             }
+             
+             // older versions of IE
+             
+             else
+             {
+                   viewportwidth = document.getElementsByTagName('body')[0].clientWidth;
+                   viewportheight = document.getElementsByTagName('body')[0].clientHeight;
+             }
+        }
+             
+        function resizeDV()
+        {
+            calculateSize();
+            var obj = document.getElementById("DVantage");
+            obj.height= viewportheight - 110;
+            
+            var appletobj = document.getElementById("uploadApplet");
+            if(appletobj && appletobj != null)
+            {
+                showapplet("block");
+            }
+        }
+        
+        function downloadToDesktop(baseuuid)
+        {
+            if( "true" != isJavaInstalledAndEnabled() )
+            {
+                installJavaPrompt();
+                return;
+            } 
+            
+            var appletHtml= getAppletTag(baseuuid, 'download');  
+            var newdiv = document.createElement("div");
+            newdiv.innerHTML = appletHtml;
+            document.body.appendChild(newdiv);
+        }
+        
+        
+        function uploadFromDesktop(baseuuid)
+        {
+        
+            if( "true" != isJavaInstalledAndEnabled() )
+            {
+                installJavaPrompt();
+                return;
+            }
+            
+            var appletHtml= getAppletTag(baseuuid, 'upload');
+            var newdiv = document.createElement("div");
+            newdiv.innerHTML = appletHtml;
+            document.body.appendChild(newdiv);
+        }
+        
+        function nativeAction(baseuuid, editNative, host, actionType)
+        {            
+            if("editandlink" == editNative) 
+            {
+            	webEditNative(baseuuid, actionType, editNative, host);
+            } 
+            else if("java" == editNative) 
+            { 
+            	if("true" != isJavaInstalledAndEnabled() )
+                {
+                    installJavaPrompt();
+                    return;
+                }
+	            var appletHtml= getAppletTag(baseuuid, 'edit');
+	            var newdiv = document.createElement("div");
+	            newdiv.innerHTML = appletHtml;
+	            document.body.appendChild(newdiv);
+            } 
+            else 
+            {
+            	alert("editNative:" + editNative + " is not supported!");
+            }
+        }
+        
+        function compare(action,baseuuid,id1,id2)
+        {
+            if( "true" != isJavaInstalledAndEnabled() )
+            {
+                installJavaPrompt();
+                return;
+            }
+            
+            var appletHtml= getCompareAppletTag(baseuuid,id1,id2, action);
+            
+            var newdiv = document.createElement("div");
+            newdiv.innerHTML = appletHtml;
+            document.body.appendChild(newdiv);
+        }
+        
+        
+        
+       
+      
+        
+        function conf(baseuuid, type)
+        {
+            if( "conf-stop" != type )
+            {
+	        	if( "true" != isJavaInstalledAndEnabled() )
+	            {
+					installJavaPrompt();
+	                return;
+	            }
+	        }
+            
+            var _div = document.getElementById('div'+baseuuid+type);
+           
+            
+            if(type=='conf-stop')
+            {
+            	if(_div != null)
+            	{
+            		document.body.removeChild(_div);
+            	}
+            	return;
+            }
+            
+            var _applet = document.getElementById(baseuuid+type);
+            var appletHtml= getAppletTag(baseuuid, type);
+          
+            
+            if(type=='conf-share' || type=='conf-share-chat')
+            {
+            	var newdiv = document.createElement("div");
+            	newdiv.id = 'div'+baseuuid+type;
+            	newdiv.innerHTML = appletHtml;
+            	document.body.appendChild(newdiv);
+            	return;
+            }
+
+			try { _applet.getRunStatus(); } catch(err) { _applet=null; }
+            
+            if(_applet == null)
+            {
+            	var newdiv = document.createElement("div");
+            	newdiv.id = 'div'+baseuuid+type;
+            	newdiv.innerHTML = appletHtml;
+            	document.body.appendChild(newdiv);
+            	return;
+            }
+
+            var viewerRunning = false;
+            
+            if(_applet != null)
+            	viewerRunning = _applet.getRunStatus();
+            	
+            //alert('viewerRunning:' + viewerRunning);
+          
+            if(!viewerRunning)
+            {
+            	var newdiv = document.createElement("div");
+            	newdiv.id = 'div'+baseuuid+type;
+            	newdiv.innerHTML = appletHtml;
+            	document.body.appendChild(newdiv);
+
+            }
+            
+            
+        }
+        
+        
+        function appletCallBack(status)
+        {
+        	documentPollingDataChange();
+        }
+        
+        function editInNativeCallback(baseuuid)
+        {
+        	documentPollingDataChange();
+        }
+       
+        function agendaLink(permalinkType, fileName, fileBaseUuid)  
+        {
+        	if(parent.editAgendaFrm)
+        	{
+        		parent.editAgendaFrm.writeToHtmlArea(permalinkType, fileName, fileBaseUuid);
+        		parent.editAgendaFrm.setSelectDocFrameVar(true);
+        	}
+        }
+        function callMSAddin(resourceLink,name)
+		{	
+			document.forms["linkFrm"].link.value=resourceLink;
+			document.forms["linkFrm"].linkname.value=name;
+			document.forms["linkFrm"].link.click();
+		}
+             
+        function documentPollingDataChange()
+        {
+            var swfApplication = document.getElementById("DVantage");
+            if ( swfApplication != null )
+            {
+                swfApplication.documentPollingDataChanged();
+            }
+        }
+        
+        function inboxPollingDataChange()
+        {
+            var swfApplication = document.getElementById("DVantage");
+            if ( swfApplication != null )
+            {
+                swfApplication.inboxPollingDataChanged();
+            }
+        }
+        function conferencePollingDataChanged()
+        {
+            var swfApplication = document.getElementById("DVantage");
+            if ( swfApplication != null )
+            {
+                swfApplication.conferencePollingDataChanged();
+            }
+        }
+        
+        function chatPollingDataChange()
+        {
+            var swfApplication = document.getElementById("DVantage");
+            if ( swfApplication != null )
+            {
+                swfApplication.chatPollingDataChanged();
+            }
+        }
+        
+        function getCompareAppletTag(baseuuid,versionid1,versionid2,processName)
+        {
+        	var appletHtml= "<applet  name='"+baseuuid+processName+"' id='"+baseuuid+processName+"' codebase='/dvclient/' ";                
+            appletHtml += "code='com.boardvantage.dv.applet.core.SingleContentProcessor.class' width='1' height='1' mayscript>";
+            appletHtml += "<param name='cache_archive' value='dvvault.jar'/>";
+			appletHtml += "<param name='cache_version' value='13.5.c4e3.9f6a'/>";
+            appletHtml += "<param name='jsessionid' value='N+jNLly+Pkue4V8BG9yB4g9z.hc2'/>";
+            appletHtml += "<param name='token' value='"+js_token+"'/>";				                
+            appletHtml += "<param name='alias' value='"+js_username+"'/>";
+            appletHtml += "<param name='useruuid' value='"+js_userbaseid+"'/>";
+            appletHtml += "<param name='companyuuid' value='"+js_companyid+"'/>";
+            appletHtml += "<param name='processName' value='"+processName+"'/>";
+            appletHtml += "<param name='versionid1' value='"+versionid1+"'/>";
+            appletHtml += "<param name='versionid2' value='"+versionid2+"'/>";
+            appletHtml += "<param name='baseuuid' value='"+baseuuid+"'/>";
+            appletHtml += "<param name='portalid' value='"+js_portalid+"'/>";
+            appletHtml += "<param name='runtimeExec' value='"+js_runtime_exec+"'/>";
+            appletHtml += "<param name='serverName' value='https://board-prd.nam1.lbx.gm.com'/>";
+            appletHtml += "<param name='desktopShareQuality' value='0.3'/>";
+            appletHtml += "<param name='markupEnable' value='true'/>";
+            appletHtml += "<param name='recordingEnable' value='true'/>";
+            appletHtml += "<param name='officeDebug' value='true'/>";
+            appletHtml += "</applet>";                
+         	return appletHtml;
+        }
+		
+        function getAppletTag(baseuuid, processName)
+        {
+        	//alert("getAppletTag(baseuuid:" + baseuuid + ", processName:" + processName +")");
+
+        	var appletHtml= "<applet  name='"+baseuuid+processName+"' id='"+baseuuid+processName+"' codebase='/dvclient/' ";                
+			appletHtml += "code='com.boardvantage.dv.applet.core.SingleContentProcessor.class' width='1' height='1' mayscript>";
+			appletHtml += "<param name='cache_archive' value='dvvault.jar'/>";
+			appletHtml += "<param name='cache_version' value='13.5.c4e3.9f6a'/>";
+			appletHtml += "<param name='jsessionid' value='N+jNLly+Pkue4V8BG9yB4g9z.hc2'/>";
+			appletHtml += "<param name='token' value='"+js_token+"'/>";				                
+			appletHtml += "<param name='alias' value='"+js_username+"'/>";
+			appletHtml += "<param name='useruuid' value='"+js_userbaseid+"'/>";
+			appletHtml += "<param name='companyuuid' value='"+js_companyid+"'/>";
+			appletHtml += "<param name='processName' value='"+processName+"'/>";
+			appletHtml += "<param name='baseuuid' value='"+baseuuid+"'/>";
+			appletHtml += "<param name='portalid' value='"+js_portalid+"'/>";
+			appletHtml += "<param name='runtimeExec' value='"+js_runtime_exec+"'/>";
+			appletHtml += "<param name='serverName' value='https://board-prd.nam1.lbx.gm.com'/>";
+			appletHtml += "<param name='desktopShareQuality' value='0.3'/>";
+			appletHtml += "<param name='markupEnable' value='true'/>";
+			appletHtml += "<param name='recordingEnable' value='true'/>";
+			appletHtml += "<param name='officeDebug' value='true'/>";				                
+			appletHtml += "</applet>";
+			
+        	//alert("getAppletTag() appletHtml:" + appletHtml);
+			return appletHtml;
+        }
+        
+	    function webEditNative(baseuuid, processName, editNative, host)
+	    {	    	
+			var protocol = top.location.protocol;			
+	    	var port = top.location.port;
+	    	var urlstart = protocol + "//" + host + ":" + port;
+	    	var appArguments = "codeBase=/dvclient/,code=com.boardvantage.dv.applet.core.SingleContentProcessor.class,jsessionid=N+jNLly+Pkue4V8BG9yB4g9z.hc2";
+	    	appArguments +=",token="+js_token+",useruuid="+js_userbaseid+",companyuuid="+js_companyid+",processName="+processName+",editOption="+editNative+",baseuuid="+baseuuid+",portalid="+js_portalid+"";
+	    	appArguments +=",runtimeExec="+js_runtime_exec+",serverName=https://board-prd.nam1.lbx.gm.com";
+	    	appArguments +=",serverDomain="+host+",ECXLBCookie=";
+	    	launchCustomProtocol("bvedit://"+appArguments+"",launchBVECXVaultApp);
+	    }       
+        
+        function javaError()
+        {
+            var swfApplication = top.document.getElementById("DVantage");
+            if( swfApplication != null )
+            {
+                swfApplication.showJavaNotInstalledError();
+            }
+        }
+        
+        function installJavaPrompt()
+        {
+            var swfApplication = top.document.getElementById("DVantage");
+            if( swfApplication != null )
+            {
+                swfApplication.installJavaPrompt();
+            }
+        }
+        
+        function isJavaInstalledAndEnabled()
+        {
+            var installed=deployJava.getJREs().toString();
+            var enabled=navigator.javaEnabled(); // This incorrectly returned false after the first time, on Firefox Mac. Ignore for now.
+            //alert("installed:" + installed + ", enabled:" + enabled);
+            //if( installed == null || installed == '' || enabled == null || enabled == '' )
+            if( installed == null || installed == '')
+            {
+                return 'false';
+            }
+            else
+            {
+                return 'true';
+            }
+        }
+       
+       function clearFlexBusyCursor()
+       {
+           var swfApplication = top.document.getElementById("DVantage");
+           if( swfApplication != null )
+           {
+               swfApplication.removeFlexBusyCursor();
+           }
+       }
+       
+		function installJava()
+        {
+       		deployJava.installLatestJRE();
+        }
+       
+        function showError(errorMessage)
+        {
+            alert(errorMessage);
+        }
+        
+        function deleteCookie(jsessionid)
+		{
+			document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		}
+
+        function getCookie( check_name )
+        {
+            // first we'll split this cookie up into name/value pairs
+            // note: document.cookie only returns name=value, not the other components
+            var a_all_cookies = document.cookie.split( ';' );
+            var a_temp_cookie = '';
+            var cookie_name = '';
+            var cookie_value = '';
+            var b_cookie_found = false; // set boolean t/f default f
+            
+            for ( i = 0; i < a_all_cookies.length; i++ )
+            {
+                // now we'll split apart each name=value pair
+                a_temp_cookie = a_all_cookies[i].split( '=' );
+                
+                
+                // and trim left/right whitespace while we're at it
+                cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+            
+                // if the extracted name matches passed check_name
+                if ( cookie_name == check_name )
+                {
+                    b_cookie_found = true;
+                    // we need to handle case where cookie has no value but exists (no = sign, that is):
+                    if ( a_temp_cookie.length > 1 )
+                    {
+                        cookie_value = unescape( a_temp_cookie[1].replace(/^\s+|\s+$/g, '') );
+                    }
+                    // note that in cases where cookie is initialized but no value, null is returned
+                    return cookie_value;
+                    break;
+                }
+                a_temp_cookie = null;
+                cookie_name = '';
+            }
+            if ( !b_cookie_found )
+            {
+                return null;
+            }
+        }
+        
+        function setCookie(name, value)
+        {
+        	name=HttpRequestHelper.sanitizePath(name);
+        	setLocalStorage(name, value);
+        	document.cookie = name + '=' +value +';path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';             	
+        }
+        
+        function eraseCookie(name, value) {    
+        	name=HttpRequestHelper.sanitizePath(name);       
+        	removeLocalStorage(name);
+        	document.cookie = name + '=' +value +';path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';                     	
+        }
+
+        function setLocalStorage(name, value)
+        {
+        	if(typeof localStorage != "undefined")
+            {
+        		localStorage.setItem(name, value);
+            }
+        }
+
+        function removeLocalStorage(name)
+        {
+           	if(typeof localStorage != "undefined")
+            {
+           		localStorage.removeItem(name);
+            }                
+        }
+        
+        function refreshPageForTSChange(companyBaseId, portalBaseId)
+        {
+        	top.location.href = "/portal/?ecxportalid=" + portalBaseId + "&ecxcompanyid=" + companyBaseId;
+        	/*
+        	var hashIndex = top.location.href.indexOf("#");
+        	if(hashIndex != -1) {
+	        	top.location.href = top.location.href.substring(0, hashIndex);
+	        }
+	        else {
+	        	top.location.href = top.location.href;
+	        } */       	
+        }
+        
+        function refreshPageForCompanyChange(companyBaseId, companyShortName, portalBaseId)
+        {
+            var newServerName = getNewServerName(companyShortName);
+            
+            top.location.href = newServerName + "/portlet/?ecxcompanyid=" + companyBaseId + "&ecxportalid=" + portalBaseId;
+        }
+        
+        function getNewServerName(companyShortName)
+        {
+            var newServerName = "https" + "://";
+			if('true' == 'false') {
+            	
+            	newServerName += "board-prd.nam1.lbx.gm.com";
+            	newServerName += '';
+            	return newServerName;
+            }
+            if( 'true' == 'false' 
+                || 'true' == 'false' || 'false'== 'false')
+                newServerName += "board-prd.nam1.lbx.gm.com";
+            else
+                newServerName += companyShortName;
+            if('true' == 'false')
+            	newServerName += '.nam1.lbx.gm.com';
+            newServerName += '';
+            
+            return newServerName;
+        }
+        
+        function readCookie(name) {
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0;i < ca.length;i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1,c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			}
+			return null;
+		}
+		
+		function openDocForSilentPrint(versionUuid, documentName, annotateFlag)
+        {
+            document.viewContentFrm.versionUuid.value = versionUuid;
+            document.viewContentFrm.printAnnot.value = annotateFlag;
+            if(documentName == null || documentName == "")
+                documentName = versionUuid;
+                
+            //alert(versionUuid);
+                
+            if(documentName.indexOf(".") != -1)
+            {
+                documentName = documentName.substring(0, documentName.indexOf("."));
+            }
+            document.viewContentFrm.action = "/services/viewdocument/"+documentName;
+            document.viewContentFrm.ecxportalid.value = js_portalid;
+            document.viewContentFrm.ecxcompanyid.value + js_companyid;
+            //set the silent print option
+            document.viewContentFrm.sp.value="1";
+            
+            var width = screen.width;
+            var height = screen.height;
+            
+            posttonewwindow("viewContentFrm",width-150,height-150);
+            document.viewContentFrm.sp.value="0";
+        }
+        
+		function openDocInFullScreen(versionUuid, documentName)
+		{
+			var url="/portlet/contentviewer.jsp?uuid="+versionUuid + "&ecxportalid="+js_portalid+"&ecxcompanyid="+js_companyid;
+			var launch = window.open(url, "_blank","width="+ screen.width +",height="+ screen.height +",toolbar=0,location=no,left=40,top=45,status=0,menubar=0,personalbar=no,scrollbars=1,resizable=0");
+			this.documentNameFullScreen= documentName;
+			this.launchFullScreen= launch;
+            if(launch == null)
+            	alert("A new window cannot be opened. Please check your browser's pop-up blocker settings.");
+        	// alert("Cannot open new window, possibly due to pop-up blocker settings."); 
+                
+            launch.name="DVantage";
+            window.setTimeout("setDocTitleForFullScreen()", 3000);
+		}        
+		
+		function openDocForVersionTracker(versionUuid, documentName)
+		{
+			//alert("openDocForVersionTracker dv.jsp");
+			var url="/portlet/contentviewer.jsp?versiontracker=1&uuid="+versionUuid + "&ecxportalid="+js_portalid+"&ecxcompanyid="+js_companyid;
+			var launch = window.open(url, "_blank","width="+ screen.width +",height="+ screen.height +",toolbar=0,location=no,left=40,top=45,status=0,menubar=0,personalbar=no,scrollbars=1,resizable=0");
+			this.documentNameFullScreen= documentName;
+			this.launchFullScreen= launch;
+            if(launch == null)
+            	alert("A new window cannot be opened. Please check your browser's pop-up blocker settings.");
+        	// alert("Cannot open new window, possibly due to pop-up blocker settings."); 
+               
+            launch.name="DVantage";
+            window.setTimeout("setDocTitleForFullScreen()", 3000);
+		}
+		
+		function setDocTitleForFullScreen()
+		{
+			this.launchFullScreen.document.title=this.documentNameFullScreen;
+		}
+		
+		
+	    // JavaInit applet calls this.
+	    function javaIsReady()
+	    {
+	        var swfApplication = top.document.getElementById("DVantage");
+	        {
+	            if ( swfApplication != null )
+	            {
+	                swfApplication.javaIsReady();
+	            }
+	        }
+	    }
+	    
+        function desktopSharingStoppedByApplet()
+        {
+            var swfApplication = document.getElementById("DVantage");
+            if ( swfApplication != null )
+            {
+                swfApplication.desktopSharingStoppedByApplet();
+            }
+        }
+        
+        function preemptLogout()
+        {
+	        if( focusflag == false)
+	    	{
+		    	window.onBlur = self.focus();
+		    	window.onFocus = self.blur();
+		    	window.blur();
+			}
+        }
+	    
+	    function getJNLP()
+	    {
+		    var protocol=top.location.protocol;
+		    var host=top.location.hostname;
+		    var port=top.location.port;
+		    var urlstart=protocol + "//" + host + ":" + port;
+	    
+		    var content= "<form name='getjnlpfrm' action='" + urlstart + "/services/jnlpservlet' method='post'>";
+		    content +=   "    <input type='hidden' name='company-short-name' value='"+js_companyshortname+"'/>";
+		    content +=   "    <input type='hidden' name='install-directory' value='"+js_installdirectory+"'/>";
+		    content +=   "    <input type='hidden' name='default-short-name' value='"+js_defaultsn+"'/>";
+		    content +=   "</form>";
+
+	        var jnlpFrame=document.getElementById("jnlpFrame");
+	        if( false )
+	        {
+	        	jnlpFrame.contentWindow.document.body.innerHTML=content;
+	        	jnlpFrame.contentWindow.document.forms["getjnlpfrm"].submit();
+	        }
+	        else
+	        {
+	        	jnlpFrame.contentDocument.body.innerHTML=content;
+	        	jnlpFrame.contentDocument.getjnlpfrm.submit();
+	        }
+
+	    }
+		
+		function getOutlookAddIn()
+	    {
+		    var protocol=top.location.protocol;
+		    var host=top.location.hostname;
+		    var port=top.location.port;
+		    var urlstart=protocol + "//" + host + ":" + port;
+	    
+		    var content= "<form name='getoutlookfrm' action='" + urlstart + "/services/outlookinstallservlet' method='post'>";
+		    content +=   "    <input type='hidden' name='msitype' value='outlookaddin'/>";
+		    content +=   "</form>";
+
+	        var jnlpFrame=document.getElementById("jnlpFrame");
+	        if( false )
+	        {
+	        	jnlpFrame.contentWindow.document.body.innerHTML=content;
+	        	jnlpFrame.contentWindow.document.forms["getoutlookfrm"].submit();
+	        }
+	        else
+	        {
+	        	jnlpFrame.contentDocument.body.innerHTML=content;
+	        	jnlpFrame.contentDocument.getoutlookfrm.submit();
+	        }
+	    }
+				
+	    
+	    function ecxLink()
+	    {
+		    var protocol=top.location.protocol;
+		    var host=top.location.hostname;
+		    var port=top.location.port;
+		    var urlstart=protocol + "//" + host + ":" + port;
+	    
+		    var content= "<form name='getoutlookfrm' action='" + urlstart + "/services/outlookinstallservlet' method='post'>";
+		    content +=   "    <input type='hidden' name='msitype' value='ecxLink'/>";
+		    content +=   "</form>";
+
+	        var jnlpFrame=document.getElementById("jnlpFrame");
+	        if( false )
+	        {
+	        	jnlpFrame.contentWindow.document.body.innerHTML=content;
+	        	jnlpFrame.contentWindow.document.forms["getoutlookfrm"].submit();
+	        }
+	        else
+	        {
+	        	jnlpFrame.contentDocument.body.innerHTML=content;
+	        	jnlpFrame.contentDocument.getoutlookfrm.submit();
+	        }
+	    }
+	    
+	    function nativeEditLinkPlugin()
+	    {
+	    	//alert("Native Edit");
+		    var protocol=top.location.protocol;
+		    var host=top.location.hostname;
+		    var port=top.location.port;
+		    var urlstart=protocol + "//" + host + ":" + port;
+		    
+		    var content = "<form name='frmWebEditNative' action='" + urlstart + "/services/webEdit.webedit' method='post'>";
+		    content +=   "	<input type='hidden' name='userAgent' value='"+navigator.userAgent+"'/>";
+		    content +=   "</form>";
+
+		    //alert(content);
+	        var jnlpFrame = document.getElementById("jnlpFrame");
+	        if( false ) {
+	        	jnlpFrame.contentWindow.document.body.innerHTML = content;
+	        	jnlpFrame.contentWindow.document.forms["frmWebEditNative"].submit();
+	        } else {
+	        	jnlpFrame.contentDocument.body.innerHTML = content;
+	        	jnlpFrame.contentDocument.frmWebEditNative.submit();
+	        }
+	    }
+	    
+	    function agendaView(objectBaseUuid, documentName, parentFolderID,editBtnVisibility)
+        {
+            document.viewContentFrm.versionUuid.value = objectBaseUuid;
+            if(documentName == null || documentName == "")
+                documentName = objectBaseUuid;
+                
+            var width = screen.availWidth;
+            var height = screen.availHeight;
+            width = width - 100;
+            height = height - 100;
+            
+            var agendaViewUrl = "/portlet/agendaView.jsp?ecxportalid="+js_portalid+"&ecxcompanyid="+js_companyid+"&sp=0";
+            var url = agendaViewUrl + "&objectBaseUuid=" + objectBaseUuid + "&parentFolderID=" + parentFolderID + "&editBtnVisibility=" + editBtnVisibility;
+            var launch = window.open(url,"_blank","width="+ width +",height="+ height +",toolbar=0,location=0,left=40,top=45,status=0,menubar=0,personalbar=no,scrollbars=1,resizable=1");
+            if(launch == null)
+            	alert("A new window cannot be opened. Please check your browser's pop-up blocker settings.");
+        	// alert("Cannot open new window, possibly due to pop-up blocker settings."); 
+        }
+        
+        function refreshFolderView()
+        {
+        	var swfApplication = document.getElementById("DVantage");
+            if (swfApplication != null )
+            {
+                swfApplication.refreshFolderView();
+            }
+        }
+	    
+	    function editNativeFunction()
+	    {
+			window.close();
+		}
+		
+		function editAgenda(objectBaseUuid, parentFolderID,mainColor)
+		{
+			
+			document.agendaFrm.objectBaseUuid.value = objectBaseUuid;
+			document.agendaFrm.parentFolderID.value = parentFolderID;
+			document.agendaFrm.ecxportalid.value = js_portalid;
+			document.agendaFrm.ecxcompanyid.value = js_companyid;
+			document.agendaFrm.mainColor.value = mainColor;
+			var width = screen.width;
+            var height = screen.height;
+            
+            posttonewwindow("agendaFrm",width-50,height-50);
+		}
+        
+        function paratureSupport(url, windowName, dynamicHtml)
+		{
+			if(false)
+				windowName = "Support";
+			var win  = null;
+			var win = window.open(url, windowName);
+			win.document.write(dynamicHtml);
+			win.document.close();
+			win.focus();
+			return win;
+		}
+        
+        function editDocInNative(docBaseId, token, fileName)
+        {
+            var ed; 
+            try 
+            {
+                //Office 2003
+                ed = new ActiveXObject('SharePoint.OpenDocuments.2');
+            } 
+            catch (err1) 
+            {
+                try 
+                {
+                    //Office 2000/XP
+                    ed = new ActiveXObject('SharePoint.OpenDocuments.1');
+                } 
+                catch (err2) 
+                {                
+                    try 
+                    {
+                        //Office 2007
+                        ed = new ActiveXObject('SharePoint.OpenDocuments.3');
+                    } 
+                    catch (err3) 
+                    {  
+                        try 
+                        {
+                            ed = createNPApiOnWindowsPlugin("application/x-sharepoint");
+                        } 
+                        catch (err6) 
+                        { 
+                            window.alert('Unable to create an ActiveX object to open the document. This is most likely because of the security settings for your browser.');
+                            return false;
+                        }
+                    }
+                }
+            }
+             
+            if(ed)
+            {
+                var docId = docBaseId.substring(docBaseId.indexOf(':')+1) + fileName.substring(fileName.lastIndexOf('.'));
+                var host = window.location.host;
+                host = "link" + host.substring(host.indexOf("."));
+                var url = window.location.protocol + '//' + host +'/services/webdavedit/'+token+'/'+docId;
+                ed.EditDocument(url);
+            }
+        }
+        
+        function createNPApiOnWindowsPlugin(b) {
+            var c = null;
+            if (IsSupportedNPApiBrowserOnWin())
+                try {
+                    c = document.getElementById(b);
+                    if (!Boolean(c) && IsNPAPIOnWinPluginInstalled(b)) {
+                        var a = document.createElement("object");
+                        a.id = b;
+                        a.type = b;
+                        a.width = "0";
+                        a.height = "0";
+                        a.style.setProperty("visibility", "hidden", "");
+                        document.body.appendChild(a);
+                        c = document.getElementById(b)
+                    }
+                } catch (d) {
+                    c = null;
+                }
+            return c;
+        }
+        
+        function IsSupportedNPApiBrowserOnWin() {
+            return true; // SharePoint does this: IsSupportedChromeOnWin() || IsSupportedFirefoxOnWin()
+        }
+        
+        function IsNPAPIOnWinPluginInstalled(a) {
+            return Boolean(navigator.mimeTypes) && navigator.mimeTypes[a] && navigator.mimeTypes[a].enabledPlugin
+        }
+        
+        function pdfViewer(pdfDetails)
+        {
+        	var pdfIncompleteUrl = window.location.protocol + "//" + window.location.host +
+			"/services/ipad?servicename=IPadRemoteService&methodname=getPageAsPdf&versionUuid=" + pdfDetails.versionUuid;
+    		
+    		var pdfFullUrl = "";
+			if (pdfDetails.extensionType == 'pdf'){
+				pdfFullUrl = pdfIncompleteUrl + "&pageNum=-1";
+			}
+			else{
+				pdfFullUrl = pdfIncompleteUrl + "&pageNum=-2";
+			}
+			pdfDetails.pdfIncompleteUrl = pdfIncompleteUrl;
+			pdfDetails.pdfFullUrl = pdfFullUrl;
+			sessionStorage.setItem("repositoryPdfDetails", JSON.stringify(pdfDetails));
+			
+			getPdfDetails();
+        }
+        
+        function getPdfDetails() 
+        {
+        	var pdfDetails = JSON.parse(sessionStorage.getItem("repositoryPdfDetails"));
+        	var versionUuid = null;
+        	if (pdfDetails != null && pdfDetails.versionUuid != null) 
+        	{//if pdfDetails is not null ,then send the version id to get pdf details
+	        	 objectBaseUuid = pdfDetails.objectBaseUuid;
+	        	 var servmethod = "servicename=IPadRemoteService&methodname=getFoldersAndDocumentsUsingHashSeparatedUuidsJSON";
+	        	 var params = "&hashSeparatedUuids=" + objectBaseUuid + "&documentsWithCollateInfo=true";
+	        	 postServiceDataJSON(servmethod + params, getPdfDetailsSuccess, null);
+        	}
+        }
+        
+        var docviewerwindow;
+        function getPdfDetailsSuccess(json)
+        {
+        	var pdfDetails = JSON.parse(sessionStorage.getItem("repositoryPdfDetails"));
+        	var objectBaseUuid = null;
+        	if (pdfDetails != null && pdfDetails.objectBaseUuid != null) {
+        		objectBaseUuid = pdfDetails.objectBaseUuid;
+        	}
+    			
+        	pdfDetails.pageInfos = json[0].pageInfosMetadataBO;
+        	pdfDetails.numPages = json[0].pageInfosMetadataBO.pageCount;
+
+       		pdfDetails.filePermission = "Can Edit";
+       		/* if (json[0].isEditable == "true" || json[0].isEditable == true) {
+       			pdfDetails.filePermission = "Can Edit";
+       		} else {
+       			pdfDetails.filePermission = "Cannot Edit";
+       		} */
+       		sessionStorage.setItem("repositoryPdfDetails", JSON.stringify(pdfDetails));
+       		
+       		window.open("/services/viewer.jsp", "_blank", 'width=1056, height=750, menubar=no');
+        }
+        
+        function postServiceDataJSON(postData, successCallback, failureCallback)
+        {
+        	var serviceUrl = "/services/ipad";
+        	$.ajax({
+        	       type: "POST", //GET or POST or PUT or DELETE verb
+        	       url: serviceUrl, // Location of the service
+        	       data: postData, //Data sent to server
+
+        	       dataType: "json", //Expected data format from server
+        	       processdata: true, //True or False
+
+        	       success: function (json)
+        	       {//On Successful service call
+        	           if(successCallback)
+        	           		successCallback(json);
+        	       },
+
+        	       error: function(json)
+        	       	{
+        	       		if (!loggedOff){
+        		       		if (sendHeartbeat()){
+        		       			if(failureCallback)
+        		       				failureCallback(json);
+        		       			else{
+        		       				var statusText =json.statusText;
+        		       				if(json.status==200 || statusText=="OK")
+        		       					return;
+        		       				if(statusText.toLowerCase().indexOf("no valid session")!=-1){
+        		       					var url=getloginPageUrl();
+        			       				sessionStorage.clear();//clear session
+        								window.sessionStorage.clear();
+        								sessionStorage.setItem("kickedOut","kickedOut");
+        								document.location.href = url;
+        							    return false;
+        			       			}
+        			       			
+        		       				alert("Error: "+statusText);
+        		       			}
+        		       		}
+        	       		}
+        	       	}// When Service call fails
+        	});
+        }
+      //Get icons
+        function getIconUrl (extensionType) {
+        	var defaultIconUrl = "images/userlandingicons/BVLiveryDocumentIconDefault.png";
+
+        	var iconUrl = userLandingIconUrls[extensionType];
+        	if (!iconUrl)
+        		iconUrl = defaultIconUrl;
+        	
+        	return iconUrl;
+        }
+      
+        var intervalFunc = function()
+		{
+			var linkVal = $('#linkWindowDocUrl').val();
+			if(linkVal != null && linkVal != "")
+			{
+				$('#linkWindowDocUrl').val("");
+				var swfApplication = document.getElementById("DVantage");
+		        if(swfApplication != null)
+	            {
+		        	swfApplication.openLinkDocument(linkVal);
+		        	swfApplication.focus();
+	            }
+			}
+		};
+		
+		var intervalId = setInterval(intervalFunc, 1000);
+		
+		function openCompanyReportForPrint(documentName)
+        {
+            if(documentName == null || documentName == "")
+                documentName = versionUuid;
+                
+            if(documentName.indexOf(".") != -1)
+            {
+                documentName = documentName.substring(0, documentName.indexOf("."));
+            }
+            document.viewContentFrm.action = "/services/viewdocument/"+documentName;
+            document.viewContentFrm.ecxportalid.value = js_portalid;
+            document.viewContentFrm.ecxcompanyid.value = js_companyid;
+            //set the silent print option
+            document.viewContentFrm.sp.value="2";
+            
+            var width = screen.width;
+            var height = screen.height;
+            
+            posttonewwindow("viewContentFrm",width-150,height-150);
+            document.viewContentFrm.sp.value="0";
+        }
+ </script>
+<input type="hidden" id="linkWindowDocUrl" value=""/>
+<div id="flexHtmlDiv" style="position:absolute;background-color:transparent;border:0px;visibility:hidden;"></div>
+<div id="confAppletDiv">
+	
+</div>
+
+<form name="fullscreenfrm" action="/services/contentviewer" method="POST">
+</form>
+<form name="linkFrm" id="linkFrm" target="_blank"  method="post">
+	<input type="hidden" id="link" name="link" value=""/>	
+	<input type="hidden" id="linkname" name="linkname" value=""/>
+	<input type="hidden" id="doclist" name="doclist" value=""/>
+</form>
+
+<form name="agendaFrm" id="agendaFrm" target="_blank" action="/portlet/agendaEditFrame.jsp" method="post">
+	<input type="hidden" name="ecxportalid" />
+	<input type="hidden" name="ecxcompanyid" />
+	<input type="hidden" name="objectBaseUuid" />
+	<input type="hidden" name="parentFolderID" />
+	<input type="hidden" name="mainColor" />
+	<input type="hidden" name="sp" value="0"/>
+</form>
+
+<iframe id="jnlpFrame" name="jnlpFrame" height="0" width="0">
+</iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="javascript">
+    
+    function viewPermalink()
+    {
+        if("" != "")
+        {
+            if("" != "")
+                viewContent("", "" );
+            else
+                viewContent("" );
+        }
+    }
+    
+    function getPermalinkTargetVersionUuid()
+    {
+        return "";
+    }
+    
+    function getPermalinkId()
+    {
+        return "";
+    }
+    
+    // If a permalink was passed in, show the document.
+    // Depends on setup in "Detect permalinks" section at top of page.
+    //viewPermalink();
+        
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="javascript">
+
+    function getResourceRequestTargetVersionUuid()
+    {
+        return "";
+    }
+    
+    function getResourceId()
+    {
+        return "";
+    }
+        
+</script>
+
+
+
+<script language="JavaScript">
+
+var oldTitle=document.title;
+var nonbreaking="";
+for( var i=0;i < 1000;i++)
+    nonbreaking += "\u00a0"; // These are non-breaking spaces. Regular spaces get collapsed in the browser titlebar,
+                             // which is where this message is going to appear.
+var timeoutId;
+var focusflag = true;
+var blinkStarted = false;
+
+/* Flex should call this function via ExternalInterface. */
+/* It is a no-op if the window already has focus.       */
+function flashBrowserIfNotInFocus(msg)
+{
+    if( focusflag == false && blinkStarted == false )
+    {
+        timeoutId=setInterval( function() { document.title=document.title == msg + nonbreaking ? nonbreaking : msg + nonbreaking;}, 1000);
+        blinkStarted=true;
+        
+        if( false )
+	    {
+	    	document.onfocusout = self.focus();
+			window.onFocus = self.blur();
+			window.blur();
+	    }
+	    else
+	    {
+	    	alert("You have a new chat message...");
+	    }
+    }
+    
+}
+
+/* The other functions shouldn't be called from Flex; they're just used by notifiction.jsp (this file). */
+
+function stopFlashing()
+{
+    clearInterval(timeoutId);
+    blinkStarted=false;
+    document.title=oldTitle;
+    window.onBlur = "";
+    window.onFocus = "";
+}
+
+var focusfn = function()
+{
+    stopFlashing();
+    focusflag = true;
+}
+
+var blurfn=function()
+{
+	focusflag = false;
+}
+
+setTimeout( 'setupBlurAndFocusHandlers()', 5000);
+function setupBlurAndFocusHandlers()
+{
+	if( false )
+	    document.onfocusout = blurfn;
+	else
+	    window.onblur = function() { blurfn(); }
+	
+	window.onfocus = function() { focusfn(); }
+}
+
+</script>
+
+<div id="viewerDialog" style="display:none;" >
+    <iframe id="viewerIframe" src=""  style="width: 1082px;"></iframe> 
+</div>
+
+</body>
+</html>

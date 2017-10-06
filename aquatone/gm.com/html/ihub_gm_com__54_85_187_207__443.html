@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+
+
+
+
+
+
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.5" /> 
+
+<title>General Motors</title>
+
+
+
+<link href="/gmgameosso/css/gmid/gmid.layout.css" type="text/css" rel="stylesheet" media="all" />
+
+<script language="JavaScript" src="/gmgameosso/js/browserVersion.js"></script>
+<script language="JavaScript" src="/gmgameosso/js/auth.js"></script>
+
+<script language="JavaScript">
+
+
+    var defaultBtn = 'Submit';
+    var elmCount = 0;
+
+    /** submit form with default command button */
+    function defaultSubmit() {
+        LoginSubmit(defaultBtn);
+    }
+
+    /**
+     * submit form with given button value
+     *
+     * @param value of button
+     */
+    function LoginSubmit(value) {
+        aggSubmit();
+        var hiddenFrm = document.forms['Login'];
+
+        if (hiddenFrm != null) {
+            hiddenFrm.elements['IDButton'].value = value;
+            if (this.submitted) {
+                alert("The request is currently being processed");
+            }
+            else {
+                this.submitted = true;
+        		setTimeout(function(){document.getElementById('processing').style.display = 'block'},300);
+                hiddenFrm.submit();
+            }
+        }
+    }
+
+</script>
+<script type="text/javascript"><!--// Empty script so IE5.0 Windows will draw table and button borders
+//-->
+</script>
+
+</head>
+
+<body onload="placeCursorOnFirstElm();">
+
+	<div class="overlay" id="processing">
+		<img src="/gmgameosso/images/gmid/processing.gif" class="processing" alt="Processing" />
+	</div><!--/processing -->
+
+	<div class="body_wrap_login">
+
+		<div class="main_wrap_login">
+
+			<div class="login_title">
+				<img src="/gmgameosso/images/gmid/gm_logo.png" alt="General Motors" class="logo" align="absmiddle" />
+				<h1>
+					General Motors
+				</h1>
+				<div class="clear"></div>
+				<!--/clear-->
+			</div>
+
+			<div class="content_wrap">
+
+				<div class="inner_contain">
+
+					<table cellpadding="2" cellspacing="1" border="0" align="center">
+						<tr>
+							<form name="frm1" action="blank" onSubmit="defaultSubmit(); return false;" method="post">
+								<Td align="right"><strong>GMID:</strong></Td>
+								<td><input type="text" maxlength="20" class="login_input" /></td>
+							</form>
+						</tr>
+
+						<tr>
+							<form name="frm2" action="blank" onSubmit="defaultSubmit(); return false;" method="post">
+								<Td align="right"><strong>Password:</strong></Td>
+								<td><input type="password" maxlength="20"
+									class="login_input" /></td>
+							</form>
+						</tr>
+
+						<tr>
+							<td colspan="2" align="center"><input type="button"	value="Login" class="submit" onclick="javascript:LoginSubmit('Login')" /></td>
+						</tr>
+					</table>
+
+				</div>
+				<!--/inner_contain-->
+
+				<div class="clear"></div>
+				<!--/clear-->
+
+				<p class="terms_box">
+					By clicking "Login", you agree to General Motors Acceptable Use Policy.  For more information visit the 
+					<A href="https://gmid.gm.com/gmidStatic/policy_center/index.html">Policy Center</A>
+					.
+				</p>
+				<p class="help_link">
+					<a href="http://gmid.gm.com">Password Management & Support</a>
+				</p>
+
+				<div class="clear"></div>
+				<!--/clear-->
+
+			</div>
+			<!--/content_wrap-->
+
+		</div>
+		<!--/main_wrap-->
+
+		<div class="login_links">
+			<ul>
+				<li class="header">Non-GM Login</li>
+				<li><a href="https://gmsupplypower.covisint.com">SupplyPower</a></li>
+				<li><a href="https://fedhub.covisint.com/fed/app/idp.saml20?entityID=https://game-osso-vip.iw.gm.com:443/gmgameosso-SP2&TARGET=https://businessconnect.gm.com/sites/alliancepower">AlliancePower</a></li>
+			</ul>
+
+			<div class="clear"></div>
+			<!--/clear-->
+		</div>
+		<!--/login-links-->
+
+		<div class="footer">
+			<p>&copy; General Motors</p>
+
+			<div class="clear"></div>
+			<!--/clear-->
+		</div>
+		<!--/footer-->
+
+	</div>
+	<!--/body_wrap-->
+
+		
+			<form   name="Login"  action="/gmgameosso/UI/Login?AMAuthCookieGAMEp=AQIC5wM2LY4SfcziqskOhcyakp%2BMAp%2FcBtSEmOf66Pvj2jM%3D%40AAJTSQACMDIAAlMxAAIwNg%3D%3D%23"  method="post">
+				<script> elmCount = 3; </script>
+				<input name="IDToken0" type="hidden">
+				<input name="IDToken1" type="hidden">
+				<input name="IDToken2" type="hidden">
+				<input name="IDButton" type="hidden">
+
+				<input type="hidden" name="goto" value="aHR0cHM6Ly9nYW1lLW9zc28tdmlwLml3LmdtLmNvbTo0NDMvZ21nYW1lb3Nzby9TU09SZWRpcmVjdC9tZXRhQWxpYXMvZ20vZ2FtZS9pZHA/U0FNTFJlcXVlc3Q9aFpMQlV0c3dFSVpmeGFPZVpTbkdwS0NKdzdoTjQ0WWhKSU5kQnJnSlc3RTF0U1ZYSzhla1QxODVJUXc5RUs2NzM3JTJCNyUyRiUyQjVPcmw2YTJ0c0tBMUtyQ0kxOGlqeWhjbDFJVlVib1Z6YkhGOGdEeTFYQmE2MUVoSFlDME5WMEFyeXBXeFozdGxKMzRrOG53SHF1a0FKV2dIVEN5dHFXRWRMM3ZkJTJCZiUyQmRxVUpLQ1VFbnBKSERVZ1g5QXI3NXA5Z0k4SURRZmNFVyUyRjAwRFpDblZGTWM1REFGRzhFTUp1ek5GN2VzTUNuakFNSVk1Mlo5NUwydEtZMTJ1cGMxMGZKeXptbG55bzJzblpCYnEyUno1MFY3TUdKM2dxQSUyRk5EVXclMkZJbXpTdlJjQ3pWc05oY0lHJTJGOU9zQTNxUTZMUDlYNyUyQlFBQiUyQjVsbGE3eGVwUm55RnJNSXlRSW55eXJwZ3Q4U3EwQW0zWSUyRk40emk1WHNXYiUyQnhCRFVkTFolMkZMRyUyRnZmNWJWR1BrM1I4dkhnd1hYd0IwWXJFZng3b1FIWDNGSTRycE9Cc0ZqSWJzJTJGT0lKZVROM1k2bTQzYXNHYiUyQkRNbFc0NnJBRTAzc3JXbDcxZk5uNnVHeGFHWjZSc2h1eVFKR202dWhPRk5DSzNwQkdXeDdYazRJQzluc2lpUlllUFl2dEJqRGZYcHVIMjlCcUdpTE84MmFQdWpheTBPelJOdGdGZXpOeGFqQzY2ZkJoMlF0NVZQajd1clJNN1ROY3kzM2x4WGV2JTJCdXhIY3V2JTJCMnBoT0lUQSUyQnElMkZ6OTglMkJnOCUzRCZSZWxheVN0YXRlPWlkLWczTVR3SXhBSlFQN2h5bVlhZ1pLZEJhWjhCeVJnZkk3dUpJcTc3LU0mU2lnQWxnPWh0dHAlM0ElMkYlMkZ3d3cudzMub3JnJTJGMjAwMCUyRjA5JTJGeG1sZHNpZyUyM3JzYS1zaGExJlNpZ25hdHVyZT1iRmJId21LRmh4NktKa3NVSXpudHYlMkZCYTRFd2VPWW12N09KM3FRRHNwSFpRWmlyUmkwbUUlMkZ5MEd4MGQzZzlnbjRlbHBXTWlGTkV0SWZnRG9OWjB6WVNRTHBIaE1HankzTE52VDBaU0h6MktIUHBRMlZHWnZHSXRRNnM5cGVkTFJGcU1GJTJCV29BSEtJaHRuQm16ckR2NkZ5bDMyQWtvQVpOTVpJNFlCZlNTYVElM0Q=">
+				<input type="hidden" name="gotoOnFail" value="">
+				<input type="hidden" name="SunQueryParamsString" value="QU1BdXRoQ29va2llR0FNRXA9QVFJQzV3TTJMWTRTZmN6aXFza09oY3lha3ArTUFwL2NCdFNFbU9mNjZQdmoyak09QEFBSlRTUUFDTURJQUFsTXhBQUl3Tmc9PSMmcmVhbG09L2dtL2dhbWUmc2VydmljZT1nbWlkU2VydmljZSY=">
+				<input type="hidden" name="encoded" value="true">
+				<input type="hidden" name="dateStr" value="1507291499860">
+				<input type="hidden" name="pageTimeOut" value="300">
+			<input type="hidden" name="gx_charset" value="UTF-8"></form>
+		
+</body>
+
+
+
+</html>

@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html style="height:100%;width:100%;">
+<head>
+<meta http-equiv='X-UA-Compatible' content='IE=8'/>
+<title></title>
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=500,user-scalable=no" />
+<script>
+if(self != top) top.location.href="/+CSCOE+/logon.html";
+
+
+
+var blinkCounter=0;
+var dap;
+
+function scrollToLogonForm() {
+    document.location.hash = "form_title_text";
+}
+
+function dap_message(){
+
+      if(!dap) return;
+      
+      if(dap.style.visibility == "visible"){
+         dap.style.visibility = "hidden"
+      }else{
+         dap.style.visibility = "visible"
+      }
+      blinkCounter++;
+      if(dap.style.visibility == "visible" && blinkCounter > 5)
+	      clearInterval(dap_interval)
+} 
+
+function blinkDapMessage(){
+        dap=document.getElementById("dap");
+        if(dap){
+           dap_interval = setInterval('dap_message()',1000)
+        }
+}
+
+function showDapMessage(){
+        obj=document.getElementById("dap_message");
+        if(obj){
+           obj.style.visibility = "visible"
+           obj.style.top = (document.body.clientHeight - obj.clientHeight)/2+"px"
+           obj.style.left = (document.body.clientWidth - obj.clientWidth)/2+"px"
+        }
+
+        obj1=document.getElementById("dap_message_shield");
+        if(obj1){
+           obj1.style.visibility = "visible"
+           obj1.style.top = (document.body.clientHeight - obj.clientHeight)/2+"px"
+           obj1.style.left = (document.body.clientWidth - obj.clientWidth)/2+"px"
+           obj1.style.height = obj.clientHeight+"px"
+           obj1.style.width = obj.clientWidth+"px"
+        }
+} 
+
+function hideDapMessage(){
+        obj=document.getElementById("dap_message");
+        if(obj){
+           obj.style.visibility = "hidden"
+        }
+
+        obj1=document.getElementById("dap_message_shield");
+        if(obj1){
+           obj1.style.visibility = "hidden"
+        }
+} 
+
+
+
+
+
+
+
+
+
+function base64_encode(data) {
+  var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  var o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+    ac = 0,
+    enc = '', 
+    tmp_arr = []; 
+  if (!data) {
+    return data;
+  }
+  do {
+    // pack three octets into four hexets
+    o1 = data.charCodeAt(i++);
+    o2 = data.charCodeAt(i++);
+    o3 = data.charCodeAt(i++);
+    bits = o1 << 16 | o2 << 8 | o3; 
+    h1 = bits >> 18 & 0x3f;
+    h2 = bits >> 12 & 0x3f;
+    h3 = bits >> 6 & 0x3f;
+    h4 = bits & 0x3f;
+    // use hexets to index into b64, and append result to encoded string
+    tmp_arr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+  } while (i < data.length);
+  enc = tmp_arr.join('');
+  var r = data.length % 3;
+  return (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3); 
+}
+function updateLogonForm(group,reload){
+
+    if(reload[group]){
+    	var obj=document.getElementById("login");
+    	if(obj) {
+           obj.disabled=true
+        }
+         
+        document.cookie = "tg=1" + base64_encode(group) + "; path=/; secure";
+    	document.location = "/+CSCOE+/logon.html";
+        return
+    }
+}
+function PrefillError() {
+      var obj = document.getElementById("logon_message_text");
+      if (obj) {
+         obj.innerHTML="Your certificate is invalid for the selected group";
+         obj.style.fontWeight="bold";
+         obj.style.color="red";
+      }
+      obj = document.getElementById("Login");
+      if (obj) {
+         obj.disabled=true;
+      }
+}
+</script>
+
+
+<link href="/+CSCOU+/portal.css" rel="stylesheet" type="text/css">
+<link href="/+CSCOE+/logon_custom.css" rel="stylesheet" type="text/css">
+<style>
+     .auth-page-title {color:#ffffff;background-color:#2b76ad;}
+.auth-page-form-title {}
+
+</style>
+
+<script src="/+CSCOE+/win.js"></script>
+<script>
+function CSCO_Format(fmt) {
+var i;
+	for(i=1; i < arguments.length; i++) {
+		var r = new RegExp("\\%("+i+"\\$)?.", "i");
+		fmt=fmt.replace(r, arguments[i])
+	}
+	return fmt;
+}
+document.cookie="webvpnlogin=1; path=/; secure";
+function disableButton(){
+        try{
+                obj=document.getElementById("submit_button");
+                if(obj){
+                        obj.disabled=true;
+                }
+        }
+        catch (e) {
+
+        }
+
+}
+</script>
+
+
+</head>
+
+
+<body style="background-color:#ffffff; overflow:auto;height:100%; width:100%; " onload="scrollToLogonForm();blinkDapMessage();">
+<table style="width:100%; height: 100%" cellSpacing="0" cellPadding="0" >
+<tr><td vAlign="top">
+<table style="width:100%;"  cellspacing=0 cellpadding=0>
+
+<tr style="height:40px">
+<td align="right" colspan="2">
+
+</td>
+</tr>
+<tr align="center">
+
+<td id=form_panel align=middle>
+<div id=keepout_margin  style="MARGIN-TOP: 100px; MARGIN-LEFT: 30px; MARGIN-RIGHT: 30px;padding:3em;">
+<table style="border: 1px solid #aaaaaa; height:200px; width: 300px;">
+<tr>
+<td align=middle id=keepout>
+      Unavailable
+</tr>
+</table>
+</div>
+</td>
+
+</tr>
+</table>
+</td></tr>
+
+</table>
+
+<iframe style="top:0px;left:0px;position:absolute; visibility:hidden; width: 500px;" id=dap_message_shield src="/+CSCOE+/blank.html"></iframe>
+<div style="top:0px;left:0px;position:absolute; visibility:hidden; width: 500px; background-color: #ffffff; border: 1px solid #000000" id=dap_message>
+<table cellspacing=0 >
+<tr>
+<td height=40 style="margin:10px; background-color: #dbdbdb;">
+<div style="margin:10px;">
+<br>Your system administrator provided the following information to help understand and remedy the security conditions: 
+</div>
+</td>
+</tr>
+<tr>
+<td height=40>
+<div style="margin:10px">
+
+</div>
+</td>
+</tr>
+<tr>
+<td align=right height=40 style="border-top: 1px dotted #aaaaaa;">
+<a href="javascript:hideDapMessage()">Close</a>&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</div>
+
+
+
+</body>
+</HTML>

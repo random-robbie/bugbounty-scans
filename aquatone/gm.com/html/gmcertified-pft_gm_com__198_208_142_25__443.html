@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <meta name="description" />
+        
+        <meta name="msvalidate.01" content="05E0452BB17B38D918F550A9FE7E652B" />
+        <meta name="google-site-verification" content="o1hTWI4T3UzfBsccSERtMxquh9POVliqg1WXXRHCOTc" />
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,700italic' rel='stylesheet' type='text/css'>
+
+        <link href="/Content/markets/za/jquery-ui.css" rel="stylesheet"/>
+<link href="/Content/bootstrap-overrides.css" rel="stylesheet"/>
+<link href="/Content/site.css" rel="stylesheet"/>
+<link href="/Content/markets/za/site.css" rel="stylesheet"/>
+
+        
+        
+        <script src="/Scripts/jquery-1.10.2.js"></script>
+<script src="/Scripts/markets/za/jquery-ui.js"></script>
+
+        <script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.additional-methods.js"></script>
+
+        <script src="/Scripts/picturefill.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+        <script src="/Scripts/site.js"></script>
+<script src="/Scripts/markets/za/site.js"></script>
+
+        <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+        
+    </head>
+<body>
+    <script src="/Scripts/omniture/dev/VisitorAPI.js"></script>
+<script src="/Scripts/omniture/dev/AppMeasurement.js"></script>
+<script src="/Scripts/omniture/tracking.js"></script>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid no-pad">
+            <noscript>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="browser-warning-message"><b><i>JavaScript is disabled.</i></b> Please enable JavaScript as it is required to use this site.</p>
+                    </div>
+                </div>
+            </noscript>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#TopMenu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" title="General Motors Certified Pre-Owned" href="/"></a>
+            </div>
+
+            <ul class="sm-navbar collapse" id="TopMenu">
+<li><a href="/used-vehicle-search" id="NavVehicleFormAdvSmall"><span class="gm-icon-search"></span>Vehicle Search<span class="chevron"></span></a></li>
+<li><a href="/dealer-locator"><span class="gm-icon-location"></span>Dealer Locator<span class="chevron"></span></a></li>
+<li><a href="/certified-benefits"><span class="gm-icon-check"></span>G2 Promises<span class="chevron"></span></a></li>
+<li><a href="/sell-your-car"><span class="gm-icon-auto"></span>Sell Your Car<span class="chevron"></span></a></li>
+
+            </ul>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="md-navbar navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="VehicleSearchMenu"><span class="gm-icon-search"></span> Vehicle Search <span class="caret"></span></a>
+    <div class="dropdown-menu vehicle-search" role="menu">
+        <span class="dropdowm-menu-close glyphicon glyphicon-remove"></span>
+        <div class="decorative hidden-xs"></div>
+<form action="/vehicle/list" class="cpo-validation options ui-front" id="NavVehicleFormOptions" method="post"><input name="__RequestVerificationToken" type="hidden" value="pHyZ_lznanF8pzk4rYqegxncJnm67kZR_dkphgghN19fk8U1uGyS5FGS0V3zfmBxEYHzCCYvk5GFEmwWhxxT1eBgDK01" />            <h4>Search for GM Vehicles <a href="/used-vehicle-search" id="NavVehicleFormAdv">Advanced Search</a></h4>
+
+<input class="jq-ac-city" data-msg-required="This field is required." id="NavVehicleLocation" name="SearchLocation" placeholder="City or Suburb (Required)" required="" type="text"></input>
+
+<select class="gm-multiselect makes" data-loading-message="Loading Makes" data-multiple-select-label="Makes Selected" data-placeholder="Search All Makes" data-source-field-name="Name" data-source-field-value="Id" id="NavSearchMake" multiple="multiple" name="Makes"><option value="1514">Chevrolet</option>
+<option value="1523">Isuzu</option>
+<option value="1664">Opel</option>
+<option value="0">Other</option>
+</select>
+
+<select class="gm-multiselect body-styles" data-loading-message="Loading Body Styles" data-multiple-select-label="Body Styles Selected" data-placeholder="Search All Body Styles" id="NavBodyStyles" multiple="multiple" name="BodyStyles"><option value="3">Bakkie</option><option value="1">Passenger</option><option value="2">SUV</option></select>            <input type="submit" value="Search" class="arrow-submit narrow-arrow short" />
+</form>        <div class="divider-holder">
+            <div class="divider-text">or</div>
+        </div>
+<form action="/vehicle/list" class="cpo-validation offers ui-front" id="NavVehicleFormOffers" method="post">            <h5>Search for Vehicles with Special Offers</h5>
+<input class="jq-ac-city" data-msg-required="This field is required." id="OffersCity" name="SearchLocation" placeholder="City or Suburb (Required)" required="" type="text"></input>            <input type="hidden" name="SpecialOffers" value="true"/>
+            <input type="submit" value="Search for Specials" class="arrow-submit narrow-arrow short" />
+</form>    </div>
+</li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="DealerLocatorMenu"><span class="gm-icon-location"></span> Dealer Locator <span class="caret"></span></a>
+    <div class="dropdown-menu dealer-locator" role="menu">
+        <span class="dropdowm-menu-close glyphicon glyphicon-remove"></span>
+        <div class="decorative hidden-xs"></div>
+<form action="/dealer/list" class="nav-dealer-form cpo-validation ui-front" id="NavDealerFormCity" method="post">            <h4>Find a G2 Certified Used Car Dealer near you</h4>
+            <h5>Search by City or Suburb</h5>
+<input class="jq-ac-city" data-msg-required="This field is required." id="OptionsCity" name="location" placeholder="City or Suburb (Required)" required="" type="text"></input>            <button class="arrow-submit narrow-arrow" type="submit">Search By City</button>
+            <input type="hidden" name="currentPage" value="1" />
+            <input type="hidden" name="pageSize" value="10" />
+            <input type="hidden" name="sortBy" value="distance" />
+            <input type="hidden" name="sortOrder" value="asc" />
+            <input type="hidden" name="proximity" value="160" />
+            <input type="hidden" name="proximityUnit" value="kilometers" />
+            <input type="hidden" name="SearchType" value="1" />
+</form>        <div class="divider-holder">
+            <div class="divider-text">or</div>
+        </div>
+<form action="/dealer/list" class="nav-dealer-form-name cpo-validation ui-front" id="NavDealerFormName" method="post">            <h5>Search by Dealer Name</h5>
+            <input type="text" name="DealerName" id="dealerName" placeholder="Dealer Name (Required)" required maxlength="100" class="dealer-name jq-ac-dealer" />
+            <button class="arrow-submit narrow-arrow" type="submit">Search By Dealer Name</button>
+            <input type="hidden" name="currentPage" value="1" />
+            <input type="hidden" name="pageSize" value="10" />
+            <input type="hidden" name="sortBy" value="dealerName" />
+            <input type="hidden" name="sortOrder" value="asc" />
+            <input type="hidden" name="SearchType" value="2" />
+</form>    </div>
+</li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="G2PromiseMenu"><span class="gm-icon-check"></span> G2 Promise <span class="caret"></span></a>
+    <div class="dropdown-menu certified-advantage" role="menu">
+        <span class="dropdowm-menu-close glyphicon glyphicon-remove"></span>
+        <h4>See how G2 Certified Used Cars benefits help you buy with confidence.</h4>
+        <div class="grid">
+
+            <div class="row">
+    <div class="col-xs-4">
+        <a href="/certified-benefits" class="ca-bucket-item">
+            <figure>
+                <img src="/Images/CertifiedAdvantage/sm/za/certified-overview.jpg" alt="Certified Overview" />
+                <span class="overlay"></span>
+                <figcaption>Certified Overview</figcaption>
+            </figure>
+        </a>
+    </div>
+    <div class="col-xs-4">
+        <a href="/certified-benefits/114-point-vehicle-check" class="ca-bucket-item">
+            <figure>
+                <img src="/Images/CertifiedAdvantage/sm/za/114-point-inspection.jpg" alt="114-Point Inspection" />
+                <span class="overlay"></span>
+                <figcaption>114-Point Inspection</figcaption>
+            </figure>
+        </a>
+    </div>
+    <div class="col-xs-4">
+        <a href="/certified-benefits/used-car-mileage-verification" class="ca-bucket-item">
+            <figure>
+                <img src="/Images/CertifiedAdvantage/sm/za/mileage-verification.jpg" alt="Mileage Verification" />
+                <span class="overlay"></span>
+                <figcaption>Mileage Verification</figcaption>
+            </figure>
+        </a>
+    </div>
+        </div>
+            <div class="row bottom-row">
+    <div class="col-xs-4">
+        <a href="/certified-benefits/extended-motor-warranty" class="ca-bucket-item">
+            <figure>
+                <img src="/Images/CertifiedAdvantage/sm/za/2-year-warranty.jpg" alt="2-Year Warranty" />
+                <span class="overlay"></span>
+                <figcaption>2-Year Warranty</figcaption>
+            </figure>
+        </a>
+    </div>
+    <div class="col-xs-4">
+        <a href="/certified-benefits/roadside-assist" class="ca-bucket-item">
+            <figure>
+                <img src="/Images/CertifiedAdvantage/sm/za/2-year-roadside-assistance.jpg" alt="24-Month Roadside Assistance" />
+                <span class="overlay"></span>
+                <figcaption>24-Month Roadside Assistance</figcaption>
+            </figure>
+        </a>
+    </div>
+    <div class="col-xs-4">
+        <a href="/certified-benefits/vehicle-history-report-g2" class="ca-bucket-item">
+            <figure>
+                <img src="/Images/CertifiedAdvantage/sm/za/full-service-history.jpg" alt="Full Service History" />
+                <span class="overlay"></span>
+                <figcaption>Full Service History</figcaption>
+            </figure>
+        </a>
+    </div>
+        </div>
+
+        </div>
+    </div>
+</li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="SellYourCarMenu"><span class="gm-icon-auto"></span> Sell Your Car <span class="caret"></span></a>
+    <div class="dropdown-menu sell-your-car" role="menu">
+        <span class="dropdowm-menu-close glyphicon glyphicon-remove"></span>
+        <div class="decorative hidden-xs"></div>
+<form action="/sell-your-car-form" class="cpo-validation" id="SellYourCarForm" method="post">                <h4>Selling your car? Simply complete the easy steps below to get started.<a href="/sell-your-car" id="NavSellYourCarFormAdv">Advanced Options</a></h4>
+                <div class="pseudo-fieldset ui-front">
+                    <input type="text" name="name" required placeholder="Name (Required)" data-msg-required="This field is required." />
+                    <input type="text" name="surname" required placeholder="Surname (Required)" data-msg-required="This field is required." />
+                    <input type="text" name="email" required placeholder="Email (Required)" data-msg-required="This field is required." />
+                    <input type="text" name="phone" required placeholder="Mobile (Required)" data-msg-required="This field is required." data-rule-digits="true" />
+
+<select class="jq-ui" id="NavDealerId" name="NavDealerId"><option value="assIZaG72vI=">ALBERANTE MOTORS</option>
+<option value="qUTr_EBNHSE=">BARLOWORLD GM BRUMA</option>
+<option value="uQvxYOyS5Mo=">BARLOWORLD GM CENTURION</option>
+<option value="a8FTk9TURIs=">BARLOWORLD GM FERNDALE</option>
+<option value="H8PhRvH1r_4=">BARLOWORLD GM ZAMBEZI</option>
+<option value="HOe5OLe-Q3E=">CMH UMHLANGA</option>
+<option value="zPIhKa5Q8aU=">CRESTA AUTO</option>
+<option value="X-B1b6nIY4c=">EMOND AUTO</option>
+<option value="vrpYupAWrHQ=">FURY HYDE PARK</option>
+<option value="b6Ncc4W9N1o=">FURY SANDTON</option>
+<option value="eMR_EUGfGSc=">FURY WOODMEAD</option>
+<option value="QbCa-fbzVDk=">IMPERIAL GM  ISANDO</option>
+<option value="koBmZ7eRFZY=">IMPERIAL GM BLOEMFONTEIN</option>
+<option value="fYzFH8j6iC4=">IMPERIAL GM GERMISTON</option>
+<option value="qpCuTw92RXA=">JACKSONS</option>
+<option value="OzlVfG_976Q=">KEY DURBAN </option>
+<option value="sSEk8tGnxQA=">KEY PINETOWN</option>
+<option value="xsC1ePclErU=">KEY PMBURG</option>
+<option value="A9GrLK1VT5g=">KOHLER AUTO</option>
+<option value="HT3UTCig-yA=">McCARTHY MENLYN</option>
+<option value="Lkdr8dYOrVU=">MEYERS EAST LONDON</option>
+<option value="YPtY_rSr2j0=">NTT GM LADYSMITH</option>
+<option value="P1SrOtc52cM=">NTT GM NEWCASTLE</option>
+<option value="TKmrJTE-OFA=">P.E. CHEVROLET OPEL &amp; ISUZU </option>
+<option value="_9bpCRJYo-Q=">REEDS CAPE TOWN</option>
+<option value="aR77tAlIrDo=">REEDS N1 CITY </option>
+<option value="5lDzs6d0HFc=">REEDS TYGERVALLEY </option>
+<option value="ItCrXgyRtPQ=">THORP CLAREMONT </option>
+<option value="NJS2Gv38Iro=">THORP FISH HOEK </option>
+<option value="kM4fYttjAPA=">THORP PAARL</option>
+<option value="l9hiw8jwXFo=">THORP PLUMSTEAD</option>
+<option value="Z0VRqfwysdg=">TOMMY MARTIN </option>
+<option value="8dJY6txKpYw=">WESKAAP MOTORS</option>
+<option value="HuHWE4YYjH0=">WESTVAAL JACARANDA</option>
+<option value="qsF2OYfTRZY=">WESTVAAL MOKOPANE</option>
+<option value="efNAzXornpE=">WESTVAAL NELSPRUIT</option>
+<option value="OiAMU6QIr5Y=">WESTVAAL POLOKWANE</option>
+<option value="DRYcedOtUNQ=">WESTVAAL RUSTENBURG</option>
+<option value="MV2gtJQXH90=">WILLIAMS HUNT CAPE TOWN</option>
+<option value="8TZJrrr2cmQ=">WILLIAMS HUNT DURBAN</option>
+<option value="MB2d7OSudaI=">WILLIAMS HUNT EDENVALE</option>
+<option value="JGXY49q5YE0=">WILLIAMS HUNT FOURWAYS</option>
+<option value="hYOdN6Xt_NM=">WILLIAMS HUNT MIDRAND</option>
+<option value="-Ai7Dvp7Ipg=">WILLIAMS HUNT PORT ELIZABETH</option>
+<option value="qHKe1l4lRS0=">WILLIAMS HUNT RANDBURG</option>
+<option value="s2zpp1kohl0=">WILLIAMS HUNT THE GLEN</option>
+</select>
+
+                    <input type="hidden" name="redirect" value="true" />
+                </div>
+                <div class="disclaimer">
+                    <input type="checkbox" name="disclaimer" id="DisclaimerSYC" class="blue-checkbox" checked="checked" /><label class="blue-label lead-disclaimer" for="DisclaimerSYC">I agree that GM South Africa (the Company) may process and share personal information voluntarily provided by me though this website with GM, GM controlled subsidiaries and affiliates and the service provider, retailer or agent engaged by the Company for purposes of tracking sales data as well as contacting me for marketing or market research. I accept that any calls may be recorded for quality purposes. By using this site I consent to the transfer to and storage and processing of my personal information in countries outside of the Republic of South Africa and which do not necessarily have data protection laws similar to the Republic of South Africa. I understand that all reasonable efforts will be used to ensure that personal information in the Company’s possession or processed on the Company’s behalf is kept confidential, stored in a secure manner and processed in terms of South African law and for the purposes I have authorised. A copy of personal information kept by the Company will be furnished to me upon request.</label>
+
+<script type="text/javascript">
+    $("#DisclaimerSYC").change(function() {
+        var $btn = $("button[type='submit']", this.form);
+        if ($(this).is(":checked")) $btn.removeAttr("disabled");
+        else $btn.attr("disabled", "disabled");
+    });
+</script>
+                    <button class="arrow-submit narrow-arrow" type="submit">Submit</button>
+                </div>
+</form>    </div>
+</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <noscript><div class="noscript-spacer"></div></noscript>
+    
+    <section id="body-container" class="body-container container-fluid">
+        
+<div class="row">
+    <div class="col-xs-12 col-no-pad">
+        <img class="img-responsive" src="/Images/Global/Banners/za/error.jpg" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <figure class="error">
+            <img class="img-responsive" src="/Images/Global/error.png" alt="Oops!" />
+            <figcaption>Something went wrong! Please try your request again later.<br /><a href="/">Go back to home page.</a></figcaption>
+        </figure>
+    </div>
+</div>
+    </section>
+    <footer class="container-fluid footer">
+        <div class="row">
+            <div class="col-xs-12">
+                <hr />
+            </div>
+        </div>
+        <div class="row compact">
+<div class="col-xs-8 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1">
+    <h4>Information & Tools</h4>
+    <ul>
+        <li><a href="/contact-us">Contact Us</a></li>
+        <li><a href="https://www.gmsa.co.za/finance" target="_blank">GMSA Finance</a></li>
+        <li><a href="https://partners.wesbank.co.za/partners/calculators/repayment.xhtml?siteID=gmsa" target="_blank">Monthly Repayment Calculator</a></li>
+    </ul>
+</div>
+<div class="col-xs-4 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1">
+    <h4>GM Sites</h4>
+    <ul>
+        <li><a href="http://www.chevrolet.co.za/" target="_blank">Chevrolet.co.za</a></li>
+        <li><a href="http://www.opel.co.za/" target="_blank">Opel.co.za</a></li>
+        <li><a href="http://www.isuzu.co.za/" target="_blank">Isuzu.co.za</a></li>
+    </ul>
+</div>
+<div class="col-xs-12 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1">
+    <h4>Legal</h4>
+    <ul>
+        <li><a href="http://www.gm.com/toolbar/privacyStatement.html" target="_blank">Legal & Privacy</a></li>
+        <li><a href="/disclaimer">Disclaimer</a></li>
+    </ul>
+</div>
+
+        </div>
+        <div class="row compact">
+            <div class="col-xs-12"><img src="/Images/Global/Footer/gm-flat-logo.png" class="logo" />&copy; 2016 General Motors</div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var e = document,
+                a = (e.location.protocol == "https:" ? "https" : "http"),
+                c = (a == "https" ? "https://info.evidon.com/c/betrad/pub/" : "http://cdn.betrad.com/pub/"),
+                link = e.getElementById("_bapw-link");
+            if (link) {
+                link.onclick = function () {
+                    var f = this;
+                    function d(i, l) {
+                        var j = e.getElementsByTagName("head")[0] || e.documentElement, h = false, g = e.createElement("script");
+
+                        function k() {
+                            g.onload = g.onreadystatechange = null;
+                            j.removeChild(g);
+                            l();
+                        }
+
+                        g.src = i;
+                        g.onreadystatechange = function () {
+                            if (!h && (this.readyState == "loaded" || this.readyState == "complete")) {
+                                h = true;
+                                k();
+                            }
+                        };
+                        g.onload = k;
+                        j.insertBefore(g, j.firstChild);
+                    }
+
+                    this.onclick = "return false";
+                    d(a + "://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js",
+                    function () { d(c + "pub1.js", function () { BAPW.i(f, { pid: 92, ocid: 797 }, false); }); });
+                    return false;
+                };                
+            }
+        }());
+    </script>
+
+    <!-- Begin: BrightTag Analytics -->
+    <script type="text/javascript">
+        (function () {
+            var tagjs = document.createElement("script");
+            var s = document.getElementsByTagName("script")[0];
+            tagjs.async = true;
+            tagjs.src = "//s.btstatic.com/tag.js#site=CU7W7AG";
+            s.parentNode.insertBefore(tagjs, s);
+        }());
+    </script>
+    <noscript>
+        <iframe src="//s.thebrighttag.com/iframe?c=CU7W7AG" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+    <!-- End: BrightTag Analytics -->
+    
+    <script>
+        $(function () {
+
+            //omniture footer links
+            $(".footer a").on("click", function () {
+                var tName = $(this).text().trim(),
+                    cName = "GLOBAL FOOTER | " + tName + " LINK";
+                trackLink(true, {
+                    variables: {
+                        prop30: cName,
+                        eVar30: cName,
+                    },
+                    eventName: 'Click Event'
+                });
+
+            });
+            //vehicle search nav
+            $("#NavVehicleForm").on("submit", function (e) {
+                var tP = $(this).serializeArray(),
+                    loc = $("#navVehicleLocation").val(),
+                    make = '',
+                    model = '',
+                    cName = "VEHCILE SEARCH TRAY | SEARCH CTA";
+
+                $.each(tP, function (k, v) {
+                    if (v.name === "Makes") {
+                        make += "-" + v.value;
+                    } if (v.name === "Models") {
+                        model += "-" + v.value;
+                    }
+                });
+
+                make = cleanResult(make);
+                model = cleanResult(model);
+
+                var tName = "Quick Search_" + loc + "_" + make + "_" + model;
+                trackLink(this, {
+                    variables: {
+                        prop1: tName,
+                        prop30: cName,
+                        eVar1: tName,
+                        eVar30: cName
+                    },
+                    eventName: 'click event'
+                });
+            });
+
+            //Nav Vehicle Search Adv Search Btn
+            $("#NavVehicleFormAdv,#NavVehicleFormAdvSmall").on("click", function () {
+                var cName = "VEHICLE SEARCH TRAY | ADVANCED SEARCH LINK";
+                trackLink(this, {
+                    variables: {
+                        prop30: cName,
+                        eVar30: cName
+                    },
+                    eventName: 'click event'
+                });
+            });
+
+            //Nav Dealer Search by zip
+            $("#NavDealerForm").on("submit", function () {
+                var cName = "DEALER LOCATOR TRAY | SEARCH BY ZIP CTA";
+
+                trackLink(true, {
+                    variables: {
+                        prop30: cName,
+                        eVar30: cName
+                    },
+                    eventName: 'Action'
+                });
+            });
+
+            //Nav Dealer Search by zip
+            $("#NavDealerFormName").on("submit", function () {
+                var cName = "DEALER LOCATOR TRAY | SEARCH BY DEALER CTA";
+
+                trackLink(true, {
+                    variables: {
+                        prop30: cName,
+                        eVar30: cName
+                    },
+                    eventName: 'Action'
+                });
+            });
+
+
+
+            //Nav Certified Advantage
+            $(".dropdown-menu.certified-advantage a").on("click", function () {
+                var creativeName = $(this).find("figcaption").text().trim();
+                cName = "CERTIFIED ADVANTAGE TRAY | " + creativeName + " | BENEFIT CTA";
+                trackLink(this, {
+                    variables: {
+                        prop30: cName,
+                        prop32: cName,
+                        eVar30: cName,
+                        eVar32: cName
+                    },
+                    eventName: 'Click Event'
+                });
+            });
+
+            $(".search-vehicle-models #NavModelForm").not(".vehicle-models-page #NavModelFormSubmit").on("submit", function (e) {
+                var tP = $(this).serializeArray(),
+                    make = '',
+                    bs = '',
+                    cName = "VEHICLE MODELS TRAY | SEARCH CTA";
+
+                $(this).find("input[name=makeId]:checked").each(function () {
+                    make += '-' + $(this).siblings("span").text().trim();
+                });
+
+                $(this).find("input[name=styleId]:checked").each(function () {
+                    bs += '-' + $(this).siblings("span").text().trim();
+                });
+
+                make = cleanResult(make);
+                bs = cleanResult(bs);
+
+                var tName = "Vehicle Model Search_" + make + "_" + bs;
+
+                trackLink(true, {
+                    variables: {
+                        prop1: tName,
+                        prop30: cName,
+                        eVar1: tName,
+                        eVar30: cName
+                    },
+                    eventName: 'Click Event'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

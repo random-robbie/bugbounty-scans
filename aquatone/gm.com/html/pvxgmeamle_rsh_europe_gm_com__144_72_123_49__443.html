@@ -1,0 +1,93 @@
+<!--
+---- default.htm
+---- Copyright (c) 2002 - 2005 Citrix Systems, Inc. All Rights Reserved.
+---- Web Interface (Build 45083)
+-->
+
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW, NOARCHIVE">
+<title>MetaFrame Presentation Server</title>
+
+<script language="JavaScript">
+<!--
+
+function getTopFrame(w) {
+    if ((w.frames.length > 0) && (w.frames[0].name == "nfusemain")) {
+        return w;
+    } else if (w.parent == w) {
+        return null;
+    } else {
+        return getTopFrame(w.parent);
+    }
+}
+
+function redirectTop() {
+    var topFr = getTopFrame(window);
+    if (topFr != null) {
+        topFr.location.href = window.location.href;
+    }
+}
+
+//-->
+</script>
+
+<style type="text/css">
+<!--
+body
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+p
+{
+    margin: 10pt;
+}
+
+.heading
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+.sItalic
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-style: italic;
+}
+-->
+</style>
+
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF" LINK="#000000" VLINK="#000000" ALINK="#000000" topmargin='0' leftmargin='0' marginheight="0" marginwidth="0" onLoad="redirectTop()" dir="ltr">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="7"><img src="media/spacer.gif" width="1" height="4" alt=""></td>
+  </tr>
+  <tr valign="middle">
+    <td align="left"><img src="media/citrix.gif" hspace="5" alt="Citrix"></td>
+    <td bgcolor="#CC0000"><img src="media/spacer.gif" width="1" height="4"></td>
+    <td><img src="media/spacer.gif" width="15" height="4"></td>
+    <td align="left" class="heading" width="100%">
+      Web Interface<br>
+      <span class="sItalic">
+      for MetaFrame<sup class="sItalic">&reg</sup>Presentation Server
+      </span>
+    </td>
+    <td><img src="media/spacer.gif" width="15" height="4"></td>
+    <td><img src="media/site_icon.gif" border="0" alt="Web Interface for MetaFrame&reg; Presentation Server"></td>
+    <td><img src="media/spacer.gif" width="15" height="4"></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="7"><img src="media/spacer.gif" width="1" height="4" alt=""></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC0000" width="100%" height="8" colspan="7"><img src="media/spacer.gif" width="5" height="3" alt=""></td>
+  </tr>
+</table>
+<p>Before you can use the Web Interface, you must create one or more sites using the MetaFrame Access Suite Console. In the console tree, right-click on Web Interface under the Configuration Tools extension, then select Create site and follow the instructions in the wizard.</p>
+</body>
+
+</html>

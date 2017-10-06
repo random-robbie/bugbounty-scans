@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Visualizers</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="css/dashboard.css"/>
+    <style type="text/css">
+
+    </style>
+
+    <script type="text/javascript">
+        if (typeof window.console === 'undefined') {
+            window.console = {
+                log: function () {}
+            }
+        }
+    </script>
+
+</head>
+<body>
+        <script id="visualizers_tpl" type="text/x-handlebars-template">
+        <div class="row">
+        {{#each items}}
+            <div class="span3">
+                <h2>{{division}}</h2>
+                {{#each years}}
+                    <h4>{{year}}</h4>
+                    <table class="table table-striped">
+                    {{#each models}}
+                        <tr>
+                            <td><a href="/{{path}}/">{{model}}</a></td>
+                            {{#if_qatool_deployed}}
+                            <td class="action-col"><a
+                                class="icon-bug" href="/tools/qatool/?{{qa_query_str path}}"
+                                data-toggle="tooltip" title="QA Tool"></a></td>
+                            {{/if_qatool_deployed}}
+                            <td class="action-col"><a
+                                class="icon-barcode" href="/data/{{path}}/version.txt"
+                                data-toggle="tooltip" title="Version"></a></td>
+                        </tr>
+                    {{/each}}
+                    </table>
+                {{/each}}
+            </div>
+        {{/each}}
+        </div>
+    </script>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./"><img class="logo" src="img/oem-logo.png" width="21" height="21" alt="GM" /> Visualizer Dashboard</a>
+                <div class="nav-collapse">
+                    <ul class="nav pull-right">
+                                        </ul>
+                </div><!-- /.nav-collapse -->
+            </div>
+        </div><!-- /navbar-inner -->
+    </div><!-- /navbar -->
+
+    <div id="visualizers-zone">
+        <div id="visualizer-list" class="container"></div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.1.js"><\/script>')</script>
+    <script src="frameworks/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="frameworks/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="js/vendor/handlebars-1.0.0-rc.3.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+
+        !function ($, undefined) {
+
+            var app = new Application();
+
+            $(document).ready(function () {
+                app.init({
+                    "tools": {
+                        "qa": false,
+                        "logic": false                    }
+                });
+            });
+
+        }(window.jQuery);
+
+    </script>
+
+</body>
+</html>

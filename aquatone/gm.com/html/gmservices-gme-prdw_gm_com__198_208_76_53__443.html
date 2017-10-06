@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <soapenv:Fault>
+            <faultcode>soapenv:Server</faultcode>
+            <faultstring>Error in assertion processing</faultstring>
+            <faultactor>https://198.208.76.53/</faultactor>
+            <detail>
+                <l7:policyResult
+                    status="HTTP method GET not allowed: https://198.208.76.53/"
+                    xmlns:l7="http://www.layer7tech.com/ws/policy/fault" xmlns:l7p="http://www.layer7tech.com/ws/policy">
+                    <l7:additionalInfo>
+                        <l7:detailMessage id="-4" ordinal="0">Policy Fragment: SOAP Fault</l7:detailMessage>
+                        <l7:detailMessage id="-4" ordinal="1">/</l7:detailMessage>
+                        <l7:detailMessage id="-4" ordinal="2">text/xml; charset=utf-8</l7:detailMessage>
+                        <l7:detailMessage id="7101" ordinal="3">Comparison did not match: ${request.url.path} is equal to /V2/ESAService.asmx</l7:detailMessage>
+                        <l7:detailMessage id="7101" ordinal="4">Comparison did not match: ${request.url.path} is equal to /CaspService.asmx</l7:detailMessage>
+                        <l7:detailMessage id="-4" ordinal="6">Policy Fragment: Finalize Log Control</l7:detailMessage>
+                        <l7:detailMessage id="7101" ordinal="7">Comparison did not match: ${gateway.custom.logPolicyID} contains |${service.oid}| (case sensitive)</l7:detailMessage>
+                    </l7:additionalInfo>
+                </l7:policyResult>
+            </detail>
+        </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>
