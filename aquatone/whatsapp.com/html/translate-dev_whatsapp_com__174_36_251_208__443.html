@@ -1,0 +1,171 @@
+<!doctype html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+      lang="und" >
+    <head>
+        <title>WhatsApp Translation</title>
+        
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <meta name="description" content="Start translating WhatsApp into your language today!" />
+        <meta name="keywords" content="translate, WhatsApp" />
+        <meta property="og:title" content="WhatsApp Translation" />
+        <meta property="og:url" content="https://translate.whatsapp.com" />
+        <meta name="google" value="notranslate">
+        
+
+        
+        <link href="/html/bootstrap.css" rel="stylesheet">
+        <link href="/html/custom.css?v=3" rel="stylesheet">
+        <link href="/html/style2.css" rel="stylesheet">
+        <link href="/html/favicon.ico" rel="shortcut icon">
+        
+
+        
+        <link rel="shortcut icon" href="https://www.whatsapp.com/favicon.ico">
+        
+
+        
+        <script type="text/javascript">
+          function l(path) {
+            var basepath = "";
+            if (path[0] == '/') {
+              return basepath + path;
+            }
+            return path;
+          };
+          function m(path) {
+            return l("" + path);
+          }
+        </script>
+        <script type="text/javascript" src="/html/js/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/html/js/bootstrap-dropdown.js"></script>
+        <script type="text/javascript" src="/html/js/bootstrap-tab.js"></script>
+        <script type="text/javascript" src="/html/js/bootstrap-modal.js"></script>
+        <script type="text/javascript" src="/html/js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="/html/js/jquery.history.js"></script>
+        
+
+        <!-- extra scripts and links -->
+    </head>
+
+    <body>
+    
+      <div class="navbar navbar-fixed-top">
+        <div class="bluebar"></div>
+        <div class="navbar-inner">
+          <div class="container"><a class="brand" href="/">WhatsApp Translation</a>
+            
+          </div>
+        </div>
+      </div>
+
+    
+    <header class="jumbotron masthead" id="overview">
+        <div class="inner2">
+            <div class="container"></div>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+<div class="content">
+<div class="page-header" lang="">
+  <h1>Oh noes!</h1>
+  <p class="muted"> Server Error</p>
+</div>
+<div class="alert alert-error">An error has occurred. Thank you for your patience.</div>
+<div style="margin-bottom: 200px;"><a href="#" onClick="javascript: history.back();">Return to the previous page</a> or go to <a href="/">home page</a>.</div>
+</div>
+ 
+
+        
+        <footer>
+          <div class="pull-right"><a href='mailto:translate@support.whatsapp.com'>Contact support</a></div>
+          <p>© WhatsApp 2016</p></footer> 
+        
+
+        
+        <script type="text/javascript">
+            function showBtns() {
+                unit_id = $(this).attr("unit_id");
+                $('#extended-'+unit_id).fadeIn("fast");
+            }
+
+            function hideBtns() {
+                $(this).parent().fadeOut("fast");
+            }
+
+            function cancelHandler() {
+                unit_id = $(this).attr("unit_id");
+                $("#text-"+unit_id).val("");
+                $("#text-"+unit_id).attr("rows", "1");
+                warnBox = $("#warn-"+unit_id);
+                errorBox = $("#error-"+unit_id);
+                if (warnBox) warnBox.fadeOut("fast");
+                if (errorBox) errorBox.fadeOut("fast");
+                $(this).parent().fadeOut("fast");
+            }
+
+            $(document).ready(function() {
+                 $.ajaxSetup({
+                        beforeSend: function(xhr, settings) {
+                        if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                            // Only send the token to relative URLs i.e. locally.
+                            //alert(document.getElementsByName('csrfmiddlewaretoken')[0].value);
+                            xhr.setRequestHeader("X-CSRFToken", document.getElementsByName('csrfmiddlewaretoken')[0].value);
+                        }
+                    }
+                });
+
+                $("input.stripped").focusin(showBtns);
+                $("a.cancelBtn").click(cancelHandler);
+                $(".auto-resize-textarea").focusin(showBtns);
+
+                // handles dropdown menus
+                $('.custom-dropdown-toggle').click(function(evt) {
+                    evt.stopPropagation();
+                    $(this).parent().toggleClass("open");
+                    if($(this).parent().hasClass("open")) {
+                        $(this).css({"color":"white"});
+                    }
+                    else{
+                        $(this).css({"color":""});
+                    }
+                    $(this).parent().siblings().removeClass("open");
+                    $(this).parent().siblings().each(function(i, obj) {
+                        $(this).find(".custom-dropdown-toggle").css({"color": ""});
+                    });
+                    return false; // returning false prevents the page from scrolling to the top when the dropdown menu is opened/closed
+                });
+
+                // closes the dropdown menus when the user clicks anywhere else on the page
+                $("html").on("click", function() {
+                    $(this).find(".custom-dropdown-toggle").each(function(i, obj) {
+                        $(this).parent().removeClass("open");
+                        $(this).css({"color": ""});
+                    });
+                });
+            });
+        </script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-30710688-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <!-- extra scripts -->
+        
+        
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,836 @@
+
+
+<!--NOTE: If DOCTYPE element is present, it causes the iFrame to be displayed in a small-->
+<!--portion of the browser window instead of occupying the full browser window.-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="reachJoinHtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8;"/>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <title>Microsoft Lync</title>
+    <link rel="Stylesheet" type="text/css" href="/meet/Resources/ReachClient.css?lcs_se_w15_ship5.0.8308.945" />
+    <script>
+        var mainWindow;
+        var reachURL = "";
+        var escapedXML = "";
+        var validMeeting = "False";
+        var reachClientRequested = "False";
+        var htmlLwaClientRequested = "False";
+        var currentLanguage = "en-US";
+        var reachClientProductName = "Lync Web App";
+        var blockPreCU2Clients = "False";
+        var isNokia = "False";
+        var isAndroid = "False";
+        var isWinPhone = "False";
+        var isIPhone = "False";
+        var isIPad = "False";
+        var isMobile = "False";
+        var isUnsupported = "False";
+        var domainOwnerJoinLauncherUrl = "";
+        var lyncLaunchLink = "";
+        var diagInfo = "Machine\x3aMS01717BrowserId\x3aMozilla\x2f5.0 \x28Windows NT 10.0\x3b Win64\x3b x64\x29 AppleWebKit\x2f537.36 \x28KHTML, like Gecko\x29 Chrome\x2f58.0.3029.96 Safari\x2f537.36Join attempted at\x28UTC\x29\x3a10\x2f7\x2f2017 8\x3a07\x3a08 AMTelemetryId\x3a0c4b9102-f39a-48a9-950d-211b1ece00d5Incoming URL\x3ahttps\x3a\x2f\x2fmeet.starbucks.com\x2fError\x3a Meeting URL format may be invalid";
+        var userExperience = "1500";
+        var isLwaEnabled = "False";
+        var escalateToDesktop = "False";
+        var resourceUrl = "/meet/JavaScriptResourceHandler.ashx?lcs_se_w15_ship5.0.8308.945&language=";
+        var telemetryId = "0c4b9102-f39a-48a9-950d-211b1ece00d5";
+        var errorCode = "1";
+        var reachClientTitleString = "Microsoft Lync Web App";
+        var mobileW1ProtocolHandler = "lync://";
+        var mobileW2ProtocolHandler = "lync15://";
+        var lync15CommonProtocolHandler = "lync15:";
+        var lync15ClassicProtocolHandler = "lync15classic:";
+        var mlxProtocolHandler = "lync15mlx:";
+        var parentOriginWhitelist = "[]";
+        var parentOriginJsCheckEnabled = "False".toLowerCase() === 'true';
+        var chromeVersion = "58";
+
+        togglediag = function () {
+            if (userExperience.toLowerCase() != defaultExperienceVersion) {
+                if (document.getElementById("diagInfoText15").style.display == "none") {
+                    document.getElementById("diagInfoText15").style.display = "block";
+                    document.getElementById("diagLabel215").style.display = "block";
+                } else {
+                    document.getElementById("diagLabel215").style.display = "none";
+                    document.getElementById("diagInfoText15").style.display = "none";
+                }
+            } else { // 1400 beahavior
+                if (isMobile.toLowerCase() == "true") {
+                    if (document.getElementById("diagInfoTextMobile").style.display == "none") {
+                        document.getElementById("diagInfoTextMobile").style.display = "block";
+                        document.getElementById("diagLabel2Mobile").style.display = "block";
+                    } else {
+                        document.getElementById("diagLabel2Mobile").style.display = "none";
+                        document.getElementById("diagInfoTextMobile").style.display = "none";
+                    }
+                } else {
+                    if (document.getElementById("diagInfoText").style.display == "none") {
+                        document.getElementById("diagInfoText").style.display = "block";
+                        document.getElementById("diagLabel2").style.display = "block";
+                    } else {
+                        document.getElementById("diagLabel2").style.display = "none";
+                        document.getElementById("diagInfoText").style.display = "none";
+                    }
+                }
+            }
+        };
+
+    </script>
+    <script src="/meet/JavaScript/Utilities.js?lcs_se_w15_ship5.0.8308.945"></script>
+    <script src="/meet/JavaScript/PluginLoader.js?lcs_se_w15_ship5.0.8308.945"></script>
+    <script src="/meet/JavaScript/Launch.js?lcs_se_w15_ship5.0.8308.945"></script>
+</head>
+
+<body class="reachJoinBody">
+    <div id="launchReachDiv" style="display: none;" class="launchReachDiv">
+        <!--NOTE: IE6 displays a mixed content warning if iFrame source is set to an empty string initially and later set dynamically, so instead set it to blank page here.-->
+        <iframe id="launchReachFrame" name="launchReachFrame" src="/meet/blank.html" frameborder="0" scrolling="auto" style="overflow:hidden"></iframe>
+    </div>
+    <table id="mainTable" align="center" cellpadding="0" cellspacing="0" class="mainTable" style="display:none">
+        <tr id="languageSettingsRow">
+            <td id="languageSettingsCell" colspan="3" style="text-align: right;">
+                <div id="languageSettingsDiv" style="display: none;">
+                    <label id="languageSettingsLabel" class="smallerBlurredBodyText" style="text-align: center;">
+                        Language:
+                    </label>
+                    <select id="languageSelectCmb" onchange="mainWindow.LanguageSelectionChanged();"
+                        class="smallerBlurredBodyText" style="margin-right: 15px;" tabindex="1">
+                        <option value="ar">العربية&rlm;</option><option value="az">Azərbaycan­ılı&lrm;</option><option value="be">Беларускі&lrm;</option><option value="bg">български&lrm;</option><option value="ca">català&lrm;</option><option value="cs">čeština&lrm;</option><option value="da">dansk&lrm;</option><option value="de">Deutsch&lrm;</option><option value="el">Ελληνικά&lrm;</option><option value="en-US">English (United States)&lrm;</option><option value="es">español&lrm;</option><option value="et">eesti&lrm;</option><option value="eu">euskara&lrm;</option><option value="fa">فارسى&rlm;</option><option value="fi">suomi&lrm;</option><option value="fil">Filipino&lrm;</option><option value="fr">français&lrm;</option><option value="gl">galego&lrm;</option><option value="he">עברית&rlm;</option><option value="hi">हिंदी&lrm;</option><option value="hr">hrvatski&lrm;</option><option value="hu">magyar&lrm;</option><option value="id">Bahasa Indonesia&lrm;</option><option value="it">italiano&lrm;</option><option value="ja">日本語&lrm;</option><option value="kk">Қазақ&lrm;</option><option value="ko">한국어&lrm;</option><option value="lt">lietuvių&lrm;</option><option value="lv">latviešu&lrm;</option><option value="mk">македонски јазик&lrm;</option><option value="ms">Bahasa Melayu&lrm;</option><option value="nl">Nederlands&lrm;</option><option value="no">norsk&lrm;</option><option value="pl">polski&lrm;</option><option value="pt-BR">Português (Brasil)&lrm;</option><option value="pt-PT">português (Portugal)&lrm;</option><option value="ro">română&lrm;</option><option value="ru">русский&lrm;</option><option value="sk">slovenčina&lrm;</option><option value="sl">slovenski&lrm;</option><option value="sq">shqipe&lrm;</option><option value="sr-Cyrl-CS">српски (Србија и Црна Гора (Претходно))&lrm;</option><option value="sr">srpski&lrm;</option><option value="sv">svenska&lrm;</option><option value="th">ไทย&lrm;</option><option value="tr">Türkçe&lrm;</option><option value="uk">українська&lrm;</option><option value="uz">U'zbek&lrm;</option><option value="vi">Tiếng Việt&lrm;</option><option value="zh-CHS">中文(简体) 旧版&lrm;</option><option value="zh-CHT">中文(繁體) 舊版&lrm;</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr id="headerRow">
+            <td id="headerCell" colspan="3">
+                <table id="headerLogoTable" cellspacing="0" cellpadding="0" class="headerLogoTable">
+                    <tr id="headerLogoTableRow">
+                        <td id="headerLogoTableCell">
+                            <img src="/meet/Resources/mainbg_top.png" style="margin-left: 2px; vertical-align: bottom;" alt="" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="contentRow">
+            <td id="leftBorderCell" class="leftBorderCell">
+                &nbsp;
+            </td>
+            <td id="ContentCell" class="mainContentCell">
+                <table id="mainContentTable" class="mainContentTable">
+                    <tr id="topLogoRow">
+                        <td id="topLogoCell" class="topLogoCell">
+                            <img id="communicatorLogoImage" name="communicatorLogoImage" src="/meet/Resources/CommunicatorLogoType.png"
+                                alt="" />
+                        </td>
+                    </tr>
+                    <tr id="landingPageTextContentRow">
+                        <td id="landingPageTextContentCell" class="landingPageTextContentCell">
+                            <noscript id="noScriptContent">
+                                <div id="javaScriptDisabledDiv">
+                                    <table cellpadding="0" cellspacing="0" class="contentHeaderTable">
+                                        <tr>
+                                            <td class="contentHeaderTableCell">
+                                                <label id="javaScriptDisabledHeaderLabel" class="bodyBoldText">
+                                                    Never want to see this screen again?
+                                                </label>
+                                                <br id="lineBreakJavaScriptDisabledHeader1" />
+                                                <label id="javaScriptDisabledTextLabel" class="bodyText">
+                                                    Just enable JavaScript in your browser settings, and you can skip this screen and join meetings automatically.
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br />
+                                    <table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="JSDisabledOptionTopImage" src="/meet/Resources/Button_normal_top.png"
+                                                    style="vertical-align: bottom;" alt="" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td id="JSDisabledOptionLeftImage" class="leftNormalButtonCell">
+                                                &nbsp;
+                                            </td>
+                                            <td class="reachButtonContentCell">
+                                                <a id="javaScriptDisabledLaunchRichClientLink" name="javaScriptDisabledLaunchRichClientLink"
+                                                    href="" class="bodyLinkText" tabindex="2" style="text-decoration: none;"
+                                                    title="Forget about the JavaScript and join now.">
+                                                    Forget about the JavaScript and join now.
+                                                </a>
+                                            </td>
+                                            <td id="JSDisabledOptionRightImage" class="rightNormalButtonCell">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="JSDisabledOptionBottomImage" src="/meet/Resources/Button_normal_bottom.png"
+                                                    style="vertical-align: top;" alt="" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </noscript>
+
+                            <div id="joinLauncherErrorDiv" style="display: none;">
+                                <label id="errorTextLabel" style="color: #FF0000; font-weight: bold;">
+                                    Sorry, something went wrong, and we can't get you into the meeting.
+                                </label>
+                                <br id="lineBreakJoinLauncherError2"/>
+                                <label id="checkUrlLabel" style="font-weight: normal; font-size: 12px;">
+                                It's possible you're using a bad URL. Try calling into the meeting using the phone number on the invite, or ask the organizer to drag you in.
+                                </label>
+                                <br id="lineBreakJoinLauncherError5"/>
+                                <label id="diagLabel" style="font-weight: normal; font-size: 11px; text-decoration: underline; color: #0000FF;" onmouseover="this.style.cursor='hand'" onclick="togglediag()">
+                                <br id="lineBreakJoinLauncherError6"/>
+                                More about this error
+                                </label>
+                                <br />
+                                <label id="diagLabel2" style="font-weight: normal;font-size: 11px; display:none">
+                                Copy this diagnostic info and send it to your admin.
+                                </label>
+                                <textarea id="diagInfoText" cols="70" rows="5" style="font-size: 8px; overflow:auto" readonly="readonly">
+                                </textarea>
+                            </div>
+                            <div id="64bitUnsupportedDiv" style="display: none">
+                                   <table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td colspan="3">
+                                              <label id ="64bitUnSupportedMessageLabel" style="display:block;" class="headerText">
+                                                Your 64-bit browser is preventing you from joining the meeting.
+                                              </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                              <label id ="64bitUnSupportedMessage" style="display:block;" class="bodyText">
+                                               To join the meeting, do one of the following:
+                                             </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="OCJoinOptionNoScrTopImage" src="/meet/Resources/Button_normal_top.png"
+                                                    style="vertical-align: bottom;" alt="" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                           <td id="Td5" class="leftNormalButtonCell">
+                                              &nbsp;
+                                           </td>
+                                           <td class="reachButtonContentCell">
+                                              <label id ="64bitUnSupportedOption1" style="display:block;" class="bodyText">
+                                                  If you have Lync installed, click to join.
+                                              </label>
+                                              <a id="JoinMeetingUsingLync_Link" class="bodyLinkText" href="" title="">
+                                                   Join Using Lync
+                                              </a>
+                                           </td>
+                                           <td id="Td6" class="rightNormalButtonCell">
+                                              &nbsp;
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="OCJoinOptionNoScrBottomImage" src="/meet/Resources/Button_normal_bottom.png"
+                                                    style="vertical-align: top;" alt="" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="OCJoinOptionNoScrBottomImage" src="/meet/Resources/Button_normal_top.png"
+                                                    style="vertical-align: bottom;" alt="" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                          <td id="Td3" class="leftNormalButtonCell">
+                                              &nbsp;
+                                          </td>
+                                          <td class="reachButtonContentCell">
+                                              <label id ="64bitUnSupportedOption2" style="display:block;" class="bodyText">
+                                                  Copy the meeting URL into the address bar of a 32-bit browser. (Find a browser on your start menu.)
+                                              </label>
+                                          </td>
+                                          <td id="Td4" class="rightNormalButtonCell">
+                                              &nbsp;
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="OCJoinOptionNoScrBottomImage" src="/meet/Resources/Button_normal_bottom.png"
+                                                    style="vertical-align: top;" alt="" />
+                                            </td>
+                                        </tr>
+                                </table>
+
+                            </div>
+                            <div id="UnsupportedClientBlockDiv" style="display: none">
+                                   <table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td colspan="3">
+                                              <label id ="UnsupportedClientBlockMessageLabel" style="display:block;" class="headerText">
+                                                You have a version of Lync that doesn't support joining this online meeting. Contact your support team to upgrade to a newer version of Lync.
+                                              </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="OCJoinOptionNoScrTopImage" src="/meet/Resources/Button_normal_top.png"
+                                                    style="vertical-align: bottom;" alt="" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                           <td id="Td5" class="leftNormalButtonCell">
+                                              &nbsp;
+                                           </td>
+                                           <td class="reachButtonContentCell">
+                                              <label id ="JoinUsingLWAOption1" style="display:block;" class="bodyText">
+                                                  You can join the meeting now using Lync Web App.
+                                              </label>
+                                              <a id="JoinMeetingUsingLWA_Link" class="bodyLinkText" href="" target="_blank" title="">
+                                                   Join Using Lync Web App
+                                              </a>
+                                           </td>
+                                           <td id="Td6" class="rightNormalButtonCell">
+                                              &nbsp;
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <img id="OCJoinOptionNoScrBottomImage" src="/meet/Resources/Button_normal_bottom.png"
+                                                    style="vertical-align: top;" alt="" />
+                                            </td>
+                                        </tr>
+                                </table>
+                            </div>
+
+                            <div id="launchRichClientDiv" style="display: none;">
+                                <br id="lineBreakLaunchRichClientDiv"/>
+                                <label id="launchRichClientHeaderLabel" class="headerText">
+                                    You are joining the meeting.
+                                </label>
+                                <br id="lineBreakLaunchRichClientHeader1"/>
+                                <label id="launchRichClientTextLabel" class="bodyText">
+                                    You may close this web page now.
+                                </label>
+                                <br id="lineBreakLaunchRichClientText1"/>
+                                <br id="lineBreakLaunchRichClientText2"/>
+                                <br id="lineBreakLaunchRichClientText3"/>
+                                <br id="lineBreakLaunchRichClientText4"/>
+                                <br id="lineBreakLaunchRichClientText5"/>
+                            </div>
+                            <div id="checkLaunchRichClientDiv" style="display: none;">
+                                <br id="checkLineBreakLaunchRichClientDiv"/>
+                                <label id="checkLaunchRichClientHeaderLabel" class="headerText">
+                                    Have you successfully joined the meeting? Feel free to close this page.
+                                </label>
+                                <br id="checklineBreakLaunchRichClientHeader1"/>
+                                <label id="checkLaunchRichClientTextLabel" class="bodyText" style="font-weight: bold;">
+                                    OR
+                                </label>
+                                <br id="checkLineBreakLaunchRichClientText1"/>
+                                <br id="checkLineBreakLaunchRichClientText2"/>
+                                <br id="checkLineBreakLaunchRichClientText3"/>
+                                <br id="checkLineBreakLaunchRichClientText4"/>
+                                <br id="checkLineBreakLaunchRichClientText5"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="bottomHelpRow">
+                        <td class="landingPageTextContentCell" style="padding-top:0px;">
+                            <label id="contactSupportLabelWithReachOption" class="bodyText" style="display: none;">
+                                Having trouble joining the meeting?
+                            </label>
+                            <a id="launchReachLink" name="launchReachLink" href="" class="bodyLinkText"
+                               onclick="mainWindow.RedirectToReach();" target="launchReachFrame" tabindex="3"
+                               style="display: none;" title="Try Lync Web App">
+                                Try Lync Web App
+                            </a>
+                            <br id="lineBreakContactSupport1"/>
+                            <a id="onlineHelpLink" name="onlineHelpLink" href="http://go.microsoft.com/fwlink/?LinkId=190632" class="bodyLinkText"
+                                target="_blank" tabindex="4" title="Online Help">
+                                Online Help
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td id="rightBorderCell" class="rightBorderCell">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table id="bottomCenteredTable" cellspacing="0" cellpadding="0" class="footerTable">
+                    <tr id="bottomCenteredRow">
+                        <td id="bottomCenteredCell" class="footerTableCell">
+                            <img id="officeLogoImage" name="officeLogoImage" src="/meet/Resources/OfficeLogo.png"
+                                alt=""/>
+                            <br id="lineBreakOfficeLogoImage" />
+                            <label id="copyRightTextLabel" class="smallerBlurredBodyText">
+                                © 2010 Microsoft Corporation. All rights reserved.
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table id="mainTable15" cellpadding="0" cellspacing="0" class="maintable15" style="width:100%; height:100%;" border="0">
+        <tr id="firstRow">
+            <td id="officeLogoColumn">
+                <div id="successLogo" class ="centeredImageSuccess" style="display:none"><img src="/meet/Resources/Lync_Logo.png" style="" alt="" /> </div>
+                <div id="errorLogo" class ="centeredImageError"><img src="/meet/Resources/Large_Lync_Logo.png" style="" alt="" /> </div>
+                <div id="successLogoMobile" class ="centeredImageSuccessMobile" style="display:none"><img src="/meet/Resources/Lync_Logo_Mobile.png" alt=""/> </div>
+                <div id="errorLogoMobile" class ="centeredImageError" style="display:none"><img src="/meet/Resources/Large_Lync_Logo_Mobile.png" alt=""/> </div>
+            </td>
+            <td id="content" class="help1024" colspan="2">
+                <div id="languageSettingsDiv15" class="languageHelp">
+                    <label id="languageSettingsLabel15" class="smallerBlurredBodyText15" style="vertical-align:middle">
+                        Language:
+                    </label>
+                    <select id="languageSelectCmb15" onchange="mainWindow.LanguageSelectionChanged();"
+                        class="smallerBlurredBodyText15" style="vertical-align:middle; width:120px">
+                        <option value="ar">العربية&rlm;</option><option value="az">Azərbaycan­ılı&lrm;</option><option value="be">Беларускі&lrm;</option><option value="bg">български&lrm;</option><option value="ca">català&lrm;</option><option value="cs">čeština&lrm;</option><option value="da">dansk&lrm;</option><option value="de">Deutsch&lrm;</option><option value="el">Ελληνικά&lrm;</option><option value="en-US">English (United States)&lrm;</option><option value="es">español&lrm;</option><option value="et">eesti&lrm;</option><option value="eu">euskara&lrm;</option><option value="fa">فارسى&rlm;</option><option value="fi">suomi&lrm;</option><option value="fil">Filipino&lrm;</option><option value="fr">français&lrm;</option><option value="gl">galego&lrm;</option><option value="he">עברית&rlm;</option><option value="hi">हिंदी&lrm;</option><option value="hr">hrvatski&lrm;</option><option value="hu">magyar&lrm;</option><option value="id">Bahasa Indonesia&lrm;</option><option value="it">italiano&lrm;</option><option value="ja">日本語&lrm;</option><option value="kk">Қазақ&lrm;</option><option value="ko">한국어&lrm;</option><option value="lt">lietuvių&lrm;</option><option value="lv">latviešu&lrm;</option><option value="mk">македонски јазик&lrm;</option><option value="ms">Bahasa Melayu&lrm;</option><option value="nl">Nederlands&lrm;</option><option value="no">norsk&lrm;</option><option value="pl">polski&lrm;</option><option value="pt-BR">Português (Brasil)&lrm;</option><option value="pt-PT">português (Portugal)&lrm;</option><option value="ro">română&lrm;</option><option value="ru">русский&lrm;</option><option value="sk">slovenčina&lrm;</option><option value="sl">slovenski&lrm;</option><option value="sq">shqipe&lrm;</option><option value="sr-Cyrl-CS">српски (Србија и Црна Гора (Претходно))&lrm;</option><option value="sr">srpski&lrm;</option><option value="sv">svenska&lrm;</option><option value="th">ไทย&lrm;</option><option value="tr">Türkçe&lrm;</option><option value="uk">українська&lrm;</option><option value="uz">U'zbek&lrm;</option><option value="vi">Tiếng Việt&lrm;</option><option value="zh-CHS">中文(简体) 旧版&lrm;</option><option value="zh-CHT">中文(繁體) 舊版&lrm;</option>
+                    </select>
+                    <a id="onlineHelpLink15" name="onlineHelpLink" href="http://go.microsoft.com/fwlink/?LinkId=262053" class="bodyLinkText"
+                        target="_blank" tabindex="4" title="Online Help">
+                        <img id="helpImage15" src="/meet/Resources/Help_19x30.png" class="helpImage" alt="Online Help" />
+                   </a>
+                </div>
+            </td>
+        </tr>
+        <tr id = "lynclogo" class="logospace">
+            <td style="vertical-align:top">
+                <img src="/meet/Resources/Lync_Text_Logo.png" style="" alt="" />
+            </td>
+            <td></td>
+        </tr>
+        <tr id="contentRow15" class="contentClassError">
+            <td id="landingPageTextContentCell15" class="landingPageTextContentCell15">
+                <noscript id="noScriptContent15">
+                    <div id="javaScriptDisabledDiv15">
+                        <table cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td colspan = "2">
+                                    <label id="javaScriptDisabledHeaderLabel15" class="errorbold">
+                                        Never want to see this screen again?
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top:29px" colspan = "2">
+                                    <label id="javaScriptDisabledTextLabel15" class="errorregular">
+                                        Just enable JavaScript in your browser settings, and you can skip this screen and join meetings automatically.
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="bulletnojs" class="bulletImageError">
+                                     <img id="Img5" src="/meet/Resources/blue_arrow_23_23.png" alt=""/>
+                                </td>
+                                <td class="bulletTextError">
+                                        <a id="javaScriptDisabledLaunchRichClientLink15" name="javaScriptDisabledLaunchRichClientLink15"
+                                            href="" class = "bulletpoint" style="vertical-align:top; text-align:left; cursor:pointer; text-decoration:none"
+                                            title="Forget about the JavaScript and join now.">
+                                            Forget about the JavaScript and join now.
+                                        </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </noscript>
+
+                <div id="joinLauncherErrorDiv15" style="display: none; vertical-align:top;" >
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id="errorTextLabel15" class="errorbold" >
+                                We're having trouble getting you into the meeting.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "errorHeader2" colspan = "2" class="errorHeader2">
+                            <label id="checkUrlLabel15" class="errorregular">
+                            It's possible you're using a bad URL. Try calling into the meeting using the phone number on the invite, or ask the organizer to drag you into the meeting from the Contacts list.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "errorBullet" class="bulletImageError">
+                            <img id="Img4" src="/meet/Resources/blue_arrow_23_23.png" alt="" onclick="togglediag()" />
+                        </td>
+                        <td id = "errorBulletText" class="bulletTextError">
+                            <label id="diagLabel15" class = "bulletpoint" style="vertical-align:top; cursor:pointer" onclick="togglediag()">
+                            Share this error with your admin
+                            </label>
+                        </td>
+                    </tr>
+                    <tr style="padding-bottom:6px">
+                        <td colspan = "2">
+                            <label id="diagLabel215" class="errorlow" style="display:none">
+                            Copy this diagnostic info and send it to your admin.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">
+                            <textarea id="diagInfoText15" cols="70" rows="3" style="font-size: 8px; overflow:auto" readonly="readonly" draggable="false">
+                            </textarea>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                <div id="UnsupportedClientBlockDiv15" style="display: none">
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id ="UnsupportedClientBlockMessageLabel15" style="display:block;" class="errorregular">
+                            You have a version of Lync that doesn't support joining this online meeting. Contact your support team to upgrade to a newer version of Lync.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bulletImageError">
+                            <img id="Img6" src="/meet/Resources/blue_arrow_23_23.png" alt="" />
+                        </td>
+                        <td class="bulletTextError">
+                            <a id="JoinMeetingUsingLWA_Link15" class = "bulletpoint" style="text-align:left; cursor:pointer; text-decoration:none" href="" target="_blank" title="">
+                                Join Using Lync Web App
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td />
+                        <td>
+                            <label id ="JoinUsingLWAOption115" style="display:block;" class="errorlow">
+                                You can join the meeting now using Lync Web App.
+                            </label>
+                        </td>
+                    </tr>
+
+                </table>
+                </div>
+                <div id="checkLaunchRichClientDiv15" style="display: none; vertical-align: top">
+                 <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id="checkIfJoinedLabel15" style="display:block;" class="errorregular">
+                            Have you successfully joined the meeting? Feel free to close this page.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr height ="24px"> </tr>
+                    <tr>
+                        <td colspan = "2">
+                            <label id="checkIfJoinedconditionLabel215" style="display:block; font-weight: bold;" class="errorregular">
+                            OR
+                            </label>
+                        </td>
+                    </tr>
+                    <tr height ="24px"> </tr>
+                    <tr>
+                        <td>
+                            <a id="CheckJoinMeetingUsingLWA2_Link15" class = "bulletpoint" style="text-align:left; cursor:pointer; text-decoration:none" href="" target="_blank" title="">
+                                Join Using Lync Web App
+                            </a>
+                        </td>
+                   </tr>
+                </table>
+                </div>
+
+                <div id="launchRichClientDiv15" style="display: none; vertical-align: top">
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id ="launchRichClientHeaderLabel15" style="display:block;" class="errorregular">
+                            You are joining the meeting.
+                            </label>
+                            <label id ="launchRichClientTextLabel15" style="display:block;" class="errorlow">
+                            You may close this web page now.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bulletImageError">
+                            <img id="Img1" src="/meet/Resources/blue_arrow_23_23.png" alt="" />
+                        </td>
+                        <td class ="bulletTextError">
+                            <a id="JoinMeetingUsingLWA2_Link15" class = "bulletpoint" style="text-align:left; cursor:pointer; text-decoration:none" href="" target="_blank" title="">
+                                Join Using Lync Web App
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td />
+                        <td>
+                            <label id ="JoinUsingLWAOptionHelp115" style="display:block;" class="errorlow">
+                                You can join the meeting now using Lync Web App.
+                            </label>
+                        </td>
+                    </tr>
+
+                </table>
+                </div>
+
+                <div id="mobileinterimDiv15" style="display: none;">
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id ="connectingLabel15" style="display:block;" class="errorregular">
+                            Connecting...
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+
+                <div id="mobileappstoreDiv15" style="display: none;">
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id="mobileappstoreLabel15" style="display:block;" class="errorregular">
+                            Have you successfully joined the meeting? Feel free to close this page.
+                            </label>
+                        </td>
+                    </tr>
+                    <tr height ="10px"> </tr>
+                    <tr>
+                        <td colspan = "2">
+                            <label id="mobileappstoreLabel315" style="display:block;" class="errorregular">
+                            OR
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bulletimagemobile">
+                            <img id="Img3" src="/meet/Resources/blue_arrow_23_23.png" alt="" />
+                        </td>
+                        <td style="padding-top:25px; vertical-align:top; text-align:left">
+                            <a id="mobileappstoreLabel215" class = "bulletpointMobile" style="vertical-align:top; text-align:left; cursor:pointer; text-decoration:none" href="" target="_blank" title="">
+                                Donï¿½t have Lync app? Install now
+                            </a>
+                        </td>
+                    </tr>
+
+                </table>
+                </div>
+
+                <div id="UnknownMobileDeviceDiv15" style="display: none;">
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan = "2">
+                            <label id="unknownMobileDeviceLabel15" style="display:block;">
+                            Cannot join this meeting using this device. Please use any alternate mechanisms like phone numbers associated with the meeting to join the meeting
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+
+            </td>
+            <td />
+        </tr>
+        <tr id="footer">
+            <td id ="copyright" class="copyright" style="display:none;"> 2012 Microsoft Corporation </td>
+            <td>
+               <img id="officeImageSuccess" src="/meet/Resources/Office_Blue.png" class="officeImage" alt="" />
+            </td>
+        </tr>
+    </table>
+    <table id="mainTablemobile" align="center" cellpadding="0" cellspacing="0" style="background-color:#0A92B9; width:100%; height:100%; display:none">
+        <tr id="contentRowMobile">
+            <td id="ContentCellMobile" class="mainContentCellMobile">
+                <table id="mainContentTableMobile" class="mainContentTableMobile" border="0">
+                    <tr id="topLogoRowMobile">
+                        <td id="topLogoCellMobile" class="topLogoCellMobile">
+                            <img id="communicatorLogoImageMobile" name="communicatorLogoImage" src="/meet/Resources/LyncLogo2011.png" alt="" />
+                        </td>
+                    </tr>
+                    <tr id="landingPageTextContentRowMobile">
+                        <td id="landingPageTextContentCellMobile">
+                            <noscript id="noScriptContentMobile">
+                                <div id="javaScriptDisabledDivMobile">
+                                    <table cellpadding="0" cellspacing="0" align="center" class="contentHeaderTableMobile">
+                                        <tr>
+                                            <td>
+                                                <label id="javaScriptDisabledHeaderLabelMobile" class="bodyBoldTextMobile">
+                                                    Never want to see this screen again?
+                                                </label>
+                                                <br id="Br1" />
+                                                <label id="javaScriptDisabledTextLabelMobile" class="bodyTextMobile">
+                                                    Just enable JavaScript in your browser settings, and you can skip this screen and join meetings automatically.
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              <br/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a id="javaScriptDisabledLaunchRichClientLinkMobile" name="javaScriptDisabledLaunchRichClientLink"
+                                                    href="" class="bodyTextMobile" tabindex="2"
+                                                    title="Forget about the JavaScript and join now.">
+                                                    Forget about the JavaScript and join now.
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </noscript>
+
+                            <div id="joinLauncherErrorDivMobile" style="display: none;">
+                                <label id="errorTextLabelMobile" style="color: #FF0000; font-weight: bold;">
+                                    Sorry, something went wrong, and we can't get you into the meeting.
+                                </label>
+                                <br id="Br2"/>
+                                <label id="checkUrlLabelMobile" style="font-weight: normal;font-size: 12px;">
+                                It's possible you're using a bad URL. Try calling into the meeting using the phone number on the invite, or ask the organizer to drag you into the meeting from the Contacts list.
+                                </label>
+                                <br id="Br3"/>
+                                <label id="diagLabelMobile" style="font-weight: normal;font-size: 11px; text-decoration: underline; color: #0000FF;" onmouseover="this.style.cursor='hand'" onclick="togglediag()">
+                                <br id="Br4"/>
+                                More about this error
+                                </label>
+                                <br />
+                                <label id="diagLabel2Mobile" style="font-weight: normal;font-size: 11px; display:none">
+                                Copy this diagnostic info and send it to your admin.
+                                </label>
+                                <textarea id="diagInfoTextMobile" cols="70" rows="5" style="font-size: 8px; overflow:auto" readonly="readonly">
+                                </textarea>
+                            </div>
+
+                            <div id="mobileinterimDiv" style="display: none;">
+                                <label id ="connectingLabel" style="display:block;" class="bodyTextMobile">
+                                Connecting...
+                                </label>
+                            </div>
+                            <div id="mobileappstoreDiv" style="display: none;" class="bodyTextMobile">
+                                <label id="mobileappstoreLabel" style="display:block;" class="bodyBoldTextMobile">
+                                In the meeting? You can go ahead and close this page.
+                                </label>
+                                <br />
+                                <br />
+                                <a id="mobileappstoreLabel2" style="display:block;">
+                                Install Lync and enjoy one-click join from your phone!
+                                </a>
+                            </div>
+                            <div id="UnknownMobileDeviceDiv" style="display: none;">
+                                <label id="unknownMobileDeviceLabel" style="display:block;">
+                                Cannot join this meeting using this device. Please use any alternate mechanisms like phone numbers associated with the meeting to join the meeting
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="Table1" cellspacing="0" cellpadding="0" class="footerTableMobile" align = "center">
+                    <tr id="Tr2">
+                        <td style="padding-top:0px;">
+                            <br id="Br6"/>
+                            <a id="onlineHelpLinkMobile" name="onlineHelpLink" href="http://go.microsoft.com/fwlink/?LinkId=190632" class="bodyTextMobile"
+                                target="_blank" tabindex="4" title="Online Help">
+                                Online Help
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                           <br/>
+                       </td>
+                    </tr>
+                    <tr id="Tr3">
+                        <td id="Td1" class="footerTableCellMobile">
+                            <img id="Img2" name="officeLogoImage" src="/meet/Resources/OfficeLogo2011.png"
+                                alt=""/>
+                            <br/>
+                            <label id="copyRightTextLabelMobile" class="smallerBodyTextMobile">
+                                © 2010 Microsoft Corporation. All rights reserved.
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="Tr4" align="center">
+            <td id="Td2"  class="bodyTextMobile">
+                <div id="languageSettingsDivMobile" style="display: none;">
+                    <label id="languageSettingsLabelMobile">
+                        Language: &nbsp;
+                    </label>
+                    <select id="languageSelectCmbMobile" onchange="mainWindow.LanguageSelectionChanged();" tabindex="1">
+                        <option value="ar">العربية&rlm;</option><option value="az">Azərbaycan­ılı&lrm;</option><option value="be">Беларускі&lrm;</option><option value="bg">български&lrm;</option><option value="ca">català&lrm;</option><option value="cs">čeština&lrm;</option><option value="da">dansk&lrm;</option><option value="de">Deutsch&lrm;</option><option value="el">Ελληνικά&lrm;</option><option value="en-US">English (United States)&lrm;</option><option value="es">español&lrm;</option><option value="et">eesti&lrm;</option><option value="eu">euskara&lrm;</option><option value="fa">فارسى&rlm;</option><option value="fi">suomi&lrm;</option><option value="fil">Filipino&lrm;</option><option value="fr">français&lrm;</option><option value="gl">galego&lrm;</option><option value="he">עברית&rlm;</option><option value="hi">हिंदी&lrm;</option><option value="hr">hrvatski&lrm;</option><option value="hu">magyar&lrm;</option><option value="id">Bahasa Indonesia&lrm;</option><option value="it">italiano&lrm;</option><option value="ja">日本語&lrm;</option><option value="kk">Қазақ&lrm;</option><option value="ko">한국어&lrm;</option><option value="lt">lietuvių&lrm;</option><option value="lv">latviešu&lrm;</option><option value="mk">македонски јазик&lrm;</option><option value="ms">Bahasa Melayu&lrm;</option><option value="nl">Nederlands&lrm;</option><option value="no">norsk&lrm;</option><option value="pl">polski&lrm;</option><option value="pt-BR">Português (Brasil)&lrm;</option><option value="pt-PT">português (Portugal)&lrm;</option><option value="ro">română&lrm;</option><option value="ru">русский&lrm;</option><option value="sk">slovenčina&lrm;</option><option value="sl">slovenski&lrm;</option><option value="sq">shqipe&lrm;</option><option value="sr-Cyrl-CS">српски (Србија и Црна Гора (Претходно))&lrm;</option><option value="sr">srpski&lrm;</option><option value="sv">svenska&lrm;</option><option value="th">ไทย&lrm;</option><option value="tr">Türkçe&lrm;</option><option value="uk">українська&lrm;</option><option value="uz">U'zbek&lrm;</option><option value="vi">Tiếng Việt&lrm;</option><option value="zh-CHS">中文(简体) 旧版&lrm;</option><option value="zh-CHT">中文(繁體) 舊版&lrm;</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        (function () {
+
+            function isParentOriginSame() {
+                try {
+                    return location.host === parent.location.host;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            function contains(whitelist, origin) {
+                var i;
+                for (i = 0; i < whitelist.length; i += 1) {
+                    if (whitelist[i] === origin) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function disablePage() {
+                window.onmessage = null;
+                document.body.innerHTML = '';
+            }
+
+            function initPage() {
+                mainWindow = new MainForm();
+                mainWindow.OnLoad();
+            }
+
+            function initOriginCheck() {
+                var timeoutId = setTimeout(disablePage, 500),
+                    messageId = String(Math.random() * 0x80000000 | 0), // a relatively unique uint31
+                    origins = eval(parentOriginWhitelist); // IE8 quirks mode - no JSON.parse()
+
+                window.onmessage = function (event) {
+                    event = event || window.event;
+                    if (event.data === messageId) {
+                        clearTimeout(timeoutId);
+                        window.onmessage = null;
+                        if (contains(origins, event.origin)) {
+                            initPage();
+                        } else {
+                            disablePage();
+                        }
+                    }
+                };
+
+                parent.postMessage(messageId, '*');
+            }
+
+            if (!parentOriginJsCheckEnabled || parent === window || isParentOriginSame()) {
+                initPage();
+            } else {
+                reachClientRequested = 'True'; // force web app when embedded
+                initOriginCheck();
+            }
+        }());
+    </script>
+</body>
+</html>

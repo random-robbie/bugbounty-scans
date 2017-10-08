@@ -1,0 +1,236 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+
+<!-- 508 -->
+
+<head id="login">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta HTTP-EQUIV="content-type" CONTENT="text/html;charset=utf-8">
+  <meta charset="utf-8" />
+  <meta name="description" content="" />
+  <meta name="author" content="JAMF Software" />
+  <meta name="apple-mobile-web-app-title" content="Jamf Pro">
+  <meta name="version" content="10.0.0-b.1.t1502828985">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Jamf Pro Login - Jamf Pro v10.0.0-b.1.t1502828985</title>
+
+  
+
+
+
+<base href="/">
+
+<script type="text/javascript" id="setBaseHrefScript">
+
+    var a = document.createElement('a');
+    a.href = top.location + '';
+
+    var path = a.pathname; // defaults to '/' if not set in top.location
+
+    // Except in the case of IE, it may need '/' to be prepended.
+    if (path.slice(0, 1) !== '/') {
+        path = '/' + path;
+    }
+    var components = path.split('/');
+    var context = '/';
+
+    if (components.length > 1 && components[1] && components[1] !== 'view' && ! components[1].match(/^(.*\.html)|enroll?/)) {
+        context += components[1] + '/';
+    }
+
+    var base = document.getElementsByTagName('base')[0];
+
+    if (base) {
+        var serverBaseHref = base.getAttribute('href');
+
+        if (serverBaseHref !== context) {
+            base.setAttribute('href', context);
+        }
+    } else {
+        base = document.createElement('base');
+        base.setAttribute('href', context);
+        var script = document.getElementById('setBaseHrefScript');
+        script.parentNode.insertBefore(base, script);
+    }
+
+</script>
+
+
+  <script type="text/javascript" src="javascripts/jquery/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/scripts.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.tablesorter.min.js"></script>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="ui/images/touchicons/touch-icon-iphone.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ui/images/touchicons/touch-icon-ipad.png">
+  <!-- For iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ui/images/touchicons/touch-icon-iphone-retina.png">
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ui/images/touchicons/touch-icon-ipad-retina.png">
+  <link rel='mask-icon' color="#8DC63F" href="ui/images/touchicons/JSS_pinned.svg" >
+  <link rel="icon" href="ui/images/jamf-32-32-favicon.ico">
+
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- C: -->
+  <!-- inject:css -->
+<link rel="stylesheet" type="text/css" id="main-stylesheet-link" href="ui/styles/main.css?v=1502830728191">
+<!-- endinject -->
+
+<!-- inject:js -->
+<script src="ui/jamf.js?v=1502830728191"></script>
+<!-- endinject -->
+
+<!-- systemjs:js -->
+<script src="ui/systemjs.config.js?v=1502830728191"></script>
+<!-- endinject -->
+
+<script>
+    var isLogin = document.head.id === 'login';
+    var isSetupAssistant = document.head.id === 'setupAssistant';
+    var isStartup = document.head.id === 'startup' || document.head.id == 'activation';
+    var config = 'ui/ui';
+
+    if (isLogin) {
+        config = 'ui/auth/loginApp';
+    } else if (isSetupAssistant) {
+        config = 'ui/setupAssistant/setupAssistant';
+    } else if (isStartup) {
+        config = 'ui/startup/startup';
+    }
+
+    var errorLogger = function (error) {
+        console.error(error);
+    };
+
+    SystemJS.import(config).catch(errorLogger);
+</script>
+
+<!-- non-npm:js -->
+<script src="ui/jamf-non-npm.js?v=1502830728191"></script>
+<!-- endinject -->
+
+</head>
+
+<body class="login-page">
+
+  <div id="main-login-wrapper" class="unselectable ">
+    <div id="login-wrapper" ng-controller="loginController as lc">
+      <div class="login-box">
+        <div id="jamf-logo-login">
+          <img src="ui/images/svg/logos/jamf-pro-color.svg" />
+        </div>
+        <form class="login-form" method="POST" name="f">
+          <div id="login-panel">
+
+            <div id="login-fields">
+
+              <span class="label" translate='INPUT_USERNAME' translate-default='Username'>&nbsp;</span>
+              <input name="username" id="username" class="input" value="" autocapitalize="off" autocorrect="off"
+                   ng-bind="lc.username" placeholder="ex. admin" />
+
+              <div class="login-separator"></div>
+
+              <span class="label" translate='INPUT_PASSWORD' translate-default='Password'>&nbsp;</span>
+              <input name="password" id="password" class="input" type="password" autocomplete="off"
+                   ng-bind="lc.password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" />
+
+              <button id="jssLoginButton" class="submit-button icon-arrow-1-circle-right button" type="submit" value="{{'LOG_IN' | translate}}"></button>
+
+            </div> 
+
+            <div id="reset-fields">
+
+              <div class="reset-fields-lead">
+                <p class="reset-header" translate='RESET_PASSWORD' translate-default='Reset Password'>&nbsp;</p>
+                <p class="reset-body" translate="RESET_PASSWORD_INFO">&nbsp;</p>
+              </div>
+              <div class="login-separator"></div>
+
+              <span class="label" translate='INPUT_USERNAME' translate-default='Username'>&nbsp;</span>
+
+              <input name="resetUsername" id="resetUsername" class="input" value=""
+                     autocapitalize="off" autocorrect="off" placeholder="ex. admin" />
+              <input type="hidden" disabled="disabled" name="reset" value="reset" />
+
+              <button class="submit-button icon-arrow-1-circle-right button"
+                      type="button" value="{{'RESET_PASSWORD' | translate}}" id="reset" onclick="sendResetPassword()"></button>
+
+            </div> 
+
+            <div id="reset-sent-fields">
+              <p class="reset-sent-header" translate='RESET_EMAIL_SENT' translate-default='Reset Email Sent'>&nbsp;</p>
+              <p class="reset-sent-body" translate='CONTACT_JSS_ADMIN_MISSING_EMAIL' translate-default='Contact your Jamf Pro administrator if you do not receive it.'>&nbsp;</p>
+              <i class="submit-button icon-check-circle" onclick="hideResetPassword()"></i>
+
+              <div class="login-separator"></div>
+
+              <span class="label" translate='INPUT_USERNAME' translate-default='Username'>&nbsp;</span>
+              <input class="input" value=""
+                     autocapitalize="off" autocorrect="off" placeholder="ex. admin" />
+              <input type="hidden" disabled="disabled" name="reset" value="reset"/>
+            </div> 
+
+          </div> 
+        </form>
+      </div>
+      <div class="reset-links-wrapper">
+        <copyright></copyright>
+        <div id="show-reset-link" class="reset-links" onclick="showResetPassword()">
+          <a translate='RESET_PASSWORD' translate-default='Reset Password'>&nbsp;</a><i class="submit-button icon-arrow-2-circle-right"></i>
+        </div>
+        <div id="show-login-link" class="reset-links" onclick="hideResetPassword()">
+          <i class="submit-button icon-arrow-2-circle-left"></i><a translate='LOGIN' translate-default='Login'>&nbsp;</a>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+
+  <script>
+
+    function setDefaultField(){
+        
+        document.getElementById('username').focus();
+        
+    }
+
+    function showResetPassword(){
+      document.getElementById("login-wrapper").className="show-reset-fields";
+      document.getElementsByName("reset")[0].removeAttribute("disabled");
+    }
+
+    function hideResetPassword(){
+      document.getElementById("login-wrapper").className="show-login-fields";
+      document.getElementsByName("reset")[0].setAttribute("disabled", "true");
+    }
+
+    document.getElementById("reset").onclick = function() {
+        document.forms['f'].submit();
+    };
+  </script>
+
+</body>
+</html>

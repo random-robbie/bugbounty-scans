@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>BIG-IP ACL denied page</title>
+    <link rel="stylesheet" type="text/css" HREF="/public/include/css/apm.css">
+    <script src="/public/include/js/common.js" language="javascript"></script>
+    <script language="javascript">
+    
+      function OnLoad() 
+      {
+      
+        var display_session = get_cookie("LastMRH_Session");
+        if(null != display_session) {
+          document.getElementById("sessionDIV").innerHTML = '<BR>' + "The session reference number:" + '&nbsp;' + display_session + '<BR>';
+          document.getElementById("sessionDIV").style.visibility = "visible";
+        }
+	
+      }
+      
+    </script>
+  </head>
+
+<body
+	onload="OnLoad();"
+>
+
+<script>
+try
+{
+    if(window.external && window.external.WebLogonOnAuthFailure) {
+        window.external.WebLogonOnAuthFailure();
+    }
+}catch(e){};
+</script>	
+
+
+<meta name="viewport" id="viewport" content="initial-scale=1.0" />       
+<script language="javascript">
+//orientation toolbox
+function setViewport(){
+    document.getElementById("viewport").setAttribute('content', Math.abs(window.orientation) == 90 ? 'width=device-height, initial-scale=1' : 'width=device-width, initial-scale=1.0' );
+}
+setViewport();
+window.onorientationchange = function() {
+    setViewport();
+}    
+</script>
+<table id="page_header">
+  <tr >
+    <td id="header_leftcell"><img src='/public/images/my/flogo.png'/></td>             
+    <td id="header_rightcell"></td>
+  </tr>
+</table>
+
+<table class='main_table'>
+	<tr valign="top">
+		<td>
+			<table width="500px" cellpadding="10">
+				<tr>
+					<td>
+<h1>You do not have permission to access this page.</h1>					</td>
+				</tr>
+				<tr>
+					<td>
+<font color=red>Access was denied by an access control list.</font>					</td>
+				</tr>
+                <tr>
+				    <td>
+								    <a href="javascript:history.go(-1)">Click here to return to previous page</a>
+                				    </td>
+				</tr>
+     		    				<tr>
+					<td>
+						<DIV ID="sessionDIV" style='visibility:hidden' align=left></DIV>
+					</td>
+				</tr>
+				<tr>
+
+			</table>	
+			
+		</td>
+	</tr>
+</table>	
+
+<div id="page_footer"><div>This product is licensed from F5 Networks. © 1999-2014 F5 Networks. All rights reserved. </div></div>
+</body>
+</html>

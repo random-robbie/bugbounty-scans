@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- OG Tags -->
+  
+    <meta property="og:url" content="https://counterspeech.fb.com/en/">
+      <meta property="og:title" content="Counterspeech efforts on Facebook">
+      <meta property="og:description" content="People use our platform to speak out against hatred and extremism. They counter hateful content by responding to it directly, raising awareness on important issues, and supporting positive and moderate voices.
+
+We believe these efforts to resist and stand up to racism, violence, extremism, and hate are essential. That is why we work closely with local communities, experts in civil society and academia, and policymakers to support counterspeech initiatives across the globe.">
+      <meta property="og:image" content="">
+  
+  <!-- end og tags -->
+
+  <meta name="fulljs"  content=https://counterspeech.fb.com/en/wp-content/themes/counterspeech-stinkstudios/frontend/dist/js/bundle.min.1be3fd45.js>
+  <link rel="shortcut icon" href=https://counterspeech.fb.com/en/wp-content/themes/counterspeech-stinkstudios/frontend/public/assets/favicon.ico >
+
+  <link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='screen-css-0' href='https://counterspeech.fb.com/en/wp-content/themes/counterspeech-stinkstudios/frontend/dist/css/base.min.css?m=1504015130g' type='text/css' media='screen' />
+<link rel='stylesheet' id='all-css-0' href='https://counterspeech.fb.com/en/wp-content/mu-plugins/jetpack/css/jetpack.css?m=1504843326g' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://counterspeech.fb.com/en/wp-json/' />
+<meta name="generator" content="WordPress 4.8.2" />
+<link rel="canonical" href="https://counterspeech.fb.com/en/" />
+<link rel='shortlink' href='https://counterspeech.fb.com/en/' />
+<link rel="alternate" type="application/json+oembed" href="https://counterspeech.fb.com/en/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcounterspeech.fb.com%2Fen%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://counterspeech.fb.com/en/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcounterspeech.fb.com%2Fen%2F&#038;format=xml" />
+<style type='text/css'>img#wpstats{display:none}</style>
+  
+ <script type="text/javascript">
+   window.cpsch = {};
+   window.cpsch.sDir = 'https://counterspeech.fb.com/en/wp-content/themes/counterspeech-stinkstudios';
+   window.cpsch.siteUrl = 'https://counterspeech.fb.com/en';
+   new function() { !function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}var t={};n.m=e,n.c=t,n.i=function(e){return e},n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="",n(n.s=0)}([function(e,n,t){"use strict";function r(e){var n=window.document.getElementsByTagName("script")[0],t=window.document.createElement("script");return t.src=e,t.async=!0,n.parentNode.insertBefore(t,n),t}function o(e,n,t){function r(){for(var n,a=0;a<i.length;a++)i[a].href&&i[a].href.indexOf(e)>-1&&(n=!0);n?o.media=t||"all":c(r)}var o=window.document.createElement("link"),a=n||window.document.getElementsByTagName("script")[0],i=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",a.parentNode.insertBefore(o,a),r(),o}function a(e){for(var n,t=window.document.getElementsByTagName("meta"),r=0;r<t.length;r++)if(t[r].name&&t[r].name===e){n=t[r];break}return n}function i(){l.className+=""+f.join(" ")}var c=window.setTimeout,u={},d=window.document,l=d.documentElement,s=(d.head||d.getElementsByTagName("head")[0],"fulljs"),f=["enhanced"];window.cpsch.sDir;u.loadJS=r,u.loadCSS=o,u.getMeta=a,function(){i();var e=a(s);e&&r(e.content)}(),window.enhance=u}]); };
+ </script>
+
+ 
+
+<script type="text/javascript">
+  // Add the show class for unQualified browsers - 'Cutting the Mustard'
+  // So we show the content as fast as possible. Minimal styling will be loaded later
+  if( !('querySelector' in document) || (window.CustomEvent === undefined)) {
+    document.documentElement.className = 'feature-phone ' + document.documentElement.className;
+  }
+</script>
+
+<style>
+  /*html { opacity: 0; visibility: hidden; }*/
+  html { opacity: 1; visibility: visible; }
+</style>
+
+<!-- no-script css handle -->
+
+<noscript>
+  <!-- Include the noscript css for browsers with no JavaScript -->
+  <style>
+    html { opacity: 1; visibility: visible; }
+    p{font-size:1.6rem}.header-wrapper{background-color:#3b5998;position:relative!important}.header-wrapper .burger-container,.header-wrapper .header-left svg{display:none!important;visibility:hidden;opacity:0}.header-wrapper .header-left .logo-copy{margin-top:1.4rem;color:#fff;font-weight:700;font-size:2.2rem}.header-wrapper .dropdown-wrapper,.header-wrapper .header-right{display:none!important;visibility:hidden;opacity:0}.header-wrapper .header-noscript-link{display:inline-block!important;position:absolute;color:#fff;right:35px;top:25px;font-size:1.2rem;text-decoration:underline}.footer-wrapper{width:calc(100% - 6rem);padding:6.5rem 3rem 2.7rem}.footer-wrapper .footer-inner-container{padding:0}.footer-wrapper .footer-left-mobile .section{font-size:1.6rem;font-weight:700;text-align:left}.footer-wrapper .footer-left-mobile .section a{text-decoration:underline}.footer-wrapper .footer-left-mobile .section.dropdown-button{text-decoration:none}.footer-wrapper .footer-left-mobile .dropdown-button:after{display:none;visibility:hidden;opacity:0}.footer-wrapper .footer-left-mobile .initiatives.noscript{display:block}.footer-wrapper .footer-left-mobile .initiatives.noscript a{display:block;font-size:1.4rem;color:#898f9c}.footer-wrapper .footer-left-mobile .countries.noscript{display:block}.footer-wrapper .footer-left-mobile .countries.noscript .country-list{display:none;visibility:hidden;opacity:0}.footer-wrapper .footer-left-mobile .countries.noscript .dropdown-button{background:none;border:none;position:relative;outline:0;color:#898f9c;display:block;text-align:left;padding:0;margin:1rem 0;padding:1.5rem 3.5rem;border:1px solid #898f9c;border-radius:2px;transition:all .3s ease-out}.footer-wrapper .footer-left-mobile .countries.noscript .dropdown-button:after{display:inline-block}.footer-wrapper .footer-left-mobile .countries.noscript .dropdown-button:hover{color:#fff;border-color:#fff}.footer-wrapper .footer-left-mobile .countries.noscript .dropdown-button .arrow{width:.7rem;height:.7rem;margin-left:20px;border-left:1px solid #898f9c;border-bottom:1px solid #898f9c;transform-origin:center}.footer-wrapper .footer-left-mobile .countries.noscript .dropdown-button:after{left:20px}.footer-wrapper .footer-left-mobile .countries.noscript .dropdown-button:hover+ul{display:block;opacity:1;visibility:visible;transition:opacity .3s ease-out;pointer-events:all}.footer-wrapper .footer-left-mobile .countries.noscript ul{opacity:0;overflow:hidden;background-color:transparent;padding:0;position:relative;top:0;left:0;pointer-events:none}.footer-wrapper .footer-left-mobile .countries.noscript ul:hover{opacity:1;transition:opacity .3s ease-out;pointer-events:all}.footer-wrapper .footer-left-mobile .countries.noscript ul li{line-height:2.5rem}.footer-wrapper .footer-left-mobile .countries.noscript ul li a{color:#898f9c}.footer-wrapper .footer-left-mobile .countries.noscript ul li a:hover{color:#5890ff}.footer-wrapper .footer-right{align-items:flex-start}.footer-wrapper .footer-right .language-copy{display:block;font-size:1.6rem;color:#898f9c;margin:1rem 0}.footer-wrapper .footer-right button:hover+.language-container{display:block}.footer-wrapper .footer-right .language-container{display:none;visibility:hidden;opacity:0;background-color:transparent}.footer-wrapper .footer-bottom{margin-top:3rem}.footer-wrapper .footer-bottom .bottom-links{display:block;margin:0}.footer-wrapper .footer-bottom .bottom-links .bottom-link{margin-right:1.4rem}.footer-wrapper .footer-bottom .copyright-copy{text-align:left}.footer-wrapper a{text-decoration:underline}.footer-wrapper .footer-noscript-link{display:block;margin-top:2rem;font-weight:700;font-size:1.6rem;color:#fff;text-decoration:underline}.masthead-caption-wrapper,.masthead-caption-wrapper.first-hero,.masthead-caption-wrapper.first-hero.hide,.masthead-image-container,.masthead-image-container.first-hero,.masthead-image-container.first-hero.hide{display:none;visibility:hidden;opacity:0}.masthead{height:auto!important;padding:4rem 0 5.6rem;margin-top:0!important}.masthead .masthead-copy{position:relative;top:auto;padding-top:0!important;transform:none!important}.top-row-copy-wrapper{padding:5.8rem 0}.top-row-copy-wrapper .top-row-copy{border-left:none;font-size:2rem;width:100%;max-width:100%;margin-left:20px}.top-row-copy-wrapper .top-row-copy:before{display:none;visibility:hidden;opacity:0}.map-container,.map-segment{display:none!important;visibility:hidden;opacity:0;height:0!important}.header-line-center,.header-line-left{margin-bottom:2.5rem}.header-line-center:after,.header-line-left:after{display:none;visibility:hidden;opacity:0}#home-page .initiative-header-wrapper .initiative-header{width:100%;max-width:100%}.initiative-header-wrapper .initiative-header{padding-bottom:3.6rem}.initiatives-wrapper .image,.initiatives-wrapper img,.resources-section-wrapper .image,.resources-section-wrapper img{display:none!important;visibility:hidden;opacity:0}.initiative-short-tile{max-width:100%;padding:0;height:auto;margin:20px 0 0 10px}.initiative-short-tile:last-of-type{padding:0}.initiative-short-tile .initiative-tile.copy{flex-basis:100%;width:100%}.case-studies .campaign-icon,.case-studies .campaign-image,.case-studies img{display:none!important;visibility:hidden;opacity:0}.case-studies .campaign-subhead{transform:translate3d(0,-11px,0)!important}.case-studies .campaign-learn-more{margin:2.5rem auto 2rem!important}.case-studies h2{margin-bottom:2.3rem}.case-studies h2:after{display:none!important;visibility:hidden;opacity:0}.section-wrapper.partners .partner-image,.section-wrapper.partners img{display:none!important}.section-wrapper.partners .partner-link{display:block!important;margin-top:1.8rem;font-size:1.6rem!important;color:blue!important;text-decoration:underline!important}.research-list .noscript,.resources-list .noscript{display:inline-block}.research-icon,.resource-button,.resource-icon{display:none!important;visibility:hidden;opacity:0}.resource-dropdown{position:relative!important;right:0!important;opacity:1!important;margin-top:1rem;box-shadow:none!important;background-color:transparent!important;padding-left:0!important}.resource-dropdown a{font-size:1.6rem!important;color:blue!important;text-decoration:underline!important}.contact-module-container{display:none!important;visibility:hidden;opacity:0;pointer-events:none!important}.about-wrapper h2,.contact-wrapper h2{margin-bottom:2.9rem}.about-wrapper h2:after,.about-wrapper img,.contact-wrapper h2:after,.contact-wrapper img{display:none!important;visibility:hidden;opacity:0}
+/*# sourceMappingURL=public/css/app-noscript.css.map */1  </style>
+</noscript>
+
+<!-- GA -->
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102337918-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- /GA -->
+
+</head>
+<body class="header-not-sticky" >
+
+      <div class="header-close-overlay"></div>
+
+    <div class="header-wrapper header-not-sticky" id="top-link">
+
+      <div class="header-left logo">
+        <a class="logo-link" href="https://counterspeech.fb.com/en">
+          <svg class="logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve"><path class="outline" d="M944.8,1000c30.5,0,55.2-24.7,55.2-55.2V55.2C1000,24.7,975.3,0,944.8,0H55.2C24.7,0,0,24.7,0,55.2v889.6c0,30.5,24.7,55.2,55.2,55.2H944.8z"/><path class="background" d="M690,1000V612.7h130l19.5-150.9H690v-96.4c0-43.7,12.1-73.5,74.8-73.5l79.9,0V157c-13.8-1.8-61.3-5.9-116.5-5.9c-115.2,0-194.1,70.3-194.1,199.5v111.3H403.8v150.9h130.3V1000H690z"/></svg>
+          <div class="logo-copy">
+            Counterspeech          </div>
+        </a>
+      </div>
+
+      <div class='burger-container'>
+        <div class="burger">
+          <span class="burger-inner top"></span>
+          <span class="burger-inner center"></span>
+          <span class="burger-inner bottom"></span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <li class="header-link locations dropdown-button" data-id="country-page">
+          <a href="#">Locations</a>
+        </li>
+        <li class="header-link initiatives dropdown-button" data-id="initiative-page">
+          <a href="#">Initiatives</a>
+        </li>
+        <li class="header-link" data-id="resources-page">
+          <a href="https://counterspeech.fb.com/en/resources/">Resources</a>
+        </li>
+        <li class="header-link" data-id="about-page">
+          <a href="https://counterspeech.fb.com/en/about/">About</a>
+        </li>
+        <li class="header-link" data-id="contact-page">
+          <a href="https://counterspeech.fb.com/en/contact/">Contact</a>
+        </li>
+
+        <ul class="bottom-links">
+          <li class="header-link">
+            <a href="https://www.facebook.com/about/basics" target="_blank">Privacy</a>
+          </li>
+          <li class="header-link">
+            <a href="https://www.facebook.com/legal/terms" target="_blank">Terms</a>
+          </li>
+          <li class="header-link">
+            <a href="https://www.facebook.com/policies/cookies" target="_blank">Cookies</a>
+          </li>
+          <li class="header-link">
+            <a href="https://www.facebook.com/help/" target="_blank">Help</a>
+          </li>
+          <li class="language dropdown-button">
+            <span>English</span>
+          </li>
+        </ul>
+
+                <ul class="language-dropdown">
+                      <li>
+              <a href="https://counterspeech.fb.com/en/">
+                English              </a>
+            </li>
+                        <li>
+              <a href="https://counterspeech.fb.com/de/">
+                Deutsch              </a>
+            </li>
+                        <li>
+              <a href="https://counterspeech.fb.com/fr/">
+                Français              </a>
+            </li>
+                      </ul>
+        </div>
+
+        <a class="header-noscript-link" href="#menu-footer">
+          Go to Menu
+        </a>
+
+        <div class="locations dropdown-wrapper">
+                    <div class="section-wrapper">
+            <div class="section">
+             Americas           </div>
+           <ul class="country-list">
+                        <li class="list-item">
+              <a class="header-copy country-options ns/brazil" href="https://counterspeech.fb.com/en/locations/brazil/">
+                Brazil              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ns/canada" href="https://counterspeech.fb.com/en/locations/canada/">
+                Canada              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options /colombia" href="https://counterspeech.fb.com/en/locations/colombia/">
+                Colombia              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options tions/usa" href="https://counterspeech.fb.com/en/locations/usa/">
+                United States              </a>
+            </li>
+                      </ul>
+        </div>
+                  <div class="section-wrapper">
+            <div class="section">
+             Europe           </div>
+           <ul class="country-list">
+                        <li class="list-item">
+              <a class="header-copy country-options s/austria" href="https://counterspeech.fb.com/en/locations/austria/">
+                Austria              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/belgium" href="https://counterspeech.fb.com/en/locations/belgium/">
+                Belgium              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options -republic" href="https://counterspeech.fb.com/en/locations/czech-republic/">
+                Czech Republic              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/finland" href="https://counterspeech.fb.com/en/locations/finland/">
+                Finland              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ns/france" href="https://counterspeech.fb.com/en/locations/france/">
+                France              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/germany" href="https://counterspeech.fb.com/en/locations/germany/">
+                Germany              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/hungary" href="https://counterspeech.fb.com/en/locations/hungary/">
+                Hungary              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ons/italy" href="https://counterspeech.fb.com/en/locations/italy/">
+                Italy              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options therlands" href="https://counterspeech.fb.com/en/locations/netherlands/">
+                Netherlands              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ons/spain" href="https://counterspeech.fb.com/en/locations/spain/">
+                Spain              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ns/turkey" href="https://counterspeech.fb.com/en/locations/turkey/">
+                Turkey              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options d-kingdom" href="https://counterspeech.fb.com/en/locations/united-kingdom/">
+                United Kingdom              </a>
+            </li>
+                      </ul>
+        </div>
+                  <div class="section-wrapper">
+            <div class="section">
+             Asia Pacific           </div>
+           <ul class="country-list">
+                        <li class="list-item">
+              <a class="header-copy country-options ghanistan" href="https://counterspeech.fb.com/en/locations/afghanistan/">
+                Afghanistan              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options australia" href="https://counterspeech.fb.com/en/locations/australia/">
+                Australia              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options zerbaijan" href="https://counterspeech.fb.com/en/locations/azerbaijan/">
+                Azerbaijan              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options angladesh" href="https://counterspeech.fb.com/en/locations/bangladesh/">
+                Bangladesh              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ons/india" href="https://counterspeech.fb.com/en/locations/india/">
+                India              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options indonesia" href="https://counterspeech.fb.com/en/locations/indonesia/">
+                Indonesia              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options azakhstan" href="https://counterspeech.fb.com/en/locations/kazakhstan/">
+                Kazakhstan              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options /malaysia" href="https://counterspeech.fb.com/en/locations/malaysia/">
+                Malaysia              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options /pakistan" href="https://counterspeech.fb.com/en/locations/pakistan/">
+                Pakistan              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ilippines" href="https://counterspeech.fb.com/en/locations/philippines/">
+                Philippines              </a>
+            </li>
+                      </ul>
+        </div>
+                  <div class="section-wrapper">
+            <div class="section">
+             Africa           </div>
+           <ul class="country-list">
+                        <li class="list-item">
+              <a class="header-copy country-options ons/ghana" href="https://counterspeech.fb.com/en/locations/ghana/">
+                Ghana              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ons/kenya" href="https://counterspeech.fb.com/en/locations/kenya/">
+                Kenya              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/morocco" href="https://counterspeech.fb.com/en/locations/morocco/">
+                Morocco              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/nigeria" href="https://counterspeech.fb.com/en/locations/nigeria/">
+                Nigeria              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/tunisia" href="https://counterspeech.fb.com/en/locations/tunisia/">
+                Tunisia              </a>
+            </li>
+                      </ul>
+        </div>
+                  <div class="section-wrapper">
+            <div class="section">
+             Middle East           </div>
+           <ul class="country-list">
+                        <li class="list-item">
+              <a class="header-copy country-options s/bahrain" href="https://counterspeech.fb.com/en/locations/bahrain/">
+                Bahrain              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ions/iraq" href="https://counterspeech.fb.com/en/locations/iraq/">
+                Iraq              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options ns/jordan" href="https://counterspeech.fb.com/en/locations/jordan/">
+                Jordan              </a>
+            </li>
+                        <li class="list-item">
+              <a class="header-copy country-options s/lebanon" href="https://counterspeech.fb.com/en/locations/lebanon/">
+                Lebanon              </a>
+            </li>
+                      </ul>
+        </div>
+              </div>
+
+      <div class="initiatives dropdown-wrapper">
+                <li class="list-item">
+          <a class="header-copy initiative-options ok-global" href="https://counterspeech.fb.com/en/initiatives/p2p-facebook-global/">
+            P2P: Facebook Global Digital Challenge          </a>
+        </li>
+                <li class="list-item">
+          <a class="header-copy initiative-options tive-occi" href="https://counterspeech.fb.com/en/initiatives/online-civil-courage-initiative-occi/">
+            Online Civil Courage Initiative (OCCI)          </a>
+        </li>
+                <li class="list-item">
+          <a class="header-copy initiative-options ackathons" href="https://counterspeech.fb.com/en/initiatives/hackathons/">
+            Hackathons          </a>
+        </li>
+                <li class="list-item">
+          <a class="header-copy initiative-options trainings" href="https://counterspeech.fb.com/en/initiatives/ngo-trainings/">
+            NGO Trainings          </a>
+        </li>
+              </div>
+    </div>
+
+    <div id="home-page" class="page-wrapper">
+
+      <div class="masthead homepage">
+      <div class="hide first-hero image resize-image masthead-image-container" >
+      <div class="overlay"></div>
+      <img src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/05/homepage-i-am-a-believer.jpg" />
+    </div>
+  	<div class="masthead-copy-wrapper">
+	  <h1 class="masthead-copy">
+	    Counter hate by empowering positive voices	  </h1>
+
+	  	    <div class="hide masthead-caption-wrapper first-hero ">
+	      <span class="masthead-caption">
+	        #IAmABeliever, P2P: Facebook Global Digital Challenge, Yola, Nigeria	      </span>
+	    </div>
+	  	</div>
+</div>
+        <div class="top-row-copy-wrapper">
+            <div class="top-row-copy">
+                <p>People use our platform to speak out against hatred and extremism. They counter hateful content by responding to it directly, raising awareness on important issues, and supporting positive and moderate voices.</p><br/><p>We believe these efforts to resist and stand up to racism, violence, extremism, and hate are essential. That is why we work closely with local communities, experts in civil society and academia, and policymakers to support counterspeech initiatives across the globe.</p>            </div>
+        </div>
+      
+
+<div class="map-container">
+  <div class="map-segment">
+    <div class="data-sidebar">
+      <div class="map-intro-copy default">
+        <h4 class="map-copy">Discover counterspeech initiatives around the globe</h4>
+        <div class="header-line-left white"></div>
+        <p class="map-copy small">Click on a country to learn about local counterspeech campaigns, partners and resources</p>
+        <div class="map-intro-icon">
+        </div>
+      </div>
+      <div class="map-intro-copy data-points">
+        <h4 id="data-country" class="map-copy"></h4>
+        <div class="header-line-left white"></div>
+        <p id="data-body" class="map-copy map-copy-bottom small"></p>
+        <div id="data-icon" class="map-data-icon">
+          <div id="data-mustache"></div>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrapper">
+      <button type="button" name="btn-zoom-in" class="btn-zoom-in" data-id="zoom_in"></button>
+      <button type="button" name="btn-zoom-out" class="btn-zoom-out" data-id="zoom_out"></button>
+      <div id="global-map" class="map">
+
+      </div>
+      <div class="carousel-wrapper">
+
+        <div class="carousel-header">Swipe to learn about local campaigns and available resources</div>
+        <div class="carousel">
+                      <div class="carousel-item active">
+
+              <div class="carousel-content carousel-top-row">
+                <div class="icon">
+                  <svg width="17px" height="20px" viewBox="0 0 17 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-106.000000, -105.000000)">
+      <image id="ILLUSTRATIONS-06" x="106" y="105" width="17" height="20" xlink:href="data:image/png;base64,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"></image>
+    </g>
+  </g>
+</svg>
+                </div>
+                <p class="title">
+                  Germany                </p>
+              </div>
+
+              <div class="carousel-content datapoint">
+                1.75MM+              </div>
+              <div class="carousel-content mustache">
+                People reached              </div>
+            </div>
+                      <div class="carousel-item active">
+
+              <div class="carousel-content carousel-top-row">
+                <div class="icon">
+                  <svg width="17px" height="20px" viewBox="0 0 17 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-106.000000, -105.000000)">
+      <image id="ILLUSTRATIONS-06" x="106" y="105" width="17" height="20" xlink:href="data:image/png;base64,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"></image>
+    </g>
+  </g>
+</svg>
+                </div>
+                <p class="title">
+                  Nigeria                </p>
+              </div>
+
+              <div class="carousel-content datapoint">
+                11.5MM+              </div>
+              <div class="carousel-content mustache">
+                People reached              </div>
+            </div>
+                      <div class="carousel-item active">
+
+              <div class="carousel-content carousel-top-row">
+                <div class="icon">
+                  <svg width="17px" height="20px" viewBox="0 0 17 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-106.000000, -105.000000)">
+      <image id="ILLUSTRATIONS-06" x="106" y="105" width="17" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABSCAYAAADpaaIJAAAABGdBTUEAA1teXP8meAAABqxJREFUeAHtm01oXUUUx+8zVRBdRBSahWLwA1xYzKoLLTVuNAsXSrtxIUYEUbpIs5CutAU3diVdiIKCL1hwocGiKFUXSSWI1oXPkk1plIS4iGAkFdsqLuL/fzvzuLmf58yduffF5MDk3jdz5sy5v3vmzNz7XjpRC7K5uTmCYe8zZS+O/JyWJVRcQemhLHU6nb/SCiE/d0IaT9oGDIJ4AuUASh6IpHreOUF9ibIASGt5Cj7rgoMBkAk4fAiFYHzJAgzNAhCjKYgEAwMgjIwjKC7RIb1YgjkZIoK8gwGQW+HsMRSCaUpmAKfrczCvYABlDM69jkI4TQuj51UA8pKkvYExuYSR0qYwKRMOE3Ut8QJmQKBYEIyY6bpwaoMZMCje4NxgLbkcTU5pe/rkuR4vAPDPOdc5gzGDMtEOqnDf5HzTnMGYQZ3vSEM0D5iprh7OCQwG4x6lyX2K+sISHY64TCknMBiUO9rtIozq57TOqsGY0Ay5zddeg0T/MPxW+awG40Jf4nkDOnyYFYsKDKhzy68iL/YkvCJfeYhFBQZWVcbFXjSjOIIbK14wtGAYMdtZHpI6LwZjktd2nUaWh/jGisHAstio9WIAj+K3iHsUzoeMFr4uWEDhy+97UcS5ALoq4QKCJ+9eVScNGDocQs7C0ZNJw2ba8jlMfIeT/SvORY8xmqkkMljhVLqZb/y3QKEC6hhB0yhe3sbRZkJEsDVgEra9nb5VZAlwCGWmqD10fZtg1kxklF3jUlljyLY2wYS8rtq2NWA4730Kd6JVK50oHyidEkWhBszPSgck6oWvLwCNyZ7fYPoW72Aq136HK+AbtszrRxNJb8JeVURph5TktdimeB+DRLkEhzmdfDs7AbvcVS+gcIO3F2UCJYRwDJGIwRhrNHxYZFmnRNgh7Ka94K8lRKLJMTQ4K7I6mEr8jY0ov9B9FRiz7xCH44DxUd1UFRhzoaoBBgQOk+5ZjS9qMBiAq1OIFUrjt1ZXnFusYTUY07G1ZxjruOLIlfRjhX6s6gRmm0XNDPxVP6U7gTH0C5+MtXcnoL46t1hfnMHgLnDpUyU0O2iDx8y7HunYzmDMAIwadZhKnaup1zNT3slMLTBm7g5qInaOFpKsBYYGAIcZX7yjZJ8GZAZ+1XpNUhuMuchBSsRMuN268L2AgSPc8Kn3CnWdL+hfawpZm17AGGPMNbXC1zpV48ivYrzsyr2BgUNcndqcUl7H9waGdxlw+OTd1tM3/6fA29bBKxjCgXCOe3Mwtlj9h1/ceb0h3sGYu+YlAVbziDV4E7yP5x0MXW14SnmdQjFq/AkCxhhvYkpx2+91CgUHY6ZUyFUqyBQKDoYDAA6fvr3sK6zDieMM7AfbN3USA4lPH37m7TEoD0s67N9358grLxw8dsvNN0nURTq//nZ57cXXPhEn3G8/fHleZDihJAYDGOPoN4XyVKK/6PSx/fdEhx5/UKRbpXTt73+jN947F61vXK1STbfPo+IUIJ1JN+R9FoEBFH5dejTPgLRu6tlHovvvvl2qXqg3+9ViNHf+l8J2QUMXOtMAtFGmW7kq+YBCB05/9mPEu11HLq2s14XC4SdR3udJmQyVNZrp806ZjrSNUG7cM4SouUPaJaP37kc/RH9e+SdT71DxwF37nlxZXfy8V9S3KmKOF3V0qf/im4sREqdL16hO34IBS6+tEIyJlvECo87Vpz8tvEmFNv+4fDUGU6jg1jCKazxR1LUQDDqUEi0yWFXPiNEmzw8cYFb5YdqnAGc4TzcXTKhosQ5wWkgT8YWLa9Glld9tV99HQjmaZzQXDBS5PAcTQpn9erHSvlSv0lC5Qm7UZMAgWiZhZ6zcVv3W735aRSSslxrilHPYyJXazGnMjZoMGHQMkltyHCpNqIESbp4brMtEzRYwJlpGi3r7rmfu+P7Caq5Z5qEGJRM1W8DAkcaixV50HgBOMU61huU4AmPUjtkH03S0WAeYQ9JRkwfL6gc+9gOjDwYD9isDD54xnwTBaAm4PGfGTlVM2qiJweDDCSiMppQa+5iMmrnzIX6ArrqUOEBsxPA9S6vCqOFKxA1dyxJHzRCiZRyOvNSyM/FOmNPI09Nz3ctZYcQE38xJvXR98pbaV+gNEwzX8F1JESCY5VTd7kcQIJj5XRIZAr34ZTgS8ByaxjPNO7NiAy/Kb2PEUPivvLtyncDzPMRgQKiH87jietuO/du13zvZiIlQ0QWOp1GWUXaabOCC+V1TPzjiHJOmgJwzibpHUUZR/s+yjIs7h3IGUAinL/8BroTMX2Jn2VYAAAAASUVORK5CYII="></image>
+    </g>
+  </g>
+</svg>
+                </div>
+                <p class="title">
+                  Philippines                </p>
+              </div>
+
+              <div class="carousel-content datapoint">
+                5.4MM+              </div>
+              <div class="carousel-content mustache">
+                People reached              </div>
+            </div>
+                  </div>
+
+        <div class="carousel-indicators-container">
+            <ul class="carousel-indicators">
+                              <li class="indicator" data-id="0">
+                    <button></button>
+                </li>
+                              <li class="indicator" data-id="1">
+                    <button></button>
+                </li>
+                              <li class="indicator" data-id="2">
+                    <button></button>
+                </li>
+                          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-wrapper">
+              <div class="section-wrapper">
+          <div class="section map-copy small">
+            Americas            <span class="section-icon"></span>
+            <span class="section-icon open"></span>
+          </div>
+          <ul class="country-list">
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/brazil/">
+                  Brazil                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/canada/">
+                  Canada                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/colombia/">
+                  Colombia                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/usa/">
+                  United States                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="section-wrapper">
+          <div class="section map-copy small">
+            Europe            <span class="section-icon"></span>
+            <span class="section-icon open"></span>
+          </div>
+          <ul class="country-list">
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/austria/">
+                  Austria                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/belgium/">
+                  Belgium                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/czech-republic/">
+                  Czech Republic                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/finland/">
+                  Finland                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/france/">
+                  France                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/germany/">
+                  Germany                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/hungary/">
+                  Hungary                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/italy/">
+                  Italy                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/netherlands/">
+                  Netherlands                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/spain/">
+                  Spain                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/turkey/">
+                  Turkey                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/united-kingdom/">
+                  United Kingdom                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="section-wrapper">
+          <div class="section map-copy small">
+            Asia Pacific            <span class="section-icon"></span>
+            <span class="section-icon open"></span>
+          </div>
+          <ul class="country-list">
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/afghanistan/">
+                  Afghanistan                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/australia/">
+                  Australia                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/azerbaijan/">
+                  Azerbaijan                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/bangladesh/">
+                  Bangladesh                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/india/">
+                  India                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/indonesia/">
+                  Indonesia                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/kazakhstan/">
+                  Kazakhstan                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/malaysia/">
+                  Malaysia                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/pakistan/">
+                  Pakistan                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/philippines/">
+                  Philippines                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="section-wrapper">
+          <div class="section map-copy small">
+            Africa            <span class="section-icon"></span>
+            <span class="section-icon open"></span>
+          </div>
+          <ul class="country-list">
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/ghana/">
+                  Ghana                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/kenya/">
+                  Kenya                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/morocco/">
+                  Morocco                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/nigeria/">
+                  Nigeria                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/tunisia/">
+                  Tunisia                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="section-wrapper">
+          <div class="section map-copy small">
+            Middle East            <span class="section-icon"></span>
+            <span class="section-icon open"></span>
+          </div>
+          <ul class="country-list">
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/bahrain/">
+                  Bahrain                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/iraq/">
+                  Iraq                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/jordan/">
+                  Jordan                </a>
+              </li>
+                          <li class="list-item">
+                <a class="list-link map-copy small" href="https://counterspeech.fb.com/en/locations/lebanon/">
+                  Lebanon                </a>
+              </li>
+                      </ul>
+        </div>
+          </div>
+
+  </div>
+</div>
+  <div class="initiative-header-wrapper">
+    <h2 class="initiative-header header-line-center">
+      Initiatives empowering counterspeech creators    </h2>
+    <p class="initiative-header-copy">
+      Our key initiatives focus on empowering and amplifying local voices. This includes building awareness, educating communities, encouraging cohesion, and directly countering hateful narratives.    </p>
+  </div>
+
+<div class="initiatives-wrapper">
+  
+    <div class="initiative-short-tile">
+      <div class="initiative-tile image">
+        <img src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/counterspeech-nigeria-p2p-afyidev-initiative-teaser1.jpg"/>
+      </div>
+
+      <div class="initiative-tile copy">
+          <img class="initiative-tile-icon" src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/p2p-icon.png" />
+        <h4 class="initiative-tile-title">
+          P2P: Facebook Global Digital Challenge        </h4>
+        <p class="initiative-tile-copy">
+          P2P engages university students around the world in competitions where students create social media campaigns and offline strategies to challenge hateful and extremist narratives. To date, it has reached more than 56 million people.        </p>
+        <a class="initiative-button" href="https://counterspeech.fb.com/en/initiatives/p2p-facebook-global/">
+          <div class="button-link">Learn More</div>
+        </a>
+      </div>
+    </div>
+
+  
+    <div class="initiative-short-tile">
+      <div class="initiative-tile image">
+        <img src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/05/nmp_0305-3.jpg"/>
+      </div>
+
+      <div class="initiative-tile copy">
+          <img class="initiative-tile-icon" src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/occi-icon.png" />
+        <h4 class="initiative-tile-title">
+          Online Civil Courage Initiative (OCCI)        </h4>
+        <p class="initiative-tile-copy">
+          The OCCI has given over 1MM euros in financial and marketing aid to NGOs working to counter online extremism across Europe and has engaged more than 3.5 million people and 100 anti-hate and anti-extremism organizations.        </p>
+        <a class="initiative-button" href="https://counterspeech.fb.com/en/initiatives/online-civil-courage-initiative-occi/">
+          <div class="button-link">Learn More</div>
+        </a>
+      </div>
+    </div>
+
+  
+    <div class="initiative-short-tile">
+      <div class="initiative-tile image">
+        <img src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/counterspeech-philippines-hackathons-initiative-teaser1.jpg"/>
+      </div>
+
+      <div class="initiative-tile copy">
+          <img class="initiative-tile-icon" src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/hackathons-icon.png" />
+        <h4 class="initiative-tile-title">
+          Hackathons        </h4>
+        <p class="initiative-tile-copy">
+          Our social impact hackathons are intense, organized experiences where teams compete to hack (a.k.a creatively solve) a local counterspeech challenge and develop prototype tools, products, services, and initiatives. To date, they have reached over 1.4 million people.        </p>
+        <a class="initiative-button" href="https://counterspeech.fb.com/en/initiatives/hackathons/">
+          <div class="button-link">Learn More</div>
+        </a>
+      </div>
+    </div>
+
+  
+    <div class="initiative-short-tile">
+      <div class="initiative-tile image">
+        <img src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/05/20170614-facebook-counterspeech-88-2.jpg"/>
+      </div>
+
+      <div class="initiative-tile copy">
+          <img class="initiative-tile-icon" src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/ngo-trainings-icon.png" />
+        <h4 class="initiative-tile-title">
+          NGO Trainings        </h4>
+        <p class="initiative-tile-copy">
+          Over the past two years, Facebook has hosted training sessions focused on counterspeech narrative, marketing, and communication. We have shared insights and best practices with NGOs working on counterspeech, helping them reach and engage their audiences.        </p>
+        <a class="initiative-button" href="https://counterspeech.fb.com/en/initiatives/ngo-trainings/">
+          <div class="button-link">Learn More</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+<div class="resources-section-wrapper">
+  <div class="content-wrapper">
+    <h2 class="resources-header header-line-left">
+      Resources for empowering counterspeech creators    </h2>
+    <div class="resources-section-image mobile">
+      <img class="image" src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/counterspeech-resources-home11.png" />
+    </div>
+    <div class="resources-section">
+      <div class="resources-section-copy">
+        <p class="resources-copy">
+          Explore our research and resources for tips on learning how to create effective counterspeech in your community.        </p>
+        <a href="https://counterspeech.fb.com/en/resources/">
+          <div class="button-link">Get Started</div>
+        </a>
+      </div>
+
+      <div class="resources-section-image">
+        <img class="image" src="https://counterspeech.fb.com/en/wp-content/uploads/sites/2/2017/06/counterspeech-resources-home11.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    
+
+  <div class="footer-wrapper" id="menu-footer">
+    <div class="footer-inner-container">
+      <div class="footer-left">
+
+                <div class="section-wrapper">
+          <div class="section footer-copy">Americas</div>
+          <ul>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/brazil/">
+                Brazil              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/canada/">
+                Canada              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/colombia/">
+                Colombia              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/usa/">
+                United States              </a>
+            </li>
+                      </ul>
+        </div>
+                <div class="section-wrapper">
+          <div class="section footer-copy">Europe</div>
+          <ul>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/austria/">
+                Austria              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/belgium/">
+                Belgium              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/czech-republic/">
+                Czech Republic              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/finland/">
+                Finland              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/france/">
+                France              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/germany/">
+                Germany              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/hungary/">
+                Hungary              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/italy/">
+                Italy              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/netherlands/">
+                Netherlands              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/spain/">
+                Spain              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/turkey/">
+                Turkey              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/united-kingdom/">
+                United Kingdom              </a>
+            </li>
+                      </ul>
+        </div>
+                <div class="section-wrapper">
+          <div class="section footer-copy">Asia Pacific</div>
+          <ul>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/afghanistan/">
+                Afghanistan              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/australia/">
+                Australia              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/azerbaijan/">
+                Azerbaijan              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/bangladesh/">
+                Bangladesh              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/india/">
+                India              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/indonesia/">
+                Indonesia              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/kazakhstan/">
+                Kazakhstan              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/malaysia/">
+                Malaysia              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/pakistan/">
+                Pakistan              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/philippines/">
+                Philippines              </a>
+            </li>
+                      </ul>
+        </div>
+                <div class="section-wrapper">
+          <div class="section footer-copy">Africa</div>
+          <ul>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/ghana/">
+                Ghana              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/kenya/">
+                Kenya              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/morocco/">
+                Morocco              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/nigeria/">
+                Nigeria              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/tunisia/">
+                Tunisia              </a>
+            </li>
+                      </ul>
+        </div>
+                <div class="section-wrapper">
+          <div class="section footer-copy">Middle East</div>
+          <ul>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/bahrain/">
+                Bahrain              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/iraq/">
+                Iraq              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/jordan/">
+                Jordan              </a>
+            </li>
+                        <li class="footer-item">
+              <a class="footer-copy country-link" href="https://counterspeech.fb.com/en/locations/lebanon/">
+                Lebanon              </a>
+            </li>
+                      </ul>
+        </div>
+        
+        <div class="section-wrapper">
+          <div class="section footer-copy">Initiatives</div>
+          <ul>
+                        <li class="list-item">
+              <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/p2p-facebook-global/">
+                P2P: Facebook Global Digital Challenge              </a>
+            </li>
+                        <li class="list-item">
+              <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/online-civil-courage-initiative-occi/">
+                Online Civil Courage Initiative (OCCI)              </a>
+            </li>
+                        <li class="list-item">
+              <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/hackathons/">
+                Hackathons              </a>
+            </li>
+                        <li class="list-item">
+              <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/ngo-trainings/">
+                NGO Trainings              </a>
+            </li>
+                      </ul>
+        </div>
+        <div class="section-link-wrapper small">
+          <div class="section footer-copy">
+            <a class="section-link" href="https://counterspeech.fb.com/en/resources/">Resources</a>
+          </div>
+          <div class="section footer-copy">
+            <a class="section-link" href="https://counterspeech.fb.com/en/about/">About</a>
+          </div>
+          <div class="section footer-copy">
+            <a id="contact-module" class="section-link" href="https://counterspeech.fb.com/en/contact/">Contact</a>
+          </div>
+        </div>
+        <div class="section-link-wrapper large">
+          <div class="section footer-copy">
+            <a class="section-link" href="https://counterspeech.fb.com/en/resources/">Resources</a>
+          </div>
+          <div class="section footer-copy">
+            <a class="section-link" href="https://counterspeech.fb.com/en/about/">About</a>
+          </div>
+          <div class="section footer-copy">
+            <a id="contact-module" class="section-link" href="https://counterspeech.fb.com/en/contact/">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-left-mobile">
+        <li class="section footer-copy locations dropdown-button" data-id="country-page">
+          Locations
+          <div class="countries noscript">
+
+                        <button type="button" name="button" class="footer-copy dropdown-button">
+              Americas<span class="arrow"></span>
+            </button>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a class="header-copy country-options ns/brazil" href="https://counterspeech.fb.com/en/locations/brazil/">
+                  Brazil                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ns/canada" href="https://counterspeech.fb.com/en/locations/canada/">
+                  Canada                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options /colombia" href="https://counterspeech.fb.com/en/locations/colombia/">
+                  Colombia                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options tions/usa" href="https://counterspeech.fb.com/en/locations/usa/">
+                  United States                </a>
+              </li>
+                          </ul>
+                        <button type="button" name="button" class="footer-copy dropdown-button">
+              Europe<span class="arrow"></span>
+            </button>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a class="header-copy country-options s/austria" href="https://counterspeech.fb.com/en/locations/austria/">
+                  Austria                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/belgium" href="https://counterspeech.fb.com/en/locations/belgium/">
+                  Belgium                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options -republic" href="https://counterspeech.fb.com/en/locations/czech-republic/">
+                  Czech Republic                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/finland" href="https://counterspeech.fb.com/en/locations/finland/">
+                  Finland                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ns/france" href="https://counterspeech.fb.com/en/locations/france/">
+                  France                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/germany" href="https://counterspeech.fb.com/en/locations/germany/">
+                  Germany                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/hungary" href="https://counterspeech.fb.com/en/locations/hungary/">
+                  Hungary                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ons/italy" href="https://counterspeech.fb.com/en/locations/italy/">
+                  Italy                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options therlands" href="https://counterspeech.fb.com/en/locations/netherlands/">
+                  Netherlands                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ons/spain" href="https://counterspeech.fb.com/en/locations/spain/">
+                  Spain                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ns/turkey" href="https://counterspeech.fb.com/en/locations/turkey/">
+                  Turkey                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options d-kingdom" href="https://counterspeech.fb.com/en/locations/united-kingdom/">
+                  United Kingdom                </a>
+              </li>
+                          </ul>
+                        <button type="button" name="button" class="footer-copy dropdown-button">
+              Asia Pacific<span class="arrow"></span>
+            </button>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a class="header-copy country-options ghanistan" href="https://counterspeech.fb.com/en/locations/afghanistan/">
+                  Afghanistan                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options australia" href="https://counterspeech.fb.com/en/locations/australia/">
+                  Australia                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options zerbaijan" href="https://counterspeech.fb.com/en/locations/azerbaijan/">
+                  Azerbaijan                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options angladesh" href="https://counterspeech.fb.com/en/locations/bangladesh/">
+                  Bangladesh                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ons/india" href="https://counterspeech.fb.com/en/locations/india/">
+                  India                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options indonesia" href="https://counterspeech.fb.com/en/locations/indonesia/">
+                  Indonesia                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options azakhstan" href="https://counterspeech.fb.com/en/locations/kazakhstan/">
+                  Kazakhstan                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options /malaysia" href="https://counterspeech.fb.com/en/locations/malaysia/">
+                  Malaysia                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options /pakistan" href="https://counterspeech.fb.com/en/locations/pakistan/">
+                  Pakistan                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ilippines" href="https://counterspeech.fb.com/en/locations/philippines/">
+                  Philippines                </a>
+              </li>
+                          </ul>
+                        <button type="button" name="button" class="footer-copy dropdown-button">
+              Africa<span class="arrow"></span>
+            </button>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a class="header-copy country-options ons/ghana" href="https://counterspeech.fb.com/en/locations/ghana/">
+                  Ghana                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ons/kenya" href="https://counterspeech.fb.com/en/locations/kenya/">
+                  Kenya                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/morocco" href="https://counterspeech.fb.com/en/locations/morocco/">
+                  Morocco                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/nigeria" href="https://counterspeech.fb.com/en/locations/nigeria/">
+                  Nigeria                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/tunisia" href="https://counterspeech.fb.com/en/locations/tunisia/">
+                  Tunisia                </a>
+              </li>
+                          </ul>
+                        <button type="button" name="button" class="footer-copy dropdown-button">
+              Middle East<span class="arrow"></span>
+            </button>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a class="header-copy country-options s/bahrain" href="https://counterspeech.fb.com/en/locations/bahrain/">
+                  Bahrain                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ions/iraq" href="https://counterspeech.fb.com/en/locations/iraq/">
+                  Iraq                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options ns/jordan" href="https://counterspeech.fb.com/en/locations/jordan/">
+                  Jordan                </a>
+              </li>
+                            <li class="list-item">
+                <a class="header-copy country-options s/lebanon" href="https://counterspeech.fb.com/en/locations/lebanon/">
+                  Lebanon                </a>
+              </li>
+                          </ul>
+                      </div>
+        </li>
+        <li class="section footer-copy initiatives dropdown-button" data-id="initiative-page">
+          Initiatives
+          <div class="initiatives noscript">
+                        <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/p2p-facebook-global/">
+              P2P: Facebook Global Digital Challenge            </a>
+                        <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/online-civil-courage-initiative-occi/">
+              Online Civil Courage Initiative (OCCI)            </a>
+                        <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/hackathons/">
+              Hackathons            </a>
+                        <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/ngo-trainings/">
+              NGO Trainings            </a>
+                      </div>
+        </li>
+        <li class="section footer-copy" data-id="resources-page">
+          <a href="https://counterspeech.fb.com/en/resources/">Resources</a>
+        </li>
+        <li class="section footer-copy" data-id="about-page">
+          <a href="https://counterspeech.fb.com/en/about/">About</a>
+        </li>
+        <li class="section footer-copy" data-id="contact-page">
+          <a href="https://counterspeech.fb.com/en/contact/">Contact</a>
+        </li>
+      </div>
+
+      <div class="footer-right">
+        <div class="language-copy noscript">Languages</div>
+        <button type="button" name="button" class="footer-copy languages dropdown-button">
+          English<span class="arrow"></span>
+        </button>
+                <ul class="language-container">
+                      <li class="footer-copy">
+              <a href="https://counterspeech.fb.com/en/">
+                English              </a>
+            </li>
+                        <li class="footer-copy">
+              <a href="https://counterspeech.fb.com/de/">
+                Deutsch              </a>
+            </li>
+                        <li class="footer-copy">
+              <a href="https://counterspeech.fb.com/fr/">
+                Français              </a>
+            </li>
+                      </ul>
+        </div>
+
+        <div class="footer-bottom">
+          <ul class="bottom-links">
+            <li class="bottom-link footer-copy">
+              <a href="https://www.facebook.com/about/basics" target="_blank">
+                Privacy              </a>
+            </li>
+            <li class="bottom-link footer-copy">
+              <a href="https://www.facebook.com/legal/terms" target="_blank">
+                Terms              </a>
+            </li>
+            <li class="bottom-link footer-copy">
+              <a href="https://www.facebook.com/policies/cookies" target="_blank">
+                Cookies              </a>
+            </li>
+            <li class="bottom-link footer-copy">
+              <a href="https://www.facebook.com/help/" target="_blank">
+                Help              </a>
+            </li>
+          </ul>
+          <span class="copyright-copy footer-copy">
+            Facebook 2017 Powered by <a href="https://vip.wordpress.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit&#038;utm_term=counterspeech.fb.com" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a>          </span>
+        </div>
+
+        <div class="locations dropdown-wrapper">
+                    <div class="section-wrapper">
+            <div class="section">
+              Americas            </div>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/brazil/">
+                  Brazil                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/canada/">
+                  Canada                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/colombia/">
+                  Colombia                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/usa/">
+                  United States                </a>
+              </li>
+                          </ul>
+          </div>
+                    <div class="section-wrapper">
+            <div class="section">
+              Europe            </div>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/austria/">
+                  Austria                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/belgium/">
+                  Belgium                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/czech-republic/">
+                  Czech Republic                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/finland/">
+                  Finland                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/france/">
+                  France                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/germany/">
+                  Germany                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/hungary/">
+                  Hungary                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/italy/">
+                  Italy                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/netherlands/">
+                  Netherlands                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/spain/">
+                  Spain                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/turkey/">
+                  Turkey                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/united-kingdom/">
+                  United Kingdom                </a>
+              </li>
+                          </ul>
+          </div>
+                    <div class="section-wrapper">
+            <div class="section">
+              Asia Pacific            </div>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/afghanistan/">
+                  Afghanistan                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/australia/">
+                  Australia                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/azerbaijan/">
+                  Azerbaijan                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/bangladesh/">
+                  Bangladesh                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/india/">
+                  India                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/indonesia/">
+                  Indonesia                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/kazakhstan/">
+                  Kazakhstan                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/malaysia/">
+                  Malaysia                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/pakistan/">
+                  Pakistan                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/philippines/">
+                  Philippines                </a>
+              </li>
+                          </ul>
+          </div>
+                    <div class="section-wrapper">
+            <div class="section">
+              Africa            </div>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/ghana/">
+                  Ghana                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/kenya/">
+                  Kenya                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/morocco/">
+                  Morocco                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/nigeria/">
+                  Nigeria                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/tunisia/">
+                  Tunisia                </a>
+              </li>
+                          </ul>
+          </div>
+                    <div class="section-wrapper">
+            <div class="section">
+              Middle East            </div>
+            <ul class="country-list">
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/bahrain/">
+                  Bahrain                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/iraq/">
+                  Iraq                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/jordan/">
+                  Jordan                </a>
+              </li>
+                            <li class="list-item">
+                <a href="https://counterspeech.fb.com/en/locations/lebanon/">
+                  Lebanon                </a>
+              </li>
+                          </ul>
+          </div>
+                  </div>
+
+        <div class="initiatives dropdown-wrapper">
+                    <li class="list-item">
+            <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/p2p-facebook-global/">
+              P2P: Facebook Global Digital Challenge            </a>
+          </li>
+                    <li class="list-item">
+            <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/online-civil-courage-initiative-occi/">
+              Online Civil Courage Initiative (OCCI)            </a>
+          </li>
+                    <li class="list-item">
+            <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/hackathons/">
+              Hackathons            </a>
+          </li>
+                    <li class="list-item">
+            <a class="footer-copy" href="https://counterspeech.fb.com/en/initiatives/ngo-trainings/">
+              NGO Trainings            </a>
+          </li>
+                  </div>
+
+        <a class="footer-noscript-link" href="#top-link">
+          Back to Top
+        </a>
+
+        <div class="contact-module-container">
+          
+
+<div class="contact-module-overlay"></div>
+<div class="contact-module-wrapper">
+  <div class="contact-wrapper">
+    <div class="close-cross">
+      <div class="close-cross-inner"></div>
+    </div>
+     <h2> Contact us </h2>  <p> If you have questions about our counterspeech initiatives and resources, or would like to tell us about counterspeech you created on Facebook, please reach out to start the conversation using the form below. All fields are required. </p>     <p><div id='contact-form-10'>
+<form action='https://counterspeech.fb.com/en/#contact-form-10' method='post' class='contact-form commentsblock'>
+
+<div>
+		<label for='g10-firstname' class='grunion-field-label name'>First Name<span>(required)</span></label>
+		<input type='text' name='g10-firstname' id='g10-firstname' value='' class='name' placeholder='First Name' required aria-required='true'/>
+	</div>
+
+<div>
+		<label for='g10-lastname' class='grunion-field-label text'>Last Name</label>
+		<input type='text' name='g10-lastname' id='g10-lastname' value='' class='text' placeholder='Last Name' />
+	</div>
+
+<div>
+		<label for='g10-location' class='grunion-field-label select'>Location</label>
+	<select name='g10-location' id='g10-location' class='select' >
+		<option value='Select Your Country'>Select Your Country</option>
+		<option value='Afghanistan'>Afghanistan</option>
+		<option value='Albania'>Albania</option>
+		<option value='Algeria'>Algeria</option>
+		<option value='Andorra'>Andorra</option>
+		<option value='Angola'>Angola</option>
+		<option value='Antigua and Barbuda'>Antigua and Barbuda</option>
+		<option value='Argentina'>Argentina</option>
+		<option value='Armenia'>Armenia</option>
+		<option value='Australia'>Australia</option>
+		<option value='Austria'>Austria</option>
+		<option value='Azerbaijan'>Azerbaijan</option>
+		<option value='Bahamas'>Bahamas</option>
+		<option value='Bahrain'>Bahrain</option>
+		<option value='Bangladesh'>Bangladesh</option>
+		<option value='Barbados'>Barbados</option>
+		<option value='Belarus'>Belarus</option>
+		<option value='Belgium'>Belgium</option>
+		<option value='Belize'>Belize</option>
+		<option value='Benin'>Benin</option>
+		<option value='Bhutan'>Bhutan</option>
+		<option value='Bolivia (Plurinational State of)'>Bolivia (Plurinational State of)</option>
+		<option value='Bosnia and Herzegovina'>Bosnia and Herzegovina</option>
+		<option value='Botswana'>Botswana</option>
+		<option value='Brazil'>Brazil</option>
+		<option value='Brunei Darussalam'>Brunei Darussalam</option>
+		<option value='Bulgaria'>Bulgaria</option>
+		<option value='Burkina Faso'>Burkina Faso</option>
+		<option value='Burundi'>Burundi</option>
+		<option value='Cabo Verde'>Cabo Verde</option>
+		<option value='Cambodia'>Cambodia</option>
+		<option value='Cameroon'>Cameroon</option>
+		<option value='Canada'>Canada</option>
+		<option value='Central African Republic'>Central African Republic</option>
+		<option value='Chad'>Chad</option>
+		<option value='Chile'>Chile</option>
+		<option value='China'>China</option>
+		<option value='Colombia'>Colombia</option>
+		<option value='Comoros'>Comoros</option>
+		<option value='Congo'>Congo</option>
+		<option value='Congo (Democratic Republic of the)'>Congo (Democratic Republic of the)</option>
+		<option value='Costa Rica'>Costa Rica</option>
+		<option value='Côte d&#039;Ivoire'>Côte d&#039;Ivoire</option>
+		<option value='Croatia'>Croatia</option>
+		<option value='Cuba'>Cuba</option>
+		<option value='Cyprus'>Cyprus</option>
+		<option value='Czechia'>Czechia</option>
+		<option value='Denmark'>Denmark</option>
+		<option value='Djibouti'>Djibouti</option>
+		<option value='Dominica'>Dominica</option>
+		<option value='Dominican Republic'>Dominican Republic</option>
+		<option value='Ecuador'>Ecuador</option>
+		<option value='Egypt'>Egypt</option>
+		<option value='El Salvador'>El Salvador</option>
+		<option value='Equatorial Guinea'>Equatorial Guinea</option>
+		<option value='Eritrea'>Eritrea</option>
+		<option value='Estonia'>Estonia</option>
+		<option value='Ethiopia'>Ethiopia</option>
+		<option value='Fiji'>Fiji</option>
+		<option value='Finland'>Finland</option>
+		<option value='France'>France</option>
+		<option value='Gabon'>Gabon</option>
+		<option value='Gambia'>Gambia</option>
+		<option value='Georgia'>Georgia</option>
+		<option value='Germany'>Germany</option>
+		<option value='Ghana'>Ghana</option>
+		<option value='Greece'>Greece</option>
+		<option value='Grenada'>Grenada</option>
+		<option value='Guatemala'>Guatemala</option>
+		<option value='Guinea'>Guinea</option>
+		<option value='Guinea-Bissau'>Guinea-Bissau</option>
+		<option value='Guyana'>Guyana</option>
+		<option value='Haiti'>Haiti</option>
+		<option value='Holy See'>Holy See</option>
+		<option value='Honduras'>Honduras</option>
+		<option value='Hungary'>Hungary</option>
+		<option value='Iceland'>Iceland</option>
+		<option value='India'>India</option>
+		<option value='Indonesia'>Indonesia</option>
+		<option value='Iran (Islamic Republic of)'>Iran (Islamic Republic of)</option>
+		<option value='Iraq'>Iraq</option>
+		<option value='Ireland'>Ireland</option>
+		<option value='Israel'>Israel</option>
+		<option value='Italy'>Italy</option>
+		<option value='Jamaica'>Jamaica</option>
+		<option value='Japan'>Japan</option>
+		<option value='Jordan'>Jordan</option>
+		<option value='Kazakhstan'>Kazakhstan</option>
+		<option value='Kenya'>Kenya</option>
+		<option value='Kiribati'>Kiribati</option>
+		<option value='Korea (Democratic People&#039;s Republic of)'>Korea (Democratic People&#039;s Republic of)</option>
+		<option value='Korea (Republic of)'>Korea (Republic of)</option>
+		<option value='Kuwait'>Kuwait</option>
+		<option value='Kyrgyzstan'>Kyrgyzstan</option>
+		<option value='Lao People&#039;s Democratic Republic'>Lao People&#039;s Democratic Republic</option>
+		<option value='Latvia'>Latvia</option>
+		<option value='Lebanon'>Lebanon</option>
+		<option value='Lesotho'>Lesotho</option>
+		<option value='Liberia'>Liberia</option>
+		<option value='Libya'>Libya</option>
+		<option value='Liechtenstein'>Liechtenstein</option>
+		<option value='Lithuania'>Lithuania</option>
+		<option value='Luxembourg'>Luxembourg</option>
+		<option value='Macedonia (the former Yugoslav Republic of)'>Macedonia (the former Yugoslav Republic of)</option>
+		<option value='Madagascar'>Madagascar</option>
+		<option value='Malawi'>Malawi</option>
+		<option value='Malaysia'>Malaysia</option>
+		<option value='Maldives'>Maldives</option>
+		<option value='Mali'>Mali</option>
+		<option value='Malta'>Malta</option>
+		<option value='Marshall Islands'>Marshall Islands</option>
+		<option value='Mauritania'>Mauritania</option>
+		<option value='Mauritius'>Mauritius</option>
+		<option value='Mexico'>Mexico</option>
+		<option value='Micronesia (Federated States of)'>Micronesia (Federated States of)</option>
+		<option value='Moldova (Republic of)'>Moldova (Republic of)</option>
+		<option value='Monaco'>Monaco</option>
+		<option value='Mongolia'>Mongolia</option>
+		<option value='Montenegro'>Montenegro</option>
+		<option value='Morocco'>Morocco</option>
+		<option value='Mozambique'>Mozambique</option>
+		<option value='Myanmar'>Myanmar</option>
+		<option value='Namibia'>Namibia</option>
+		<option value='Nauru'>Nauru</option>
+		<option value='Nepal'>Nepal</option>
+		<option value='Netherlands'>Netherlands</option>
+		<option value='New Zealand'>New Zealand</option>
+		<option value='Nicaragua'>Nicaragua</option>
+		<option value='Niger'>Niger</option>
+		<option value='Nigeria'>Nigeria</option>
+		<option value='Norway'>Norway</option>
+		<option value='Oman'>Oman</option>
+		<option value='Pakistan'>Pakistan</option>
+		<option value='Palau'>Palau</option>
+		<option value='Palestine'>Palestine</option>
+		<option value='Panama'>Panama</option>
+		<option value='Papua New Guinea'>Papua New Guinea</option>
+		<option value='Paraguay'>Paraguay</option>
+		<option value='Peru'>Peru</option>
+		<option value='Philippines'>Philippines</option>
+		<option value='Poland'>Poland</option>
+		<option value='Portugal'>Portugal</option>
+		<option value='Qatar'>Qatar</option>
+		<option value='Romania'>Romania</option>
+		<option value='Russian Federation'>Russian Federation</option>
+		<option value='Rwanda'>Rwanda</option>
+		<option value='Saint Kitts and Nevis'>Saint Kitts and Nevis</option>
+		<option value='Saint Lucia'>Saint Lucia</option>
+		<option value='Saint Vincent and the Grenadines'>Saint Vincent and the Grenadines</option>
+		<option value='Samoa'>Samoa</option>
+		<option value='San Marino'>San Marino</option>
+		<option value='Sao Tome and Principe'>Sao Tome and Principe</option>
+		<option value='Saudi Arabia'>Saudi Arabia</option>
+		<option value='Senegal'>Senegal</option>
+		<option value='Serbia'>Serbia</option>
+		<option value='Seychelles'>Seychelles</option>
+		<option value='Sierra Leone'>Sierra Leone</option>
+		<option value='Singapore'>Singapore</option>
+		<option value='Slovakia'>Slovakia</option>
+		<option value='Slovenia'>Slovenia</option>
+		<option value='Solomon Islands'>Solomon Islands</option>
+		<option value='Somalia'>Somalia</option>
+		<option value='South Africa'>South Africa</option>
+		<option value='South Sudan'>South Sudan</option>
+		<option value='Spain'>Spain</option>
+		<option value='Sri Lanka'>Sri Lanka</option>
+		<option value='Sudan'>Sudan</option>
+		<option value='Suriname'>Suriname</option>
+		<option value='Swaziland'>Swaziland</option>
+		<option value='Sweden'>Sweden</option>
+		<option value='Switzerland'>Switzerland</option>
+		<option value='Syrian Arab Republic'>Syrian Arab Republic</option>
+		<option value='Tajikistan'>Tajikistan</option>
+		<option value='Tanzania (United Republic of)'>Tanzania (United Republic of)</option>
+		<option value='Thailand'>Thailand</option>
+		<option value='Timor-Leste'>Timor-Leste</option>
+		<option value='Togo'>Togo</option>
+		<option value='Tonga'>Tonga</option>
+		<option value='Trinidad and Tobago'>Trinidad and Tobago</option>
+		<option value='Tunisia'>Tunisia</option>
+		<option value='Turkey'>Turkey</option>
+		<option value='Turkmenistan'>Turkmenistan</option>
+		<option value='Tuvalu'>Tuvalu</option>
+		<option value='Uganda'>Uganda</option>
+		<option value='Ukraine'>Ukraine</option>
+		<option value='United Arab Emirates'>United Arab Emirates</option>
+		<option value='United Kingdom of Great Britain and Northern Ireland'>United Kingdom of Great Britain and Northern Ireland</option>
+		<option value='United States of America'>United States of America</option>
+		<option value='Uruguay'>Uruguay</option>
+		<option value='Uzbekistan'>Uzbekistan</option>
+		<option value='Vanuatu'>Vanuatu</option>
+		<option value='Venezuela (Bolivarian Republic of)'>Venezuela (Bolivarian Republic of)</option>
+		<option value='Viet Nam'>Viet Nam</option>
+		<option value='Yemen'>Yemen</option>
+		<option value='Zambia'>Zambia</option>
+		<option value='Zimbabwe'>Zimbabwe</option>
+	</select>
+	</div>
+
+<div>
+		<label for='g10-email' class='grunion-field-label email'>Email<span>(required)</span></label>
+		<input type='email' name='g10-email' id='g10-email' value='' class='email' placeholder='Email' required aria-required='true'/>
+	</div>
+
+<div>
+		<label for='contact-form-comment-g10-comments' class='grunion-field-label textarea'>Comments<span>(required)</span></label>
+		<textarea name='g10-comments' id='contact-form-comment-g10-comments' rows='20' class='textarea' placeholder='Comments' required aria-required='true'></textarea>
+	</div>
+	<p class='contact-submit'>
+		<input type='submit' value='Submit' class='pushbutton-wide'/>
+		<input type='hidden' name='contact-form-id' value='10' />
+		<input type='hidden' name='action' value='grunion-contact-form' />
+		<input type='hidden' name='contact-form-hash' value='c6a30d8bee5460e11bba86ae83a51450622a2846' />
+	</p>
+</form>
+</div></p>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <link rel='stylesheet' id='all-css-0' href='https://counterspeech.fb.com/en/wp-content/mu-plugins/jetpack/modules/contact-form/css/grunion.css?m=1507148234g' type='text/css' media='all' />
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201740'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201740.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.4',blog:'132536806',post:'10',tz:'0',srv:'counterspeech.fb.com'} ]);
+	_stq.push([ 'clickTrackerInit', '132536806', '10' ]);
+</script>
+
+    <!-- FBA -->
+    <script type="text/javascript">
+
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '788411397995666');
+      fbq('track', 'PageView');
+
+
+    </script>
+    <!-- /FBA -->
+
+    <!-- FBA noscript -->
+    <noscript>
+      <img height="1" width="1" left="-999" src="https://www.facebook.com/tr?id=788411397995666&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- /FBA -->
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"949ceaf672","applicationID":"40160416","transactionName":"MQZWYhAFXhdYAUBfWwhMdVUWDV8KFgpbW1EWAlNT","queueTime":0,"applicationTime":66,"atts":"HUFBFFgfTUgbAxYMTxse","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+  </html>

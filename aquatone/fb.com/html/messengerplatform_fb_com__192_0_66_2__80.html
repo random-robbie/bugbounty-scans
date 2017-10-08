@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en-US"
+    xmlns:og="http://opengraphprotocol.org/schema/"
+    xmlns:fb="http://www.facebook.com/2008/fbml">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+		<title>Messenger Bots for Business &amp; Developers</title>
+
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+
+	  	  <link rel="pingback" href="https://messenger.fb.com/xmlrpc.php">
+	  
+		<link rel="apple-touch-icon" sizes="180x180" href="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/manifest.json">
+		<link rel="mask-icon" href="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-TileImage" content="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="https://messenger.fb.com/wp-content/themes/fb-messenger/release/assets-20170815-205155/images/favicons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="google-site-verification" content="16-9CF8Z2Kcy64n4KZ82VVJFrADHJL9vkGuGoDPpYY4" />
+		<meta name="msvalidate.01" content="4236877D41AFD9809A38C77DCFD8FD6E" />
+
+		<style>
+			#qm {
+				display: none !important;
+			}
+			#php-rendered-content {
+				opacity: 0;
+				visibility: hidden;
+			}
+			#not-supported {
+				display: none;
+				width: 100%;
+				height: 100%;
+				padding: 30px;
+				font-size: 1.7rem;
+				color: #676f78;
+			}
+
+			#not-supported .content {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			#not-supported .title {
+				font-size: 4rem;
+			}
+		</style>
+
+		
+<meta name="description" content="See how the Messenger Platform can help you build personalized, custom communications with your business audience, along with examples of the best ai bots!" />
+<meta name="keywords" content="facebook messenger bots" />
+<link rel="alternate" type="application/rss+xml" title="Messenger Platform &raquo; Home Comments Feed" href="https://messenger.fb.com/home/feed/" />
+        <meta property="og:locale" content="en_US">
+        <meta property="fb:app_id" content="1336250163134173">
+        <meta property="og:title" content="Messenger Bots for Business &amp; Developers"/>
+        <meta property="og:description" content="See how the Messenger Platform can help you build personalized, custom communications with your business audience, along with examples of the best ai bots!"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://messenger.fb.com/"/>
+        <meta property="og:site_name" content="Messenger Platform"/>
+        <meta property="og:image" content="https://messenger.fb.com/wp-content/themes/fb-messenger/images/opengraph_image.png"/>
+            <meta name="twitter:card" content="summary">
+    <link rel='stylesheet' id='all-css-0' href='https://messenger.fb.com/wp-content/themes/fb-messenger/release/main-20170815-205155.css?m=1502897496g' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://messenger.fb.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://messenger.fb.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://messenger.fb.com/wp-includes/wlwmanifest.xml" /> 
+<link rel="canonical" href="https://messenger.fb.com/" />
+<link rel='shortlink' href='https://messenger.fb.com/' />
+<style type='text/css'>img#wpstats{display:none}</style>    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function()
+        {n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}
+        ;if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init','1236720993111695');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=1236720993111695&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+    	</head>
+
+	<body>
+		<div id="php-rendered-content">
+
+            <div class="right"><ul>
+<li class="page_item page-item-1349"><a href="https://messenger.fb.com/get-discovered/">Get Discovered</a></li>
+<li class="page_item page-item-1424"><a href="https://messenger.fb.com/get-started/">Get Started</a></li>
+<li class="page_item page-item-1064 current_page_item"><a href="https://messenger.fb.com/">Home</a></li>
+<li class="page_item page-item-1066"><a href="https://messenger.fb.com/blog/">Messenger Platform Blog</a></li>
+</ul></div>
+
+
+    <article id="post-1064" class="clearfix post-1064 page type-page status-publish hentry" role="article">
+
+        <header>
+
+            <h1>
+                <a href="https://messenger.fb.com/" rel="bookmark" title="Messenger Bots for Business & Developers">
+                    Messenger Bots for Business & Developers                </a>
+            </h1>
+
+        </header> <!-- end article header -->
+
+
+        <section>
+
+                            <h3>Messenger Platform connects you to over 1.3 billion people each month</h3>
+            
+                            <img width="1024" height="576" src="https://messenger.fb.com/wp-content/uploads/2017/04/landing-header-bg.jpg" class="attachment-full size-full" alt="" />            
+                            <p>Come see why bots mean business.</p>
+            
+            
+                                    <h4>2 Billion</h4>
+                
+                                    <p>messages between people and businesses each month, includes both automated and people-initiated</p>
+                
+            
+                                    <h4>53%</h4>
+                
+                                    <p>of people who message businesses say they are more likely to shop with a business they can message*</p>
+                
+            
+                                    <h4>100,000</h4>
+                
+                                    <p>monthly active bots on the Messenger platform, and counting**</p>
+                
+            
+        </section>
+
+        <section>
+
+                            <h3>Success Stories</h3>
+            
+                            <p>Learn how bots are getting results.</p>
+            
+            
+                                    <h4>Raise Awareness</h4>
+                
+                                    <p>Get your business, product or service in front of more people.</p>
+                
+                
+                    
+                        <img width="748" height="1174" src="https://messenger.fb.com/wp-content/uploads/2017/04/3_skol_3.png?w=748" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
+                        <img width="150" height="150" src="https://messenger.fb.com/wp-content/uploads/2017/04/screen-shot-2017-04-25-at-1-52-55-pm.png?w=150&amp;h=150&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                        Skol
+                        <p>To stand out at Rio 2016, Skol created a video campaign for both Facebook and Instagram, and became one of the first brands in Brazil to create a Messenger Bot to promote nearby attractions, events and bars to its customers.</p>
+
+                        75% of messages sent by the Messenger Bot were read by customers
+                    
+                
+            
+                                    <h4>Acquire Customers</h4>
+                
+                                    <p>Generate more leads and turn your conversations into conversions.</p>
+                
+                
+                    
+                        <img width="748" height="1174" src="https://messenger.fb.com/wp-content/uploads/2017/03/1_sephora.png?w=748" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
+                        <img width="150" height="36" src="https://messenger.fb.com/wp-content/uploads/2017/03/sephora.png?w=150&amp;h=36&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                        Sephora
+                        <p>The easy, conversational interface allows people to tell the bot which store location and service they want and then instantly receive the closest dates and times. People can also book the appointment completely in Messenger, and instantly receive a confirmation email.</p>
+
+                        +11% increase in booking rate through Sephora Reservation Assistant vs. other booking vehicles
+                    
+                
+            
+                                    <h4>Enable Transactions</h4>
+                
+                                    <p>Incorporate account linking and purchase flows to enable more transactions.</p>
+                
+                
+                    
+                        <img width="748" height="1174" src="https://messenger.fb.com/wp-content/uploads/2017/03/2_snaptravel.png?w=748" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
+                        <img width="150" height="72" src="https://messenger.fb.com/wp-content/uploads/2017/04/snaptravel.png?w=150&amp;h=72&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                        SnapTravel
+                        <p>SnapTravel is an AI-powered bot in Messenger that helps consumers find and book the perfect hotel. The travel company has already driven over $1 million in hotel bookings over Messenger since their launch less than a year ago.</p>
+
+                        $1 million in hotel bookings in less than a year
+                    
+                
+            
+                                    <h4>Provide Support</h4>
+                
+                                    <p>Create a scalable, real-time customer service experience that feels personal.</p>
+                
+                
+                    
+                        <img width="748" height="1174" src="https://messenger.fb.com/wp-content/uploads/2017/03/3_gie.png?w=748" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
+                        <img width="150" height="78" src="https://messenger.fb.com/wp-content/uploads/2017/04/globe.png?w=150&amp;h=78&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                        Globe
+                        <p>By using a hybrid bot in Messenger from Servicefriend to provide meaningful and efficient customer service, the telecom company successfully increased employee productivity by 3.5x and reduced calls to its hotline by 50%.</p>
+
+                        22% higher customer satisfaction rate than call center
+                    
+                
+            
+        </section>
+
+        <section>
+
+                            <h3>What’s New</h3>
+            
+            
+            
+                
+                    <img width="150" height="150" src="https://messenger.fb.com/wp-content/uploads/2013/03/messenger.png?w=150&amp;h=150&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                
+                                    <h4>Messenger Platform 2.1 Brings New Tools to Enrich Conversations</h4>
+                
+                <a href="https://messenger.fb.com/blog/messenger-platform-2-1-brings-new-tools-to-enrich-conversations/">Learn More</a>
+            
+                
+                    <img width="150" height="150" src="https://messenger.fb.com/wp-content/uploads/2017/04/app_8237.jpg?w=150&amp;h=150&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                
+                                    <h4>F8 2017: Messenger Highlights</h4>
+                
+                <a href="https://messenger.fb.com/blog/messenger-highlights-from-f8-2017/">Learn More</a>
+            
+                
+                    <img width="150" height="150" src="https://messenger.fb.com/wp-content/uploads/2013/03/blog-thumb-david-marcus.jpg?w=150&amp;h=150&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                
+                                    <h4>F8 2017: David Marcus Keynote Video</h4>
+                
+                <a href="https://messenger.fb.com/blog/f8-2017-david-marcus-keynote-2/">Learn More</a>
+            
+                
+                    <img width="150" height="150" src="https://messenger.fb.com/wp-content/uploads/2017/04/app_8202.jpg?w=150&amp;h=150&amp;crop=1" class="attachment-thumbnail size-thumbnail" alt="" />
+                
+                                    <h4>What's New On Messenger</h4>
+                
+                <a href="https://messenger.fb.com/blog/messenger-brings-people-together-all-over-the-world/">Learn More</a>
+            
+        </section>
+
+        <section>
+
+                            <h3>Ready to build your bot?</h3>
+            
+            
+                <img width="1024" height="442" src="https://messenger.fb.com/wp-content/uploads/2017/04/banner-landing.jpg" class="attachment-full size-full" alt="" />
+            
+            
+            <a href="https://messenger.fb.com/blog/messenger-brings-people-together-all-over-the-world/">Learn More</a>
+        </section>
+
+    </article> <!-- end article -->
+
+
+<script type='text/javascript'>
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-96374617-1']);
+_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+        <footer>
+            <p>*Source: “Facebook Messaging Survey” by Nielsen (Facebook-commissioned study of 12,500 people ages 18+ who used a mobile messaging app in the past 30 days across AE, AU, BR, FR, ID, IN, JP, KR, MX, TH, TW, the UK, the US and VN), Mar 2016. The study included 1,000 respondents per market except for AE, TW, VN, where the sample size was 500. Data is on average across the 14 markets.</p>
+<p>**Source: Facebook data April 2017</p>
+        </footer>
+
+    </div><!-- CLOSE #php-rendered-content !-->
+    <div id="not-supported">
+      <div class="content">
+        <div class="title">Oops! This browser is unsupported.</div>
+        <p class="description">To see why bots mean business please update your browser to the latest version.</p>
+      </div>
+    </div>
+    <script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201740'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FbmLocalVars = {"config":{"appId":"1336250163134173","api":"\/wp-json\/wp\/v2\/","fbmApi":"\/wp-json\/fbm\/v1\/","theme_directory":"https:\/\/messenger.fb.com\/wp-content\/themes\/fb-messenger","frontend_route":"\/release\/"},"wp-api-nonce":"ac56062152"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://messenger.fb.com/_static/??-eJyNzEEOQDAQRuELqWnFKAtxFuVHGoa0xfU5gIXVe6uP7kMNuyRIorRgQ6TJqTcRMiNQwIo+gi7IuAdVaGN1bfgdNsy5jxn9FNwp44oPodtaw7qoG1s2lX8ASXAvNw=='></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201740.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.4',blog:'127593286',post:'1064',tz:'-7',srv:'messenger.fb.com'} ]);
+	_stq.push([ 'clickTrackerInit', '127593286', '1064' ]);
+</script>
+
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"949ceaf672","applicationID":"36385671","transactionName":"MQZWYhAFXhdYAUBfWwhMdVUWDV8KFgRGWVoSTkRXBQE=","queueTime":0,"applicationTime":46,"atts":"HUFBFFgfTUgbAxYMTxse","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>

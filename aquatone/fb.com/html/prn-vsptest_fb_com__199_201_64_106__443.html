@@ -1,0 +1,143 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>MobileIron User Portal: Sign In</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css"/>
+    <link href="../css/ui.login.css?9.5" rel="stylesheet" type="text/css" />
+    <link href="../css/ui.utility.css?9.5" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/vsp.css?9.5"/>
+    <link rel="shortcut icon" href="../whitelabel/mobileiron/img/favicon.ico" />
+    <link href="/mifs/css/pages/userlogin.css?9.5" rel="stylesheet" type="text/css" />
+    <script src="../scripts/jqtouch/jquery-1.7.min.js"></script>
+    <!-- ext-all will be loaded in login itself and any subsequent call will load ext-all from cache with better performance. -->
+    <script type="text/javascript" src="../workspace/ext5/build/ext-all.js"></script>
+    <script type="text/javascript">
+        var bundle = {    "labels"   :    {        "seamless" : "seamlessly secures your device and provides easy access to your email, applications and content.",        "instantaccess.title" : "Instant Access",        "instantaccess.content" : "Receive instant access to your corporate email, calendar and contacts.",        "apps.title"    : "Apps",        "apps.content"  : "Utilize your favorite corporate apps whenever and wherever you want.",        "secure.title"  : "Secure Content",        "secure.content" : "Easily access corporate documents, presentations and more.",        "accessdenied"  : "Access Denied",        "logoutsuccess" : "Logout successful.",        "sessiontimeout" : "Your session has timed out. Please Sign In.",        "username"  : "Username",        "password"  : "Password",        "signinWithPassword" : "SIGN IN WITH PASSWORD",        "signinWithCert" : "SIGN IN WITH CERTIFICATE",        "copyright" : "copyright",        "login.failed" : "Login failed. Invalid username or password. Multiple invalid attempts may result in account lockout.",        "rights.reserved"   :   "All rights reserved."    },    "help"     : {    },    "tooltips" :    {    }};
+        $(function(){
+            $('span[rs]').each(function(){
+                var el = $(this);
+                var propName = el.attr("rs");
+                $(this).replaceWith(bundle.labels[propName]);
+             })
+        });
+    </script>
+</head>
+
+<body>
+<div style="display:none;">
+    MI_LOGIN_SCREEN
+</div>
+
+<div id="loginForm" class="container">
+    <div class="loginDoubleBox content-red">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="login-instructions mts">
+                <div class="login-instruction mbl prm pbl">MobileIron <span rs="seamless"></span>  </div>
+                <div class="instruction-item eup-email mtl mbl pts prm pbl row">
+                    <i class="icon-eup-email m10 col-md-3"></i>
+                    <div class="col-md-9">
+                        <b><span rs="instantaccess.title"></span></b><br> <span rs="instantaccess.content"></span>
+
+                    </div>
+                </div>
+                <div class="instruction-item eup-apps mbl prm pbl row">
+                    <i class="icon-eup-apps m10 col-md-3"></i>
+                    <div class="col-md-9">
+                        <b><span rs="apps.title"></span></b><br><span rs="apps.content"></span>
+                    </div>
+
+                </div>
+                <div class="instruction-item eup-secure mbl prm pbl row">
+                    <i class="icon-eup-secure m10 col-md-3"></i>
+                     <div class="col-md-9">
+                        <b><span rs="secure.title"></span> </b><br> <span rs="secure.content"></span>
+                     </div>
+                </div>
+            </div><!-- login-instructions ends -->
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="loginBoxSelf">
+                <div class="brand mbl"></div>
+                
+                    
+                    
+                
+                
+
+                    <form   action="../j_spring_security_check"
+                            method="post"
+                            autocomplete="off"
+                            id="admin-login-form">
+
+
+                        <div id="login" >
+                            <p>
+                                <label><span rs="username"></span></label>
+                                <input class="text-input" type="text" name="j_username" value="" autocomplete="off" autofocus/>
+                            </p>
+                            <p>
+                                <label><span rs="password"></span></label>
+                                <input class="text-input" type="password" name="j_password" autocomplete="off"/>
+                                <input type="hidden" name="logincontext" value="employee">
+                            </p>
+
+                            <div class="btn-wrapper mbxl"><button class="btn-new btn-new-default" type="submit"><span rs="signinWithPassword"></span></button></div>
+
+                        </div>
+                    </form>
+                
+                
+                
+
+
+                
+
+            </div>
+        </div>
+    </div>
+    </div>
+        <div class="copyright">
+            <span rs="copyright"></span> &copy; 2017 MobileIron. <span rs="rights.reserved"></span>
+        </div>
+
+</div>
+
+<script type="text/javascript">
+    
+    
+    
+
+    var signWithCertBtn = document.getElementsByClassName('sign-with-cert')[0];
+    if(Ext.platformTags.desktop === true) {
+        signWithCertBtn.disabled = false;
+        signWithCertBtn.setAttribute("style", " opacity: 1");
+    } else {
+        signWithCertBtn.disabled = true;
+        signWithCertBtn.setAttribute("style", " opacity: 0.5");
+    }
+</script>
+</body>
+</html>

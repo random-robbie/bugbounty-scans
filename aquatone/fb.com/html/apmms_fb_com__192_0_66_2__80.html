@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" href="https://apmms.fb.com/wp-content/themes/fb_apmm/favicon.ico" type="image/x-icon">
+	<!-- Touch Icon -->
+	<link rel="apple-touch-icon" href="https://apmms.fb.com/wp-content/images/touch-icon.png">
+	<!-- Safari 9 Pinned Tab Icon -->
+	<link rel="mask-icon" href="https://apmms.fb.com/wp-content/images/favicon.svg" color="{#icon hex color}">
+
+	<title>Facebook Associate Product Marketing Managers &#8211; Unleash your potential</title>
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Facebook Associate Product Marketing Managers &raquo; Feed" href="https://apmms.fb.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Facebook Associate Product Marketing Managers &raquo; Comments Feed" href="https://apmms.fb.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Facebook Associate Product Marketing Managers &raquo; Unleash your potential &#8211; Facebook Associate Product Marketing Managers Comments Feed" href="https://apmms.fb.com/sample-page/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/apmms.fb.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='all-css-0' href='https://apmms.fb.com/_static/??/wp-content/themes/fb_apmm/style.css,/wp-content/mu-plugins/jetpack/css/jetpack.css?m=1504843332' type='text/css' media='all' />
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js?ver=2.2.0'></script>
+<link rel='https://api.w.org/' href='https://apmms.fb.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://apmms.fb.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://apmms.fb.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.2" />
+<link rel="canonical" href="https://apmms.fb.com/" />
+<link rel='shortlink' href='https://apmms.fb.com/' />
+<link rel="alternate" type="application/json+oembed" href="https://apmms.fb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fapmms.fb.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://apmms.fb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fapmms.fb.com%2F&#038;format=xml" />
+<style type='text/css'>img#wpstats{display:none}</style><meta name="description" content=""><meta property="og:description" content="" /><meta property="og:title" content="Unleash your potential &#8211; Facebook Associate Product Marketing Managers" /><meta property="og:image" content="https://apmms.fb.com/wp-content/uploads/2017/06/og-image-170626.jpg" /><meta property="og:url" content="https://apmms.fb.com" /><meta property="og:site_name" content="Facebook Associate Product Marketing Managers" /><meta property="og:type" content="website" />		<style>
+		.img-hero {
+background-image:url(/wp-content/uploads/2017/06/hero-mobile-cc-170620.jpg);
+}
+
+@media (min-width: 37.5em) {
+.img-hero {
+background-image:url(/wp-content/uploads/2017/06/hero-cc-170620.jpg);
+}
+}
+
+.img-life-of {
+background-image:url(/wp-content/uploads/2017/06/life-of-cc-170621.jpg);
+}
+
+.img-people {
+background-image:url(/wp-content/uploads/2017/06/people-cc-170623.jpg);
+}
+
+.img-community {
+background-image:url(/wp-content/uploads/2017/06/community-cc-170620.jpg);
+}
+
+.img-footer {
+background-image:url(/wp-content/uploads/2017/06/footer-cc-170622.jpg);
+}
+
+
+body {
+background-color: #FFFFFF;
+}
+
+.page {
+max-width: 1800px;
+margin-right: auto;
+margin-left: auto;
+}
+
+@media (min-width: 37.5em) {
+header .links .link {
+margin-right:0px;
+}
+}
+.full-image__content__box p {
+font-family: "Freight Sans Pro Light", arial, sans-serif;
+}
+
+.full-image--hero .full-image__content .full-image__content__box {
+padding: 30px;
+}
+
+.full-image__content__box p {
+font-size: 1.3rem;
+}
+
+.the-program p {
+font-size: 1.3rem;
+line-height: 1.5;
+font-family: "Freight Sans Pro Light", arial, sans-serif;
+}
+
+
+@media (min-width: 37.5em) {
+.the-program {
+padding-top:70px;
+padding-bottom:70px;
+}
+}
+
+@media (min-width: 37.5em) {
+.people {
+padding-top:70px;
+padding-bottom:70px;
+}
+}
+
+.life-after p {
+font-size: 1.3rem;
+line-height: 1.4;
+font-family: "Freight Sans Pro Light", arial, sans-serif;
+}
+
+.full-image__content h3 {
+color: #FFFFFF;
+margin-bottom: 40px;
+}
+
+.full-image__content h3:after {
+padding-top: 10px;
+}
+
+.faq__item h4 {
+padding-right: 40px;
+}
+
+.full-image--cta .full-image__content {
+top: 65%;
+}
+
+@media (min-width: 37.5em) {
+.full-image--cta .full-image__content {
+top: 55%;
+}
+}
+
+.full-image--hero .full-image__content {
+top: 65%;
+}
+
+@media (min-width: 37.5em) {
+.full-image--hero .full-image__content {
+top: 55%;
+}
+}
+
+.full-image--hero .full-image__content__box p {
+padding-right: 40px;
+padding-left: 40px
+}
+
+.full-image--cta .full-image__content__box p {
+padding-right: 40px;
+padding-left: 40px
+}
+
+.full-image--hero .full-image__content .full-image__content__box {
+padding: 20px 0px;
+}
+
+.full-image--cta .full-image__content .full-image__content__box {
+padding: 20px 0px;
+}
+
+.full-image__content--left .grid-control {
+max-width: 70em;
+}
+
+.full-image__content--right .grid-control {
+max-width: 70em;
+}
+
+.button.button--light {
+margin-bottom: 12px;
+}
+	</style>
+	</head>
+
+<body>
+<div class="page">
+
+	<header>
+		<div class="header__top">
+			<div class="grid-control">
+				<div class="col-12">
+					<div class="logo">
+						<h1><a href="#">APMM Program</a></h1>
+					</div>
+					<div class="links">
+						<a class="link" href="#faq">FAQ</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="wrapper-full">
+
+
+		<div class="grid-control full-bleed full-image full-image--hero" data-height="600" data-small-height="550">
+			<div class="full-image__img img-hero"></div>
+			<div class="full-image__content">
+				<div class="grid-control centered">
+					<div class="col-9">
+						<div class="full-image__content__box scroll-trigger">
+							<h2>Unleash your potential</h2>
+							<p>Hone your marketing skills as an Associate Product Marketing Manager, and help us make the world more open and connected.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid-control centered the-program">
+			<div class="col-10">
+				<h3>The program</h3>
+				<p>The Associate Product Marketing Manager (APMM) program is a two year exploration of product marketing at Facebook. You’ll gain a breadth of experience across products and audiences through two rotations, each one year long.</p>
+			</div>
+		</div>
+
+
+		<div class="grid-control full-bleed full-image full-image--gray" data-height="800">
+			<h3>Life of an APMM</h3>
+			<div class="full-image__img img-life-of"></div>
+			<div class="full-image__content full-image__content--right">
+				<div class="grid-control">
+					<div class="col-12">
+						<div class="full-image__content__box scroll-trigger">
+							<h3>Life of an APMM</h3>
+							<p>We connect people with our products from the earliest stages of product development through launch and beyond. You’ll work with research, design, engineering and others to build and test products around the world, and define their go-to-market strategy.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid-control full-bleed full-image" data-height="800">
+			<h3>The people</h3>
+			<div class="full-image__img img-people"></div>
+			<div class="full-image__content full-image__content--left">
+				<div class="grid-control">
+					<div class="col-12">
+						<div class="full-image__content__box scroll-trigger">
+							<h3>The people</h3>
+							<p>APMMs come from diverse backgrounds including economics, computer science, psychology, and more. Beyond previous experiences, we look for individuals who are passionate about building and delivering great products to Facebook’s global community. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid-control full-bleed full-image full-image--gray" data-height="800">
+			<h3>Our community</h3>
+			<div class="full-image__img img-community"></div>
+			<div class="full-image__content full-image__content--right">
+				<div class="grid-control">
+					<div class="col-12">
+						<div class="full-image__content__box scroll-trigger">
+							<h3>Our community</h3>
+							<p>Relationships and mentorship are core to the APMM experience. APMMs frequently come together with their class and others in Product Marketing for training, socials, and events.</p>
+							<p>After your first rotation, your class will embark on a Global Trek, a dedicated research trip to a set of countries determined by the group. Previous APMMs have roamed all over the world, from Brazil to Tokyo to Thailand. This is a great opportunity to learn about new markets and connect with your cohort.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid-control people">
+			<div class="col-12">
+				<h3>Get to know us</h3>
+			</div>
+			<div class="col-4">
+				<div class="person">
+					<div class="image"><img src="/wp-content/uploads/2017/06/testimonial-caroline.png"></div>
+					<div class="text">
+						<h4>Caroline</h4>
+						<h5>Protect &amp; Care</h5>
+					</div>
+				</div>
+				<p>“My first year in the program, I worked closely with my product team to launch <a href="https://newsroom.fb.com/news/2017/03/building-a-safer-community-with-new-suicide-prevention-tools/" target="_blank">suicide prevention tools</a>, and help market a product with the purpose of helping people in need. The unique opportunity to lead such high impact initiatives makes the APMM program a fulfilling post-grad experience.”</p>
+			</div>
+			<div class="col-4">
+				<div class="person">
+					<div class="image"><img src="/wp-content/uploads/2017/06/testimonial-natasha.png"></div>
+					<div class="text">
+						<h4>Natasha</h4>
+						<h5>News</h5>
+					</div>
+				</div>
+				<p>“From core product marketing skills to crisis management, every day has been saturated with opportunity for learning, leading and growth. Mentorship has been key for me in this pivotal period at the beginning of my career, and Facebook’s team of first class marketers continue to invest in honing my skill set, guiding my development, and deepening my industry knowledge.”</p>
+			</div>
+			<div class="col-4">
+				<div class="person">
+					<div class="image"><img src="/wp-content/uploads/2017/06/testimonial-kevin.png"></div>
+					<div class="text">
+						<h4>Kevin</h4>
+						<h5>Messenger</h5>
+					</div>
+				</div>
+				<p>“Being an APMM at Facebook helped me hone my softer skills — effectively leading big meetings, getting alignment on product decisions, managing up, and mediating conflict.”</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="wrapper-full life-after">
+		<div class="grid-control">
+			<div class="col-6">
+				<h3>Life after APMM</h3>
+				<p>Following the program, APMMs are well prepared for a career in technology. Our alumni have gone on to become product marketing leaders at Facebook, or transition into other functional roles at Facebook and beyond.</p>
+			</div>
+			<div class="col-6">
+				<img src="/wp-content/uploads/2017/06/life-after-170623.jpg" />
+			</div>
+		</div>
+	</div>
+
+
+	<div class="wrapper-full">
+		<div class="grid-control faq" id="faq">
+			<div class="col-12">
+				<h3>FAQ</h3>
+
+				<div class="faq__item">
+					<h4>What is the APMM Program?</h4>
+					<div class="answer">
+						<p>The APMM Program is a two year program for new grads to experience what product marketing means at Facebook. They take on a breadth of marketing projects across two 1-year rotations on different product teams and have opportunities for mentorship, growth, and a Global Trek research trip.</p>
+					</div>
+				</div>
+				<div class="faq__item">
+					<h4>Who can apply to the program?</h4>
+					<div class="answer">
+						<p>We’re looking for a diverse group of creative individuals with a passion for technology and marketing. Current APMMs come from a wide range of backgrounds ranging from psychology to philosophy to economics and more.</p>
+					</div>
+				</div>
+				<div class="faq__item">
+					<h4>How do I apply?</h4>
+					<div class="answer">
+						<p>You can apply through university recruiting if you are currently an undergraduate, or visit our <a href="https://www.facebook.com/careers/university/grads/business" target="_blank">careers page</a> and submit your application in the fall prior to your graduation.</p>
+					</div>
+				</div>
+				<div class="faq__item">
+					<h4>What are some teams APMMs have joined in the past and how are rotations determined?</h4>
+					<div class="answer">
+						<p>APMMs have joined teams facing a diverse set of audiences. Some examples include: Developer Platform, Pages, Groups, News Feed, Messenger, and Internet.org. Rotations are generally set based on business need and personal preference.</p>
+					</div>
+				</div>
+				<div class="faq__item">
+					<h4>How is Product Marketing at Facebook different from that at other companies?</h4>
+					<div class="answer">
+						<p>Facebook operates at enormous scale — our products touch billions of people around the world. APMMs have opportunities to create meaningful impact through their projects with support from their peers and leaders across the company. </p>
+					</div>
+				</div>
+				<div class="faq__item">
+					<h4>What types of mentorship and development opportunities are available for APMMs in the program?</h4>
+					<div class="answer">
+						<p>Facebook offers internal classes and trainings dedicated to APMMs, as well as a robust mentorship program designed to help individuals grow in their careers. Mentors are assigned long before APMMs start at Facebook, so there is direct support from the get go. Throughout the two years of the program, there are also events, socials, and internal and external speaker panels which all create a well rounded learning experience.</p>
+					</div>
+				</div>
+				<div class="faq__item">
+					<h4>What happens at the end of the program?</h4>
+					<div class="answer">
+						<p>The APMM program is two years, and at the end of their second rotation, APMMs will have the option to remain in their second team, or take on a final rotation in a different team. Most alumni have gone on to become Product Marketing Managers at Facebook, while others have opted to transition into other roles at Facebook and beyond.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid-control full-bleed full-image full-image--cta" data-height="600" data-small-height="434">
+			<div class="full-image__img img-footer"></div>
+			<div class="full-image__content">
+				<div class="grid-control centered">
+					<div class="col-8">
+						<div class="full-image__content__box scroll-trigger">
+							<h3>Start your journey</h3>
+							<p>Applications for the program are open, visit our careers site to apply!</p>
+<a href="https://www.facebook.com/careers/jobs/a0I1200000LTOijEAH/" target="_blank" class="button button--light">See Careers</a> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<footer>
+		<div class="grid-control">
+			<div class="col-12">
+				<div class="logo">APMM Program</div>
+			</div>
+		</div>
+	</footer>
+
+
+</div><!-- .page -->
+<script type="text/javascript" defer="defer" src="https://apmms.fb.com/wp-content/themes/fb_apmm/js/main.min.js"></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201740'></script>
+<script type='text/javascript' src='https://apmms.fb.com/wp-includes/js/wp-embed.min.js?m=1505859979g'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201740.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.4',blog:'131060971',post:'2',tz:'-7',srv:'apmms.fb.com'} ]);
+	_stq.push([ 'clickTrackerInit', '131060971', '2' ]);
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"949ceaf672","applicationID":"47767771","transactionName":"MQZWYhAFXhdYAUBfWwhMdVUWDV8KFgtaUlEe","queueTime":0,"applicationTime":30,"atts":"HUFBFFgfTUgbAxYMTxse","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

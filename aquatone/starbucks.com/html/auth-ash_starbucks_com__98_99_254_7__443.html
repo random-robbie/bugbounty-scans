@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="x-ua-compatible" content="IE=9">
+<title>auth-ash.starbucks.com</title>
+<link rel="stylesheet" type="text/css" HREF="/public/include/css/apm.css">
+<script language="JavaScript" src="/public/include/js/session_check.js" ></script>
+<script language="javascript">
+<!--
+
+/////////////////////////////////////////////////////////////////////////
+// function to return the customized screen when session expiration
+// is detected on the client-side
+/////////////////////////////////////////////////////////////////////////
+function SessionExpired_CustomizedScreenGet()
+{
+  return '<br><h3>Session Expired/Timeout</h3><br>Due to user inactivity, your session expired. Click the following link to start a new session.<br><br><table id="IHoptions"><tr><td><a href="[SESSION_RESTART_URL]" class="option"><img src="/public/images/sq-positive.gif" ></a><a href="[SESSION_RESTART_URL]">Start a new session</a></td></tr></table>';
+}
+
+var globalRestartOnSubmit = false;
+
+function sessionTimedOut()
+{
+    // restart session automatically upon "submit" for edge-like clients if logon form is compatibile
+    if ((undefined != window.external.WebLogonResetSession) && (null != globalInputs)) {
+       globalRestartOnSubmit = true;
+    }
+    else {
+       // display session expired msg for non-compatible forms or
+       // non-edge clients
+       showSplashLayer("MessageDIV", SessionExpired_CustomizedScreenGet());
+    }
+}
+
+/**
+ * Place the focus and init the form fields
+ */
+
+if(self != top) { top.location = self.location; }
+window.onerror=function(){ return function(){ return; } }
+
+//--------------------------------------------------------------------
+var doNotAutoSubmit = false;
+
+var globalFormId = 'auth_form';
+var globalTableId = 'credentials_table';
+var globalSubmitTrId = 'submit_row';
+
+var globalSavePasswordCheckbox = null;
+var globalInputs = null;
+
+// compatibily function, works only with input[0] text username and input[1] text password
+function getFormCompatibility()
+{
+    // find from
+    var form = document.getElementById( globalFormId );
+    if( form == null ){
+        return null;
+    }
+
+    // check if form suites
+    var inputs = [];
+    var inputsTemp = form.getElementsByTagName("input");
+    // filter submit, reset, hidden and little green men
+    for( var i=0; i<inputsTemp.length; i++ ){
+        if( inputsTemp[i].type == "text" || inputsTemp[i].type == "password" ||  inputsTemp[i].type == "checkbox" ){
+            inputs[ inputs.length ] = inputsTemp[i]
+        }
+    }
+    // is it compatible
+    if( inputs.length != 2 || inputs[0].type != "text" || inputs[0].name != "username" || inputs[1].type != "password" || inputs[1].name != "password" ){
+        return null;
+    }
+
+    return inputs;
+}
+
+function OnLoad()
+{
+    // check if form suites
+    var form = document.getElementById( globalFormId );
+    if( form == null ){
+        return;
+    }
+
+    // check if form suites
+    var inputs = form.getElementsByTagName("input");
+    // filter submit, reset, hidden and little green men
+    for( var i=0; i<inputs.length; i++ ){
+        if( ( inputs[i].type == "text" || inputs[i].type == "password" ) && inputs[i].value == "" ){
+            inputs[i].focus();
+            if (inputs[i].type == "password") {
+                window.setTimeout( function(elem){ return function(){ elem.blur(); elem.focus(); } }(inputs[i]) , 266 );
+            }
+            return;
+        }
+	}
+}
+
+// support for autologon from Client API
+function checkExternalAddCheckbox()
+{
+    var checkbox_txt = 'Save Password';
+
+    if( globalInputs == null ){
+        return;
+    }
+
+    // find form
+    var form = document.getElementById( globalFormId );
+    if( form == null ){
+        return;
+    }
+
+    // find table
+    var table = document.getElementById( globalTableId );
+    if( table == null ){
+        return;
+    }
+
+    // find tr
+    var submitTr = document.getElementById( globalSubmitTrId );
+    if( submitTr == null ){
+        return;
+    }
+
+    try {
+		if(window.external){
+            // push values
+			if( window.external.WebLogonUserName && globalInputs[0].value == ""){
+				globalInputs[0].value = window.external.WebLogonUserName;
+            }
+
+            // push data to cells
+			if(window.external.WebLogonSavePasswordAvailable){
+                // right - text
+
+                // create cells
+                var newTr = table.insertRow( submitTr.rowIndex );
+                var leftTd = newTr.insertCell( 0 );
+                var rightTd = newTr.insertCell( 1 );
+
+                leftTd.className = "credentials_table_label_cell";
+                rightTd.className = "credentials_table_field_cell credentials_table_field_checkbox_fix";
+
+                rightTd.innerHTML = checkbox_txt;
+                // left - checkbox
+                globalSavePasswordCheckbox = document.createElement("input");
+                globalSavePasswordCheckbox.type = "checkbox";
+                globalSavePasswordCheckbox.className = "credentials_input_checkbox";
+                globalSavePasswordCheckbox.value = 1;
+                globalSavePasswordCheckbox = leftTd.appendChild( globalSavePasswordCheckbox );
+                globalSavePasswordCheckbox.checked = window.external.WebLogonSavePasswordChecked;
+                if( globalSavePasswordCheckbox.autocomplete ) {
+                    globalSavePasswordCheckbox.autocomplete = "off";
+                }
+            }
+
+            // autosubmit check
+            if(window.external.WebLogonAutoLogon && !doNotAutoSubmit){
+                doAutoSubmit = true;
+                form.onsubmit();
+                form.submit();
+                return;
+            }
+        }
+    } catch (e) { }
+}
+
+function disableSubmit(form)
+{
+    // disable!
+    var inputs = form.getElementsByTagName( "input" );
+    for( var i=0; i<inputs.length; i++ ){
+        if( inputs[i].type == "submit" || inputs[i].type == "reset" ){
+            inputs[i].disabled = true;
+        }
+    }
+
+    return true;
+}
+
+function OnSubmit()
+{
+    // find form
+    var form = document.getElementById( globalFormId );
+    if( form == null ){
+        return;
+    }
+
+    if( globalInputs == null ){
+        return;
+    }
+
+    try{
+        if( window.external ){
+            if( undefined != window.external.WebLogonUserName ){
+                window.external.WebLogonUserName = globalInputs[0].value;
+            }
+
+            if( undefined != window.external.WebLogonPassword ){
+                window.external.WebLogonPassword = globalInputs[1].value;
+            }
+
+            if( undefined != window.external.WebLogonSavePasswordChecked && null != globalSavePasswordCheckbox ){
+                window.external.WebLogonSavePasswordChecked = globalSavePasswordCheckbox.checked;
+            }
+
+        }
+    } catch(e) { }
+
+    return;
+}
+
+function verifyNewPassword()
+{
+    var form = document.getElementById( globalFormId );
+    if( form == null ){
+        return true;
+    }
+
+    var inputs = form.getElementsByTagName("input");
+    if( inputs.length >= 2 && inputs[0].name == "_F5_challenge" && inputs[0].type == "password" && inputs[1].name == "_F5_verify_password" && inputs[1].type == "password" ){
+        if( inputs[0].value != inputs[1].value ){
+            alert("Password and confirmation do not match.");
+            inputs[0].focus();
+            return false;
+        } else {
+            // Not sending the second field.
+            inputs[1].disabled = true;
+        }
+    }
+    return true;
+}
+
+function masterSubmit(form)
+{
+    if( !verifyNewPassword() /* || ... */){
+        return false;
+    }
+
+    OnSubmit(); // this required by edge
+
+    if (globalRestartOnSubmit) {
+        try {
+            window.external.WebLogonAutoLogon = (("" != globalInputs[0].value) && ("" != globalInputs[1].value));
+        }
+        catch (e) {}
+        // restart session
+        window.external.WebLogonResetSession();
+        return false;
+    }
+
+    disableSubmit(form);
+    return true;
+}
+
+//-->
+</script>
+</head>
+
+<body onload="OnLoad()">
+
+<meta name="viewport" id="viewport" content="initial-scale=1.0" />       
+<script language="javascript">
+//orientation toolbox
+function setViewport(){
+    document.getElementById("viewport").setAttribute('content', Math.abs(window.orientation) == 90 ? 'width=device-height, initial-scale=1' : 'width=device-width, initial-scale=1.0' );
+}
+setViewport();
+window.onorientationchange = function() {
+    setViewport();
+}    
+</script>
+<table id="page_header">
+  <tr >
+    <td id="header_leftcell"><img src='/public/images/my/tr.gif'/></td>             
+    <td id="header_rightcell"></td>
+  </tr>
+</table><noscript>
+<div id="noscript_warning_red">JavaScript is not enabled. Please enable JavaScript in your browser or contact your system administrator for assistance.</div>
+<div id="noscript_warning_newsession">To open a new session, please  <A href="/">click here.</A></div>
+</noscript>
+
+<table id="main_table" class="logon_page">
+<tr>
+        <td id="main_table_info_cell">
+    <form id="auth_form" name="e1" method="post" action="/my.policy" onsubmit="javascript: return masterSubmit(this);" autocomplete="off">
+    <table id="credentials_table">
+    <tr>
+        <td colspan=2 id="credentials_table_header" >Welcome Starbucks Partner</td>
+    </tr>
+    <tr>
+        <td colspan=2 id="credentials_table_postheader" ><font color=red><font color=red> The username or password is not correct. Please try again. </font></font></td>
+    </tr>
+    <tr>
+        <td class="credentials_table_label_cell" >Username:</td>
+        <td class="credentials_table_field_cell"><input type="text" name="username" class="credentials_input_text"  value="" id="input_1" autocomplete="off" autocapitalize="off"></td>
+    </tr>
+    <tr>
+        <td class="credentials_table_label_cell" >Password:</td>
+        <td class="credentials_table_field_cell"><input type="password" name="password" class="credentials_input_password"  value="" id="input_2" autocomplete="off" autocapitalize="off"></td>
+    </tr>
+    <tr id="submit_row">
+        <td class="credentials_table_label_cell" ></td>
+        <td class="credentials_table_field_cell"><input type=submit class="credentials_input_submit" value="SIGN IN"></td>
+    </tr>
+    <tr>
+        <td colspan=2 id="credentials_table_footer" ></td>
+    </tr>
+    </table>
+    <input type=hidden name="vhost" value="standard">
+    </form>
+    <script language="javascript"><!--//
+        globalInputs = getFormCompatibility();
+        checkExternalAddCheckbox();
+        window.setTimeout("sessionTimeoutCheck(sessionTimedOut)", globalTimoutInterval);
+
+        function dontChangePasswordClick(){
+            var checkbox = document.getElementById("dont_change_password_checkbox");
+            var password = document.getElementById("input_1");
+            var verify = document.getElementById("input_2");
+            if( checkbox.checked ){
+                password.value = "";
+                password.disabled = true;
+                verify.value = "";
+                verify.disabled = true;
+            }else{
+                password.disabled = false;
+                verify.disabled = false;
+            }
+        }
+    --></script>
+    </td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+    function F5_include_JS(jsFile)
+    {
+        document.write('<script type="text/javascript" src="'
+                         + jsFile + '"></scr' + 'ipt>'); // <-- IE7 workaround
+    }
+
+    if ("" == "1") {
+        var f5VirtualKeyboardMove = ( "" == 1 ? "1" : "0" );
+        var f5VirtualKeyboardForceBlur = ( "" == 1 ? "0" : "1" );
+        function VirtualKeyboard_CustomizedMessageTextGet()
+{
+  return 'Virtual Keyboard';
+}
+
+function VirtualKeyboard_CustomizedHideTextGet()
+{
+  return 'Hide Keyboard';
+}
+
+        var f5VirtualKeyboardMessageText =  VirtualKeyboard_CustomizedMessageTextGet();
+        var f5VirtualKeyboardHideText =  VirtualKeyboard_CustomizedHideTextGet();
+        F5_include_JS('/public/include/js/vk/f5_vk.js');
+    }
+</script>
+<div id="MessageDIV" class="inspectionHostDIVSmall"></div>
+
+</body>
+</html>

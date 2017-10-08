@@ -1,0 +1,260 @@
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+    <title>Sign In</title>
+    <link href="/_layouts/15/images/EC2.Common/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="../_layouts/15/EC2.Common/rwd/JS/jquery-1.9.1.min.js"></script>
+
+    <script>
+        // Detect user language
+        var acceptLanguage = 'en-US';
+
+        function redirectTIP(tipname) {
+            var tippagepath = "/_trust/default.aspx?trust=" + tipname;
+            querystring = window.location.search.substring(1);
+            if (querystring) {
+                tippagepath += "&" + querystring;
+            }
+            window.location = tippagepath;
+        };
+
+        var message = {
+            EN: {
+                WelcomeMessage: "Welcome, please sign in.",
+                RoleHeading: "Select your role:",
+                LicensedStore: "Licensed Store",
+                Partner: "Starbucks Partner"
+            },
+
+            FR: {
+                WelcomeMessage: "Bienvenue, connectez-vous.",
+                RoleHeading: "S&egrave;lectionnez votre r&ocirc;le:",
+                LicensedStore: "Boutique sous licence",
+                Partner: "Partenaire Starbucks"
+            }
+        };
+
+        $(document).ready(function () {
+
+            // Handle office app login popup
+            if (-1 < navigator.userAgent.indexOf("MSIE 7.0")) {
+                $(".leafImage").addClass("hidden");
+                $(".yearContainer").addClass("yearContainerSmall");
+                $(".welcomeMessage, .roleHeading, .roleOption, .container").addClass("center");
+                $(".right").addClass("containerAuto");
+            }
+
+            var welcomeMsg = $(".welcomeMessage"),
+                roleHeading = $(".roleHeading"),
+                licensedStore = $(".licensed"),
+                partner = $(".partner");
+
+            if ("fr" === acceptLanguage.split("-")[0]) {
+                welcomeMsg.html(message.FR.WelcomeMessage);
+                roleHeading.html(message.FR.RoleHeading);
+                licensedStore.html(message.FR.LicensedStore);
+                partner.html(message.FR.Partner);
+            } else {
+                welcomeMsg.html(message.EN.WelcomeMessage);
+                roleHeading.html(message.EN.RoleHeading);
+                licensedStore.html(message.EN.LicensedStore);
+                partner.html(message.EN.Partner);
+            }
+
+            $("#year").html(new Date().getFullYear() + " ");
+
+        });
+
+    </script>
+
+    <style>
+        html, body {
+            height: 100%;
+            min-height: 100%;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            font-family: 'Segoe UI',Calibri, Lucida Grande;
+            min-width: 400px;
+            text-align: center;
+        }
+
+        .welcomeMessage, .roleHeading {
+            font-size: 24px;
+            width: 400px;
+            padding: 10px 0;
+            text-align: left;
+        }
+
+        .roleOption {
+            cursor: pointer;
+            text-align: left;
+        }
+
+            .roleOption:hover {
+                text-decoration: underline;
+            }
+
+
+        .leafImage {
+            width: auto;
+            float: left;
+        }
+
+        .storeLinkImage {
+            margin-bottom: 50px;
+            margin-top: 50px;
+            display: block;
+        }
+
+        .left {
+            position: fixed;
+            left: 0;
+        }
+
+        .right {
+            padding-left: 45px;
+            height: 100%;
+            min-height: 320px;
+            float: right;
+            z-index: 1;
+            position: relative;
+            background-color: #fff;
+            overflow-y: hidden;
+            margin-right: -8px;
+            width: 485px;
+            min-width: 320px;
+        }
+
+        .containerAuto {
+            float: none;
+            margin: auto;
+            padding-left: 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .left, .right {
+            display: inline-block;
+        }
+
+        footer {
+            bottom: 50px;
+            clear: both;
+            position: absolute;
+        }
+
+        .yearContainer {
+            float: left;
+        }
+
+        .yearContainerSmall {
+            float: none;
+            margin-top: 150px;
+        }
+
+        .clear {
+            clear: left;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
+        @media screen and (max-width: 1023px) and (min-width: 320px) {
+            .leafImage {
+                display: none;
+            }
+
+            .right {
+                padding-left: 0;
+            }
+
+            .right {
+                float: none;
+                margin: 0 auto;
+            }
+
+            .welcomeMessage, .roleHeading, .roleOption {
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .storeLinkImage {
+                display: inline-block;
+                margin-left: 0;
+            }
+
+            footer {
+                left: 0;
+                margin: 0 auto;
+                right: 0;
+            }
+
+                footer .yearContainer {
+                    float: none;
+                }
+        }
+
+        @media (width: 1024px) {
+            .leafImage {
+                height: 100%;
+            }
+        }
+
+        @media (max-height: 412px) {
+            .storeLinkImage {
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+
+            footer {
+                bottom: 20px;
+            }
+        }
+
+        @media screen and (max-width: 414px) {
+            .right {
+                overflow-x: auto;
+            }
+
+            .container, .right, .welcomeMessage, .roleHeading, .roleOption {
+                min-width: auto;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <img class="leafImage left" src="/_layouts/15/images/illustration.png" />
+
+
+        <div class="right">
+            <img class="storeLinkImage" src="/_layouts/15/images/storeLink_logo_brown_2.png" />
+            <div class="welcomeMessage"></div>
+            <div class="roleHeading"></div>
+
+            <div class="roleOption licensed" onclick="javascript:redirectTIP('Azure ACS');">
+            </div>
+            <div class="roleOption partner" onclick="javascript:redirectTIP('VDS');">
+            </div>
+
+            <footer>
+                <div class="yearContainer">
+                    <span>&copy; <span id="year"></span>Starbucks</span>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+</body>
+</html>

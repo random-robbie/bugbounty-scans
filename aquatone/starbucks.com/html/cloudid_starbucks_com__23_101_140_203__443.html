@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/SBUX/altPortal.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/SBUX/MFAStyleSheet.css" />
+	
+
+    <script type="text/javascript">
+        function Redirect(url) {
+            var sBase = '/ofis/';
+            if (url == "") {
+                url = sBase + "Default.aspx";
+            }
+            else {
+                url = sBase + url;
+            }
+            window.location.href = url;
+        }
+
+        //get a hold of the timers
+        var iddleTimeoutWarning = null;
+        var iddleTimeout = null;
+ 
+        //this function will automatically be called by ASP.NET AJAX when page is loaded and partial postbacks complete
+        function pageLoad() { 
+            //clear out any old timers from previous postbacks
+            if (iddleTimeoutWarning != null)
+                clearTimeout(iddleTimeoutWarning);
+            if (iddleTimeout != null)
+                clearTimeout(iddleTimeout);
+            //read time from web.config
+            var millisecTimeOutWarning = 3300000;
+            var millisecTimeOut = 3600000; 
+ 
+            //set a timeout to display warning if user has been inactive
+            iddleTimeoutWarning = setTimeout("DisplayIdleWarning()", millisecTimeOutWarning);
+            iddleTimeout = setTimeout("TimeoutPage()", millisecTimeOut);
+        } 
+ 
+        function DisplayIdleWarning() 
+        {
+            bootbox.dialog({
+                title: "Session Time Out",
+                message: "<span class='bigger-110'>Your session is about to expire due to inactivity, click 'OK' to keep your session alive?</span>",
+                buttons: 			
+                {
+                    "success" :
+                     {
+                         "label" : "<i class='ace-icon fa fa-check'></i> OK",
+                         "className" : "btn-sm btn-success",
+                         "callback": function() {
+                             pageLoad();
+                         }
+                     }
+                },
+                show: true
+            });
+
+            var modalElement;
+            modalElement = findElementByClass('modal-header');
+            if (modalElement != null)
+            {
+                modalElement.className += " widget-header widget-header-large ";
+            }         
+        } 
+
+        function findElementByClass(matchClass)
+        {
+            var elems = document.getElementsByTagName('*'), i;
+            for (i in elems) 
+            {
+                if ((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ') > -1) 
+                {
+                    return elems[i];
+                }
+            }
+            return null;
+        }
+
+        function IdleWarningVisible()
+        {
+            var bIdleWarningVisible = false;
+            if (findElementByClass('modal-title') != null)
+            {
+                bIdleWarningVisible = true;
+            }
+            return bIdleWarningVisible;
+        }
+ 
+        function TimeoutPage() {
+            if (IdleWarningVisible())
+            {                
+                var sBase = '/ofis/';
+                window.location.href = sBase + "pages/public/SignOut.aspx?wa=wsignout1.0&wtream=" + window.location + "&TIMEDOUT=true";     
+            }
+        }
+
+        function showAnimation() {
+            document.getElementById('loading_image').style.display="inline";
+        }
+        function hideAnimation() {
+            document.getElementById('loading_image').style.display="none";
+        }
+        function showSpinner() {
+            document.getElementById('divSpinner').style.display = "inline";
+        }
+        function hideSpinner() {
+            document.getElementById('divSpinner').style.display = "none";
+        }
+
+
+        function setActiveLeftNav(menuItemID)
+        {
+            var elems = document.getElementById('sidebar').getElementsByTagName('*'), i;
+            for (i in elems) 
+            {
+                var className = elems[i].className;
+                if (typeof className != 'undefined')
+                    elems[i].className = className.replace(' active ','');
+            }
+            var elem = document.getElementById(menuItemID);
+            if (typeof elem != 'undefined')
+                elem.className += ' active ';
+        }
+    </script>
+
+    <!-- ********************** JM START - NEW STUFF ***************************** -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.css" />
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+		<link rel="stylesheet" href="assets/css/SBUX/ace.css" />
+        <link rel="stylesheet" href="assets/css/dropzone.css" />
+        <link rel="stylesheet" href="assets/css/select2.css" />
+        <link rel="stylesheet" href="assets/css/chosen.css" />
+        <link rel="stylesheet" href="assets/css/phone/intlTelInput.css" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet" />
+		<![endif]-->
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.css" />
+		<![endif]-->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.js"></script>
+		<![endif]-->
+
+
+		<!--[if IE]>
+        <script type="text/javascript">
+         window.jQuery || document.write("<script src='" + ~pages/public/assets/js/jquery1x.js + "'>"+"<"+"/script>");
+        </script>
+        <![endif]-->
+
+
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/jquery-ui.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/bootbox.js"></script>
+        <script src="assets/js/ace-extra.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+    	<script src="assets/js/spin.min.js"></script>
+        <script src="assets/js/jquery.validate.js"></script>
+		<script src="assets/js/additional-methods.js"></script>
+        <script src="assets/js/fuelux/fuelux.wizard.js"></script>
+        <script src="assets/js/select2.js"></script>
+
+		<script src="assets/js/jquery.balloon.min.js"></script>
+
+		
+        <script type="text/javascript">
+            // Create the Spinner with options
+            var spinner = new Spinner({
+                lines: 12, // The number of lines to draw
+                length: 7, // The length of each line
+                width: 5, // The line thickness
+                radius: 10, // The radius of the inner circle
+                color: '#000', // #rbg or #rrggbb
+                speed: 1, // Rounds per second
+                trail: 10, // Afterglow percentage
+                shadow: false // Whether to render a shadow
+            }).spin(document.getElementById("loading_image"));
+        </script>
+    <!-- ********************** JM END - NEW STUFF ***************************** -->
+
+<title>
+	SBUX/TheOptimalCloud :: Login
+</title></head>
+
+<body id="BodyTag" class="no-skin">
+	
+    <script type="text/javascript">
+        //*********************************************
+        //* validateFields loops through ASP.NET validators,
+        //* if field did not validate, this code ass "has-error" 
+        //* to the DIV containing the form element, pointed to 
+        //* via the "groupid" attribute on the validator
+        //*********************************************
+        function validateFields()
+        {
+            var i;
+            var failedValidationsvar = new Object(); 
+            var btnClickedName, btnClickedID, btnClicked; 
+            var validateForm;
+            validateForm = true;
+            btnClickedName = document.forms['frmAltMaster'].__EVENTTARGET.value;
+            if ((btnClickedName != null) && (btnClickedName != ''))
+            {
+                btnClickedID = btnClickedName.substring(btnClickedName.lastIndexOf("$") + 1);
+                btnClicked = document.getElementById(btnClickedID);
+                if ((btnClicked != null) && (btnClicked.hasAttribute("validation")) && (btnClicked.getAttribute("validation") == "false"))
+                {
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm && (typeof Page_Validators != 'undefined'))
+            {
+                for (i = 0; i < Page_Validators.length; i++) {
+                    if (!Page_Validators[i].isvalid) {
+                        document.getElementById(Page_Validators[i].attributes["groupid"].nodeValue).className += " has-error";;
+                        failedValidationsvar[Page_Validators[i].attributes["groupid"].nodeValue] = 1;
+                    }
+                    else
+                    {
+                        if (!failedValidationsvar.hasOwnProperty(Page_Validators[i].attributes["groupid"].nodeValue)) {
+                            document.getElementById(Page_Validators[i].attributes["groupid"].nodeValue).className =
+                                document.getElementById(Page_Validators[i].attributes["groupid"].nodeValue).className.replace
+                                   ( /(?:^|\s)has-error(?!\S)/g , '' )
+                        }
+                    }
+                }
+            }
+            else 
+            {
+                i=0;
+            }
+
+        }
+
+        
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1582514098645190&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+		</script>
+
+	<form method="post" action="./Login4.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="frmAltMaster">
+<div class="aspNetHidden">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTk0MzQ0OTI2OQ8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgJmD2QWAgIDD2QWAgIBD2QWBmYPZBYCAgEPZBYEAhEPDxYCHgRUZXh0ZWRkAhMPDxYCHwEFIC9vZmlzL3BhZ2VzL3B1YmxpYy9fRGVmYXVsdC5hc3B4ZGQCAQ8WAh4HVmlzaWJsZWhkAgIPDxYCHwEFDHNidXh1c2VhcDAwMWRkZERW1XarEW0AQQXYQwpfXClYD44mUanHvrq3SKDiUGGG" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmAltMaster'];
+if (!theForm) {
+    theForm = document.frmAltMaster;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/ofis/WebResource.axd?d=kAcBIxj0DSFH_6ClP6Rf6AXEBpA4vX5NOTOWcCaGMwlmkogXK2EtynfRoIZqaRhxaIFQFpdZZ2btnVfs8QrzPhFq5nW54o_8yq0bbi7Kqdw1&amp;t=636160840665894255" type="text/javascript"></script>
+
+
+<script src="/ofis/WebResource.axd?d=eabgYn-D5A4eSFXmCwCwQTru7Zevhx64IOxXk3lsXSh1B5NsDbZNN59yESr-CGbRjaamUIbndIzSj3lB-p0MCJXimZDgasAV4WGU0Fq0RDY1&amp;t=636160840665894255" type="text/javascript"></script>
+<script src="/ofis/WebResource.axd?d=1C8Zo17DjXYD8zPdtvz48yAOo17jWoMrDQlV2IlfmY_k0dCY85x3KB-6ttI0MzJGr-OZGxyHny0520eWZFTwziJ4jvJs2_Ic35TCim6vftc1&amp;t=636160840665894255" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D82E6254" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAASU7bjFI6OUHPjkuE24NhrF2z6HUAt8PYqyCodMaNiRda3v5oyBRyowsQD4TJHtcOKWqQS0dqGdxrbRgpNOSHsh9RvyhtHjA6Mjix/aI11kTOs9TMpjjIonfqi3t4FfMTk=" />
+</div>	
+        <div id="fb-root"></div>
+
+        <div class="center" style="background: #ffffff url(/ofis/pages/public/assets/Images/sbuxBackground.png) right top repeat-y;" >
+            <br />
+            <img src="assets/css/SBUX/images/logo.png" width="55" height="55" />
+        </div>
+
+        <div id="mainContainer" class="main-container">
+			<script type="text/javascript">
+			    //try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>         
+
+
+			<div id="divMainContent" class="main-content" style="background: #ffffff url(/ofis/pages/public/assets/Images/sbuxBackground.png) right top repeat-y;">
+	
+                
+
+    
+
+    <div class="main-content" >
+	    <div class="boxBody" style="border-top:0px;border-bottom:0px;">
+			<div class="page-header clearfix" style="border-bottom:0px;">
+				<h1 class="green">
+					<span class="sbuxheadertext">Please Sign In</span>
+				</h1>
+			
+			</div><!-- /.page-header -->
+
+            <header>
+				    <div class="space-4"></div>
+
+            </header>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="space-6"></div>
+					<div class="col-sm-12">
+                            <div class="space-6"></div>
+							<div class="center">
+								<div class="form-group">
+									<label class="lblUserId control-label text-left" for="txtUsername"> Email Address </label>
+									<div>
+										<input name="ctl00$mainContent$txtUsername" type="text" id="txtUsername" title="E-Mail Address" />
+									</div>
+									<div>													
+										<span id="RequiredFieldValidator1" class="error" GroupId="useridGroup" style="display:none;width:208px;font-size:14px !important;color:#d1d00 !important;font-weight:700;font-family:'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;">Required</span>        
+									</div>
+								</div>
+							</div>
+							<div class="center">
+								<div class="form-group">
+									<label class="lblUserId control-label text-left" for="txtPassword"> Password </label>
+									<div>
+										<input name="ctl00$mainContent$txtPassword" type="password" id="txtPassword" title="Password" />
+									</div>
+									<div>													
+										<br/><span id="RequiredFieldValidator2" class="error" GroupId="passwordGroup" style="display:none;width:208px;font-size:14px !important;color:#d1d00 !important;font-weight:700;font-family:'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;">Password Required</span>
+									</div>
+								</div>             
+							</div>             
+							
+							
+							
+
+                            <div class="row">&nbsp;</div>
+
+					        <div class="clearfix">
+                                <div class="space-6"></div>
+                                <div class="form-group center">
+                                    <button onclick="if(document.getElementById('divMsg')) document.getElementById('divMsg').style.display = 'none'; if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(''); __doPostBack('ctl00$mainContent$btnLogin','')" id="btnLogin" class="btn-secureauth">
+					                    <span>Submit</span>
+				                    </button>
+                                </div>
+					        </div>
+
+                            
+
+
+                            <div class="space-4"></div>
+                        </div>
+
+                <div>
+
+                        <div class="space-20"></div>
+
+					        <div class="space-4"></div>
+
+			                    <div class="toolbar clearfix">
+                                <div class="form-group center">
+					                    <!-- <a href="SBUXForgotPwd.aspx" id="aForgotPwd" data-target="#forgot-box" class="forgot-password-link"> -->
+										<a id="aForgotPwd2" class="forgot-password-link" href="SBUXForgotPwd.aspx">Forgot your password?</a>
+						                    
+                                           
+					                    </a>
+			                    </div>
+                                    </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+
+
+
+    </div>
+
+
+    
+    
+    
+
+	<br/><br/>
+	
+	
+               
+				
+				<div style="display:none; background: #ffffff url(/ofis/pages/public/assets/Images/sbuxBackground.png) right top repeat-y;">
+					<span id="sbuxUsernameHelp">Global Username is the two letter country code followed by partner number (e.g. US21344879).</span>
+					<span id="sbuxEHDHelp">
+						<div class="sbuxEHD">
+							<div class="space-4"></div>
+							<div class="sbuxEHDSubHeader">Please contact your organization administrator for assistance.</div>
+							<div class="space-6"></div>
+						</div>
+					</span>
+					<span id="sbuxDFPHelp">These devices have been stored as active devices so that they are "remembered" as secured devices during authentication. If you do not recognize a device or want to reset authentication, please uncheck below.</span>
+					<span id="sbuxPushHelp">These devices are enabled to receive push notifications through the SecureAuth OTP app.  To disable these notifications, please uncheck below.</span>
+					<span id="sbuxTermsHelp"></span>
+				</div>
+				<!-- inline scripts related to this page -->
+				<script src="/ofis/pages/public/assets/js/custom.min.js"></script>
+				<script type="text/javascript">var ehdBottom = false;var ehdShown = false;var infoShown = false;var pushShown = false;var dfpShown = false;var termsShown = false;</script>
+				
+			
+</div>
+
+			<div class="footer" style="padding-top: 100px;background: #ffffff url(/ofis/pages/public/assets/Images/sbuxBackground.png) right top repeat-y;">
+					<div class="footer-inner" style="background: #ffffff url(/ofis/pages/public/assets/Images/sbuxBackground.png) right top repeat-y;">
+						<div class="container">
+							<span class="smaller-90" >
+								<div class="text-center">
+										<div id="sbuxEHDDiv">
+											<span class="sbuxFooterTrouble">Having trouble?</span><br />
+											<span class="sbuxFooterText" id="sbuxEHD">Contact the Help Desk</span><br />
+										</div>
+										<ul id="sbuxExternalLinks" class="sbuxReduceSpace" style="list-style: none; margin-left:0px;">
+											<li id="TermsOfUser"><a href="/ofis/pages/public/SBUXTerms.aspx" target="_blank" id="sbuxTermsOfUseLink"><span>Terms & Conditions</span></a></li>
+											
+										</ul>
+										<div>
+											<a id="lbRestart_INIT_LOGON" class="active linkbutton1 sbuxButtonRemove" title="Restart Login" a href="restart.aspx" href="javascript:__doPostBack(&#39;ctl00$lbRestart_INIT_LOGON&#39;,&#39;&#39;)"><span class="Symbol">&#8630;</span> Restart</a>
+										</div>
+									<div class="clearBoth"></div>
+								</div>
+								<br />&copy; Starbucks Corporation. All rights reserved<br/><span><span id="lblSERVER" style="color:White;">sbuxuseap001</span></span>
+							</span>
+							
+						</div>
+					</div>
+				</div>	
+			
+        </div>
+
+	
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator1"), document.getElementById("RequiredFieldValidator2"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var RequiredFieldValidator1 = document.all ? document.all["RequiredFieldValidator1"] : document.getElementById("RequiredFieldValidator1");
+RequiredFieldValidator1.controltovalidate = "txtUsername";
+RequiredFieldValidator1.errormessage = "Required";
+RequiredFieldValidator1.display = "Dynamic";
+RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator1.initialvalue = "";
+var RequiredFieldValidator2 = document.all ? document.all["RequiredFieldValidator2"] : document.getElementById("RequiredFieldValidator2");
+RequiredFieldValidator2.controltovalidate = "txtPassword";
+RequiredFieldValidator2.errormessage = "Required";
+RequiredFieldValidator2.display = "Dynamic";
+RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator2.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        WebForm_AutoFocus('txtUsername');//]]>
+</script>
+</form>
+
+
+    
+	<script type="text/javascript">
+	    jQuery(function ($) {
+
+	        $('[data-rel=tooltip]').tooltip({ container: 'body' });
+	    });
+		
+    </script>
+
+
+</body>
+</html>
+
