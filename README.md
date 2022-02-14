@@ -5,6 +5,10 @@ aquatone results for sites with bug bountys
 
 Raise an issue if you want a fresh scan or a new domain to be checked
 
+Try a VPS from
+
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=e22bbff5f6f1&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
 
 
 | Domain 	| Link 	|
